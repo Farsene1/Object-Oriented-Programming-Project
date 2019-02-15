@@ -87,8 +87,7 @@ I will do my best to achieve this goal by continuing to take our options into co
 
 
 Hashim Karim 4811518
-<img src="https://drive.google.com/open?id=1beaEQYiChwsOn9lpFXNKguLto3r4Y-g1"
-     style="float: left; margin-right: 10px;" height:150px; />
+![](https://drive.google.com/open?id=1beaEQYiChwsOn9lpFXNKguLto3r4Y-g1)
 Strong points:
 
                 -hard working
