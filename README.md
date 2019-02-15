@@ -22,9 +22,10 @@ Run `maven install` ([Intellij](https://www.jetbrains.com/help/idea/2016.3/getti
 **Checkstyle**:  
 Run `maven site`
 
-##THE TEAM
+## THE TEAM
 **Oliver Parfitt van Pallandt**:
 `Student number: 4943945`
+
 ![Oliver Parfitt van Pallandt](https://docs.google.com/uc?id=1IRZN4DK2h423HfdPc2hQxt-U5QGpl2MO)
 >I am good at communicating and thoroughly enjoy designing. I feel these qualities are shown well in a team by being able to describe what design I envision clearly and easily accommodate change and input put forth by teammates.
 I am very much a visual learner which can prove difficult for tasks within programing that are difficult to understand conceptually and I can get frustrated easily and thus waste time on tasks I know I need help on. I hope to improve my understanding and level of software engineering through the help of team collaboration and guidance from the TA’s during this project.
@@ -35,6 +36,7 @@ I am going to do everything in my power to succeed and achieve this goal. I am g
 
 
 **Stelios Avgousti**  `Student number: 4822978`
+
 ![Stelios Avgousti](https://docs.google.com/uc?id=1cXPzBfvGFHcsS1L2J2t2ldR0E63SQyzF)
 
 >My strong points are are out of the box thinking and i like communicating
@@ -63,6 +65,7 @@ We will definitely have an action plan that will divide the work based on everyo
 
 
 **Julian Holle** `Student number: 4893719`
+
 ![Julian Holle](https://docs.google.com/uc?id=1I3aUc1n8Tc_2rtw5yP1M69XMFAk-KhVV)
 >I have good leadership and organisation. I have captained all rugby teams I have been a part of, which
 displays this. These are important traits that a team must have. I struggle with time management but am
@@ -84,6 +87,7 @@ solve. We are starting to create an action plan now.
 
 
 **Tijs Zijl** `Student number: 4645790`
+
 ![Tijs Zijl](https://docs.google.com/uc?id=1IVwkd-zjtyJVkspu9yYNzWxqe_7QNJAB)
 
 >I’m almost always available for questioning, i will reply quickly to any questions teammates might have for me.
@@ -99,7 +103,7 @@ I will do my best to achieve this goal by continuing to take our options into co
 
 ![Hashim Karim](https://docs.google.com/uc?id=1OdiuUzGTZ68gf05Gajjbizk_H0CUWoPo)
 
-##Step 1:
+## Step 1:
 
 * What are two of your strong points?
 
@@ -112,9 +116,9 @@ I will do my best to achieve this goal by continuing to take our options into co
     - easily distracted
     - procrastination
 
-##Step 2: 
+## Step 2: 
 
-###G
+### G
 >
 What is your learning goal during this course?          
 >
@@ -132,7 +136,7 @@ Why is this important to you
 
  
 
-####R
+#### R
 
 >Are you actively working on your goal?
 >
@@ -147,7 +151,7 @@ What can use improvement?
  * isolating myself to focus
 
 
-####O
+#### O
 >
  What are options you have to achieve your goal?
 >
@@ -162,7 +166,7 @@ What can use improvement?
 >* nothing
 
 
-####W
+#### W
 >What are you going to do to reach your goal?
 >
  * work hard
@@ -184,9 +188,10 @@ What can use improvement?
  * yes
                 
 **Sayf El Kaddouri** `Student number: 4687809`
+
 ![Sayf El Kaddouri](https://docs.google.com/uc?id=1k5-8syzS0L7mLqq1ExWkkiNNtFLo2OtI)
 
-##Step 1:
+## Step 1:
 
 * What are two of your strong points?
     - I try to communicate a lot
@@ -203,24 +208,25 @@ What can use improvement?
 * Can you make a core quadrant of this?
     - No
 
-##Step 2:
+## Step 2:
 
-####G
+#### G
 
 >I hope this course will teach me how to work better in a team and get better at looking up information. It's important to be have those skills, because later in a professional enviroment I should also be able to do that. I think I'll achieve this goals if our projects succeeds.
 
-####R
+#### R
 
 >I'm currently working on my goal by communicating with my team members. Everything is going well currently, I don't think any improvement's can be made. 
 
-####O
+#### O
 
 >I'll use every oppertunity work on my goal. There's currently nothing stopping me from achieving my goal. 
 
-####W
+#### W
 >I'll do everything in my power to achieve my goal, from this point and onwards. Activily discussing any misunderstandings and ideas. My peers can help me by joining me in my discussion. I unfortunately don't have a plan for this goal.
 
 **Florentin-Ionut Arsene** `Student number: 4839684`
+
 ![Florentin-Ionut Arsene](https://docs.google.com/uc?id=1MxrZbUFPXh7hYQax38IY44IETB5p6H8b)
 >I am hard-working and perseverant, but I do not have much experience in programming and I haven't worked in this big teams before.
 My learning goal for this course is to improve my teamwork, programming in java and maybe leadership skills
