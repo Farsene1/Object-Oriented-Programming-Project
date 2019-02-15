@@ -87,6 +87,8 @@ I will do my best to achieve this goal by continuing to take our options into co
 
 
 Hashim Karim 4811518
+<img src="https://drive.google.com/open?id=1beaEQYiChwsOn9lpFXNKguLto3r4Y-g1"
+     style="float: left; margin-right: 10px;" height:150px; />
 Strong points:
 
                 -hard working
@@ -145,6 +147,12 @@ w-
 
                 -yes
                 
+<sup>
+Sayf El Kaddouri
+
+Studentnumber: 4687809
+</sup>
+
 #Personal Development Plan
 
 ##Step 1: Develop a goal
@@ -184,10 +192,20 @@ I'll use every oppertunity work on my goal. There's currently nothing stopping m
 
 I'll do everything in my power to achieve my goal, from this point and onwards. Activily discussing any misunderstandings and ideas. My peers can help me by joining me in my discussion. I unfortunately don't have a plan for this goal.
 
-<sup>
-Sayf El Kaddouri
+Florentin-Ionut Arsene
+(student number: 4839684)
 
-Studentnumber: 4687809
-</sup>
+I am hard-working and perseverant, but I do not have much experience in programming and I haven't worked in this big teams before.
+My learning goal for this course is to improve my teamwork, programming in java and maybe leadership skills
+as they are going to be very useful when I start working in the IT industry. I am sure I will improve these skills
+during this course but there will always be room for improvement.
+I am currently starting to work on this project. I have the option to work with 6 other students and as long as we work together on this project we will be able to finish it successfully.
+We see eye to eye at the moment and I think we are going to successfully finish this project, even though sometimes communication might be hard in a 7 people group.
+We are currently making a plan of how the software will look like, when to meet, etc and in some days we are planning to put the plan into practice and start coding.
+We are going to have a weekly plan with specific task that we are going to accomplish.
+I am a very motivated person, willing to do whatever it takes to get the highest grade possible and learn as much as I can from this experience. I am willing to spend a lot of time doing it, communicate with my partners and help each other during this process.
+Nothing can stop me achieve this goal. I am fully dedicated to this project as it is something new to me and there's a lot to learn from it.
+
+
 
 
