@@ -1,0 +1,3 @@
+On this date we planned to do the following things:
+    1)make a plan of the software(e.g. how it would look like)
+    2)add the personal development plan to the gitlab together with pictures, names and student numbers of each team member
