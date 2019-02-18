@@ -9,5 +9,9 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+#Exclude workspace
+workspace.xml
+usage.statistics.xml
+tasks.xml
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
