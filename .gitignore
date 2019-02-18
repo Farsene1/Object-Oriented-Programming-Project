@@ -14,5 +14,6 @@ workspace.xml
 usage.statistics.xml
 tasks.xml
 misc.xml
+.idea/
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
