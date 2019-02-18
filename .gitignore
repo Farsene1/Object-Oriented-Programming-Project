@@ -13,5 +13,6 @@ buildNumber.properties
 workspace.xml
 usage.statistics.xml
 tasks.xml
+misc.xml
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
