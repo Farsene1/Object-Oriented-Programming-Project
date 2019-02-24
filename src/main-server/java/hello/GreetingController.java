@@ -15,10 +15,22 @@ public class GreetingController {
      */
     private static ArrayList<User> users = new ArrayList<User>();
 
+    /**
+     * root path
+     * @return a String
+     */
     @RequestMapping("/")
     public String getRootPath(){
         return "this is the default page";
     }
+
+    /**
+     * /get path - request for
+     * @param id
+     * @param name
+     * @param age
+     * @return an User object
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value="id", defaultValue="0") long id,
                          @RequestParam(value="name", defaultValue = "anonymous") String name,
@@ -28,6 +40,11 @@ public class GreetingController {
         return new User(id,name,age);
     }
 
+    /**
+     * /post path
+     * @param user
+     * @return String as response
+     */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public String postMethod(@RequestBody User user){
         users.add(user);
@@ -39,5 +56,20 @@ public class GreetingController {
             System.out.println(u.toString());
         }
         return "/POST successfull";
+    }
+
+    /**
+     * /delete path
+     * @param user
+     * @return response
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public String deleteMethod(@RequestBody User user){
+         if(users.contains(user)){
+             users.remove(user);
+             return "/DELETE successfull";
+         }else{
+             return "Error - The user doesn't exist in the database";
+         }
     }
 }
