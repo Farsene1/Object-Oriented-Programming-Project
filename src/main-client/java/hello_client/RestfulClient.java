@@ -26,10 +26,5 @@ public class RestfulClient {
         System.out.println("Response for Post Request: " + postResponse.getBody());
     }
 
-    public void deleteentity(User user){
-        System.out.println("Beginning /DELETE request");
-        String deleteUrl = String.format("http://localhost:8080/delete?id=%d&name=%s&age=%d",user.getId(),user.getName(),user.getAge());
-        String result = restTemplate.delete(deleteUrl);
-    }
 
 }

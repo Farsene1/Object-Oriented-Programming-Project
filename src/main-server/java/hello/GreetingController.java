@@ -58,18 +58,4 @@ public class GreetingController {
         return "/POST successfull";
     }
 
-    /**
-     * /delete path
-     * @param user
-     * @return response
-     */
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public String deleteMethod(@RequestBody User user){
-         if(users.contains(user)){
-             users.remove(user);
-             return "/DELETE successfull";
-         }else{
-             return "Error - The user doesn't exist in the database";
-         }
-    }
 }
