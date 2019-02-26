@@ -1,0 +1,4 @@
+client\User.class
+client\RestfulClient.class
+client\Greeting.class
+client\ApplicationClient.class
