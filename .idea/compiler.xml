@@ -12,8 +12,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="client" target="10.2" />
       <module name="gs-rest-service" target="1.8" />
       <module name="gs-rest-service (1)" target="1.8" />
+      <module name="OOP-Project" target="10.2" />
+      <module name="server" target="10.2" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -1,4 +1,10 @@
+client\Product.class
 client\User.class
+client\Table.class
 client\RestfulClient.class
+client\Hash.class
+client\AlertBox.class
+client\Main.class
 client\Greeting.class
 client\ApplicationClient.class
+client\Controller.class

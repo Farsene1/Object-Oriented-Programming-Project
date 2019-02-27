@@ -1,0 +1,168 @@
+package client;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
+public class Main extends Application {
+
+    Stage window;
+    Scene scene, scene1, scene2;
+    TextField usernameInput,passwordInput, emailInputR, usernameInputR, passwordInputR;
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws FileNotFoundException {
+        window = primaryStage;
+        window.setTitle("Login");
+
+        //GridPane with 10px padding around edge
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10, 10, 10, 10));
+        grid.setVgap(8);
+        grid.setHgap(10);
+
+        GridPane grid1 = new GridPane();
+        grid1.setPadding(new Insets(10, 10, 10, 10));
+        grid1.setVgap(8);
+        grid1.setHgap(10);
+
+        //username Label - constrains use (child, column, row)
+        Label usernameLabel = new Label("Username:");
+        GridPane.setConstraints(usernameLabel, 0, 0);
+
+        //username-r Input
+        usernameInput = new TextField();
+        usernameInput.setPromptText("username");
+        GridPane.setConstraints(usernameInput, 1, 0);
+
+        //Password Label
+        Label passwordLabel = new Label("Password:");
+        GridPane.setConstraints(passwordLabel, 0, 1);
+
+        //Password Input
+        passwordInput = new PasswordField();
+        passwordInput.setPromptText("password");
+        GridPane.setConstraints(passwordInput, 1, 1);
+
+        //Login
+        Button loginButton = new Button("Login");
+        GridPane.setConstraints(loginButton, 1, 2);
+        loginButton.setOnAction(e -> {
+            System.out.println("Login successful!");
+            window.setScene(scene2);
+        });
+
+        //Signup
+        Button Signup = new Button("Signup");
+        GridPane.setConstraints(Signup, 1, 3);
+        Signup.setOnAction(e -> window.setScene(scene1));
+
+        //email Label - constrains use (child, column, row)
+        Label emailLabel = new Label("Email:");
+        GridPane.setConstraints(emailLabel, 0, 0);
+
+        //email-r Input
+        emailInputR = new TextField();
+        emailInputR.setPromptText("username");
+        GridPane.setConstraints(emailInputR, 1, 0);
+
+        //username-r Label - constrains use (child, column, row)
+        Label usernameLabelr = new Label("Username:");
+        GridPane.setConstraints(usernameLabelr, 0, 1);
+
+        //username-r Input
+        usernameInputR = new TextField();
+        usernameInputR.setPromptText("username");
+        GridPane.setConstraints(usernameInputR, 1, 1);
+
+        //Password-r Label
+        Label passwordLabelr = new Label("Password:");
+        GridPane.setConstraints(passwordLabelr, 0, 2);
+
+        //Password-r Input
+        passwordInputR = new PasswordField();
+        passwordInputR.setPromptText("password");
+        GridPane.setConstraints(passwordInputR, 1, 2);
+
+
+        //Register
+        Button registerButton = new Button("Register");
+        GridPane.setConstraints(registerButton, 1, 3);
+        registerButton.setOnAction(e -> {
+
+
+            try {
+                System.out.println("Email: " + emailInputR.getText());
+                System.out.println("Username: " + emailInputR.getText());
+                System.out.println("Password: " + passwordInputR.getText());
+                System.out.println("Password hash: " + Hash.generateHash(passwordInputR.getText(), "SHA-256"));
+            }
+            catch (NoSuchAlgorithmException error){
+                AlertBox.display("ERROR","No such algorithm exception");
+                error.printStackTrace();
+            }
+
+            try {
+                addButtonClicked();
+            }
+            catch (FileNotFoundException error)
+            {
+                System.out.println("File not found");
+            }
+        });
+
+        Label Welcome = new Label("Welcome to the homepage!");
+
+        //Add everything to grid
+        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
+        grid1.getChildren().addAll(emailLabel, emailInputR, usernameLabelr, usernameInputR, passwordLabelr, passwordInputR, registerButton);
+        StackPane sp= new StackPane();
+        sp.getChildren().add(Welcome);
+
+        scene = new Scene(grid, 250, 180);
+        scene1= new Scene(grid1, 250, 180);
+        scene2= new Scene(sp, 500, 500);
+
+
+        window.setScene(scene);
+        window.show();
+    }
+
+    public void addButtonClicked()throws FileNotFoundException {
+        String email = emailInputR.getText();
+        String username =  usernameInputR.getText();
+        String password = passwordInputR.getText();
+
+        try {
+            String filename = "C:\\Users\\Infer\\Documents\\IDEA IDE\\Server Client FX\\src\\Table";
+            FileWriter fw = new FileWriter(filename, true); //the true will append the new data
+            fw.write("\n" + email + ", " + username + ", " + Hash.generateHash(password, "SHA-256"));//appends the string to the file
+            fw.close();
+        } catch (IOException ioe ) {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+        catch (NoSuchAlgorithmException NSA)
+        {
+            System.out.println("No such Algorithm");
+        }
+        Table.display("Table");
+        emailInputR.clear();
+        usernameInputR.clear();
+        passwordInputR.clear();
+    }
+}
