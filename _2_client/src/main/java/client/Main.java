@@ -28,7 +28,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws FileNotFoundException {
         window = primaryStage;
         window.setTitle("Login");
-
+        window.setOnCloseRequest(e -> {
+            e.consume();
+            closeProgram();
+        });
         //GridPane with 10px padding around edge
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10));
@@ -199,5 +202,14 @@ public class Main extends Application {
         emailInputR.clear();
         usernameInputR.clear();
         passwordInputR.clear();
+    }
+    //Closing down the program method.
+    public void closeProgram(){
+        boolean answer = ConfirmBox.display("Exit Box","Are you sure you want to exit?");
+        if(answer){
+            window.close();
+        }
+
+
     }
 }
