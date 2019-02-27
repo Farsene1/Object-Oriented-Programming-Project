@@ -107,7 +107,11 @@ public class Main extends Application {
         Button quitButton = new Button("Quit");
         GridPane.setConstraints(quitButton, 0,4);
         quitButton.setOnAction(e ->{
+           boolean result= ConfirmBox.display("Confirm","Are you sure you want to quit?");
+        if(result==true){
             window.setScene(scene);
+        }
+
         });
         //My Carbon footprint
         Button mycarbonButton = new Button("My carbon footprint");
