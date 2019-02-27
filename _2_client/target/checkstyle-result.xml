@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="7.2">
-<file name="/mnt/c/users/arsen/onedrive/documents/template/_2_client/src/main/java/client/ApplicationClient.java">
+<file name="C:\Users\arsen\OneDrive\Documents\template\_2_client\src\main\java\client\ApplicationClient.java">
 <error line="8" column="5" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
-<file name="/mnt/c/users/arsen/onedrive/documents/template/_2_client/src/main/java/client/Greeting.java">
+<file name="C:\Users\arsen\OneDrive\Documents\template\_2_client\src\main\java\client\Greeting.java">
 <error line="24" column="43" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="28" column="29" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="29" severity="warning" message="Line is longer than 100 characters (found 106)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="/mnt/c/users/arsen/onedrive/documents/template/_2_client/src/main/java/client/RestfulClient.java">
+<file name="C:\Users\arsen\OneDrive\Documents\template\_2_client\src\main\java\client\RestfulClient.java">
 <error line="9" column="27" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="12" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="15" severity="warning" message="&apos;METHOD_DEF&apos; should be separated from previous statement." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
@@ -17,7 +17,7 @@
 <error line="22" column="38" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="25" severity="warning" message="Line is longer than 100 characters (found 102)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="/mnt/c/users/arsen/onedrive/documents/template/_2_client/src/main/java/client/User.java">
+<file name="C:\Users\arsen\OneDrive\Documents\template\_2_client\src\main\java\client\User.java">
 <error line="4" severity="warning" message="&apos;member def modifier&apos; have incorrect indentation level 8, expected level should be 4." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 <error line="4" column="1" severity="warning" message="Line contains a tab character." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
 <error line="5" severity="warning" message="&apos;member def modifier&apos; have incorrect indentation level 8, expected level should be 4." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
