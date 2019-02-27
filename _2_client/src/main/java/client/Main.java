@@ -105,10 +105,30 @@ public class Main extends Application {
 
         //Quit
         Button quitButton = new Button("Quit");
-        GridPane.setConstraints(quitButton, 0,1);
+        GridPane.setConstraints(quitButton, 0,4);
         quitButton.setOnAction(e ->{
             window.setScene(scene);
         });
+        //My Carbon footprint
+        Button mycarbonButton = new Button("My carbon footprint");
+        GridPane.setConstraints(mycarbonButton,0,1);
+        mycarbonButton.setOnAction(e->{
+            AlertBox.display("This is an error message","To Be Implemented");
+        });
+
+        //Statistics Button
+        Button statisticsButton = new Button("Statistics");
+        GridPane.setConstraints(statisticsButton,0,2);
+        statisticsButton.setOnAction(e->{
+            AlertBox.display("This is an error message","To Be Implemented");
+        });
+    //LeaderBoard button
+        Button leaderboardButton = new Button("LeaderBoard");
+        GridPane.setConstraints(leaderboardButton,0,3);
+        leaderboardButton.setOnAction(e->{
+            AlertBox.display("This is an error message","To Be Implemented");
+        });
+
 
         //Register
         Button registerButton = new Button("Register");
@@ -143,7 +163,7 @@ public class Main extends Application {
         grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
         grid1.getChildren().addAll(emailLabel, emailInputR, usernameLabelr, usernameInputR, passwordLabelr, passwordInputR, registerButton);
 
-        grid2.getChildren().addAll(Welcome,quitButton);
+        grid2.getChildren().addAll(Welcome,mycarbonButton,statisticsButton,leaderboardButton,quitButton);
 
         scene = new Scene(grid, 250, 180);
         scene1= new Scene(grid1, 250, 180);
