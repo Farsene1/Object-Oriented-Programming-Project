@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -41,6 +40,11 @@ public class Main extends Application {
         grid1.setVgap(8);
         grid1.setHgap(10);
 
+
+        GridPane grid2 = new GridPane();
+        grid2.setPadding(new Insets(10,10,10,10));
+        grid.setVgap(8);
+        grid.setHgap(10);
         //username Label - constrains use (child, column, row)
         Label usernameLabel = new Label("Username:");
         GridPane.setConstraints(usernameLabel, 0, 0);
@@ -99,11 +103,18 @@ public class Main extends Application {
         passwordInputR.setPromptText("password");
         GridPane.setConstraints(passwordInputR, 1, 2);
 
+        //Quit
+        Button quitButton = new Button("Quit");
+        GridPane.setConstraints(quitButton, 0,1);
+        quitButton.setOnAction(e ->{
+            window.setScene(scene);
+        });
 
         //Register
         Button registerButton = new Button("Register");
         GridPane.setConstraints(registerButton, 1, 3);
         registerButton.setOnAction(e -> {
+
 
 
             try {
@@ -131,12 +142,12 @@ public class Main extends Application {
         //Add everything to grid
         grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
         grid1.getChildren().addAll(emailLabel, emailInputR, usernameLabelr, usernameInputR, passwordLabelr, passwordInputR, registerButton);
-        StackPane sp= new StackPane();
-        sp.getChildren().add(Welcome);
+
+        grid2.getChildren().addAll(Welcome,quitButton);
 
         scene = new Scene(grid, 250, 180);
         scene1= new Scene(grid1, 250, 180);
-        scene2= new Scene(sp, 500, 500);
+        scene2= new Scene(grid2, 500, 500);
 
 
         window.setScene(scene);
