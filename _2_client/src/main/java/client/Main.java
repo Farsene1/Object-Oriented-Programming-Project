@@ -54,7 +54,7 @@ public class Main extends Application {
 
         //username-r Input
         usernameInput = new TextField();
-        usernameInput.setPromptText("ex:'Andrew'");
+        usernameInput.setPromptText("username");
         GridPane.setConstraints(usernameInput, 1, 0);
 
         //Password Label
@@ -63,7 +63,7 @@ public class Main extends Application {
 
         //Password Input
         passwordInput = new PasswordField();
-        passwordInput.setPromptText("ex:'12345678' ");
+        passwordInput.setPromptText("password");
         GridPane.setConstraints(passwordInput, 1, 1);
 
         //Login
