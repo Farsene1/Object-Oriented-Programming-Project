@@ -5,14 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class Hash {
 
-    //Table
-    public static void main(String[] args) throws NoSuchAlgorithmException{
-
-        String data = "PasswordExample";
-        String algorithm = "SHA-256";
-        System.out.println("SHA-256 Hash: " + generateHash(data, algorithm));
-
-    }
 
     //Method for generating hash from text with variable hashing algorithm
     public static String generateHash(String data, String algorithm) throws NoSuchAlgorithmException {
