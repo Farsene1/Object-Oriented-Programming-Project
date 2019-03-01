@@ -187,7 +187,7 @@ public class Main extends Application {
         String password = passwordInputR.getText();
 
         try {
-            String filename = "C:\\Users\\Infer\\Documents\\IDEA IDE\\Server Client FX\\src\\Table";
+            String filename = "_2_client/src/Table";
             FileWriter fw = new FileWriter(filename, true); //the true will append the new data
             fw.write("\n" + email + ", " + username + ", " + Hash.generateHash(password, "SHA-256"));//appends the string to the file
             fw.close();
