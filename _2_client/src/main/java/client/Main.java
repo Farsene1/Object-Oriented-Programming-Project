@@ -9,7 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 public class Main extends Application {
     RestfulClient restfulClient;
     int id=0;
-     Stage window;
+    Stage window;
     Scene scene, scene1, scene2;
     TextField usernameInput,passwordInput, emailInputR, usernameInputR, passwordInputR;
     public static void main(String[] args) {
