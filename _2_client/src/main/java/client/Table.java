@@ -57,7 +57,7 @@ public class Table{
     public static ObservableList<Product> getProduct()throws FileNotFoundException{
         ObservableList<Product> products = FXCollections.observableArrayList();
         String email=""; String username=""; String password="";
-        Scanner sc= new Scanner(new File("C:\\Users\\Infer\\Documents\\IDEA IDE\\Server Client FX\\src\\Table"));
+        Scanner sc= new Scanner(new File("_2_client/src/Table"));
         while(sc.hasNextLine())
         {
             email= sc.next().replace(",","");
