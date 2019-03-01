@@ -21,11 +21,12 @@ public class GreetingController {
     }
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value="id", defaultValue="0") long id,
-                             @RequestParam(value="name", defaultValue = "anonymous") String name,
-                             @RequestParam(value="age",defaultValue = "0") int age) {
-        String info = String.format("/GET REQUEST info: id=%d, name=%s, age=%d",id,name,age);
+                             @RequestParam(value="email", defaultValue = "anonymous") String email,
+                             @RequestParam(value="username",defaultValue = "anonymous") String username,
+                         @RequestParam(value="password",defaultValue = "anonymous") String password) {
+        String info = String.format("/GET REQUEST info: id=%d, email=%s, username=%s, password=%s",id,email,username, password);
         System.out.println(info);
-        return new User(id,name,age);
+        return new User(id,email, username, password);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)

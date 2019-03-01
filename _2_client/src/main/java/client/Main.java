@@ -16,8 +16,9 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 public class Main extends Application {
-
-    Stage window;
+    RestfulClient restfulClient;
+    int id=0;
+     Stage window;
     Scene scene, scene1, scene2;
     TextField usernameInput,passwordInput, emailInputR, usernameInputR, passwordInputR;
     public static void main(String[] args) {
@@ -26,6 +27,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
+
+        restfulClient = new RestfulClient();
+        restfulClient.getEntity();
+
         window = primaryStage;
         window.setTitle("Login");
         window.setOnCloseRequest(e -> {
@@ -191,6 +196,8 @@ public class Main extends Application {
             FileWriter fw = new FileWriter(filename, true); //the true will append the new data
             fw.write("\n" + email + ", " + username + ", " + Hash.generateHash(password, "SHA-256"));//appends the string to the file
             fw.close();
+            restfulClient.postEntity(new User(id, email, username, Hash.generateHash(password, "SHA-256")));
+            id++;
         } catch (IOException ioe ) {
             System.err.println("IOException: " + ioe.getMessage());
         }
@@ -204,12 +211,10 @@ public class Main extends Application {
         passwordInputR.clear();
     }
     //Closing down the program method.
-    public void closeProgram(){
-        boolean answer = ConfirmBox.display("Exit Box","Are you sure you want to exit?");
-        if(answer){
+    public void closeProgram() {
+        boolean answer = ConfirmBox.display("Exit Box", "Are you sure you want to exit?");
+        if (answer) {
             window.close();
         }
-
-
     }
 }
