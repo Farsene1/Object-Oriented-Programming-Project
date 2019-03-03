@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2019</copyright>
     <item>
-      <title>File: 8,
+      <title>File: 7,
              Errors: 0,
-             Warnings: 208,
+             Warnings: 129,
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html</link>
@@ -52,7 +52,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  72
+                  55
                 </td>
                 <td>
                   0
@@ -60,13 +60,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.Greeting.java">client/Greeting.java</a>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#application.properties">application.properties</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  3
+                  0
                 </td>
                 <td>
                   0
@@ -102,27 +102,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#hello.GreetingController.java">hello/GreetingController.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  18
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.ApplicationClient.java">client/ApplicationClient.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
                 <td>
                   0
@@ -130,13 +116,13 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#hello.Greeting.java">hello/Greeting.java</a>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#hello.WebController.java">hello/WebController.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  15
                 </td>
                 <td>
                   0
@@ -150,7 +136,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  106
+                  50
                 </td>
                 <td>
                   0

@@ -1,48 +1,45 @@
 package hello;
 
+
+//@Entity
+//@Table(name = "users")
 public class User {
-	private long id;
-	private String name;
-	private int age;
-	
-	public User(){
-		
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private Long id;
+
+	//@Column(name = "username")
+	private String username;
+
+	//@Column(name = "hash")
+	private String hash;
+
+	public User(String username, String hash) {
+		this.username = username;
+		this.hash = hash;
 	}
-	
-	public User(long id, String name, int  age){
-		this.id = id;
-		this.name = name;
-		this.age = age;
+
+	public String getUsername() {
+		return username;
 	}
- 
-	public long getId() {
-		return id;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
- 
-	public void setId(long id) {
-		this.id = id;
+
+	public String getHash() {
+		return hash;
 	}
- 
-	public String getName() {
-		return name;
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
- 
-	public void setName(String name) {
-		this.name = name;
-	}
- 
-	public int getAge() {
-		return age;
-	}
- 
-	public void setAge(int age) {
-		this.age = age;
-	}
-	
+
 	@Override
 	public String toString() {
-		String info = String.format("User Info: id = %d, name = %s, age = %d", id, name, age);
-		return info;
+		return "User{" +
+				", username='" + username + '\'' +
+				", hash='" + hash + '\'' +
+				'}';
 	}
- 
 }
