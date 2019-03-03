@@ -6,26 +6,32 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
-public class GreetingController {
+public class WebController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     /**
      * this is a temporary arraylist that stores the users
      * @toBeRepalcedLaterWithADatabase
      */
+
+//    @Autowired
+//    private UserRepository userRepository;
+
     private static ArrayList<User> users = new ArrayList<User>();
 
     @RequestMapping("/")
     public String getRootPath(){
         return "this is the default page";
     }
+
+
+
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public User greeting(@RequestParam(value="id", defaultValue="0") long id,
-                             @RequestParam(value="name", defaultValue = "anonymous") String name,
-                             @RequestParam(value="age",defaultValue = "0") int age) {
-        String info = String.format("/GET REQUEST info: id=%d, name=%s, age=%d",id,name,age);
+    public User greeting(@RequestParam(value="username", defaultValue = "anonymous") String username,
+                             @RequestParam(value="hash",defaultValue = "0") String hash) {
+        String info = String.format("/GET REQUEST info: username=%s, hash=%s",username, hash);
         System.out.println(info);
-        return new User(id,name,age);
+        return new User(username, hash);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -38,6 +44,6 @@ public class GreetingController {
         for(User u : users){
             System.out.println(u.toString());
         }
-        return "/POST successfull";
+        return "/POST successful";
     }
 }
