@@ -14,13 +14,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Table{
+public class Table {
 
 
-
-
-    public static void display(String title) throws  FileNotFoundException{
-        Stage window=new Stage();
+    public static void display(String title) throws FileNotFoundException {
+        Stage window = new Stage();
         TableView<Product> table;
         TextField emailInput, usernameInput, passwordInput;
         window.setTitle("Table");
@@ -54,20 +52,20 @@ public class Table{
     }
 
     //Get all of the products
-    public static ObservableList<Product> getProduct()throws FileNotFoundException{
+    public static ObservableList<Product> getProduct() throws FileNotFoundException {
         ObservableList<Product> products = FXCollections.observableArrayList();
-        String email=""; String username=""; String password="";
-        Scanner sc= new Scanner(new File("_2_client/src/Table"));
-        while(sc.hasNextLine())
-        {
-            email= sc.next().replace(",","");
-            username=sc.next().replace(",", "");
-            password=sc.next().replace(",", "");
+        String email = "";
+        String username = "";
+        String password = "";
+        Scanner sc = new Scanner(new File("_2_client/src/Table"));
+        while (sc.hasNextLine()) {
+            email = sc.next().replace(",", "");
+            username = sc.next().replace(",", "");
+            password = sc.next().replace(",", "");
             products.add(new Product(email, username, password));
         }
         return products;
     }
-
 
 
 }
