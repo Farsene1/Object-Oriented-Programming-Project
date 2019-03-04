@@ -4,18 +4,6 @@ package client;
 
 public class User {
 
-<<<<<<< HEAD
-	//private Long id;
-
-
-	private String username;
-
-	private String hash;
-
-	public User(String username, String hash) {
-		this.username = username;
-		this.hash = hash;
-=======
 	private String username;
 	private String hash;
 	
@@ -26,7 +14,7 @@ public class User {
 	public User(String username, String hash){
 		this.username = username;
 		this.hash=hash;
->>>>>>> BRANCH_FIX
+
 	}
 
 	public String getUsername() {
@@ -48,11 +36,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User{" +
-<<<<<<< HEAD
-				", username='" + username + '\'' +
-=======
 				"username='" + username + '\'' +
->>>>>>> BRANCH_FIX
 				", hash='" + hash + '\'' +
 				'}';
 	}

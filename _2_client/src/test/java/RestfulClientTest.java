@@ -7,10 +7,7 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RestfulClientTest {
-<<<<<<< HEAD
 
-=======
->>>>>>> BRANCH_FIX
     private RestfulClient client;
 
     @BeforeEach
@@ -30,10 +27,6 @@ public class RestfulClientTest {
     public void postTest(){
         ResponseEntity<String> rs = client.postEntity(new User("Florentin","123abc"));
         assertEquals(rs.getStatusCode().value(), 200);
-<<<<<<< HEAD
-        assertEquals(rs.getBody(), "/POST successful");
-=======
         assertEquals(rs.getBody(), "/POST successfull");
->>>>>>> BRANCH_FIX
     }
 }
