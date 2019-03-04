@@ -1,5 +1,6 @@
 package hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -7,15 +8,10 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class GreetingController {
-    private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
-    /**
-     * this is a temporary arraylist that stores the users
-     * @toBeRepalcedLaterWithADatabase
-     */
 
-//    @Autowired
-//    private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     private static ArrayList<User> users = new ArrayList<User>();
 
@@ -24,7 +20,19 @@ public class GreetingController {
         return "this is the default page";
     }
 
+    @RequestMapping("/add")
+    public String addToDatabase(@RequestParam(value="username", defaultValue = "anonymous") String username,
+                                @RequestParam(value="hash",defaultValue = "0") String hash){
+        User n = new User(username, hash);
+        this.userRepository.save(n);
+        return "SUCCESS";
+    }
 
+    @RequestMapping("/findall")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return userRepository.findAll();
+    }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value="username", defaultValue = "anonymous") String username,

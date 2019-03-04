@@ -1,10 +1,14 @@
 package hello;
 
+import javax.persistence.*;
 
-//@Entity
-//@Table(name = "users")
+@Table(name = "users")
+@Entity
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String username;
 	private String hash;
 	
