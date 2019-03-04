@@ -1,14 +1,14 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import hello.User;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserTest {
     User user1;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         user1 = new User("Flo","abc");
     }

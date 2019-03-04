@@ -20,13 +20,21 @@ public class RestfulClient {
 <span class="nc" id="L20">        return getResponse;</span>
     }
 
+<<<<<<< HEAD
     public ResponseEntity&lt;String&gt; postEntity(User user){
+=======
+    public void postEntity(User user){
+>>>>>>> BRANCH_FIX
 <span class="nc" id="L24">        System.out.println(&quot;Beginning /POST request&quot;);</span>
 <span class="nc" id="L25">        String postUrl = &quot;http://localhost:8080/post&quot;;</span>
 <span class="nc" id="L26">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
 <span class="nc" id="L27">        System.out.println(&quot;Response for Post Request: &quot; + postResponse.getBody());</span>
+<<<<<<< HEAD
 <span class="nc" id="L28">        return postResponse;</span>
     }
+=======
+<span class="nc" id="L28">    }</span>
+>>>>>>> BRANCH_FIX
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -4,19 +4,17 @@ package hello;
 //@Entity
 //@Table(name = "users")
 public class User {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Long id;
 
-	//@Column(name = "username")
 	private String username;
-
-	//@Column(name = "hash")
 	private String hash;
-
-	public User(String username, String hash) {
+	
+	public User(){
+		
+	}
+	
+	public User(String username, String hash){
 		this.username = username;
-		this.hash = hash;
+		this.hash=hash;
 	}
 
 	public String getUsername() {
@@ -38,7 +36,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User{" +
-				", username='" + username + '\'' +
+				"username='" + username + '\'' +
 				", hash='" + hash + '\'' +
 				'}';
 	}

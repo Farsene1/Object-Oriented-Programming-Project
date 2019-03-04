@@ -27,7 +27,11 @@ under the License.
     <item>
       <title>File: 3,
              Errors: 0,
+<<<<<<< HEAD
              Warnings: 59,
+=======
+             Warnings: 67,
+>>>>>>> BRANCH_FIX
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/client/checkstyle.html</link>
@@ -80,7 +84,11 @@ under the License.
                   0
                 </td>
                 <td>
+<<<<<<< HEAD
                   50
+=======
+                  59
+>>>>>>> BRANCH_FIX
                 </td>
                 <td>
                   0

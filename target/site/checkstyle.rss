@@ -25,9 +25,15 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2019</copyright>
     <item>
+<<<<<<< HEAD
       <title>File: 7,
              Errors: 0,
              Warnings: 129,
+=======
+      <title>File: 6,
+             Errors: 0,
+             Warnings: 140,
+>>>>>>> BRANCH_FIX
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html</link>
@@ -52,6 +58,7 @@ under the License.
                   0
                 </td>
                 <td>
+<<<<<<< HEAD
                   55
                 </td>
                 <td>
@@ -67,6 +74,9 @@ under the License.
                 </td>
                 <td>
                   0
+=======
+                  59
+>>>>>>> BRANCH_FIX
                 </td>
                 <td>
                   0
@@ -102,6 +112,23 @@ under the License.
               </tr>
                           <tr>
                 <td>
+<<<<<<< HEAD
+=======
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#hello.GreetingController.java">hello/GreetingController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+>>>>>>> BRANCH_FIX
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.ApplicationClient.java">client/ApplicationClient.java</a>
                 </td>
                 <td>
@@ -116,6 +143,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
+<<<<<<< HEAD
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#hello.WebController.java">hello/WebController.java</a>
                 </td>
                 <td>
@@ -130,13 +158,19 @@ under the License.
               </tr>
                           <tr>
                 <td>
+=======
+>>>>>>> BRANCH_FIX
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.User.java">client/User.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
+<<<<<<< HEAD
                   50
+=======
+                  59
+>>>>>>> BRANCH_FIX
                 </td>
                 <td>
                   0

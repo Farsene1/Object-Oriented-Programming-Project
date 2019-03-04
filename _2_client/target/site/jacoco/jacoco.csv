@@ -1,4 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+<<<<<<< HEAD
 client,client,RestfulClient,55,0,0,0,13,0,3,0,3,0
 client,client,ApplicationClient,11,0,0,0,4,0,2,0,2,0
 client,client,User,44,0,0,0,11,0,6,0,6,0
+=======
+client,client,RestfulClient,54,0,0,0,13,0,3,0,3,0
+client,client,ApplicationClient,29,0,0,0,8,0,2,0,2,0
+client,client,User,3,44,0,0,2,11,1,6,1,6
+>>>>>>> BRANCH_FIX
