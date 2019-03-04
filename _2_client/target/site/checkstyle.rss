@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2019</copyright>
     <item>
-      <title>File: 4,
+      <title>File: 3,
              Errors: 0,
-             Warnings: 117,
+             Warnings: 67,
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/client/checkstyle.html</link>
@@ -44,20 +44,6 @@ under the License.
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/client/checkstyle.html#client.Greeting.java">client/Greeting.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/client/checkstyle.html#client.RestfulClient.java">client/RestfulClient.java</a>
@@ -94,7 +80,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  106
+                  59
                 </td>
                 <td>
                   0

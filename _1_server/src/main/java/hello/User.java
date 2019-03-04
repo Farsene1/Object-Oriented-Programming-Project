@@ -1,48 +1,40 @@
 package hello;
 
 public class User {
-	private long id;
-	private String name;
-	private int age;
+
+	private String username;
+	private String hash;
 	
 	public User(){
 		
 	}
 	
-	public User(long id, String name, int  age){
-		this.id = id;
-		this.name = name;
-		this.age = age;
+	public User(String username, String hash){
+		this.username = username;
+		this.hash=hash;
 	}
- 
-	public long getId() {
-		return id;
+
+	public String getUsername() {
+		return username;
 	}
- 
-	public void setId(long id) {
-		this.id = id;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
- 
-	public String getName() {
-		return name;
+
+	public String getHash() {
+		return hash;
 	}
- 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setHash(String hash) {
+		this.hash = hash;
 	}
- 
-	public int getAge() {
-		return age;
-	}
- 
-	public void setAge(int age) {
-		this.age = age;
-	}
-	
+
 	@Override
 	public String toString() {
-		String info = String.format("User Info: id = %d, name = %s, age = %d", id, name, age);
-		return info;
+		return "User{" +
+				"username='" + username + '\'' +
+				", hash='" + hash + '\'' +
+				'}';
 	}
- 
 }

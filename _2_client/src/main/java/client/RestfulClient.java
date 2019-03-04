@@ -12,18 +12,20 @@ public class RestfulClient {
     /**
      * get Entity
      */
-    public void getEntity() {
+    public ResponseEntity<User> getEntity() {
         System.out.println("Beginning /GET request!");
-        String getUrl = "http://localhost:8080/get?id=1&name=Florentin&age=19";
+        String getUrl = "http://localhost:8080/get?username=Florentin&hash=abcdef";
         ResponseEntity<User> getResponse = restTemplate.getForEntity(getUrl, User.class); // User user = restTemplate.getForObject(getUrl, User.class); WHICH ONE IS BETTER? // DIFFERENT RESPONSES
         System.out.println(getResponse.toString());
+        return getResponse;
     }
 
-    public void postEntity(User user){
+    public ResponseEntity<String> postEntity(User user){
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
+        return postResponse;
     }
 
 }
