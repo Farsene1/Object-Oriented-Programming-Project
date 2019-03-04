@@ -26,7 +26,6 @@ SET default_with_oids = false;
 CREATE TABLE public."Food" (
     "foodID" integer NOT NULL,
     "mealType" character varying NOT NULL,
-    "CO2" integer NOT NULL,
     "polarScore" integer NOT NULL
 );
 
@@ -38,11 +37,12 @@ ALTER TABLE public."Food" OWNER TO postgres;
 --
 
 CREATE TABLE public."FoodType" (
-    "foodType" character varying NOT NULL,
+    "mealType" character varying NOT NULL,
     meat boolean NOT NULL,
     dairy boolean NOT NULL,
     vegetables boolean NOT NULL,
-    carbohydrates boolean NOT NULL
+    carbohydrates boolean NOT NULL,
+    "CO2" integer NOT NULL
 );
 
 
@@ -68,9 +68,7 @@ ALTER TABLE public."Score" OWNER TO postgres;
 
 CREATE TABLE public."Transport" (
     "transportID" integer NOT NULL,
-    distance integer NOT NULL,
     "polarScore" integer NOT NULL,
-    "CO2" integer NOT NULL,
     "transportType" integer NOT NULL
 );
 
@@ -83,9 +81,10 @@ ALTER TABLE public."Transport" OWNER TO postgres;
 
 CREATE TABLE public."TransportType" (
     "transportType" integer NOT NULL,
-    "fuelType" character varying NOT NULL,
+    "fuelType" character varying,
     distance integer NOT NULL,
-    consumption integer NOT NULL
+    consumption integer NOT NULL,
+    "CO2" integer NOT NULL
 );
 
 
@@ -118,9 +117,8 @@ ALTER TABLE public."User" OWNER TO postgres;
 
 CREATE TABLE public."Water" (
     "waterID" integer NOT NULL,
-    "totalAmount" integer NOT NULL,
-    "totalPolarScore" integer NOT NULL,
-    "waterType" character varying NOT NULL
+    "waterType" character varying NOT NULL,
+    "polarScore" integer NOT NULL
 );
 
 
@@ -133,8 +131,7 @@ ALTER TABLE public."Water" OWNER TO postgres;
 CREATE TABLE public."WaterType" (
     "waterType" character varying NOT NULL,
     amount integer NOT NULL,
-    "CO2" integer NOT NULL,
-    "polarScore" integer NOT NULL
+    "CO2" integer NOT NULL
 );
 
 
@@ -145,7 +142,7 @@ ALTER TABLE public."WaterType" OWNER TO postgres;
 --
 
 ALTER TABLE ONLY public."FoodType"
-    ADD CONSTRAINT "FoodType_pkey" PRIMARY KEY ("foodType");
+    ADD CONSTRAINT "FoodType_pkey" PRIMARY KEY ("mealType");
 
 
 --
@@ -217,7 +214,7 @@ ALTER TABLE ONLY public."User"
 --
 
 ALTER TABLE ONLY public."Food"
-    ADD CONSTRAINT "mealType" FOREIGN KEY ("mealType") REFERENCES public."FoodType"("foodType");
+    ADD CONSTRAINT "mealType" FOREIGN KEY ("mealType") REFERENCES public."FoodType"("mealType");
 
 
 --
