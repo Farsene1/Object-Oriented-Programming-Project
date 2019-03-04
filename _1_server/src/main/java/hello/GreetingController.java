@@ -29,9 +29,9 @@ public class GreetingController {
     }
 
     @RequestMapping("/findall")
-    public @ResponseBody Iterable<User> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return userRepository.findAll();
+    public void getAllUsers() {
+        SQLConnector con = new SQLConnector();
+        con.getAllTuples();
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
