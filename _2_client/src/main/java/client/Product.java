@@ -6,13 +6,13 @@ public class Product {
     private String username;
     private String password;
 
-    public Product(){
+    public Product() {
         this.email = "";
         this.username = "";
         this.password = "";
     }
 
-    public Product(String email, String username, String password){
+    public Product(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
@@ -22,7 +22,7 @@ public class Product {
         return email;
     }
 
-    public void setEmail(String email ) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

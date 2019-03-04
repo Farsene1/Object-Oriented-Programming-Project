@@ -6,9 +6,10 @@ import org.springframework.web.client.RestTemplate;
 public class RestfulClient {
     RestTemplate restTemplate;
 
-    public RestfulClient(){
+    public RestfulClient() {
         restTemplate = new RestTemplate();
     }
+
     /**
      * get Entity
      */
@@ -19,7 +20,7 @@ public class RestfulClient {
         System.out.println(getResponse.toString());
     }
 
-    public void postEntity(User user){
+    public void postEntity(User user) {
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);

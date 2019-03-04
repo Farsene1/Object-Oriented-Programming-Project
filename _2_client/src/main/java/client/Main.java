@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,10 +17,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class Main extends Application {
     RestfulClient restfulClient;
-    int id=0;
+    int id = 0;
     Stage window;
     Scene scene, scene1, scene2;
-    TextField usernameInput,passwordInput, emailInputR, usernameInputR, passwordInputR;
+    TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -31,6 +33,7 @@ public class Main extends Application {
         restfulClient.getEntity();
 
         window = primaryStage;
+
         window.setTitle("Login");
         window.setOnCloseRequest(e -> {
             e.consume();
@@ -49,7 +52,7 @@ public class Main extends Application {
 
 
         GridPane grid2 = new GridPane();
-        grid2.setPadding(new Insets(10,10,10,10));
+        grid2.setPadding(new Insets(10, 10, 10, 10));
         grid.setVgap(8);
         grid.setHgap(10);
         //username Label - constrains use (child, column, row)
@@ -112,32 +115,32 @@ public class Main extends Application {
 
         //Quit
         Button quitButton = new Button("Quit");
-        GridPane.setConstraints(quitButton, 0,4);
-        quitButton.setOnAction(e ->{
-           boolean result= ConfirmBox.display("Confirm","Are you sure you want to quit?");
-        if(result==true){
-            window.setScene(scene);
-        }
+        GridPane.setConstraints(quitButton, 0, 4);
+        quitButton.setOnAction(e -> {
+            boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
+            if (result == true) {
+                window.setScene(scene);
+            }
 
         });
         //My Carbon footprint
         Button mycarbonButton = new Button("My carbon footprint");
-        GridPane.setConstraints(mycarbonButton,0,1);
-        mycarbonButton.setOnAction(e->{
-            AlertBox.display("This is an error message","To Be Implemented");
+        GridPane.setConstraints(mycarbonButton, 0, 1);
+        mycarbonButton.setOnAction(e -> {
+            AlertBox.display("This is an error message", "To Be Implemented");
         });
 
         //Statistics Button
         Button statisticsButton = new Button("Statistics");
-        GridPane.setConstraints(statisticsButton,0,2);
-        statisticsButton.setOnAction(e->{
-            AlertBox.display("This is an error message","To Be Implemented");
+        GridPane.setConstraints(statisticsButton, 0, 2);
+        statisticsButton.setOnAction(e -> {
+            AlertBox.display("This is an error message", "To Be Implemented");
         });
-    //LeaderBoard button
+        //LeaderBoard button
         Button leaderboardButton = new Button("LeaderBoard");
-        GridPane.setConstraints(leaderboardButton,0,3);
-        leaderboardButton.setOnAction(e->{
-            AlertBox.display("This is an error message","To Be Implemented");
+        GridPane.setConstraints(leaderboardButton, 0, 3);
+        leaderboardButton.setOnAction(e -> {
+            AlertBox.display("This is an error message", "To Be Implemented");
         });
 
 
@@ -147,23 +150,19 @@ public class Main extends Application {
         registerButton.setOnAction(e -> {
 
 
-
             try {
                 System.out.println("Email: " + emailInputR.getText());
                 System.out.println("Username: " + emailInputR.getText());
                 System.out.println("Password: " + passwordInputR.getText());
                 System.out.println("Password hash: " + Hash.generateHash(passwordInputR.getText(), "SHA-256"));
-            }
-            catch (NoSuchAlgorithmException error){
-                AlertBox.display("ERROR","No such algorithm exception");
+            } catch (NoSuchAlgorithmException error) {
+                AlertBox.display("ERROR", "No such algorithm exception");
                 error.printStackTrace();
             }
 
             try {
                 addButtonClicked();
-            }
-            catch (FileNotFoundException error)
-            {
+            } catch (FileNotFoundException error) {
                 System.out.println("File not found");
             }
         });
@@ -174,20 +173,20 @@ public class Main extends Application {
         grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
         grid1.getChildren().addAll(emailLabel, emailInputR, usernameLabelr, usernameInputR, passwordLabelr, passwordInputR, registerButton);
 
-        grid2.getChildren().addAll(Welcome,mycarbonButton,statisticsButton,leaderboardButton,quitButton);
+        grid2.getChildren().addAll(Welcome, mycarbonButton, statisticsButton, leaderboardButton, quitButton);
 
         scene = new Scene(grid, 250, 180);
-        scene1= new Scene(grid1, 250, 180);
-        scene2= new Scene(grid2, 500, 500);
+        scene1 = new Scene(grid1, 250, 180);
+        scene2 = new Scene(grid2, 500, 500);
 
 
         window.setScene(scene);
         window.show();
     }
 
-    public void addButtonClicked()throws FileNotFoundException {
+    public void addButtonClicked() throws FileNotFoundException {
         String email = emailInputR.getText();
-        String username =  usernameInputR.getText();
+        String username = usernameInputR.getText();
         String password = passwordInputR.getText();
 
         try {
@@ -197,11 +196,9 @@ public class Main extends Application {
             fw.close();
             restfulClient.postEntity(new User(id, email, username, Hash.generateHash(password, "SHA-256")));
             id++;
-        } catch (IOException ioe ) {
+        } catch (IOException ioe) {
             System.err.println("IOException: " + ioe.getMessage());
-        }
-        catch (NoSuchAlgorithmException NSA)
-        {
+        } catch (NoSuchAlgorithmException NSA) {
             System.out.println("No such Algorithm");
         }
         Table.display("Table");
@@ -209,6 +206,7 @@ public class Main extends Application {
         usernameInputR.clear();
         passwordInputR.clear();
     }
+
     //Closing down the program method.
     public void closeProgram() {
         boolean answer = ConfirmBox.display("Exit Box", "Are you sure you want to exit?");
