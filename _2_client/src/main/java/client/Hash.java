@@ -19,7 +19,7 @@ public class Hash {
     //Converts byteArray to String
     private static String bytesToStringHex(byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
-        for (int i =0; i < bytes.length; i++) {
+        for (int i = 0; i < bytes.length; i++) {
             int x = bytes[i] & 0xFF;
             hexChars[i * 2] = hexArray[x >>> 4];
             hexChars[i * 2 + 1] = hexArray[x & 0x0F];
