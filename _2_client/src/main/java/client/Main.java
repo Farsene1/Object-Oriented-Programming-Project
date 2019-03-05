@@ -1,5 +1,6 @@
 package client;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.application.Application;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -9,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.parser.JSONParser;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -22,8 +25,8 @@ public class Main extends Application implements Initializable {
     RestfulClient restfulClient;
     int id = 0;
     Stage window;
-    Scene scene, scene1, scene2;
-    TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR;
+    Scene scene, scene1, scene2,scene3;
+    TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR, foodInput;
 
     public static void main(String[] args) {
         launch(args);
@@ -42,7 +45,10 @@ public class Main extends Application implements Initializable {
             e.consume();
             closeProgram();
         });
+
+
         //GridPane with 10px padding around edge
+
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setVgap(8);
@@ -56,11 +62,20 @@ public class Main extends Application implements Initializable {
 
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10));
-        grid.setVgap(8);
-        grid.setHgap(10);
+        grid2.setVgap(8);
+        grid2.setHgap(10);
         //username Label - constrains use (child, column, row)
         Label usernameLabel = new Label("Username:");
         GridPane.setConstraints(usernameLabel, 0, 0);
+        //GridPane for scene3
+        GridPane grid3= new GridPane();
+        grid3.setPadding(new Insets(10, 10, 10, 10));
+        grid3.setVgap(8);
+        grid3.setHgap(10);
+        //Food input : plane text
+        foodInput = new TextField();
+        foodInput.setPromptText("Add the meal that you ate");
+        GridPane.setConstraints(foodInput,4,2);
 
         //username-r Input
         usernameInput = new TextField();
@@ -82,6 +97,7 @@ public class Main extends Application implements Initializable {
         loginButton.setOnAction(e -> {
             System.out.println("Login successful!");
             window.setScene(scene2);
+
         });
 
         //Signup
@@ -126,11 +142,30 @@ public class Main extends Application implements Initializable {
             }
 
         });
+
+        //Add meal button
+        Button addmealButton = new Button("Add your meal");
+        GridPane.setConstraints(addmealButton,3,2);
+        addmealButton.setOnAction(e ->{
+           String meal= foodInput.getText();
+              Meal food= new Meal(meal);
+
+              restfulClient.postEntity(food);
+
+
+
+        });
+
+        //VBOX for addmeal button and foodinput
+        VBox scene3layout= new VBox(20);
+        scene3layout.getChildren().addAll(foodInput,addmealButton);
+        GridPane.setConstraints(scene3layout,15,2);
+
         //My Carbon footprint
         Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-            AlertBox.display("This is an error message", "To Be Implemented");
+           grid2.getChildren().add(scene3layout);
         });
 
         //Statistics Button
@@ -172,11 +207,16 @@ public class Main extends Application implements Initializable {
 
         Label Welcome = new Label("Welcome to the homepage!");
 
+
         //Add everything to grid
         grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
         grid1.getChildren().addAll(emailLabel, emailInputR, usernameLabelr, usernameInputR, passwordLabelr, passwordInputR, registerButton);
 
         grid2.getChildren().addAll(Welcome, mycarbonButton, statisticsButton, leaderboardButton, quitButton);
+
+
+
+
 
         scene = new Scene(grid, 250, 180);
         scene1 = new Scene(grid1, 250, 180);

@@ -27,4 +27,13 @@ public class RestfulClient {
         System.out.println("Response for Post Request: " + postResponse.getBody());
     }
 
+    public void postEntity(Meal meal){
+        System.out.println("Beginning /POST request");
+        String postUrl = "http://localhost:8080/post";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, meal, String.class);
+        System.out.println("Response for Post Request: " + postResponse.getBody());
+
+
+    }
+
 }
