@@ -6,9 +6,10 @@ import org.springframework.web.client.RestTemplate;
 public class RestfulClient {
     RestTemplate restTemplate;
 
-    public RestfulClient(){
+    public RestfulClient() {
         restTemplate = new RestTemplate();
     }
+
     /**
      * get Entity
      */

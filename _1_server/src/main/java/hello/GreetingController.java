@@ -44,14 +44,7 @@ public class GreetingController {
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public String postMethod(@RequestBody User user){
-        users.add(user);
-        System.out.println("/POST request info: " + user.toString());
-        System.out.println("Adding to db -- this might take a while. Have a coffee!");
-        System.out.println("Success!");
-        System.out.println("Number of users in db = " + users.size());
-        for(User u : users){
-            System.out.println(u.toString());
-        }
+        this.userRepository.save(user);
         return "/POST successful";
     }
 }
