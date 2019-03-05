@@ -1,6 +1,7 @@
 package client;
 
 import javafx.application.Application;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,9 +14,11 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
+import java.util.ResourceBundle;
 
-public class Main extends Application {
+public class Main extends Application implements Initializable {
     RestfulClient restfulClient;
     int id = 0;
     Stage window;
@@ -213,5 +216,10 @@ public class Main extends Application {
         if (answer) {
             window.close();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
