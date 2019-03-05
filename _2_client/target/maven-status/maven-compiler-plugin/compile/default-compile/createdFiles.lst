@@ -1,6 +1,3 @@
 client\RestfulClient.class
-<<<<<<< HEAD
 client\User.class
-=======
->>>>>>> BRANCH_FIX
 client\ApplicationClient.class
