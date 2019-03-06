@@ -13,8 +13,6 @@ public class GreetingController {
     @Autowired
     private UserRepository userRepository;
 
-    private static ArrayList<User> users = new ArrayList<User>();
-
     @RequestMapping("/")
     public String getRootPath(){
         return "this is the default page";

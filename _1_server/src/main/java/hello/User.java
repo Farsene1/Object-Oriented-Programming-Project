@@ -1,18 +1,25 @@
 package hello;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "users")
 @Entity
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "userID", unique = true, nullable = false)
-	private Integer userID;
+	@Column(name = "id", unique = true, nullable = false)
+	private Integer id;
+
 	private String username;
 	private String hash;
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+	private List<Activity> activities;
+
 	public User(String username, String hash){
 		this.username = username;
 		this.hash=hash;
