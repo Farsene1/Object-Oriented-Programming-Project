@@ -8,13 +8,10 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	@Column(name = "userID", unique = true, nullable = false)
+	private Integer userID;
 	private String username;
 	private String hash;
-	
-	public User(){
-		
-	}
 	
 	public User(String username, String hash){
 		this.username = username;
