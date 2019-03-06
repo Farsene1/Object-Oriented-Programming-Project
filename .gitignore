@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/java,maven,intellij
+﻿# Created by https://www.gitignore.io/api/java,maven,intellij
 # Edit at https://www.gitignore.io/?templates=java,maven,intellij
 
 ### Intellij ###
@@ -95,7 +95,7 @@ modules.xml
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
