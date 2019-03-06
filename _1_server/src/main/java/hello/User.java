@@ -3,7 +3,6 @@ package hello;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Table(name = "users")
 @Entity
@@ -17,7 +16,7 @@ public class User implements Serializable {
 	private String username;
 	private String hash;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "activity")
 	private List<Activity> activities;
 
 	public User(String username, String hash){
