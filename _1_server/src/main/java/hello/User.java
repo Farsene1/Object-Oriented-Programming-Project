@@ -2,7 +2,8 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Table(name = "users")
 @Entity
@@ -16,8 +17,8 @@ public class User implements Serializable {
 	private String username;
 	private String hash;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "activity")
-	private List<Activity> activities;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private Collection<Activity> activities = new ArrayList<Activity>();
 
 	public User(String username, String hash){
 		this.username = username;
