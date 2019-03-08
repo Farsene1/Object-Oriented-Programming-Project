@@ -13,7 +13,9 @@ public class Activity {
     private Integer id;
 
     private Integer category;
-    private Integer carbonFootprint;
+    private Integer foodFootprint;
+    private Integer waterFootprint;
+    private Integer transportFootprint;
     private Integer polarScore;
     private Date date;
 
@@ -22,9 +24,11 @@ public class Activity {
     private User user;
 
 
-    public Activity(Integer category, Integer carbonFootprint, Integer polarScore, Date date, User userID){
+    public Activity(Integer category, Integer foodFootprint, Integer waterFootprint, Integer transportFootprint, Integer polarScore, Date date, User userID){
         this.category = category;
-        this.carbonFootprint = carbonFootprint;
+        this.foodFootprint = foodFootprint;
+        this.waterFootprint = waterFootprint;
+        this.transportFootprint = transportFootprint;
         this.polarScore = polarScore;
         this.date = date;
     }
@@ -32,8 +36,14 @@ public class Activity {
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
 
-    public Integer getCarbonFootprint(){return carbonFootprint;}
-    public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
+    public Integer getFoodFootprint(){return foodFootprint;}
+    public void setFoodFootprint(Integer foodFootprint){this.foodFootprint = foodFootprint;}
+
+    public Integer getWaterFootprint(){return waterFootprint;}
+    public void setWaterFootprint(Integer waterFootprint){this.waterFootprint = waterFootprint;}
+
+    public Integer getTransportFootprint(){return transportFootprint;}
+    public void setTransportFootprint(Integer transportFootprint){this.transportFootprint = transportFootprint;}
 
     public Integer getPolarScore(){return polarScore;}
     public void setPolarScore(Integer polarScore){this.polarScore = polarScore;}
@@ -45,7 +55,9 @@ public class Activity {
     public String toString(){
         return "Activity(" +
                 "category='" + category + '\'' +
-                ", carbonFootprint='" + carbonFootprint + '\'' +
+                ", foodFootprint='" + foodFootprint + '\'' +
+                ", waterFootprint='" + waterFootprint + '\'' +
+                ", TransportFootprint='" + transportFootprint + '\'' +
                 ", polarScore'" + polarScore + '\'' +
                 ", date'" + date + '\'' +
                 "}";
