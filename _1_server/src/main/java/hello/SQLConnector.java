@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class SQLConnector {
     private final String url = "jdbc:postgresql://localhost:5432/test_gogreen";
-    private final String user = "root";
+    private final String user = "postgres";
     private final String password = "root";
 
     public Connection connect() throws SQLException {
