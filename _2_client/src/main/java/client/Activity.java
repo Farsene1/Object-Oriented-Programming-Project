@@ -1,21 +1,14 @@
-package hello;
+package client;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "activities")
-@Entity
 public class Activity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true, nullable = false)
-    private Integer id;
-
     private Integer foodFootprint;
     private Integer waterFootprint;
     private Integer transportFootprint;
     private Integer polarScore;
     private Date date;
+
 
     public Activity(Integer foodFootprint, Integer waterFootprint, Integer transportFootprint, Integer polarScore, Date date){
         this.foodFootprint = foodFootprint;
