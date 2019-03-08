@@ -1,21 +1,25 @@
 package hello;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Table(name = "users")
 @Entity
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
+
 	private String username;
 	private String hash;
-	
-	public User(){
-		
-	}
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private Collection<Activity> activities = new ArrayList<Activity>();
+
 	public User(String username, String hash){
 		this.username = username;
 		this.hash=hash;
