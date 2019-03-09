@@ -21,6 +21,8 @@ public class User implements Serializable {
 	private Integer polarScore;
 	private Date date;
 
+	public User(){}
+
 	public User(String username, String hash){
 		this.username = username;
 		this.hash=hash;

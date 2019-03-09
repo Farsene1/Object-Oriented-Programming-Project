@@ -3,6 +3,8 @@ package hello;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class GreetingController {
 
@@ -11,6 +13,10 @@ public class GreetingController {
 
     @RequestMapping("/")
     public String getRootPath(){
+        List<User> users = this.userRepository.findAllUsers();
+        for(User u  : users){
+            System.out.println(u.toString());
+        }
         return "this is the default page";
     }
 
