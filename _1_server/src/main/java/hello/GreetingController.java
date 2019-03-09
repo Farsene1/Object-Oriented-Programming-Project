@@ -35,7 +35,6 @@ public class GreetingController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody User user){
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
-        System.out.println(users.get(0).toString());
         String hash2 = user.getHash();
         if(users.size() > 0 && users.get(0).getHash().equals(hash2)){
             return "POSITIVE";
@@ -78,4 +77,12 @@ public class GreetingController {
         return new User(username, hash);
     }
 
+    @RequestMapping(value = "/yes", method = RequestMethod.POST)
+    public List<User> getAll(){
+        return userRepository.findAllUsers();
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 }
