@@ -10,6 +10,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query(value = "SELECT * from users", nativeQuery = true)
     public List<User> findAllUsers();
 
-    @Query(value = "SELECT * from users where username ->> ?1", nativeQuery = true)
-    public User findUserByUsername(String username);
+    @Query(value = "SELECT * from users where username = ?1", nativeQuery = true)
+    public List<User> findUserByUsername(String username);
+
 }

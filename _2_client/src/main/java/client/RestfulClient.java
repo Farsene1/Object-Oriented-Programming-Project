@@ -21,12 +21,30 @@ public class RestfulClient {
         return getResponse;
     }
 
+    /**
+     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     * @param user
+     * @return
+     */
     public ResponseEntity<String> postEntity(User user){
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
         return postResponse;
+    }
+
+    /**
+     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     * @param user
+     * @return
+     */
+    public String login(User user){
+        System.out.println("Beginning /login request");
+        String postUrl = "http://localhost:8080/login";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        System.out.println("Response for Post Request: " + postResponse.getBody());
+        return postResponse.getBody();
     }
 
 }

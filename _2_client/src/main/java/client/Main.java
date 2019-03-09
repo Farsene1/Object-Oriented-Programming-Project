@@ -75,8 +75,20 @@ public class Main extends Application {
         Button loginButton = new Button("Login");
         GridPane.setConstraints(loginButton, 1, 2);
         loginButton.setOnAction(e -> {
-            System.out.println("Login successful!");
-            window.setScene(scene2);
+            String username = usernameInput.getText();
+            String password = passwordInput.getText();
+            usernameInput.clear();
+            passwordInput.clear();
+            try {
+                String res = restfulClient.login(new User(username, Hash.generateHash(password, "SHA-256")));
+                if(res.equals("POSITIVE"))
+                    window.setScene(scene2);
+                else{
+                    System.out.println("INVALID CREDENTIALS");
+                }
+            }catch (NoSuchAlgorithmException NSA) {
+                System.out.println("No such Algorithm");
+            }
         });
 
         //Signup
