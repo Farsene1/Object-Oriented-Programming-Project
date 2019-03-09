@@ -59,7 +59,7 @@ public class GreetingController {
 
         this.userRepository.updateActivity(u.getUsername(),u.getWaterFootprint(),
                 u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(), u.getDate());
-        List<User> users = this.userRepository.findUserByUsername(user.getUsername());
+        List<User> users = this.userRepository.findUserByUsername(u.getUsername());
         return users.get(0);
     }
 
