@@ -13,10 +13,6 @@ public class GreetingController {
 
     @RequestMapping("/")
     public String getRootPath(){
-        List<User> users = this.userRepository.findAllUsers();
-        for(User u  : users){
-            System.out.println(u.toString());
-        }
         return "this is the default page";
     }
 
@@ -49,6 +45,32 @@ public class GreetingController {
         }
     }
 
+    /**
+     * method that needs to be tested - waiting for @HASHIM to call it in the GUI
+     *      * @param user
+     * @return
+     */
+    @RequestMapping(value = "/activity", method = RequestMethod.POST)
+    public User addActivity(@RequestBody User user){
+        List<User> temp = this.userRepository.findUserByUsername(user.getUsername());
+
+        User u = temp.get(0);
+        u.setFoodFootprint(u.getFoodFootprint() + user.getFoodFootprint());
+        u.setTransportFootprint(u.getTransportFootprint() + user.getTransportFootprint());
+        u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
+
+        this.userRepository.updateActivity(user.getUsername(),user.getWaterFootprint(),
+                user.getWaterFootprint(), user.getTransportFootprint(), user.getPolarScore(), user.getDate());
+        List<User> users = this.userRepository.findUserByUsername(user.getUsername());
+        return users.get(0);
+    }
+
+    /**
+     *
+     * @param username
+     * @param hash
+     * @return
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value="username", defaultValue = "anonymous") String username,
                          @RequestParam(value="hash",defaultValue = "0") String hash) {
