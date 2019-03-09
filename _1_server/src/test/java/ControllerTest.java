@@ -30,6 +30,33 @@ public class ControllerTest {
     }
 
     @Test
+    public void addActivityTest(){
+        user1.setFoodFootprint(27);
+        user1.setWaterFootprint(27);
+        user1.setWaterFootprint(27);
+        when(repository.findUserByUsername("admin")).thenReturn(Arrays.asList(user1));
+
+        User req = new User("admin","root");
+        req.setWaterFootprint(42);
+        req.setFoodFootprint(42);
+        req.setTransportFootprint(42);
+
+        User res = new User("admin","root");
+        res.setWaterFootprint(69);
+        res.setFoodFootprint(69);
+        res.setTransportFootprint(69);
+
+        when(repository.updateActivity(res.getUsername(),res.getWaterFootprint(),
+                res.getFoodFootprint(),res.getTransportFootprint(),res.getPolarScore(),
+                res.getDate())).thenReturn(Arrays.asList(res));
+
+        User result = controller.addActivity(req);
+        assertEquals(java.util.Optional.of(69), result.getWaterFootprint());
+        assertEquals(java.util.Optional.of(69), result.getFoodFootprint());
+        assertEquals(java.util.Optional.of(69), result.getTransportFootprint());
+    }
+
+    @Test
     public void defaultTest(){
         String result = controller.getRootPath();
         assertEquals("this is the default page", result);
@@ -72,5 +99,12 @@ public class ControllerTest {
         assertEquals(2,repository.findAllUsers().size());
         //Mockito.when(controller.getAll()).thenReturn(new ArrayList<>());
         assertEquals(2,controller.getAll().size());
+    }
+
+    @Test
+    public void basicGetTest(){
+        User u = controller.greeting("Florentin","Arsene");
+        assertEquals("Florentin",u.getUsername());
+        assertEquals("Arsene", u.getHash());
     }
 }

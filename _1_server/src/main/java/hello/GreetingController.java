@@ -58,7 +58,7 @@ public class GreetingController {
         u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
 
         this.userRepository.updateActivity(user.getUsername(),user.getWaterFootprint(),
-                user.getWaterFootprint(), user.getTransportFootprint(), user.getPolarScore(), user.getDate());
+                user.getFoodFootprint(), user.getTransportFootprint(), user.getPolarScore(), user.getDate());
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
         return users.get(0);
     }
@@ -77,7 +77,7 @@ public class GreetingController {
         return new User(username, hash);
     }
 
-    @RequestMapping(value = "/yes", method = RequestMethod.POST)
+    @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd", method = RequestMethod.POST)
     public List<User> getAll(){
         return userRepository.findAllUsers();
     }
