@@ -20,10 +20,33 @@ public class GreetingController {
         return "this is the default page";
     }
 
+    /**
+     * this is the registration method - checks if the registration is possible
+     * @param user
+     * @return the message
+     */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public String postMethod(@RequestBody User user){
-        this.userRepository.save(user);
-        return "/POST successful";
+        List<User> users = this.userRepository.findUserByUsername(user.getUsername());
+        if(users.size() == 0){
+            this.userRepository.save(user);
+            return "/POST successful";
+        }else{
+            return "/POST failed";
+        }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestBody User user){
+        List<User> users = this.userRepository.findUserByUsername(user.getUsername());
+        System.out.println(users.get(0).toString());
+        String hash1 = users.get(0).getHash();
+        String hash2 = user.getHash();
+        if(users.size() > 0 && hash1.equals(hash2)){
+            return "POSITIVE";
+        }else{
+            return "NEGATIVE";
+        }
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
