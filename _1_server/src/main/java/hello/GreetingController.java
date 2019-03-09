@@ -36,9 +36,8 @@ public class GreetingController {
     public String login(@RequestBody User user){
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
         System.out.println(users.get(0).toString());
-        String hash1 = users.get(0).getHash();
         String hash2 = user.getHash();
-        if(users.size() > 0 && hash1.equals(hash2)){
+        if(users.size() > 0 && users.get(0).getHash().equals(hash2)){
             return "POSITIVE";
         }else{
             return "NEGATIVE";
