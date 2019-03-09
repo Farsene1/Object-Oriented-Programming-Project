@@ -57,8 +57,8 @@ public class GreetingController {
         u.setTransportFootprint(u.getTransportFootprint() + user.getTransportFootprint());
         u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
 
-        this.userRepository.updateActivity(user.getUsername(),user.getWaterFootprint(),
-                user.getFoodFootprint(), user.getTransportFootprint(), user.getPolarScore(), user.getDate());
+        this.userRepository.updateActivity(u.getUsername(),u.getWaterFootprint(),
+                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(), u.getDate());
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
         return users.get(0);
     }

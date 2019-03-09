@@ -34,7 +34,6 @@ public class ControllerTest {
         user1.setFoodFootprint(27);
         user1.setWaterFootprint(27);
         user1.setWaterFootprint(27);
-        when(repository.findUserByUsername("admin")).thenReturn(Arrays.asList(user1));
 
         User req = new User("admin","root");
         req.setWaterFootprint(42);
@@ -45,6 +44,8 @@ public class ControllerTest {
         res.setWaterFootprint(69);
         res.setFoodFootprint(69);
         res.setTransportFootprint(69);
+
+        when(repository.findUserByUsername(req.getUsername())).thenReturn(Arrays.asList(user1));
 
         when(repository.updateActivity(res.getUsername(),res.getWaterFootprint(),
                 res.getFoodFootprint(),res.getTransportFootprint(),res.getPolarScore(),
