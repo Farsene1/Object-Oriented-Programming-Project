@@ -44,8 +44,7 @@ public class GreetingController {
     }
 
     /**
-     * method that needs to be tested - waiting for @HASHIM to call it in the GUI
-     * this method works fine - doesn't pass the test because it cannot be mocked properly
+     * waiting for @HASHIM to call it in the GUI
      *      * @param user
      * @return the current user
      */
