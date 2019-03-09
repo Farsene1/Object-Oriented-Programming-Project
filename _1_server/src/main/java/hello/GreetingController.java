@@ -35,10 +35,8 @@ public class GreetingController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody User user){
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
-        System.out.println(users.get(0).toString());
-        String hash1 = users.get(0).getHash();
         String hash2 = user.getHash();
-        if(users.size() > 0 && hash1.equals(hash2)){
+        if(users.size() > 0 && users.get(0).getHash().equals(hash2)){
             return "POSITIVE";
         }else{
             return "NEGATIVE";
@@ -59,8 +57,8 @@ public class GreetingController {
         u.setTransportFootprint(u.getTransportFootprint() + user.getTransportFootprint());
         u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
 
-        this.userRepository.updateActivity(user.getUsername(),user.getWaterFootprint(),
-                user.getWaterFootprint(), user.getTransportFootprint(), user.getPolarScore(), user.getDate());
+        this.userRepository.updateActivity(u.getUsername(),u.getWaterFootprint(),
+                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(), u.getDate());
         List<User> users = this.userRepository.findUserByUsername(user.getUsername());
         return users.get(0);
     }
@@ -79,4 +77,12 @@ public class GreetingController {
         return new User(username, hash);
     }
 
+    @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd", method = RequestMethod.POST)
+    public List<User> getAll(){
+        return userRepository.findAllUsers();
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 }

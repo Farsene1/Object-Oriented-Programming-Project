@@ -15,10 +15,10 @@ public class User implements Serializable {
 
 	private String username;
 	private String hash;
-	private Integer foodFootprint;
-	private Integer waterFootprint;
-	private Integer transportFootprint;
-	private Integer polarScore;
+	private Integer foodFootprint = 0;
+	private Integer waterFootprint = 0;
+	private Integer transportFootprint = 0;
+	private Integer polarScore = 0;
 	private Date date;
 
 	public User(){}
