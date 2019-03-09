@@ -45,8 +45,9 @@ public class GreetingController {
 
     /**
      * method that needs to be tested - waiting for @HASHIM to call it in the GUI
+     * this method works fine - doesn't pass the test because it cannot be mocked properly
      *      * @param user
-     * @return
+     * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
     public User addActivity(@RequestBody User user){
