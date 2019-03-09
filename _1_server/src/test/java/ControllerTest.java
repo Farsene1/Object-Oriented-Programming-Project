@@ -45,16 +45,17 @@ public class ControllerTest {
         res.setFoodFootprint(69);
         res.setTransportFootprint(69);
 
-        when(repository.findUserByUsername(req.getUsername())).thenReturn(Arrays.asList(user1));
+        when(repository.findUserByUsername(req.getUsername()))
+                .thenReturn(Arrays.asList(user1)).thenReturn(Arrays.asList(res));
 
         when(repository.updateActivity(res.getUsername(),res.getWaterFootprint(),
                 res.getFoodFootprint(),res.getTransportFootprint(),res.getPolarScore(),
                 res.getDate())).thenReturn(Arrays.asList(res));
 
         User result = controller.addActivity(req);
-        assertEquals(java.util.Optional.of(69), result.getWaterFootprint());
-        assertEquals(java.util.Optional.of(69), result.getFoodFootprint());
-        assertEquals(java.util.Optional.of(69), result.getTransportFootprint());
+        assertEquals(69, result.getWaterFootprint() + 0);
+        assertEquals(69, result.getFoodFootprint() + 0);
+        assertEquals(69, result.getTransportFootprint()+ 0);
     }
 
     @Test
