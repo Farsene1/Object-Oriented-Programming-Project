@@ -1,4 +1,7 @@
-package client;
+package classes;
+
+import classes.RestfulClient;
+import classes.User;
 
 public class Controller {
 

@@ -1,5 +1,7 @@
 package client;
 
+import classes.RestfulClient;
+import classes.User;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

@@ -1,5 +1,6 @@
-package client;
+package classes;
 
+import classes.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
