@@ -92,18 +92,23 @@ public class GreetingController {
      * @return User
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public User greeting(@RequestParam(value="username", defaultValue = "anonymous") String username,
-                         @RequestParam(value="hash",defaultValue = "0") String hash) {
-        String info = String.format("/GET REQUEST info: username=%s, hash=%s",username, hash);
+    public User greeting(@RequestParam(value = "username",
+            defaultValue = "anonymous")
+                                     String username,
+                         @RequestParam(value = "hash", defaultValue = "0")
+                                 String hash) {
+        String info = String.format(
+                "/GET REQUEST info: username=%s, hash=%s", username, hash);
         System.out.println(info);
         return new User(username, hash);
     }
 
     /**
      * default method for testing, dangerous to use.
-     * @return
+     * @return List
      */
-    @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd", method = RequestMethod.POST)
+    @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
+            method = RequestMethod.POST)
     public List<User> getAll() {
         return userRepository.findAllUsers();
     }
