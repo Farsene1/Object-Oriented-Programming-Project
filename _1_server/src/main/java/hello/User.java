@@ -26,6 +26,7 @@ public class User implements Serializable {
 	public User(String username, String hash){
 		this.username = username;
 		this.hash=hash;
+		this.date = new Date();
 	}
 
 	public String getUsername() {
