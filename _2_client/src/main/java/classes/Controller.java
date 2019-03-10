@@ -7,13 +7,14 @@ public class Controller {
 
     private RestfulClient restfulClient;
 
-    public void signUp(User user){
-        restfulClient.postEntity(user);
+    public String signUp(User user){
+        return restfulClient.postEntity(user).getBody();
     }
 
     // methods to be implemented in the restful client class
     // Restful client will be called through this Controller class
-    public void login(User user){
+    public String login(User user){
+        return restfulClient.login(user);
     }
 
     public void sendData(User user){
