@@ -23,9 +23,4 @@
  GUI | Back button for Register | | 15 minutes
  GUI | Do styling for mealplan | | 1 hour
  GUI | Passwordrequirement error message upon registering| | 1 hour
- General | make account on TELEGRAM| | 5 minutes | Stelios/Julian
-
- 
-
-
-
+ General | make account on TELEGRAM| Stelios/Julian | 5 minutes 
