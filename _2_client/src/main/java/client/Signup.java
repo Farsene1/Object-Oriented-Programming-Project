@@ -74,7 +74,7 @@ public class Signup {
                 usernameInput.clear();
                 passwordInput.clear();
                 passwordInput2.clear();
-                Login.showLogin(window);
+               Home.showHome(window);
             }
             else
             {
