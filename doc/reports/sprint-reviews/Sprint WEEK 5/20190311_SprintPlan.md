@@ -8,8 +8,8 @@
  Client/Server | Validate email and send JSON to server | Sayf | 2 hours
  Client/server | send Foodprint to the Server | Sayf | 2 hours
  Essential | Have a coffee | Florentin | 5 hours
- Client | Create Restcontroller methods for paths | Florentin | 3-4 hours?
- Client | Send response to Client | Florentin | 1.5 hours
+ Server | Create Restcontroller methods for paths | Florentin | 3-4 hours?
+ Server | Send response to Client | Florentin | 1.5 hours
  GUI | Buttons for meals | Stelios | 0.5 hours
  GUI | Buttons for Transportation  | Stelios | 0.5 hours
  GUI | Buttons Water, etc | Stelios | 0.5 hours
