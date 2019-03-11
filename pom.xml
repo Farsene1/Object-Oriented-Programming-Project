@@ -19,7 +19,7 @@
     <properties>
         <java.version>10.0.2</java.version>
         <maven.compiler.source>10.0.2</maven.compiler.source>
-        <maven.compiler.target>10.02</maven.compiler.target>
+        <maven.compiler.target>10.0.2</maven.compiler.target>
 
         <checkstyle.version>7.2</checkstyle.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
