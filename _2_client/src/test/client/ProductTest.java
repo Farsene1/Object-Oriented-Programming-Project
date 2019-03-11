@@ -51,4 +51,16 @@ public class ProductTest {
         Product product1 = new Product();
         assertEquals("", product1.getUsername());
     }
+
+    @Test
+    public void ProductEmail() {
+        Product product1 = new Product();
+        assertEquals("", product1.getEmail());
+    }
+
+    @Test
+    public void ProductPassword() {
+        Product product1 = new Product();
+        assertEquals("", product1.getPassword());
+    }
 }
