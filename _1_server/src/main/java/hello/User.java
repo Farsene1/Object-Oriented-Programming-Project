@@ -2,7 +2,6 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *User table entity generated.
@@ -18,7 +17,7 @@ public class User implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "USER_ID", unique = true, nullable = false)
+	@Column(name = "id", unique = true, nullable = false)
 	private Integer id;
 
 	/**
@@ -48,7 +47,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute date declared as type timestamp.
 	 */
-	private Date date;
+	//private Date date;
 
 	/**
 	 * Empty constructor declaration for user.
@@ -62,14 +61,8 @@ public class User implements Serializable {
 	 * @param hash
 	 */
 	public User(String username, String hash) {
-//	public User(String username, String hash, Integer foodFootprint, Integer waterFootprint,
-//				Integer transportFootprint, Date date) {
 		this.username = username;
 		this.hash = hash;
-//		this.food_footprint = foodFootprint;
-//		this.waterFootprint = waterFootprint;
-//		this.transportFootprint = transportFootprint;
-//		this.date = date;
 	}
 
 	public Integer getId(){return id;}
@@ -156,16 +149,16 @@ public class User implements Serializable {
 	/**
 	 * Getter for date.
 	 */
-	public Date getDate() {
-		return date;
-	}
-	/**
-	 * Setter for date.
-	 * @param date
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//	/**
+//	 * Setter for date.
+//	 * @param date
+//	 */
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 	/**
 	 *toString method for user.
