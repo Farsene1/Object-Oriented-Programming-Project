@@ -1,5 +1,6 @@
 package client;
 
+import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import javafx.application.Application;
@@ -21,6 +22,7 @@ public class Main extends Application {
     Stage window;
     Scene scene, scene1, scene2;
     TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR;
+    private Controller controller;
     private User currentUser;
 
     public static void main(String[] args) {
@@ -141,6 +143,7 @@ public class Main extends Application {
         Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
+            controller.sendMeal(currentUser, 100);
             AlertBox.display("This is an error message", "To Be Implemented");
         });
 
