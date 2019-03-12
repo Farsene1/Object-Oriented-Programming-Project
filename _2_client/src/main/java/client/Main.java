@@ -1,5 +1,6 @@
 package client;
 
+import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import javafx.application.Application;
@@ -21,6 +22,8 @@ public class Main extends Application {
     Stage window;
     Scene scene, scene1, scene2;
     TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR;
+    private Controller controller;
+    private User currentUser;
 
     public static void main(String[] args) {
         launch(args);
@@ -82,7 +85,8 @@ public class Main extends Application {
             usernameInput.clear();
             passwordInput.clear();
             try {
-                String res = restfulClient.login(new User(username, Hash.generateHash(password, "SHA-256")));
+                currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
+                String res = restfulClient.login(currentUser);
                 if(res.equals("POSITIVE"))
                     window.setScene(scene2);
                 else{
@@ -139,6 +143,7 @@ public class Main extends Application {
         Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
+            controller.sendMeal(currentUser, 100);
             AlertBox.display("This is an error message", "To Be Implemented");
         });
 
@@ -202,7 +207,8 @@ public class Main extends Application {
         String password = passwordInputR.getText();
 
         try {
-            restfulClient.postEntity(new User(username, Hash.generateHash(password, "SHA-256")));
+            currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
+            restfulClient.postEntity(currentUser);
             id++;
         }catch (NoSuchAlgorithmException NSA) {
             System.out.println("No such Algorithm");
