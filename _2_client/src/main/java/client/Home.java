@@ -58,7 +58,7 @@ public static void showHome(Stage window){
     leftmenu.getChildren().addAll(Welcome,img , mycarbonButton, statisticsButton, leaderboardButton, quitButton);
     bp.setLeft(leftmenu);
     bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
-    Scene scene = new Scene(bp, 1920, 1015);
+    Scene scene = new Scene(bp, 1920, 1080);
 
     leaderboardButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
     mycarbonButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");

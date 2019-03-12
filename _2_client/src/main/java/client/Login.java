@@ -103,7 +103,7 @@ public class Login {
         bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
         vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20,0,40,0));
-        Scene scene = new Scene(bp, 1920, 1015);
+        Scene scene = new Scene(bp, 1920, 1080);
         window.setScene(scene);
         window.setMaximized(true);
         window.show();

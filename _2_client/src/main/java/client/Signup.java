@@ -9,10 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -57,6 +54,9 @@ public class Signup {
         passwordInput2.setPromptText("confirm password");
         GridPane.setConstraints(passwordInput2, 1, 2);
 
+        Button back= new Button("Back");
+        back.setOnAction(e->{Login.showLogin(window);});
+
         //Register
         Button register = new Button("Register");
         GridPane.setConstraints(register, 1, 3);
@@ -93,9 +93,14 @@ public class Signup {
         usernameLabel.setStyle("-fx-padding: 0 20 0 40");
         passwordLabel.setStyle("-fx-padding: 0 20 0 40");
 
+        Pane backpane= new Pane();
+        backpane.setMinWidth(300);
+
         //Add everything to grid
+        HBox hbox= new HBox();
+        hbox.getChildren().addAll(back,backpane);
         grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput,passwordInput2, register);
-        vbox.getChildren().addAll(img,grid);
+        vbox.getChildren().addAll(hbox,img,grid);
 
         Pane test1=new Pane();
         Pane test2=new Pane();
@@ -112,12 +117,13 @@ public class Signup {
         bp.setTop(test3);
         bp.setBottom(test4);
 
+        hbox.setStyle("-fx-padding: 0 0 0 20");
         bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
         vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20,0,40,0));
 
-        Scene scene = new Scene(bp, 1920, 1015);
-        grid.setPadding(new Insets(100,0,0,0));
+        Scene scene = new Scene(bp, 1920, 1080);
+//        grid.setPadding(new Insets(100,0,0,0));
 
         window.setScene(scene);
         window.setMaximized(true);
