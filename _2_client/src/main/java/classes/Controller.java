@@ -1,5 +1,7 @@
 package classes;
 
+import org.apache.commons.validator.routines.EmailValidator;
+
 public class Controller {
 
     private RestfulClient restfulClient;
@@ -16,6 +18,11 @@ public class Controller {
     // Restful client will be called through this Controller class
     public String login(User user){
         return restfulClient.login(user);
+    }
+
+    public User getUpdates(User user){
+        User result = restfulClient.getUpdates(user);
+        return result;
     }
 
     public void sendData(User user){
@@ -51,5 +58,15 @@ public class Controller {
      */
     public void sendWater(User user, int amount){
         user.setWaterFootprint(amount + user.getWaterFootprint());
+    }
+
+    /**
+     * This method checks for a valid email
+     * @param email
+     * @return
+     */
+    public static boolean checkEmail(String email){
+        boolean emailValid = EmailValidator.getInstance().isValid(email);
+        return emailValid;
     }
 }

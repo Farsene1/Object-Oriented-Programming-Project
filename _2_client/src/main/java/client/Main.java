@@ -11,10 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
+import org.apache.commons.validator.routines.EmailValidator;
 
 public class Main extends Application {
     RestfulClient restfulClient;
@@ -88,8 +90,10 @@ public class Main extends Application {
             try {
                 currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
                 String res = restfulClient.login(currentUser);
-                if(res.equals("POSITIVE"))
+                if(res.equals("POSITIVE")){
                     window.setScene(scene2);
+                    currentUser = controller.getUpdates(currentUser);
+                }
                 else{
                     System.out.println("INVALID CREDENTIALS");
                 }
@@ -207,6 +211,12 @@ public class Main extends Application {
         String username = usernameInputR.getText();
         String password = passwordInputR.getText();
 
+        //calls checkEmail method to check whether email is valid
+        if (!Controller.checkEmail(email)){
+            //Yet to be implemented!
+            //GUI team create a popup window that tells the user the email is invalid
+        }
+
         try {
             currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
             restfulClient.postEntity(currentUser);
@@ -218,6 +228,8 @@ public class Main extends Application {
         usernameInputR.clear();
         passwordInputR.clear();
     }
+
+
 
     //Closing down the program method.
     public void closeProgram() {

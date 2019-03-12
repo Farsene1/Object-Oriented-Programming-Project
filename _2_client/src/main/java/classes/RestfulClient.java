@@ -55,4 +55,11 @@ public class RestfulClient {
         return postResponse;
     }
 
+    public User getUpdates(User user) {
+        System.out.println("Beginning /requestforupdate request");
+        String postUrl = "http://localhost:8080/requestforupdate";
+        ResponseEntity<User> getUpdate = restTemplate.postForEntity(postUrl, user, User.class);
+        System.out.println("Response for Post Request: " + getUpdate.getBody());
+        return getUpdate.getBody();
+    }
 }
