@@ -19,6 +19,9 @@ public class Activity {
     @Column(name = "CATEGORY", unique = false, nullable = false)
     private Integer category = 0;
 
+    @Column(name = "DESCRIPTION", unique = false, nullable = false)
+    private String description;
+
     @Column(name = "CARBONFOOTPRINT", unique = false, nullable = false)
     private Integer carbonFootprint = 0;
 
@@ -28,9 +31,10 @@ public class Activity {
     @Column(name = "DATE", unique = false, nullable = false)
     private Date date;
 
-    public Activity(User user, Integer category, Integer carbonFootprint, Date date){
+    public Activity(User user, Integer category, String description, Integer carbonFootprint, Date date){
         this.user = user;
         this.category = category;
+        this.description = description;
         this.carbonFootprint = carbonFootprint;
         this.date = date;
     }
@@ -42,6 +46,9 @@ public class Activity {
 
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
+
+    public String getDescription(){return description;}
+    public void setDescription(String description){this.description = description;}
 
     public Integer getCarbonFootprint(){return carbonFootprint;}
     public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
@@ -55,6 +62,7 @@ public class Activity {
                 ", id='" + id + '\'' +
                 ", userID='" + user + '\'' +
                 ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
                 ", carbonFootprint='" + carbonFootprint + '\'' +
                 ", date'" + date + '\'' +
                 "}";
