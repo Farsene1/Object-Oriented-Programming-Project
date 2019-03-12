@@ -61,17 +61,8 @@ public class User implements Serializable {
 	 * @param hash
 	 */
 	public User(String username, String hash) {
-//	public User(String username, String hash, Integer foodFootprint, Integer waterFootprint,
-//				Integer transportFootprint, Date date) {
 		this.username = username;
-<<<<<<< HEAD
-=======
 		this.hash = hash;
-//		this.food_footprint = foodFootprint;
-//		this.waterFootprint = waterFootprint;
-//		this.transportFootprint = transportFootprint;
-//		this.date = date;
->>>>>>> SERVER_Development
 	}
 
 	public Integer getId(){return id;}
