@@ -29,7 +29,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE users SET foodFootprint = ?1 WHERE username = ?2",
+    @Query(value = "UPDATE users SET food_footprint = ?1 WHERE username = ?2",
             nativeQuery = true)
     void updateActivity(Integer food, String username);
 }
