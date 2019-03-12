@@ -20,6 +20,11 @@ public class Controller {
         return restfulClient.login(user);
     }
 
+    public User getUpdates(User user){
+        User result = restfulClient.getUpdates(user);
+        return result;
+    }
+
     public void sendData(User user){
 
     }

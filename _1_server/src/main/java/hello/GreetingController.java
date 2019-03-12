@@ -74,9 +74,18 @@ public class GreetingController {
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
         System.out.println("No pain no gain");
-
         this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());
         return "OK";
+    }
+
+    /**
+     * method for getting the most recent updates.
+     */
+    @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
+    public User getUpdates(@RequestBody User user){
+        List<User> users = this.userRepository
+                .findUserByUsername(user.getUsername());
+        return users.get(0);
     }
 
     /**

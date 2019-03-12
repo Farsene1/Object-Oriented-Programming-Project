@@ -90,8 +90,10 @@ public class Main extends Application {
             try {
                 currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
                 String res = restfulClient.login(currentUser);
-                if(res.equals("POSITIVE"))
+                if(res.equals("POSITIVE")){
                     window.setScene(scene2);
+                    currentUser = controller.getUpdates(currentUser);
+                }
                 else{
                     System.out.println("INVALID CREDENTIALS");
                 }
