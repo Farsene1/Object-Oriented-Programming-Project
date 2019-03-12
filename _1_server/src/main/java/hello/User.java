@@ -31,7 +31,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute foodFootprint declared as type integer.
 	 */
-	private Integer foodFootprint = 0;
+	private Integer food_footprint = 0;
 	/**
 	 * Attribute waterFootprint declared as type integer.
 	 */
@@ -64,6 +64,14 @@ public class User implements Serializable {
 //	public User(String username, String hash, Integer foodFootprint, Integer waterFootprint,
 //				Integer transportFootprint, Date date) {
 		this.username = username;
+<<<<<<< HEAD
+=======
+		this.hash = hash;
+//		this.food_footprint = foodFootprint;
+//		this.waterFootprint = waterFootprint;
+//		this.transportFootprint = transportFootprint;
+//		this.date = date;
+>>>>>>> SERVER_Development
 	}
 
 	public Integer getId(){return id;}
@@ -99,14 +107,14 @@ public class User implements Serializable {
 	 * Getter for foodFootprint.
 	 */
 	public Integer getFoodFootprint() {
-		return foodFootprint;
+		return food_footprint;
 	}
 	/**
 	 * Setter for foodFootprint.
 	 * @param foodFootprint
 	 */
 	public void setFoodFootprint(Integer foodFootprint) {
-		this.foodFootprint = foodFootprint;
+		this.food_footprint = foodFootprint;
 	}
 	/**
 	 * Getter for waterFootprint.
