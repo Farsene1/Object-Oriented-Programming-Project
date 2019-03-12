@@ -21,6 +21,7 @@ public class Main extends Application {
     Stage window;
     Scene scene, scene1, scene2;
     TextField usernameInput, passwordInput, emailInputR, usernameInputR, passwordInputR;
+    private User currentUser;
 
     public static void main(String[] args) {
         launch(args);
@@ -82,7 +83,8 @@ public class Main extends Application {
             usernameInput.clear();
             passwordInput.clear();
             try {
-                String res = restfulClient.login(new User(username, Hash.generateHash(password, "SHA-256")));
+                currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
+                String res = restfulClient.login(currentUser);
                 if(res.equals("POSITIVE"))
                     window.setScene(scene2);
                 else{
@@ -202,7 +204,8 @@ public class Main extends Application {
         String password = passwordInputR.getText();
 
         try {
-            restfulClient.postEntity(new User(username, Hash.generateHash(password, "SHA-256")));
+            currentUser = new User(username, Hash.generateHash(password, "SHA-256"));
+            restfulClient.postEntity(currentUser);
             id++;
         }catch (NoSuchAlgorithmException NSA) {
             System.out.println("No such Algorithm");

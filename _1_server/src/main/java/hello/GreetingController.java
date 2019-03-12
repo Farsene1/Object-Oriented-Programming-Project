@@ -72,15 +72,14 @@ public class GreetingController {
      * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
-    public User addActivity(@RequestBody User user) {
+    public String addActivity(@RequestBody User user) {
         List<User> temp = this.userRepository
                 .findUserByUsername(user.getUsername());
 
         User u = temp.get(0);
-        u.setFoodFootprint(u.getFoodFootprint() + user.getFoodFootprint());
-        u.setTransportFootprint(u.getTransportFootprint()
-                + user.getTransportFootprint());
-        u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
+        u.setFoodFootprint(user.getFoodFootprint());
+        u.setTransportFootprint(user.getTransportFootprint());
+        u.setFoodFootprint(user.getWaterFootprint());
 
         this.userRepository
                 .updateActivity(u.getUsername(), u.getWaterFootprint(),
@@ -88,7 +87,7 @@ public class GreetingController {
                         u.getPolarScore(), u.getDate());
         List<User> users = this.userRepository
                 .findUserByUsername(u.getUsername());
-        return users.get(0);
+        return "OK";
     }
 
     /**
