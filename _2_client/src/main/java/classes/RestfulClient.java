@@ -1,6 +1,7 @@
 package classes;
 
 import classes.User;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -46,6 +47,14 @@ public class RestfulClient {
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
         return postResponse.getBody();
+    }
+
+    public ResponseEntity<String> activity(User user){
+        System.out.println("beginning /activity request");
+        String postUrl = "http://localhost:8000/activity";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        System.out.println("Response for get request");
+        return postResponse;
     }
 
 }
