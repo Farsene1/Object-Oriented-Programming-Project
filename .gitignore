@@ -1,4 +1,4 @@
-# Created by https://www.gitignore.io/api/java,maven,intellij
+﻿# Created by https://www.gitignore.io/api/java,maven,intellij
 # Edit at https://www.gitignore.io/?templates=java,maven,intellij
 
 ### Intellij ###
@@ -17,7 +17,7 @@
 .idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-.idea/**/dataSources/
+.idea/**/dataSources/§
 .idea/**/dataSources.ids
 .idea/**/dataSources.local.xml
 .idea/**/sqlDataSources.xml

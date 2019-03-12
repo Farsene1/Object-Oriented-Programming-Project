@@ -1,46 +1,131 @@
 package hello;
 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
 
+
+/**
+ * This is the Rest Controller.
+ */
 @RestController
 public class GreetingController {
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-    /**
-     * this is a temporary arraylist that stores the users
-     *
-     * @toBeRepalcedLaterWithADatabase
-     */
-    private static ArrayList<User> users = new ArrayList<User>();
 
+    /**
+     * * autowiring the userRepo.
+     */
+    @Autowired
+    private UserRepository userRepository;
+
+    /**
+     * default path for testing.
+     *
+     * @return String
+     */
     @RequestMapping("/")
     public String getRootPath() {
         return "this is the default page";
     }
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public User greeting(@RequestParam(value = "id", defaultValue = "0") long id,
-                         @RequestParam(value = "email", defaultValue = "anonymous") String email,
-                         @RequestParam(value = "username", defaultValue = "anonymous") String username,
-                         @RequestParam(value = "password", defaultValue = "anonymous") String password) {
-        String info = String.format("/GET REQUEST info: id=%d, email=%s, username=%s, password=%s", id, email, username, password);
-        System.out.println(info);
-        return new User(id, email, username, password);
-    }
-
+    /**
+     * this is the registration method - checks if the registration is possible.
+     *
+     * @param user
+     * @return the message
+     */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public String postMethod(@RequestBody User user) {
-        users.add(user);
-        System.out.println("/POST request info: " + user.toString());
-        System.out.println("Adding to db -- this might take a while. Have a coffee!");
-        System.out.println("Success!");
-        System.out.println("Number of users in db = " + users.size());
-        for (User u : users) {
-            System.out.println(u.toString());
+        List<User> users = this.userRepository
+                .findUserByUsername(user.getUsername());
+        if (users.size() == 0) {
+            this.userRepository.save(user);
+            return "/POST successful";
+        } else {
+            return "/POST failed";
         }
-        return "/POST successfull";
+    }
+
+    /**
+     * method called for login request.
+     *
+     * @param user
+     * @return String
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestBody User user) {
+        List<User> users = this.userRepository
+                .findUserByUsername(user.getUsername());
+        String hash2 = user.getHash();
+        if (users.size() > 0 && users.get(0).getHash().equals(hash2)) {
+            return "POSITIVE";
+        } else {
+            return "NEGATIVE";
+        }
+    }
+
+    /**
+     * waiting for @HASHIM to call it in the GUI.
+     * * @param user
+     *
+     * @return the current user
+     */
+    @RequestMapping(value = "/activity", method = RequestMethod.POST)
+    public User addActivity(@RequestBody User user) {
+        List<User> temp = this.userRepository
+                .findUserByUsername(user.getUsername());
+
+        User u = temp.get(0);
+        u.setFoodFootprint(u.getFoodFootprint() + user.getFoodFootprint());
+        u.setTransportFootprint(u.getTransportFootprint()
+                + user.getTransportFootprint());
+        u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
+
+        this.userRepository
+                .updateActivity(u.getUsername(), u.getWaterFootprint(),
+                        u.getFoodFootprint(), u.getTransportFootprint(),
+                        u.getPolarScore(), u.getDate());
+        List<User> users = this.userRepository
+                .findUserByUsername(u.getUsername());
+        return users.get(0);
+    }
+
+    /**
+     * just a default method.
+     *
+     * @param username
+     * @param hash
+     * @return User
+     */
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    public User greeting(@RequestParam(value = "username",
+            defaultValue = "anonymous")
+                                 String username,
+                         @RequestParam(value = "hash", defaultValue = "0")
+                                 String hash) {
+        String info = String.format(
+                "/GET REQUEST info: username=%s, hash=%s", username, hash);
+        System.out.println(info);
+        return new User(username, hash);
+    }
+
+    /**
+     * default method for testing, dangerous to use.
+     *
+     * @return List
+     */
+    @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
+            method = RequestMethod.POST)
+    public List<User> getAll() {
+        return userRepository.findAllUsers();
+    }
+
+    /**
+     * just a setter.
+     *
+     * @param userRepository
+     */
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

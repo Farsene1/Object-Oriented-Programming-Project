@@ -1,71 +1,170 @@
 package hello;
 
-public class User {
-    private long id;
-    private String email;
-    private String username;
-    private String password;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
-    public User() {
+/**
+ *User table entity generated.
+ *
+ */
+@Table(name = "users")
+@Entity
+public class User implements Serializable {
+	/**
+	 *Primary key id generated.
+	 *
+	 * @param id
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = false)
+	private Integer id;
 
-    }
+	/**
+	 * Attribute username declared as type string.
+	 */
+	private String username;
+	/**
+	 * Attribute hash declared as type string.
+	 */
+	private String hash;
+	/**
+	 * Attribute foodFootprint declared as type integer.
+	 */
+	private Integer foodFootprint = 0;
+	/**
+	 * Attribute waterFootprint declared as type integer.
+	 */
+	private Integer waterFootprint = 0;
+	/**
+	 * Attribute transportFootprint declared as type integer.
+	 */
+	private Integer transportFootprint = 0;
+	/**
+	 * Attribute polarScore declared as type integer.
+	 */
+	private Integer polarScore = 0;
+	/**
+	 * Attribute date declared as type timestamp.
+	 */
+	private Date date;
 
-    public User(long id, String email, String username, String password) {
-        this.id = id;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
+	/**
+	 * Empty constructor declaration for user.
+	 */
+	public User() {
+	}
 
-    public long getId() {
-        return id;
-    }
+	/**
+	 * Constructor declaration for user.
+	 * @param username
+	 * @param hash
+	 */
+	public User(String username, String hash) {
+		this.username = username;
+		this.hash = hash;
+		this.date = new Date();
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	/**
+	 * Getter for username.
+	 */
+	public String getUsername() {
+		return username;
+	}
+	/**
+	 * Setter for username.
+	 * @param username
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	/**
+	 * Getter for hash.
+	 */
+	public String getHash() {
+		return hash;
+	}
+	/**
+	 * Setter for hash.
+	 * @param hash
+	 */
+	public void setHash(String hash) {
+		this.hash = hash;
+	}
+	/**
+	 * Getter for foodFootprint.
+	 */
+	public Integer getFoodFootprint() {
+		return foodFootprint;
+	}
+	/**
+	 * Setter for foodFootprint.
+	 * @param foodFootprint
+	 */
+	public void setFoodFootprint(Integer foodFootprint) {
+		this.foodFootprint = foodFootprint;
+	}
+	/**
+	 * Getter for waterFootprint.
+	 */
+	public Integer getWaterFootprint() {
+		return waterFootprint;
+	}
+	/**
+	 * Setter for waterFootprint.
+	 * @param waterFootprint
+	 */
+	public void setWaterFootprint(Integer waterFootprint) {
+		this.waterFootprint = waterFootprint;
+	}
+	/**
+	 * Getter for transportFootprint.
+	 */
+	public Integer getTransportFootprint() {
+		return transportFootprint;
+	}
+	/**
+	 * Setter for transportFootprint.
+	 * @param transportFootprint
+	 */
+	public void setTransportFootprint(Integer transportFootprint) {
+		this.transportFootprint = transportFootprint;
+	}
+	/**
+	 * Getter for polarScore.
+	 */
+	public Integer getPolarScore() {
+		return polarScore;
+	}
+	/**
+	 * Setter for polarScore.
+	 * @param polarScore
+	 */
+	public void setPolarScore(Integer polarScore) {
+		this.polarScore = polarScore;
+	}
+	/**
+	 * Getter for date.
+	 */
+	public Date getDate() {
+		return date;
+	}
+	/**
+	 * Setter for date.
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        String info = String.format("User Info: id = %d, email = %s, username = %s, password = %s", id, email, username, password);
-        return info;
-    }
-
-    public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        } else if (other instanceof User) {
-            User that = (User) other;
-            if (this.id == that.id && this.username.equals(that.username) && this.email.equals(that.email)) {
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
-
+	/**
+	 *toString method for user.
+	 */
+	@Override
+	public String toString() {
+		return "User{" + "username='" + username
+				+ '\'' + ", hash='" + hash + '\'' + '}';
+	}
 }
