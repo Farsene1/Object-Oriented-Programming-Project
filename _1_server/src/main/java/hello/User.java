@@ -31,7 +31,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute foodFootprint declared as type integer.
 	 */
-	private Integer foodFootprint = 0;
+	private Integer food_footprint = 0;
 	/**
 	 * Attribute waterFootprint declared as type integer.
 	 */
@@ -95,14 +95,14 @@ public class User implements Serializable {
 	 * Getter for foodFootprint.
 	 */
 	public Integer getFoodFootprint() {
-		return foodFootprint;
+		return food_footprint;
 	}
 	/**
 	 * Setter for foodFootprint.
 	 * @param foodFootprint
 	 */
 	public void setFoodFootprint(Integer foodFootprint) {
-		this.foodFootprint = foodFootprint;
+		this.food_footprint = foodFootprint;
 	}
 	/**
 	 * Getter for waterFootprint.

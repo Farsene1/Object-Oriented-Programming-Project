@@ -73,27 +73,9 @@ public class GreetingController {
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
-        List<User> temp = this.userRepository
-                .findUserByUsername(user.getUsername());
+        System.out.println("No pain no gain");
 
-        System.out.println(user.getFoodFootprint());
-        User u = temp.get(0);
-        u.setFoodFootprint(user.getFoodFootprint());
-        u.setTransportFootprint(user.getTransportFootprint());
-        u.setFoodFootprint(user.getWaterFootprint());
-
-        System.out.println("print nothing");
-        this.userRepository.updateActivity(
-                u.getUsername(),
-                u.getWaterFootprint(),
-                u.getFoodFootprint(),
-                u.getTransportFootprint(),
-                u.getPolarScore());
-
-        this.userRepository.save(user);
-        List<User> users = this.userRepository
-                .findUserByUsername(u.getUsername());
-
+        this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());
         return "OK";
     }
 
@@ -122,7 +104,7 @@ public class GreetingController {
      * @return List
      */
     @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
-            method = RequestMethod.POST)
+            method = RequestMethod.GET)
     public List<User> getAll() {
         return userRepository.findAllUsers();
     }
