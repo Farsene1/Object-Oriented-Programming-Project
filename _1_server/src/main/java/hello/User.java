@@ -2,6 +2,7 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *User table entity generated.
@@ -17,7 +18,7 @@ public class User implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "USER_ID", unique = true, nullable = false)
 	private Integer id;
 
 	/**
@@ -31,7 +32,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute foodFootprint declared as type integer.
 	 */
-	private Integer food_footprint = 0;
+	private Integer foodFootprint = 0;
 	/**
 	 * Attribute waterFootprint declared as type integer.
 	 */
@@ -47,7 +48,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute date declared as type timestamp.
 	 */
-	//private Date date;
+	private Date date;
 
 	/**
 	 * Empty constructor declaration for user.
@@ -61,9 +62,18 @@ public class User implements Serializable {
 	 * @param hash
 	 */
 	public User(String username, String hash) {
+//	public User(String username, String hash, Integer foodFootprint, Integer waterFootprint,
+//				Integer transportFootprint, Date date) {
 		this.username = username;
 		this.hash = hash;
+		this.foodFootprint = foodFootprint;
+		this.waterFootprint = waterFootprint;
+		this.transportFootprint = transportFootprint;
+		this.date = date;
 	}
+
+	public Integer getId(){return id;}
+	public void setId(Integer id){this.id = id;}
 
 	/**
 	 * Getter for username.
@@ -95,14 +105,14 @@ public class User implements Serializable {
 	 * Getter for foodFootprint.
 	 */
 	public Integer getFoodFootprint() {
-		return food_footprint;
+		return foodFootprint;
 	}
 	/**
 	 * Setter for foodFootprint.
 	 * @param foodFootprint
 	 */
 	public void setFoodFootprint(Integer foodFootprint) {
-		this.food_footprint = foodFootprint;
+		this.foodFootprint = foodFootprint;
 	}
 	/**
 	 * Getter for waterFootprint.
@@ -146,20 +156,20 @@ public class User implements Serializable {
 	/**
 	 * Getter for date.
 	 */
-//	public Date getDate() {
-//		return date;
-//	}
-//	/**
-//	 * Setter for date.
-//	 * @param date
-//	 */
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
-//
-//	/**
-//	 *toString method for user.
-//	 */
+	public Date getDate() {
+		return date;
+	}
+	/**
+	 * Setter for date.
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	/**
+	 *toString method for user.
+	 */
 	@Override
 	public String toString() {
 		return "User{" + "username='" + username
