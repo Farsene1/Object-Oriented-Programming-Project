@@ -2,10 +2,7 @@ import hello.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
-
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserTest {
@@ -70,16 +67,16 @@ public class UserTest {
         assertEquals((int)user1.getTransportFootprint(), 1);
     }
 
-    @Test
-    public void getDateTest() {
-        assertFalse(user1.getDate() == null);
-    }
-
-    @Test
-    public void setDateTest() {
-        user1.setDate(new Date(20,8,2019));
-        assertEquals(user1.getDate(),new Date(20,8,2019));
-    }
+//    @Test
+//    public void getDateTest() {
+//        assertFalse(user1.getDate() == null);
+//    }
+//
+//    @Test
+//    public void setDateTest() {
+//        user1.setDate(new Date(20,8,2019));
+//        assertEquals(user1.getDate(),new Date(20,8,2019));
+//    }
 
     @Test
     public void getScoreTest() {

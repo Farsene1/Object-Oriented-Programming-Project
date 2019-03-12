@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,12 +27,11 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      */
     @Query(value = "UPDATE users SET water_footprint = ?2, "
             + "food_footprint= ?3, transport_footprint = ?4, "
-            + "polar_score = ?5, date = ?6 WHERE username = ?1",
+            + "polar_score = ?5 WHERE username = ?1",
             nativeQuery = true)
     List<User> updateActivity(@Param("username")String username,
                               @Param("water")Integer water,
                               @Param("food")Integer food,
                               @Param("transport")Integer transport,
-                              @Param("score")Integer score,
-                              @Param("date")Date date);
+                              @Param("score")Integer score);
 }

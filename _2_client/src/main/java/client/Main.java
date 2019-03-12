@@ -34,6 +34,7 @@ public class Main extends Application {
 
         restfulClient = new RestfulClient();
         restfulClient.getEntity();
+        controller = new Controller();
 
         window = primaryStage;
 

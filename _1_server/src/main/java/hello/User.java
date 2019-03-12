@@ -2,7 +2,6 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *User table entity generated.
@@ -48,7 +47,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute date declared as type timestamp.
 	 */
-	private Date date;
+	//private Date date;
 
 	/**
 	 * Empty constructor declaration for user.
@@ -64,7 +63,6 @@ public class User implements Serializable {
 	public User(String username, String hash) {
 		this.username = username;
 		this.hash = hash;
-		this.date = new Date();
 	}
 
 	/**
@@ -148,20 +146,20 @@ public class User implements Serializable {
 	/**
 	 * Getter for date.
 	 */
-	public Date getDate() {
-		return date;
-	}
-	/**
-	 * Setter for date.
-	 * @param date
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	/**
-	 *toString method for user.
-	 */
+//	public Date getDate() {
+//		return date;
+//	}
+//	/**
+//	 * Setter for date.
+//	 * @param date
+//	 */
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
+//
+//	/**
+//	 *toString method for user.
+//	 */
 	@Override
 	public String toString() {
 		return "User{" + "username='" + username

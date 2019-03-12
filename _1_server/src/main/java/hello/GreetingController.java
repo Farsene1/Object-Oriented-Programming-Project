@@ -76,17 +76,24 @@ public class GreetingController {
         List<User> temp = this.userRepository
                 .findUserByUsername(user.getUsername());
 
+        System.out.println(user.getFoodFootprint());
         User u = temp.get(0);
         u.setFoodFootprint(user.getFoodFootprint());
         u.setTransportFootprint(user.getTransportFootprint());
         u.setFoodFootprint(user.getWaterFootprint());
 
-        this.userRepository
-                .updateActivity(u.getUsername(), u.getWaterFootprint(),
-                        u.getFoodFootprint(), u.getTransportFootprint(),
-                        u.getPolarScore(), u.getDate());
+        System.out.println("print nothing");
+        this.userRepository.updateActivity(
+                u.getUsername(),
+                u.getWaterFootprint(),
+                u.getFoodFootprint(),
+                u.getTransportFootprint(),
+                u.getPolarScore());
+
+        this.userRepository.save(user);
         List<User> users = this.userRepository
                 .findUserByUsername(u.getUsername());
+
         return "OK";
     }
 

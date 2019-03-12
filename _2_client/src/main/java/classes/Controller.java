@@ -1,11 +1,12 @@
 package classes;
 
-import classes.RestfulClient;
-import classes.User;
-
 public class Controller {
 
     private RestfulClient restfulClient;
+
+    public Controller(){
+        restfulClient = new RestfulClient();
+    }
 
     public String signUp(User user){
         return restfulClient.postEntity(user).getBody();
