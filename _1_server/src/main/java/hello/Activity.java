@@ -1,6 +1,7 @@
 package hello;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -29,9 +30,9 @@ public class Activity {
 //    private Integer polarScore;
 
     @Column(name = "DATE", unique = false, nullable = false)
-    private Date date;
+    private String date;
 
-    public Activity(User user, Integer category, String description, Integer carbonFootprint, Date date){
+    public Activity(User user, Integer category, String description, Integer carbonFootprint, String date){
         this.user = user;
         this.category = category;
         this.description = description;
@@ -53,8 +54,8 @@ public class Activity {
     public Integer getCarbonFootprint(){return carbonFootprint;}
     public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
 
-    public Date getDate(){return date;}
-    public void setDate(Date date){this.date = date;}
+    public String getDate(){return date;}
+    public void setDate(String date){this.date = date;}
 
     @Override
     public String toString(){
