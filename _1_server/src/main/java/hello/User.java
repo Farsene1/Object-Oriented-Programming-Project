@@ -2,6 +2,8 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *User table entity generated.
@@ -48,6 +50,10 @@ public class User implements Serializable {
 	 * Attribute date declared as type timestamp.
 	 */
 	//private Date date;
+
+	@OneToMany
+	@JoinColumn(name = "userId")
+	private Set<Activity> activities;
 
 	/**
 	 * Empty constructor declaration for user.

@@ -21,12 +21,12 @@ public class ActivityTest {
 
     @Test
     public void getSetTest(){
-        assertEquals(user1, activity1.getUser());
+        assertEquals(user1, activity1.getUserId());
     assertEquals((Integer) 1, activity1.getCategory());
     assertEquals("vegetarian", activity1.getDescription());
     assertEquals((Integer) 50, activity1.getCarbonFootprint());
     assertEquals("13-03-2019", activity1.getDate());
-    activity1.setUser(user1);
+    activity1.setUserId(user1);
     activity1.setCategory(0);
     activity1.setDescription("meal type");
     activity1.setCarbonFootprint(0);

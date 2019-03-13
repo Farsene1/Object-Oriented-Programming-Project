@@ -13,9 +13,9 @@ public class Activity {
     @Column(name = "ACTIVITY_ID", unique = true, nullable = false)
     private Integer id = 0;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID", nullable = false)
-    private User userID;
+    @ManyToOne
+    @JoinColumn(name = "userId", unique = true, nullable = false)
+    private User userId;
 
     @Column(name = "CATEGORY", unique = false, nullable = false)
     private Integer category;
@@ -26,14 +26,11 @@ public class Activity {
     @Column(name = "CARBON_FOOTPRINT", unique = false, nullable = false)
     private Integer carbonFootprint;
 
-//    @Column(name = "POLAR_SCORE", unique = false, nullable = false)
-//    private Integer polarScore;
-
     @Column(name = "DATE", unique = false, nullable = false)
     private String date;
 
-    public Activity(User userID, Integer category, String description, Integer carbonFootprint, String date){
-        this.userID = userID;
+    public Activity(User userId, Integer category, String description, Integer carbonFootprint, String date){
+        this.userId = userId;
         this.category = category;
         this.description = description;
         this.carbonFootprint = carbonFootprint;
@@ -43,8 +40,8 @@ public class Activity {
     public Integer getId(){return id;}
     public void setId(Integer id){this.id = id;}
 
-    public User getUser(){return userID;}
-    public void setUser(User userID){this.userID = userID;}
+    public User getUserId(){return userId;}
+    public void setUserId(User userId){this.userId = userId;}
 
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
@@ -62,7 +59,7 @@ public class Activity {
     public String toString(){
         return "Activity(" +
                 ", id='" + id + '\'' +
-                ", userID='" + userID + '\'' +
+                ", userId='" + userId + '\'' +
                 ", category='" + category + '\'' +
                 ", description='" + description + '\'' +
                 ", carbonFootprint='" + carbonFootprint + '\'' +
