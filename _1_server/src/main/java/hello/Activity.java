@@ -18,13 +18,13 @@ public class Activity {
     private User user;
 
     @Column(name = "CATEGORY", unique = false, nullable = false)
-    private Integer category = 0;
+    private Integer category;
 
     @Column(name = "DESCRIPTION", unique = false, nullable = false)
     private String description;
 
     @Column(name = "CARBONFOOTPRINT", unique = false, nullable = false)
-    private Integer carbonFootprint = 0;
+    private Integer carbonFootprint;
 
 //    @Column(name = "POLAR_SCORE", unique = false, nullable = false)
 //    private Integer polarScore;
