@@ -1,7 +1,8 @@
 package hello;
 
 import javax.persistence.*;
-import java.util.Date;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
 
 @Entity
 @Table(name = "activity")
@@ -14,35 +15,36 @@ public class Activity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
-    private User user;
+    private User userID;
 
     @Column(name = "CATEGORY", unique = false, nullable = false)
-    private Integer category = 0;
+    private Integer category;
 
     @Column(name = "DESCRIPTION", unique = false, nullable = false)
     private String description;
 
-    @Column(name = "CARBONFOOTPRINT", unique = false, nullable = false)
-    private Integer carbonFootprint = 0;
+    @Column(name = "CARBON_FOOTPRINT", unique = false, nullable = false)
+    private Integer carbonFootprint;
 
 //    @Column(name = "POLAR_SCORE", unique = false, nullable = false)
 //    private Integer polarScore;
 
     @Column(name = "DATE", unique = false, nullable = false)
-    private Date date;
+    private String date;
 
-    public Activity(User user, Integer category, String description, Integer carbonFootprint, Date date){
-        this.user = user;
+    public Activity(User userID, Integer category, String description, Integer carbonFootprint, String date){
+        this.userID = userID;
         this.category = category;
         this.description = description;
         this.carbonFootprint = carbonFootprint;
         this.date = date;
     }
+
     public Integer getId(){return id;}
     public void setId(Integer id){this.id = id;}
 
-    public User getUser(){return user;}
-    public void setUser(User user){this.user = user;}
+    public User getUser(){return userID;}
+    public void setUser(User userID){this.userID = userID;}
 
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
@@ -53,14 +55,14 @@ public class Activity {
     public Integer getCarbonFootprint(){return carbonFootprint;}
     public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
 
-    public Date getDate(){return date;}
-    public void setDate(Date date){this.date = date;}
+    public String getDate(){return date;}
+    public void setDate(String date){this.date = date;}
 
     @Override
     public String toString(){
         return "Activity(" +
                 ", id='" + id + '\'' +
-                ", userID='" + user + '\'' +
+                ", userID='" + userID + '\'' +
                 ", category='" + category + '\'' +
                 ", description='" + description + '\'' +
                 ", carbonFootprint='" + carbonFootprint + '\'' +
