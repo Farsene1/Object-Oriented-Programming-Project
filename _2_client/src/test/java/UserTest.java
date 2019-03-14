@@ -2,8 +2,7 @@ package classes;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import java.util.Date;
+import static org.junit.Assert.assertEquals;
 
 public class UserTest {
 
@@ -85,18 +84,18 @@ public class UserTest {
         assertEquals(1, user1.getPolarScore()+0);
     }
 
-    @Test
-    public void getDate() {
-        User user1 = new User("username", "hash");
-        assertFalse(user1.getDate() != null);
-    }
-
-    @Test
-    public void setDate() {
-        User user1 = new User("username", "hash");
-        user1.setDate(new Date(1,1,1));
-        assertEquals(new Date(1,1,1), user1.getDate());
-    }
+//    @Test
+//    public void getDate() {
+//        User user1 = new User("username", "hash");
+//        assertFalse(user1.getDate() != null);
+//    }
+//
+//    @Test
+//    public void setDate() {
+//        User user1 = new User("username", "hash");
+//        user1.setDate(new Date(1,1,1));
+//        assertEquals(new Date(1,1,1), user1.getDate());
+//    }
 
     @Test
     public void toStringTest() {
