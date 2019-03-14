@@ -30,6 +30,12 @@ public class GreetingController {
     }
 
     /**
+     * addActivity
+     */
+    @RequestMapping("/addactivity")
+    public 
+
+    /**
      * this is the registration method - checks if the registration is possible.
      *
      * @param user

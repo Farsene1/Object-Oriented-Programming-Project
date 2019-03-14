@@ -3,11 +3,13 @@ package classes;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
+import java.util.Date;
+
 public class Activity {
 
     private Integer id = 0;
 
-    private User userId;
+    private String username;
 
     private Integer category;
 
@@ -15,9 +17,10 @@ public class Activity {
 
     private Integer carbonFootprint;
 
-    private String date;
+    private Date date;
 
-    public Activity(Integer category, String description, Integer carbonFootprint, String date){
+    public Activity(String username, Integer category, String description, Integer carbonFootprint, Date date){
+        this.username = username;
         this.category = category;
         this.description = description;
         this.carbonFootprint = carbonFootprint;
@@ -27,8 +30,8 @@ public class Activity {
     public Integer getId(){return id;}
     public void setId(Integer id){this.id = id;}
 
-    public User getUserId(){return userId;}
-    public void setUserId(User userId){this.userId = userId;}
+    public String getUserId(){return username;}
+    public void setUserId(String username){this.username = username;}
 
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
@@ -39,8 +42,8 @@ public class Activity {
     public Integer getCarbonFootprint(){return carbonFootprint;}
     public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
 
-    public String getDate(){return date;}
-    public void setDate(String date){this.date = date;}
+    public Date getDate(){return date;}
+    public void setDate(Date date){this.date = date;}
 
     @Override
     public String toString(){

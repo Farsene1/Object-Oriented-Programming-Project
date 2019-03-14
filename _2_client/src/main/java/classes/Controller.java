@@ -29,6 +29,10 @@ public class Controller {
 
     }
 
+    public void sendFood(Activity activity){
+
+    }
+
     /**
      *
      * @param user
