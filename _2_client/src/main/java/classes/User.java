@@ -1,6 +1,8 @@
 package classes;
 
 
+import java.util.Date;
+
 public class User {
 
 	private String username;
@@ -9,7 +11,7 @@ public class User {
 	private Integer waterFootprint = 0;
 	private Integer transportFootprint = 0;
 	private Integer polarScore = 0;
-//	private Date date;
+	private Date date;
 
 	public User(){}
 
@@ -66,13 +68,13 @@ public class User {
 		this.polarScore = polarScore;
 	}
 
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	@Override
 	public String toString() {

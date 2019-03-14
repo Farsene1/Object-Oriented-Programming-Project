@@ -1,9 +1,8 @@
 package hello;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 
@@ -72,19 +71,22 @@ public class GreetingController {
      * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
-    public String addActivity(@RequestBody User user) {
-        System.out.println("No pain no gain");
-        this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());
-        return "OK";
-    }
-
-    /**
-     * method for getting the most recent updates.
-     */
-    @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
-    public User getUpdates(@RequestBody User user){
-        List<User> users = this.userRepository
+    public User addActivity(@RequestBody User user) {
+        List<User> temp = this.userRepository
                 .findUserByUsername(user.getUsername());
+
+        User u = temp.get(0);
+        u.setFoodFootprint(u.getFoodFootprint() + user.getFoodFootprint());
+        u.setTransportFootprint(u.getTransportFootprint()
+                + user.getTransportFootprint());
+        u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
+
+        this.userRepository
+                .updateActivity(u.getUsername(), u.getWaterFootprint(),
+                        u.getFoodFootprint(), u.getTransportFootprint(),
+                        u.getPolarScore(), u.getDate());
+        List<User> users = this.userRepository
+                .findUserByUsername(u.getUsername());
         return users.get(0);
     }
 
@@ -113,7 +115,7 @@ public class GreetingController {
      * @return List
      */
     @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
-            method = RequestMethod.GET)
+            method = RequestMethod.POST)
     public List<User> getAll() {
         return userRepository.findAllUsers();
     }

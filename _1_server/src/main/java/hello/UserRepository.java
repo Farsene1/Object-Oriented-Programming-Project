@@ -1,11 +1,10 @@
 package hello;
 
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,9 +26,14 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /**
      * Query to update a users attributes.
      */
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE users SET food_footprint = ?1 WHERE username = ?2",
+    @Query(value = "UPDATE users SET water_footprint = ?2, "
+            + "food_footprint= ?3, transport_footprint = ?4, "
+            + "polar_score = ?5, date = ?6 WHERE username = ?1",
             nativeQuery = true)
-    void updateActivity(Integer food, String username);
+    List<User> updateActivity(@Param("username")String username,
+                              @Param("water")Integer water,
+                              @Param("food")Integer food,
+                              @Param("transport")Integer transport,
+                              @Param("score")Integer score,
+                              @Param("date")Date date);
 }
