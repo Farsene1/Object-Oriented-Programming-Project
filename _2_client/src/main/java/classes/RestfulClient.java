@@ -35,6 +35,14 @@ public class RestfulClient {
         return postResponse;
     }
 
+//    public ResponseEntity<String> postMeal(Meal food){
+////        System.out.println("Beginning /POST request");
+////        String postUrl = "http://localhost:8080/post";
+////        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, food, String.class);
+////        System.out.println("Response for Post Request: " + postResponse.getBody());
+////        return postResponse;
+////    }
+
     /**
      * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
      * @param user

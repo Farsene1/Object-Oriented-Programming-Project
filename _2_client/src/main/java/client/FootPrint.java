@@ -3,6 +3,7 @@ package client;
 import classes.RestfulClient;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -35,7 +36,7 @@ public class FootPrint {
         Button Food = new Button("Add a meal!");
         GridPane.setConstraints(Food, 1, 0);
         Food.setOnAction(e -> {
-            AlertBox.display("This is an error message", "To Be Implemented");
+            String food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.");
         });
 
         //My Transport footprint

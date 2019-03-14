@@ -10,7 +10,6 @@ public class ConfirmBox {
 
     //Create variable
     static boolean answer;
-    static String footPrintType = "";
 
     public static boolean display(String title, String message) {
         Stage window = new Stage();
@@ -46,47 +45,4 @@ public class ConfirmBox {
         //Make sure to return answer
         return answer;
     }
-
-//    public static String footPrint(String title, String message) {
-//        Stage window = new Stage();
-//        window.initModality(Modality.APPLICATION_MODAL);
-//        window.setTitle(title);
-//        window.setMinWidth(500);
-//        Label label = new Label();
-//        label.setText(message);
-//
-//        //Create three buttons
-//        Button foodButton = new Button("Food Footprint");
-//        Button transportButton = new Button("Transport Footprint");
-//        Button waterButton = new Button("Water Footprint");
-//
-//        //Clicking will set answer and close window
-//        foodButton.setOnAction(e -> {
-//            footPrintType = "food";
-//            window.close();
-//        });
-//        transportButton.setOnAction(e -> {
-//            footPrintType = "transport";
-//            window.close();
-//        });
-//        waterButton.setOnAction(e -> {
-//            footPrintType = "water";
-//            window.close();
-//        });
-//
-//        VBox layout = new VBox(10);
-//
-//        //Add buttons
-//        layout.getChildren().addAll(label, foodButton, transportButton, waterButton);
-//        layout.setAlignment(Pos.CENTER);
-//        Scene scene = new Scene(layout);
-//        window.setScene(scene);
-//        window.showAndWait();
-//
-//        //Make sure to return answer
-//        return footPrintType;
-//    }
-
-
-
 }
