@@ -1,3 +1,5 @@
+import hello.User;
+import hello.UserRepository;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,18 +32,18 @@ public class UserRepositoryTest {
         assertEquals(1,result.size());
     }
 
-    @Test
-    public void updateActivity(){
-        User u = new User("admin", "root");
-        when(repository.updateActivity(u.getUsername(),u.getWaterFootprint(),
-                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(),
-                u.getDate())).thenReturn(Arrays.asList(
-                new User("admin","root")
-        ));
-        List<User> result = repository.updateActivity(u.getUsername(), u.getWaterFootprint(),
-                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(),
-                u.getDate());
-        assertEquals(1,result.size());
-    }
+//    @Test
+//    public void updateActivity(){
+//        User u = new User("admin", "root");
+//        when(repository.updateActivity(u.getUsername(),u.getWaterFootprint(),
+//                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(),
+//                u.getDate())).thenReturn(Arrays.asList(
+//                new User("admin","root")
+//        ));
+//        List<User> result = repository.updateActivity(u.getUsername(), u.getWaterFootprint(),
+//                u.getFoodFootprint(), u.getTransportFootprint(), u.getPolarScore(),
+//                u.getDate());
+//        assertEquals(1,result.size());
+//    }
 
 }

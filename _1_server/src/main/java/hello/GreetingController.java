@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+
 /**
  * This is the Rest Controller.
  */
@@ -71,22 +72,19 @@ public class GreetingController {
      * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
-    public User addActivity(@RequestBody User user) {
-        List<User> temp = this.userRepository
-                .findUserByUsername(user.getUsername());
+    public String addActivity(@RequestBody User user) {
+        System.out.println("No pain no gain");
+        this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());
+        return "OK";
+    }
 
-        User u = temp.get(0);
-        u.setFoodFootprint(u.getFoodFootprint() + user.getFoodFootprint());
-        u.setTransportFootprint(u.getTransportFootprint()
-                + user.getTransportFootprint());
-        u.setFoodFootprint(u.getWaterFootprint() + user.getWaterFootprint());
-
-        this.userRepository
-                .updateActivity(u.getUsername(), u.getWaterFootprint(),
-                        u.getFoodFootprint(), u.getTransportFootprint(),
-                        u.getPolarScore(), u.getDate());
+    /**
+     * method for getting the most recent updates.
+     */
+    @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
+    public User getUpdates(@RequestBody User user){
         List<User> users = this.userRepository
-                .findUserByUsername(u.getUsername());
+                .findUserByUsername(user.getUsername());
         return users.get(0);
     }
 
@@ -115,7 +113,7 @@ public class GreetingController {
      * @return List
      */
     @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
-            method = RequestMethod.POST)
+            method = RequestMethod.GET)
     public List<User> getAll() {
         return userRepository.findAllUsers();
     }
