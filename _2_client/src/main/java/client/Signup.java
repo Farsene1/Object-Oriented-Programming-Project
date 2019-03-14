@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
 
 public class Signup {
@@ -73,7 +72,7 @@ public class Signup {
                  usernameInput.clear();
                  passwordInput.clear();
                  passwordInput2.clear();
-                 Home.showHome(window,user);             }
+                 Home.showHome(window, user);             }
              catch (NoSuchAlgorithmException error) {
                   AlertBox.display("ERROR", "No such algorithm exception");
                   error.printStackTrace();

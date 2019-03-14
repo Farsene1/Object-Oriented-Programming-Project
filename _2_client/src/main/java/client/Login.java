@@ -61,7 +61,7 @@ public class Login {
                 User user = new User(username, Hash.generateHash(password, "SHA-256"));
                 String res = restfulClient.login(user);
                 if(res.equals("POSITIVE"))
-                    Home.showHome(window,user);
+                    Home.showHome(window, user);
                 else{
                     System.out.println("INVALID CREDENTIALS");
                     AlertBox.display("ERROR", "INVALID CREDENTIALS");
