@@ -32,9 +32,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
-
-        restfulClient = new RestfulClient();
-        restfulClient.getEntity();
+        
         controller = new Controller();
 
         window = primaryStage;
