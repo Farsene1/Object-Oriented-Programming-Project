@@ -1,41 +1,35 @@
 package hello;
 
 import javax.persistence.*;
-import java.util.Date;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
 @Entity
-@Table(name = "activity")
+@Table(name = "activities")
 
 public class Activity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ACTIVITY_ID", unique = true, nullable = false)
-    private Integer id = 0;
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "userId", unique = true, nullable = false)
     private String username;
 
-    @Column(name = "CATEGORY", unique = false, nullable = false)
     private Integer category;
 
-    @Column(name = "DESCRIPTION", unique = false, nullable = false)
     private String description;
 
-    @Column(name = "CARBON_FOOTPRINT", unique = false, nullable = false)
-    private Integer carbonFootprint;
+    private Integer footprint;
 
-    @Column(name = "DATE", unique = false, nullable = false)
-    private Date date;
+    private String date;
 
-    public Activity(String username, Integer category, String description, Integer carbonFootprint, Date date){
+    public Activity(){}
+
+    public Activity(String username, Integer category, String description, Integer footprint, String date){
         this.username = username;
         this.category = category;
         this.description = description;
-        this.carbonFootprint = carbonFootprint;
+        this.footprint = footprint;
         this.date = date;
     }
 
@@ -51,11 +45,11 @@ public class Activity {
     public String getDescription(){return description;}
     public void setDescription(String description){this.description = description;}
 
-    public Integer getCarbonFootprint(){return carbonFootprint;}
-    public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
+    public Integer getCarbonFootprint(){return footprint;}
+    public void setCarbonFootprint(Integer carbonFootprint){this.footprint = carbonFootprint;}
 
-    public Date getDate(){return date;}
-    public void setDate(Date date){this.date = date;}
+    public String getDate(){return date;}
+    public void setDate(String date){this.date = date;}
 
     @Override
     public String toString(){
@@ -71,7 +65,7 @@ public class Activity {
         return "Activity(" +
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
-                ", carbonFootprint='" + carbonFootprint + '\'' +
+                ", carbonFootprint='" + footprint + '\'' +
                 ", date'" + date + '\'' +
                 "}";
     }

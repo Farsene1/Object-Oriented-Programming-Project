@@ -3,11 +3,9 @@ package classes;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
-import java.util.Date;
-
 public class Activity {
 
-    private Integer id = 0;
+    private Integer id;
 
     private String username;
 
@@ -15,15 +13,17 @@ public class Activity {
 
     private String description;
 
-    private Integer carbonFootprint;
+    private Integer footprint;
 
-    private Date date;
+    private String date;
 
-    public Activity(String username, Integer category, String description, Integer carbonFootprint, Date date){
+    public Activity(){}
+
+    public Activity(String username, Integer category, String description, Integer footprint, String date){
         this.username = username;
         this.category = category;
         this.description = description;
-        this.carbonFootprint = carbonFootprint;
+        this.footprint = footprint;
         this.date = date;
     }
 
@@ -39,17 +39,17 @@ public class Activity {
     public String getDescription(){return description;}
     public void setDescription(String description){this.description = description;}
 
-    public Integer getCarbonFootprint(){return carbonFootprint;}
-    public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
+    public Integer getCarbonFootprint(){return footprint;}
+    public void setCarbonFootprint(Integer carbonFootprint){this.footprint = carbonFootprint;}
 
-    public Date getDate(){return date;}
-    public void setDate(Date date){this.date = date;}
+    public String getDate(){return date;}
+    public void setDate(String date){this.date = date;}
 
     @Override
     public String toString(){
         String cat = "";
-        if (category==1)
-            cat="food";
+        if (category == 1)
+            cat = "food";
         if (category==2)
             cat="transport";
         if (category==3)
@@ -59,7 +59,7 @@ public class Activity {
         return "Activity(" +
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
-                ", carbonFootprint='" + carbonFootprint + '\'' +
+                ", carbonFootprint='" + footprint + '\'' +
                 ", date'" + date + '\'' +
                 "}";
     }

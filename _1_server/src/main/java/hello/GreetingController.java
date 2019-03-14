@@ -20,6 +20,12 @@ public class GreetingController {
     private UserRepository userRepository;
 
     /**
+     *  autowiring activities repo.
+     */
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
@@ -32,8 +38,12 @@ public class GreetingController {
     /**
      * addActivity
      */
-    @RequestMapping("/addactivity")
-    public 
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public Activity addToActivitiesTable(@RequestBody Activity activity){
+        this.activityRepository.save(activity);
+        System.out.println("activities table updates");
+        return activity;
+    }
 
     /**
      * this is the registration method - checks if the registration is possible.

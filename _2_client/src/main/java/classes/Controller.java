@@ -30,7 +30,7 @@ public class Controller {
     }
 
     public void sendFood(Activity activity){
-
+        restfulClient.addActivity(activity);
     }
 
     /**

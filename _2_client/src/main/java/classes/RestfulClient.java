@@ -21,6 +21,12 @@ public class RestfulClient {
         return getResponse;
     }
 
+    public void addActivity(Activity activity){
+        String url = "http://localhost:8080/test";
+        ResponseEntity<Activity> res = restTemplate.postForEntity(url, activity, Activity.class);
+        System.out.println("Response: " + res.toString());
+    }
+
     /**
      * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
      * @param user

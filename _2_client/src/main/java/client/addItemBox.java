@@ -11,8 +11,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.util.Date;
-
 public class addItemBox {
 
     static String foodAdded = "";
@@ -39,7 +37,7 @@ public class addItemBox {
             new Controller().sendMeal(user, 200);
             // add a meal in the database
             Activity activity = new Activity(user.getUsername(),1,"vegan",
-                    200, new Date());
+                    200, "");
             new Controller().sendFood(activity);
             window.close();
         });
