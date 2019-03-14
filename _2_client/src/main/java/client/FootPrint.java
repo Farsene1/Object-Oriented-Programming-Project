@@ -31,7 +31,8 @@ public class FootPrint {
         Button Food = new Button("+");
       //  GridPane.setConstraints(Food, 4, 1);
         Food.setOnAction(e -> {
-            String food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.");
+            classes.Meal food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.");
+
         });
 
         //My Transport footprint
@@ -70,7 +71,10 @@ public class FootPrint {
         grid.setMinWidth(600);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
         Welcome.setStyle("-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30");
-       // window.setScene(scene);
+       FoodOptions.setMinWidth(476);
+       WaterOptions.setMinWidth(476);
+        TransportOptions.setMinWidth(476);
+        // window.setScene(scene);
        // window.setMaximized(true);
        // window.show();
 

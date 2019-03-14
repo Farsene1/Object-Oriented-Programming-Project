@@ -10,7 +10,7 @@ public class addItemBox {
 
     static String foodAdded = "";
 
-    public static String addMeal(String title, String message) {
+    public static classes.Meal addMeal(String title, String message) {
 
 
         Stage window = new Stage();
@@ -49,7 +49,7 @@ public class addItemBox {
         window.showAndWait();
 
         //Make sure to return answer
-        return foodAdded;
+        return new classes.Meal(foodAdded,"Food");
     }
 
 }
