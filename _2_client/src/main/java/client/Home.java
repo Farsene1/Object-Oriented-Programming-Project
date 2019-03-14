@@ -9,6 +9,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.geometry.Insets;
+import java.awt.*;
 
 public class Home {
 
@@ -19,6 +21,11 @@ public static void showHome(Stage window){
 
     BorderPane bp= new BorderPane();
     VBox leftmenu = new VBox();
+    Scene scene = new Scene(bp, 1920, 1080);
+    GridPane centerMenu= new GridPane();
+    centerMenu.setPadding(new Insets(10, 10, 10, 10));
+   // centerMenu.setVgap(8);
+  //  centerMenu.setHgap(10);
 
     //Quit
     Button quitButton = new Button("Quit");
@@ -34,7 +41,9 @@ public static void showHome(Stage window){
     Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-                FootPrint_copy.showOptions(window);
+
+
+                FootPrint.showOptions( centerMenu,scene);
         });
 
     //Statistics Button
@@ -57,8 +66,9 @@ public static void showHome(Stage window){
     //Add everything to grid
     leftmenu.getChildren().addAll(Welcome,img , mycarbonButton, statisticsButton, leaderboardButton, quitButton);
     bp.setLeft(leftmenu);
-    bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
-    Scene scene = new Scene(bp, 1920, 1080);
+    bp.setCenter(centerMenu);
+    bp.setStyle("-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');");
+
 
     leaderboardButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
     mycarbonButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
