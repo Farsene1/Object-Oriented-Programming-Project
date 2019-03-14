@@ -34,8 +34,17 @@ public static void showHome(Stage window){
     Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-        AlertBox.display("This is an error message", "To Be Implemented");
-    });
+            String result = ConfirmBox.footPrint("Confirm", "Select a Footprint type to update!");
+            if (result == "food") {
+                AlertBox.display("This is an error message", "To Be Implemented");
+            }
+            if (result == "transport") {
+                AlertBox.display("This is an error message", "To Be Implemented");
+            }
+            if (result == "water") {
+                AlertBox.display("This is an error message", "To Be Implemented");
+            }
+        });
 
     //Statistics Button
     Button statisticsButton = new Button("Statistics");
