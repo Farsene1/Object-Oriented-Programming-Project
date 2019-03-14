@@ -23,12 +23,12 @@ public class FootPrint {
         VBox optionsMenu = new VBox();
 
         //Quit
-        Button quitButton = new Button("Quit");
+        Button quitButton = new Button("Home");
         GridPane.setConstraints(quitButton, 0, 4);
         quitButton.setOnAction(e -> {
-            boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
+            boolean result = ConfirmBox.display("Confirm", "Return back to home page?");
             if (result) {
-                Login.showLogin(window);
+                Home.showHome(window);
             }
 
         });
