@@ -34,7 +34,7 @@ public static void showHome(Stage window){
     Button mycarbonButton = new Button("My carbon footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-                FootPrint.showOptions(window);
+                FootPrint_copy.showOptions(window);
         });
 
     //Statistics Button

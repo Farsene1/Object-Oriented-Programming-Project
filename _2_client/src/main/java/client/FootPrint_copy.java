@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class FootPrint {
+public class FootPrint_copy {
 
     public static void showOptions(Stage window) {
         RestfulClient restfulClient = new RestfulClient();
@@ -61,7 +61,7 @@ public class FootPrint {
         //Add everything to grid
         optionsMenu.getChildren().addAll(Welcome, img, Food, Transport, Water, quitButton);
         bp.setCenter(optionsMenu);
-        bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
+        bp.setStyle("-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');");
         Scene scene = new Scene(bp, 1920, 1080);
 
         Food.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
@@ -69,7 +69,7 @@ public class FootPrint {
         quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
         Water.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
         optionsMenu.setMinWidth(400);
-        optionsMenu.setStyle("-fx-font-size: 18pt; -fx-background-color: white; -fx-padding: 10px;");
+        optionsMenu.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
         Welcome.setStyle("-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30");
         window.setScene(scene);
         window.setMaximized(true);
