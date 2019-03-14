@@ -14,7 +14,7 @@ import java.awt.*;
 
 public class Home {
 
-public static void showHome(Stage window){
+public static void showHome(Stage window,classes.User user){
     RestfulClient restfulClient = new RestfulClient();
     restfulClient.getEntity();
     window.setTitle("Home");
