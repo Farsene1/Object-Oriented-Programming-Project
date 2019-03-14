@@ -17,8 +17,7 @@ public class Activity {
 
     private String date;
 
-    public Activity(User userId, Integer category, String description, Integer carbonFootprint, String date){
-        this.userId = userId;
+    public Activity(Integer category, String description, Integer carbonFootprint, String date){
         this.category = category;
         this.description = description;
         this.carbonFootprint = carbonFootprint;
@@ -48,9 +47,9 @@ public class Activity {
         String cat = "";
         if (category==1)
             cat="food";
-        if (category==1)
+        if (category==2)
             cat="transport";
-        if (category==1)
+        if (category==3)
             cat="water";
 
 
