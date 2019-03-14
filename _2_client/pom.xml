@@ -44,15 +44,10 @@
             <version>0.1.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>commons-validator</groupId>
-            <artifactId>commons-validator</artifactId>
-            <version>1.6</version>
-        </dependency>
     </dependencies>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>10.0.2</java.version>
     </properties>
 
 

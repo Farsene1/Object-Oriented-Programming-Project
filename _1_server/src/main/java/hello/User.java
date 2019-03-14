@@ -2,8 +2,7 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
 
 /**
  *User table entity generated.
@@ -33,7 +32,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute foodFootprint declared as type integer.
 	 */
-	private Integer food_footprint = 0;
+	private Integer foodFootprint = 0;
 	/**
 	 * Attribute waterFootprint declared as type integer.
 	 */
@@ -49,11 +48,7 @@ public class User implements Serializable {
 	/**
 	 * Attribute date declared as type timestamp.
 	 */
-	//private Date date;
-
-	@OneToMany
-	@JoinColumn(name = "userId")
-	private Set<Activity> activities;
+	private Date date;
 
 	/**
 	 * Empty constructor declaration for user.
@@ -69,10 +64,8 @@ public class User implements Serializable {
 	public User(String username, String hash) {
 		this.username = username;
 		this.hash = hash;
+		this.date = new Date();
 	}
-
-	public Integer getId(){return id;}
-	public void setId(Integer id){this.id = id;}
 
 	/**
 	 * Getter for username.
@@ -104,14 +97,14 @@ public class User implements Serializable {
 	 * Getter for foodFootprint.
 	 */
 	public Integer getFoodFootprint() {
-		return food_footprint;
+		return foodFootprint;
 	}
 	/**
 	 * Setter for foodFootprint.
 	 * @param foodFootprint
 	 */
 	public void setFoodFootprint(Integer foodFootprint) {
-		this.food_footprint = foodFootprint;
+		this.foodFootprint = foodFootprint;
 	}
 	/**
 	 * Getter for waterFootprint.
@@ -155,16 +148,16 @@ public class User implements Serializable {
 	/**
 	 * Getter for date.
 	 */
-//	public Date getDate() {
-//		return date;
-//	}
-//	/**
-//	 * Setter for date.
-//	 * @param date
-//	 */
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+	public Date getDate() {
+		return date;
+	}
+	/**
+	 * Setter for date.
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	/**
 	 *toString method for user.
