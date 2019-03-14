@@ -65,18 +65,20 @@ public class Signup {
             if (passwordInput.getText().equals(passwordInput2.getText()))
             {
              try {
-                 restfulClient.postEntity(new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256")));
+                 User  user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256"));
+                 restfulClient.postEntity(user);
                   System.out.println("Username: " + usernameInput.getText());
                   System.out.println("Password hash: " + Hash.generateHash(passwordInput.getText(), "SHA-256"));
-                }
+
+                 usernameInput.clear();
+                 passwordInput.clear();
+                 passwordInput2.clear();
+                 Home.showHome(window,user);             }
              catch (NoSuchAlgorithmException error) {
                   AlertBox.display("ERROR", "No such algorithm exception");
                   error.printStackTrace();
               }
-                usernameInput.clear();
-                passwordInput.clear();
-                passwordInput2.clear();
-               Home.showHome(window);
+
             }
             else
             {
