@@ -1,6 +1,5 @@
 package classes;
 
-import classes.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -48,4 +47,19 @@ public class RestfulClient {
         return postResponse.getBody();
     }
 
+    public ResponseEntity<String> activity(User user){
+        System.out.println("beginning /activity request");
+        String postUrl = "http://localhost:8080/activity";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        System.out.println("Response for get request");
+        return postResponse;
+    }
+
+    public User getUpdates(User user) {
+        System.out.println("Beginning /requestforupdate request");
+        String postUrl = "http://localhost:8080/requestforupdate";
+        ResponseEntity<User> getUpdate = restTemplate.postForEntity(postUrl, user, User.class);
+        System.out.println("Response for Post Request: " + getUpdate.getBody());
+        return getUpdate.getBody();
+    }
 }
