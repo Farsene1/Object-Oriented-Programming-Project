@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class addItemBox {
 
     static String foodAdded = "";
@@ -38,7 +40,8 @@ public class addItemBox {
             // add a meal in the database
             Activity activity = new Activity(user.getUsername(),1,"vegan",
                     200, "");
-            new Controller().sendFood(activity);
+            List<Activity> list = new Controller().sendFood(activity);
+            System.out.println("number of activities in the database" + list.size());
             window.close();
         });
         vegetarianButton.setOnAction(e -> {

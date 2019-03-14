@@ -39,10 +39,10 @@ public class GreetingController {
      * addActivity
      */
     @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public Activity addToActivitiesTable(@RequestBody Activity activity){
+    public List<Activity> addToActivitiesTable(@RequestBody Activity activity){
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
-        return activity;
+        return this.activityRepository.findAllActivities();
     }
 
     /**

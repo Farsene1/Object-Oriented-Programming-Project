@@ -3,7 +3,6 @@ package classes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class RestfulClient {
@@ -26,9 +25,9 @@ public class RestfulClient {
 
     public List<Activity> addActivity(Activity activity){
         String url = "http://localhost:8080/test";
-        List<Activity> res = (List<Activity>) restTemplate.postForEntity(url, activity, List.class);
+        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
         System.out.println("Response: " + res.toString());
-        return l;
+        return res;
     }
 
     /**

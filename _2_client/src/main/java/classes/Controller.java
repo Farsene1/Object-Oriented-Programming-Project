@@ -2,6 +2,8 @@ package classes;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
+import java.util.List;
+
 public class Controller {
 
     private RestfulClient restfulClient;
@@ -29,8 +31,8 @@ public class Controller {
 
     }
 
-    public void sendFood(Activity activity){
-        restfulClient.addActivity(activity);
+    public List<Activity> sendFood(Activity activity){
+        return restfulClient.addActivity(activity);
     }
 
     /**
