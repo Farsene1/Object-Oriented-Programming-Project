@@ -1,6 +1,7 @@
 package client;
 
 import classes.RestfulClient;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,12 +10,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.geometry.Insets;
-import java.awt.*;
 
 public class Home {
 
-public static void showHome(Stage window,classes.User user){
+public static void showHome(Stage window, classes.User user){
     RestfulClient restfulClient = new RestfulClient();
     restfulClient.getEntity();
     window.setTitle("Home");
@@ -43,7 +42,7 @@ public static void showHome(Stage window,classes.User user){
         mycarbonButton.setOnAction(e -> {
 
 
-                FootPrint.showOptions( centerMenu,scene);
+                FootPrint.showOptions( centerMenu,scene, user);
         });
 
     //Statistics Button

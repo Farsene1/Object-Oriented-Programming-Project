@@ -49,7 +49,7 @@ public class addItemBox {
         window.showAndWait();
 
         //Make sure to return answer
-        return new classes.Meal(foodAdded,"Food");
+        return new classes.Meal("Food", foodAdded);
     }
 
 }
