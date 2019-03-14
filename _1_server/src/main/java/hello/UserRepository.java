@@ -30,10 +30,10 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             + "food_footprint= ?3, transport_footprint = ?4, "
             + "polar_score = ?5, date = ?6 WHERE username = ?1",
             nativeQuery = true)
-    List<User> updateActivity(@Param("username")String username,
-                              @Param("water")Integer water,
-                              @Param("food")Integer food,
-                              @Param("transport")Integer transport,
-                              @Param("score")Integer score,
-                              @Param("date")Date date);
+    List<User> updateActivity(@Param("username") String username,
+                              @Param("water") Integer water,
+                              @Param("food") Integer food,
+                              @Param("transport") Integer transport,
+                              @Param("score") Integer score,
+                              @Param("date") Date date);
 }

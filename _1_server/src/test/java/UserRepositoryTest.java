@@ -1,5 +1,3 @@
-import hello.User;
-import hello.UserRepository;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;

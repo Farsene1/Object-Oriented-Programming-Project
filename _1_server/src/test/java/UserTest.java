@@ -1,4 +1,3 @@
-import hello.User;
 import org.junit.Before;
 import org.junit.Test;
 
