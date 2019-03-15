@@ -5,44 +5,39 @@ import javax.persistence.*;
 //import java.util.Date;
 
 @Entity
-@Table(name = "activity")
+@Table(name = "activities")
 
 public class Activity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ACTIVITY_ID", unique = true, nullable = false)
-    private Integer id = 0;
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "userId", unique = true, nullable = false)
-    private User userId;
+    private String username;
 
-    @Column(name = "CATEGORY", unique = false, nullable = false)
     private Integer category;
 
-    @Column(name = "DESCRIPTION", unique = false, nullable = false)
     private String description;
 
-    @Column(name = "CARBON_FOOTPRINT", unique = false, nullable = false)
-    private Integer carbonFootprint;
+    private Integer footprint;
 
-    @Column(name = "DATE", unique = false, nullable = false)
     private String date;
 
-    public Activity(User userId, Integer category, String description, Integer carbonFootprint, String date){
-        this.userId = userId;
+    public Activity(){}
+
+    public Activity(String username, Integer category, String description, Integer footprint, String date){
+        this.username = username;
         this.category = category;
         this.description = description;
-        this.carbonFootprint = carbonFootprint;
+        this.footprint = footprint;
         this.date = date;
     }
 
     public Integer getId(){return id;}
     public void setId(Integer id){this.id = id;}
 
-    public User getUserId(){return userId;}
-    public void setUserId(User userId){this.userId = userId;}
+    public String getUserId(){return username;}
+    public void setUserId(String username){this.username = username;}
 
     public Integer getCategory(){return category;}
     public void setCategory(Integer category){this.category = category;}
@@ -50,20 +45,27 @@ public class Activity {
     public String getDescription(){return description;}
     public void setDescription(String description){this.description = description;}
 
-    public Integer getCarbonFootprint(){return carbonFootprint;}
-    public void setCarbonFootprint(Integer carbonFootprint){this.carbonFootprint = carbonFootprint;}
+    public Integer getCarbonFootprint(){return footprint;}
+    public void setCarbonFootprint(Integer carbonFootprint){this.footprint = carbonFootprint;}
 
     public String getDate(){return date;}
     public void setDate(String date){this.date = date;}
 
     @Override
     public String toString(){
+        String cat = "";
+        if (category == 1)
+            cat = "food";
+        if (category==2)
+            cat="transport";
+        if (category==3)
+            cat="water";
+
+
         return "Activity(" +
-                ", id='" + id + '\'' +
-                ", userId='" + userId + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
-                ", carbonFootprint='" + carbonFootprint + '\'' +
+                ", carbonFootprint='" + footprint + '\'' +
                 ", date'" + date + '\'' +
                 "}";
     }

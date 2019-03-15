@@ -30,11 +30,9 @@ public class FootPrint {
         Button Food = new Button("+");
       //  GridPane.setConstraints(Food, 4, 1);
         Food.setOnAction(e -> {
-            classes.Meal food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.");
-            if(!food.getFoodType().equals(null))
-            {
-                //send to server
-            }
+            classes.Meal food = addItemBox.addMeal("Food Footprint",
+                    "Select the meal type you wish to add.",
+                    user);
         });
 
         //My Transport footprint
