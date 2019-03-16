@@ -20,6 +20,12 @@ public class GreetingController {
     private UserRepository userRepository;
 
     /**
+     *  autowiring activities repo.
+     */
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
@@ -27,6 +33,16 @@ public class GreetingController {
     @RequestMapping("/")
     public String getRootPath() {
         return "this is the default page";
+    }
+
+    /**
+     * addActivity
+     */
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public List<Activity> addToActivitiesTable(@RequestBody Activity activity){
+        this.activityRepository.save(activity);
+        System.out.println("activities table updates");
+        return this.activityRepository.findAllActivities();
     }
 
     /**

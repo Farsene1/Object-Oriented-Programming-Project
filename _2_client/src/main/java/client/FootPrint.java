@@ -1,18 +1,17 @@
 package client;
 
-import classes.RestfulClient;
+import classes.User;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 
 public class FootPrint {
 
-    public static void showOptions(GridPane grid, Scene scene) {
+    public static void showOptions(GridPane grid, Scene scene, User user) {
 
        // window.setTitle("My Footprint");
         Label FoodLabel = new Label("Food Footprint ");
@@ -31,8 +30,9 @@ public class FootPrint {
         Button Food = new Button("+");
       //  GridPane.setConstraints(Food, 4, 1);
         Food.setOnAction(e -> {
-            classes.Meal food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.");
-
+            classes.Meal food = addItemBox.addMeal("Food Footprint",
+                    "Select the meal type you wish to add.",
+                    user);
         });
 
         //My Transport footprint

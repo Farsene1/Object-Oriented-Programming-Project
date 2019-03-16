@@ -1,16 +1,10 @@
-package hello;
+package classes;
 
-import javax.persistence.*;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
-@Entity
-@Table(name = "activities")
-
 public class Activity {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Integer id;
 
     private String username;

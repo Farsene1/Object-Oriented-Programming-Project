@@ -1,16 +1,23 @@
 package client;
 
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.geometry.*;
+import classes.Activity;
+import classes.Controller;
+import classes.User;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.util.List;
 
 public class addItemBox {
 
     static String foodAdded = "";
 
-    public static classes.Meal addMeal(String title, String message) {
+    public static classes.Meal addMeal(String title, String message, User user) {
 
 
         Stage window = new Stage();
@@ -28,6 +35,13 @@ public class addItemBox {
         //Clicking will set answer and close window
         veganButton.setOnAction(e -> {
             foodAdded = "vegan";
+            // hardcoded - add 200 points for vegan
+            new Controller().sendMeal(user, 200);
+            // add a meal in the database
+            Activity activity = new Activity(user.getUsername(),1,"vegan",
+                    200, "");
+            List<Activity> list = new Controller().sendFood(activity);
+            System.out.println("number of activities in the database" + list.size());
             window.close();
         });
         vegetarianButton.setOnAction(e -> {
@@ -49,7 +63,7 @@ public class addItemBox {
         window.showAndWait();
 
         //Make sure to return answer
-        return new classes.Meal(foodAdded,"Food");
+        return new classes.Meal("Food", foodAdded);
     }
 
 }

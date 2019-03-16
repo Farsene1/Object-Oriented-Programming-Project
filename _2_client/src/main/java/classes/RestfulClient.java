@@ -3,6 +3,8 @@ package classes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 public class RestfulClient {
     RestTemplate restTemplate;
 
@@ -19,6 +21,13 @@ public class RestfulClient {
         ResponseEntity<User> getResponse = restTemplate.getForEntity(getUrl, User.class); // User user = restTemplate.getForObject(getUrl, User.class); WHICH ONE IS BETTER? // DIFFERENT RESPONSES
         System.out.println(getResponse.toString());
         return getResponse;
+    }
+
+    public List<Activity> addActivity(Activity activity){
+        String url = "http://localhost:8080/test";
+        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
+        System.out.println("Response: " + res.toString());
+        return res;
     }
 
     /**

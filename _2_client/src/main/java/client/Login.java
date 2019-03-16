@@ -1,5 +1,6 @@
 package client;
 
+import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import javafx.geometry.Insets;
@@ -60,8 +61,11 @@ public class Login {
             try {
                 User user = new User(username, Hash.generateHash(password, "SHA-256"));
                 String res = restfulClient.login(user);
-                if(res.equals("POSITIVE"))
+                if(res.equals("POSITIVE")){
+                    // getting updates from the database
+                    user = new Controller().getUpdates(user);
                     Home.showHome(window, user);
+                }
                 else{
                     System.out.println("INVALID CREDENTIALS");
                     AlertBox.display("ERROR", "INVALID CREDENTIALS");
