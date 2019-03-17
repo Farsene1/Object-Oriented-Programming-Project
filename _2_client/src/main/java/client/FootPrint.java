@@ -49,7 +49,7 @@ public class FootPrint {
         Col4.setMinWidth(200);
 
         table.setItems(addItems(user));
-        table.getColumns().addAll(Col1, Col2, Col3, Col4);
+        table.getColumns().setAll(Col1, Col2, Col3, Col4);
 
         // window.setTitle("My Footprint");
         Label FoodLabel = new Label("Food Footprint ");
