@@ -67,17 +67,6 @@ public class UserTest {
         assertEquals((int)user1.getTransportFootprint(), 1);
     }
 
-//    @Test
-//    public void getDateTest() {
-//        assertFalse(user1.getDate() == null);
-//    }
-//
-//    @Test
-//    public void setDateTest() {
-//        user1.setDate(new Date(20,8,2019));
-//        assertEquals(user1.getDate(),new Date(20,8,2019));
-//    }
-
     @Test
     public void getScoreTest() {
         assertEquals(user1.getPolarScore()+0, 0);

@@ -152,4 +152,8 @@ public class GreetingController {
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+    public void setActivityRepository(ActivityRepository activityRepository){
+        this.activityRepository = activityRepository;
+    }
 }
