@@ -44,6 +44,7 @@ public class RestfulClient {
     public List<Activity> addActivity(Activity activity){
         String url = "http://localhost:8080/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
+        System.out.println("Response: " + res.toString());
         ObjectMapper mapper = new ObjectMapper();
         List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
         return activities;

@@ -1,6 +1,4 @@
-import hello.GreetingController;
-import hello.User;
-import hello.UserRepository;
+import hello.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -9,6 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -21,12 +20,16 @@ public class ControllerTest {
     @MockBean
     private UserRepository repository = Mockito.mock(UserRepository.class);
 
+    @MockBean
+    private ActivityRepository activityRepository = Mockito.mock(ActivityRepository.class);
+
     private User user1 = new User("admin","root");
     private User user2 = new User("postgres","root");
 
     @BeforeEach
     public void setUp(){
         controller.setUserRepository(repository);
+        controller.setActivityRepository(activityRepository);
     }
 
 //    @Test
@@ -108,5 +111,34 @@ public class ControllerTest {
         User u = controller.greeting("Florentin","Arsene");
         assertEquals("Florentin",u.getUsername());
         assertEquals("Arsene", u.getHash());
+    }
+
+    @Test
+    public void testPath(){
+        when(activityRepository.findActivitiesByUser("admin"))
+                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
+        List<Activity> list = controller.addToActivitiesTable(new Activity("admin",1,"vegan",200,""));
+        assertEquals(1,list.size());
+    }
+
+    @Test
+    public void firstActivitiesPath(){
+        when(activityRepository.findActivitiesByUser("admin"))
+                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
+        List<Activity> list = controller.getUpdatesActivities(new User("admin",""));
+        assertEquals(1,list.size());
+    }
+
+    @Test
+    public void addActivityTest(){
+        user1.setFoodFootprint(10);
+        String res = controller.addActivity(user1);
+        assertEquals("OK",res);
+    }
+
+    @Test
+    public void getUpdatesTest(){
+        when(repository.findUserByUsername("admin")).thenReturn(Arrays.asList(user1));
+        assertEquals("admin", controller.getUpdates(user1).getUsername());
     }
 }

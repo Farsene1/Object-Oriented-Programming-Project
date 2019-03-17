@@ -1,5 +1,5 @@
-import hello.Activity;
-import hello.User;
+import classes.Activity;
+import classes.User;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,16 +21,16 @@ public class ActivityTest {
 
     @Test
     public void getSetTest(){
-    assertEquals(user1.getUsername(), activity1.getUsername());
-    assertEquals((Integer) 1, activity1.getCategory());
-    assertEquals("vegetarian", activity1.getDescription());
-    assertEquals((Integer) 50, activity1.getFootprint());
-    assertEquals("", activity1.getDate());
-    activity1.setUsername(user1.getUsername());
-    activity1.setCategory(0);
-    activity1.setDescription("meal type");
-    activity1.setFootprint(0);
-    activity1.setDate("");
+        assertEquals(user1.getUsername(), activity1.getUsername());
+        assertEquals((Integer) 1, activity1.getCategory());
+        assertEquals("vegetarian", activity1.getDescription());
+        assertEquals((Integer) 50, activity1.getFootprint());
+        assertEquals("", activity1.getDate());
+        activity1.setUsername(user1.getUsername());
+        activity1.setCategory(0);
+        activity1.setDescription("meal type");
+        activity1.setFootprint(0);
+        activity1.setDate("");
     }
 
     @Test

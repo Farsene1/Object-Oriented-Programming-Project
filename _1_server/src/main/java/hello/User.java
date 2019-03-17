@@ -2,7 +2,6 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -70,9 +69,6 @@ public class User implements Serializable {
 		this.username = username;
 		this.hash = hash;
 	}
-
-	public Integer getId(){return id;}
-	public void setId(Integer id){this.id = id;}
 
 	/**
 	 * Getter for username.
