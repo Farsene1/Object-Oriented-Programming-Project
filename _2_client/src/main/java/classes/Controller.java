@@ -2,6 +2,7 @@ package classes;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {

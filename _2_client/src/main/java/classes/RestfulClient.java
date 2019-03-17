@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestfulClient {
@@ -30,10 +31,9 @@ public class RestfulClient {
      */
     public List<Activity> getAllActivities(User user){
         String url = "http://localhost:8080/firstactivities";
-        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, user, List.class);
+        List<Activity> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
-//        System.out.println(activities.get(0).toString());
         return activities;
     }
     /**
