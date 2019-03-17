@@ -9,6 +9,9 @@ public interface ActivityRepository extends CrudRepository<Activity, Integer> {
     @Query(value = "SELECT * from activities", nativeQuery = true)
     List<Activity> findAllActivities();
 
+    @Query(value = "SELECT * from activities WHERE username = ?1", nativeQuery = true)
+    List<Activity> findActivitiesByUser(String username);
+
 //    @Query(value = "SELECT carbonFootprint FROM activity AS a WHERE a.userId = :userId AND category = 1", nativeQuery = true)
 //    List<Activity> findWaterFootprintByUser(Integer userId);
 //

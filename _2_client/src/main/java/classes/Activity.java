@@ -27,23 +27,53 @@ public class Activity {
         this.date = date;
     }
 
-    public Integer getId(){return id;}
-    public void setId(Integer id){this.id = id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public String getUserId(){return username;}
-    public void setUserId(String username){this.username = username;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public Integer getCategory(){return category;}
-    public void setCategory(Integer category){this.category = category;}
+    public String getUsername() {
+        return username;
+    }
 
-    public String getDescription(){return description;}
-    public void setDescription(String description){this.description = description;}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public Integer getCarbonFootprint(){return footprint;}
-    public void setCarbonFootprint(Integer carbonFootprint){this.footprint = carbonFootprint;}
+    public Integer getCategory() {
+        return category;
+    }
 
-    public String getDate(){return date;}
-    public void setDate(String date){this.date = date;}
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getFootprint() {
+        return footprint;
+    }
+
+    public void setFootprint(Integer footprint) {
+        this.footprint = footprint;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @Override
     public String toString(){
@@ -60,7 +90,6 @@ public class Activity {
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
                 ", carbonFootprint='" + footprint + '\'' +
-                ", date'" + date + '\'' +
                 "}";
     }
 }
