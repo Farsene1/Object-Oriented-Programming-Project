@@ -46,6 +46,16 @@ public class GreetingController {
     }
 
     /**
+     *
+     * @param user
+     * @return List of Activity objects
+     */
+    @RequestMapping(value = "/firstactivities", method = RequestMethod.POST)
+    public List<Activity> getUpdatesActivities(@RequestBody User user){
+        return this.activityRepository.findActivitiesByUser(user.getUsername());
+    }
+
+    /**
      * this is the registration method - checks if the registration is possible.
      *
      * @param user

@@ -22,9 +22,13 @@ public class Controller {
         return restfulClient.login(user);
     }
 
-    public User getUpdates(User user){
+    public User getAllActivities(User user){
         User result = restfulClient.getUpdates(user);
         return result;
+    }
+
+    public List<Activity> getUpdates(User user){
+        return restfulClient.getAllActivities(user);
     }
 
     public void sendData(User user){
