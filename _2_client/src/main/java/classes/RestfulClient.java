@@ -1,8 +1,11 @@
 package classes;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestfulClient {
@@ -28,8 +31,10 @@ public class RestfulClient {
      */
     public List<Activity> getAllActivities(User user){
         String url = "http://localhost:8080/firstactivities";
-        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, user, List.class);
-        return res;
+        List<Activity> res = restTemplate.postForObject(url, user, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
+        return activities;
     }
     /**
      *
@@ -39,8 +44,9 @@ public class RestfulClient {
     public List<Activity> addActivity(Activity activity){
         String url = "http://localhost:8080/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
-        System.out.println("Response: " + res.toString());
-        return res;
+        ObjectMapper mapper = new ObjectMapper();
+        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
+        return activities;
     }
 
     /**
