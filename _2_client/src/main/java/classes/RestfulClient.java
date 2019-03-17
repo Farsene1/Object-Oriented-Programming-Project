@@ -23,6 +23,19 @@ public class RestfulClient {
         return getResponse;
     }
 
+    /**
+     * get all activities
+     */
+    public List<Activity> getAllActivities(User user){
+        String url = "http://localhost:8080/firstactivities";
+        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, user, List.class);
+        return res;
+    }
+    /**
+     *
+     * @param activity
+     * @return
+     */
     public List<Activity> addActivity(Activity activity){
         String url = "http://localhost:8080/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
@@ -56,6 +69,11 @@ public class RestfulClient {
         return postResponse.getBody();
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     public ResponseEntity<String> activity(User user){
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/activity";
@@ -64,6 +82,11 @@ public class RestfulClient {
         return postResponse;
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     public User getUpdates(User user) {
         System.out.println("Beginning /requestforupdate request");
         String postUrl = "http://localhost:8080/requestforupdate";
