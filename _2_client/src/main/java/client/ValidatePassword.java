@@ -10,7 +10,7 @@ public class ValidatePassword {
         for (int i=0; i < length; i++) {
 
             if (!((Password.charAt(i) >= 47 && Password.charAt(i) <= 58) || (Password.charAt(i) >= 64 && Password.charAt(i) <= 91) || (Password.charAt(i) >= 97 && Password.charAt(i) <= 122))) {
-                res = "char";
+                res = "Your password contains a forbidden character.";
             }
 
             if ((Password.charAt(i) > 47 && Password.charAt(i) < 58)) {
