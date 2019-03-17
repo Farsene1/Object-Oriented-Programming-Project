@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RestfulClient {
@@ -18,10 +17,10 @@ public class RestfulClient {
     /**
      * get Entity
      */
-    public ResponseEntity<User> getEntity() {
+    public User getEntity() {
         System.out.println("Beginning /GET request!");
         String getUrl = "http://localhost:8080/get?username=Florentin&hash=abcdef";
-        ResponseEntity<User> getResponse = restTemplate.getForEntity(getUrl, User.class); // User user = restTemplate.getForObject(getUrl, User.class); WHICH ONE IS BETTER? // DIFFERENT RESPONSES
+        User getResponse = restTemplate.getForObject(getUrl, User.class); // User user = restTemplate.getForObject(getUrl, User.class); WHICH ONE IS BETTER? // DIFFERENT RESPONSES
         System.out.println(getResponse.toString());
         return getResponse;
     }
@@ -55,12 +54,12 @@ public class RestfulClient {
      * @param user
      * @return
      */
-    public ResponseEntity<String> postEntity(User user){
+    public String postEntity(User user){
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
-        return postResponse;
+        return postResponse.getBody();
     }
 
     /**
@@ -81,12 +80,12 @@ public class RestfulClient {
      * @param user
      * @return
      */
-    public ResponseEntity<String> activity(User user){
+    public String activity(User user){
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/activity";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for get request");
-        return postResponse;
+        return postResponse.getBody();
     }
 
     /**
@@ -100,5 +99,9 @@ public class RestfulClient {
         ResponseEntity<User> getUpdate = restTemplate.postForEntity(postUrl, user, User.class);
         System.out.println("Response for Post Request: " + getUpdate.getBody());
         return getUpdate.getBody();
+    }
+
+    public void setRestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 }
