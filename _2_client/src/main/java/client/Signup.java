@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 
+import static client.ValidatePassword.validatePassword;
+
 public class Signup {
 
     public static void showSignup(Stage window){
@@ -60,30 +62,36 @@ public class Signup {
         Button register = new Button("Register");
         GridPane.setConstraints(register, 1, 3);
         register.setOnAction(e -> {
-
-            if (passwordInput.getText().equals(passwordInput2.getText()))
-            {
-             try {
-                 User  user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256"));
-                 restfulClient.postEntity(user);
-                  System.out.println("Username: " + usernameInput.getText());
-                  System.out.println("Password hash: " + Hash.generateHash(passwordInput.getText(), "SHA-256"));
-
-                 usernameInput.clear();
-                 passwordInput.clear();
-                 passwordInput2.clear();
-                 Home.showHome(window, user);             }
-             catch (NoSuchAlgorithmException error) {
-                  AlertBox.display("ERROR", "No such algorithm exception");
-                  error.printStackTrace();
-              }
-
+            int step = 0;
+            String valid = validatePassword(passwordInput.getText());
+            if (passwordInput.getText().equals(passwordInput2.getText())) {
+                String Password = passwordInput.getText();
+                step = 1;
             }
             else
             {
-                AlertBox.display("ERROR","PASSWORDS DON'T MATCH");
+                AlertBox.display("ERROR","The entered passwords do not match.");
             }
 
+            if (step == 1 && valid.equals("valid")) {
+                try {
+                    User user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256"));
+                    restfulClient.postEntity(user);
+                    System.out.println("Username: " + usernameInput.getText());
+                    System.out.println("Password hash: " + Hash.generateHash(passwordInput.getText(), "SHA-256"));
+
+                    usernameInput.clear();
+                    passwordInput.clear();
+                    passwordInput2.clear();
+                    Home.showHome(window, user);
+                } catch (NoSuchAlgorithmException error) {
+                    AlertBox.display("ERROR", "No such algorithm exception");
+                    error.printStackTrace();
+                }
+            }
+            else if (step == 1){
+                    AlertBox.display("ERROR", validatePassword(passwordInput.getText()));
+            }
         });
 
         ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
