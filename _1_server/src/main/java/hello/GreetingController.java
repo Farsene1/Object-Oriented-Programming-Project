@@ -42,7 +42,7 @@ public class GreetingController {
     public List<Activity> addToActivitiesTable(@RequestBody Activity activity){
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
-        return this.activityRepository.findAllActivities();
+        return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
 
     /**
