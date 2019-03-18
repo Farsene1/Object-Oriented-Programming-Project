@@ -21,8 +21,7 @@
  GUI | Create transport form and create calculator in the transport class | Stelios | 2-3 hours
  GUI | Create electricity form and create calculator in the electricity class | Tijs | 2-3 hours
  GUI | Clean up the new additiions | Hashim | 3-4 hours
- 
- extra
+
  GUI | Add graphs to statistics page | Hashim | 1 hour
  Server | Create graphs table | florentin | 1 hours
  Server | Create auto update method/query for graphs table| Florentin | 3 hours
