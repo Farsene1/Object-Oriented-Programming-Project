@@ -1,5 +1,6 @@
 package client;
 
+import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import javafx.geometry.Insets;
@@ -76,14 +77,21 @@ public class Signup {
             if (step == 1 && valid.equals("valid")) {
                 try {
                     User user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256"));
-                    restfulClient.postEntity(user);
+                    String res = new Controller().signUp(user);
+
                     System.out.println("Username: " + usernameInput.getText());
                     System.out.println("Password hash: " + Hash.generateHash(passwordInput.getText(), "SHA-256"));
 
                     usernameInput.clear();
                     passwordInput.clear();
                     passwordInput2.clear();
-                    Home.showHome(window, user);
+                    // check if registration is possible
+                    if(res.equals("/POST successful")){
+                        Home.showHome(window, user);
+                    }
+                    else{
+                        AlertBox.display("ERROR","ALREADY SIGNED UP!");
+                    }
                 } catch (NoSuchAlgorithmException error) {
                     AlertBox.display("ERROR", "No such algorithm exception");
                     error.printStackTrace();
