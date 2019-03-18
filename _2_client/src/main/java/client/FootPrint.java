@@ -28,7 +28,7 @@ public class FootPrint {
     static TableView table = new TableView();
 
     public static void showOptions(GridPane grid, Scene scene, User user) {
-        Label myFootprint = new Label("My Footprints!");
+        Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
         Footprint.setStyle("-fx-padding: 15;");
@@ -111,7 +111,7 @@ public class FootPrint {
         FoodOptions.setMinWidth(476);
         WaterOptions.setMinWidth(476);
         TransportOptions.setMinWidth(476);
-        Footprint.setMinWidth(900);
+        Footprint.setMinWidth(832);
     }
 
     public  static ObservableList<Activity> addItems(User user)

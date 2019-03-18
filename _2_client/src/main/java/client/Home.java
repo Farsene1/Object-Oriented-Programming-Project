@@ -37,7 +37,7 @@ public static void showHome(Stage window, classes.User user){
 
     });
     //My Carbon footprint
-    Button mycarbonButton = new Button("My carbon footprint");
+    Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
 

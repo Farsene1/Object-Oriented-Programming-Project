@@ -3,6 +3,7 @@ package client;
 import classes.Controller;
 import classes.User;
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -17,8 +18,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
+        primaryStage.getIcons().add(new Image("https://i.imgur.com/diKacP0.png"));
 
-        //EASTER EGG// default value in the database
+        //EASTER EGG// default value in the database for shortcut when developing
         try {
             new Controller().signUp(new User("admin", Hash.generateHash("root", "SHA-256")));
         } catch (NoSuchAlgorithmException e) {
