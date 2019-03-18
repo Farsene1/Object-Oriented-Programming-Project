@@ -26,13 +26,3 @@ coverage:
     paths:
       - target/site/jacoco/
 
-checkstyle:
-  stage: report
-  script:
-    - mvn site -B
-  artifacts:
-    name: checkstyle
-    paths:
-      - target/site/checkstyle.html
-      - target/site/css/
-      - target/site/images/
