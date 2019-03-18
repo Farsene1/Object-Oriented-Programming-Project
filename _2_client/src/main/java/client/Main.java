@@ -1,17 +1,8 @@
 package client;
 
-import classes.RestfulClient;
+import classes.Controller;
 import classes.User;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -27,6 +18,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
 
+        //EASTER EGG// default value in the database
+        try {
+            new Controller().signUp(new User("admin", Hash.generateHash("root", "SHA-256")));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        //.........//
         window = primaryStage;
         window.setOnCloseRequest(e -> {
             e.consume();
