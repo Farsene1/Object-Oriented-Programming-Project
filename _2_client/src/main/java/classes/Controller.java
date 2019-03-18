@@ -13,11 +13,9 @@ public class Controller {
     }
 
     public String signUp(User user){
-        return restfulClient.postEntity(user).getBody();
+        return restfulClient.postEntity(user);
     }
 
-    // methods to be implemented in the restful client class
-    // Restful client will be called through this Controller class
     public String login(User user){
         return restfulClient.login(user);
     }
@@ -27,8 +25,8 @@ public class Controller {
         return result;
     }
 
-    public void sendData(User user){
-
+    public List<Activity> getAllActivities(User user){
+        return restfulClient.getAllActivities(user);
     }
 
     public List<Activity> sendFood(Activity activity){
@@ -74,5 +72,13 @@ public class Controller {
     public static boolean checkEmail(String email){
         boolean emailValid = EmailValidator.getInstance().isValid(email);
         return emailValid;
+    }
+
+    public RestfulClient getRestfulClient() {
+        return restfulClient;
+    }
+
+    public void setRestfulClient(RestfulClient restfulClient) {
+        this.restfulClient = restfulClient;
     }
 }
