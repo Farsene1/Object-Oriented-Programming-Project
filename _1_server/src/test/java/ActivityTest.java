@@ -1,5 +1,4 @@
 import hello.Activity;
-import hello.User;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,13 +6,11 @@ import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ActivityTest {
-    User user1;
     Activity activity1;
 
     @Before
     public void setUp(){
-        user1 = new User("Flo","abc");
-        activity1 = new Activity(user1.getUsername(),1, "vegetarian", 50, "");
+        activity1 = new Activity("Flo",1, "vegetarian", 50, "");
     }
 
     @Test
@@ -21,12 +18,12 @@ public class ActivityTest {
 
     @Test
     public void getSetTest(){
-    assertEquals(user1.getUsername(), activity1.getUsername());
+    assertEquals("Flo", activity1.getUsername());
     assertEquals((Integer) 1, activity1.getCategory());
     assertEquals("vegetarian", activity1.getDescription());
     assertEquals((Integer) 50, activity1.getFootprint());
     assertEquals("", activity1.getDate());
-    activity1.setUsername(user1.getUsername());
+    activity1.setUsername(activity1.getUsername());
     activity1.setCategory(0);
     activity1.setDescription("meal type");
     activity1.setFootprint(0);
