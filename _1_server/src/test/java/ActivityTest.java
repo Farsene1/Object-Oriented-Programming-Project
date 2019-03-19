@@ -26,7 +26,7 @@ public class ActivityTest {
     activity1.setUsername(activity1.getUsername());
     activity1.setCategory(2);
     activity1.setDescription("description");
-    activity1.getFootprint(500);
+    activity1.setFootprint(500);
     activity1.setDate("19-03-2019");
     }
 
