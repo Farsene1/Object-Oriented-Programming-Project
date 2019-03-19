@@ -25,6 +25,7 @@ public class Transport {
     public Transport(String username, String type, Integer distance, String date, int score){
         this.username = username;
         this.type = type;
+        this.distance = distance;
         this.date = date;
         this.score = score;
     }
