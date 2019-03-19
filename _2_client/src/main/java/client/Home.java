@@ -58,7 +58,7 @@ public static void showHome(Stage window, classes.User user){
         AlertBox.display("This is an error message", "To Be Implemented");
     });
 
-    Label Welcome = new Label("Welcome to the homepage!");
+    Label Welcome = new Label("Welcome "+ user.getUsername()+"!");
 
     ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
     img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
