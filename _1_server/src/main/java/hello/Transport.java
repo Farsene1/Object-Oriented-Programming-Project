@@ -12,9 +12,7 @@ public class Transport {
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(unique = true)
     private String username;
-
     private String type;
     private Integer distance;
     private String date;

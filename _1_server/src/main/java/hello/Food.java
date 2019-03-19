@@ -12,9 +12,7 @@ public class Food {
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(unique = true)
     private String username;
-
     private String mealType;
     private String date;
     private Integer score;

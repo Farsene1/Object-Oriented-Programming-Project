@@ -12,9 +12,7 @@ public class Electricity {
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(unique = true)
     private String username;
-
     private Integer heatingHrs;
     private Integer lightHrs;
     boolean solarPanels;
