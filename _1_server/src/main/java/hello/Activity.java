@@ -11,7 +11,9 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Column(unique = true)
     private String username;
+
     private Integer category;
     private String description;
     private Integer footprint;
