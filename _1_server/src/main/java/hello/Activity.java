@@ -1,8 +1,6 @@
 package hello;
 
 import javax.persistence.*;
-//import java.text.SimpleDateFormat;
-//import java.util.Date;
 
 @Entity
 @Table(name = "activities")
@@ -14,22 +12,18 @@ public class Activity {
     private Integer id;
 
     private String username;
-
-    private Integer category;
-
+    private String category;
     private String description;
-
-    private Integer footprint;
-
+    private Integer score;
     private String date;
 
     public Activity(){}
 
-    public Activity(String username, Integer category, String description, Integer footprint, String date){
+    public Activity(String username, String category, String description, Integer score, String date){
         this.username = username;
         this.category = category;
         this.description = description;
-        this.footprint = footprint;
+        this.score = score;
         this.date = date;
     }
 
@@ -49,28 +43,23 @@ public class Activity {
         this.username = username;
     }
 
-    public Integer getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Integer category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescription(){return description;}
+    public void setDescription(String description){this.description = description;}
+
+    public Integer getScore() {
+        return score;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getFootprint() {
-        return footprint;
-    }
-
-    public void setFootprint(Integer footprint) {
-        this.footprint = footprint;
+    public void setScore(Integer footprint) {
+        this.score = footprint;
     }
 
     public String getDate() {
@@ -84,18 +73,21 @@ public class Activity {
     @Override
     public String toString(){
         String cat = "";
-        if (category == 1)
+        if (category.equals("food"))
             cat = "food";
-        if (category==2)
+        if (category.equals("groceries"))
+            cat="groceries";
+        if (category.equals("transport"))
             cat="transport";
-        if (category==3)
-            cat="water";
+        if (category.equals("electricity"))
+            cat="electricity";
 
 
         return "Activity(" +
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
-                ", carbonFootprint='" + footprint + '\'' +
+                ", score='" + score + '\'' +
+                ", date='" + date + '\'' +
                 "}";
     }
 }
