@@ -12,18 +12,18 @@ public class Activity {
     private Integer id;
 
     private String username;
-    private String category;
+    private Integer category;
     private String description;
-    private Integer score;
+    private Integer footprint;
     private String date;
 
     public Activity(){}
 
-    public Activity(String username, String category, String description, Integer score, String date){
+    public Activity(String username, Integer category, String description, Integer footprint, String date){
         this.username = username;
         this.category = category;
         this.description = description;
-        this.score = score;
+        this.footprint = footprint;
         this.date = date;
     }
 
@@ -43,23 +43,23 @@ public class Activity {
         this.username = username;
     }
 
-    public String getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 
     public String getDescription(){return description;}
     public void setDescription(String description){this.description = description;}
 
-    public Integer getScore() {
-        return score;
+    public Integer getFootprint() {
+        return footprint;
     }
 
-    public void setScore(Integer footprint) {
-        this.score = footprint;
+    public void getFootprint(Integer footprint) {
+        this.footprint = footprint;
     }
 
     public String getDate() {
@@ -73,20 +73,19 @@ public class Activity {
     @Override
     public String toString(){
         String cat = "";
-        if (category.equals("food"))
+        if (category == 1)
             cat = "food";
-        if (category.equals("groceries"))
-            cat="groceries";
-        if (category.equals("transport"))
+        if (category == 2)
             cat="transport";
-        if (category.equals("electricity"))
+        if (category == 3)
             cat="electricity";
-
+        if (category == 4)
+            cat="groceries";
 
         return "Activity(" +
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
-                ", score='" + score + '\'' +
+                ", footprint='" + footprint + '\'' +
                 ", date='" + date + '\'' +
                 "}";
     }

@@ -10,7 +10,7 @@ public class ActivityTest {
 
     @Before
     public void setUp(){
-        activity1 = new Activity("Flo","food", "vegan", 500, "18-03-2019");
+        activity1 = new Activity("Flo",1, "vegan", 500, "18-03-2019");
     }
 
     @Test
@@ -19,13 +19,14 @@ public class ActivityTest {
     @Test
     public void getSetTest(){
     assertEquals("Flo", activity1.getUsername());
-    assertEquals("food", activity1.getCategory());
-    assertEquals((Integer) 500, activity1.getScore());
+    assertEquals((Integer) 1, activity1.getCategory());
+    assertEquals("vegan", activity1.getDescription());
+    assertEquals((Integer) 500, activity1.getFootprint());
     assertEquals("18-03-2019", activity1.getDate());
     activity1.setUsername(activity1.getUsername());
-    activity1.setCategory("category type");
+    activity1.setCategory(2);
     activity1.setDescription("description");
-    activity1.setScore(500);
+    activity1.getFootprint(500);
     activity1.setDate("19-03-2019");
     }
 
