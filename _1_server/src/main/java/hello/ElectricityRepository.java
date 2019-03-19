@@ -12,4 +12,4 @@ public interface ElectricityRepository extends CrudRepository<Electricity, Integ
     @Query(value = "SELECT * from electricity WHERE username = ?1", nativeQuery = true)
     List<Electricity> findElectricityByUser(String username);
 }
-ssss
+
