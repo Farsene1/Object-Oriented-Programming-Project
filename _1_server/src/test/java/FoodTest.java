@@ -34,7 +34,4 @@ public class FoodTest {
 
         assertTrue(food1.toString().contains("vegan"));
     }
-
-
-
 }
