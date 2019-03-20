@@ -36,9 +36,9 @@ public class addItemBox {
 
         ChoiceBox <String> choiceBox = new ChoiceBox();
 
-        choiceBox.getItems().add("1");
-        choiceBox.getItems().add("2");
-        choiceBox.getItems().add("3");
+        choiceBox.getItems().add("Vegan meal");
+        choiceBox.getItems().add("Vegetarian meal");
+        choiceBox.getItems().add("Meal with meat");
 
         choiceBox.getSelectionModel()
                 .selectedItemProperty()
