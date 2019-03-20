@@ -94,20 +94,25 @@ public class addItemBox {
                     }
                 });
 
-        VBox layout = new VBox();
+        VBox layout = new VBox(10);
 
         GridPane.setConstraints(label, 2, 2);
 
-        GridPane.setConstraints(dropdownMeal, 2, 3);
-        GridPane.setConstraints(mealButton, 2, 4);
+        GridPane.setConstraints(dropdownMeal, 3, 2);
+        GridPane.setConstraints(mealButton, 5, 2);
 
-        GridPane.setConstraints(groceriesButton, 4, 3);
-        GridPane.setConstraints(dropdownGroceries, 4, 4);
+        GridPane.setConstraints(groceriesButton, 7, 4);
+        GridPane.setConstraints(dropdownGroceries, 9, 4);
 
+        label.setStyle("-fx-font-size: 10pt; -fx-padding: 10;");
+        dropdownMeal.setStyle("-fx-padding: 7;");
+        mealButton.setStyle("-fx-padding: 10;");
+        dropdownGroceries.setStyle("-fx-padding: 7;");
+        groceriesButton.setStyle("-fx-padding: 10;");
 
         //Add buttons
         layout.getChildren().addAll(label, dropdownMeal,  mealButton, dropdownGroceries, groceriesButton);
-
+        layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
 
         window.setScene(scene);
