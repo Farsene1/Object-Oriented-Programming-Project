@@ -52,7 +52,7 @@ public class FoodBox {
                 new Controller().sendMeal(user, 25);
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(),1,"Vegan meal",
-                        500, date);
+                        25, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 System.out.println("\n The items are"+list.toString());
                 window.close();
@@ -65,7 +65,7 @@ public class FoodBox {
                 new Controller().sendMeal(user, 50);
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Vegetarian meal",
-                        300, date);
+                        50, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
             }
