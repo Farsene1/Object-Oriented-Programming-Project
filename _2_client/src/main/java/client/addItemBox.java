@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -17,11 +18,9 @@ import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
 public class addItemBox {
 
     static String foodAdded = "";
-
 
     public static classes.Meal addMeal(String title, String message, User user) {
 
@@ -95,15 +94,24 @@ public class addItemBox {
                     }
                 });
 
-        VBox layout = new VBox(10);
+        VBox layout = new VBox();
+
+        GridPane.setConstraints(label, 2, 2);
+
+        GridPane.setConstraints(dropdownMeal, 2, 3);
+        GridPane.setConstraints(mealButton, 2, 4);
+
+        GridPane.setConstraints(groceriesButton, 4, 3);
+        GridPane.setConstraints(dropdownGroceries, 4, 4);
+
 
         //Add buttons
         layout.getChildren().addAll(label, dropdownMeal,  mealButton, dropdownGroceries, groceriesButton);
-        layout.setAlignment(Pos.CENTER);
+
         Scene scene = new Scene(layout);
+
         window.setScene(scene);
         window.showAndWait();
-
 
         //Make sure to return answer
         return new classes.Meal("Food", foodAdded);
