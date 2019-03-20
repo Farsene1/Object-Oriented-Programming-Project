@@ -18,7 +18,7 @@ import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class addItemBox {
+public class foodBox {
 
     static String foodAdded = "";
 
@@ -96,7 +96,7 @@ public class addItemBox {
 
         VBox layout = new VBox(10);
 
-        label.setStyle("-fx-font-size: 10pt; -fx-padding: 10;");
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         dropdownMeal.setStyle("-fx-padding: 7;");
         mealButton.setStyle("-fx-padding: 10;");
         dropdownGroceries.setStyle("-fx-padding: 7;");
