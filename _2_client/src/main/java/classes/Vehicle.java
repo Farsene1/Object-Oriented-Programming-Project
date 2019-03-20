@@ -60,22 +60,22 @@ public class Vehicle {
     }
 
     public void setDate(String date) {
-        date = date;
+        this.date = date;
     }
 
     public int calculator(String type, int distance){
             int score=0;
             if(type.equals("Train")){
-                score = 50*100/distance;
+                score =Math.round(50*100/distance) ;
             }
             if(type.equals("Car")){
-                score=30*100/distance;
+                score=Math.round(30*100/distance);
             }
             if(type.equals("Bicycle")){
-                score=150*100/distance;
+                score=Math.round(150*100/distance);
             }
             if(type.equals("Airplane")){
-                score=40*100/distance;
+                score=Math.round(40*100/distance);
             }
         return score;
         }
