@@ -72,7 +72,7 @@ public class FootPrint {
         //My Food footprint
         Button Food = new Button("+");
         Food.setOnAction(e -> {
-            classes.Meal food = addItemBox.addMeal("Food Footprint", "Select the meal type you wish to add.", user);
+            classes.Meal food = addItemBox.addMeal("Food Footprint", "Submit a meal in the drop down menu below:", user);
             table.setItems(addItems(user));
         });
 
