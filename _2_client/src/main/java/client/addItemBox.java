@@ -13,9 +13,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
 import java.util.LinkedList;
 import java.util.List;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -23,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 public class addItemBox {
 
     static String foodAdded = "";
+
 
     public static classes.Meal addMeal(String title, String message, User user) {
 
@@ -33,16 +32,19 @@ public class addItemBox {
         Label label = new Label();
         label.setText(message);
 
-      // Label label1 = new Label();
+        ChoiceBox<String> dropdownMeal= new ChoiceBox<>();
 
-        ChoiceBox<String> dropdown= new ChoiceBox<>();
+        dropdownMeal.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
+        dropdownMeal.getSelectionModel().select(0);
 
-        dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
-        dropdown.getSelectionModel().select(0);
+        ChoiceBox<String> dropdownGroceries= new ChoiceBox<>();
 
-        Button button= new Button("Submit meal");
-        button.setOnAction(e -> {
-            foodAdded = dropdown.getValue();
+        dropdownGroceries.getItems().addAll("Imported", "Local");
+        dropdownGroceries.getSelectionModel().select(0);
+
+        Button mealButton= new Button("Add meal!");
+        mealButton.setOnAction(e -> {
+            foodAdded = dropdownMeal.getValue();
 
             if(foodAdded == "Vegan meal"){
                 foodAdded = "vegan";
@@ -84,10 +86,19 @@ public class addItemBox {
             }
         });
 
+        Button groceriesButton= new Button("Add your groceries");
+        groceriesButton.setOnAction(e -> {
+                    foodAdded = dropdownGroceries.getValue();
+
+                    if (foodAdded == "Imported") {
+                        System.out.println("working well");
+                    }
+                });
+
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, dropdown, button);
+        layout.getChildren().addAll(label, dropdownMeal,  mealButton, dropdownGroceries, groceriesButton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
