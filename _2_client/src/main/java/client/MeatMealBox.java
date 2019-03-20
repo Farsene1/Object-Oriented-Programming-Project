@@ -49,6 +49,62 @@ public class MeatMealBox {
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
             }
+            if (gramsAdded == 200) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 200);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        200, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 300) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 300);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        300, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+
+            if (gramsAdded == 100) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 300);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        300, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 400) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 400);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        400, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 500) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 500);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        500, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
         });
 
 
