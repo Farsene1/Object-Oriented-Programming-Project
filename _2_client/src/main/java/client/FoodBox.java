@@ -51,7 +51,7 @@ public class FoodBox {
                 // hardcoded - add 200 points for vegan
                 new Controller().sendMeal(user, 25);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(),1,"vegan",
+                Activity activity = new Activity(user.getUsername(),1,"Vegan meal",
                         500, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 System.out.println("\n The items are"+list.toString());
@@ -64,7 +64,7 @@ public class FoodBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 50);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "vegetarian",
+                Activity activity = new Activity(user.getUsername(), 1, "Vegetarian meal",
                         300, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
