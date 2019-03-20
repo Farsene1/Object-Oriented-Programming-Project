@@ -41,12 +41,13 @@ public class addItemBox {
         dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
         dropdown.getSelectionModel().select(0);
 
-        Button button= new Button("Submit");
-        button.setOnAction(e ->
-        {
-            label1.setText("You chose " + dropdown.getValue());
-
+        Button button= new Button("Submit meal");
+        button.setOnAction(e -> {
+            foodAdded = dropdown.getValue();
+            System.out.println(foodAdded);
         });
+
+
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
