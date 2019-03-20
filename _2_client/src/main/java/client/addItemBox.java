@@ -34,19 +34,16 @@ public class addItemBox {
         Label label = new Label();
         label.setText(message);
 
-        final String[] greetings = new String[]{"1", "2", "3", "4"};
+        ChoiceBox <String> choiceBox = new ChoiceBox();
 
-        final ChoiceBox cb = new ChoiceBox(FXCollections.observableArrayList(greetings));
+        choiceBox.getItems().add("1");
+        choiceBox.getItems().add("2");
+        choiceBox.getItems().add("3");
 
-        cb.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue ov,
-                                Number value, Number new_value) {
-                label.setText(greetings[new_value.intValue()]);
-            }
-        });
+        choiceBox.getSelectionModel()
+                .selectedItemProperty()
+                .addListener( (ObservableValue<? extends String> observable, String oldValue, String newValue) -> System.out.println(newValue) );
 
-//        cb.setTooltip(new Tooltip("Select a number"));
-//        cb.setValue("0");
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
@@ -96,7 +93,7 @@ public class addItemBox {
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, cb);
+        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, choiceBox);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
