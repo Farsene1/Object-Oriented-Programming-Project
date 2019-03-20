@@ -1,17 +1,10 @@
 package classes;
 
+
 public class Meal {
 
     private String foodType;
     private String food;
-
-    public String getFoodType() {
-        return foodType;
-    }
-
-    public void setFoodType(String foodType) {
-        this.foodType = foodType;
-    }
 
     public Meal(){
 
@@ -21,7 +14,13 @@ public class Meal {
         this.food = food;
         this.foodType= foodType;
     }
+    public String getFoodType() {
+        return foodType;
+    }
 
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
+    }
 
     public String getFood() {
         return food;

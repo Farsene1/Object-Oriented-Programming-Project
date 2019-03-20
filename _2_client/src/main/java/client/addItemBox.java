@@ -10,21 +10,22 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Tooltip;
+import java.util.List;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
+
 
 public class addItemBox {
 
     static String foodAdded = "";
 
     public static classes.Meal addMeal(String title, String message, User user) {
-
 
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
@@ -33,10 +34,19 @@ public class addItemBox {
         Label label = new Label();
         label.setText(message);
 
-
         final String[] greetings = new String[]{"1", "2", "3", "4"};
 
         final ChoiceBox cb = new ChoiceBox(FXCollections.observableArrayList(greetings));
+
+        cb.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue ov,
+                                Number value, Number new_value) {
+                label.setText(greetings[new_value.intValue()]);
+            }
+        });
+
+//        cb.setTooltip(new Tooltip("Select a number"));
+//        cb.setValue("0");
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
