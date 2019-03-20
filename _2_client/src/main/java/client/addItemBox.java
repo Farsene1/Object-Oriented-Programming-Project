@@ -44,31 +44,39 @@ public class addItemBox {
         Button button= new Button("Submit meal");
         button.setOnAction(e -> {
             foodAdded = dropdown.getValue();
-            System.out.println(foodAdded);
+
+            if(foodAdded == "Vegan meal"){
+                foodAdded = "vegan";
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                // hardcoded - add 200 points for vegan
+                new Controller().sendMeal(user, 500);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(),1,"vegan",
+                        500, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                System.out.println("\n The items are"+list.toString());
+                window.close();
+            }
+
+
+
+
         });
 
 
 
         //Create three buttons
-        Button veganButton = new Button("Vegan meal");
+//        Button veganButton = new Button("Vegan meal");
         Button vegetarianButton = new Button("Vegetarian meal");
         Button meatButton = new Button("Meal with meat");
 
-        //Clicking will set answer and close window
-        veganButton.setOnAction(e -> {
-            foodAdded = "vegan";
-            LocalDateTime myDateObj = LocalDateTime.now();
-            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            String date = myDateObj.format(myFormatObj);
-            // hardcoded - add 200 points for vegan
-            new Controller().sendMeal(user, 500);
-            // add a meal in the database
-            Activity activity = new Activity(user.getUsername(),1,"vegan",
-                    500, date);
-            List<Activity> list = new Controller().sendFood(activity);
-            System.out.println("\n The items are"+list.toString());
-            window.close();
-        });
+//        //Clicking will set answer and close window
+//        veganButton.setOnAction(e -> {
+//            foodAdded = "vegan";
+//
+//        });
         vegetarianButton.setOnAction(e -> {
             foodAdded = "vegetarian";
             LocalDateTime myDateObj = LocalDateTime.now();
@@ -97,7 +105,7 @@ public class addItemBox {
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, label1, label2, dropdown, button);
+        layout.getChildren().addAll(label, vegetarianButton, meatButton, label1, label2, dropdown, button);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
