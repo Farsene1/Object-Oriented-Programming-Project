@@ -44,7 +44,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 100);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
                         100, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
@@ -55,7 +55,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 200);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
                         200, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
@@ -66,7 +66,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 300);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         300, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
@@ -78,7 +78,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 300);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         300, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
@@ -89,7 +89,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 400);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         400, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
@@ -100,7 +100,7 @@ public class MeatMealBox {
                 String date = myDateObj.format(myFormatObj);
                 new Controller().sendMeal(user, 500);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         500, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
