@@ -41,7 +41,7 @@ public class addItemBox {
         dropdownGroceries.getItems().addAll("Imported", "Local");
         dropdownGroceries.getSelectionModel().select(0);
 
-        Button mealButton= new Button("Add meal!");
+        Button mealButton= new Button("Submit meal!");
         mealButton.setOnAction(e -> {
             foodAdded = dropdownMeal.getValue();
 
@@ -85,7 +85,7 @@ public class addItemBox {
             }
         });
 
-        Button groceriesButton= new Button("Add your groceries");
+        Button groceriesButton= new Button("Sumbit groceries");
         groceriesButton.setOnAction(e -> {
                     foodAdded = dropdownGroceries.getValue();
 
