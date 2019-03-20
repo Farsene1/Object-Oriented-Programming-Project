@@ -31,9 +31,17 @@ public class MeatMealBox {
 
         ChoiceBox<Integer> dropdownGrams= new ChoiceBox<>();
 
-        dropdownGrams.getItems().addAll(50, 100, 150, 200, 250, 300, 350, 400, 450, 500);
+        dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);
         dropdownGrams.getSelectionModel().select(0);
 
+        Button gramsButton= new Button("Sumbit grams");
+        gramsButton.setOnAction(e -> {
+            int gramsAdded = dropdownGrams.getValue();
+
+            if (gramsAdded == 100) {
+                System.out.println("Grams working well");
+            }
+        });
 //       LocalDateTime myDateObj = LocalDateTime.now();
 //       DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 //       String date = myDateObj.format(myFormatObj);
@@ -49,8 +57,9 @@ public class MeatMealBox {
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         dropdownGrams.setStyle("-fx-padding: 7;");
+        gramsButton.setStyle("-fx-padding: 7;");
 
-        layout.getChildren().addAll(label, dropdownGrams);
+        layout.getChildren().addAll(label, gramsButton, dropdownGrams);
         layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
 
