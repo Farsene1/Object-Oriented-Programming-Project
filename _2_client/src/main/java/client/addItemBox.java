@@ -38,7 +38,7 @@ public class addItemBox {
 
         ChoiceBox<String> dropdown= new ChoiceBox<>();
 
-        dropdown.getItems().addAll("4", "3", "2", "1");
+        dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
         dropdown.getSelectionModel().select(0);
 
         Button button= new Button("Submit");
