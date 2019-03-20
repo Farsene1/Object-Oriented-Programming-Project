@@ -26,26 +26,96 @@ public class MeatMealBox {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(500);
+        Label label = new Label();
+        label.setText(message);
 
         ChoiceBox<Integer> dropdownGrams= new ChoiceBox<>();
 
-        dropdownGrams.getItems().addAll(50, 100, 150, 200, 250, 300, 350, 400, 450, 500);
+        dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);
         dropdownGrams.getSelectionModel().select(0);
 
-//       LocalDateTime myDateObj = LocalDateTime.now();
-//       DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//       String date = myDateObj.format(myFormatObj);
-//       new Controller().sendMeal(user, 100);
-//       // add a meal in the database
-//       Activity activity = new Activity(user.getUsername(), 1, "Meat",
-//               100, date);
-//       List<Activity> list = new Controller().sendFood(activity);
-//       window.close();
+        Button gramsButton= new Button("Submit grams");
+        gramsButton.setOnAction(e -> {
+            int gramsAdded = dropdownGrams.getValue();
+
+            if (gramsAdded == 100) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 100);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
+                        100, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 200) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 200);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
+                        200, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 300) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 300);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
+                        300, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+
+            if (gramsAdded == 100) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 300);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
+                        300, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 400) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 400);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
+                        400, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (gramsAdded == 500) {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 500);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
+                        500, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+        });
+
 
 
         VBox layout = new VBox(10);
 
-        layout.getChildren().addAll(dropdownGrams);
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
+        dropdownGrams.setStyle("-fx-padding: 7;");
+        gramsButton.setStyle("-fx-padding: 7;");
+
+        layout.getChildren().addAll(label, gramsButton, dropdownGrams);
         layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
 

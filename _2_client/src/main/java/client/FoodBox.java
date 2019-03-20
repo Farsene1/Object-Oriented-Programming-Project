@@ -49,10 +49,10 @@ public class FoodBox {
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
                 // hardcoded - add 200 points for vegan
-                new Controller().sendMeal(user, 500);
+                new Controller().sendMeal(user, 25);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(),1,"vegan",
-                        500, date);
+                Activity activity = new Activity(user.getUsername(),1,"Vegan meal",
+                        25, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 System.out.println("\n The items are"+list.toString());
                 window.close();
@@ -62,36 +62,47 @@ public class FoodBox {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 300);
+                new Controller().sendMeal(user, 50);
                 // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "vegetarian",
-                        300, date);
+                Activity activity = new Activity(user.getUsername(), 1, "Vegetarian meal",
+                        50, date);
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
             }
             if(foodAdded == "Meal with meat") {
-                MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat added in grams:", user);
-//                foodAdded = "meat";
-//                LocalDateTime myDateObj = LocalDateTime.now();
-//                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//                String date = myDateObj.format(myFormatObj);
-//                new Controller().sendMeal(user, 100);
-//                // add a meal in the database
-//                Activity activity = new Activity(user.getUsername(), 1, "Meat",
-//                        100, date);
-//                List<Activity> list = new Controller().sendFood(activity);
-//                window.close();
+                MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat had in grams:", user);
+                window.close();
             }
         });
 
         Button groceriesButton= new Button("Sumbit groceries");
         groceriesButton.setOnAction(e -> {
-                    foodAdded = dropdownGroceries.getValue();
 
-                    if (foodAdded == "Imported") {
-                        System.out.println("working well");
-                    }
-                });
+            foodAdded = dropdownGroceries.getValue();
+
+            if (foodAdded == "Imported") {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 250);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Imported produce",
+                        250, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+            if (foodAdded == "Local") {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 50);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Local produce",
+                        50, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
+            }
+        });
 
         VBox layout = new VBox(10);
 
