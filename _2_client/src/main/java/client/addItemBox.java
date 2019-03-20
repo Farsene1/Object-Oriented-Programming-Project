@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +30,10 @@ public class addItemBox {
         window.setMinWidth(500);
         Label label = new Label();
         label.setText(message);
+
+
+        MenuButton menuButton = new MenuButton("pick a number");
+        menuButton.getItems().addAll(new MenuItem("1"), new MenuItem("2"));
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
@@ -77,7 +83,7 @@ public class addItemBox {
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton);
+        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, menuButton);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
