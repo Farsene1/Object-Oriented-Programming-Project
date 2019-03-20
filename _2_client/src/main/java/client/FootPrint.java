@@ -18,8 +18,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -72,7 +70,7 @@ public class FootPrint {
         //My Food footprint
         Button Food = new Button("+");
         Food.setOnAction(e -> {
-            classes.Meal food = foodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
+            classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
         });
 
