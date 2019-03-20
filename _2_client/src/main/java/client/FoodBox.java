@@ -71,16 +71,7 @@ public class FoodBox {
             }
             if(foodAdded == "Meal with meat") {
                 MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat had in grams:", user);
-//                foodAdded = "meat";
-//                LocalDateTime myDateObj = LocalDateTime.now();
-//                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//                String date = myDateObj.format(myFormatObj);
-//                new Controller().sendMeal(user, 100);
-//                // add a meal in the database
-//                Activity activity = new Activity(user.getUsername(), 1, "Meat",
-//                        100, date);
-//                List<Activity> list = new Controller().sendFood(activity);
-//                window.close();
+                window.close();
             }
         });
 
