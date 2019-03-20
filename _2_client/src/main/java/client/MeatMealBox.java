@@ -26,6 +26,8 @@ public class MeatMealBox {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(500);
+        Label label = new Label();
+        label.setText(message);
 
         ChoiceBox<Integer> dropdownGrams= new ChoiceBox<>();
 
@@ -45,7 +47,10 @@ public class MeatMealBox {
 
         VBox layout = new VBox(10);
 
-        layout.getChildren().addAll(dropdownGrams);
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
+        dropdownGrams.setStyle("-fx-padding: 7;");
+
+        layout.getChildren().addAll(label, dropdownGrams);
         layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
 
