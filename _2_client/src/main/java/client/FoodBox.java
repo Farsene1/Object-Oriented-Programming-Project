@@ -49,7 +49,7 @@ public class FoodBox {
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
                 // hardcoded - add 200 points for vegan
-                new Controller().sendMeal(user, 500);
+                new Controller().sendMeal(user, 25);
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(),1,"vegan",
                         500, date);
@@ -62,7 +62,7 @@ public class FoodBox {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 300);
+                new Controller().sendMeal(user, 50);
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "vegetarian",
                         300, date);
@@ -70,7 +70,7 @@ public class FoodBox {
                 window.close();
             }
             if(foodAdded == "Meal with meat") {
-                MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat added in grams:", user);
+                MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat had in grams:", user);
 //                foodAdded = "meat";
 //                LocalDateTime myDateObj = LocalDateTime.now();
 //                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");

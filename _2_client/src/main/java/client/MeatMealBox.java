@@ -34,23 +34,23 @@ public class MeatMealBox {
         dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);
         dropdownGrams.getSelectionModel().select(0);
 
-        Button gramsButton= new Button("Sumbit grams");
+        Button gramsButton= new Button("Submit grams");
         gramsButton.setOnAction(e -> {
             int gramsAdded = dropdownGrams.getValue();
 
             if (gramsAdded == 100) {
-                System.out.println("Grams working well");
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String date = myDateObj.format(myFormatObj);
+                new Controller().sendMeal(user, 100);
+                // add a meal in the database
+                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+                        100, date);
+                List<Activity> list = new Controller().sendFood(activity);
+                window.close();
             }
         });
-//       LocalDateTime myDateObj = LocalDateTime.now();
-//       DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//       String date = myDateObj.format(myFormatObj);
-//       new Controller().sendMeal(user, 100);
-//       // add a meal in the database
-//       Activity activity = new Activity(user.getUsername(), 1, "Meat",
-//               100, date);
-//       List<Activity> list = new Controller().sendFood(activity);
-//       window.close();
+
 
 
         VBox layout = new VBox(10);
