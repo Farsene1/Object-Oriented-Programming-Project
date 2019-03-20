@@ -12,6 +12,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ChoiceBox;
+import javafx.collections.FXCollections;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -32,8 +34,9 @@ public class addItemBox {
         label.setText(message);
 
 
-        MenuButton menuButton = new MenuButton("pick a number");
-        menuButton.getItems().addAll(new MenuItem("1"), new MenuItem("2"));
+        final String[] greetings = new String[]{"1", "2", "3", "4"};
+
+        final ChoiceBox cb = new ChoiceBox(FXCollections.observableArrayList(greetings));
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
@@ -83,7 +86,7 @@ public class addItemBox {
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, menuButton);
+        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, cb);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
