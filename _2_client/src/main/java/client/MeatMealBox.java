@@ -1,4 +1,5 @@
 package client;
+
 import classes.Activity;
 import classes.Controller;
 import classes.User;
@@ -19,12 +20,17 @@ import java.time.format.DateTimeFormatter;
 
 public class MeatMealBox {
 
-   static public void meatMealCalculator(String title, String message, User user){
+    static public void meatMealCalculator(String title, String message, User user){
 
-       Stage window = new Stage();
-       window.initModality(Modality.APPLICATION_MODAL);
-       window.setTitle(title);
-       window.setMinWidth(500);
+        Stage window = new Stage();
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        window.setMinWidth(500);
+
+        ChoiceBox<Integer> dropdownGrams= new ChoiceBox<>();
+
+        dropdownGrams.getItems().addAll(50, 100, 150, 200, 250, 300, 350, 400, 450, 500);
+        dropdownGrams.getSelectionModel().select(0);
 
 //       LocalDateTime myDateObj = LocalDateTime.now();
 //       DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -37,13 +43,15 @@ public class MeatMealBox {
 //       window.close();
 
 
-       VBox layout = new VBox(10);
+        VBox layout = new VBox(10);
 
-       layout.getChildren().addAll();
-       layout.setStyle(" -fx-padding: 10px;");
-       Scene scene = new Scene(layout);
+        layout.getChildren().addAll(dropdownGrams);
+        layout.setStyle(" -fx-padding: 10px;");
+        Scene scene = new Scene(layout);
 
-       window.setScene(scene);
-       window.showAndWait();
+        window.setScene(scene);
+        window.showAndWait();
     }
 }
+
+
