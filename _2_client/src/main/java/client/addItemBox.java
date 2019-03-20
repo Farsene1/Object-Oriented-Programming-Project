@@ -11,12 +11,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
-import javafx.collections.FXCollections;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.control.Tooltip;
+import java.util.LinkedList;
 import java.util.List;
-
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -34,16 +33,20 @@ public class addItemBox {
         Label label = new Label();
         label.setText(message);
 
-        ChoiceBox <String> choiceBox = new ChoiceBox();
+        Label label1 = new Label();
+        Label label2= new Label("Meal choice:");
 
-        choiceBox.getItems().add("Vegan meal");
-        choiceBox.getItems().add("Vegetarian meal");
-        choiceBox.getItems().add("Meal with meat");
+        ChoiceBox<String> dropdown= new ChoiceBox<>();
 
-        choiceBox.getSelectionModel()
-                .selectedItemProperty()
-                .addListener( (ObservableValue<? extends String> observable, String oldValue, String newValue) -> System.out.println(newValue) );
+        dropdown.getItems().addAll("4", "3", "2", "1");
+        dropdown.getSelectionModel().select(0);
 
+        Button button= new Button("Submit");
+        button.setOnAction(e ->
+        {
+            label1.setText("You chose " + dropdown.getValue());
+
+        });
 
         //Create three buttons
         Button veganButton = new Button("Vegan meal");
@@ -93,11 +96,12 @@ public class addItemBox {
         VBox layout = new VBox(10);
 
         //Add buttons
-        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, choiceBox);
+        layout.getChildren().addAll(label, veganButton, vegetarianButton, meatButton, label1, label2, dropdown, button);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
+
 
         //Make sure to return answer
         return new classes.Meal("Food", foodAdded);
