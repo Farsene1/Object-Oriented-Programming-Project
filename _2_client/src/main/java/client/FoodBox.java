@@ -3,7 +3,6 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,16 +10,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
-import java.util.LinkedList;
+
 import java.util.List;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
-public class addItemBox {
+public class FoodBox {
 
     static String foodAdded = "";
 
@@ -33,16 +29,19 @@ public class addItemBox {
         Label label = new Label();
         label.setText(message);
 
-      // Label label1 = new Label();
+        ChoiceBox<String> dropdownMeal= new ChoiceBox<>();
 
-        ChoiceBox<String> dropdown= new ChoiceBox<>();
+        dropdownMeal.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
+        dropdownMeal.getSelectionModel().select(0);
 
-        dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
-        dropdown.getSelectionModel().select(0);
+        ChoiceBox<String> dropdownGroceries= new ChoiceBox<>();
 
-        Button button= new Button("Submit meal");
-        button.setOnAction(e -> {
-            foodAdded = dropdown.getValue();
+        dropdownGroceries.getItems().addAll("Imported", "Local");
+        dropdownGroceries.getSelectionModel().select(0);
+
+        Button mealButton= new Button("Submit meal!");
+        mealButton.setOnAction(e -> {
+            foodAdded = dropdownMeal.getValue();
 
             if(foodAdded == "Vegan meal"){
                 foodAdded = "vegan";
@@ -71,28 +70,44 @@ public class addItemBox {
                 window.close();
             }
             if(foodAdded == "Meal with meat") {
-                foodAdded = "meat";
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 100);
-                // add a meal in the database
-                Activity activity = new Activity(user.getUsername(), 1, "Meat",
-                        100, date);
-                List<Activity> list = new Controller().sendFood(activity);
-                window.close();
+                MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat added in grams:", user);
+//                foodAdded = "meat";
+//                LocalDateTime myDateObj = LocalDateTime.now();
+//                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//                String date = myDateObj.format(myFormatObj);
+//                new Controller().sendMeal(user, 100);
+//                // add a meal in the database
+//                Activity activity = new Activity(user.getUsername(), 1, "Meat",
+//                        100, date);
+//                List<Activity> list = new Controller().sendFood(activity);
+//                window.close();
             }
         });
 
+        Button groceriesButton= new Button("Sumbit groceries");
+        groceriesButton.setOnAction(e -> {
+                    foodAdded = dropdownGroceries.getValue();
+
+                    if (foodAdded == "Imported") {
+                        System.out.println("working well");
+                    }
+                });
+
         VBox layout = new VBox(10);
 
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
+        dropdownMeal.setStyle("-fx-padding: 7;");
+        mealButton.setStyle("-fx-padding: 10;");
+        dropdownGroceries.setStyle("-fx-padding: 7;");
+        groceriesButton.setStyle("-fx-padding: 10;");
+
         //Add buttons
-        layout.getChildren().addAll(label, dropdown, button);
-        layout.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(label, dropdownMeal,  mealButton, dropdownGroceries, groceriesButton);
+        layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
+
         window.setScene(scene);
         window.showAndWait();
-
 
         //Make sure to return answer
         return new classes.Meal("Food", foodAdded);
