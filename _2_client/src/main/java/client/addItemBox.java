@@ -96,14 +96,6 @@ public class addItemBox {
 
         VBox layout = new VBox(10);
 
-        GridPane.setConstraints(label, 2, 2);
-
-        GridPane.setConstraints(dropdownMeal, 3, 2);
-        GridPane.setConstraints(mealButton, 5, 2);
-
-        GridPane.setConstraints(groceriesButton, 7, 4);
-        GridPane.setConstraints(dropdownGroceries, 9, 4);
-
         label.setStyle("-fx-font-size: 10pt; -fx-padding: 10;");
         dropdownMeal.setStyle("-fx-padding: 7;");
         mealButton.setStyle("-fx-padding: 10;");
