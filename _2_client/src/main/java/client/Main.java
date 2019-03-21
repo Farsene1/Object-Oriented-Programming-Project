@@ -1,13 +1,16 @@
 package client;
 
 import classes.Controller;
+import classes.RestfulClient;
 import classes.User;
+import classes.Vehicle;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class Main extends Application {
     Stage window;
@@ -26,6 +29,10 @@ public class Main extends Application {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+
+        List<Vehicle> list = new RestfulClient().addTransport(new Vehicle("user","car",14,4,"10/5"));
+        System.out.println(list.size());
+
         //.........//
         window = primaryStage;
         window.setOnCloseRequest(e -> {

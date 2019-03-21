@@ -33,6 +33,10 @@ public class Controller {
         return restfulClient.addActivity(activity);
     }
 
+    public List<Vehicle> getAllVehicles(User user){
+        return restfulClient.getAllVehicles(user);
+    }
+
     /**
      *
      * @param user
@@ -52,6 +56,7 @@ public class Controller {
      */
     public void sendTransport(User user, int amount){
         user.setTransportFootprint(amount + user.getTransportFootprint());
+        restfulClient.activity(user);
     }
 
     /**
@@ -62,12 +67,13 @@ public class Controller {
      */
     public void sendWater(User user, int amount){
         user.setWaterFootprint(amount + user.getWaterFootprint());
+        restfulClient.activity(user);
     }
 
     /**
      * This method checks for a valid email
      * @param email
-     * @return
+     * @return boolean
      */
     public static boolean checkEmail(String email){
         boolean emailValid = EmailValidator.getInstance().isValid(email);
