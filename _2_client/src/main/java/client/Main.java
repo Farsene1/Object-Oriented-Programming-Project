@@ -3,7 +3,7 @@ package client;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
-import classes.Vehicle;
+import classes.Transport;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -30,7 +30,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        List<Vehicle> list = new RestfulClient().addTransport(new Vehicle("user","car",14,4,"10/5"));
+        List<Transport> list = new RestfulClient().addTransport(new Transport("user","car",14,4,"10/5"));
         System.out.println(list.size());
 
         //.........//

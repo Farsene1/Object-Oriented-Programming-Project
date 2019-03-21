@@ -33,9 +33,9 @@ public class Controller {
         return restfulClient.addActivity(activity);
     }
 
-    public List<Vehicle> getAllVehicles(User user){
-        return restfulClient.getAllVehicles(user);
-    }
+//    public List<Transport> getAllVehicles(User user){
+//        return restfulClient.getAllVehicles(user);
+//    }
 
     /**
      *

@@ -36,19 +36,22 @@ public class RestfulClient {
         return activities;
     }
 
-    public List<Vehicle> getAllVehicles(User user){
-        String url = "http://localhost:8080/transport/add";
-        List<Vehicle> res = restTemplate.postForObject(url, user, List.class);
-        ObjectMapper mapper = new ObjectMapper();
-        List<Vehicle> vehicles = mapper.convertValue(res, new TypeReference<List<Vehicle>>() { });
-        return vehicles;
-    }
+//    public List<Transport> getAllVehicles(User user){
+//        String url = "http://localhost:8080/transport/add";
+//        List<Transport> res = restTemplate.postForObject(url, user, List.class);
+//        ObjectMapper mapper = new ObjectMapper();
+//        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
+//        return vehicles;
+//    }
 
-    public List<Vehicle> addTransport(Vehicle vehicle){
+    public List<Transport> addTransport(Transport vehicle){
         String url = "http://localhost:8080/transport/add";
-        List<Vehicle> res = restTemplate.postForObject(url, vehicle, List.class);
+        List<Transport> res = restTemplate.postForObject(url, vehicle, List.class);
+        System.out.println(res.toString());
+        System.out.println(res.size());
         ObjectMapper mapper = new ObjectMapper();
-        List<Vehicle> vehicles = mapper.convertValue(res, new TypeReference<List<Vehicle>>() { });
+        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
+        System.out.println(vehicles.size());
         return vehicles;
     }
 
