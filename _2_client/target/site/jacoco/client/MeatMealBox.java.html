@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MeatMealBox.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">MeatMealBox.java</span></div><h1>MeatMealBox.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.Activity;
+import classes.Controller;
+import classes.User;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.control.ChoiceBox;
+import java.util.LinkedList;
+import java.util.List;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+<span class="nc" id="L21">public class MeatMealBox {</span>
+
+    static public void meatMealCalculator(String title, String message, User user){
+
+<span class="nc" id="L25">        Stage window = new Stage();</span>
+<span class="nc" id="L26">        window.initModality(Modality.APPLICATION_MODAL);</span>
+<span class="nc" id="L27">        window.setTitle(title);</span>
+<span class="nc" id="L28">        window.setMinWidth(500);</span>
+<span class="nc" id="L29">        Label label = new Label();</span>
+<span class="nc" id="L30">        label.setText(message);</span>
+
+<span class="nc" id="L32">        ChoiceBox&lt;Integer&gt; dropdownGrams= new ChoiceBox&lt;&gt;();</span>
+
+<span class="nc" id="L34">        dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);</span>
+<span class="nc" id="L35">        dropdownGrams.getSelectionModel().select(0);</span>
+
+<span class="nc" id="L37">        Button gramsButton= new Button(&quot;Submit grams&quot;);</span>
+<span class="nc" id="L38">        gramsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L39">            int gramsAdded = dropdownGrams.getValue();</span>
+
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (gramsAdded == 100) {</span>
+<span class="nc" id="L42">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L43">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L44">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L45">                new Controller().sendMeal(user, 100);</span>
+                // add a meal in the database
+<span class="nc" id="L47">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
+<span class="nc" id="L48">                        100, date);</span>
+<span class="nc" id="L49">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L50">                window.close();</span>
+            }
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (gramsAdded == 200) {</span>
+<span class="nc" id="L53">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L54">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L55">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L56">                new Controller().sendMeal(user, 200);</span>
+                // add a meal in the database
+<span class="nc" id="L58">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
+<span class="nc" id="L59">                        200, date);</span>
+<span class="nc" id="L60">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L61">                window.close();</span>
+            }
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (gramsAdded == 300) {</span>
+<span class="nc" id="L64">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L65">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L66">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L67">                new Controller().sendMeal(user, 300);</span>
+                // add a meal in the database
+<span class="nc" id="L69">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L70">                        300, date);</span>
+<span class="nc" id="L71">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L72">                window.close();</span>
+            }
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (gramsAdded == 100) {</span>
+<span class="nc" id="L76">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L77">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L78">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L79">                new Controller().sendMeal(user, 300);</span>
+                // add a meal in the database
+<span class="nc" id="L81">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L82">                        300, date);</span>
+<span class="nc" id="L83">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L84">                window.close();</span>
+            }
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (gramsAdded == 400) {</span>
+<span class="nc" id="L87">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L88">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L89">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L90">                new Controller().sendMeal(user, 400);</span>
+                // add a meal in the database
+<span class="nc" id="L92">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L93">                        400, date);</span>
+<span class="nc" id="L94">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L95">                window.close();</span>
+            }
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (gramsAdded == 500) {</span>
+<span class="nc" id="L98">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L99">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L100">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L101">                new Controller().sendMeal(user, 500);</span>
+                // add a meal in the database
+<span class="nc" id="L103">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L104">                        500, date);</span>
+<span class="nc" id="L105">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L106">                window.close();</span>
+            }
+<span class="nc" id="L108">        });</span>
+
+
+
+<span class="nc" id="L112">        VBox layout = new VBox(10);</span>
+
+<span class="nc" id="L114">        label.setStyle(&quot;-fx-font-size: 12pt; -fx-padding: 10;&quot;);</span>
+<span class="nc" id="L115">        dropdownGrams.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+<span class="nc" id="L116">        gramsButton.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+
+<span class="nc" id="L118">        layout.getChildren().addAll(label, gramsButton, dropdownGrams);</span>
+<span class="nc" id="L119">        layout.setStyle(&quot; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L120">        Scene scene = new Scene(layout);</span>
+
+<span class="nc" id="L122">        window.setScene(scene);</span>
+<span class="nc" id="L123">        window.showAndWait();</span>
+<span class="nc" id="L124">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

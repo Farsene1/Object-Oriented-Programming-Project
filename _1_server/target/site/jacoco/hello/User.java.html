@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">server</a> &gt; <a href="index.source.html" class="el_package">hello</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package hello;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
+/**
+ *User table entity generated.
+ *
+ */
+@Table(name = &quot;users&quot;)
+@Entity
+public class User implements Serializable {
+	/**
+	 *Primary key id generated.
+	 *
+	 * @param id
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = &quot;id&quot;, unique = true, nullable = false)
+	private Integer id;
+
+	/**
+	 * Attribute username declared as type string.
+	 */
+	private String username;
+	/**
+	 * Attribute hash declared as type string.
+	 */
+	private String hash;
+	/**
+	 * Attribute foodFootprint declared as type integer.
+	 */
+<span class="fc" id="L35">	private Integer food_footprint = 0;</span>
+	/**
+	 * Attribute waterFootprint declared as type integer.
+	 */
+<span class="fc" id="L39">	private Integer waterFootprint = 0;</span>
+	/**
+	 * Attribute transportFootprint declared as type integer.
+	 */
+<span class="fc" id="L43">	private Integer transportFootprint = 0;</span>
+	/**
+	 * Attribute polarScore declared as type integer.
+	 */
+<span class="fc" id="L47">	private Integer polarScore = 0;</span>
+	/**
+	 * Attribute date declared as type timestamp.
+	 */
+	//private Date date;
+
+	@OneToMany
+	@JoinColumn(name = &quot;userId&quot;)
+	private Set&lt;Activity&gt; activities;
+
+	/**
+	 * Empty constructor declaration for user.
+	 */
+<span class="fc" id="L60">	public User() {</span>
+<span class="fc" id="L61">	}</span>
+
+	/**
+	 * Constructor declaration for user.
+	 * @param username
+	 * @param hash
+	 */
+<span class="fc" id="L68">	public User(String username, String hash) {</span>
+<span class="fc" id="L69">		this.username = username;</span>
+<span class="fc" id="L70">		this.hash = hash;</span>
+<span class="fc" id="L71">	}</span>
+
+	/**
+	 * Getter for username.
+	 */
+	public String getUsername() {
+<span class="fc" id="L77">		return username;</span>
+	}
+	/**
+	 * Setter for username.
+	 * @param username
+	 */
+	public void setUsername(String username) {
+<span class="fc" id="L84">		this.username = username;</span>
+<span class="fc" id="L85">	}</span>
+	/**
+	 * Getter for hash.
+	 */
+	public String getHash() {
+<span class="fc" id="L90">		return hash;</span>
+	}
+	/**
+	 * Setter for hash.
+	 * @param hash
+	 */
+	public void setHash(String hash) {
+<span class="fc" id="L97">		this.hash = hash;</span>
+<span class="fc" id="L98">	}</span>
+	/**
+	 * Getter for foodFootprint.
+	 */
+	public Integer getFoodFootprint() {
+<span class="fc" id="L103">		return food_footprint;</span>
+	}
+	/**
+	 * Setter for foodFootprint.
+	 * @param foodFootprint
+	 */
+	public void setFoodFootprint(Integer foodFootprint) {
+<span class="fc" id="L110">		this.food_footprint = foodFootprint;</span>
+<span class="fc" id="L111">	}</span>
+	/**
+	 * Getter for waterFootprint.
+	 */
+	public Integer getWaterFootprint() {
+<span class="fc" id="L116">		return waterFootprint;</span>
+	}
+	/**
+	 * Setter for waterFootprint.
+	 * @param waterFootprint
+	 */
+	public void setWaterFootprint(Integer waterFootprint) {
+<span class="fc" id="L123">		this.waterFootprint = waterFootprint;</span>
+<span class="fc" id="L124">	}</span>
+	/**
+	 * Getter for transportFootprint.
+	 */
+	public Integer getTransportFootprint() {
+<span class="fc" id="L129">		return transportFootprint;</span>
+	}
+	/**
+	 * Setter for transportFootprint.
+	 * @param transportFootprint
+	 */
+	public void setTransportFootprint(Integer transportFootprint) {
+<span class="fc" id="L136">		this.transportFootprint = transportFootprint;</span>
+<span class="fc" id="L137">	}</span>
+	/**
+	 * Getter for polarScore.
+	 */
+	public Integer getPolarScore() {
+<span class="fc" id="L142">		return polarScore;</span>
+	}
+	/**
+	 * Setter for polarScore.
+	 * @param polarScore
+	 */
+	public void setPolarScore(Integer polarScore) {
+<span class="fc" id="L149">		this.polarScore = polarScore;</span>
+<span class="fc" id="L150">	}</span>
+	/**
+	 * Getter for date.
+	 */
+//	public Date getDate() {
+//		return date;
+//	}
+//	/**
+//	 * Setter for date.
+//	 * @param date
+//	 */
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
+
+	/**
+	 *toString method for user.
+	 */
+	@Override
+	public String toString() {
+<span class="fc" id="L170">		return &quot;User{&quot; + &quot;username='&quot; + username</span>
+				+ '\'' + &quot;, hash='&quot; + hash + '\'' + '}';
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
