@@ -47,8 +47,9 @@ public class TransportBox {
         window.setMinWidth(500);
         Label label = new Label();
         label.setText(message);
-
-
+        Label errorlabel = new Label();
+        errorlabel.setText("You can only type numbers");
+        errorlabel.setVisible(false);
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         choiceBox.getItems().addAll("Train","Car","Bicycle","Airplane");
         choiceBox.setValue("Train");
@@ -57,25 +58,37 @@ public class TransportBox {
          Label Dlabel = new Label("Add the Distance you traveled in KM");
         Button send = new Button("Send");
         send.setOnAction(e ->{
+            int c=0;
+            for(int i=0; i<distanceT.getText().length(); i++){
+                if(Character.isDigit(distanceT.getText().charAt(i))){
+                    c++;
+                }
+            }
+           if(c==distanceT.getText().length()){
+               LocalDateTime mydateObj = LocalDateTime.now();
+               DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+               date= mydateObj.format(myFormatObj);
+               vehicle = choiceBox.getValue();
 
-            LocalDateTime mydateObj = LocalDateTime.now();
-            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-             date= mydateObj.format(myFormatObj);
-            vehicle = choiceBox.getValue();
-            distance = Integer.parseInt(distanceT.getText());
-            Vehicle transport = new Vehicle(user.getUsername(), vehicle,distance,0,date);
-            score=transport.calculator(vehicle,distance);
-            transport.setScore(score);
-         //   System.out.println(transport.getDate());
-         //  System.out.println(transport.getDistance());
-          //  System.out.println(transport.getScore());
-           // System.out.println(transport.getType());
-            window.close();
+               distance = Integer.parseInt(distanceT.getText());
+               Vehicle transport = new Vehicle(user.getUsername(), vehicle,distance,0,date);
+               score=transport.calculator(vehicle,distance);
+               transport.setScore(score);
+               //   System.out.println(transport.getDate());
+               //  System.out.println(transport.getDistance());
+               //  System.out.println(transport.getScore());
+               // System.out.println(transport.getType());
+               window.close();
+           }
+           else{
+               distanceT.clear();
+                errorlabel.setVisible(true);
+           }
         });
 
 
     VBox layout= new VBox(10);
-  layout.getChildren().addAll(label,choiceBox,Dlabel,distanceT,send);
+  layout.getChildren().addAll(label,choiceBox,Dlabel,distanceT,errorlabel,send);
     layout.setAlignment(Pos.CENTER);
     Scene scene= new Scene(layout);
     window.setScene(scene);
