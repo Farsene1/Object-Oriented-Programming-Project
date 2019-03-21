@@ -68,11 +68,8 @@ public class TransportBox {
                Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
                score=transport.calculator(vehicle,distance);
                transport.setScore(score);
-               //   System.out.println(transport.getDate());
-               //  System.out.println(transport.getDistance());
-               //  System.out.println(transport.getScore());
-               // System.out.println(transport.getType());
-               window.close();
+                //ADD THE METHODS TO SEND  THE OJBECT HERE
+                          window.close();
            }
            else{
                distanceT.clear();
