@@ -9,7 +9,7 @@ public class TransportTest {
     Transport t1;
 
     @Before
-    public void setUp(){t1 = new Transport("Hashim", "car", 5, "18-03-2019", 50);}
+    public void setUp(){t1 = new Transport("Hashim", "car", 5, 50, "18-03-2019");}
 
     @Test
     public void constrTest(){assertEquals(true, t1 != null);}

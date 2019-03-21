@@ -1,6 +1,8 @@
 package client;
 
 
+import classes.Activity;
+import classes.Controller;
 import classes.Transport;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -14,6 +16,7 @@ import javafx.scene.control.TextField;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class TransportBox {
     static  String vehicle;
@@ -68,7 +71,12 @@ public class TransportBox {
                Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
                score=transport.calculator(vehicle,distance);
                transport.setScore(score);
-                //ADD THE METHODS TO SEND  THE OJBECT HERE
+               new Controller().sendTransport(user, 25);
+               // add a meal in the database
+               Activity activity = new Activity(user.getUsername(),2,transport.getType()+":"+transport.getDistance()+"KM",
+                       transport.getScore(), date);
+               List<Activity> list = new Controller().sendFood(activity);
+               System.out.println("\n The items are"+list.toString());
                           window.close();
            }
            else{

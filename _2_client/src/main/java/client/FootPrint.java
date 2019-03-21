@@ -79,7 +79,7 @@ public class FootPrint {
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
             classes.Transport transport = TransportBox.addVehicle("Transport Footprint","Select the transport option of your choice",user);
-            ///ADD THE METHOD HERE
+            table.setItems(addItems(user));
         });
 
         //My Water footprint

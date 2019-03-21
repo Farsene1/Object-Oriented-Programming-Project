@@ -26,6 +26,10 @@ public class Main extends Application {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+
+//        List<Transport> list = new RestfulClient().addTransport(new Transport("user","car",14,4,"10/5"));
+//        System.out.println(list.size());
+
         //.........//
         window = primaryStage;
         window.setOnCloseRequest(e -> {
