@@ -1,6 +1,6 @@
 package classes;
 
-public class Vehicle {
+public class Transport {
     private String  username;
     private String type;
     private int distance;
@@ -8,11 +8,11 @@ public class Vehicle {
     private  String date;
 
 
-        public Vehicle(){
+        public Transport(){
 
         }
 
-       public Vehicle(String username, String type,int distance,int score,String date){
+       public Transport(String username, String type, int distance, int score, String date){
             this.username=username;
             this.type=type;
             this.distance=distance;
@@ -63,21 +63,24 @@ public class Vehicle {
         this.date = date;
     }
 
-    public int calculator(String type, int distance){
-            int score=0;
-            if(type.equals("Train")){
-                score =Math.round(50*100/distance) ;
-            }
-            if(type.equals("Car")){
-                score=Math.round(30*100/distance);
-            }
-            if(type.equals("Bicycle")){
-                score=Math.round(150*100/distance);
-            }
-            if(type.equals("Airplane")){
-                score=Math.round(40*100/distance);
-            }
-        return score;
+       public int calculator(String type, int distance){
+        int score=0;
+        if(type.equals("Train")){
+            score =Math.round(50*100/distance) ;
         }
+        if(type.equals("Car")){
+            score=Math.round(30*100/distance);
+        }
+        if(type.equals("Bicycle")){
+            score=Math.round(150*100/distance);
+        }
+        if(type.equals("Airplane")){
+            score=Math.round(40*100/distance);
+        }
+        if(type.equals("Walking")){
+            score=Math.round(200*100/distance);
+        }
+        return score;
+    }
 
 }
