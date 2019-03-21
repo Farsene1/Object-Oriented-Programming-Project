@@ -1,38 +1,17 @@
 package client;
 
 
-import classes.Vehicle;
+import classes.Transport;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import classes.Controller;
-import classes.RestfulClient;
-import classes.User;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -41,7 +20,7 @@ public class TransportBox {
      static int distance;
      static String date;
     static int score;
-    public static classes.Vehicle addVehicle(String title, String message,classes.User user ){
+    public static Transport addVehicle(String title, String message, classes.User user ){
          TextField distanceT;
         TextField  distanceM;
         Stage window = new Stage();
@@ -86,7 +65,7 @@ public class TransportBox {
                  int distanceMETERS = Integer.parseInt(distanceM.getText());
                  int distanceKM= Integer.parseInt(distanceT.getText());
                distance = distanceKM+distanceMETERS;
-               Vehicle transport = new Vehicle(user.getUsername(), vehicle,distance,0,date);
+               Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
                score=transport.calculator(vehicle,distance);
                transport.setScore(score);
                //   System.out.println(transport.getDate());
@@ -113,7 +92,7 @@ public class TransportBox {
 
 
 
-    return new classes.Vehicle(user.getUsername(), vehicle,distance,score,date );
+    return new Transport(user.getUsername(), vehicle,distance,score,date );
     }
 
 
