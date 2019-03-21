@@ -42,7 +42,7 @@ public class TransportController {
      */
     @RequestMapping("/all")
     public List<Transport> getAll(@RequestBody User user){
-        return this.transportRepository.findAllTransport();
+        return this.transportRepository.findTransportByUser(user.getUsername());
     }
 
 }

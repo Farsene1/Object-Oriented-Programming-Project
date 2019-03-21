@@ -20,7 +20,7 @@ public class Transport {
 
     public Transport(){}
 
-    public Transport(String username, String type, Integer distance,  int score, String date){
+    public Transport(String username, String type, Integer distance, int score, String date){
         this.username = username;
         this.type = type;
         this.distance = distance;
