@@ -77,6 +77,9 @@ public class Vehicle {
         if(type.equals("Airplane")){
             score=Math.round(40*100/distance);
         }
+        if(type.equals("Walking")){
+            score=Math.round(200*100/distance);
+        }
         return score;
     }
 
