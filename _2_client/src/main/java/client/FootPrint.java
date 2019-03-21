@@ -78,7 +78,7 @@ public class FootPrint {
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
-            AlertBox.display("This is an error message", "To Be Implemented");
+            classes.Vehicle vehicle= TransportBox.addVehicle("Transport Footprint","Select the transport option of your choice",user);
         });
 
         //My Water footprint
