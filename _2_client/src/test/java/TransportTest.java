@@ -4,42 +4,42 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class VehicleTest {
+public class TransportTest {
 
 
     //Getters Testing
 
     @Test
     public void getUsername() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        assertEquals("user",vehicle.getUsername());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        assertEquals("user", transport.getUsername());
     }
 
     @Test
     public void getType() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        assertEquals("car",vehicle.getType());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        assertEquals("car", transport.getType());
     }
 
 
     @Test
     public void getDistance() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        assertEquals(14,vehicle.getDistance());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        assertEquals(14, transport.getDistance());
     }
 
     @Test
     public void getScore() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        assertEquals(4,vehicle.getScore());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        assertEquals(4, transport.getScore());
     }
 
 
 
     @Test
     public void getDate() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        assertEquals("10/5",vehicle.getDate());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        assertEquals("10/5", transport.getDate());
     }
 
     //Setters Testing
@@ -48,71 +48,71 @@ public class VehicleTest {
 
     @Test
     public void SetUsername() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        vehicle.setUsername("kostas");
-        assertEquals("kostas",vehicle.getUsername());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        transport.setUsername("kostas");
+        assertEquals("kostas", transport.getUsername());
     }
 
     @Test
     public void SetType() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        vehicle.setType("train");
-        assertEquals("train",vehicle.getType());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        transport.setType("train");
+        assertEquals("train", transport.getType());
     }
 
     @Test
     public void SetDistance() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        vehicle.setDistance(16);
-        assertEquals(16,vehicle.getDistance());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        transport.setDistance(16);
+        assertEquals(16, transport.getDistance());
     }
 
     @Test
     public void SetScore() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        vehicle.setScore(16);
-        assertEquals(16,vehicle.getScore());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        transport.setScore(16);
+        assertEquals(16, transport.getScore());
     }
 
     @Test
     public void SetDate() {
-        Vehicle vehicle = new Vehicle("user","car",14,4,"10/5");
-        vehicle.setDate("10/4");
-        assertEquals("10/4",vehicle.getDate());
+        Transport transport = new Transport("user","car",14,4,"10/5");
+        transport.setDate("10/4");
+        assertEquals("10/4", transport.getDate());
     }
     //Calculator Testing
     @Test
     public void CalculatorTrain(){
-        Vehicle vehicle = new Vehicle("user","Train",14,4,"10/5");
-        vehicle.setScore(vehicle.calculator(vehicle.getType(),vehicle.getDistance()));
-        assertEquals(357,vehicle.getScore());
+        Transport transport = new Transport("user","Train",14,4,"10/5");
+        transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
+        assertEquals(357, transport.getScore());
     }
 
     @Test
     public void CalculatorCar(){
-        Vehicle vehicle = new Vehicle("user","Car",14,4,"10/5");
-        vehicle.setScore(vehicle.calculator(vehicle.getType(),vehicle.getDistance()));
-        assertEquals(214,vehicle.getScore());
+        Transport transport = new Transport("user","Car",14,4,"10/5");
+        transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
+        assertEquals(214, transport.getScore());
     }
     @Test
     public void CalculatorBicycle(){
-        Vehicle vehicle = new Vehicle("user","Bicycle",14,4,"10/5");
-        vehicle.setScore(vehicle.calculator(vehicle.getType(),vehicle.getDistance()));
-        assertEquals(1071,vehicle.getScore());
+        Transport transport = new Transport("user","Bicycle",14,4,"10/5");
+        transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
+        assertEquals(1071, transport.getScore());
     }
 
     @Test
     public void CalculatorAirplane(){
-        Vehicle vehicle = new Vehicle("user","Airplane",14,4,"10/5");
-        vehicle.setScore(vehicle.calculator(vehicle.getType(),vehicle.getDistance()));
-        assertEquals(285,vehicle.getScore());
+        Transport transport = new Transport("user","Airplane",14,4,"10/5");
+        transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
+        assertEquals(285, transport.getScore());
     }
 
     @Test
     public void CalculatorNull(){
-        Vehicle vehicle = new Vehicle("user","",14,4,"10/5");
-        vehicle.setScore(vehicle.calculator(vehicle.getType(),vehicle.getDistance()));
-        assertEquals(0,vehicle.getScore());
+        Transport transport = new Transport("user","",14,4,"10/5");
+        transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
+        assertEquals(0, transport.getScore());
     }
 
 }

@@ -1,6 +1,6 @@
 package classes;
 
-public class Vehicle {
+public class Transport {
     private String  username;
     private String type;
     private int distance;
@@ -8,11 +8,11 @@ public class Vehicle {
     private  String date;
 
 
-        public Vehicle(){
+        public Transport(){
 
         }
 
-       public Vehicle(String username, String type,int distance,int score,String date){
+       public Transport(String username, String type, int distance, int score, String date){
             this.username=username;
             this.type=type;
             this.distance=distance;
