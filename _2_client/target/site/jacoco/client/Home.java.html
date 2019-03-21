@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Home.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">Home.java</span></div><h1>Home.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.RestfulClient;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+<span class="nc" id="L14">public class Home {</span>
+
+public static void showHome(Stage window, classes.User user){
+<span class="nc" id="L17">    RestfulClient restfulClient = new RestfulClient();</span>
+<span class="nc" id="L18">    restfulClient.getEntity();</span>
+<span class="nc" id="L19">    window.setTitle(&quot;Home&quot;);</span>
+
+<span class="nc" id="L21">    BorderPane bp= new BorderPane();</span>
+<span class="nc" id="L22">    VBox leftmenu = new VBox();</span>
+<span class="nc" id="L23">    Scene scene = new Scene(bp, 1920, 1080);</span>
+<span class="nc" id="L24">    GridPane centerMenu= new GridPane();</span>
+<span class="nc" id="L25">    centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
+   // centerMenu.setVgap(8);
+  //  centerMenu.setHgap(10);
+
+    //Quit
+<span class="nc" id="L30">    Button quitButton = new Button(&quot;Quit&quot;);</span>
+<span class="nc" id="L31">        GridPane.setConstraints(quitButton, 0, 4);</span>
+<span class="nc" id="L32">        quitButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L33">        boolean result = ConfirmBox.display(&quot;Confirm&quot;, &quot;Are you sure you want to quit?&quot;);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (result) {</span>
+<span class="nc" id="L35">            Login.showLogin(window);</span>
+        }
+
+<span class="nc" id="L38">    });</span>
+    //My Carbon footprint
+<span class="nc" id="L40">    Button mycarbonButton = new Button(&quot;Footprint&quot;);</span>
+<span class="nc" id="L41">        GridPane.setConstraints(mycarbonButton, 0, 1);</span>
+<span class="nc" id="L42">        mycarbonButton.setOnAction(e -&gt; {</span>
+
+
+<span class="nc" id="L45">                FootPrint.showOptions( centerMenu,scene, user);</span>
+<span class="nc" id="L46">        });</span>
+
+    //Statistics Button
+<span class="nc" id="L49">    Button statisticsButton = new Button(&quot;Statistics&quot;);</span>
+<span class="nc" id="L50">        GridPane.setConstraints(statisticsButton, 0, 2);</span>
+<span class="nc" id="L51">        statisticsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L52">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L53">    });</span>
+    //LeaderBoard button
+<span class="nc" id="L55">    Button leaderboardButton = new Button(&quot;LeaderBoard&quot;);</span>
+<span class="nc" id="L56">        GridPane.setConstraints(leaderboardButton, 0, 3);</span>
+<span class="nc" id="L57">        leaderboardButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L58">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L59">    });</span>
+
+<span class="nc" id="L61">    Label Welcome = new Label(&quot;Welcome &quot;+ user.getUsername()+&quot;!&quot;);</span>
+
+<span class="nc" id="L63">    ImageView img= new ImageView(&quot;https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn&quot;);</span>
+<span class="nc" id="L64">    img.setStyle(&quot;-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25&quot;);</span>
+    //Add everything to grid
+<span class="nc" id="L66">    leftmenu.getChildren().addAll(Welcome,img , mycarbonButton, statisticsButton, leaderboardButton, quitButton);</span>
+<span class="nc" id="L67">    bp.setLeft(leftmenu);</span>
+<span class="nc" id="L68">    bp.setCenter(centerMenu);</span>
+<span class="nc" id="L69">    bp.setStyle(&quot;-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');&quot;);</span>
+
+
+<span class="nc" id="L72">    leaderboardButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L73">    mycarbonButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L74">    quitButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L75">    statisticsButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L76">    leftmenu.setMinWidth(400);</span>
+<span class="nc" id="L77">    leftmenu.setStyle(&quot;-fx-font-size: 18pt; -fx-background-color: white; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L78">    Welcome.setStyle(&quot;-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30&quot;);</span>
+<span class="nc" id="L79">        window.setScene(scene);</span>
+<span class="nc" id="L80">        window.setMaximized(true);</span>
+<span class="nc" id="L81">        window.show();</span>
+<span class="nc" id="L82">}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

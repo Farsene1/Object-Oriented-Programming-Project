@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GreetingController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">server</a> &gt; <a href="index.source.html" class="el_package">hello</a> &gt; <span class="el_source">GreetingController.java</span></div><h1>GreetingController.java</h1><pre class="source lang-java linenums">package hello;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
+
+/**
+ * This is the Rest Controller.
+ */
+@RestController
+<span class="nc" id="L14">public class GreetingController {</span>
+
+    /**
+     * * autowiring the userRepo.
+     */
+    @Autowired
+    private UserRepository userRepository;
+
+    /**
+     *  autowiring activities repo.
+     */
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    /**
+     * default path for testing.
+     *
+     * @return String
+     */
+    @RequestMapping(&quot;/&quot;)
+    public String getRootPath() {
+<span class="nc" id="L35">        return &quot;this is the default page&quot;;</span>
+    }
+
+    /**
+     * addActivity
+     */
+    @RequestMapping(value = &quot;/test&quot;, method = RequestMethod.POST)
+    public List&lt;Activity&gt; addToActivitiesTable(@RequestBody Activity activity){
+<span class="nc" id="L43">        this.activityRepository.save(activity);</span>
+<span class="nc" id="L44">        System.out.println(&quot;activities table updates&quot;);</span>
+<span class="nc" id="L45">        return this.activityRepository.findActivitiesByUser(activity.getUsername());</span>
+    }
+
+    /**
+     *
+     * @param user
+     * @return List of Activity objects
+     */
+    @RequestMapping(value = &quot;/firstactivities&quot;, method = RequestMethod.POST)
+    public List&lt;Activity&gt; getUpdatesActivities(@RequestBody User user){
+<span class="nc" id="L55">        return this.activityRepository.findActivitiesByUser(user.getUsername());</span>
+    }
+
+    /**
+     * this is the registration method - checks if the registration is possible.
+     *
+     * @param user
+     * @return the message
+     */
+    @RequestMapping(value = &quot;/post&quot;, method = RequestMethod.POST)
+    public String postMethod(@RequestBody User user) {
+<span class="nc" id="L66">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L67">                .findUserByUsername(user.getUsername());</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (users.size() == 0) {</span>
+<span class="nc" id="L69">            this.userRepository.save(user);</span>
+<span class="nc" id="L70">            return &quot;/POST successful&quot;;</span>
+        } else {
+<span class="nc" id="L72">            return &quot;/POST failed&quot;;</span>
+        }
+    }
+
+    /**
+     * method called for login request.
+     *
+     * @param user
+     * @return String
+     */
+    @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)
+    public String login(@RequestBody User user) {
+<span class="nc" id="L84">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L85">                .findUserByUsername(user.getUsername());</span>
+<span class="nc" id="L86">        String hash2 = user.getHash();</span>
+<span class="nc bnc" id="L87" title="All 4 branches missed.">        if (users.size() &gt; 0 &amp;&amp; users.get(0).getHash().equals(hash2)) {</span>
+<span class="nc" id="L88">            return &quot;POSITIVE&quot;;</span>
+        } else {
+<span class="nc" id="L90">            return &quot;NEGATIVE&quot;;</span>
+        }
+    }
+
+    /**
+     * waiting for @HASHIM to call it in the GUI.
+     * * @param user
+     *
+     * @return the current user
+     */
+    @RequestMapping(value = &quot;/activity&quot;, method = RequestMethod.POST)
+    public String addActivity(@RequestBody User user) {
+<span class="nc" id="L102">        System.out.println(&quot;No pain no gain&quot;);</span>
+<span class="nc" id="L103">        this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());</span>
+<span class="nc" id="L104">        return &quot;OK&quot;;</span>
+    }
+
+    /**
+     * method for getting the most recent updates.
+     */
+    @RequestMapping(value = &quot;/requestforupdate&quot;, method = RequestMethod.POST)
+    public User getUpdates(@RequestBody User user){
+<span class="nc" id="L112">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L113">                .findUserByUsername(user.getUsername());</span>
+<span class="nc" id="L114">        return users.get(0);</span>
+    }
+
+    /**
+     * just a default method.
+     *
+     * @param username
+     * @param hash
+     * @return User
+     */
+    @RequestMapping(value = &quot;/get&quot;, method = RequestMethod.GET)
+    public User greeting(@RequestParam(value = &quot;username&quot;,
+            defaultValue = &quot;anonymous&quot;)
+                                 String username,
+                         @RequestParam(value = &quot;hash&quot;, defaultValue = &quot;0&quot;)
+                                 String hash) {
+<span class="nc" id="L130">        String info = String.format(</span>
+                &quot;/GET REQUEST info: username=%s, hash=%s&quot;, username, hash);
+<span class="nc" id="L132">        System.out.println(info);</span>
+<span class="nc" id="L133">        return new User(username, hash);</span>
+    }
+
+    /**
+     * default method for testing, dangerous to use.
+     *
+     * @return List
+     */
+    @RequestMapping(value = &quot;/d398hasd98qhwd98qwhq9dhq8wdhw8whd&quot;,
+            method = RequestMethod.GET)
+    public List&lt;User&gt; getAll() {
+<span class="nc" id="L144">        return userRepository.findAllUsers();</span>
+    }
+
+    /**
+     * just a setter.
+     *
+     * @param userRepository
+     */
+    public void setUserRepository(UserRepository userRepository) {
+<span class="nc" id="L153">        this.userRepository = userRepository;</span>
+<span class="nc" id="L154">    }</span>
+
+    public void setActivityRepository(ActivityRepository activityRepository){
+<span class="nc" id="L157">        this.activityRepository = activityRepository;</span>
+<span class="nc" id="L158">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
