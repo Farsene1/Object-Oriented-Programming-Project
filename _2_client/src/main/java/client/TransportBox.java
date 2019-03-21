@@ -71,7 +71,7 @@ public class TransportBox {
                Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
                score=transport.calculator(vehicle,distance);
                transport.setScore(score);
-               new Controller().sendTransport(user, 25);
+               new Controller().sendTransport(user, score);
                // add a meal in the database
                Activity activity = new Activity(user.getUsername(),2,transport.getType()+":"+transport.getDistance()+"KM",
                        transport.getScore(), date);
