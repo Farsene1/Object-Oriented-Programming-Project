@@ -67,7 +67,7 @@ public class TransportBox {
                vehicle = choiceBox.getValue();
                  int distanceMETERS = Integer.parseInt(distanceM.getText());
                  int distanceKM= Integer.parseInt(distanceT.getText());
-               distance = distanceKM+distanceMETERS;
+               distance = distanceKM+distanceMETERS/1000;
                Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
                score=transport.calculator(vehicle,distance);
                transport.setScore(score);

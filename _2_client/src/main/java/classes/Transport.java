@@ -3,7 +3,7 @@ package classes;
 public class Transport {
     private String  username;
     private String type;
-    private int distance;
+    private double distance;
     private int score;
     private  String date;
 
@@ -12,7 +12,7 @@ public class Transport {
 
         }
 
-       public Transport(String username, String type, int distance, int score, String date){
+       public Transport(String username, String type, double distance, int score, String date){
             this.username=username;
             this.type=type;
             this.distance=distance;
@@ -39,11 +39,11 @@ public class Transport {
         this.type = type;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 
@@ -63,10 +63,10 @@ public class Transport {
         this.date = date;
     }
 
-       public int calculator(String type, int distance){
+       public int calculator(String type, double distance){
         int score=0;
         if(type.equals("Train")){
-            score =Math.round(50*100/distance) ;
+            score=Math.round(50*100/distance);
         }
         if(type.equals("Car")){
             score=Math.round(30*100/distance);
