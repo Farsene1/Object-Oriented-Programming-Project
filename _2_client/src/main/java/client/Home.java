@@ -74,7 +74,7 @@ public static void showHome(Stage window, classes.User user){
     quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
     statisticsButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
     leftmenu.setMinWidth(400);
-    leftmenu.setStyle("-fx-font-size: 18pt; -fx-background-color: white; -fx-padding: 10px;");
+    leftmenu.setStyle("-fx-font-size: 18pt; -fx-background-color: white;");
     Welcome.setStyle("-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30");
         window.setScene(scene);
         window.setMaximized(true);
