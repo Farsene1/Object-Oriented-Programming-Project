@@ -52,7 +52,12 @@ public class Login {
 
         //Login
         Button loginButton = new Button("Login");
-        GridPane.setConstraints(loginButton, 1, 2);
+        Label errorlabel = new Label();
+        errorlabel.setVisible(false);
+        errorlabel.setStyle("-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0");
+        VBox loginbox = new VBox();
+        loginbox.getChildren().addAll(errorlabel,loginButton);
+        GridPane.setConstraints(loginbox, 1, 2);
         loginButton.setOnAction(e -> {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
@@ -67,8 +72,8 @@ public class Login {
                     Home.showHome(window, user);
                 }
                 else{
-                    System.out.println("INVALID CREDENTIALS");
-                    AlertBox.display("ERROR", "INVALID CREDENTIALS");
+                    errorlabel.setText("INVALID CREDENTIALS");
+                    errorlabel.setVisible(true);
                 }
             }catch (NoSuchAlgorithmException NSA) {
                 System.out.println("No such Algorithm");
@@ -88,7 +93,7 @@ public class Login {
         passwordLabel.setStyle("-fx-padding: 0 20 0 40");
 
         //Add everything to grid
-        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton, Signup);
+        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginbox, Signup);
         vbox.getChildren().addAll(img,grid);
 
         Pane test1=new Pane();
