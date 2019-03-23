@@ -59,9 +59,16 @@ public class Signup {
         Button back= new Button("Back");
         back.setOnAction(e->{Login.showLogin(window);});
 
+
+
         //Register
         Button register = new Button("Register");
-        GridPane.setConstraints(register, 1, 3);
+        Label errorlabel = new Label();
+        errorlabel.setVisible(false);
+        errorlabel.setStyle("-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0");
+        VBox signup = new VBox();
+        signup.getChildren().addAll(errorlabel,register);
+        GridPane.setConstraints(signup, 1, 3);
         register.setOnAction(e -> {
             int step = 0;
             String valid = validatePassword(passwordInput.getText());
@@ -71,7 +78,8 @@ public class Signup {
             }
             else
             {
-                AlertBox.display("ERROR","The entered passwords do not match.");
+                errorlabel.setText("The entered passwords do not match.");
+                errorlabel.setVisible(true);
             }
 
             if (step == 1 && valid.equals("valid")) {
@@ -88,9 +96,10 @@ public class Signup {
                     // check if registration is possible
                     if(res.equals("/POST successful")){
                         Home.showHome(window, user);
-                    }
+                    } 
                     else{
-                        AlertBox.display("ERROR","ALREADY SIGNED UP!");
+                        errorlabel.setText("ALREADY REGISTERED UP!");
+                        errorlabel.setVisible(true);
                     }
                 } catch (NoSuchAlgorithmException error) {
                     AlertBox.display("ERROR", "No such algorithm exception");
@@ -98,7 +107,8 @@ public class Signup {
                 }
             }
             else if (step == 1){
-                    AlertBox.display("ERROR", validatePassword(passwordInput.getText()));
+                    errorlabel.setText(validatePassword(passwordInput.getText()));
+                    errorlabel.setVisible(true);
             }
         });
 
@@ -116,7 +126,7 @@ public class Signup {
         //Add everything to grid
         HBox hbox= new HBox();
         hbox.getChildren().addAll(back,backpane);
-        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput,passwordInput2, register);
+        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput,passwordInput2, signup);
         vbox.getChildren().addAll(hbox,img,grid);
 
         Pane test1=new Pane();
