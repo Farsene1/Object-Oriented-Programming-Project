@@ -15,6 +15,7 @@ public class Electricity {
     public Electricity(int heat_hrs, int light_hrs, boolean solar) {
         this.heat_hrs = heat_hrs;
         this.light_hrs = light_hrs;
+        this.solar = solar;
     }
 
     public int getHeat_hrs() {
