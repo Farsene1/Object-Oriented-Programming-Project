@@ -4,7 +4,6 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.Electricity;
-import classes.Transport;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
@@ -61,7 +60,6 @@ public class ElectricityBox {
                     v++;
                 }
             }
-
 
             if(c==lightfield.getText().length()&&v==heatfield.getText().length()){
                 LocalDateTime mydateObj = LocalDateTime.now();
