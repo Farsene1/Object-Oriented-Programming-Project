@@ -49,8 +49,8 @@ public static void showHome(Stage window, classes.User user){
         AlertBox.display("This is an error message", "To Be Implemented");
     });
     Button friendsbutton = new Button("Friends");
-    leaderboardButton.setOnAction(e -> {
-        AlertBox.display("This is an error message", "To Be Implemented");
+    friendsbutton.setOnAction(e -> {
+            Friends.showOptions(centerMenu,scene,user);
     });
     //Quit
     Button quitButton = new Button("Quit");

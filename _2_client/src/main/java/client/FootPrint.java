@@ -27,6 +27,7 @@ public class FootPrint {
     static TableView table = new TableView();
 
     public static void showOptions(GridPane grid, Scene scene, User user) {
+        grid.getChildren().clear();
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
