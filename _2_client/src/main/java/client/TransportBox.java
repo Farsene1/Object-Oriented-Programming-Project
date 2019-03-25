@@ -19,13 +19,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TransportBox {
-    static  String vehicle;
-     static int distance;
-     static String date;
+    static String vehicle;
+    static double distance;
+    static String date;
     static int score;
-    public static Transport addVehicle(String title, String message, classes.User user ){
-         TextField distanceT;
-        TextField  distanceM;
+
+    public static Transport addVehicle(String title, String message, classes.User user) {
+        TextField distanceT;
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -36,69 +36,53 @@ public class TransportBox {
         errorlabel.setText("You can only type numbers");
         errorlabel.setVisible(false);
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
-        choiceBox.getItems().addAll("Train","Car","Airplane","Bicycle","Walking");
+        choiceBox.getItems().addAll("Train", "Car", "Airplane", "Bicycle", "Walking");
         choiceBox.setValue("Train");
-         distanceT = new TextField();
-         distanceT.setMaxWidth(300);
-         distanceM = new TextField();
-         distanceM.setMaxWidth(300);
-         Label Dlabel = new Label("Add the Distance you traveled (The KM part)");
-         Label Mlabel = new Label("Add the Distance you traveled (The Meter Part)");
-         Button send = new Button("Send");
-        send.setOnAction(e ->{
-            int c=0;
-            for(int i=0; i<distanceT.getText().length(); i++){
-                if((Character.isDigit(distanceT.getText().charAt(i)))){
-                    c++;
-                }
-            }
-            int v=0;
-            for(int i=0; i<distanceM.getText().length(); i++){
-                if((Character.isDigit(distanceM.getText().charAt(i)))){
-                    v++;
-                }
-            }
+        distanceT = new TextField();
+        distanceT.setMaxWidth(300);
+        Label Dlabel = new Label("Add the Distance you traveled");
+        Button send = new Button("Send");
+        send.setOnAction(e -> {
+            try{
+            LocalDateTime mydateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            date = mydateObj.format(myFormatObj);
+            vehicle = choiceBox.getValue();
+            distance = Double.parseDouble(distanceT.getText());
+            Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
+            score = transport.calculator(vehicle, distance);
+            transport.setScore(score);
+            new Controller().sendTransport(user, score);
+            // add a meal in the database
+            Activity activity = new Activity(user.getUsername(), 2, transport.getType() + ":" + transport.getDistance() + " KM",
+                    transport.getScore(), date);
+            List<Activity> list = new Controller().sendFood(activity);
+            System.out.println("\n The items are" + list.toString());
+            window.close();
+        }
+           catch (NumberFormatException N){
+            distanceT.clear();
+            errorlabel.setVisible(true);
+        }
+    });
 
 
-           if(c==distanceT.getText().length()&&v==distanceM.getText().length()){
-               LocalDateTime mydateObj = LocalDateTime.now();
-               DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-               date= mydateObj.format(myFormatObj);
-               vehicle = choiceBox.getValue();
-                 int distanceMETERS = Integer.parseInt(distanceM.getText());
-                 int distanceKM= Integer.parseInt(distanceT.getText());
-               distance = distanceKM+distanceMETERS;
-               Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);
-               score=transport.calculator(vehicle,distance);
-               transport.setScore(score);
-               new Controller().sendTransport(user, score);
-               // add a meal in the database
-               Activity activity = new Activity(user.getUsername(),2,transport.getType()+":"+transport.getDistance()+"KM",
-                       transport.getScore(), date);
-               List<Activity> list = new Controller().sendFood(activity);
-               System.out.println("\n The items are"+list.toString());
-                          window.close();
-           }
-           else{
-               distanceT.clear();
-               distanceM.clear();
-                errorlabel.setVisible(true);
-           }
-        });
+    VBox layout = new VBox(10);
 
+    layout.getChildren().
 
-    VBox layout= new VBox(10);
-
-    layout.getChildren().addAll(label,choiceBox,Dlabel,distanceT,Mlabel,distanceM,errorlabel,send);
+    addAll(label, choiceBox, Dlabel, distanceT, errorlabel, send);
     layout.setAlignment(Pos.CENTER);
-    Scene scene= new Scene(layout);
+    Scene scene = new Scene(layout);
     window.setScene(scene);
     window.showAndWait();
 
 
 
-    return new Transport(user.getUsername(), vehicle,distance,score,date );
-    }
+    return new
+
+    Transport(user.getUsername(),vehicle,distance,score,date );
+}
 
 
 

@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -41,10 +42,10 @@ public class FootPrint {
         Col3.setCellValueFactory(new PropertyValueFactory<>("footprint"));
         TableColumn Col4 = new TableColumn("Date");
         Col4.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Col1.setMinWidth(200);
-        Col2.setMinWidth(200);
-        Col3.setMinWidth(200);
-        Col4.setMinWidth(200);
+        Col1.setMinWidth(300);
+        Col2.setMinWidth(300);
+        Col3.setMinWidth(300);
+        Col4.setMinWidth(300);
 
         table.setItems(addItems(user));
         table.getColumns().setAll(Col1, Col2, Col3, Col4);
@@ -62,10 +63,7 @@ public class FootPrint {
         TransportOptions.setStyle("-fx-padding: 15;");
         ElectricityOptions.setStyle("-fx-padding: 15;");
         //Footprint.setStyle("-fx-padding: 15;");
-        GridPane.setConstraints(FoodOptions, 2, 2);
-        GridPane.setConstraints(TransportOptions, 4, 2);
-        GridPane.setConstraints(ElectricityOptions, 6, 2);
-        GridPane.setConstraints(Footprint, 2, 10);
+        GridPane.setConstraints(Footprint, 0, 1);
 
         //My Food footprint
         Button Food = new Button("+");
@@ -89,29 +87,25 @@ public class FootPrint {
             classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
             table.setItems(addItems(user));
         });
-        Label Welcome = new Label("Welcome to your Footprint page!");
-
-        ImageView img = new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
-        img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
 
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);
         TransportOptions.getChildren().addAll(TransportLabel, Transport);
         ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);
-
-        grid.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions, Footprint);
+        HBox Hbox = new HBox();
+        Hbox.getChildren().addAll(FoodOptions,TransportOptions,ElectricityOptions);
+        GridPane.setConstraints(Hbox, 0, 0);
+        grid.getChildren().addAll(Hbox, Footprint);
 
         Food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         Transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
         // quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
         Electricity.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
-        grid.setMinWidth(800);
+        grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
-        Welcome.setStyle("-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30");
         FoodOptions.setMinWidth(476);
         ElectricityOptions.setMinWidth(476);
         TransportOptions.setMinWidth(476);
-        Footprint.setMinWidth(832);
     }
 
     public  static ObservableList<Activity> addItems(User user)
