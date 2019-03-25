@@ -16,14 +16,17 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      * Query to findAllUsers.
      */
     @Query(value = "SELECT * from users", nativeQuery = true)
-   List<User> findAllUsers();
+    List<User> findAllUsers();
+
     /**
      * Query to find a specific user by username.
+     *
      * @param username
      */
     @Query(value = "SELECT * from users where username = ?1",
             nativeQuery = true)
     List<User> findUserByUsername(@Param("username") String username);
+
     /**
      * Query to update a users attributes.
      */

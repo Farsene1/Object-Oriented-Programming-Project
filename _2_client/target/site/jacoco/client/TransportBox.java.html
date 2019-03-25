@@ -71,7 +71,7 @@ import java.util.List;
 <span class="nc" id="L71">               Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);</span>
 <span class="nc" id="L72">               score=transport.calculator(vehicle,distance);</span>
 <span class="nc" id="L73">               transport.setScore(score);</span>
-<span class="nc" id="L74">               new Controller().sendTransport(user, 25);</span>
+<span class="nc" id="L74">               new Controller().sendTransport(user, score);</span>
                // add a meal in the database
 <span class="nc" id="L76">               Activity activity = new Activity(user.getUsername(),2,transport.getType()+&quot;:&quot;+transport.getDistance()+&quot;KM&quot;,</span>
 <span class="nc" id="L77">                       transport.getScore(), date);</span>

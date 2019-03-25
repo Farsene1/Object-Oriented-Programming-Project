@@ -3,125 +3,111 @@
 import classes.Activity;
 import classes.Controller;
 import classes.User;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
-import java.util.LinkedList;
-import java.util.List;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
-<span class="nc" id="L21">public class MeatMealBox {</span>
+<span class="nc" id="L18">public class MeatMealBox {</span>
 
     static public void meatMealCalculator(String title, String message, User user){
 
-<span class="nc" id="L25">        Stage window = new Stage();</span>
-<span class="nc" id="L26">        window.initModality(Modality.APPLICATION_MODAL);</span>
-<span class="nc" id="L27">        window.setTitle(title);</span>
-<span class="nc" id="L28">        window.setMinWidth(500);</span>
-<span class="nc" id="L29">        Label label = new Label();</span>
-<span class="nc" id="L30">        label.setText(message);</span>
+<span class="nc" id="L22">        Stage window = new Stage();</span>
+<span class="nc" id="L23">        window.initModality(Modality.APPLICATION_MODAL);</span>
+<span class="nc" id="L24">        window.setTitle(title);</span>
+<span class="nc" id="L25">        window.setMinWidth(500);</span>
+<span class="nc" id="L26">        Label label = new Label();</span>
+<span class="nc" id="L27">        label.setText(message);</span>
 
-<span class="nc" id="L32">        ChoiceBox&lt;Integer&gt; dropdownGrams= new ChoiceBox&lt;&gt;();</span>
+<span class="nc" id="L29">        ChoiceBox&lt;Integer&gt; dropdownGrams= new ChoiceBox&lt;&gt;();</span>
 
-<span class="nc" id="L34">        dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);</span>
-<span class="nc" id="L35">        dropdownGrams.getSelectionModel().select(0);</span>
+<span class="nc" id="L31">        dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);</span>
+<span class="nc" id="L32">        dropdownGrams.getSelectionModel().select(0);</span>
 
-<span class="nc" id="L37">        Button gramsButton= new Button(&quot;Submit grams&quot;);</span>
-<span class="nc" id="L38">        gramsButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L39">            int gramsAdded = dropdownGrams.getValue();</span>
+<span class="nc" id="L34">        Button gramsButton= new Button(&quot;Submit grams&quot;);</span>
+<span class="nc" id="L35">        gramsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L36">            int gramsAdded = dropdownGrams.getValue();</span>
 
-<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (gramsAdded == 100) {</span>
-<span class="nc" id="L42">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L43">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L44">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L45">                new Controller().sendMeal(user, 100);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (gramsAdded == 100) {</span>
+<span class="nc" id="L39">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L40">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L41">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L42">                new Controller().sendMeal(user, 100);</span>
                 // add a meal in the database
-<span class="nc" id="L47">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
-<span class="nc" id="L48">                        100, date);</span>
-<span class="nc" id="L49">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L50">                window.close();</span>
+<span class="nc" id="L44">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
+<span class="nc" id="L45">                        100, date);</span>
+<span class="nc" id="L46">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L47">                window.close();</span>
             }
-<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (gramsAdded == 200) {</span>
-<span class="nc" id="L53">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L54">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L55">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L56">                new Controller().sendMeal(user, 200);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (gramsAdded == 200) {</span>
+<span class="nc" id="L50">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L51">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L52">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L53">                new Controller().sendMeal(user, 200);</span>
                 // add a meal in the database
-<span class="nc" id="L58">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
-<span class="nc" id="L59">                        200, date);</span>
-<span class="nc" id="L60">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L61">                window.close();</span>
+<span class="nc" id="L55">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded + &quot; grams)&quot;,</span>
+<span class="nc" id="L56">                        200, date);</span>
+<span class="nc" id="L57">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L58">                window.close();</span>
             }
-<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (gramsAdded == 300) {</span>
-<span class="nc" id="L64">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L65">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L66">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L67">                new Controller().sendMeal(user, 300);</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            if (gramsAdded == 300) {</span>
+<span class="nc" id="L61">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L62">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L63">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L64">                new Controller().sendMeal(user, 300);</span>
                 // add a meal in the database
-<span class="nc" id="L69">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
-<span class="nc" id="L70">                        300, date);</span>
-<span class="nc" id="L71">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L72">                window.close();</span>
+<span class="nc" id="L66">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L67">                        300, date);</span>
+<span class="nc" id="L68">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L69">                window.close();</span>
             }
 
-<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (gramsAdded == 100) {</span>
-<span class="nc" id="L76">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L77">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L78">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L79">                new Controller().sendMeal(user, 300);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">            if (gramsAdded == 400) {</span>
+<span class="nc" id="L73">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L74">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L75">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L76">                new Controller().sendMeal(user, 400);</span>
                 // add a meal in the database
-<span class="nc" id="L81">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
-<span class="nc" id="L82">                        300, date);</span>
-<span class="nc" id="L83">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L84">                window.close();</span>
+<span class="nc" id="L78">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L79">                        400, date);</span>
+<span class="nc" id="L80">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L81">                window.close();</span>
             }
-<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (gramsAdded == 400) {</span>
-<span class="nc" id="L87">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L88">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L89">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L90">                new Controller().sendMeal(user, 400);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">            if (gramsAdded == 500) {</span>
+<span class="nc" id="L84">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L85">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L86">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L87">                new Controller().sendMeal(user, 500);</span>
                 // add a meal in the database
-<span class="nc" id="L92">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
-<span class="nc" id="L93">                        400, date);</span>
-<span class="nc" id="L94">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L95">                window.close();</span>
+<span class="nc" id="L89">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
+<span class="nc" id="L90">                        500, date);</span>
+<span class="nc" id="L91">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L92">                window.close();</span>
             }
-<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (gramsAdded == 500) {</span>
-<span class="nc" id="L98">                LocalDateTime myDateObj = LocalDateTime.now();</span>
-<span class="nc" id="L99">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L100">                String date = myDateObj.format(myFormatObj);</span>
-<span class="nc" id="L101">                new Controller().sendMeal(user, 500);</span>
-                // add a meal in the database
-<span class="nc" id="L103">                Activity activity = new Activity(user.getUsername(), 1, &quot;Meat (&quot; + gramsAdded +  &quot; grams)&quot;,</span>
-<span class="nc" id="L104">                        500, date);</span>
-<span class="nc" id="L105">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L106">                window.close();</span>
-            }
-<span class="nc" id="L108">        });</span>
+<span class="nc" id="L94">        });</span>
 
 
 
-<span class="nc" id="L112">        VBox layout = new VBox(10);</span>
+<span class="nc" id="L98">        VBox layout = new VBox(10);</span>
 
-<span class="nc" id="L114">        label.setStyle(&quot;-fx-font-size: 12pt; -fx-padding: 10;&quot;);</span>
-<span class="nc" id="L115">        dropdownGrams.setStyle(&quot;-fx-padding: 7;&quot;);</span>
-<span class="nc" id="L116">        gramsButton.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+<span class="nc" id="L100">        label.setStyle(&quot;-fx-font-size: 12pt; -fx-padding: 10;&quot;);</span>
+<span class="nc" id="L101">        dropdownGrams.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+<span class="nc" id="L102">        gramsButton.setStyle(&quot;-fx-padding: 7;&quot;);</span>
 
-<span class="nc" id="L118">        layout.getChildren().addAll(label, gramsButton, dropdownGrams);</span>
-<span class="nc" id="L119">        layout.setStyle(&quot; -fx-padding: 10px;&quot;);</span>
-<span class="nc" id="L120">        Scene scene = new Scene(layout);</span>
+<span class="nc" id="L104">        layout.getChildren().addAll(label, gramsButton, dropdownGrams);</span>
+<span class="nc" id="L105">        layout.setStyle(&quot; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L106">        Scene scene = new Scene(layout);</span>
 
-<span class="nc" id="L122">        window.setScene(scene);</span>
-<span class="nc" id="L123">        window.showAndWait();</span>
-<span class="nc" id="L124">    }</span>
+<span class="nc" id="L108">        window.setScene(scene);</span>
+<span class="nc" id="L109">        window.showAndWait();</span>
+<span class="nc" id="L110">    }</span>
 }
 
 

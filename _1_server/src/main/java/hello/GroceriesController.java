@@ -15,13 +15,13 @@ public class GroceriesController {
     private GroceriesRepository groceriesRepository;
 
     @RequestMapping("/add")
-    public List<Groceries> add(@RequestBody Groceries groceries){
+    public List<Groceries> add(@RequestBody Groceries groceries) {
         this.groceriesRepository.save(groceries);
         return this.groceriesRepository.findGroceriesByUser(groceries.getUsername());
     }
 
     @RequestMapping("/getall")
-    public List<Groceries> getAll(@RequestBody User user){
+    public List<Groceries> getAll(@RequestBody User user) {
         return this.groceriesRepository.findGroceriesByUser(user.getUsername());
     }
 }
