@@ -1,6 +1,9 @@
 package client;
 import classes.FriendRequest;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import classes.Activity;
 import classes.Controller;
@@ -94,9 +97,50 @@ public class Friends {
             classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText());
 
         });
+
+
+    //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
+        pendingTable.setRowFactory(tv -> {
+            TableRow<FriendRequest> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (! row.isEmpty() && event.getButton()==MouseButton.PRIMARY
+                        && event.getClickCount() == 2) {
+
+                    FriendRequest clickedRow = row.getItem();
+                    boolean answer = AddFriendBox.display("Add A friend",clickedRow);
+                    if (answer== false){
+                        pendingTable.getItems().remove(clickedRow);
+                    }
+                    else{
+                        //SOMETHING ELSE
+                    }
+                }
+            });
+            return row ;
+
+        });
+
+
+
+
+
+
+
     }
 
-//public static ObservableList<FriendRequest> addFriendRequests(User user){
+    //public static ObservableList<Friend> addFriend(User user){
+//        ObservableList<Friend> Friend= FXCollections.observableArrayList();
+//      //  List<Friend> FriendList = new Controller().get
+//        for(Friend a : FriendList){
+//             Friend.add(a);
+//        }
+//    return  Friend;
+//    }
+
+
+
+
+    //public static ObservableList<FriendRequest> addFriendRequests(User user){
 //        ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
 //      //  List<FriendRequest> friendRequestList = new Controller().get
 //        for(FriendRequest a : friendRequestList){
