@@ -1,7 +1,6 @@
 package client;
 
 import classes.RestfulClient;
-import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
