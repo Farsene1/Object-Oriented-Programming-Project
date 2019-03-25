@@ -1,4 +1,5 @@
 package client;
+import classes.FriendRequest;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import classes.Activity;
@@ -17,6 +18,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
+import java.util.List;
+
 public class Friends {
     static TableView friendsTable = new TableView();
     static TableView pendingTable = new TableView();
@@ -92,7 +96,14 @@ public class Friends {
         });
     }
 
-
+//public static ObservableList<FriendRequest> addFriendRequests(User user){
+//        ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
+//      //  List<FriendRequest> friendRequestList = new Controller().get
+//        for(FriendRequest a : friendRequestList){
+//             friendRequests.add(a);
+//        }
+//    return  friendRequests;
+//    }
 
 
 
