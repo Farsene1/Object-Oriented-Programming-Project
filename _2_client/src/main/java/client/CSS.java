@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 public class CSS {
     public static void setButtonStyle(Button button){
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                .then("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42; -fx-background-color: #81b8d7; -fx-text-fill: black;-fx-border-color: white;")
+                .then("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42; -fx-background-color: #81b8d7; -fx-text-fill: White;-fx-border-color: white;")
                 .otherwise("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42; -fx-background-color: #a8d2e9; -fx-text-fill: black;-fx-border-color: white;"));
     }
 
