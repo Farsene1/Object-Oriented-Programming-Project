@@ -1,6 +1,7 @@
 package client;
 
 import classes.RestfulClient;
+import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,16 +27,8 @@ public static void showHome(Stage window, classes.User user){
    // centerMenu.setVgap(8);
   //  centerMenu.setHgap(10);
 
-    //Quit
-    Button quitButton = new Button("Quit");
-        GridPane.setConstraints(quitButton, 0, 4);
-        quitButton.setOnAction(e -> {
-        boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
-        if (result) {
-            Login.showLogin(window);
-        }
-
-    });
+    ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
+    Label usernamelabel = new Label(user.getUsername().toUpperCase());
     //My Carbon footprint
     Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
@@ -53,29 +46,40 @@ public static void showHome(Stage window, classes.User user){
     });
     //LeaderBoard button
     Button leaderboardButton = new Button("LeaderBoard");
-        GridPane.setConstraints(leaderboardButton, 0, 3);
         leaderboardButton.setOnAction(e -> {
         AlertBox.display("This is an error message", "To Be Implemented");
     });
+    Button friendsbutton = new Button("Friends");
+    leaderboardButton.setOnAction(e -> {
+        AlertBox.display("This is an error message", "To Be Implemented");
+    });
+    //Quit
+    Button quitButton = new Button("Quit");
+    quitButton.setOnAction(e -> {
+        boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
+        if (result) {
+            Login.showLogin(window);
+        }
 
-    Label Welcome = new Label("Welcome "+ user.getUsername()+"!");
+    });
 
-    ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
-    img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
+
     //Add everything to grid
-    leftmenu.getChildren().addAll(Welcome,img , mycarbonButton, statisticsButton, leaderboardButton, quitButton);
+    leftmenu.getChildren().addAll(img, usernamelabel, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);
     bp.setLeft(leftmenu);
     bp.setCenter(centerMenu);
     bp.setStyle("-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');");
 
-
-    leaderboardButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
-    mycarbonButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
-    quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
-    statisticsButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
+    img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
+    usernamelabel.setStyle("-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30");
+    CSS.setButtonStyle(mycarbonButton);
+    CSS.setButtonStyle(statisticsButton);
+    CSS.setButtonStyle(leaderboardButton);
+    CSS.setButtonStyle(friendsbutton);
+    CSS.setButtonStyle(quitButton);
     leftmenu.setMinWidth(400);
-    leftmenu.setStyle("-fx-font-size: 18pt; -fx-background-color: white;");
-    Welcome.setStyle("-fx-padding: 20,0,0,0; -fx-alignment: center; -fx-font-size: 30");
+    leftmenu.setStyle("-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);");
+
         window.setScene(scene);
         window.setMaximized(true);
         window.show();
