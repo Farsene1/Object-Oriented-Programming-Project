@@ -11,8 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -41,6 +39,7 @@ public class Login {
 
         //Login
         Button loginButton = new Button("Login");
+        loginButton.setDefaultButton(true);
         Label errorlabel = new Label();
         errorlabel.setVisible(false);
         errorlabel.setStyle("-fx-font-size: 16; -fx-text-fill: red;");
@@ -106,5 +105,6 @@ public class Login {
         window.setMaximized(true);
         window.show();
     }
+
 
 }
