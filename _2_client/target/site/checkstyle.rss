@@ -27,7 +27,7 @@ under the License.
     <item>
       <title>File: 20,
              Errors: 0,
-             Warnings: 588,
+             Warnings: 580,
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/client/checkstyle.html</link>
@@ -136,7 +136,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  19
+                  11
                 </td>
                 <td>
                   0

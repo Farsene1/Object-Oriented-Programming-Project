@@ -16,32 +16,33 @@ public class TransportController {
 
     /**
      * default method.
+     *
      * @return default method.
      */
     @RequestMapping("/default")
-    public String add(){
+    public String add() {
         System.out.println("transport added");
         return "transport added";
     }
 
     /**
      * add transport to the database.
+     *
      * @param transport
      * @return list.
      */
     @RequestMapping("/add")
-    public List<Transport> addTransport(@RequestBody Transport transport){
+    public List<Transport> addTransport(@RequestBody Transport transport) {
         this.transportRepository.save(transport);
         return this.transportRepository.findTransportByUser(transport.getUsername());
     }
 
     /**
-     *
      * @param user
      * @return list.
      */
     @RequestMapping("/all")
-    public List<Transport> getAll(@RequestBody User user){
+    public List<Transport> getAll(@RequestBody User user) {
         return this.transportRepository.findTransportByUser(user.getUsername());
     }
 
