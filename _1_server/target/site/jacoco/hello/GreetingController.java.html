@@ -100,7 +100,7 @@ import java.util.List;
     @RequestMapping(value = &quot;/activity&quot;, method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
 <span class="nc" id="L102">        System.out.println(&quot;No pain no gain&quot;);</span>
-<span class="nc" id="L103">        this.userRepository.updateActivity(user.getFoodFootprint(), user.getUsername());</span>
+<span class="nc" id="L103">        this.userRepository.updateActivity(user.getFoodFootprint(), user.getTransportFootprint(), user.getUsername());</span>
 <span class="nc" id="L104">        return &quot;OK&quot;;</span>
     }
 

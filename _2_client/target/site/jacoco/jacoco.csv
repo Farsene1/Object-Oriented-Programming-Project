@@ -10,7 +10,7 @@ client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,Transport,9,101,1,9,3,33,2,16,1,12
 client,client,Leaderboard,3,0,0,0,1,0,1,0,1,0
 client,client,ConfirmBox,89,0,0,0,24,0,4,0,4,0
-client,client,MeatMealBox,359,0,12,0,78,0,9,0,3,0
+client,client,MeatMealBox,320,0,10,0,69,0,8,0,3,0
 client,client,TransportBox,304,0,12,0,58,0,9,0,3,0
 client,client,FootPrint,359,0,2,0,73,0,8,0,7,0
 client,client,ValidatePassword,3,87,0,28,1,18,1,15,1,1
