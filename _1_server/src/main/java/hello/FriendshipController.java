@@ -35,6 +35,14 @@ public class FriendshipController {
     private UserRepository userRepository;
 
     /**
+     * default method.
+     */
+    @RequestMapping("/run")
+    public void setUp(){
+        this.friendRequestRepository.save(new FriendRequest("Flo","Tijs"));
+        this.friendRequestRepository.save(new FriendRequest("Hashim","Tijs"));
+    }
+    /**
      * method for getting all the friends in the database.
      * @param username
      * @return response list.
@@ -70,7 +78,7 @@ public class FriendshipController {
     }
 
     /**
-     * method for responding to a friendRequest
+     * method for responding to a friendRequest. TO BE CHANGED LATER, depending on GUI.
      */
     @RequestMapping("/respond")
     public String respond(@RequestBody FriendRequest friendRequest) {
