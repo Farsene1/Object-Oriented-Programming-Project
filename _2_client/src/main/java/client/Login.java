@@ -3,61 +3,47 @@ package client;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 
 public class Login {
     public static void showLogin(Stage window){
-        TextField usernameInput, passwordInput;
+        JFXTextField usernameInput;
+        JFXPasswordField passwordInput;
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Login");
-
+        VBox vbox = new VBox();
 
         BorderPane bp= new BorderPane();
-        //GridPane with 10px padding around edge
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10, 10, 10, 10));
-        grid.setVgap(8);
-
-        //username Label - constrains use (child, column, row)
-        Label usernameLabel = new Label("Username:");
-        GridPane.setConstraints(usernameLabel, 0, 0);
-
-        //username-r Input
-        usernameInput = new TextField();
+        //username Input
+        usernameInput = new JFXTextField();
         usernameInput.setPromptText("username");
-        GridPane.setConstraints(usernameInput, 1, 0);
-
-        //Password Label
-        Label passwordLabel = new Label("Password:");
-        GridPane.setConstraints(passwordLabel, 0, 1);
+        usernameInput.setLabelFloat(true);
 
         //Password Input
-        passwordInput = new PasswordField();
+        passwordInput = new JFXPasswordField();
         passwordInput.setPromptText("password");
-        GridPane.setConstraints(passwordInput, 1, 1);
+        passwordInput.setLabelFloat(true);
 
         //Login
         Button loginButton = new Button("Login");
         Label errorlabel = new Label();
         errorlabel.setVisible(false);
-        errorlabel.setStyle("-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0");
-        VBox loginbox = new VBox();
-        loginbox.getChildren().addAll(errorlabel,loginButton);
-        GridPane.setConstraints(loginbox, 1, 2);
+        errorlabel.setStyle("-fx-font-size: 16; -fx-text-fill: red;");
         loginButton.setOnAction(e -> {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
@@ -81,38 +67,40 @@ public class Login {
         });
 
         //Signup
-        Button Signup = new Button("Signup");
-        GridPane.setConstraints(Signup, 1, 3);
+        HBox SignupBox= new HBox();
+        Label regLabel = new Label("Not registered?");
+        JFXButton Signup= new JFXButton("Signup");
+        Signup.setStyle("-fx-text-fill: red");
+        SignupBox.getChildren().addAll(regLabel,Signup);
+        SignupBox.setAlignment(Pos.CENTER);
         Signup.setOnAction(e -> client.Signup.showSignup(window));
         ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
         img.setFitWidth(350);
         img.setFitHeight(350);
         img.setStyle("-fx-padding: 10");
-        VBox vbox = new VBox();
-        usernameLabel.setStyle("-fx-padding: 0 20 0 40");
-        passwordLabel.setStyle("-fx-padding: 0 20 0 40");
-
         //Add everything to grid
-        grid.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginbox, Signup);
-        vbox.getChildren().addAll(img,grid);
 
+
+        vbox.getChildren().addAll(img,usernameInput, passwordInput,errorlabel, loginButton, SignupBox);
+        vbox.setSpacing(30);
         Pane test1=new Pane();
         Pane test2=new Pane();
         Pane test3=new Pane();
         Pane test4=new Pane();
         test1.setPrefWidth(675);
         test2.setPrefWidth(675);
-        test3.setPrefHeight(200);
-        test4.setPrefHeight(200);
+        test3.setMinHeight(200);
+        test4.setMinHeight(200);
         bp.setCenter(vbox);
         bp.setLeft(test1);
         bp.setRight(test2);
         bp.setTop(test3);
         bp.setBottom(test4);
 
+        CSS.setSmallButtonStyle(loginButton);
         bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
         vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
-        vbox.setPadding(new Insets(20,0,40,0));
+        vbox.setPadding(new Insets(20,60,40,60));
         Scene scene = new Scene(bp, 1920, 1080);
         window.setScene(scene);
         window.setMaximized(true);
