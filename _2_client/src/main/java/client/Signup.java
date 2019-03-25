@@ -10,8 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -54,6 +52,7 @@ public class Signup {
 
         //Register
         Button register = new Button("Register");
+        register.setDefaultButton(true);
         Label errorlabel = new Label();
         errorlabel.setVisible(false);
         errorlabel.setStyle("-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0");
