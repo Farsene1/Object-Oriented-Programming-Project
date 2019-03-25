@@ -17,36 +17,62 @@ public class Food {
     private String date;
     private Integer score;
 
-    public Food(){}
+    public Food() {
+    }
 
-    public Food(String username, String mealType, String date, int score){
+    public Food(String username, String mealType, String date, int score) {
         this.username = username;
         this.mealType = mealType;
         this.date = date;
         this.score = score;
     }
 
-    public Integer getId(){return id;}
-    public void setId(Integer id){this.id = id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public String getUsername(){return username;}
-    public void setUsername(String username){this.username = username;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public String getMealType(){return mealType;}
-    public void setMealType(String mealType){this.mealType = mealType;}
+    public String getUsername() {
+        return username;
+    }
 
-    public String getDate(){return date;}
-    public void setDate(String date){this.date = date;}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public Integer getScore(){return score;}
-    public void setScore(Integer score){this.score = score;}
+    public String getMealType() {
+        return mealType;
+    }
+
+    public void setMealType(String mealType) {
+        this.mealType = mealType;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Food{" + "username='" + username
                 + '\'' + ", mealType='" + mealType + '\'' +
-                + '\'' + ", date='" + date + '\'' +
-                + '\'' + ", score='" + score + '\'' +
+                +'\'' + ", date='" + date + '\'' +
+                +'\'' + ", score='" + score + '\'' +
                 '}';
     }
 }
