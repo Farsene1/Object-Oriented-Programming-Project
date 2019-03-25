@@ -19,13 +19,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 <span class="nc" id="L21">public class TransportBox {</span>
-    static  String vehicle;
-     static int distance;
-     static String date;
+    static String vehicle;
+    static double distance;
+    static String date;
     static int score;
-    public static Transport addVehicle(String title, String message, classes.User user ){
-         TextField distanceT;
-        TextField  distanceM;
+
+    public static Transport addVehicle(String title, String message, classes.User user) {
+        TextField distanceT;
 <span class="nc" id="L29">        Stage window = new Stage();</span>
 <span class="nc" id="L30">        window.initModality(Modality.APPLICATION_MODAL);</span>
 <span class="nc" id="L31">        window.setTitle(title);</span>
@@ -36,69 +36,53 @@ import java.util.List;
 <span class="nc" id="L36">        errorlabel.setText(&quot;You can only type numbers&quot;);</span>
 <span class="nc" id="L37">        errorlabel.setVisible(false);</span>
 <span class="nc" id="L38">        ChoiceBox&lt;String&gt; choiceBox = new ChoiceBox&lt;&gt;();</span>
-<span class="nc" id="L39">        choiceBox.getItems().addAll(&quot;Train&quot;,&quot;Car&quot;,&quot;Airplane&quot;,&quot;Bicycle&quot;,&quot;Walking&quot;);</span>
+<span class="nc" id="L39">        choiceBox.getItems().addAll(&quot;Train&quot;, &quot;Car&quot;, &quot;Airplane&quot;, &quot;Bicycle&quot;, &quot;Walking&quot;);</span>
 <span class="nc" id="L40">        choiceBox.setValue(&quot;Train&quot;);</span>
-<span class="nc" id="L41">         distanceT = new TextField();</span>
-<span class="nc" id="L42">         distanceT.setMaxWidth(300);</span>
-<span class="nc" id="L43">         distanceM = new TextField();</span>
-<span class="nc" id="L44">         distanceM.setMaxWidth(300);</span>
-<span class="nc" id="L45">         Label Dlabel = new Label(&quot;Add the Distance you traveled (The KM part)&quot;);</span>
-<span class="nc" id="L46">         Label Mlabel = new Label(&quot;Add the Distance you traveled (The Meter Part)&quot;);</span>
-<span class="nc" id="L47">         Button send = new Button(&quot;Send&quot;);</span>
-<span class="nc" id="L48">        send.setOnAction(e -&gt;{</span>
-<span class="nc" id="L49">            int c=0;</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            for(int i=0; i&lt;distanceT.getText().length(); i++){</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">                if((Character.isDigit(distanceT.getText().charAt(i)))){</span>
-<span class="nc" id="L52">                    c++;</span>
-                }
-            }
-<span class="nc" id="L55">            int v=0;</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">            for(int i=0; i&lt;distanceM.getText().length(); i++){</span>
-<span class="nc bnc" id="L57" title="All 2 branches missed.">                if((Character.isDigit(distanceM.getText().charAt(i)))){</span>
-<span class="nc" id="L58">                    v++;</span>
-                }
-            }
+<span class="nc" id="L41">        distanceT = new TextField();</span>
+<span class="nc" id="L42">        distanceT.setMaxWidth(300);</span>
+<span class="nc" id="L43">        Label Dlabel = new Label(&quot;Add the Distance you traveled&quot;);</span>
+<span class="nc" id="L44">        Button send = new Button(&quot;Send&quot;);</span>
+<span class="nc" id="L45">        send.setOnAction(e -&gt; {</span>
+            try{
+<span class="nc" id="L47">            LocalDateTime mydateObj = LocalDateTime.now();</span>
+<span class="nc" id="L48">            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L49">            date = mydateObj.format(myFormatObj);</span>
+<span class="nc" id="L50">            vehicle = choiceBox.getValue();</span>
+<span class="nc" id="L51">            distance = Double.parseDouble(distanceT.getText());</span>
+<span class="nc" id="L52">            Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);</span>
+<span class="nc" id="L53">            score = transport.calculator(vehicle, distance);</span>
+<span class="nc" id="L54">            transport.setScore(score);</span>
+<span class="nc" id="L55">            new Controller().sendTransport(user, score);</span>
+            // add a meal in the database
+<span class="nc" id="L57">            Activity activity = new Activity(user.getUsername(), 2, transport.getType() + &quot;:&quot; + transport.getDistance() + &quot; KM&quot;,</span>
+<span class="nc" id="L58">                    transport.getScore(), date);</span>
+<span class="nc" id="L59">            List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L60">            System.out.println(&quot;\n The items are&quot; + list.toString());</span>
+<span class="nc" id="L61">            window.close();</span>
+        }
+<span class="nc" id="L63">           catch (NumberFormatException N){</span>
+<span class="nc" id="L64">            distanceT.clear();</span>
+<span class="nc" id="L65">            errorlabel.setVisible(true);</span>
+<span class="nc" id="L66">        }</span>
+<span class="nc" id="L67">    });</span>
 
 
-<span class="nc bnc" id="L63" title="All 4 branches missed.">           if(c==distanceT.getText().length()&amp;&amp;v==distanceM.getText().length()){</span>
-<span class="nc" id="L64">               LocalDateTime mydateObj = LocalDateTime.now();</span>
-<span class="nc" id="L65">               DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L66">               date= mydateObj.format(myFormatObj);</span>
-<span class="nc" id="L67">               vehicle = choiceBox.getValue();</span>
-<span class="nc" id="L68">                 int distanceMETERS = Integer.parseInt(distanceM.getText());</span>
-<span class="nc" id="L69">                 int distanceKM= Integer.parseInt(distanceT.getText());</span>
-<span class="nc" id="L70">               distance = distanceKM+distanceMETERS;</span>
-<span class="nc" id="L71">               Transport transport = new Transport(user.getUsername(), vehicle,distance,0,date);</span>
-<span class="nc" id="L72">               score=transport.calculator(vehicle,distance);</span>
-<span class="nc" id="L73">               transport.setScore(score);</span>
-<span class="nc" id="L74">               new Controller().sendTransport(user, score);</span>
-               // add a meal in the database
-<span class="nc" id="L76">               Activity activity = new Activity(user.getUsername(),2,transport.getType()+&quot;:&quot;+transport.getDistance()+&quot;KM&quot;,</span>
-<span class="nc" id="L77">                       transport.getScore(), date);</span>
-<span class="nc" id="L78">               List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-<span class="nc" id="L79">               System.out.println(&quot;\n The items are&quot;+list.toString());</span>
-<span class="nc" id="L80">                          window.close();</span>
-<span class="nc" id="L81">           }</span>
-           else{
-<span class="nc" id="L83">               distanceT.clear();</span>
-<span class="nc" id="L84">               distanceM.clear();</span>
-<span class="nc" id="L85">                errorlabel.setVisible(true);</span>
-           }
-<span class="nc" id="L87">        });</span>
+<span class="nc" id="L70">    VBox layout = new VBox(10);</span>
 
+<span class="nc" id="L72">    layout.getChildren().</span>
 
-<span class="nc" id="L90">    VBox layout= new VBox(10);</span>
-
-<span class="nc" id="L92">    layout.getChildren().addAll(label,choiceBox,Dlabel,distanceT,Mlabel,distanceM,errorlabel,send);</span>
-<span class="nc" id="L93">    layout.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L94">    Scene scene= new Scene(layout);</span>
-<span class="nc" id="L95">    window.setScene(scene);</span>
-<span class="nc" id="L96">    window.showAndWait();</span>
+<span class="nc" id="L74">    addAll(label, choiceBox, Dlabel, distanceT, errorlabel, send);</span>
+<span class="nc" id="L75">    layout.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L76">    Scene scene = new Scene(layout);</span>
+<span class="nc" id="L77">    window.setScene(scene);</span>
+<span class="nc" id="L78">    window.showAndWait();</span>
 
 
 
-<span class="nc" id="L100">    return new Transport(user.getUsername(), vehicle,distance,score,date );</span>
-    }
+<span class="nc" id="L82">    return new</span>
+
+<span class="nc" id="L84">    Transport(user.getUsername(),vehicle,distance,score,date );</span>
+}
 
 
 

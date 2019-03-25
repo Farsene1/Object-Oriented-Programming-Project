@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Electricity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">server</a> &gt; <a href="index.source.html" class="el_package">hallo</a> &gt; <span class="el_source">Electricity.java</span></div><h1>Electricity.java</h1><pre class="source lang-java linenums">package hallo;
+
+import javax.persistence.*;
+
+/**
+ * table electricity.
+ */
+@Table(name = &quot;electricity&quot;)
+@Entity
+public class Electricity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = &quot;id&quot;, unique = true, nullable = false)
+    /**
+     * id.
+     */
+    private Integer id;
+
+    /**
+     * username.
+     */
+    private String username;
+
+    /**
+     * heating hours.
+     */
+    private Integer heatingHrs;
+
+    /**
+     * light hours.
+     */
+    private Integer lightHrs;
+
+    /**
+     * solar panels.
+     */
+    boolean solarPanels;
+
+    /**
+     * date string.
+     */
+    private String date;
+
+    /**
+     * score.
+     */
+    private Integer score;
+
+    /**
+     * default constructor.
+     */
+<span class="fc" id="L53">    public Electricity() {</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * actual constructor.
+     *
+     * @param username
+     * @param heatingHrs
+     * @param lightHrs
+     * @param solarPanels
+     * @param date
+     * @param score
+     */
+    public Electricity(String username, Integer heatingHrs, Integer lightHrs,
+<span class="fc" id="L67">                       boolean solarPanels, String date, int score) {</span>
+<span class="fc" id="L68">        this.username = username;</span>
+<span class="fc" id="L69">        this.heatingHrs = heatingHrs;</span>
+<span class="fc" id="L70">        this.lightHrs = lightHrs;</span>
+<span class="fc" id="L71">        this.solarPanels = solarPanels;</span>
+<span class="fc" id="L72">        this.date = date;</span>
+<span class="fc" id="L73">        this.score = score;</span>
+<span class="fc" id="L74">    }</span>
+
+    /**
+     * @return int.
+     */
+    public Integer getId() {
+<span class="fc" id="L80">        return id;</span>
+    }
+
+    /**
+     * @param id
+     */
+    public void setId(Integer id) {
+<span class="fc" id="L87">        this.id = id;</span>
+<span class="fc" id="L88">    }</span>
+
+    /**
+     * @return username.
+     */
+    public String getUsername() {
+<span class="fc" id="L94">        return username;</span>
+    }
+
+    /**
+     * @param username
+     */
+    public void setUsername(String username) {
+<span class="fc" id="L101">        this.username = username;</span>
+<span class="fc" id="L102">    }</span>
+
+    /**
+     * @return int.
+     */
+    public Integer getHeatingHrs() {
+<span class="fc" id="L108">        return heatingHrs;</span>
+    }
+
+    /**
+     * @param heatingHrs
+     */
+    public void setHeatingHrs(Integer heatingHrs) {
+<span class="fc" id="L115">        this.heatingHrs = heatingHrs;</span>
+<span class="fc" id="L116">    }</span>
+
+    /**
+     * @return int.
+     */
+    public Integer getLightHrs() {
+<span class="fc" id="L122">        return lightHrs;</span>
+    }
+
+    /**
+     * @param lightHrs
+     */
+    public void setLightHrs(Integer lightHrs) {
+<span class="fc" id="L129">        this.lightHrs = lightHrs;</span>
+<span class="fc" id="L130">    }</span>
+
+    /**
+     * @return boolean.
+     */
+    public Boolean getSolarPanels() {
+<span class="fc" id="L136">        return solarPanels;</span>
+    }
+
+    /**
+     * @param solarPanels
+     */
+    public void setSolarPanels(boolean solarPanels) {
+<span class="fc" id="L143">        this.solarPanels = solarPanels;</span>
+<span class="fc" id="L144">    }</span>
+
+    /**
+     * @return String.
+     */
+    public String getDate() {
+<span class="fc" id="L150">        return date;</span>
+    }
+
+    /**
+     * @param date
+     */
+    public void setDate(String date) {
+<span class="fc" id="L157">        this.date = date;</span>
+<span class="fc" id="L158">    }</span>
+
+    /**
+     * @return int.
+     */
+    public Integer getScore() {
+<span class="fc" id="L164">        return score;</span>
+    }
+
+    /**
+     * @param score
+     */
+    public void setScore(Integer score) {
+<span class="fc" id="L171">        this.score = score;</span>
+<span class="fc" id="L172">    }</span>
+
+    /**
+     * @return String of obj.
+     */
+    public String toString() {
+<span class="fc" id="L178">        return &quot;Food{&quot; + &quot;username='&quot; + username</span>
+                + '\'' + &quot;, heatingHrs='&quot; + heatingHrs + '\''
+                + '\'' + &quot;, lightHrs='&quot; + lightHrs + '\''
+                + '\'' + &quot;, solarPanels='&quot; + solarPanels + '\''
+                + '\'' + &quot;, date='&quot; + date + '\''
+                + '\'' + &quot;, score='&quot; + score + '\''
+                + '}';
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

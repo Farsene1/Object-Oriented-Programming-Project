@@ -3,7 +3,7 @@
 public class Transport {
     private String  username;
     private String type;
-    private int distance;
+    private double distance;
     private int score;
     private  String date;
 
@@ -12,7 +12,7 @@ public class Transport {
 
 <span class="nc" id="L13">        }</span>
 
-<span class="fc" id="L15">       public Transport(String username, String type, int distance, int score, String date){</span>
+<span class="fc" id="L15">       public Transport(String username, String type, double distance, int score, String date){</span>
 <span class="fc" id="L16">            this.username=username;</span>
 <span class="fc" id="L17">            this.type=type;</span>
 <span class="fc" id="L18">            this.distance=distance;</span>
@@ -39,11 +39,11 @@ public class Transport {
 <span class="fc" id="L39">        this.type = type;</span>
 <span class="fc" id="L40">    }</span>
 
-    public int getDistance() {
+    public double getDistance() {
 <span class="fc" id="L43">        return distance;</span>
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
 <span class="fc" id="L47">        this.distance = distance;</span>
 <span class="fc" id="L48">    }</span>
 
@@ -63,22 +63,22 @@ public class Transport {
 <span class="fc" id="L63">        this.date = date;</span>
 <span class="fc" id="L64">    }</span>
 
-       public int calculator(String type, int distance){
+       public int calculator(String type,double distance){
 <span class="fc" id="L67">        int score=0;</span>
 <span class="fc bfc" id="L68" title="All 2 branches covered.">        if(type.equals(&quot;Train&quot;)){</span>
-<span class="fc" id="L69">            score =Math.round(50*100/distance) ;</span>
+<span class="fc" id="L69">            score=(int) Math.round(50*100/distance);</span>
         }
 <span class="fc bfc" id="L71" title="All 2 branches covered.">        if(type.equals(&quot;Car&quot;)){</span>
-<span class="fc" id="L72">            score=Math.round(30*100/distance);</span>
+<span class="fc" id="L72">            score=(int) Math.round(30*100/distance);</span>
         }
 <span class="fc bfc" id="L74" title="All 2 branches covered.">        if(type.equals(&quot;Bicycle&quot;)){</span>
-<span class="fc" id="L75">            score=Math.round(150*100/distance);</span>
+<span class="fc" id="L75">            score=(int) Math.round(150*100/distance);</span>
         }
 <span class="fc bfc" id="L77" title="All 2 branches covered.">        if(type.equals(&quot;Airplane&quot;)){</span>
-<span class="fc" id="L78">            score=Math.round(40*100/distance);</span>
+<span class="fc" id="L78">            score=(int) Math.round(40*100/distance);</span>
         }
 <span class="pc bpc" id="L80" title="1 of 2 branches missed.">        if(type.equals(&quot;Walking&quot;)){</span>
-<span class="nc" id="L81">            score=Math.round(200*100/distance);</span>
+<span class="nc" id="L81">            score=(int) Math.round(200*100/distance);</span>
         }
 <span class="fc" id="L83">        return score;</span>
     }

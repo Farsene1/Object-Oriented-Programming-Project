@@ -1,4 +1,4 @@
-import hello.Food;
+import hallo.Food;
 import org.junit.Before;
 import org.junit.Test;
 

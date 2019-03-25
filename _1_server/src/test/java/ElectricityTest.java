@@ -1,4 +1,4 @@
-import hello.Electricity;
+import hallo.Electricity;
 import org.junit.Before;
 import org.junit.Test;
 

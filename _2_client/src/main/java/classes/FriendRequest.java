@@ -1,42 +1,45 @@
 package classes;
 
 public class FriendRequest {
-    String sender;
-    String receiver;
-    boolean accept;
 
 
-    public FriendRequest(){
+    private String sender;
+    private String receiver;
+    private boolean accepted = false;
 
-    }
-    public FriendRequest(String sender,String receiver,boolean accept){
-        this.sender= sender;
-        this.receiver=receiver;
-        this.accept=accept;
-    }
+    public FriendRequest() { }
 
-    public String getSender() {
-        return sender;
+    public FriendRequest(String sender, String receiver) {
+        this.sender = sender;
+        this.receiver = receiver;
+
     }
 
     public void setSender(String sender) {
         this.sender = sender;
     }
 
-    public String getReceiver() {
-        return receiver;
-    }
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
 
-    public boolean isAccept() {
-        return accept;
+
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 
-    public void setAccept(boolean accept) {
-        this.accept = accept;
+    public String getSender() {
+        return sender;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
     }
 }
 

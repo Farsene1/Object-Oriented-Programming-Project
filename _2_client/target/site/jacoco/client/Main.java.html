@@ -5,49 +5,47 @@ import classes.User;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
 
-<span class="nc" id="L12">public class Main extends Application {</span>
+<span class="nc" id="L11">public class Main extends Application {</span>
     Stage window;
 
     public static void main(String[] args) {
-<span class="nc" id="L16">        launch(args);</span>
-<span class="nc" id="L17">    }</span>
+<span class="nc" id="L15">        launch(args);</span>
+<span class="nc" id="L16">    }</span>
 
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
-<span class="nc" id="L21">        primaryStage.getIcons().add(new Image(&quot;https://i.imgur.com/diKacP0.png&quot;));</span>
+<span class="nc" id="L20">        primaryStage.getIcons().add(new Image(&quot;https://i.imgur.com/diKacP0.png&quot;));</span>
 
         //EASTER EGG// default value in the database for shortcut when developing
         try {
-<span class="nc" id="L25">            new Controller().signUp(new User(&quot;admin&quot;, Hash.generateHash(&quot;root&quot;, &quot;SHA-256&quot;)));</span>
-<span class="nc" id="L26">        } catch (NoSuchAlgorithmException e) {</span>
-<span class="nc" id="L27">            e.printStackTrace();</span>
-<span class="nc" id="L28">        }</span>
+<span class="nc" id="L24">            new Controller().signUp(new User(&quot;admin&quot;, Hash.generateHash(&quot;root&quot;, &quot;SHA-256&quot;)));</span>
+<span class="nc" id="L25">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L26">            e.printStackTrace();</span>
+<span class="nc" id="L27">        }</span>
 
 //        List&lt;Transport&gt; list = new RestfulClient().addTransport(new Transport(&quot;user&quot;,&quot;car&quot;,14,4,&quot;10/5&quot;));
 //        System.out.println(list.size());
 
         //.........//
-<span class="nc" id="L34">        window = primaryStage;</span>
-<span class="nc" id="L35">        window.setOnCloseRequest(e -&gt; {</span>
-<span class="nc" id="L36">            e.consume();</span>
-<span class="nc" id="L37">            closeProgram();</span>
-<span class="nc" id="L38">        });</span>
-<span class="nc" id="L39">        Login.showLogin(window);</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L33">        window = primaryStage;</span>
+<span class="nc" id="L34">        window.setOnCloseRequest(e -&gt; {</span>
+<span class="nc" id="L35">            e.consume();</span>
+<span class="nc" id="L36">            closeProgram();</span>
+<span class="nc" id="L37">        });</span>
+<span class="nc" id="L38">        Login.showLogin(window);</span>
+<span class="nc" id="L39">    }</span>
 
 
     //Closing down the program method.
     public void closeProgram() {
-<span class="nc" id="L45">        boolean answer = ConfirmBox.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (answer) {</span>
-<span class="nc" id="L47">            window.close();</span>
+<span class="nc" id="L44">        boolean answer = ConfirmBox.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (answer) {</span>
+<span class="nc" id="L46">            window.close();</span>
         }
-<span class="nc" id="L49">    }</span>
-
+<span class="nc" id="L48">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
