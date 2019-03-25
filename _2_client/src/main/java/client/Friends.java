@@ -87,7 +87,7 @@ public class Friends {
 
 
         addaFriendB.setOnAction(e ->{
-            classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText(),false);
+            classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText());
 
         });
     }

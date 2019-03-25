@@ -8,40 +8,40 @@ public class FriendRequestTest {
 
     @Test
     public void getSender(){
-    FriendRequest friendRequest= new FriendRequest("pablo","john",true);
+    FriendRequest friendRequest= new FriendRequest("pablo","john");
     assertEquals("pablo",friendRequest.getSender());
 }
 
     @Test
     public void getReceiver(){
-        FriendRequest friendRequest= new FriendRequest("pablo","john",true);
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
         assertEquals("john",friendRequest.getReceiver());
     }
 
     @Test
     public void isAccept(){
-        FriendRequest friendRequest= new FriendRequest("pablo","john",true);
-        assertTrue(friendRequest.isAccept());
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
+        assertFalse(friendRequest.isAccepted());
     }
 
 
     @Test
     public void setSender(){
-        FriendRequest friendRequest= new FriendRequest("pablo","john",true);
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
         friendRequest.setSender("george");
         assertEquals("george",friendRequest.getSender());
     }
     @Test
     public void setReceiver(){
-        FriendRequest friendRequest= new FriendRequest("pablo","john",true);
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
         friendRequest.setReceiver("george");
         assertEquals("george",friendRequest.getReceiver());
     }
 
     @Test
     public void setAccept(){
-        FriendRequest friendRequest= new FriendRequest("pablo","john",true);
-        friendRequest.setAccept(false);
-        assertFalse(friendRequest.isAccept());
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
+        friendRequest.setAccepted(true);
+        assertTrue(friendRequest.isAccepted());
     }
 }
