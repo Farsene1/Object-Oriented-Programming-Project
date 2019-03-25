@@ -20,7 +20,7 @@ public class AddFriendBox {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(250);
-        Label label = new Label(friendRequest.getSender()+"wants to add you");
+        Label label = new Label(friendRequest.getSender()+" wants to add you");
         Button yesButton = new Button("Accept");
         Button noButton = new Button("Decline");
 

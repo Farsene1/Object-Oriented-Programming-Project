@@ -1,13 +1,10 @@
 package client;
-import classes.FriendRequest;
+import classes.*;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import classes.Activity;
-import classes.Controller;
-import classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -30,6 +27,7 @@ public class Friends {
 
 
     public static void showOptions(GridPane grid, Scene scene, User user){
+
 
        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
@@ -64,15 +62,15 @@ public class Friends {
 
 
         TableColumn Col3 = new TableColumn("Username");
-        Col3.setCellValueFactory(new PropertyValueFactory<>("username"));
-        TableColumn Col4 = new TableColumn("Accept/Decline");
-        Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
+        Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+     //   TableColumn Col4 = new TableColumn("Accept/Decline");
+      //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
 
-        pendingTable.getColumns().setAll(Col3,Col4);
+        pendingTable.getColumns().setAll(Col3);
         Col1.setMinWidth(300);
         Col2.setMinWidth(300);
         Col3.setMinWidth(300);
-        Col4.setMinWidth(300);
+     //   Col4.setMinWidth(300);
 
 
 
@@ -95,7 +93,7 @@ public class Friends {
 
         addaFriendB.setOnAction(e ->{
             classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText());
-
+            addaFriend.clear();
         });
 
 
