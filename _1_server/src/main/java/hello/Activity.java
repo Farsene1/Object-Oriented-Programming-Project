@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "activities")
 /**
- * this is the activity class, converted into table.
+ * this is the activity class, converted into table. 
  */
 public class Activity {
 
