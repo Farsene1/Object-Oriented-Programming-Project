@@ -1,7 +1,6 @@
-import hello.User;
 import org.junit.Before;
 import org.junit.Test;
-
+import classes.User;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

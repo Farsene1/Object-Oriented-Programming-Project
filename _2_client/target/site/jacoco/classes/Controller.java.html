@@ -8,29 +8,29 @@ public class Controller {
 
     private RestfulClient restfulClient;
 
-<span class="fc" id="L11">    public Controller(){</span>
-<span class="fc" id="L12">        restfulClient = new RestfulClient();</span>
-<span class="fc" id="L13">    }</span>
+<span class="nc" id="L11">    public Controller(){</span>
+<span class="nc" id="L12">        restfulClient = new RestfulClient();</span>
+<span class="nc" id="L13">    }</span>
 
     public String signUp(User user){
-<span class="fc" id="L16">        return restfulClient.postEntity(user);</span>
+<span class="nc" id="L16">        return restfulClient.postEntity(user);</span>
     }
 
     public String login(User user){
-<span class="fc" id="L20">        return restfulClient.login(user);</span>
+<span class="nc" id="L20">        return restfulClient.login(user);</span>
     }
 
     public User getUpdates(User user){
-<span class="fc" id="L24">        User result = restfulClient.getUpdates(user);</span>
-<span class="fc" id="L25">        return result;</span>
+<span class="nc" id="L24">        User result = restfulClient.getUpdates(user);</span>
+<span class="nc" id="L25">        return result;</span>
     }
 
     public List&lt;Activity&gt; getAllActivities(User user){
-<span class="fc" id="L29">        return restfulClient.getAllActivities(user);</span>
+<span class="nc" id="L29">        return restfulClient.getAllActivities(user);</span>
     }
 
     public List&lt;Activity&gt; sendFood(Activity activity){
-<span class="fc" id="L33">        return restfulClient.addActivity(activity);</span>
+<span class="nc" id="L33">        return restfulClient.addActivity(activity);</span>
     }
 
 //    public List&lt;Transport&gt; getAllVehicles(User user){
@@ -44,9 +44,9 @@ public class Controller {
      * @return foodfootprint + amount of meals eaten
      */
     public void sendMeal(User user, int amount){
-<span class="fc" id="L47">        user.setFoodFootprint(amount + user.getFoodFootprint());</span>
-<span class="fc" id="L48">        restfulClient.activity(user);</span>
-<span class="fc" id="L49">    }</span>
+<span class="nc" id="L47">        user.setFoodScore(amount + user.getFoodScore());</span>
+<span class="nc" id="L48">        restfulClient.activity(user);</span>
+<span class="nc" id="L49">    }</span>
 
     /**
      *
@@ -55,20 +55,20 @@ public class Controller {
      * @return transportfootprint + amount of kilometers driven
      */
     public void sendTransport(User user, int amount){
-<span class="fc" id="L58">        user.setTransportFootprint(amount + user.getTransportFootprint());</span>
-<span class="fc" id="L59">        restfulClient.activity(user);</span>
-<span class="fc" id="L60">    }</span>
+<span class="nc" id="L58">        user.setTransportScore(amount + user.getTransportScore());</span>
+<span class="nc" id="L59">        restfulClient.activity(user);</span>
+<span class="nc" id="L60">    }</span>
 
     /**
      *
      * @param user
      * @param amount
-     * @return waterfootprint + amount of liters of water wasted
+     * @return electricity + amount of liters of water wasted
      */
-    public void sendWater(User user, int amount){
-<span class="fc" id="L69">        user.setWaterFootprint(amount + user.getWaterFootprint());</span>
-<span class="fc" id="L70">        restfulClient.activity(user);</span>
-<span class="fc" id="L71">    }</span>
+    public void sendElectricity(User user, int amount){
+<span class="nc" id="L69">        user.setElectricityScore(amount + user.getElectricityScore());</span>
+<span class="nc" id="L70">        restfulClient.activity(user);</span>
+<span class="nc" id="L71">    }</span>
 
     /**
      * This method checks for a valid email
@@ -76,16 +76,16 @@ public class Controller {
      * @return boolean
      */
     public static boolean checkEmail(String email){
-<span class="fc" id="L79">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
-<span class="fc" id="L80">        return emailValid;</span>
+<span class="nc" id="L79">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
+<span class="nc" id="L80">        return emailValid;</span>
     }
 
     public RestfulClient getRestfulClient() {
-<span class="fc" id="L84">        return restfulClient;</span>
+<span class="nc" id="L84">        return restfulClient;</span>
     }
 
     public void setRestfulClient(RestfulClient restfulClient) {
-<span class="fc" id="L88">        this.restfulClient = restfulClient;</span>
-<span class="fc" id="L89">    }</span>
+<span class="nc" id="L88">        this.restfulClient = restfulClient;</span>
+<span class="nc" id="L89">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -31,15 +31,15 @@ public class User implements Serializable {
     /**
      * Attribute foodFootprint declared as type integer.
      */
-<span class="fc" id="L34">    private Integer food_footprint = 0;</span>
+<span class="fc" id="L34">    private Integer food = 0;</span>
     /**
      * Attribute waterFootprint declared as type integer.
      */
-<span class="fc" id="L38">    private Integer waterFootprint = 0;</span>
+<span class="fc" id="L38">    private Integer electricity = 0;</span>
     /**
      * Attribute transportFootprint declared as type integer.
      */
-<span class="fc" id="L42">    private Integer transportFootprint = 0;</span>
+<span class="fc" id="L42">    private Integer transport = 0;</span>
     /**
      * Attribute polarScore declared as type integer.
      */
@@ -47,7 +47,7 @@ public class User implements Serializable {
     /**
      * Attribute date declared as type timestamp.
      */
-    //private Date date;
+<span class="fc" id="L50">    private Integer badge = 0;</span>
 
     @OneToMany
     @JoinColumn(name = &quot;userId&quot;)
@@ -105,56 +105,55 @@ public class User implements Serializable {
     /**
      * Getter for foodFootprint.
      */
-    public Integer getFoodFootprint() {
-<span class="fc" id="L109">        return food_footprint;</span>
+    public Integer getFoodScore() {
+<span class="fc" id="L109">        return food;</span>
     }
 
     /**
-     * Setter for foodFootprint.
      *
-     * @param foodFootprint
+     * @param food
      */
-    public void setFoodFootprint(Integer foodFootprint) {
-<span class="fc" id="L118">        this.food_footprint = foodFootprint;</span>
-<span class="fc" id="L119">    }</span>
+    public void setFoodScore(Integer food) {
+<span class="fc" id="L117">        this.food = food;</span>
+<span class="fc" id="L118">    }</span>
 
     /**
      * Getter for waterFootprint.
      */
-    public Integer getWaterFootprint() {
-<span class="fc" id="L125">        return waterFootprint;</span>
+    public Integer getElectricityScore() {
+<span class="fc" id="L124">        return electricity;</span>
     }
 
     /**
      * Setter for waterFootprint.
      *
-     * @param waterFootprint
+     * @param electricity
      */
-    public void setWaterFootprint(Integer waterFootprint) {
-<span class="fc" id="L134">        this.waterFootprint = waterFootprint;</span>
-<span class="fc" id="L135">    }</span>
+    public void setElectricityScore(Integer electricity) {
+<span class="fc" id="L133">        this.electricity = electricity;</span>
+<span class="fc" id="L134">    }</span>
 
     /**
      * Getter for transportFootprint.
      */
-    public Integer getTransportFootprint() {
-<span class="fc" id="L141">        return transportFootprint;</span>
+    public Integer getTransportScore() {
+<span class="fc" id="L140">        return transport;</span>
     }
 
     /**
      * Setter for transportFootprint.
      *
-     * @param transportFootprint
+     * @param transport
      */
-    public void setTransportFootprint(Integer transportFootprint) {
-<span class="fc" id="L150">        this.transportFootprint = transportFootprint;</span>
-<span class="fc" id="L151">    }</span>
+    public void setTransportScore(Integer transport) {
+<span class="fc" id="L149">        this.transport = transport;</span>
+<span class="fc" id="L150">    }</span>
 
     /**
      * Getter for polarScore.
      */
     public Integer getPolarScore() {
-<span class="fc" id="L157">        return polarScore;</span>
+<span class="fc" id="L156">        return polarScore;</span>
     }
 
     /**
@@ -163,28 +162,26 @@ public class User implements Serializable {
      * @param polarScore
      */
     public void setPolarScore(Integer polarScore) {
-<span class="fc" id="L166">        this.polarScore = polarScore;</span>
-<span class="fc" id="L167">    }</span>
+<span class="fc" id="L165">        this.polarScore = polarScore;</span>
+<span class="fc" id="L166">    }</span>
     /**
      * Getter for date.
      */
-//	public Date getDate() {
-//		return date;
-//	}
-//	/**
-//	 * Setter for date.
-//	 * @param date
-//	 */
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+
+    public Integer getBadge() {
+<span class="fc" id="L172">        return badge;</span>
+    }
+
+    public void setBadge(Integer badge) {
+<span class="fc" id="L176">        this.badge = badge;</span>
+<span class="fc" id="L177">    }</span>
 
     /**
      * toString method for user.
      */
     @Override
     public String toString() {
-<span class="fc" id="L187">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
+<span class="fc" id="L184">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
                 + '\'' + &quot;, hash='&quot; + hash + '\'' + '}';
     }
 }
