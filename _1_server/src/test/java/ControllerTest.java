@@ -131,7 +131,7 @@ public class ControllerTest {
 
     @Test
     public void addActivityTest(){
-        user1.setFoodFootprint(10);
+        user1.setFoodScore(10);
         String res = controller.addActivity(user1);
         assertEquals("OK",res);
     }
