@@ -25,7 +25,7 @@ public class TransportTest {
     @Test
     public void getDistance() {
         Transport transport = new Transport("user","car",14,4,"10/5");
-        assertEquals(14, transport.getDistance());
+        assertEquals(14, transport.getDistance(), 0);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class TransportTest {
     public void SetDistance() {
         Transport transport = new Transport("user","car",14,4,"10/5");
         transport.setDistance(16);
-        assertEquals(16, transport.getDistance());
+        assertEquals(16, transport.getDistance(), 0);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class TransportTest {
     public void CalculatorAirplane(){
         Transport transport = new Transport("user","Airplane",14,4,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
-        assertEquals(285, transport.getScore());
+        assertEquals(286, transport.getScore());
     }
 
     @Test
