@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-
 /**
  * This is the Rest Controller.
  */
@@ -20,7 +19,7 @@ public class GreetingController {
     private UserRepository userRepository;
 
     /**
-     *  autowiring activities repo.
+     * autowiring activities repo.
      */
     @Autowired
     private ActivityRepository activityRepository;
@@ -39,19 +38,18 @@ public class GreetingController {
      * addActivity
      */
     @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public List<Activity> addToActivitiesTable(@RequestBody Activity activity){
+    public List<Activity> addToActivitiesTable(@RequestBody Activity activity) {
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
 
     /**
-     *
      * @param user
      * @return List of Activity objects
      */
     @RequestMapping(value = "/firstactivities", method = RequestMethod.POST)
-    public List<Activity> getUpdatesActivities(@RequestBody User user){
+    public List<Activity> getUpdatesActivities(@RequestBody User user) {
         return this.activityRepository.findActivitiesByUser(user.getUsername());
     }
 
@@ -108,7 +106,7 @@ public class GreetingController {
      * method for getting the most recent updates.
      */
     @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
-    public User getUpdates(@RequestBody User user){
+    public User getUpdates(@RequestBody User user) {
         List<User> users = this.userRepository
                 .findUserByUsername(user.getUsername());
         return users.get(0);
@@ -153,7 +151,12 @@ public class GreetingController {
         this.userRepository = userRepository;
     }
 
-    public void setActivityRepository(ActivityRepository activityRepository){
+    /**
+     * setting the repo.
+     *
+     * @param activityRepository
+     */
+    public void setActivityRepository(ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
 }
