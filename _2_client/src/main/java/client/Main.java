@@ -5,7 +5,6 @@ import classes.User;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
 
@@ -47,6 +46,5 @@ public class Main extends Application {
             window.close();
         }
     }
-
 
 }
