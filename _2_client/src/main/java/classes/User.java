@@ -1,84 +1,182 @@
 package classes;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
-public class User {
+/**
+ * User table entity generated.
+ */
+public class User implements Serializable {
+    /**
+     * Primary key id generated.
+     *
+     * @param id
+     */
+    private Integer id;
 
-	private String username;
-	private String hash;
-	private Integer foodFootprint = 0;
-	private Integer waterFootprint = 0;
-	private Integer transportFootprint = 0;
-	private Integer polarScore = 0;
-//	private Date date;
+    /**
+     * Attribute username declared as type string.
+     */
+    private String username;
+    /**
+     * Attribute hash declared as type string.
+     */
+    private String hash;
+    /**
+     * Attribute foodFootprint declared as type integer.
+     */
+    private Integer food = 0;
+    /**
+     * Attribute waterFootprint declared as type integer.
+     */
+    private Integer electricity = 0;
+    /**
+     * Attribute transportFootprint declared as type integer.
+     */
+    private Integer transport = 0;
+    /**
+     * Attribute polarScore declared as type integer.
+     */
+    private Integer polarScore = 0;
+    /**
+     * Attribute date declared as type timestamp.
+     */
+    private Integer badge = 0;
 
-	public User(){}
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private Set<Activity> activities;
 
-	public User(String username, String hash){
-		this.username = username;
-		this.hash=hash;
-	}
+    /**
+     * Empty constructor declaration for user.
+     */
+    public User() {
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    /**
+     * Constructor declaration for user.
+     *
+     * @param username
+     * @param hash
+     */
+    public User(String username, String hash) {
+        this.username = username;
+        this.hash = hash;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    /**
+     * Getter for username.
+     */
+    public String getUsername() {
+        return username;
+    }
 
-	public String getHash() {
-		return hash;
-	}
+    /**
+     * Setter for username.
+     *
+     * @param username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setHash(String hash) {
-		this.hash = hash;
-	}
+    /**
+     * Getter for hash.
+     */
+    public String getHash() {
+        return hash;
+    }
 
-	public Integer getFoodFootprint() {
-		return foodFootprint;
-	}
+    /**
+     * Setter for hash.
+     *
+     * @param hash
+     */
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
 
-	public void setFoodFootprint(Integer foodFootprint) {
-		this.foodFootprint = foodFootprint;
-	}
+    /**
+     * Getter for foodFootprint.
+     */
+    public Integer getFoodScore() {
+        return food;
+    }
 
-	public Integer getWaterFootprint() {
-		return waterFootprint;
-	}
+    /**
+     *
+     * @param food
+     */
+    public void setFoodScore(Integer food) {
+        this.food = food;
+    }
 
-	public void setWaterFootprint(Integer waterFootprint) {
-		this.waterFootprint = waterFootprint;
-	}
+    /**
+     * Getter for waterFootprint.
+     */
+    public Integer getElectricityScore() {
+        return electricity;
+    }
 
-	public Integer getTransportFootprint() {
-		return transportFootprint;
-	}
+    /**
+     * Setter for waterFootprint.
+     *
+     * @param electricity
+     */
+    public void setElectricityScore(Integer electricity) {
+        this.electricity = electricity;
+    }
 
-	public void setTransportFootprint(Integer transportFootprint) {
-		this.transportFootprint = transportFootprint;
-	}
+    /**
+     * Getter for transportFootprint.
+     */
+    public Integer getTransportScore() {
+        return transport;
+    }
 
-	public Integer getPolarScore() {
-		return polarScore;
-	}
+    /**
+     * Setter for transportFootprint.
+     *
+     * @param transport
+     */
+    public void setTransportScore(Integer transport) {
+        this.transport = transport;
+    }
 
-	public void setPolarScore(Integer polarScore) {
-		this.polarScore = polarScore;
-	}
+    /**
+     * Getter for polarScore.
+     */
+    public Integer getPolarScore() {
+        return polarScore;
+    }
 
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+    /**
+     * Setter for polarScore.
+     *
+     * @param polarScore
+     */
+    public void setPolarScore(Integer polarScore) {
+        this.polarScore = polarScore;
+    }
+    /**
+     * Getter for date.
+     */
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"username='" + username + '\'' +
-				", hash='" + hash + '\'' +
-				'}';
-	}
+    public Integer getBadge() {
+        return badge;
+    }
+
+    public void setBadge(Integer badge) {
+        this.badge = badge;
+    }
+
+    /**
+     * toString method for user.
+     */
+    @Override
+    public String toString() {
+        return "User{" + "username='" + username
+                + '\'' + ", hash='" + hash + '\'' + '}';
+    }
 }

@@ -44,7 +44,7 @@ public class Controller {
      * @return foodfootprint + amount of meals eaten
      */
     public void sendMeal(User user, int amount){
-        user.setFoodFootprint(amount + user.getFoodFootprint());
+        user.setFoodScore(amount + user.getFoodScore());
         restfulClient.activity(user);
     }
 
@@ -55,7 +55,7 @@ public class Controller {
      * @return transportfootprint + amount of kilometers driven
      */
     public void sendTransport(User user, int amount){
-        user.setTransportFootprint(amount + user.getTransportFootprint());
+        user.setTransportScore(amount + user.getTransportScore());
         restfulClient.activity(user);
     }
 
@@ -63,10 +63,10 @@ public class Controller {
      *
      * @param user
      * @param amount
-     * @return waterfootprint + amount of liters of water wasted
+     * @return electricity + amount of liters of water wasted
      */
-    public void sendWater(User user, int amount){
-        user.setWaterFootprint(amount + user.getWaterFootprint());
+    public void sendElectricity(User user, int amount){
+        user.setElectricityScore(amount + user.getElectricityScore());
         restfulClient.activity(user);
     }
 

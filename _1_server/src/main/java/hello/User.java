@@ -31,15 +31,15 @@ public class User implements Serializable {
     /**
      * Attribute foodFootprint declared as type integer.
      */
-    private Integer food_footprint = 0;
+    private Integer food = 0;
     /**
      * Attribute waterFootprint declared as type integer.
      */
-    private Integer waterFootprint = 0;
+    private Integer electricity = 0;
     /**
      * Attribute transportFootprint declared as type integer.
      */
-    private Integer transportFootprint = 0;
+    private Integer transport = 0;
     /**
      * Attribute polarScore declared as type integer.
      */
@@ -47,7 +47,7 @@ public class User implements Serializable {
     /**
      * Attribute date declared as type timestamp.
      */
-    //private Date date;
+    private Integer badge = 0;
 
     @OneToMany
     @JoinColumn(name = "userId")
@@ -105,49 +105,48 @@ public class User implements Serializable {
     /**
      * Getter for foodFootprint.
      */
-    public Integer getFoodFootprint() {
-        return food_footprint;
+    public Integer getFoodScore() {
+        return food;
     }
 
     /**
-     * Setter for foodFootprint.
      *
-     * @param foodFootprint
+     * @param food
      */
-    public void setFoodFootprint(Integer foodFootprint) {
-        this.food_footprint = foodFootprint;
+    public void setFoodScore(Integer food) {
+        this.food = food;
     }
 
     /**
      * Getter for waterFootprint.
      */
-    public Integer getWaterFootprint() {
-        return waterFootprint;
+    public Integer getElectricityScore() {
+        return electricity;
     }
 
     /**
      * Setter for waterFootprint.
      *
-     * @param waterFootprint
+     * @param electricity
      */
-    public void setWaterFootprint(Integer waterFootprint) {
-        this.waterFootprint = waterFootprint;
+    public void setElectricityScore(Integer electricity) {
+        this.electricity = electricity;
     }
 
     /**
      * Getter for transportFootprint.
      */
-    public Integer getTransportFootprint() {
-        return transportFootprint;
+    public Integer getTransportScore() {
+        return transport;
     }
 
     /**
      * Setter for transportFootprint.
      *
-     * @param transportFootprint
+     * @param transport
      */
-    public void setTransportFootprint(Integer transportFootprint) {
-        this.transportFootprint = transportFootprint;
+    public void setTransportScore(Integer transport) {
+        this.transport = transport;
     }
 
     /**
@@ -168,16 +167,14 @@ public class User implements Serializable {
     /**
      * Getter for date.
      */
-//	public Date getDate() {
-//		return date;
-//	}
-//	/**
-//	 * Setter for date.
-//	 * @param date
-//	 */
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+
+    public Integer getBadge() {
+        return badge;
+    }
+
+    public void setBadge(Integer badge) {
+        this.badge = badge;
+    }
 
     /**
      * toString method for user.

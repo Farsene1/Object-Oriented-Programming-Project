@@ -98,7 +98,7 @@ public class GreetingController {
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
         System.out.println("No pain no gain");
-        this.userRepository.updateActivity(user.getFoodFootprint(), user.getTransportFootprint(), user.getUsername());
+        this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(), user.getUsername());
         return "OK";
     }
 

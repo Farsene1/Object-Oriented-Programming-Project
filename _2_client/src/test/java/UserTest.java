@@ -1,105 +1,87 @@
-package classes;
-
+import hello.User;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserTest {
+    User user1, user2;
 
+    @Before
+    public void setUp(){
+        user1 = new User("Flo","abc");
+        user2 = new User();
+    }
     @Test
-    public void getUsername() {
-        User user1 = new User("username", "hash");
-        assertEquals("username", user1.getUsername());
+    public void constrTest(){
+        assertEquals(true,user1 != null);
     }
 
     @Test
-    public void setUsername() {
-        User user1 = new User("notusername", "hash");
+    public void getSetTest(){
+        assertEquals("Flo",user1.getUsername());
+        assertEquals("abc",user1.getHash());
         user1.setUsername("username");
-        assertEquals("username", user1.getUsername());
-    }
-
-    @Test
-    public void getHash() {
-        User user1 = new User("username", "hash");
-        assertEquals("hash", user1.getHash());
-    }
-
-    @Test
-    public void setHash() {
-        User user1 = new User("username", "nothash");
         user1.setHash("hash");
-        assertEquals("hash", user1.getHash());
+        assertEquals("username",user1.getUsername());
+        assertEquals("hash",user1.getHash());
     }
 
     @Test
-    public void getFoodFootprintTest() {
-        User user1 = new User("username", "hash");
-        assertEquals(0, user1.getFoodFootprint()+0);
+    public void toStringTest(){
+        assertTrue(user1.toString().contains(user1.getUsername()));
+        assertTrue(user1.toString().contains(user1.getHash()));
     }
 
     @Test
-    public void setFoodFootprint() {
-        User user1 = new User("username", "hash");
-        user1.setFoodFootprint(1);
-        assertEquals(1, user1.getFoodFootprint()+0);
+    public void getFoodTest() {
+        assertEquals((int)user1.getFoodScore(), 0);
     }
 
     @Test
-    public void getWaterFootprint() {
-        User user1 = new User("username", "hash");
-        assertEquals(0, user1.getWaterFootprint()+0);
+    public void setFoodTest() {
+        user1.setFoodScore(1);
+        assertEquals(user1.getFoodScore()+0,1);
     }
 
     @Test
-    public void setWaterFootprint() {
-        User user1 = new User("username", "hash");
-        user1.setWaterFootprint(1);
-        assertEquals(1, user1.getWaterFootprint()+0);
+    public void getElectricityTest() {
+        assertEquals((int)user1.getElectricityScore(), 0);
     }
 
     @Test
-    public void getTransportFootprint() {
-        User user1 = new User("username", "hash");
-        assertEquals(0, user1.getTransportFootprint()+0);
+    public void setElectricityTest() {
+        user1.setElectricityScore(1);
+        assertEquals((int)user1.getElectricityScore(), 1);
     }
 
     @Test
-    public void setTransportFootprint() {
-        User user1 = new User("username", "hash");
-        user1.setTransportFootprint(1);
-        assertEquals(1, user1.getTransportFootprint()+0);
+    public void getTransportTest() {
+        assertEquals((int)user1.getTransportScore(), 0);
     }
 
     @Test
-    public void getPolarScore() {
-        User user1 = new User("username", "hash");
-        assertEquals(0, user1.getPolarScore()+0);
+    public void setTransportTest() {
+        user1.setTransportScore(1);
+        assertEquals((int)user1.getTransportScore(), 1);
     }
 
     @Test
-    public void setPolarScore() {
-        User user1 = new User("username", "hash");
+    public void getScoreTest() {
+        assertEquals(user1.getPolarScore()+0, 0);
+    }
+
+    @Test
+    public void setScoreTest() {
         user1.setPolarScore(1);
-        assertEquals(1, user1.getPolarScore()+0);
+        assertEquals(user1.getPolarScore()+0, 1);
     }
-
-//    @Test
-//    public void getDate() {
-//        User user1 = new User("username", "hash");
-//        assertFalse(user1.getDate() != null);
-//    }
-//
-//    @Test
-//    public void setDate() {
-//        User user1 = new User("username", "hash");
-//        user1.setDate(new Date(1,1,1));
-//        assertEquals(new Date(1,1,1), user1.getDate());
-//    }
 
     @Test
-    public void toStringTest() {
-        User user1 = new User("username", "hash");
-        assertEquals("User{username='username', hash='hash'}", user1.toString());
+    public void setBadgeTest(){
+        user1.setBadge(10);
+        assertEquals(10,(int) user1.getBadge());
     }
+
 }
