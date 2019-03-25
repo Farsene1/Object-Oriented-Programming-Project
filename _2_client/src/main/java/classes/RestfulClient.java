@@ -28,56 +28,53 @@ public class RestfulClient {
     /**
      * get all activities
      */
-    public List<Activity> getAllActivities(User user){
+    public List<Activity> getAllActivities(User user) {
         String url = "http://localhost:8080/firstactivities";
         List<Activity> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
+        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
+        });
         return activities;
     }
 
-//    public List<Transport> getAllVehicles(User user){
-//        String url = "http://localhost:8080/transport/add";
-//        List<Transport> res = restTemplate.postForObject(url, user, List.class);
-//        ObjectMapper mapper = new ObjectMapper();
-//        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
-//        return vehicles;
-//    }
 
-    public List<Transport> addTransport(Transport vehicle){
+    /**
+     * @param vehicle
+     * @return
+     */
+    public List<Transport> addTransport(Transport vehicle) {
         String url = "http://localhost:8080/transport/add";
         List<Transport> res = restTemplate.postForObject(url, vehicle, List.class);
         System.out.println(res.toString());
         System.out.println(res.size());
         ObjectMapper mapper = new ObjectMapper();
-        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
+        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() {
+        });
         System.out.println(vehicles.size());
         return vehicles;
     }
 
-//    public List<Meal> getAllMeals(User user){
-//
-//    }
     /**
-     *
      * @param activity
      * @return
      */
-    public List<Activity> addActivity(Activity activity){
+    public List<Activity> addActivity(Activity activity) {
         String url = "http://localhost:8080/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
         System.out.println("Response: " + res.toString());
         ObjectMapper mapper = new ObjectMapper();
-        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() { });
+        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
+        });
         return activities;
     }
 
     /**
      * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     *
      * @param user
      * @return
      */
-    public String postEntity(User user){
+    public String postEntity(User user) {
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
@@ -87,10 +84,11 @@ public class RestfulClient {
 
     /**
      * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     *
      * @param user
      * @return
      */
-    public String login(User user){
+    public String login(User user) {
         System.out.println("Beginning /login request");
         String postUrl = "http://localhost:8080/login";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
@@ -99,11 +97,10 @@ public class RestfulClient {
     }
 
     /**
-     *
      * @param user
      * @return
      */
-    public String activity(User user){
+    public String activity(User user) {
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/activity";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
@@ -112,7 +109,6 @@ public class RestfulClient {
     }
 
     /**
-     *
      * @param user
      * @return
      */
@@ -124,7 +120,18 @@ public class RestfulClient {
         return getUpdate.getBody();
     }
 
+    /**
+     * @param restTemplate
+     */
     public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
+
+    //    public List<Transport> getAllVehicles(User user){
+//        String url = "http://localhost:8080/transport/add";
+//        List<Transport> res = restTemplate.postForObject(url, user, List.class);
+//        ObjectMapper mapper = new ObjectMapper();
+//        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
+//        return vehicles;
+//    }
 }

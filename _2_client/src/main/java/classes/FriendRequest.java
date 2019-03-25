@@ -1,14 +1,6 @@
-package hello;
+package classes;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "requests")
 public class FriendRequest {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
     private String sender;
     private String receiver;
@@ -21,10 +13,6 @@ public class FriendRequest {
         this.receiver = receiver;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setSender(String sender) {
         this.sender = sender;
     }
@@ -35,10 +23,6 @@ public class FriendRequest {
 
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getSender() {

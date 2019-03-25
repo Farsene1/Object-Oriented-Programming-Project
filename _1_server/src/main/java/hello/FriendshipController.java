@@ -5,17 +5,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class that handles connections
+ * regarding the friends feature.
+ */
 @RestController
 @RequestMapping("/friendship")
 public class FriendshipController {
 
+    /**
+     * friendshipRepository.
+     */
     @Autowired
     private FriendshipRepository friendshipRepository;
 
+    /**
+     * friendRequestRepository.
+     */
     @Autowired
     private FriendRequestRepository friendRequestRepository;
+
+    /**
+     * userRepository.
+     */
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * method for getting all the friends in the database.
@@ -23,8 +40,12 @@ public class FriendshipController {
      * @return response list.
      */
     @RequestMapping("/friends")
-    public List<String> getAllFriends(@RequestBody String username){
-        List<String> result = friendshipRepository.getAllFriends(username);
+    public List<User> getAllFriends(@RequestBody String username) {
+        List<String> temp = friendshipRepository.getAllFriends(username);
+        List<User> result = new ArrayList<User>();
+        for (String s : temp) {
+            result.add(userRepository.findUserByUsername(s).get(0));
+        }
         return result;
     }
 
@@ -34,16 +55,16 @@ public class FriendshipController {
      * @return response.
      */
     @RequestMapping("/request")
-    public String makeRequest(@RequestBody FriendRequest friendRequest){
+    public String makeRequest(@RequestBody FriendRequest friendRequest) {
         this.friendRequestRepository.save(friendRequest);
-        return "FRIEND REQUEST SENT";
+        return "SENT";
     }
 
     /**
      * method for getting all the friendRequests.
      */
     @RequestMapping("/getallrequests")
-    public List<String> getAllRequest(@RequestBody String username){
+    public List<String> getAllRequest(@RequestBody String username) {
         List<String> list = friendRequestRepository.findAllRequestsFor(username);
         return list;
     }
@@ -52,10 +73,10 @@ public class FriendshipController {
      * method for responding to a friendRequest
      */
     @RequestMapping("/respond")
-    public String respond(@RequestBody FriendRequest friendRequest){
-        friendRequestRepository.respond(true, friendRequest.getUsername1(), friendRequest.getUsername2());
-        this.friendshipRepository.save(new Friendship(friendRequest.getUsername1(), friendRequest.getUsername2()));
-        this.friendshipRepository.save(new Friendship(friendRequest.getUsername2(), friendRequest.getUsername1()));
+    public String respond(@RequestBody FriendRequest friendRequest) {
+        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());
+        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));
+        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));
         return "OK";
     }
 }

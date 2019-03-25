@@ -13,7 +13,6 @@ public class Application {
 
     /**
      * here we start the springapplication.
-     *
      * @param args
      */
     public static void main(String[] args) {
