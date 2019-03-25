@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ElectricityBox.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">ElectricityBox.java</span></div><h1>ElectricityBox.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.Activity;
+import classes.Controller;
+import classes.Electricity;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+<span class="nc" id="L20">public class ElectricityBox {</span>
+    static Boolean solar;
+    static int light_hrs;
+    static int heat_hrs;
+    static int total_hrs;
+    static String date;
+    static int score;
+
+    public static Electricity addUsage(String title, String message, classes.User user) {
+<span class="nc" id="L29">        Stage window = new Stage();</span>
+<span class="nc" id="L30">        window.initModality(Modality.APPLICATION_MODAL);</span>
+<span class="nc" id="L31">        window.setTitle(title);</span>
+<span class="nc" id="L32">        window.setMinWidth(500);</span>
+<span class="nc" id="L33">        Label label = new Label();</span>
+<span class="nc" id="L34">        label.setText(message);</span>
+<span class="nc" id="L35">        Label errorlabel = new Label();</span>
+<span class="nc" id="L36">        errorlabel.setText(&quot;You can only type numbers&quot;);</span>
+<span class="nc" id="L37">        errorlabel.setVisible(false);</span>
+<span class="nc" id="L38">        ChoiceBox&lt;String&gt; choiceBox = new ChoiceBox&lt;&gt;();</span>
+<span class="nc" id="L39">        choiceBox.getItems().addAll(&quot;I have used solar energy&quot;, &quot;I have NOT used solar energy&quot;);</span>
+<span class="nc" id="L40">        choiceBox.setValue(&quot;I have NOT used solar energy&quot;);</span>
+        TextField lightfield;
+        TextField heatfield;
+<span class="nc" id="L43">        lightfield = new TextField();</span>
+<span class="nc" id="L44">        lightfield.setMaxWidth(300);</span>
+<span class="nc" id="L45">        heatfield = new TextField();</span>
+<span class="nc" id="L46">        heatfield.setMaxWidth(300);</span>
+<span class="nc" id="L47">        Label lightlabel = new Label(&quot;Add your hours of light usage&quot;);</span>
+<span class="nc" id="L48">        Label heatlabel = new Label(&quot;Add your hours of heating usage&quot;);</span>
+<span class="nc" id="L49">        Button send = new Button(&quot;Submit&quot;);</span>
+<span class="nc" id="L50">        send.setOnAction(e -&gt; {</span>
+<span class="nc" id="L51">            int c = 0;</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            for (int i = 0; i &lt; lightfield.getText().length(); i++) {</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">                if ((Character.isDigit(lightfield.getText().charAt(i)))) {</span>
+<span class="nc" id="L54">                    c++;</span>
+                }
+            }
+<span class="nc" id="L57">            int v = 0;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            for (int i = 0; i &lt; heatfield.getText().length(); i++) {</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                if ((Character.isDigit(heatfield.getText().charAt(i)))) {</span>
+<span class="nc" id="L60">                    v++;</span>
+                }
+            }
+
+<span class="nc bnc" id="L64" title="All 4 branches missed.">            if (c == lightfield.getText().length() &amp;&amp; v == heatfield.getText().length()) {</span>
+<span class="nc" id="L65">                LocalDateTime mydateObj = LocalDateTime.now();</span>
+<span class="nc" id="L66">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L67">                date = mydateObj.format(myFormatObj);</span>
+<span class="nc" id="L68">                solar = false;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                if (choiceBox.getValue().equals(&quot;I have used solar energy&quot;)) {</span>
+<span class="nc" id="L70">                    solar = true;</span>
+                }
+<span class="nc" id="L72">                light_hrs = Integer.parseInt(lightfield.getText());</span>
+<span class="nc" id="L73">                heat_hrs = Integer.parseInt(heatfield.getText());</span>
+<span class="nc" id="L74">                total_hrs = light_hrs + heat_hrs;</span>
+<span class="nc" id="L75">                Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">                if (solar) {</span>
+<span class="nc" id="L77">                    score = 25 * total_hrs;</span>
+                } else {
+<span class="nc" id="L79">                    score = 100 * total_hrs;</span>
+                }
+<span class="nc" id="L81">                electricity.setScore(score);</span>
+<span class="nc" id="L82">                new Controller().sendTransport(user, score);</span>
+                // add electricity in the database
+<span class="nc" id="L84">                Activity activity = new Activity(user.getUsername(), 3, &quot;Electricity usage: &quot; + total_hrs + &quot; Hours&quot;,</span>
+<span class="nc" id="L85">                        electricity.getScore(), date);</span>
+<span class="nc" id="L86">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L87">                System.out.println(&quot;\n The items are&quot; + list.toString());</span>
+<span class="nc" id="L88">                window.close();</span>
+<span class="nc" id="L89">            } else {</span>
+<span class="nc" id="L90">                lightfield.clear();</span>
+<span class="nc" id="L91">                heatfield.clear();</span>
+<span class="nc" id="L92">                errorlabel.setVisible(true);</span>
+            }
+<span class="nc" id="L94">        });</span>
+
+
+<span class="nc" id="L97">        VBox layout = new VBox(10);</span>
+
+<span class="nc" id="L99">        layout.getChildren().addAll(label, choiceBox, lightlabel, lightfield, heatlabel, heatfield, errorlabel, send);</span>
+<span class="nc" id="L100">        layout.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L101">        Scene scene = new Scene(layout);</span>
+<span class="nc" id="L102">        window.setScene(scene);</span>
+<span class="nc" id="L103">        window.showAndWait();</span>
+
+
+<span class="nc" id="L106">        return new Electricity(heat_hrs, light_hrs, solar);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

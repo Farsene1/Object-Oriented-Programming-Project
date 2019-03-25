@@ -1,17 +1,6 @@
-hello\ElectricityRepository.class
-hello\Transport.class
-hello\Food.class
-hello\Groceries.class
-hello\GroceriesController.class
-hello\GroceriesRepository.class
 hello\UserRepository.class
-hello\TransportRepository.class
-hello\TransportController.class
 hello\ActivityRepository.class
-hello\FoodController.class
-hello\FoodRepository.class
 hello\GreetingController.class
-hello\Electricity.class
 hello\Activity.class
 hello\Application.class
 hello\User.class
