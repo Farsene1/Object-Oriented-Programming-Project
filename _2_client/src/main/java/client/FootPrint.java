@@ -26,7 +26,7 @@ public class FootPrint {
 
     static TableView table = new TableView();
 
-    public static void showOptions(GridPane grid, Scene scene, User user) {
+    public static void showOptions(GridPane grid, User user) {
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
@@ -95,7 +95,7 @@ public class FootPrint {
         HBox Hbox = new HBox();
         Hbox.getChildren().addAll(FoodOptions,TransportOptions,ElectricityOptions);
         GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().addAll(Hbox, Footprint);
+        grid.getChildren().setAll(Hbox, Footprint);
 
         Food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         Transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
