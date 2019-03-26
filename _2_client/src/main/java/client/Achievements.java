@@ -47,27 +47,27 @@ public class Achievements {
                 + "-fx-border-width: 7;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: blue;");
 
-
-        Button polarBadge_1 = new Button("1");
-        Button polarBadge_2 = new Button("2");
-        Button polarBadge_3 = new Button("3");
-        Button polarBadge_4 = new Button("4");
-        Button polarBadge_5 = new Button("5");
-        Button polarBadge_6 = new Button("6");
-        Button polarBadge_7 = new Button("7");
-        Button polarBadge_8 = new Button("8");
-        Button polarBadge_9 = new Button("9");
-        Button polarBadge_10 = new Button("10");
+        Button polarBadge_1 = new Button();
+        Button polarBadge_2 = new Button();
+        Button polarBadge_3 = new Button();
+        Button polarBadge_4 = new Button();
+        Button polarBadge_5 = new Button();
+        Button polarBadge_6 = new Button();
+        Button polarBadge_7 = new Button();
+        Button polarBadge_8 = new Button();
+        Button polarBadge_9 = new Button();
+        Button polarBadge_10 = new Button();
 
         CSSbadge.setPolar1(polarBadge_1, false);
-        CSSbadge.setPolar2(polarBadge_1, false);
-        CSSbadge.setPolar3(polarBadge_1, false);
-        CSSbadge.setPolar4(polarBadge_1, false);
-        CSSbadge.setPolar5(polarBadge_1, false);
-        CSSbadge.setPolar6(polarBadge_1, false);
-        CSSbadge.setPolar7(polarBadge_1, false);
-        CSSbadge.setPolar8(polarBadge_1, false);
-        CSSbadge.setPolar9(polarBadge_1, false);
+        CSSbadge.setPolar2(polarBadge_2, false);
+        CSSbadge.setPolar3(polarBadge_3, false);
+        CSSbadge.setPolar4(polarBadge_4, false);
+        CSSbadge.setPolar5(polarBadge_5, false);
+        CSSbadge.setPolar6(polarBadge_6, false);
+        CSSbadge.setPolar7(polarBadge_7, false);
+        CSSbadge.setPolar8(polarBadge_8, false);
+        CSSbadge.setPolar9(polarBadge_9, false);
+        CSSbadge.setPolar10(polarBadge_10, false);
 
         VBox column_1 = new VBox(polarBadge_1, polarBadge_6);
         VBox column_2 = new VBox(polarBadge_2, polarBadge_7);
