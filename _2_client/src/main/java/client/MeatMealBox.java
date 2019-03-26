@@ -42,7 +42,7 @@ public class MeatMealBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
                         100, date);
-                List<Activity> list = new Controller().sendFood(activity);
+                List<Activity> list = new Controller().addActivity(activity);
                 window.close();
             }
             if (gramsAdded == 200) {
@@ -53,7 +53,7 @@ public class MeatMealBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded + " grams)",
                         200, date);
-                List<Activity> list = new Controller().sendFood(activity);
+                List<Activity> list = new Controller().addActivity(activity);
                 window.close();
             }
             if (gramsAdded == 300) {
@@ -64,7 +64,7 @@ public class MeatMealBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         300, date);
-                List<Activity> list = new Controller().sendFood(activity);
+                List<Activity> list = new Controller().addActivity(activity);
                 window.close();
             }
 
@@ -76,7 +76,7 @@ public class MeatMealBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         400, date);
-                List<Activity> list = new Controller().sendFood(activity);
+                List<Activity> list = new Controller().addActivity(activity);
                 window.close();
             }
             if (gramsAdded == 500) {
@@ -87,7 +87,7 @@ public class MeatMealBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Meat (" + gramsAdded +  " grams)",
                         500, date);
-                List<Activity> list = new Controller().sendFood(activity);
+                List<Activity> list = new Controller().addActivity(activity);
                 window.close();
             }
         });

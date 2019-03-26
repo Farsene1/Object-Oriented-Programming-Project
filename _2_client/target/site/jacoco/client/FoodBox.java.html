@@ -53,7 +53,7 @@ import java.time.format.DateTimeFormatter;
                 // add a meal in the database
 <span class="nc" id="L54">                Activity activity = new Activity(user.getUsername(),1,&quot;Vegan meal&quot;,</span>
 <span class="nc" id="L55">                        25, date);</span>
-<span class="nc" id="L56">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L56">                List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
 <span class="nc" id="L57">                System.out.println(&quot;\n The items are&quot;+list.toString());</span>
 <span class="nc" id="L58">                window.close();</span>
             }
@@ -66,7 +66,7 @@ import java.time.format.DateTimeFormatter;
                 // add a meal in the database
 <span class="nc" id="L67">                Activity activity = new Activity(user.getUsername(), 1, &quot;Vegetarian meal&quot;,</span>
 <span class="nc" id="L68">                        50, date);</span>
-<span class="nc" id="L69">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L69">                List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
 <span class="nc" id="L70">                window.close();</span>
             }
 <span class="nc bnc" id="L72" title="All 2 branches missed.">            if(foodAdded == &quot;Meal with meat&quot;) {</span>
@@ -88,7 +88,7 @@ import java.time.format.DateTimeFormatter;
                 // add a meal in the database
 <span class="nc" id="L89">                Activity activity = new Activity(user.getUsername(), 1, &quot;Imported produce&quot;,</span>
 <span class="nc" id="L90">                        250, date);</span>
-<span class="nc" id="L91">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L91">                List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
 <span class="nc" id="L92">                window.close();</span>
             }
 <span class="nc bnc" id="L94" title="All 2 branches missed.">            if (foodAdded == &quot;Local&quot;) {</span>
@@ -99,7 +99,7 @@ import java.time.format.DateTimeFormatter;
                 // add a meal in the database
 <span class="nc" id="L100">                Activity activity = new Activity(user.getUsername(), 1, &quot;Local produce&quot;,</span>
 <span class="nc" id="L101">                        50, date);</span>
-<span class="nc" id="L102">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L102">                List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
 <span class="nc" id="L103">                window.close();</span>
             }
 <span class="nc" id="L105">        });</span>

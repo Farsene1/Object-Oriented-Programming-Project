@@ -1,8 +1,8 @@
-UserTest.class
 ActivityTest.class
-ValidatePasswordTest.class
+UserTest.class
 MealTest.class
+ValidatePasswordTest.class
+classes\TransportTest.class
 HashTest.class
-classes/TransportTest.class
 ElectricityTest.class
 RestfulClientTest.class
