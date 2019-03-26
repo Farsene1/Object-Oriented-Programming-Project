@@ -1,4 +1,5 @@
 /Users/olliepvp/template/_2_client/src/main/java/client/Hash.java
+/Users/olliepvp/template/_2_client/src/main/java/client/Badges.java
 /Users/olliepvp/template/_2_client/src/main/java/client/TransportBox.java
 /Users/olliepvp/template/_2_client/src/main/java/client/CSS.java
 /Users/olliepvp/template/_2_client/src/main/java/classes/Activity.java
@@ -18,6 +19,7 @@
 /Users/olliepvp/template/_2_client/src/main/java/client/Main.java
 /Users/olliepvp/template/_2_client/src/main/java/classes/Electricity.java
 /Users/olliepvp/template/_2_client/src/main/java/client/FoodBox.java
+/Users/olliepvp/template/_2_client/src/main/java/client/Achievements.java
 /Users/olliepvp/template/_2_client/src/main/java/client/ValidatePassword.java
 /Users/olliepvp/template/_2_client/src/main/java/client/Home.java
 /Users/olliepvp/template/_2_client/src/main/java/classes/FriendRequest.java

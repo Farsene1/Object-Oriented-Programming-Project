@@ -57,8 +57,6 @@ public class Home {
         PolarScore.setText(user.getPolarScore().toString());
         Button trophy= new Button();
         CSS.setTrophyButtonStyle(trophy);
-        Polartext.setStyle("-fx-font: 22");
-        PolarScore.setStyle("-fx-font: 22;");
         statusbar.setStyle("-fx-alignment: center");
         statusbar.getChildren().addAll(Polartext,PolarScore,trophy);
         statusbar.setMinHeight(50);

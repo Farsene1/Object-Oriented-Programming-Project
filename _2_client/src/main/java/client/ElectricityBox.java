@@ -79,11 +79,11 @@ public class ElectricityBox {
                     score = 100 * total_hrs;
                 }
                 electricity.setScore(score);
-                new Controller().sendElectricity(user, score);
+                new Controller().sendTransport(user, score);
                 // add electricity in the database
                 Activity activity = new Activity(user.getUsername(), 3, "Electricity usage: " + total_hrs + " Hours",
                         electricity.getScore(), date);
-                List<Activity> list = new Controller().addActivity(activity);
+                List<Activity> list = new Controller().sendFood(activity);
                 System.out.println("\n The items are" + list.toString());
                 window.close();
             } else {
