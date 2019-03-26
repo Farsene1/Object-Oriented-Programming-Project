@@ -47,25 +47,27 @@ public class Achievements {
                 + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: blue;");
 
-        Button badge_1 = new Button("1");
-        Button badge_2 = new Button("2");
-        Button badge_3 = new Button("3");
-        Button badge_4 = new Button("4");
-        Button badge_5 = new Button("5");
-        Button badge_6 = new Button("6");
-        Button badge_7 = new Button("7");
-        Button badge_8 = new Button("8");
-        Button badge_9 = new Button("9");
-        Button badge_10 = new Button("10");
 
-        Hbox.getChildren().addAll(badge_1, badge_2,
-                badge_3, badge_4,
-                badge_5, badge_6,
-                badge_7, badge_8,
-                badge_9, badge_10);
+        Button polarBadge_1 = new Button("1");
+        Button polarBadge_2 = new Button("2");
+        Button polarBadge_3 = new Button("3");
+        Button polarBadge_4 = new Button("4");
+        Button polarBadge_5 = new Button("5");
+        Button polarBadge_6 = new Button("6");
+        Button polarBadge_7 = new Button("7");
+        Button polarBadge_8 = new Button("8");
+        Button polarBadge_9 = new Button("9");
+        Button polarBadge_10 = new Button("10");
 
+        VBox column_1 = new VBox(polarBadge_1, polarBadge_6);
+        VBox column_2 = new VBox(polarBadge_2, polarBadge_7);
+        VBox column_3 = new VBox(polarBadge_3, polarBadge_8);
+        VBox column_4 = new VBox(polarBadge_4, polarBadge_9);
+        VBox column_5 = new VBox(polarBadge_5, polarBadge_10);
 
-        GridPane.setConstraints(Hbox, 3, 2);
+        Hbox.getChildren().addAll(column_1, column_2, column_3, column_4, column_5);
+
+        GridPane.setConstraints(Hbox, 2, 3);
         grid.getChildren().addAll(Hbox, achievements);
 
         grid.setMinWidth(1500);
