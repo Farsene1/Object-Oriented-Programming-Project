@@ -10,17 +10,27 @@ import java.util.List;
 public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {
 
     /**
-     * @return all the activities.
+     * @return total food footprint of a single user on a specific day.
      */
-    @Query(value = "SELECT * from activities", nativeQuery = true)
-    List<Activity> findAllActivities();
+    @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2 AND category=1", nativeQuery = true)
+    List<Activity> totalFoodFootprint(String username, String date);
 
     /**
-     * @param username
-     * @return the activity objects for a specific user.
+     * @return total transport footprint of a single user on a specific day.
      */
-    @Query(value = "SELECT * from activities WHERE username = ?1",
-            nativeQuery = true)
-    List<Activity> findActivitiesByUser(String username);
+    @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2 AND category=2", nativeQuery = true)
+    List<Activity> totalTransportFootprint(String username, String date);
+
+    /**
+     * @return total electricity footprint of a single user on a specific day.
+     */
+    @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2 AND category=3", nativeQuery = true)
+    List<Activity> totalElectricityFootprint(String username, String date);
+
+    /**
+     * @return total footprint of a single user on a specific day.
+     */
+    @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2", nativeQuery = true)
+    List<Activity> totalFootprint(String username, String date);
 
 }
