@@ -16,6 +16,10 @@ public class Statistics {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     /**
+     * username attr.
+     */
+    private String username;
+    /**
      * score attr.
      */
     private Integer score;
@@ -31,7 +35,8 @@ public class Statistics {
      * @param score
      * @param date
      */
-    public Statistics(Integer score, String date){
+    public Statistics(String username, Integer score, String date){
+        this.username = username;
         this.score = score;
         this.date = date;
     }
@@ -47,6 +52,18 @@ public class Statistics {
      * @param id
      */
     public void setId(Integer id){this.id = id;}
+    /**
+     * getUsername.
+     *
+     * @return username.
+     */
+    public String getUsername(){return username;}
+    /**
+     * set username.
+     *
+     * @param username
+     */
+    public void setUsername(String username){this.username = username;}
     /**
      * getScore.
      *
@@ -74,6 +91,7 @@ public class Statistics {
 
     public String toString(){
         return "Statistics("
+                + ", username='" + username + '\''
                 + ", score='" + score + '\''
                 + ", date='" + date + '\''
                 + "}";
