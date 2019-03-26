@@ -1,16 +1,8 @@
 ControllerTest.class
-<<<<<<< .merge_file_jHVe8X
 UserTest.class
 ActivityTest.class
 FoodTest.class
 TransportTest.class
 GroceriesTest.class
-=======
-ActivityTest.class
-FoodTest.class
-UserTest.class
-GroceriesTest.class
-TransportTest.class
->>>>>>> .merge_file_PhoY3J
 ActivityControllerTest.class
 ElectricityTest.class

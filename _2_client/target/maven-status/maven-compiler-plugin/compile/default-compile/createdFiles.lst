@@ -1,4 +1,3 @@
-<<<<<<< .merge_file_z5p8P4
 classes/Meal.class
 client/ConfirmBox.class
 client/Achievements.class
@@ -31,37 +30,3 @@ client/Login.class
 client/Friends.class
 client/Home.class
 classes/RestfulClient.class
-=======
-classes\RestfulClient$1.class
-classes\Transport.class
-client\TransportBox.class
-classes\Electricity.class
-client\Leaderboard.class
-classes\Meal.class
-client\FoodBox.class
-client\Badges.class
-classes\Activity.class
-client\Signup.class
-classes\RestfulClient.class
-classes\FriendRequest.class
-client\Home.class
-client\AlertBox.class
-classes\RestfulClient$4.class
-client\FootPrint.class
-client\ValidatePassword.class
-client\ElectricityBox.class
-client\Friends.class
-client\ConfirmBox.class
-classes\RestfulClient$2.class
-client\CSS.class
-client\Login.class
-client\Achievements.class
-client\MeatMealBox.class
-classes\RestfulClient$5.class
-client\Hash.class
-classes\RestfulClient$3.class
-classes\User.class
-classes\Controller.class
-client\Main.class
-client\Statistics.class
->>>>>>> .merge_file_vutmyb

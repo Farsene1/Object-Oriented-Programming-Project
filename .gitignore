@@ -107,12 +107,7 @@ modules.xml
 hs_err_pid*
 
 ### Maven ###
-<<<<<<< .merge_file_0DFAQT
 ### so CI builds target/
-=======
-### so CI builds
-target/
->>>>>>> .merge_file_HnkNCJ
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

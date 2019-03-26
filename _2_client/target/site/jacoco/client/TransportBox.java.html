@@ -56,11 +56,7 @@ import java.util.List;
             // add a meal in the database
 <span class="nc" id="L57">            Activity activity = new Activity(user.getUsername(), 2, transport.getType() + &quot;:&quot; + transport.getDistance() + &quot; KM&quot;,</span>
 <span class="nc" id="L58">                    transport.getScore(), date);</span>
-<<<<<<< .merge_file_rtC3kx
 <span class="nc" id="L59">            List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
-=======
-<span class="nc" id="L59">            List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
->>>>>>> .merge_file_ysg1HB
 <span class="nc" id="L60">            System.out.println(&quot;\n The items are&quot; + list.toString());</span>
 <span class="nc" id="L61">            window.close();</span>
         }

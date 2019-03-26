@@ -1,17 +1,8 @@
-<<<<<<< .merge_file_YUFwSD
 UserTest.class
 ActivityTest.class
 ValidatePasswordTest.class
 MealTest.class
 HashTest.class
 classes/TransportTest.class
-=======
-ActivityTest.class
-UserTest.class
-MealTest.class
-ValidatePasswordTest.class
-classes\TransportTest.class
-HashTest.class
->>>>>>> .merge_file_sWtgoA
 ElectricityTest.class
 RestfulClientTest.class

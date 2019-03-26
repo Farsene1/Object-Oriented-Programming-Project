@@ -53,11 +53,7 @@ public class FoodBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(),1,"Vegan meal",
                         25, date);
-<<<<<<< .merge_file_HYsDoF
                 List<Activity> list = new Controller().sendFood(activity);
-=======
-                List<Activity> list = new Controller().addActivity(activity);
->>>>>>> .merge_file_XdjDUK
                 System.out.println("\n The items are"+list.toString());
                 window.close();
             }
@@ -70,11 +66,7 @@ public class FoodBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Vegetarian meal",
                         50, date);
-<<<<<<< .merge_file_HYsDoF
                 List<Activity> list = new Controller().sendFood(activity);
-=======
-                List<Activity> list = new Controller().addActivity(activity);
->>>>>>> .merge_file_XdjDUK
                 window.close();
             }
             if(foodAdded == "Meal with meat") {
@@ -96,11 +88,7 @@ public class FoodBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Imported produce",
                         250, date);
-<<<<<<< .merge_file_HYsDoF
                 List<Activity> list = new Controller().sendFood(activity);
-=======
-                List<Activity> list = new Controller().addActivity(activity);
->>>>>>> .merge_file_XdjDUK
                 window.close();
             }
             if (foodAdded == "Local") {
@@ -111,11 +99,7 @@ public class FoodBox {
                 // add a meal in the database
                 Activity activity = new Activity(user.getUsername(), 1, "Local produce",
                         50, date);
-<<<<<<< .merge_file_HYsDoF
                 List<Activity> list = new Controller().sendFood(activity);
-=======
-                List<Activity> list = new Controller().addActivity(activity);
->>>>>>> .merge_file_XdjDUK
                 window.close();
             }
         });

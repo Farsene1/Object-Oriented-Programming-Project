@@ -98,12 +98,7 @@ public class GreetingController {
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
         System.out.println("No pain no gain");
-<<<<<<< .merge_file_egHJrd
         this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(), user.getUsername());
-=======
-        this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(),
-                user.getElectricityScore(), user.getPolarScore(), user.getUsername());
->>>>>>> .merge_file_cGjQAJ
         return "OK";
     }
 

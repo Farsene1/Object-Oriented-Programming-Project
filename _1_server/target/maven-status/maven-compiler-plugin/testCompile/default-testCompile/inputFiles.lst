@@ -1,4 +1,3 @@
-<<<<<<< .merge_file_X2ICov
 /Users/olliepvp/template/_1_server/src/test/java/ElectricityTest.java
 /Users/olliepvp/template/_1_server/src/test/java/TransportTest.java
 /Users/olliepvp/template/_1_server/src/test/java/ControllerTest.java
@@ -7,13 +6,3 @@
 /Users/olliepvp/template/_1_server/src/test/java/ActivityControllerTest.java
 /Users/olliepvp/template/_1_server/src/test/java/FoodTest.java
 /Users/olliepvp/template/_1_server/src/test/java/GroceriesTest.java
-=======
-C:\Users\arsen\projects\template\_1_server\src\test\java\ActivityTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\ControllerTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\TransportTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\ActivityControllerTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\ElectricityTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\GroceriesTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\UserTest.java
-C:\Users\arsen\projects\template\_1_server\src\test\java\FoodTest.java
->>>>>>> .merge_file_ICYfaP
