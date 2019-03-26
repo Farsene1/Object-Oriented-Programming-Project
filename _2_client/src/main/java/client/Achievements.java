@@ -44,7 +44,7 @@ public class Achievements {
         HBox Hbox = new HBox();
         Hbox.setSpacing(10);
         Hbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
-                + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
+                + "-fx-border-width: 7;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: blue;");
 
 
@@ -58,6 +58,16 @@ public class Achievements {
         Button polarBadge_8 = new Button("8");
         Button polarBadge_9 = new Button("9");
         Button polarBadge_10 = new Button("10");
+
+        CSSbadge.setPolar1(polarBadge_1, false);
+        CSSbadge.setPolar2(polarBadge_1, false);
+        CSSbadge.setPolar3(polarBadge_1, false);
+        CSSbadge.setPolar4(polarBadge_1, false);
+        CSSbadge.setPolar5(polarBadge_1, false);
+        CSSbadge.setPolar6(polarBadge_1, false);
+        CSSbadge.setPolar7(polarBadge_1, false);
+        CSSbadge.setPolar8(polarBadge_1, false);
+        CSSbadge.setPolar9(polarBadge_1, false);
 
         VBox column_1 = new VBox(polarBadge_1, polarBadge_6);
         VBox column_2 = new VBox(polarBadge_2, polarBadge_7);
