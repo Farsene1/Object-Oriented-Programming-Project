@@ -5,8 +5,8 @@ import javafx.scene.control.Button;
 
 public class CSSbadge {
 
-    public static void setPolar1(Button button, boolean locked){
-        if(locked)
+    public static void setPolar1(Button button, int unlockNumber){
+        if(unlockNumber<1)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -24,8 +24,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar2(Button button, boolean locked){
-        if(locked)
+    public static void setPolar2(Button button, int unlockNumber){
+        if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -43,8 +43,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar3(Button button, boolean locked){
-        if(locked)
+    public static void setPolar3(Button button, int unlockNumber){
+        if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -62,8 +62,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar4(Button button, boolean locked){
-        if(locked)
+    public static void setPolar4(Button button, int unlockNumber){
+        if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -81,8 +81,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar5(Button button, boolean locked){
-        if(locked)
+    public static void setPolar5(Button button, int unlockNumber){
+        if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -100,8 +100,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar6(Button button, boolean locked){
-        if(locked)
+    public static void setPolar6(Button button, int unlockNumber){
+        if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -119,8 +119,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar7(Button button, boolean locked){
-        if(locked)
+    public static void setPolar7(Button button, int unlockNumber){
+        if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -138,8 +138,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar8(Button button, boolean locked){
-        if(locked)
+    public static void setPolar8(Button button, int unlockNumber){
+        if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -157,8 +157,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar9(Button button, boolean locked){
-        if(locked)
+    public static void setPolar9(Button button, int unlockNumber){
+        if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
@@ -176,8 +176,8 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar10(Button button, boolean locked){
-        if(locked)
+    public static void setPolar10(Button button, int unlockNumber){
+        if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
