@@ -41,26 +41,32 @@ public class Achievements {
         achievements.setSpacing(20);
         achievements.setAlignment(Pos.CENTER);
 
-        VBox badge_1 = new VBox();
-        VBox badge_2 = new VBox();
-        VBox badge_3 = new VBox();
-        VBox badge_4 = new VBox();
-        VBox badge_5 = new VBox();
-        VBox badge_6 = new VBox();
-        VBox badge_7 = new VBox();
-        VBox badge_8 = new VBox();
-        VBox badge_9 = new VBox();
-        VBox badge_10 = new VBox();
-
-        //Add everything to grid
         HBox Hbox = new HBox();
-        GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().addAll(achievements,
-                badge_1, badge_2,
+        Hbox.setSpacing(10);
+        Hbox.setStyle("-fx-padding: 10;" + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
+                + "-fx-border-radius: 5;" + "-fx-border-color: blue;");
+
+        Button badge_1 = new Button("1");
+        Button badge_2 = new Button("2");
+        Button badge_3 = new Button("3");
+        Button badge_4 = new Button("4");
+        Button badge_5 = new Button("5");
+        Button badge_6 = new Button("6");
+        Button badge_7 = new Button("7");
+        Button badge_8 = new Button("8");
+        Button badge_9 = new Button("9");
+        Button badge_10 = new Button("10");
+
+        Hbox.getChildren().addAll(badge_1, badge_2,
                 badge_3, badge_4,
                 badge_5, badge_6,
                 badge_7, badge_8,
                 badge_9, badge_10);
+
+
+        GridPane.setConstraints(Hbox, 3, 2);
+        grid.getChildren().addAll(Hbox, achievements);
 
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
