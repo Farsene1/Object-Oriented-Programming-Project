@@ -107,8 +107,7 @@ modules.xml
 hs_err_pid*
 
 ### Maven ###
-### so CI builds
-target/
+### so CI builds target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
