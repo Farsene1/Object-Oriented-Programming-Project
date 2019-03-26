@@ -35,4 +35,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query(value = "UPDATE users SET food = ?1, transport = ?2 WHERE username = ?3",
             nativeQuery = true)
     void updateActivity(Integer food, Integer transport, String username);
+
+    @Query(value = "SELECT username FROM users ORDER BY polarScore DESC  LIMIT 10", nativeQuery = true)
+    void totalScore();
 }
