@@ -36,15 +36,34 @@ public class Achievements {
         int polarUnlock = 10;
 
         Label myAchievements = new Label("My Achievements!");
-        myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
         VBox achievements = new VBox(myAchievements);
         achievements.setStyle("-fx-padding: 5;");
         achievements.setSpacing(10);
         achievements.setAlignment(Pos.CENTER);
+        GridPane.setConstraints(achievements, 0, 0);
+
+        Label transportLabel = new Label("Transport");
+        transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        VBox transportAchievements = new VBox(transportLabel);
+        transportAchievements.setStyle("-fx-padding: 5;");
+        transportAchievements.setSpacing(10);
+        transportAchievements.setAlignment(Pos.CENTER_LEFT);
+
+        Label electricityLabel = new Label("Electricity badges");
+        electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        VBox electricityAchievements = new VBox(electricityLabel);
+        electricityAchievements.setStyle("-fx-padding: 5;");
+        electricityAchievements.setSpacing(10);
+        electricityAchievements.setAlignment(Pos.CENTER_LEFT);
+
+
 
         /**
          * Polar score badges
          */
+
+
         HBox polarHbox = new HBox();
         polarHbox.setSpacing(1);
         polarHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
@@ -73,6 +92,12 @@ public class Achievements {
         CSSbadge2.setPolar9(polarBadge_9, polarUnlock);
         CSSbadge2.setPolar10(polarBadge_10, polarUnlock);
 
+        Label polarLabel = new Label("POLAR");
+        polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        HBox polarAchievements = new HBox(polarLabel);
+        polarAchievements.setStyle("-fx-padding: 5;");
+        polarAchievements.setSpacing(10);
+        polarAchievements.setAlignment(Pos.CENTER_LEFT);
         VBox polar_1 = new VBox(polarBadge_1);
         VBox polar_2 = new VBox(polarBadge_2);
         VBox polar_3 = new VBox(polarBadge_3);
@@ -83,8 +108,8 @@ public class Achievements {
         VBox polar_8 = new VBox(polarBadge_8);
         VBox polar_9 = new VBox(polarBadge_9);
         VBox polar_10 = new VBox(polarBadge_10);
-        polarHbox.getChildren().addAll(polar_1, polar_2, polar_3, polar_4, polar_5, polar_6, polar_7, polar_8, polar_9, polar_10);
-        GridPane.setConstraints(polarHbox, 1, 2);
+        polarHbox.getChildren().addAll(polarAchievements, polar_1, polar_2, polar_3, polar_4, polar_5, polar_6, polar_7, polar_8, polar_9, polar_10);
+        GridPane.setConstraints(polarHbox, 0, 2);
 
 
         /**
@@ -118,6 +143,13 @@ public class Achievements {
         CSSbadge2.setPolar9(foodBadge_9, polarUnlock);
         CSSbadge2.setPolar10(foodBadge_10, polarUnlock);
 
+        Label foodLabel = new Label("FOOD");
+        foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        HBox foodAchievements = new HBox(foodLabel);
+        foodAchievements.setStyle("-fx-padding: 5;");
+        foodAchievements.setSpacing(10);
+        foodAchievements.setAlignment(Pos.CENTER_LEFT);
+
         VBox food_1 = new VBox(foodBadge_1);
         VBox food_2 = new VBox(foodBadge_2);
         VBox food_3 = new VBox(foodBadge_3);
@@ -128,9 +160,8 @@ public class Achievements {
         VBox food_8 = new VBox(foodBadge_8);
         VBox food_9 = new VBox(foodBadge_9);
         VBox food_10 = new VBox(foodBadge_10);
-        foodHbox.getChildren().addAll(food_1, food_2, food_3, food_4, food_5, food_6, food_7, food_8, food_9, food_10);
-        GridPane.setConstraints(foodHbox, 1, 3);
-
+        foodHbox.getChildren().addAll(foodAchievements, food_1, food_2, food_3, food_4, food_5, food_6, food_7, food_8, food_9, food_10);
+        GridPane.setConstraints(foodHbox, 0, 8);
 
 
         grid.getChildren().addAll(achievements, polarHbox, foodHbox);
