@@ -14,9 +14,6 @@ import javafx.stage.Stage;
 
 public class Home {
 
-    private static  boolean sceneOpen = false;
-    private static int sceneType = 0;
-
     public static void showHome(Stage window, classes.User user){
 
         RestfulClient restfulClient = new RestfulClient();
@@ -32,25 +29,6 @@ public class Home {
         ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
-        if ((sceneType == 1)&&(sceneOpen == true))  {
-            Achievements.showBadges(centerMenu, scene, user);
-        }
-        if ((sceneType == 2)&&(sceneOpen == true))  {
-            FootPrint.showOptions(centerMenu, scene, user);
-        }
-        if ((sceneType == 3)&&(sceneOpen == true))  {
-            //add call to show statistics scene // not an alert box
-            AlertBox.display("This is an error message", "To Be Implemented");
-        }
-        if ((sceneType == 4)&&(sceneOpen == true))  {
-            //add call to show leaderboard scene // not an alert box
-            AlertBox.display("This is an error message", "To Be Implemented");
-        }
-        if ((sceneType == 5)&&(sceneOpen == true))  {
-            //add call to show friends scene // not an alertbox
-            AlertBox.display("This is an error message", "To Be Implemented");
-        }
-
         HBox statusbar= new HBox();
         Label Polartext= new Label("Polar Score:");
         Label PolarScore= new Label();
@@ -63,68 +41,33 @@ public class Home {
 
         //Trophy button click
         trophy.setOnAction(e -> {
-            if(sceneOpen == false) {
-                sceneOpen = true;
-                Achievements.showBadges(centerMenu, scene, user);
-            }
-            if(sceneOpen == true) {
-                sceneType = 1;
-                showHome(window, user);
-            }
+                Achievements.showBadges(centerMenu, user);
         });
 
         //My Carbon footprint
         Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-            if(sceneOpen == false) {
-                sceneOpen = true;
-                FootPrint.showOptions(centerMenu, scene, user);
-            }
-            if(sceneOpen == true) {
-                sceneType = 2;
-                showHome(window, user);
-            }
+                FootPrint.showOptions(centerMenu, user);
         });
 
         //Statistics Button
         Button statisticsButton = new Button("Statistics");
         GridPane.setConstraints(statisticsButton, 0, 2);
         statisticsButton.setOnAction(e -> {
-            if(sceneOpen == false) {
-                sceneOpen = true;
                 AlertBox.display("This is an error message", "To Be Implemented");
-            }
-            if(sceneOpen == true) {
-                sceneType = 3;
-                showHome(window, user);
-            }
         });
 
         //LeaderBoard button
         Button leaderboardButton = new Button("LeaderBoard");
         leaderboardButton.setOnAction(e -> {
-            if(sceneOpen == false) {
-                sceneOpen = true;
                 AlertBox.display("This is an error message", "To Be Implemented");
-            }
-            if(sceneOpen == true) {
-                sceneType = 4;
-                showHome(window, user);
-            }
         });
 
         //Friends button
         Button friendsbutton = new Button("Friends");
         friendsbutton.setOnAction(e -> {
-            if(sceneOpen == false) {
-                sceneOpen = true;
                 AlertBox.display("This is an error message", "To Be Implemented");
-            }
-            if(sceneOpen == true) {
-                sceneType = 5;
-                showHome(window, user);
-            }
         });
 
         //Quit
