@@ -43,13 +43,6 @@ public class Achievements {
         achievements.setAlignment(Pos.CENTER);
         GridPane.setConstraints(achievements, 0, 0);
 
-        Label transportLabel = new Label("Transport");
-        transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
-        VBox transportAchievements = new VBox(transportLabel);
-        transportAchievements.setStyle("-fx-padding: 5;");
-        transportAchievements.setSpacing(10);
-        transportAchievements.setAlignment(Pos.CENTER_LEFT);
-
         Label electricityLabel = new Label("Electricity badges");
         electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
         VBox electricityAchievements = new VBox(electricityLabel);
@@ -57,13 +50,9 @@ public class Achievements {
         electricityAchievements.setSpacing(10);
         electricityAchievements.setAlignment(Pos.CENTER_LEFT);
 
-
-
         /**
          * Polar score badges
          */
-
-
         HBox polarHbox = new HBox();
         polarHbox.setSpacing(1);
         polarHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
@@ -110,7 +99,6 @@ public class Achievements {
         VBox polar_10 = new VBox(polarBadge_10);
         polarHbox.getChildren().addAll(polarAchievements, polar_1, polar_2, polar_3, polar_4, polar_5, polar_6, polar_7, polar_8, polar_9, polar_10);
         GridPane.setConstraints(polarHbox, 0, 2);
-
 
         /**
          * Food score badges
@@ -161,10 +149,74 @@ public class Achievements {
         VBox food_9 = new VBox(foodBadge_9);
         VBox food_10 = new VBox(foodBadge_10);
         foodHbox.getChildren().addAll(foodAchievements, food_1, food_2, food_3, food_4, food_5, food_6, food_7, food_8, food_9, food_10);
-        GridPane.setConstraints(foodHbox, 0, 8);
+        GridPane.setConstraints(foodHbox, 0, 4);
+
+        /**
+         * transport score badges
+         */
+        HBox transportHbox = new HBox();
+        transportHbox.setSpacing(1);
+        transportHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
+                + "-fx-border-radius: 5;" + "-fx-border-color: #ff362c;");
+
+        Button transportBadge_1 = new Button();
+        Button transportBadge_2 = new Button();
+        Button transportBadge_3 = new Button();
+        Button transportBadge_4 = new Button();
+        Button transportBadge_5 = new Button();
+        Button transportBadge_6 = new Button();
+        Button transportBadge_7 = new Button();
+        Button transportBadge_8 = new Button();
+        Button transportBadge_9 = new Button();
+        Button transportBadge_10 = new Button();
+
+        CSSbadge2.setPolar1(transportBadge_1, polarUnlock);
+        CSSbadge2.setPolar2(transportBadge_2, polarUnlock);
+        CSSbadge2.setPolar3(transportBadge_3, polarUnlock);
+        CSSbadge2.setPolar4(transportBadge_4, polarUnlock);
+        CSSbadge2.setPolar5(transportBadge_5, polarUnlock);
+        CSSbadge2.setPolar6(transportBadge_6, polarUnlock);
+        CSSbadge2.setPolar7(transportBadge_7, polarUnlock);
+        CSSbadge2.setPolar8(transportBadge_8, polarUnlock);
+        CSSbadge2.setPolar9(transportBadge_9, polarUnlock);
+        CSSbadge2.setPolar10(transportBadge_10, polarUnlock);
+
+        Label transportLabel = new Label("TRANSPORT");
+        transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        HBox transportAchievements = new HBox(transportLabel);
+        transportAchievements.setStyle("-fx-padding: 5;");
+        transportAchievements.setSpacing(10);
+        transportAchievements.setAlignment(Pos.CENTER_LEFT);
+
+        VBox transport_1 = new VBox(transportBadge_1);
+        VBox transport_2 = new VBox(transportBadge_2);
+        VBox transport_3 = new VBox(transportBadge_3);
+        VBox transport_4 = new VBox(transportBadge_4);
+        VBox transport_5 = new VBox(transportBadge_5);
+        VBox transport_6 = new VBox(transportBadge_6);
+        VBox transport_7 = new VBox(transportBadge_7);
+        VBox transport_8 = new VBox(transportBadge_8);
+        VBox transport_9 = new VBox(transportBadge_9);
+        VBox transport_10 = new VBox(transportBadge_10);
+        transportHbox.getChildren().addAll(transportAchievements, transport_1, transport_2, transport_3, transport_4, transport_5, transport_6, transport_7, transport_8, transport_9, transport_10);
+        GridPane.setConstraints(transportHbox, 0, 8);
 
 
-        grid.getChildren().addAll(achievements, polarHbox, foodHbox);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        grid.getChildren().addAll(achievements, polarHbox, foodHbox, transportHbox);
 
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
