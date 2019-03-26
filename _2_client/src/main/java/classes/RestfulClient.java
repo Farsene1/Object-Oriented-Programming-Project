@@ -1,5 +1,6 @@
 package classes;
 
+import client.Statistics;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,38 @@ public class RestfulClient {
         User getResponse = restTemplate.getForObject(getUrl, User.class); // User user = restTemplate.getForObject(getUrl, User.class); WHICH ONE IS BETTER? // DIFFERENT RESPONSES
         System.out.println(getResponse.toString());
         return getResponse;
+    }
+
+    public Integer getTotalFoodFootprint(Statistics statistics){
+        System.out.println("Beginning /GET request!");
+        String url = "http://localhost:8080/totalFood";
+        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+        System.out.println(res.toString());
+        return res.getBody();
+    }
+
+    public Integer getTotalTransportFootprint(Statistics statistics){
+        System.out.println("Beginning /GET request!");
+        String url = "http://localhost:8080/totalTransport";
+        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+        System.out.println(res.toString());
+        return res.getBody();
+    }
+
+    public Integer getTotalElectricityFootprint(Statistics statistics){
+        System.out.println("Beginning /GET request!");
+        String url = "http://localhost:8080/totalElectricity";
+        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+        System.out.println(res.toString());
+        return res.getBody();
+    }
+
+    public Integer getTotalFootprint(Statistics statistics){
+        System.out.println("Beginning /GET request!");
+        String url = "http://localhost:8080/total";
+        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+        System.out.println(res.toString());
+        return res.getBody();
     }
 
     /**
