@@ -38,13 +38,16 @@ public class Achievements {
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox achievements = new VBox(myAchievements);
-        achievements.setStyle("-fx-padding: 15;");
-        achievements.setSpacing(20);
+        achievements.setStyle("-fx-padding: 5;");
+        achievements.setSpacing(10);
         achievements.setAlignment(Pos.CENTER);
 
+        /**
+         * Polar score badges
+         */
         HBox polarHbox = new HBox();
-        polarHbox.setSpacing(5);
-        polarHbox.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;"
+        polarHbox.setSpacing(1);
+        polarHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
                 + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;");
 
@@ -59,33 +62,37 @@ public class Achievements {
         Button polarBadge_9 = new Button();
         Button polarBadge_10 = new Button();
 
-        CSSbadge.setPolar1(polarBadge_1, polarUnlock);
-        CSSbadge.setPolar2(polarBadge_2, polarUnlock);
-        CSSbadge.setPolar3(polarBadge_3, polarUnlock);
-        CSSbadge.setPolar4(polarBadge_4, polarUnlock);
-        CSSbadge.setPolar5(polarBadge_5, polarUnlock);
-        CSSbadge.setPolar6(polarBadge_6, polarUnlock);
-        CSSbadge.setPolar7(polarBadge_7, polarUnlock);
-        CSSbadge.setPolar8(polarBadge_8, polarUnlock);
-        CSSbadge.setPolar9(polarBadge_9, polarUnlock);
-        CSSbadge.setPolar10(polarBadge_10, polarUnlock);
+        CSSbadge2.setPolar1(polarBadge_1, polarUnlock);
+        CSSbadge2.setPolar2(polarBadge_2, polarUnlock);
+        CSSbadge2.setPolar3(polarBadge_3, polarUnlock);
+        CSSbadge2.setPolar4(polarBadge_4, polarUnlock);
+        CSSbadge2.setPolar5(polarBadge_5, polarUnlock);
+        CSSbadge2.setPolar6(polarBadge_6, polarUnlock);
+        CSSbadge2.setPolar7(polarBadge_7, polarUnlock);
+        CSSbadge2.setPolar8(polarBadge_8, polarUnlock);
+        CSSbadge2.setPolar9(polarBadge_9, polarUnlock);
+        CSSbadge2.setPolar10(polarBadge_10, polarUnlock);
 
-        VBox polarColumn_1 = new VBox(polarBadge_1, polarBadge_6);
-        VBox polarColumn_2 = new VBox(polarBadge_2, polarBadge_7);
-        VBox polarColumn_3 = new VBox(polarBadge_3, polarBadge_8);
-        VBox polarColumn_4 = new VBox(polarBadge_4, polarBadge_9);
-        VBox polarColumn_5 = new VBox(polarBadge_5, polarBadge_10);
-
-        polarHbox.getChildren().addAll(polarColumn_1, polarColumn_2, polarColumn_3, polarColumn_4, polarColumn_5);
+        VBox polar_1 = new VBox(polarBadge_1);
+        VBox polar_2 = new VBox(polarBadge_2);
+        VBox polar_3 = new VBox(polarBadge_3);
+        VBox polar_4 = new VBox(polarBadge_4);
+        VBox polar_5 = new VBox(polarBadge_5);
+        VBox polar_6 = new VBox(polarBadge_6);
+        VBox polar_7 = new VBox(polarBadge_7);
+        VBox polar_8 = new VBox(polarBadge_8);
+        VBox polar_9 = new VBox(polarBadge_9);
+        VBox polar_10 = new VBox(polarBadge_10);
+        polarHbox.getChildren().addAll(polar_1, polar_2, polar_3, polar_4, polar_5, polar_6, polar_7, polar_8, polar_9, polar_10);
         GridPane.setConstraints(polarHbox, 1, 2);
 
 
-
-
-
+        /**
+         * Food score badges
+         */
         HBox foodHbox = new HBox();
-        foodHbox.setSpacing(5);
-        foodHbox.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;"
+        foodHbox.setSpacing(1);
+        foodHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
                 + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: #44ff8e;");
 
@@ -100,24 +107,30 @@ public class Achievements {
         Button foodBadge_9 = new Button();
         Button foodBadge_10 = new Button();
 
-        CSSbadge.setPolar1(foodBadge_1, polarUnlock);
-        CSSbadge.setPolar2(foodBadge_2, polarUnlock);
-        CSSbadge.setPolar3(foodBadge_3, polarUnlock);
-        CSSbadge.setPolar4(foodBadge_4, polarUnlock);
-        CSSbadge.setPolar5(foodBadge_5, polarUnlock);
-        CSSbadge.setPolar6(foodBadge_6, polarUnlock);
-        CSSbadge.setPolar7(foodBadge_7, polarUnlock);
-        CSSbadge.setPolar8(foodBadge_8, polarUnlock);
-        CSSbadge.setPolar9(foodBadge_9, polarUnlock);
-        CSSbadge.setPolar10(foodBadge_10, polarUnlock);
+        CSSbadge2.setPolar1(foodBadge_1, polarUnlock);
+        CSSbadge2.setPolar2(foodBadge_2, polarUnlock);
+        CSSbadge2.setPolar3(foodBadge_3, polarUnlock);
+        CSSbadge2.setPolar4(foodBadge_4, polarUnlock);
+        CSSbadge2.setPolar5(foodBadge_5, polarUnlock);
+        CSSbadge2.setPolar6(foodBadge_6, polarUnlock);
+        CSSbadge2.setPolar7(foodBadge_7, polarUnlock);
+        CSSbadge2.setPolar8(foodBadge_8, polarUnlock);
+        CSSbadge2.setPolar9(foodBadge_9, polarUnlock);
+        CSSbadge2.setPolar10(foodBadge_10, polarUnlock);
 
-        VBox foodColumn_1 = new VBox(foodBadge_1, foodBadge_6);
-        VBox foodColumn_2 = new VBox(foodBadge_2, foodBadge_7);
-        VBox foodColumn_3 = new VBox(foodBadge_3, foodBadge_8);
-        VBox foodColumn_4 = new VBox(foodBadge_4, foodBadge_9);
-        VBox foodColumn_5 = new VBox(foodBadge_5, foodBadge_10);
-        foodHbox.getChildren().addAll(foodColumn_1, foodColumn_2, foodColumn_3, foodColumn_4, foodColumn_5);
+        VBox food_1 = new VBox(foodBadge_1);
+        VBox food_2 = new VBox(foodBadge_2);
+        VBox food_3 = new VBox(foodBadge_3);
+        VBox food_4 = new VBox(foodBadge_4);
+        VBox food_5 = new VBox(foodBadge_5);
+        VBox food_6 = new VBox(foodBadge_6);
+        VBox food_7 = new VBox(foodBadge_7);
+        VBox food_8 = new VBox(foodBadge_8);
+        VBox food_9 = new VBox(foodBadge_9);
+        VBox food_10 = new VBox(foodBadge_10);
+        foodHbox.getChildren().addAll(food_1, food_2, food_3, food_4, food_5, food_6, food_7, food_8, food_9, food_10);
         GridPane.setConstraints(foodHbox, 1, 3);
+
 
 
         grid.getChildren().addAll(achievements, polarHbox, foodHbox);
