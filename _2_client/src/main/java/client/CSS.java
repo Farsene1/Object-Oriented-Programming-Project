@@ -25,6 +25,13 @@ public class CSS {
                         "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
     }
 
+    public static void setTrophyButtonStyle(Button button){
+        button.styleProperty().bind(Bindings.when(button.hoverProperty())
+                .then("-fx-graphic: url('https://drive.google.com/uc?id=1QdOyPlUOhZSCKfL_OVIiY5bBCs--hxU5'); " +
+                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
+                .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1JbqEhcXRUgQ18Fi2TBpBMXkh0ILLC63D'); " +
+                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+    }
     public static void setTextFieldStyle(TextField textField){
         textField.styleProperty().bind(Bindings.when(textField.hoverProperty())
                 .then("")
