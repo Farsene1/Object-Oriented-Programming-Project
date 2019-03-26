@@ -31,21 +31,36 @@ import java.util.List;
 
 public class Achievements {
 
-    static TableView table = new TableView();
 
     public static void showBadges(GridPane grid, Scene scene, User user) {
 
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
-        VBox achievements = new VBox(myAchievements, table);
+        VBox achievements = new VBox(myAchievements);
         achievements.setStyle("-fx-padding: 15;");
         achievements.setSpacing(20);
         achievements.setAlignment(Pos.CENTER);
 
+        VBox badge_1 = new VBox();
+        VBox badge_2 = new VBox();
+        VBox badge_3 = new VBox();
+        VBox badge_4 = new VBox();
+        VBox badge_5 = new VBox();
+        VBox badge_6 = new VBox();
+        VBox badge_7 = new VBox();
+        VBox badge_8 = new VBox();
+        VBox badge_9 = new VBox();
+        VBox badge_10 = new VBox();
+
         //Add everything to grid
         HBox Hbox = new HBox();
         GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().addAll(achievements);
+        grid.getChildren().addAll(achievements,
+                badge_1, badge_2,
+                badge_3, badge_4,
+                badge_5, badge_6,
+                badge_7, badge_8,
+                badge_9, badge_10);
 
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");

@@ -1,5 +1,7 @@
 classes/Meal.class
 client/ConfirmBox.class
+client/Achievements.class
+client/Badges.class
 classes/RestfulClient$5.class
 classes/Electricity.class
 client/Main.class
