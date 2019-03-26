@@ -33,7 +33,7 @@ public class Achievements {
 
     public static void showBadges(GridPane grid, Scene scene, User user) {
 
-        int polarUnlock = 1;
+        int polarUnlock = 10;
 
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));

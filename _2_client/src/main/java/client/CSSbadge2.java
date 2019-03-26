@@ -36,9 +36,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Fw0y3Y-ek5XO2n8Aabq5Fq769rCR_qFi'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1IhGp6VsHgJeKYnry7N2VXJeAjF3_rMxF'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1XKOUZDreSnoBwxDhWMC2dT16BBcsUGGP'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1V8U-n5iRMLuMZSPjEFm87TTQzXQtIWCu'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -55,9 +55,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1hlqyFBQ8Sa-EWCrlNNF7AAxu_ShQk9aG'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1o8PclfkTACYg0VFqL5uXI3EN5jo7eWiH'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1ugbs83T60jKKXWcY6j-kXSufW4u-Bp8F'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1m-alGvUPmzS3ERdLvWbzItZS7F5S_8k_'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -74,9 +74,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1zgIEgaLL9o7a5O__O3hxvsj19v5YHYxz'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1iaPE0YKnuJoG83UkHyOtVUT-zVyA73wr'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1myskn0MOm7S1okk55jSWGfW0LMBe-T08'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1duFLRKmmcpStc--1tffz_Gd0vjQ_lXR_'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -93,9 +93,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1xXqP3QCyjpVutVAX9tkLYTn3XGU5Hsnp'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1QOf7Czh2LxOl5WjUWvgocQxab4JT-LgQ'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1nyxcThFfD01asMEMSqu573sUYRWOSNjk'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18QV43G72odbwAgnTFStLnEtBDH7wZhs9'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -112,9 +112,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Jul2xCu2vG9pQ9TUYO3-3UT23YEZpBUD'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1cyzxuoKuopex-N1nwqDj09rmOUy5AbL0'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1VEHa39A-KBamLPfeYwfPMEwIS9qceEtR'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=11tmPd7A5sXUFiwa83Bey-xgqz_6vl0fe'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -131,9 +131,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1vNdoMaHbHNtC0vIDiHoWvoSNkivW4BTp'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1AUFi6v0gI3iKGaefwC0s487yIQb9nyhu'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1wPTcokN9ZeEMivKa0jJdHV4NhyBhXKO8'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1wTwK0EP0KmDCuNzRIUmnrwWS0GJNyUuz'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -150,9 +150,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1twe3DY5B9-zCewsxLfGzyhVYOsGYEzMw'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=10e_c50TgxZNyCYv4uy8CfytWV7Lvy6HP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1Vup-dASSNe09ZkZbQlKY4-MU_Fd9OfTY'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1CLm2TPjyHDFuHB-Y6g25VlxnX3ZdzKjE'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -169,9 +169,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1IFCXOG8h7MF_WN3mYjlsgqzluwVhA66V'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1JvlvKsyKti3cPj6T4Hw5HAXEK1Lx3Pb_'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1NRPDVO1MoRyW6RB18un7t-VlA3RAspm3'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=13qXH6bF-1MQmyQd1ySNKCjAqRtLO85B2'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -188,9 +188,9 @@ public class CSSbadge2 {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1VLWNimsNFPZVns0x_qIjpDKQlooNp8le'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1JsNn8iupF68kUMxN-yx4cRGP69Cv4YEq'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1VUGuURKB0SCgaFoPKs5bXiOGTmC5yOUL'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1_B4qsTKlxSfYwHTcI5oknRq0haHa2S8n'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
