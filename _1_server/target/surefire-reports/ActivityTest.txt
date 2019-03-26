@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ActivityTest
 -------------------------------------------------------------------------------
+<<<<<<< .merge_file_qtljlc
 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in ActivityTest
+=======
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 s - in ActivityTest
+>>>>>>> .merge_file_c2ocEt

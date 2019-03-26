@@ -1,3 +1,4 @@
+<<<<<<< .merge_file_KJtUgC
 hello/User.class
 hello/FriendRequest.class
 hallo/Groceries.class
@@ -20,3 +21,27 @@ hallo/TransportController.class
 hello/GreetingController.class
 hallo/TransportRepository.class
 hello/UserRepository.class
+=======
+hallo\Electricity.class
+hello\FriendRequest.class
+hello\FriendshipController.class
+hello\FriendshipRepository.class
+hallo\Food.class
+hallo\ElectricityRepository.class
+hello\UserRepository.class
+hallo\FoodRepository.class
+hallo\Groceries.class
+hallo\FoodController.class
+hallo\GroceriesController.class
+hello\ActivityRepository.class
+hallo\TransportController.class
+hello\GreetingController.class
+hallo\Transport.class
+hallo\TransportRepository.class
+hello\Activity.class
+hello\FriendRequestRepository.class
+hello\Application.class
+hello\Friendship.class
+hello\User.class
+hallo\GroceriesRepository.class
+>>>>>>> .merge_file_Kw7ddu

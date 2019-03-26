@@ -83,7 +83,11 @@ import java.util.List;
                 // add electricity in the database
 <span class="nc" id="L84">                Activity activity = new Activity(user.getUsername(), 3, &quot;Electricity usage: &quot; + total_hrs + &quot; Hours&quot;,</span>
 <span class="nc" id="L85">                        electricity.getScore(), date);</span>
+<<<<<<< .merge_file_F3z9Wn
 <span class="nc" id="L86">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+=======
+<span class="nc" id="L86">                List&lt;Activity&gt; list = new Controller().addActivity(activity);</span>
+>>>>>>> .merge_file_yzJxqj
 <span class="nc" id="L87">                System.out.println(&quot;\n The items are&quot; + list.toString());</span>
 <span class="nc" id="L88">                window.close();</span>
 <span class="nc" id="L89">            } else {</span>

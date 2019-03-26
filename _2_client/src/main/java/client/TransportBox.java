@@ -56,7 +56,11 @@ public class TransportBox {
             // add a meal in the database
             Activity activity = new Activity(user.getUsername(), 2, transport.getType() + ":" + transport.getDistance() + " KM",
                     transport.getScore(), date);
+<<<<<<< .merge_file_edoxAF
             List<Activity> list = new Controller().sendFood(activity);
+=======
+            List<Activity> list = new Controller().addActivity(activity);
+>>>>>>> .merge_file_pBm1Xv
             System.out.println("\n The items are" + list.toString());
             window.close();
         }

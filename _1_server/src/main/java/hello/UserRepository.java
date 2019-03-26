@@ -32,7 +32,13 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      */
     @Modifying
     @Transactional
+<<<<<<< .merge_file_2wUQpG
     @Query(value = "UPDATE users SET food = ?1, transport = ?2 WHERE username = ?3",
             nativeQuery = true)
     void updateActivity(Integer food, Integer transport, String username);
+=======
+    @Query(value = "UPDATE users SET food = ?1, transport = ?2, electricity = ?3," +
+            " polar_score = ?4 WHERE username = ?5", nativeQuery = true)
+    void updateActivity(Integer food, Integer transport, Integer electricity, Integer polarScore, String username);
+>>>>>>> .merge_file_KlZpk2
 }

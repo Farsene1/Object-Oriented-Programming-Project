@@ -29,7 +29,11 @@ public class Controller {
         return restfulClient.getAllActivities(user);
     }
 
+<<<<<<< .merge_file_hY4tGb
     public List<Activity> sendFood(Activity activity){
+=======
+    public List<Activity> addActivity(Activity activity){
+>>>>>>> .merge_file_WzMnJ5
         return restfulClient.addActivity(activity);
     }
 
@@ -45,6 +49,10 @@ public class Controller {
      */
     public void sendMeal(User user, int amount){
         user.setFoodScore(amount + user.getFoodScore());
+<<<<<<< .merge_file_hY4tGb
+=======
+        user.setPolarScore(user.getPolarScore() + amount);
+>>>>>>> .merge_file_WzMnJ5
         restfulClient.activity(user);
     }
 
@@ -56,6 +64,10 @@ public class Controller {
      */
     public void sendTransport(User user, int amount){
         user.setTransportScore(amount + user.getTransportScore());
+<<<<<<< .merge_file_hY4tGb
+=======
+        user.setPolarScore(user.getPolarScore() + amount);
+>>>>>>> .merge_file_WzMnJ5
         restfulClient.activity(user);
     }
 
@@ -67,6 +79,10 @@ public class Controller {
      */
     public void sendElectricity(User user, int amount){
         user.setElectricityScore(amount + user.getElectricityScore());
+<<<<<<< .merge_file_hY4tGb
+=======
+        user.setPolarScore(user.getPolarScore() + amount);
+>>>>>>> .merge_file_WzMnJ5
         restfulClient.activity(user);
     }
 

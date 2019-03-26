@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ElectricityTest
 -------------------------------------------------------------------------------
+<<<<<<< .merge_file_JZ4Ewy
 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in ElectricityTest
+=======
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in ElectricityTest
+>>>>>>> .merge_file_jn8pTl
