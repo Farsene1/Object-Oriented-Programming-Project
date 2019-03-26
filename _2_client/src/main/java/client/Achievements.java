@@ -43,13 +43,6 @@ public class Achievements {
         achievements.setAlignment(Pos.CENTER);
         GridPane.setConstraints(achievements, 0, 0);
 
-        Label electricityLabel = new Label("Electricity badges");
-        electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
-        VBox electricityAchievements = new VBox(electricityLabel);
-        electricityAchievements.setStyle("-fx-padding: 5;");
-        electricityAchievements.setSpacing(10);
-        electricityAchievements.setAlignment(Pos.CENTER_LEFT);
-
         /**
          * Polar score badges
          */
@@ -204,19 +197,58 @@ public class Achievements {
 
 
 
+/**
+ * electricity score badges
+ */
+        HBox electricityHbox = new HBox();
+        electricityHbox.setSpacing(1);
+        electricityHbox.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
+                + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
+                + "-fx-border-radius: 5;" + "-fx-border-color: #f7ff28;");
 
+        Button electricityBadge_1 = new Button();
+        Button electricityBadge_2 = new Button();
+        Button electricityBadge_3 = new Button();
+        Button electricityBadge_4 = new Button();
+        Button electricityBadge_5 = new Button();
+        Button electricityBadge_6 = new Button();
+        Button electricityBadge_7 = new Button();
+        Button electricityBadge_8 = new Button();
+        Button electricityBadge_9 = new Button();
+        Button electricityBadge_10 = new Button();
 
+        CSSbadge2.setPolar1(electricityBadge_1, polarUnlock);
+        CSSbadge2.setPolar2(electricityBadge_2, polarUnlock);
+        CSSbadge2.setPolar3(electricityBadge_3, polarUnlock);
+        CSSbadge2.setPolar4(electricityBadge_4, polarUnlock);
+        CSSbadge2.setPolar5(electricityBadge_5, polarUnlock);
+        CSSbadge2.setPolar6(electricityBadge_6, polarUnlock);
+        CSSbadge2.setPolar7(electricityBadge_7, polarUnlock);
+        CSSbadge2.setPolar8(electricityBadge_8, polarUnlock);
+        CSSbadge2.setPolar9(electricityBadge_9, polarUnlock);
+        CSSbadge2.setPolar10(electricityBadge_10, polarUnlock);
 
+        Label electricityLabel = new Label("ELECTRICITY");
+        electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        HBox electricityAchievements = new HBox(electricityLabel);
+        electricityAchievements.setStyle("-fx-padding: 5;");
+        electricityAchievements.setSpacing(10);
+        electricityAchievements.setAlignment(Pos.CENTER_LEFT);
 
+        VBox electricity_1 = new VBox(electricityBadge_1);
+        VBox electricity_2 = new VBox(electricityBadge_2);
+        VBox electricity_3 = new VBox(electricityBadge_3);
+        VBox electricity_4 = new VBox(electricityBadge_4);
+        VBox electricity_5 = new VBox(electricityBadge_5);
+        VBox electricity_6 = new VBox(electricityBadge_6);
+        VBox electricity_7 = new VBox(electricityBadge_7);
+        VBox electricity_8 = new VBox(electricityBadge_8);
+        VBox electricity_9 = new VBox(electricityBadge_9);
+        VBox electricity_10 = new VBox(electricityBadge_10);
+        electricityHbox.getChildren().addAll(electricityAchievements, electricity_1, electricity_2, electricity_3, electricity_4, electricity_5, electricity_6, electricity_7, electricity_8, electricity_9, electricity_10);
+        GridPane.setConstraints(electricityHbox, 0, 10);
 
-
-
-
-
-
-
-
-        grid.getChildren().addAll(achievements, polarHbox, foodHbox, transportHbox);
+        grid.getChildren().addAll(achievements, polarHbox, foodHbox, transportHbox, electricityHbox);
 
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
