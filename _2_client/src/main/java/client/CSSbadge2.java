@@ -9,17 +9,17 @@ public class CSSbadge2 {
         if(unlockNumber<1)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1DBXxN_ebykCgnWaf0ZQH1eKFymKZiFIq'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1PIbJ7cObHWNS_MBoYJk4fo4lH9MbrS45'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1LP5uIrEXRqLfgMGk9GpcXSHz7I8MQIAK'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1EXb3OjzDsufitSw-RwWYMVapUFNHR8y3'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -28,9 +28,9 @@ public class CSSbadge2 {
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -47,9 +47,9 @@ public class CSSbadge2 {
         if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -66,9 +66,9 @@ public class CSSbadge2 {
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -85,9 +85,9 @@ public class CSSbadge2 {
         if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -104,9 +104,9 @@ public class CSSbadge2 {
         if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -123,9 +123,9 @@ public class CSSbadge2 {
         if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -142,9 +142,9 @@ public class CSSbadge2 {
         if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -161,9 +161,9 @@ public class CSSbadge2 {
         if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
@@ -180,9 +180,9 @@ public class CSSbadge2 {
         if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1Nm3Zt_4jbFCAQdJuGYwJbBkY8UQfRhvo'); " +
+                    .then("-fx-graphic: url('https://drive.google.com/uc?id=1x4rBhhBgo26gXcQcsoXJNo8xjYPoR0eP'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18u6tO55iqN0lyxQGZXVvwAZajHwBSe2P'); " +
+                    .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=18aqJV7P8enSNlG7iAX2lLCubQUF06TY5'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
