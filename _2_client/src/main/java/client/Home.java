@@ -41,15 +41,14 @@ public static void showHome(Stage window, classes.User user){
     statusbar.setMinHeight(50);
 
     trophy.setOnAction(e -> {
-        AlertBox.display("This is an error message", "To Be Implemented");
+        Achievements.showBadges(centerMenu, scene, user);
+        //AlertBox.display("This is an error message", "To Be Implemented");
     });
     //My Carbon footprint
     Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-
-
-                FootPrint.showOptions( centerMenu,scene, user);
+                FootPrint.showOptions(centerMenu, scene, user);
         });
 
     //Statistics Button

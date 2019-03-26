@@ -121,11 +121,54 @@ public class RestfulClient {
     }
 
     /**
+     * method for getting all the friends.
+     */
+    public List&lt;User&gt; getAllFriends(String username){
+<span class="nc" id="L127">        String url = &quot;http://localhost:8080/friendship/friends&quot;;</span>
+<span class="nc" id="L128">        List&lt;User&gt; res = restTemplate.postForObject(url, username, List.class);</span>
+<span class="nc" id="L129">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L130">        List&lt;User&gt; result = mapper.convertValue(res, new TypeReference&lt;List&lt;User&gt;&gt;(){});</span>
+<span class="nc" id="L131">        return result;</span>
+    }
+
+    /**
+     * method for getting all the friend requests.
+     */
+    public List&lt;String&gt; getAllFriendRequests(String username){
+<span class="nc" id="L138">        String url = &quot;http://localhost:8080/friendship/getallrequests&quot;;</span>
+<span class="nc" id="L139">        List&lt;String&gt; res = restTemplate.postForObject(url, username, List.class);</span>
+<span class="nc" id="L140">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L141">        List&lt;String&gt; result = mapper.convertValue(res, new TypeReference&lt;List&lt;String&gt;&gt;(){});</span>
+<span class="nc" id="L142">        return result;</span>
+    }
+
+    /**
+     * method for making a request.
+     */
+    public String sendFriendRequest(FriendRequest friendRequest){
+<span class="nc" id="L149">        System.out.println(&quot;beginning /activity request&quot;);</span>
+<span class="nc" id="L150">        String postUrl = &quot;http://localhost:8080/friendship/request&quot;;</span>
+<span class="nc" id="L151">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);</span>
+<span class="nc" id="L152">        System.out.println(&quot;Response for get request&quot;);</span>
+<span class="nc" id="L153">        return postResponse.getBody();</span>
+    }
+
+    /**
+     * method for replying to a friend request.
+     */
+    public String respond(FriendRequest friendRequest){
+<span class="nc" id="L160">        System.out.println(&quot;beginning /activity request&quot;);</span>
+<span class="nc" id="L161">        String postUrl = &quot;http://localhost:8080/friendship/respond&quot;;</span>
+<span class="nc" id="L162">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);</span>
+<span class="nc" id="L163">        System.out.println(&quot;Response for get request&quot;);</span>
+<span class="nc" id="L164">        return postResponse.getBody();</span>
+    }
+    /**
      * @param restTemplate
      */
     public void setRestTemplate(RestTemplate restTemplate) {
-<span class="nc" id="L127">        this.restTemplate = restTemplate;</span>
-<span class="nc" id="L128">    }</span>
+<span class="nc" id="L170">        this.restTemplate = restTemplate;</span>
+<span class="nc" id="L171">    }</span>
 
     //    public List&lt;Transport&gt; getAllVehicles(User user){
 //        String url = &quot;http://localhost:8080/transport/add&quot;;

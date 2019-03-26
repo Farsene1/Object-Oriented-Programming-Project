@@ -8,80 +8,95 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-<span class="nc" id="L14">public class Home {</span>
+<span class="nc" id="L15">public class Home {</span>
 
 public static void showHome(Stage window, classes.User user){
-<span class="nc" id="L17">    RestfulClient restfulClient = new RestfulClient();</span>
-<span class="nc" id="L18">    restfulClient.getEntity();</span>
-<span class="nc" id="L19">    window.setTitle(&quot;Home&quot;);</span>
+<span class="nc" id="L18">    RestfulClient restfulClient = new RestfulClient();</span>
+<span class="nc" id="L19">    restfulClient.getEntity();</span>
+<span class="nc" id="L20">    window.setTitle(&quot;Home&quot;);</span>
 
-<span class="nc" id="L21">    BorderPane bp= new BorderPane();</span>
-<span class="nc" id="L22">    VBox leftmenu = new VBox();</span>
-<span class="nc" id="L23">    Scene scene = new Scene(bp, 1920, 1080);</span>
-<span class="nc" id="L24">    GridPane centerMenu= new GridPane();</span>
-<span class="nc" id="L25">    centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
-   // centerMenu.setVgap(8);
-  //  centerMenu.setHgap(10);
+<span class="nc" id="L22">    BorderPane bp= new BorderPane();</span>
+<span class="nc" id="L23">    VBox leftmenu = new VBox();</span>
+<span class="nc" id="L24">    Scene scene = new Scene(bp, 1920, 1080);</span>
+<span class="nc" id="L25">    GridPane centerMenu= new GridPane();</span>
+<span class="nc" id="L26">    centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
 
-<span class="nc" id="L29">    ImageView img= new ImageView(&quot;https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn&quot;);</span>
-<span class="nc" id="L30">    Label usernamelabel = new Label(user.getUsername().toUpperCase());</span>
-    //My Carbon footprint
-<span class="nc" id="L32">    Button mycarbonButton = new Button(&quot;Footprint&quot;);</span>
-<span class="nc" id="L33">        GridPane.setConstraints(mycarbonButton, 0, 1);</span>
-<span class="nc" id="L34">        mycarbonButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L28">    ImageView img= new ImageView(&quot;https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn&quot;);</span>
+<span class="nc" id="L29">    Label usernamelabel = new Label(user.getUsername().toUpperCase());</span>
 
+<span class="nc" id="L31">    HBox statusbar= new HBox();</span>
+<span class="nc" id="L32">    Label Polartext= new Label(&quot;Polar Score:&quot;);</span>
+<span class="nc" id="L33">    Label PolarScore= new Label();</span>
+<span class="nc" id="L34">    PolarScore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L35">    Button trophy= new Button();</span>
+<span class="nc" id="L36">    CSS.setTrophyButtonStyle(trophy);</span>
+<span class="nc" id="L37">    Polartext.setStyle(&quot;-fx-font: 22&quot;);</span>
+<span class="nc" id="L38">    PolarScore.setStyle(&quot;-fx-font: 22;&quot;);</span>
+<span class="nc" id="L39">    statusbar.setStyle(&quot;-fx-alignment: center&quot;);</span>
+<span class="nc" id="L40">    statusbar.getChildren().addAll(Polartext,PolarScore,trophy);</span>
+<span class="nc" id="L41">    statusbar.setMinHeight(50);</span>
 
-<span class="nc" id="L37">                FootPrint.showOptions( centerMenu,scene, user);</span>
-<span class="nc" id="L38">        });</span>
-
-    //Statistics Button
-<span class="nc" id="L41">    Button statisticsButton = new Button(&quot;Statistics&quot;);</span>
-<span class="nc" id="L42">        GridPane.setConstraints(statisticsButton, 0, 2);</span>
-<span class="nc" id="L43">        statisticsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L43">    trophy.setOnAction(e -&gt; {</span>
 <span class="nc" id="L44">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
 <span class="nc" id="L45">    });</span>
+    //My Carbon footprint
+<span class="nc" id="L47">    Button mycarbonButton = new Button(&quot;Footprint&quot;);</span>
+<span class="nc" id="L48">        GridPane.setConstraints(mycarbonButton, 0, 1);</span>
+<span class="nc" id="L49">        mycarbonButton.setOnAction(e -&gt; {</span>
+
+
+<span class="nc" id="L52">                FootPrint.showOptions( centerMenu,scene, user);</span>
+<span class="nc" id="L53">        });</span>
+
+    //Statistics Button
+<span class="nc" id="L56">    Button statisticsButton = new Button(&quot;Statistics&quot;);</span>
+<span class="nc" id="L57">        GridPane.setConstraints(statisticsButton, 0, 2);</span>
+<span class="nc" id="L58">        statisticsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L59">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L60">    });</span>
     //LeaderBoard button
-<span class="nc" id="L47">    Button leaderboardButton = new Button(&quot;LeaderBoard&quot;);</span>
-<span class="nc" id="L48">        leaderboardButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L49">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
-<span class="nc" id="L50">    });</span>
-<span class="nc" id="L51">    Button friendsbutton = new Button(&quot;Friends&quot;);</span>
-<span class="nc" id="L52">    leaderboardButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L53">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
-<span class="nc" id="L54">    });</span>
+<span class="nc" id="L62">    Button leaderboardButton = new Button(&quot;LeaderBoard&quot;);</span>
+<span class="nc" id="L63">        leaderboardButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L64">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L65">    });</span>
+<span class="nc" id="L66">    Button friendsbutton = new Button(&quot;Friends&quot;);</span>
+<span class="nc" id="L67">    friendsbutton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L68">        AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L69">    });</span>
     //Quit
-<span class="nc" id="L56">    Button quitButton = new Button(&quot;Quit&quot;);</span>
-<span class="nc" id="L57">    quitButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L58">        boolean result = ConfirmBox.display(&quot;Confirm&quot;, &quot;Are you sure you want to quit?&quot;);</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (result) {</span>
-<span class="nc" id="L60">            Login.showLogin(window);</span>
+<span class="nc" id="L71">    Button quitButton = new Button(&quot;Quit&quot;);</span>
+<span class="nc" id="L72">    quitButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L73">        boolean result = ConfirmBox.display(&quot;Confirm&quot;, &quot;Are you sure you want to quit?&quot;);</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (result) {</span>
+<span class="nc" id="L75">            Login.showLogin(window);</span>
         }
 
-<span class="nc" id="L63">    });</span>
+<span class="nc" id="L78">    });</span>
 
 
     //Add everything to grid
-<span class="nc" id="L67">    leftmenu.getChildren().addAll(img, usernamelabel, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);</span>
-<span class="nc" id="L68">    bp.setLeft(leftmenu);</span>
-<span class="nc" id="L69">    bp.setCenter(centerMenu);</span>
-<span class="nc" id="L70">    bp.setStyle(&quot;-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');&quot;);</span>
+<span class="nc" id="L82">    leftmenu.getChildren().addAll(img, usernamelabel,statusbar, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);</span>
+<span class="nc" id="L83">    bp.setLeft(leftmenu);</span>
+<span class="nc" id="L84">    bp.setCenter(centerMenu);</span>
+<span class="nc" id="L85">    bp.setStyle(&quot;-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');&quot;);</span>
 
-<span class="nc" id="L72">    img.setStyle(&quot;-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25&quot;);</span>
-<span class="nc" id="L73">    usernamelabel.setStyle(&quot;-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30&quot;);</span>
-<span class="nc" id="L74">    CSS.setButtonStyle(mycarbonButton);</span>
-<span class="nc" id="L75">    CSS.setButtonStyle(statisticsButton);</span>
-<span class="nc" id="L76">    CSS.setButtonStyle(leaderboardButton);</span>
-<span class="nc" id="L77">    CSS.setButtonStyle(friendsbutton);</span>
-<span class="nc" id="L78">    CSS.setButtonStyle(quitButton);</span>
-<span class="nc" id="L79">    leftmenu.setMinWidth(400);</span>
-<span class="nc" id="L80">    leftmenu.setStyle(&quot;-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);&quot;);</span>
+<span class="nc" id="L87">    img.setStyle(&quot;-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25&quot;);</span>
+<span class="nc" id="L88">    usernamelabel.setStyle(&quot;-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30&quot;);</span>
+<span class="nc" id="L89">    CSS.setButtonStyle(mycarbonButton);</span>
+<span class="nc" id="L90">    CSS.setButtonStyle(statisticsButton);</span>
+<span class="nc" id="L91">    CSS.setButtonStyle(leaderboardButton);</span>
+<span class="nc" id="L92">    CSS.setButtonStyle(friendsbutton);</span>
+<span class="nc" id="L93">    CSS.setButtonStyle(quitButton);</span>
+<span class="nc" id="L94">    leftmenu.setMinWidth(400);</span>
+<span class="nc" id="L95">    leftmenu.setStyle(&quot;-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);&quot;);</span>
 
-<span class="nc" id="L82">        window.setScene(scene);</span>
-<span class="nc" id="L83">        window.setMaximized(true);</span>
-<span class="nc" id="L84">        window.show();</span>
-<span class="nc" id="L85">}</span>
+<span class="nc" id="L97">        window.setScene(scene);</span>
+<span class="nc" id="L98">        window.setMaximized(true);</span>
+<span class="nc" id="L99">        window.show();</span>
+<span class="nc" id="L100">}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

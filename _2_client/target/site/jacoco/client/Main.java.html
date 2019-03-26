@@ -32,17 +32,18 @@ import java.security.NoSuchAlgorithmException;
 <span class="nc" id="L32">            e.consume();</span>
 <span class="nc" id="L33">            closeProgram();</span>
 <span class="nc" id="L34">        });</span>
-<span class="nc" id="L35">        Login.showLogin(window);</span>
-<span class="nc" id="L36">    }</span>
+<span class="nc" id="L35">        window.setResizable(false);</span>
+<span class="nc" id="L36">        Login.showLogin(window);</span>
+<span class="nc" id="L37">    }</span>
 
 
     //Closing down the program method.
     public void closeProgram() {
-<span class="nc" id="L41">        boolean answer = ConfirmBox.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (answer) {</span>
-<span class="nc" id="L43">            window.close();</span>
+<span class="nc" id="L42">        boolean answer = ConfirmBox.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (answer) {</span>
+<span class="nc" id="L44">            window.close();</span>
         }
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L46">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
