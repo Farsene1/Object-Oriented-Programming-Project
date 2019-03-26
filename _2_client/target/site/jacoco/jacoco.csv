@@ -1,11 +1,13 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-client,classes,RestfulClient,222,0,0,0,49,0,10,0,10,0
+client,classes,RestfulClient,318,0,0,0,69,0,14,0,14,0
 client,classes,Electricity,3,40,0,0,2,17,1,9,1,9
-client,classes,FriendRequest,39,0,0,0,15,0,8,0,8,0
 client,classes,User,0,107,0,0,0,33,0,17,0,17
+client,classes,FriendRequest,39,0,0,0,15,0,8,0,8,0
 client,classes,Controller,90,0,0,0,23,0,12,0,12,0
 client,classes,Meal,26,0,0,0,12,0,6,0,6,0
 client,classes,Activity,4,89,3,3,2,32,3,15,0,15
+client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
+client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
@@ -22,8 +24,8 @@ client,client,Leaderboard,3,0,0,0,1,0,1,0,1,0
 client,client,TransportBox,228,0,0,0,46,0,3,0,3,0
 client,client,FootPrint,353,0,2,0,69,0,8,0,7,0
 client,client,ValidatePassword,3,87,0,28,1,18,1,15,1,1
-client,client,Home,205,0,2,0,52,0,8,0,7,0
-client,client,Main,57,0,2,0,19,0,6,0,5,0
+client,client,Home,270,0,2,0,66,0,9,0,8,0
+client,client,Main,61,0,2,0,20,0,6,0,5,0
 client,client,Statistics,3,0,0,0,1,0,1,0,1,0
-client,client,CSS,47,0,0,0,17,0,5,0,5,0
+client,client,CSS,58,0,0,0,21,0,6,0,6,0
 client,client,Login,279,0,2,0,68,0,5,0,4,0

@@ -25,10 +25,17 @@ import javafx.scene.control.TextField;
                         &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
 <span class="nc" id="L26">    }</span>
 
+    public static void setTrophyButtonStyle(Button button){
+<span class="nc" id="L29">        button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L30">                .then(&quot;-fx-graphic: url('https://drive.google.com/uc?id=1QdOyPlUOhZSCKfL_OVIiY5bBCs--hxU5'); &quot; +</span>
+                        &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L32">                .otherwise(&quot;-fx-graphic: url('https://drive.google.com/uc?id=1JbqEhcXRUgQ18Fi2TBpBMXkh0ILLC63D'); &quot; +</span>
+                        &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L34">    }</span>
     public static void setTextFieldStyle(TextField textField){
-<span class="nc" id="L29">        textField.styleProperty().bind(Bindings.when(textField.hoverProperty())</span>
-<span class="nc" id="L30">                .then(&quot;&quot;)</span>
-<span class="nc" id="L31">                .otherwise(&quot;&quot;));</span>
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L36">        textField.styleProperty().bind(Bindings.when(textField.hoverProperty())</span>
+<span class="nc" id="L37">                .then(&quot;&quot;)</span>
+<span class="nc" id="L38">                .otherwise(&quot;&quot;));</span>
+<span class="nc" id="L39">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
