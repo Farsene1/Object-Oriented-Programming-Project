@@ -42,8 +42,6 @@ public class Achievements {
         achievements.setSpacing(20);
         achievements.setAlignment(Pos.CENTER);
 
-
-
         //Add everything to grid
         HBox Hbox = new HBox();
         GridPane.setConstraints(Hbox, 0, 0);
@@ -53,8 +51,6 @@ public class Achievements {
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 
     }
-    
-
 }
 
 

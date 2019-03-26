@@ -14,7 +14,15 @@ import javafx.stage.Stage;
 
 public class Home {
 
+    private static  boolean sceneOpen = false;
+    private static int sceneType = 0;
+
+    public boolean getOpen(){return sceneOpen;}
+    public int getType(){return sceneType;}
+
+
 public static void showHome(Stage window, classes.User user){
+
     RestfulClient restfulClient = new RestfulClient();
     restfulClient.getEntity();
     window.setTitle("Home");
@@ -40,15 +48,49 @@ public static void showHome(Stage window, classes.User user){
     statusbar.getChildren().addAll(Polartext,PolarScore,trophy);
     statusbar.setMinHeight(50);
 
+
+    if ((sceneType == 1)&&(sceneOpen == true))  {
+
+    }
+    if ((sceneType == 2)&&(sceneOpen == true))  {
+        FootPrint.showOptions(centerMenu, scene, user);
+    }
+    if ((sceneType == 3)&&(sceneOpen == true))  {
+
+    }
+    if ((sceneType == 4)&&(sceneOpen == true))  {
+
+    }
+    if ((sceneType == 5)&&(sceneOpen == true))  {
+
+    }
+
+
     trophy.setOnAction(e -> {
-        Achievements.showBadges(centerMenu, scene, user);
+
+        if(sceneOpen == false) {
+            sceneOpen = true;
+           // sceneType = 1;
+            Achievements.showBadges(centerMenu, scene, user);
+        }
+
         //AlertBox.display("This is an error message", "To Be Implemented");
     });
+
     //My Carbon footprint
     Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
+
+            if(sceneOpen == false) {
+                sceneOpen = true;
                 FootPrint.showOptions(centerMenu, scene, user);
+            }
+            if(sceneOpen == true) {
+                sceneType = 2;
+                showHome(window, user);
+            }
+
         });
 
     //Statistics Button
