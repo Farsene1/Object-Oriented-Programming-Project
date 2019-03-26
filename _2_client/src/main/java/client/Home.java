@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -23,11 +24,25 @@ public static void showHome(Stage window, classes.User user){
     Scene scene = new Scene(bp, 1920, 1080);
     GridPane centerMenu= new GridPane();
     centerMenu.setPadding(new Insets(10, 10, 10, 10));
-   // centerMenu.setVgap(8);
-  //  centerMenu.setHgap(10);
 
     ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
     Label usernamelabel = new Label(user.getUsername().toUpperCase());
+
+    HBox statusbar= new HBox();
+    Label Polartext= new Label("Polar Score:");
+    Label PolarScore= new Label();
+    PolarScore.setText(user.getPolarScore().toString());
+    Button trophy= new Button();
+    CSS.setTrophyButtonStyle(trophy);
+    Polartext.setStyle("-fx-font: 22");
+    PolarScore.setStyle("-fx-font: 22;");
+    statusbar.setStyle("-fx-alignment: center");
+    statusbar.getChildren().addAll(Polartext,PolarScore,trophy);
+    statusbar.setMinHeight(50);
+
+    trophy.setOnAction(e -> {
+        AlertBox.display("This is an error message", "To Be Implemented");
+    });
     //My Carbon footprint
     Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
@@ -49,7 +64,7 @@ public static void showHome(Stage window, classes.User user){
         AlertBox.display("This is an error message", "To Be Implemented");
     });
     Button friendsbutton = new Button("Friends");
-    leaderboardButton.setOnAction(e -> {
+    friendsbutton.setOnAction(e -> {
         AlertBox.display("This is an error message", "To Be Implemented");
     });
     //Quit
@@ -64,7 +79,7 @@ public static void showHome(Stage window, classes.User user){
 
 
     //Add everything to grid
-    leftmenu.getChildren().addAll(img, usernamelabel, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);
+    leftmenu.getChildren().addAll(img, usernamelabel,statusbar, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);
     bp.setLeft(leftmenu);
     bp.setCenter(centerMenu);
     bp.setStyle("-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');");
