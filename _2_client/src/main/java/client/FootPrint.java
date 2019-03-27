@@ -26,7 +26,9 @@ public class FootPrint {
 
     static TableView table = new TableView();
 
-    public static void showOptions(GridPane grid, User user,Label polarscore) {
+
+    public static void showOptions(GridPane grid, User user, Label polarscore) {
+
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
@@ -77,7 +79,7 @@ public class FootPrint {
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
-            classes.Transport transport = TransportBox.addVehicle("Transport Footprint","Select the transport option of your choice", user);
+            classes.Transport transport = TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
         });
@@ -96,7 +98,7 @@ public class FootPrint {
         TransportOptions.getChildren().addAll(TransportLabel, Transport);
         ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);
         HBox Hbox = new HBox();
-        Hbox.getChildren().addAll(FoodOptions,TransportOptions,ElectricityOptions);
+        Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);
         GridPane.setConstraints(Hbox, 0, 0);
         grid.getChildren().setAll(Hbox, Footprint);
 
@@ -111,12 +113,10 @@ public class FootPrint {
         TransportOptions.setMinWidth(476);
     }
 
-    public  static ObservableList<Activity> addItems(User user)
-    {
+    public static ObservableList<Activity> addItems(User user) {
         ObservableList<Activity> activities = FXCollections.observableArrayList();
-        List<Activity> act= new Controller().getAllActivities(user);
-        for (Activity a : act)
-        {
+        List<Activity> act = new Controller().getAllActivities(user);
+        for (Activity a : act) {
             activities.add(a);
         }
         return activities;

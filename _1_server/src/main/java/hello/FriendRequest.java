@@ -1,10 +1,16 @@
 package hello;
 
+
+
 import javax.persistence.*;
+
+
 
 @Entity
 @Table(name = "requests")
 public class FriendRequest {
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

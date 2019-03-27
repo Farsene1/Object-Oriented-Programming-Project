@@ -64,8 +64,8 @@ import java.util.List;
      * method for getting all the friendRequests.
      */
     @RequestMapping(&quot;/getallrequests&quot;)
-    public List&lt;String&gt; getAllRequest(@RequestBody String username) {
-<span class="nc" id="L68">        List&lt;String&gt; list = friendRequestRepository.findAllRequestsFor(username);</span>
+    public List&lt;FriendRequest&gt; getAllRequest(@RequestBody String username) {
+<span class="nc" id="L68">        List&lt;FriendRequest&gt; list = friendRequestRepository.findAllRequestsFor(username);</span>
 <span class="nc" id="L69">        return list;</span>
     }
 

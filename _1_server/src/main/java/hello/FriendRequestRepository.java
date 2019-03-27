@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface FriendRequestRepository extends CrudRepository<FriendRequest, Integer> {
 
-    @Query(value = "SELECT sender from requests where receiver = ?1 AND accepted = false", nativeQuery = true)
-    List<String> findAllRequestsFor(String username);
+    @Query(value = "SELECT * from requests where receiver = ?1 AND accepted = false", nativeQuery = true)
+    List<FriendRequest> findAllRequestsFor(String username);
 
     @Modifying
     @Transactional

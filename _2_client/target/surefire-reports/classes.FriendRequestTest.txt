@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: ElectricityTest
+Test set: classes.FriendRequestTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in ElectricityTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in classes.FriendRequestTest

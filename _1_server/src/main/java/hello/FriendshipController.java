@@ -36,12 +36,12 @@ public class FriendshipController {
 
     /**
      * method for getting all the friends in the database.
-     * @param username
+
      * @return response list.
      */
     @RequestMapping("/friends")
-    public List<User> getAllFriends(@RequestBody String username) {
-        List<String> temp = friendshipRepository.getAllFriends(username);
+    public List<User> getAllFriends(@RequestBody User user) {
+        List<String> temp = friendshipRepository.getAllFriends(user.getUsername());
         List<User> result = new ArrayList<User>();
         for (String s : temp) {
             result.add(userRepository.findUserByUsername(s).get(0));
@@ -64,8 +64,8 @@ public class FriendshipController {
      * method for getting all the friendRequests.
      */
     @RequestMapping("/getallrequests")
-    public List<String> getAllRequest(@RequestBody String username) {
-        List<String> list = friendRequestRepository.findAllRequestsFor(username);
+    public List<FriendRequest> getAllRequest(@RequestBody User user) {
+        List<FriendRequest> list = friendRequestRepository.findAllRequestsFor(user.getUsername());
         return list;
     }
 

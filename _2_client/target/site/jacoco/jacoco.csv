@@ -1,11 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 client,classes,RestfulClient,318,0,0,0,69,0,14,0,14,0
 client,classes,Electricity,3,40,0,0,2,17,1,9,1,9
-client,classes,FriendRequest,39,0,0,0,15,0,8,0,8,0
+client,classes,FriendRequest,6,33,0,0,1,14,1,7,1,7
 client,classes,User,0,107,0,0,0,33,0,17,0,17
 client,classes,Controller,114,0,0,0,26,0,12,0,12,0
 client,classes,Meal,26,0,0,0,12,0,6,0,6,0
 client,classes,Activity,4,89,3,3,2,32,3,15,0,15
+client,classes,Friend,26,0,0,0,11,0,6,0,6,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
@@ -17,7 +18,8 @@ client,client,ElectricityBox,300,0,16,0,62,0,11,0,3,0
 client,client,ConfirmBox,89,0,0,0,24,0,4,0,4,0
 client,client,MeatMealBox,320,0,10,0,69,0,8,0,3,0
 client,client,AlertBox,68,0,0,0,16,0,3,0,3,0
-client,client,Friends,3,0,0,0,1,0,1,0,1,0
+client,client,AddFriendBox,86,0,0,0,22,0,4,0,4,0
+client,client,Friends,368,0,12,0,73,0,14,0,8,0
 client,client,Signup,356,0,10,0,87,0,9,0,4,0
 client,client,CSSelectricityBadge,253,0,20,0,81,0,21,0,11,0
 client,client,FoodBox,341,0,10,0,76,0,10,0,5,0
@@ -28,7 +30,7 @@ client,client,TransportBox,228,0,0,0,46,0,3,0,3,0
 client,client,CSSpolarBadge,253,0,20,0,81,0,21,0,11,0
 client,client,FootPrint,371,0,2,0,72,0,8,0,7,0
 client,client,ValidatePassword,3,87,0,28,1,18,1,15,1,1
-client,client,Home,266,0,2,0,64,0,9,0,8,0
+client,client,Home,270,0,2,0,64,0,9,0,8,0
 client,client,CSStransportBadge,253,0,20,0,81,0,21,0,11,0
 client,client,Main,61,0,2,0,20,0,6,0,5,0
 client,client,Statistics,3,0,0,0,1,0,1,0,1,0

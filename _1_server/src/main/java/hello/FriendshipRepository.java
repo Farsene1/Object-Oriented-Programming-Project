@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface FriendshipRepository extends CrudRepository<Friendship, Integer> {
 
-    @Query(value = "SELECT receiver FROM friendships WHERE sender = ?1", nativeQuery = true)
+    @Query(value = "SELECT username2 FROM friendships WHERE username1 = ?1", nativeQuery = true)
     List<String> getAllFriends(String username);
 }
