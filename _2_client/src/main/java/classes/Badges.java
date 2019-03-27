@@ -2,10 +2,10 @@ package classes;
 
 public class Badges {
 
-    private int unlock = 0;
-    private boolean unlockable = false;
+    static private int unlock = 0;
+    static private boolean unlockable = false;
 
-    private int polarUnlock(User user){
+    static public int polarUnlock(User user){
 
         unlock = user.getPolarScore();
 
@@ -52,7 +52,7 @@ public class Badges {
             }
 
         }while(unlockable == false);
-        
+
         return unlock;
     }
 }

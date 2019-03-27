@@ -1,5 +1,6 @@
 package client;
 
+import classes.Badges;
 import classes.User;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -15,7 +16,7 @@ public class Achievements {
 
     public static void showBadges(GridPane grid, User user) {
 
-        int polarUnlock = 7;
+        int polarUnlock = Badges.polarUnlock(user);
 
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
