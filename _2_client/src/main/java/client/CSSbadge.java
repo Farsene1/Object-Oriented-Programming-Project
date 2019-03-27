@@ -1,11 +1,14 @@
 package client;
 
+import classes.Badges;
+import classes.User;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
 public class CSSbadge {
 
     public static void setPolar1(Button button, int unlockNumber){
+
         if(unlockNumber<1)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
