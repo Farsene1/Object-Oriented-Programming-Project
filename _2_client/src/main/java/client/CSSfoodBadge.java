@@ -1,11 +1,16 @@
 package client;
 
+import classes.Badges;
+import classes.User;
+import javafx.beans.binding.Bindings;
+import javafx.scene.control.Button;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
-public class CSSbadge {
+public class CSSfoodBadge {
 
-    public static void setPolar1(Button button, int unlockNumber){
+    public static void setFood1(Button button, int unlockNumber){
+
         if(unlockNumber<1)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -24,7 +29,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar2(Button button, int unlockNumber){
+    public static void setFood2(Button button, int unlockNumber){
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -43,7 +48,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar3(Button button, int unlockNumber){
+    public static void setFood3(Button button, int unlockNumber){
         if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -62,7 +67,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar4(Button button, int unlockNumber){
+    public static void setFood4(Button button, int unlockNumber){
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -81,7 +86,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar5(Button button, int unlockNumber){
+    public static void setFood5(Button button, int unlockNumber){
         if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -100,7 +105,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar6(Button button, int unlockNumber){
+    public static void setFood6(Button button, int unlockNumber){
         if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -119,7 +124,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar7(Button button, int unlockNumber){
+    public static void setFood7(Button button, int unlockNumber){
         if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -138,7 +143,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar8(Button button, int unlockNumber){
+    public static void setFood8(Button button, int unlockNumber){
         if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -157,7 +162,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar9(Button button, int unlockNumber){
+    public static void setFood9(Button button, int unlockNumber){
         if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -176,7 +181,7 @@ public class CSSbadge {
         }
     }
 
-    public static void setPolar10(Button button, int unlockNumber){
+    public static void setFood10(Button button, int unlockNumber){
         if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -195,3 +200,4 @@ public class CSSbadge {
         }
     }
 }
+
