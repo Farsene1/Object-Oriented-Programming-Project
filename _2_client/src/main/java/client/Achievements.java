@@ -25,6 +25,12 @@ public class Achievements {
          */
         int foodUnlock = Badges.foodUnlock(user);
 
+        /**
+         * Calls method to unlock transport badges, sets unlock value for CSS.
+         */
+        int transportUnlock = Badges.transportUnlock(user);
+
+
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
         VBox achievements = new VBox();

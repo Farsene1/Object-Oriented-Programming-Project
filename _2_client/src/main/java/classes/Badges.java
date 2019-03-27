@@ -110,7 +110,6 @@ public class Badges {
         return unlock;
     }
 
-
     /**
      * Method to unlock transport badges
      */
@@ -156,6 +155,58 @@ public class Badges {
                 unlockable = true;
             }
             if(transportTotal >= 100000){
+                unlock = 10;
+                unlockable = true;
+            }
+        }while(unlockable == false);
+        return unlock;
+    }
+
+    /**
+     * Method to unlock electricity badges
+     */
+    static public int electricityUnlock(User user){
+
+        int electricityTotal = user.getElectricityScore();
+
+        do{
+            if(electricityTotal <= 10000){
+                unlock = 1;
+                unlockable = true;
+            }
+            if(electricityTotal >= 20000){
+                unlock = 2;
+                unlockable = true;
+            }
+            if(electricityTotal >= 30000){
+                unlock = 3;
+                unlockable = true;
+            }
+            if(electricityTotal <= 40000){
+                unlock = 4;
+                unlockable = true;
+            }
+            if(electricityTotal >= 50000){
+                unlock = 5;
+                unlockable = true;
+            }
+            if(electricityTotal >= 60000){
+                unlock = 6;
+                unlockable = true;
+            }
+            if(electricityTotal >= 70000){
+                unlock = 7;
+                unlockable = true;
+            }
+            if(electricityTotal >= 80000){
+                unlock = 8;
+                unlockable = true;
+            }
+            if(electricityTotal >= 90000){
+                unlock = 9;
+                unlockable = true;
+            }
+            if(electricityTotal >= 100000){
                 unlock = 10;
                 unlockable = true;
             }
