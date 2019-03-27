@@ -78,7 +78,7 @@ public class Badges {
                 unlock = 3;
                 unlockable = true;
             }
-            if(foodTotal <= 40000){
+            if(foodTotal >= 40000){
                 unlock = 4;
                 unlockable = true;
             }
@@ -90,7 +90,7 @@ public class Badges {
                 unlock = 6;
                 unlockable = true;
             }
-            if(foodTotal >= 70000){
+            if(foodTotal <= 70000){
                 unlock = 7;
                 unlockable = true;
             }

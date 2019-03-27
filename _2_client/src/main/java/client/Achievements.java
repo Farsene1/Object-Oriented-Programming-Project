@@ -5,7 +5,6 @@ import classes.User;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -55,16 +54,16 @@ public class Achievements {
         Button polarBadge_9 = new Button();
         Button polarBadge_10 = new Button();
 
-        CSSbadge.setPolar1(polarBadge_1, polarUnlock);
-        CSSbadge.setPolar2(polarBadge_2, polarUnlock);
-        CSSbadge.setPolar3(polarBadge_3, polarUnlock);
-        CSSbadge.setPolar4(polarBadge_4, polarUnlock);
-        CSSbadge.setPolar5(polarBadge_5, polarUnlock);
-        CSSbadge.setPolar6(polarBadge_6, polarUnlock);
-        CSSbadge.setPolar7(polarBadge_7, polarUnlock);
-        CSSbadge.setPolar8(polarBadge_8, polarUnlock);
-        CSSbadge.setPolar9(polarBadge_9, polarUnlock);
-        CSSbadge.setPolar10(polarBadge_10, polarUnlock);
+        CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
+        CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
+        CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
+        CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
+        CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
+        CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
+        CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
+        CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
+        CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
+        CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
 
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
@@ -87,16 +86,16 @@ public class Achievements {
         Button foodBadge_9 = new Button();
         Button foodBadge_10 = new Button();
 
-        CSSbadge.setPolar1(foodBadge_1, polarUnlock);
-        CSSbadge.setPolar2(foodBadge_2, polarUnlock);
-        CSSbadge.setPolar3(foodBadge_3, polarUnlock);
-        CSSbadge.setPolar4(foodBadge_4, polarUnlock);
-        CSSbadge.setPolar5(foodBadge_5, polarUnlock);
-        CSSbadge.setPolar6(foodBadge_6, polarUnlock);
-        CSSbadge.setPolar7(foodBadge_7, polarUnlock);
-        CSSbadge.setPolar8(foodBadge_8, polarUnlock);
-        CSSbadge.setPolar9(foodBadge_9, polarUnlock);
-        CSSbadge.setPolar10(foodBadge_10, polarUnlock);
+        CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);
+        CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);
+        CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);
+        CSSfoodBadge.setFood4(foodBadge_4, foodUnlock);
+        CSSfoodBadge.setFood5(foodBadge_5, foodUnlock);
+        CSSfoodBadge.setFood6(foodBadge_6, foodUnlock);
+        CSSfoodBadge.setFood7(foodBadge_7, foodUnlock);
+        CSSfoodBadge.setFood8(foodBadge_8, foodUnlock);
+        CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);
+        CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);
 
         Label foodLabel = new Label("FOOD");
         foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
@@ -121,16 +120,16 @@ public class Achievements {
         Button transportBadge_9 = new Button();
         Button transportBadge_10 = new Button();
 
-        CSSbadge.setPolar1(transportBadge_1, polarUnlock);
-        CSSbadge.setPolar2(transportBadge_2, polarUnlock);
-        CSSbadge.setPolar3(transportBadge_3, polarUnlock);
-        CSSbadge.setPolar4(transportBadge_4, polarUnlock);
-        CSSbadge.setPolar5(transportBadge_5, polarUnlock);
-        CSSbadge.setPolar6(transportBadge_6, polarUnlock);
-        CSSbadge.setPolar7(transportBadge_7, polarUnlock);
-        CSSbadge.setPolar8(transportBadge_8, polarUnlock);
-        CSSbadge.setPolar9(transportBadge_9, polarUnlock);
-        CSSbadge.setPolar10(transportBadge_10, polarUnlock);
+        CSSpolarBadge.setPolar1(transportBadge_1, polarUnlock);
+        CSSpolarBadge.setPolar2(transportBadge_2, polarUnlock);
+        CSSpolarBadge.setPolar3(transportBadge_3, polarUnlock);
+        CSSpolarBadge.setPolar4(transportBadge_4, polarUnlock);
+        CSSpolarBadge.setPolar5(transportBadge_5, polarUnlock);
+        CSSpolarBadge.setPolar6(transportBadge_6, polarUnlock);
+        CSSpolarBadge.setPolar7(transportBadge_7, polarUnlock);
+        CSSpolarBadge.setPolar8(transportBadge_8, polarUnlock);
+        CSSpolarBadge.setPolar9(transportBadge_9, polarUnlock);
+        CSSpolarBadge.setPolar10(transportBadge_10, polarUnlock);
 
         Label transportLabel = new Label("TRANSPORT");
         transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
@@ -157,16 +156,16 @@ public class Achievements {
         Button electricityBadge_9 = new Button();
         Button electricityBadge_10 = new Button();
 
-        CSSbadge.setPolar1(electricityBadge_1, polarUnlock);
-        CSSbadge.setPolar2(electricityBadge_2, polarUnlock);
-        CSSbadge.setPolar3(electricityBadge_3, polarUnlock);
-        CSSbadge.setPolar4(electricityBadge_4, polarUnlock);
-        CSSbadge.setPolar5(electricityBadge_5, polarUnlock);
-        CSSbadge.setPolar6(electricityBadge_6, polarUnlock);
-        CSSbadge.setPolar7(electricityBadge_7, polarUnlock);
-        CSSbadge.setPolar8(electricityBadge_8, polarUnlock);
-        CSSbadge.setPolar9(electricityBadge_9, polarUnlock);
-        CSSbadge.setPolar10(electricityBadge_10, polarUnlock);
+        CSSpolarBadge.setPolar1(electricityBadge_1, polarUnlock);
+        CSSpolarBadge.setPolar2(electricityBadge_2, polarUnlock);
+        CSSpolarBadge.setPolar3(electricityBadge_3, polarUnlock);
+        CSSpolarBadge.setPolar4(electricityBadge_4, polarUnlock);
+        CSSpolarBadge.setPolar5(electricityBadge_5, polarUnlock);
+        CSSpolarBadge.setPolar6(electricityBadge_6, polarUnlock);
+        CSSpolarBadge.setPolar7(electricityBadge_7, polarUnlock);
+        CSSpolarBadge.setPolar8(electricityBadge_8, polarUnlock);
+        CSSpolarBadge.setPolar9(electricityBadge_9, polarUnlock);
+        CSSpolarBadge.setPolar10(electricityBadge_10, polarUnlock);
 
         Label electricityLabel = new Label("ELECTRICITY");
         electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
