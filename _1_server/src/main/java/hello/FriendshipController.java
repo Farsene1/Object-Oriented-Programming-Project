@@ -35,14 +35,6 @@ public class FriendshipController {
     private UserRepository userRepository;
 
     /**
-     * default method.
-     */
-    @RequestMapping("/run")
-    public void setUp(){
-        this.friendRequestRepository.save(new FriendRequest("Flo","Tijs"));
-        this.friendRequestRepository.save(new FriendRequest("Hashim","Tijs"));
-    }
-    /**
      * method for getting all the friends in the database.
      * @param username
      * @return response list.
@@ -86,5 +78,17 @@ public class FriendshipController {
         this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));
         this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));
         return "OK";
+    }
+
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
+        this.friendshipRepository = friendshipRepository;
+    }
+
+    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
+        this.friendRequestRepository = friendRequestRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }
