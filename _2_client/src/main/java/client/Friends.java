@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Friends {
     static TableView pendingTable = new TableView();
 
 
-    public static void showOptions(GridPane grid, Scene scene, User user){
+    public static void showOptions(GridPane grid, Scene scene, User user, Stage window){
 
 
         FriendRequest test = new FriendRequest("ok","pablo");
@@ -41,6 +42,8 @@ public class Friends {
         TextField addaFriend = new TextField();
         Button addaFriendB=new Button("Add A Friend");
         Label FriendsLabel = new Label("FRIENDS");
+        Button backButton = new Button("Back");
+
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
         HBox Vbox= new HBox(addaFriend,addaFriendB);
@@ -75,16 +78,21 @@ public class Friends {
         Col1.setMinWidth(300);
         Col2.setMinWidth(300);
         Col3.setMinWidth(300);
-     //   Col4.setMinWidth(300);
+        //backButton
+        backButton.setOnAction(e->{
+                Home.showHome(window,user);
+        });
 
-       friendsTable.getItems().add(pablo);
-        pendingTable.getItems().add(test);
+
+
+
+
         //Lastly creating 2 different
         //Hboxes so we can add everything to the grid
 
         HBox toplayer = new HBox();
         HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(FriendsLabel);
+        toplayer.getChildren().addAll(FriendsLabel,backButton);
         middleLayer.getChildren().addAll(Vbox1,Vbox2);
        GridPane.setConstraints(toplayer,5,0);
         GridPane.setConstraints(middleLayer,5,30);

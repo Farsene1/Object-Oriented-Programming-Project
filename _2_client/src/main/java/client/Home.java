@@ -48,7 +48,7 @@ public class Home {
         Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-            FootPrint.showOptions(centerMenu, user, PolarScore);
+            FootPrint.showOptions(centerMenu, user, PolarScore,window);
         });
 
         //Statistics Button
@@ -66,7 +66,7 @@ public class Home {
         });
         Button friendsbutton = new Button("Friends");
         friendsbutton.setOnAction(e -> {
-            Friends.showOptions(centerMenu, scene, user);
+            Friends.showOptions(centerMenu, scene, user,window);
         });
         //Quit
         Button quitButton = new Button("Quit");

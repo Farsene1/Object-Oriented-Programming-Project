@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class FootPrint {
     static TableView table = new TableView();
 
 
-    public static void showOptions(GridPane grid, User user, Label polarscore) {
+    public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
 
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
@@ -93,6 +94,14 @@ public class FootPrint {
             polarscore.setText(user.getPolarScore().toString());
         });
 
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e->{
+            Home.showHome(window,user);
+        });
+
+        GridPane.setConstraints(backButton,10,10);
+
+
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);
         TransportOptions.getChildren().addAll(TransportLabel, Transport);
@@ -100,7 +109,7 @@ public class FootPrint {
         HBox Hbox = new HBox();
         Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);
         GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().setAll(Hbox, Footprint);
+        grid.getChildren().setAll(Hbox, Footprint,backButton);
 
         Food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         Transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
