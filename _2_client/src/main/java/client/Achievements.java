@@ -16,6 +16,9 @@ public class Achievements {
 
     public static void showBadges(GridPane grid, User user) {
 
+        /**
+         * Calls method to unlock polar badges, sets unlock value for CSS.
+         */
         int polarUnlock = Badges.polarUnlock(user);
 
         Label myAchievements = new Label("My Achievements!");
