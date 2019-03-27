@@ -29,6 +29,8 @@ public class Friends {
     public static void showOptions(GridPane grid, Scene scene, User user){
 
 
+        FriendRequest test = new FriendRequest("ok","pablo");
+
        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
 
@@ -73,7 +75,7 @@ public class Friends {
      //   Col4.setMinWidth(300);
 
 
-
+        pendingTable.getItems().add(test);
         //Lastly creating 2 different
         //Hboxes so we can add everything to the grid
 
@@ -93,6 +95,7 @@ public class Friends {
 
         addaFriendB.setOnAction(e ->{
             classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText());
+            new RestfulClient().sendFriendRequest(friendRequest);
             addaFriend.clear();
         });
 
@@ -110,7 +113,8 @@ public class Friends {
                         pendingTable.getItems().remove(clickedRow);
                     }
                     else{
-                        //SOMETHING ELSE
+                        clickedRow.setAccepted(true);
+                        new RestfulClient().sendFriendRequest(clickedRow);
                     }
                 }
             });
@@ -118,8 +122,8 @@ public class Friends {
 
         });
 
-
-
+        pendingTable.setItems(addFriendRequests(user));
+        friendsTable.setItems(addFriend(user));
 
 
 
@@ -129,6 +133,8 @@ public class Friends {
     public static ObservableList<User> addFriend(User user){
         ObservableList<User> Friend= FXCollections.observableArrayList();
         List<User> FriendList = new RestfulClient().getAllFriends(user.getUsername());
+
+
         for(User a : FriendList){
              Friend.add(a);
         }
