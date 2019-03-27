@@ -109,4 +109,57 @@ public class Badges {
         }while(unlockable == false);
         return unlock;
     }
+
+
+    /**
+     * Method to unlock transport badges
+     */
+    static public int transportUnlock(User user){
+
+        int transportTotal = user.getTransportScore();
+
+        do{
+            if(transportTotal <= 10000){
+                unlock = 1;
+                unlockable = true;
+            }
+            if(transportTotal >= 20000){
+                unlock = 2;
+                unlockable = true;
+            }
+            if(transportTotal >= 30000){
+                unlock = 3;
+                unlockable = true;
+            }
+            if(transportTotal >= 40000){
+                unlock = 4;
+                unlockable = true;
+            }
+            if(transportTotal >= 50000){
+                unlock = 5;
+                unlockable = true;
+            }
+            if(transportTotal >= 60000){
+                unlock = 6;
+                unlockable = true;
+            }
+            if(transportTotal >= 70000){
+                unlock = 7;
+                unlockable = true;
+            }
+            if(transportTotal >= 80000){
+                unlock = 8;
+                unlockable = true;
+            }
+            if(transportTotal <= 90000){
+                unlock = 9;
+                unlockable = true;
+            }
+            if(transportTotal >= 100000){
+                unlock = 10;
+                unlockable = true;
+            }
+        }while(unlockable == false);
+        return unlock;
+    }
 }
