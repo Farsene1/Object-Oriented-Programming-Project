@@ -61,6 +61,11 @@ public class FriendshipController {
         List<FriendRequest> l3 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getReceiver());
 
         boolean ok = true;
+
+        if(friendRequest.getSender().equals(friendRequest.getReceiver())) {
+            ok = false;
+        }
+
         if(l1.contains(friendRequest.getReceiver())){
             ok = false;
         }
