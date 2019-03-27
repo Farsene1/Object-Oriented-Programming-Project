@@ -120,16 +120,16 @@ public class Achievements {
         Button transportBadge_9 = new Button();
         Button transportBadge_10 = new Button();
 
-        CSSpolarBadge.setPolar1(transportBadge_1, polarUnlock);
-        CSSpolarBadge.setPolar2(transportBadge_2, polarUnlock);
-        CSSpolarBadge.setPolar3(transportBadge_3, polarUnlock);
-        CSSpolarBadge.setPolar4(transportBadge_4, polarUnlock);
-        CSSpolarBadge.setPolar5(transportBadge_5, polarUnlock);
-        CSSpolarBadge.setPolar6(transportBadge_6, polarUnlock);
-        CSSpolarBadge.setPolar7(transportBadge_7, polarUnlock);
-        CSSpolarBadge.setPolar8(transportBadge_8, polarUnlock);
-        CSSpolarBadge.setPolar9(transportBadge_9, polarUnlock);
-        CSSpolarBadge.setPolar10(transportBadge_10, polarUnlock);
+        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);
+        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);
+        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);
+        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);
+        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);
+        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);
+        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);
+        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);
+        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);
+        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);
 
         Label transportLabel = new Label("TRANSPORT");
         transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
