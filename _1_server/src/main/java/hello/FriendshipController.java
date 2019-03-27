@@ -56,7 +56,31 @@ public class FriendshipController {
      */
     @RequestMapping("/request")
     public String makeRequest(@RequestBody FriendRequest friendRequest) {
-        this.friendRequestRepository.save(friendRequest);
+        List<String> l1 = this.friendshipRepository.getAllFriends(friendRequest.getSender());
+        List<FriendRequest> l2 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getSender());
+        List<FriendRequest> l3 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getReceiver());
+
+        boolean ok = true;
+        if(l1.contains(friendRequest.getReceiver())){
+            ok = false;
+        }
+
+        for(FriendRequest f : l2){
+            if(f.getSender().equals(friendRequest.getReceiver())){
+                ok = false;
+            }
+        }
+
+        for(FriendRequest f : l3){
+            if(f.getSender().equals(friendRequest.getSender())){
+                ok = false;
+            }
+        }
+
+        if(ok == true){
+            this.friendRequestRepository.save(friendRequest);
+        } else System.out.println("Request cannot be sent: error");
+
         return "SENT";
     }
 
@@ -77,6 +101,16 @@ public class FriendshipController {
         friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());
         this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));
         this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));
+        return "OK";
+    }
+
+    /**
+     * this method sets the request answer to true so that it will not appear in the incoming requests.
+     * @param friendRequest
+     */
+    @RequestMapping("/fakeresponse")
+    public String fakeRespond(@RequestBody FriendRequest friendRequest) {
+        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());
         return "OK";
     }
 

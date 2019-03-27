@@ -1,23 +1,19 @@
 package client;
-import classes.*;
-import javafx.event.EventHandler;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
+
+import classes.Controller;
+import classes.FriendRequest;
+import classes.RestfulClient;
+import classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -27,28 +23,28 @@ public class Friends {
     static TableView pendingTable = new TableView();
 
 
-    public static void showOptions(GridPane grid, Scene scene, User user, Stage window){
+    public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
 
 
-        FriendRequest test = new FriendRequest("ok","pablo");
-        User pablo = new User("pablo","alsihdbasd");
+        FriendRequest test = new FriendRequest("ok", "pablo");
+        User pablo = new User("pablo", "alsihdbasd");
         pablo.setPolarScore(123);
-       //CLEARING THE GRID FROM PREVIOUS ADDITIONS
+        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
 
-       //Creating Labels for addition
-        Label  friendsL= new Label("My Friend List");
-        Label  friendsP= new Label("Pending friend Requests");
+        //Creating Labels for addition
+        Label friendsL = new Label("My Friend List");
+        Label friendsP = new Label("Pending friend Requests");
         TextField addaFriend = new TextField();
-        Button addaFriendB=new Button("Add A Friend");
+        Button addaFriendB = new Button("Add A Friend");
         Label FriendsLabel = new Label("FRIENDS");
         Button backButton = new Button("Back");
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
-        HBox Vbox= new HBox(addaFriend,addaFriendB);
-        VBox  Vbox1 = new VBox(friendsL,Vbox,friendsTable);
-        VBox Vbox2= new VBox(friendsP,pendingTable);
+        HBox Vbox = new HBox(addaFriend, addaFriendB);
+        VBox Vbox1 = new VBox(friendsL, Vbox, friendsTable);
+        VBox Vbox2 = new VBox(friendsP, pendingTable);
         Vbox1.setStyle("-fx-padding:15;");
         Vbox2.setStyle("-fx-padding:15;");
         Vbox1.setSpacing(20);
@@ -56,8 +52,8 @@ public class Friends {
 
         Vbox1.setAlignment(Pos.CENTER_LEFT);
         Vbox2.setAlignment(Pos.CENTER_RIGHT);
-       // GridPane.setConstraints(Vbox1,0,0);
-      //  GridPane.setConstraints(Vbox2,7,0);
+        // GridPane.setConstraints(Vbox1,0,0);
+        //  GridPane.setConstraints(Vbox2,7,0);
         //ADDING THE COLLUMNS TO THE TABLES
         TableColumn Col1 = new TableColumn("Username");
         Col1.setCellValueFactory(new PropertyValueFactory<>("username"));
@@ -65,26 +61,19 @@ public class Friends {
         Col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
 
 
-
-
-
-
         TableColumn Col3 = new TableColumn("Username");
         Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
-     //   TableColumn Col4 = new TableColumn("Accept/Decline");
-      //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(Col1,Col2);
+        //   TableColumn Col4 = new TableColumn("Accept/Decline");
+        //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
+        friendsTable.getColumns().setAll(Col1, Col2);
         pendingTable.getColumns().setAll(Col3);
         Col1.setMinWidth(300);
         Col2.setMinWidth(300);
         Col3.setMinWidth(300);
         //backButton
-        backButton.setOnAction(e->{
-                Home.showHome(window,user);
+        backButton.setOnAction(e -> {
+            Home.showHome(window, user);
         });
-
-
-
 
 
         //Lastly creating 2 different
@@ -92,86 +81,78 @@ public class Friends {
 
         HBox toplayer = new HBox();
         HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(FriendsLabel,backButton);
-        middleLayer.getChildren().addAll(Vbox1,Vbox2);
-       GridPane.setConstraints(toplayer,5,0);
-        GridPane.setConstraints(middleLayer,5,30);
+        toplayer.getChildren().addAll(FriendsLabel, backButton);
+        middleLayer.getChildren().addAll(Vbox1, Vbox2);
+        GridPane.setConstraints(toplayer, 5, 0);
+        GridPane.setConstraints(middleLayer, 5, 30);
         toplayer.setAlignment(Pos.TOP_CENTER);
         middleLayer.setAlignment(Pos.CENTER);
-        grid.getChildren().addAll(toplayer,middleLayer);
+        grid.getChildren().addAll(toplayer, middleLayer);
 
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 
 
-        addaFriendB.setOnAction(e ->{
-            classes.FriendRequest friendRequest= new classes.FriendRequest(user.getUsername(),addaFriend.getText());
+        addaFriendB.setOnAction(e -> {
+            classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());
             new RestfulClient().sendFriendRequest(friendRequest);
             addaFriend.clear();
         });
 
 
-    //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
+        //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
         pendingTable.setRowFactory(tv -> {
             TableRow<FriendRequest> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (! row.isEmpty() && event.getButton()==MouseButton.PRIMARY
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
                         && event.getClickCount() == 2) {
 
                     FriendRequest clickedRow = row.getItem();
-                    boolean answer = AddFriendBox.display("Add A friend",clickedRow);
-                    if (answer== false){
+                    boolean answer = AddFriendBox.display("Add A friend", clickedRow);
+                    if (answer == false) {
                         pendingTable.getItems().remove(clickedRow);
-
-                    }
-                    else{
+                        new Controller().sayNo(clickedRow);
+                    } else {
                         clickedRow.setAccepted(true);
-                        new RestfulClient().respond(clickedRow);
+                        if(!clickedRow.getSender().equals(clickedRow.getReceiver())){
+                            new Controller().sayYes(clickedRow);
+                        }
                         pendingTable.getItems().remove(clickedRow);
 
-                        
+
                     }
                 }
             });
-            return row ;
+            return row;
 
         });
-
 
         pendingTable.setItems(addFriendRequests(user));
         friendsTable.setItems(addFriend(user));
 
 
-
     }
 
-    public static ObservableList<User> addFriend(User user){
-        ObservableList<User> Friend= FXCollections.observableArrayList();
-        List<User> FriendList = new RestfulClient().getAllFriends(user);
+    public static ObservableList<User> addFriend(User user) {
+        ObservableList<User> Friend = FXCollections.observableArrayList();
+        List<User> FriendList = new Controller().getAllFriends(user);
 
-
-        for(User a : FriendList){
-             Friend.add(a);
+        for (User a : FriendList) {
+            Friend.add(a);
         }
-    return  Friend;
+        return Friend;
     }
 
 
+    public static ObservableList<FriendRequest> addFriendRequests(User user) {
+        ObservableList<FriendRequest> friendRequests = FXCollections.observableArrayList();
+        List<FriendRequest> friendRequestList = new Controller().getAllRequests(user);
 
-
-    public static ObservableList<FriendRequest> addFriendRequests(User user){
-            ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
-            List<FriendRequest> friendRequestList = new  RestfulClient().getAllFriendRequests(user);
-            for(FriendRequest a : friendRequestList){
-                friendRequests.add(a);
-            }
-            return  friendRequests;
+        for (FriendRequest a : friendRequestList) {
+            friendRequests.add(a);
+        }
+        return friendRequests;
     }
-
-
-
-
-
 
 
 }
