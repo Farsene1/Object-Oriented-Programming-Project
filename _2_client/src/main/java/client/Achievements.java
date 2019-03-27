@@ -30,6 +30,10 @@ public class Achievements {
          */
         int transportUnlock = Badges.transportUnlock(user);
 
+        /**
+         * Calls method to unlock electricity badges, sets unlock value for CSS.
+         */
+        int electricityUnlock = Badges.electricityUnlock(user);
 
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
