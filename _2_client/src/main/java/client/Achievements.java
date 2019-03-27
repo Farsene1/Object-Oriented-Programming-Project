@@ -166,16 +166,16 @@ public class Achievements {
         Button electricityBadge_9 = new Button();
         Button electricityBadge_10 = new Button();
 
-        CSSpolarBadge.setPolar1(electricityBadge_1, polarUnlock);
-        CSSpolarBadge.setPolar2(electricityBadge_2, polarUnlock);
-        CSSpolarBadge.setPolar3(electricityBadge_3, polarUnlock);
-        CSSpolarBadge.setPolar4(electricityBadge_4, polarUnlock);
-        CSSpolarBadge.setPolar5(electricityBadge_5, polarUnlock);
-        CSSpolarBadge.setPolar6(electricityBadge_6, polarUnlock);
-        CSSpolarBadge.setPolar7(electricityBadge_7, polarUnlock);
-        CSSpolarBadge.setPolar8(electricityBadge_8, polarUnlock);
-        CSSpolarBadge.setPolar9(electricityBadge_9, polarUnlock);
-        CSSpolarBadge.setPolar10(electricityBadge_10, polarUnlock);
+        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);
+        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);
+        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);
+        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);
+        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);
+        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);
+        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);
+        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);
+        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);
+        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);
 
         Label electricityLabel = new Label("ELECTRICITY");
         electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
