@@ -1,5 +1,6 @@
 classes\RestfulClient$1.class
 classes\Transport.class
+client\CSSpolarBadge.class
 client\TransportBox.class
 classes\Electricity.class
 client\Leaderboard.class
@@ -11,7 +12,9 @@ classes\RestfulClient.class
 classes\FriendRequest.class
 client\Home.class
 client\AlertBox.class
+client\CSStransportBadge.class
 classes\RestfulClient$4.class
+classes\Badges.class
 client\FootPrint.class
 client\ValidatePassword.class
 client\ElectricityBox.class
@@ -23,9 +26,11 @@ client\Login.class
 client\Achievements.class
 client\MeatMealBox.class
 classes\RestfulClient$5.class
+client\CSSfoodBadge.class
 client\Hash.class
 classes\RestfulClient$3.class
 classes\User.class
 classes\Controller.class
 client\Main.class
 client\Statistics.class
+client\CSSelectricityBadge.class
