@@ -19,17 +19,17 @@ public class CSS {
 
     public static void setBackButtonStyle(Button button){
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                .then("-fx-graphic: url('https://drive.google.com/uc?id=1LXCJpXPRPewiaQM3KIWZf8hstK_56sj9'); " +
+                .then("-fx-graphic: url('https://i.ibb.co/dgvMZgJ/back-hover-small.png'); " +
                         "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1jpQSZdeDdqizBnnnFLM19NWEr4tyD2D-'); " +
+                .otherwise("-fx-graphic: url('https://i.ibb.co/j9CkHzX/back-small.png'); " +
                         "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
     }
 
     public static void setTrophyButtonStyle(Button button){
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                .then("-fx-graphic: url('https://drive.google.com/uc?id=1QdOyPlUOhZSCKfL_OVIiY5bBCs--hxU5'); " +
+                .then("-fx-graphic: url('https://i.ibb.co/Jxsmw99/trophy-hover.png'); " +
                         "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1JbqEhcXRUgQ18Fi2TBpBMXkh0ILLC63D'); " +
+                .otherwise("-fx-graphic: url('https://i.ibb.co/YcCNG8K/trophy.png'); " +
                         "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
     }
     public static void setTextFieldStyle(TextField textField){

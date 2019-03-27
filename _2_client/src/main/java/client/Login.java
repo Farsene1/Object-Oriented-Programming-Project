@@ -73,7 +73,7 @@ public class Login {
         SignupBox.getChildren().addAll(regLabel,Signup);
         SignupBox.setAlignment(Pos.CENTER);
         Signup.setOnAction(e -> client.Signup.showSignup(window));
-        ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
+        ImageView img= new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
         img.setFitWidth(350);
         img.setFitHeight(350);
         img.setStyle("-fx-padding: 10");
@@ -97,7 +97,7 @@ public class Login {
         bp.setBottom(test4);
 
         CSS.setSmallButtonStyle(loginButton);
-        bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
+        bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
         vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20,60,40,60));
         Scene scene = new Scene(bp, 1920, 1080);

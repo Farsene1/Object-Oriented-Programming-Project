@@ -26,7 +26,7 @@ public class Home {
         GridPane centerMenu= new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
+        ImageView img= new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
         HBox statusbar= new HBox();
@@ -85,7 +85,7 @@ public class Home {
         leftmenu.getChildren().addAll(img, usernamelabel,statusbar, mycarbonButton, statisticsButton, leaderboardButton,friendsbutton, quitButton);
         bp.setLeft(leftmenu);
         bp.setCenter(centerMenu);
-        bp.setStyle("-fx-background-image: url('https://drive.google.com/uc?id=1lK9HHEu9G4_wDKNQuy0B7nrianqprK4r');");
+        bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
 
         img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
         usernamelabel.setStyle("-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30");
