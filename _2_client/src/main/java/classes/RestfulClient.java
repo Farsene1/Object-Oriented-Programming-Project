@@ -134,11 +134,11 @@ public class RestfulClient {
     /**
      * method for getting all the friend requests.
      */
-    public List<String> getAllFriendRequests(String username){
+    public List<FriendRequest> getAllFriendRequests(String username){
         String url = "http://localhost:8080/friendship/getallrequests";
-        List<String> res = restTemplate.postForObject(url, username, List.class);
+        List<FriendRequest> res = restTemplate.postForObject(url, username, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<String> result = mapper.convertValue(res, new TypeReference<List<String>>(){});
+        List<FriendRequest> result = mapper.convertValue(res, new TypeReference<List<FriendRequest>>(){});
         return result;
     }
 
