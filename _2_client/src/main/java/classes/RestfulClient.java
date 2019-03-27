@@ -123,9 +123,9 @@ public class RestfulClient {
     /**
      * method for getting all the friends.
      */
-    public List<User> getAllFriends(String username){
+    public List<User> getAllFriends(User user){
         String url = "http://localhost:8080/friendship/friends";
-        List<User> res = restTemplate.postForObject(url, username, List.class);
+        List<User> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<User> result = mapper.convertValue(res, new TypeReference<List<User>>(){});
         return result;
@@ -134,9 +134,10 @@ public class RestfulClient {
     /**
      * method for getting all the friend requests.
      */
-    public List<FriendRequest> getAllFriendRequests(String username){
+    public List<FriendRequest> getAllFriendRequests(User user){
         String url = "http://localhost:8080/friendship/getallrequests";
-        List<FriendRequest> res = restTemplate.postForObject(url, username, List.class);
+        List<FriendRequest> res = restTemplate.postForObject(url, user, List.class);
+        System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
         List<FriendRequest> result = mapper.convertValue(res, new TypeReference<List<FriendRequest>>(){});
         return result;

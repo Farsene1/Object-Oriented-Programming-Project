@@ -1,13 +1,26 @@
 package classes;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class FriendRequest {
 
 
+    private Integer id;
     private String sender;
     private String receiver;
     private boolean accepted = false;
 
     public FriendRequest() { }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public FriendRequest(String sender, String receiver) {
         this.sender = sender;

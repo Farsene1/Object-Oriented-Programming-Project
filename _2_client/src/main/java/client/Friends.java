@@ -30,7 +30,8 @@ public class Friends {
 
 
         FriendRequest test = new FriendRequest("ok","pablo");
-
+        User pablo = new User("pablo","alsihdbasd");
+        pablo.setPolarScore(123);
        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
 
@@ -58,23 +59,25 @@ public class Friends {
         TableColumn Col1 = new TableColumn("Username");
         Col1.setCellValueFactory(new PropertyValueFactory<>("username"));
         TableColumn Col2 = new TableColumn("Score");
-        Col2.setCellValueFactory(new PropertyValueFactory<>("score"));
+        Col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
 
-        friendsTable.getColumns().setAll(Col1,Col2);
+
+
+
 
 
         TableColumn Col3 = new TableColumn("Username");
         Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
      //   TableColumn Col4 = new TableColumn("Accept/Decline");
       //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-
+        friendsTable.getColumns().setAll(Col1,Col2);
         pendingTable.getColumns().setAll(Col3);
         Col1.setMinWidth(300);
         Col2.setMinWidth(300);
         Col3.setMinWidth(300);
      //   Col4.setMinWidth(300);
 
-
+       friendsTable.getItems().add(pablo);
         pendingTable.getItems().add(test);
         //Lastly creating 2 different
         //Hboxes so we can add everything to the grid
@@ -111,10 +114,14 @@ public class Friends {
                     boolean answer = AddFriendBox.display("Add A friend",clickedRow);
                     if (answer== false){
                         pendingTable.getItems().remove(clickedRow);
+
                     }
                     else{
                         clickedRow.setAccepted(true);
-                        new RestfulClient().sendFriendRequest(clickedRow);
+                        new RestfulClient().respond(clickedRow);
+                        pendingTable.getItems().remove(clickedRow);
+
+                        
                     }
                 }
             });
@@ -122,9 +129,9 @@ public class Friends {
 
         });
 
+
         pendingTable.setItems(addFriendRequests(user));
         friendsTable.setItems(addFriend(user));
-
 
 
 
@@ -132,7 +139,7 @@ public class Friends {
 
     public static ObservableList<User> addFriend(User user){
         ObservableList<User> Friend= FXCollections.observableArrayList();
-        List<User> FriendList = new RestfulClient().getAllFriends(user.getUsername());
+        List<User> FriendList = new RestfulClient().getAllFriends(user);
 
 
         for(User a : FriendList){
@@ -145,12 +152,12 @@ public class Friends {
 
 
     public static ObservableList<FriendRequest> addFriendRequests(User user){
-        ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
-       List<FriendRequest> friendRequestList = new  RestfulClient().getAllFriendRequests(user.getUsername());
-        for(FriendRequest a : friendRequestList){
-             friendRequests.add(a);
-        }
-    return  friendRequests;
+            ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
+            List<FriendRequest> friendRequestList = new  RestfulClient().getAllFriendRequests(user);
+            for(FriendRequest a : friendRequestList){
+                friendRequests.add(a);
+            }
+            return  friendRequests;
     }
 
 
