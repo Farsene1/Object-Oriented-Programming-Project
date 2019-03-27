@@ -10,9 +10,9 @@ import java.util.List;
 public class RestfulClient {
     RestTemplate restTemplate;
 
-<span class="fc" id="L13">    public RestfulClient() {</span>
-<span class="fc" id="L14">        restTemplate = new RestTemplate();</span>
-<span class="fc" id="L15">    }</span>
+<span class="nc" id="L13">    public RestfulClient() {</span>
+<span class="nc" id="L14">        restTemplate = new RestTemplate();</span>
+<span class="nc" id="L15">    }</span>
 
     /**
      * get Entity
@@ -28,104 +28,154 @@ public class RestfulClient {
     /**
      * get all activities
      */
-    public List&lt;Activity&gt; getAllActivities(User user){
+    public List&lt;Activity&gt; getAllActivities(User user) {
 <span class="nc" id="L32">        String url = &quot;http://localhost:8080/firstactivities&quot;;</span>
 <span class="nc" id="L33">        List&lt;Activity&gt; res = restTemplate.postForObject(url, user, List.class);</span>
 <span class="nc" id="L34">        ObjectMapper mapper = new ObjectMapper();</span>
-<span class="nc" id="L35">        List&lt;Activity&gt; activities = mapper.convertValue(res, new TypeReference&lt;List&lt;Activity&gt;&gt;() { });</span>
-<span class="nc" id="L36">        return activities;</span>
+<span class="nc" id="L35">        List&lt;Activity&gt; activities = mapper.convertValue(res, new TypeReference&lt;List&lt;Activity&gt;&gt;() {</span>
+        });
+<span class="nc" id="L37">        return activities;</span>
     }
 
-//    public List&lt;Transport&gt; getAllVehicles(User user){
+
+    /**
+     * @param vehicle
+     * @return
+     */
+    public List&lt;Transport&gt; addTransport(Transport vehicle) {
+<span class="nc" id="L46">        String url = &quot;http://localhost:8080/transport/add&quot;;</span>
+<span class="nc" id="L47">        List&lt;Transport&gt; res = restTemplate.postForObject(url, vehicle, List.class);</span>
+<span class="nc" id="L48">        System.out.println(res.toString());</span>
+<span class="nc" id="L49">        System.out.println(res.size());</span>
+<span class="nc" id="L50">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L51">        List&lt;Transport&gt; vehicles = mapper.convertValue(res, new TypeReference&lt;List&lt;Transport&gt;&gt;() {</span>
+        });
+<span class="nc" id="L53">        System.out.println(vehicles.size());</span>
+<span class="nc" id="L54">        return vehicles;</span>
+    }
+
+    /**
+     * @param activity
+     * @return
+     */
+    public List&lt;Activity&gt; addActivity(Activity activity) {
+<span class="nc" id="L62">        String url = &quot;http://localhost:8080/test&quot;;</span>
+<span class="nc" id="L63">        List&lt;Activity&gt; res = (List&lt;Activity&gt;) restTemplate.postForObject(url, activity, List.class);</span>
+<span class="nc" id="L64">        System.out.println(&quot;Response: &quot; + res.toString());</span>
+<span class="nc" id="L65">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L66">        List&lt;Activity&gt; activities = mapper.convertValue(res, new TypeReference&lt;List&lt;Activity&gt;&gt;() {</span>
+        });
+<span class="nc" id="L68">        return activities;</span>
+    }
+
+    /**
+     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     *
+     * @param user
+     * @return
+     */
+    public String postEntity(User user) {
+<span class="nc" id="L78">        System.out.println(&quot;Beginning /POST request&quot;);</span>
+<span class="nc" id="L79">        String postUrl = &quot;http://localhost:8080/post&quot;;</span>
+<span class="nc" id="L80">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
+<span class="nc" id="L81">        System.out.println(&quot;Response for Post Request: &quot; + postResponse.getBody());</span>
+<span class="nc" id="L82">        return postResponse.getBody();</span>
+    }
+
+    /**
+     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
+     *
+     * @param user
+     * @return
+     */
+    public String login(User user) {
+<span class="nc" id="L92">        System.out.println(&quot;Beginning /login request&quot;);</span>
+<span class="nc" id="L93">        String postUrl = &quot;http://localhost:8080/login&quot;;</span>
+<span class="nc" id="L94">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
+<span class="nc" id="L95">        System.out.println(&quot;Response for Post Request: &quot; + postResponse.getBody());</span>
+<span class="nc" id="L96">        return postResponse.getBody();</span>
+    }
+
+    /**
+     * @param user
+     * @return
+     */
+    public String activity(User user) {
+<span class="nc" id="L104">        System.out.println(&quot;beginning /activity request&quot;);</span>
+<span class="nc" id="L105">        String postUrl = &quot;http://localhost:8080/activity&quot;;</span>
+<span class="nc" id="L106">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
+<span class="nc" id="L107">        System.out.println(&quot;Response for get request&quot;);</span>
+<span class="nc" id="L108">        return postResponse.getBody();</span>
+    }
+
+    /**
+     * @param user
+     * @return
+     */
+    public User getUpdates(User user) {
+<span class="nc" id="L116">        System.out.println(&quot;Beginning /requestforupdate request&quot;);</span>
+<span class="nc" id="L117">        String postUrl = &quot;http://localhost:8080/requestforupdate&quot;;</span>
+<span class="nc" id="L118">        ResponseEntity&lt;User&gt; getUpdate = restTemplate.postForEntity(postUrl, user, User.class);</span>
+<span class="nc" id="L119">        System.out.println(&quot;Response for Post Request: &quot; + getUpdate.getBody());</span>
+<span class="nc" id="L120">        return getUpdate.getBody();</span>
+    }
+
+    /**
+     * method for getting all the friends.
+     */
+    public List&lt;User&gt; getAllFriends(String username){
+<span class="nc" id="L127">        String url = &quot;http://localhost:8080/friendship/friends&quot;;</span>
+<span class="nc" id="L128">        List&lt;User&gt; res = restTemplate.postForObject(url, username, List.class);</span>
+<span class="nc" id="L129">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L130">        List&lt;User&gt; result = mapper.convertValue(res, new TypeReference&lt;List&lt;User&gt;&gt;(){});</span>
+<span class="nc" id="L131">        return result;</span>
+    }
+
+    /**
+     * method for getting all the friend requests.
+     */
+    public List&lt;String&gt; getAllFriendRequests(String username){
+<span class="nc" id="L138">        String url = &quot;http://localhost:8080/friendship/getallrequests&quot;;</span>
+<span class="nc" id="L139">        List&lt;String&gt; res = restTemplate.postForObject(url, username, List.class);</span>
+<span class="nc" id="L140">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="nc" id="L141">        List&lt;String&gt; result = mapper.convertValue(res, new TypeReference&lt;List&lt;String&gt;&gt;(){});</span>
+<span class="nc" id="L142">        return result;</span>
+    }
+
+    /**
+     * method for making a request.
+     */
+    public String sendFriendRequest(FriendRequest friendRequest){
+<span class="nc" id="L149">        System.out.println(&quot;beginning /activity request&quot;);</span>
+<span class="nc" id="L150">        String postUrl = &quot;http://localhost:8080/friendship/request&quot;;</span>
+<span class="nc" id="L151">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);</span>
+<span class="nc" id="L152">        System.out.println(&quot;Response for get request&quot;);</span>
+<span class="nc" id="L153">        return postResponse.getBody();</span>
+    }
+
+    /**
+     * method for replying to a friend request.
+     */
+    public String respond(FriendRequest friendRequest){
+<span class="nc" id="L160">        System.out.println(&quot;beginning /activity request&quot;);</span>
+<span class="nc" id="L161">        String postUrl = &quot;http://localhost:8080/friendship/respond&quot;;</span>
+<span class="nc" id="L162">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);</span>
+<span class="nc" id="L163">        System.out.println(&quot;Response for get request&quot;);</span>
+<span class="nc" id="L164">        return postResponse.getBody();</span>
+    }
+    /**
+     * @param restTemplate
+     */
+    public void setRestTemplate(RestTemplate restTemplate) {
+<span class="nc" id="L170">        this.restTemplate = restTemplate;</span>
+<span class="nc" id="L171">    }</span>
+
+    //    public List&lt;Transport&gt; getAllVehicles(User user){
 //        String url = &quot;http://localhost:8080/transport/add&quot;;
 //        List&lt;Transport&gt; res = restTemplate.postForObject(url, user, List.class);
 //        ObjectMapper mapper = new ObjectMapper();
 //        List&lt;Transport&gt; vehicles = mapper.convertValue(res, new TypeReference&lt;List&lt;Transport&gt;&gt;() { });
 //        return vehicles;
 //    }
-
-    public List&lt;Transport&gt; addTransport(Transport vehicle){
-<span class="nc" id="L48">        String url = &quot;http://localhost:8080/transport/add&quot;;</span>
-<span class="nc" id="L49">        List&lt;Transport&gt; res = restTemplate.postForObject(url, vehicle, List.class);</span>
-<span class="nc" id="L50">        System.out.println(res.toString());</span>
-<span class="nc" id="L51">        System.out.println(res.size());</span>
-<span class="nc" id="L52">        ObjectMapper mapper = new ObjectMapper();</span>
-<span class="nc" id="L53">        List&lt;Transport&gt; vehicles = mapper.convertValue(res, new TypeReference&lt;List&lt;Transport&gt;&gt;() { });</span>
-<span class="nc" id="L54">        System.out.println(vehicles.size());</span>
-<span class="nc" id="L55">        return vehicles;</span>
-    }
-
-//    public List&lt;Meal&gt; getAllMeals(User user){
-//
-//    }
-    /**
-     *
-     * @param activity
-     * @return
-     */
-    public List&lt;Activity&gt; addActivity(Activity activity){
-<span class="nc" id="L67">        String url = &quot;http://localhost:8080/test&quot;;</span>
-<span class="nc" id="L68">        List&lt;Activity&gt; res = (List&lt;Activity&gt;) restTemplate.postForObject(url, activity, List.class);</span>
-<span class="nc" id="L69">        System.out.println(&quot;Response: &quot; + res.toString());</span>
-<span class="nc" id="L70">        ObjectMapper mapper = new ObjectMapper();</span>
-<span class="nc" id="L71">        List&lt;Activity&gt; activities = mapper.convertValue(res, new TypeReference&lt;List&lt;Activity&gt;&gt;() { });</span>
-<span class="nc" id="L72">        return activities;</span>
-    }
-
-    /**
-     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
-     * @param user
-     * @return
-     */
-    public String postEntity(User user){
-<span class="nc" id="L81">        System.out.println(&quot;Beginning /POST request&quot;);</span>
-<span class="nc" id="L82">        String postUrl = &quot;http://localhost:8080/post&quot;;</span>
-<span class="nc" id="L83">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
-<span class="nc" id="L84">        System.out.println(&quot;Response for Post Request: &quot; + postResponse.getBody());</span>
-<span class="nc" id="L85">        return postResponse.getBody();</span>
-    }
-
-    /**
-     * this method sends a registration request and receives a message - POSITIVE OR NEGATIVE -
-     * @param user
-     * @return
-     */
-    public String login(User user){
-<span class="nc" id="L94">        System.out.println(&quot;Beginning /login request&quot;);</span>
-<span class="nc" id="L95">        String postUrl = &quot;http://localhost:8080/login&quot;;</span>
-<span class="nc" id="L96">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
-<span class="nc" id="L97">        System.out.println(&quot;Response for Post Request: &quot; + postResponse.getBody());</span>
-<span class="nc" id="L98">        return postResponse.getBody();</span>
-    }
-
-    /**
-     *
-     * @param user
-     * @return
-     */
-    public String activity(User user){
-<span class="nc" id="L107">        System.out.println(&quot;beginning /activity request&quot;);</span>
-<span class="nc" id="L108">        String postUrl = &quot;http://localhost:8080/activity&quot;;</span>
-<span class="nc" id="L109">        ResponseEntity&lt;String&gt; postResponse = restTemplate.postForEntity(postUrl, user, String.class);</span>
-<span class="nc" id="L110">        System.out.println(&quot;Response for get request&quot;);</span>
-<span class="nc" id="L111">        return postResponse.getBody();</span>
-    }
-
-    /**
-     *
-     * @param user
-     * @return
-     */
-    public User getUpdates(User user) {
-<span class="nc" id="L120">        System.out.println(&quot;Beginning /requestforupdate request&quot;);</span>
-<span class="nc" id="L121">        String postUrl = &quot;http://localhost:8080/requestforupdate&quot;;</span>
-<span class="nc" id="L122">        ResponseEntity&lt;User&gt; getUpdate = restTemplate.postForEntity(postUrl, user, User.class);</span>
-<span class="nc" id="L123">        System.out.println(&quot;Response for Post Request: &quot; + getUpdate.getBody());</span>
-<span class="nc" id="L124">        return getUpdate.getBody();</span>
-    }
-
-    public void setRestTemplate(RestTemplate restTemplate) {
-<span class="nc" id="L128">        this.restTemplate = restTemplate;</span>
-<span class="nc" id="L129">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -121,6 +121,49 @@ public class RestfulClient {
     }
 
     /**
+     * method for getting all the friends.
+     */
+    public List<User> getAllFriends(String username){
+        String url = "http://localhost:8080/friendship/friends";
+        List<User> res = restTemplate.postForObject(url, username, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> result = mapper.convertValue(res, new TypeReference<List<User>>(){});
+        return result;
+    }
+
+    /**
+     * method for getting all the friend requests.
+     */
+    public List<String> getAllFriendRequests(String username){
+        String url = "http://localhost:8080/friendship/getallrequests";
+        List<String> res = restTemplate.postForObject(url, username, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<String> result = mapper.convertValue(res, new TypeReference<List<String>>(){});
+        return result;
+    }
+
+    /**
+     * method for making a request.
+     */
+    public String sendFriendRequest(FriendRequest friendRequest){
+        System.out.println("beginning /activity request");
+        String postUrl = "http://localhost:8080/friendship/request";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        System.out.println("Response for get request");
+        return postResponse.getBody();
+    }
+
+    /**
+     * method for replying to a friend request.
+     */
+    public String respond(FriendRequest friendRequest){
+        System.out.println("beginning /activity request");
+        String postUrl = "http://localhost:8080/friendship/respond";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        System.out.println("Response for get request");
+        return postResponse.getBody();
+    }
+    /**
      * @param restTemplate
      */
     public void setRestTemplate(RestTemplate restTemplate) {

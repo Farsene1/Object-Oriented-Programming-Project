@@ -32,6 +32,7 @@ public class Main extends Application {
             e.consume();
             closeProgram();
         });
+        window.setResizable(false);
         Login.showLogin(window);
     }
 

@@ -70,7 +70,7 @@ public class FriendshipController {
     }
 
     /**
-     * method for responding to a friendRequest
+     * method for responding to a friendRequest. TO BE CHANGED LATER, depending on GUI.
      */
     @RequestMapping("/respond")
     public String respond(@RequestBody FriendRequest friendRequest) {
@@ -78,5 +78,17 @@ public class FriendshipController {
         this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));
         this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));
         return "OK";
+    }
+
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
+        this.friendshipRepository = friendshipRepository;
+    }
+
+    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
+        this.friendRequestRepository = friendRequestRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

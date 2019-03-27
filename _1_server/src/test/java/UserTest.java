@@ -36,35 +36,35 @@ public class UserTest {
 
     @Test
     public void getFoodTest() {
-        assertEquals((int)user1.getFoodFootprint(), 0);
+        assertEquals((int)user1.getFoodScore(), 0);
     }
 
     @Test
     public void setFoodTest() {
-        user1.setFoodFootprint(1);
-        assertEquals(user1.getFoodFootprint()+0,1);
+        user1.setFoodScore(1);
+        assertEquals(user1.getFoodScore()+0,1);
     }
 
     @Test
-    public void getWaterTest() {
-        assertEquals((int)user1.getWaterFootprint(), 0);
+    public void getElectricityTest() {
+        assertEquals((int)user1.getElectricityScore(), 0);
     }
 
     @Test
-    public void setWaterTest() {
-        user1.setWaterFootprint(1);
-        assertEquals((int)user1.getWaterFootprint(), 1);
+    public void setElectricityTest() {
+        user1.setElectricityScore(1);
+        assertEquals((int)user1.getElectricityScore(), 1);
     }
 
     @Test
     public void getTransportTest() {
-        assertEquals((int)user1.getTransportFootprint(), 0);
+        assertEquals((int)user1.getTransportScore(), 0);
     }
 
     @Test
     public void setTransportTest() {
-        user1.setTransportFootprint(1);
-        assertEquals((int)user1.getTransportFootprint(), 1);
+        user1.setTransportScore(1);
+        assertEquals((int)user1.getTransportScore(), 1);
     }
 
     @Test
@@ -76,6 +76,12 @@ public class UserTest {
     public void setScoreTest() {
         user1.setPolarScore(1);
         assertEquals(user1.getPolarScore()+0, 1);
+    }
+
+    @Test
+    public void setBadgeTest(){
+        user1.setBadge(10);
+        assertEquals(10,(int) user1.getBadge());
     }
 
 }

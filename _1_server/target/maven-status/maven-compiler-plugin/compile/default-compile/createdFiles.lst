@@ -1,6 +1,11 @@
+hello\FriendRequest.class
+hello\FriendshipController.class
+hello\FriendshipRepository.class
 hello\UserRepository.class
 hello\ActivityRepository.class
 hello\GreetingController.class
 hello\Activity.class
+hello\FriendRequestRepository.class
 hello\Application.class
+hello\Friendship.class
 hello\User.class
