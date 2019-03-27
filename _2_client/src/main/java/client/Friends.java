@@ -126,26 +126,26 @@ public class Friends {
 
     }
 
-    //public static ObservableList<Friend> addFriend(User user){
-//        ObservableList<Friend> Friend= FXCollections.observableArrayList();
-//      //  List<Friend> FriendList = new Controller().get
-//        for(Friend a : FriendList){
-//             Friend.add(a);
-//        }
-//    return  Friend;
-//    }
+    public static ObservableList<User> addFriend(User user){
+        ObservableList<User> Friend= FXCollections.observableArrayList();
+        List<User> FriendList = new RestfulClient().getAllFriends(user.getUsername());
+        for(User a : FriendList){
+             Friend.add(a);
+        }
+    return  Friend;
+    }
 
 
 
 
-    //public static ObservableList<FriendRequest> addFriendRequests(User user){
-//        ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
-//      //  List<FriendRequest> friendRequestList = new Controller().get
-//        for(FriendRequest a : friendRequestList){
-//             friendRequests.add(a);
-//        }
-//    return  friendRequests;
-//    }
+    public static ObservableList<FriendRequest> addFriendRequests(User user){
+        ObservableList<FriendRequest> friendRequests= FXCollections.observableArrayList();
+       List<FriendRequest> friendRequestList = new  RestfulClient().getAllFriendRequests(user.getUsername());
+        for(FriendRequest a : friendRequestList){
+             friendRequests.add(a);
+        }
+    return  friendRequests;
+    }
 
 
 
