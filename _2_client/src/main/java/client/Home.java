@@ -26,7 +26,40 @@ public class Home {
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img = new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
+        ImageView img;
+        int badge = UserBadge.showBadge();
+        
+        if (badge == 1){
+          img  = new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
+        }
+        if (badge == 2){
+
+        }
+        if (badge == 3){
+
+        }
+        if (badge == 4){
+
+        }
+        if (badge == 5){
+
+        }
+        if (badge == 6){
+
+        }
+        if (badge == 7){
+
+        }
+        if (badge == 8){
+
+        }
+        if (badge == 9){
+
+        }
+        if (badge == 10){
+
+        }
+
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
         HBox statusbar = new HBox();
