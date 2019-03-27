@@ -1,6 +1,5 @@
 package client;
 
-import classes.Friend;
 import classes.FriendRequest;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
