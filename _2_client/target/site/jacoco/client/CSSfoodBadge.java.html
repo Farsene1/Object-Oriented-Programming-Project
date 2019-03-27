@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CSSfoodBadge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">CSSfoodBadge.java</span></div><h1>CSSfoodBadge.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.Badges;
+import classes.User;
+import javafx.beans.binding.Bindings;
+import javafx.scene.control.Button;
+import javafx.beans.binding.Bindings;
+import javafx.scene.control.Button;
+
+<span class="nc" id="L10">public class CSSfoodBadge {</span>
+
+    public static void setFood1(Button button, int unlockNumber){
+
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        if(unlockNumber&lt;1)</span>
+        {
+<span class="nc" id="L16">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L17">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L19">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L24">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L25">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7gtw3k/polar1-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L27">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L30">    }</span>
+
+    public static void setFood2(Button button, int unlockNumber){
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if(unlockNumber&lt;2)</span>
+        {
+<span class="nc" id="L35">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L36">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L38">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L43">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L44">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/LnLPFQX/polar2-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L46">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/F47F81C/polar2.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L49">    }</span>
+
+    public static void setFood3(Button button, int unlockNumber){
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if(unlockNumber&lt;3)</span>
+        {
+<span class="nc" id="L54">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L55">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L57">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L62">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L63">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/pymBX0d/polar3-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L65">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L68">    }</span>
+
+    public static void setFood4(Button button, int unlockNumber){
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if(unlockNumber&lt;4)</span>
+        {
+<span class="nc" id="L73">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L74">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L76">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L81">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L82">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/M7j6PVn/polar4-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L84">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/q7sgXRy/polar4.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L87">    }</span>
+
+    public static void setFood5(Button button, int unlockNumber){
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if(unlockNumber&lt;5)</span>
+        {
+<span class="nc" id="L92">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L93">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L95">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L100">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L101">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7s5Fs8/polar5-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L103">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Q9J03vw/polar5.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L106">    }</span>
+
+    public static void setFood6(Button button, int unlockNumber){
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        if(unlockNumber&lt;6)</span>
+        {
+<span class="nc" id="L111">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L112">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L114">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L119">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L120">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/L94KFvK/polar6-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L122">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Yd68SkW/polar6.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L125">    }</span>
+
+    public static void setFood7(Button button, int unlockNumber){
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        if(unlockNumber&lt;7)</span>
+        {
+<span class="nc" id="L130">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L131">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L133">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L138">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L139">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/kSF2TQ3/polar7-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L141">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/MpyQ16G/polar7.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L144">    }</span>
+
+    public static void setFood8(Button button, int unlockNumber){
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if(unlockNumber&lt;8)</span>
+        {
+<span class="nc" id="L149">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L150">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L152">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L157">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L158">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/BcRKcjr/polar8-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L160">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/x6t0QTD/polar8.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L163">    }</span>
+
+    public static void setFood9(Button button, int unlockNumber){
+<span class="nc bnc" id="L166" title="All 2 branches missed.">        if(unlockNumber&lt;9)</span>
+        {
+<span class="nc" id="L168">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L169">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L171">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L176">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L177">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/x27wBSK/polar9-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L179">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/2tGhFdC/polar9.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L182">    }</span>
+
+    public static void setFood10(Button button, int unlockNumber){
+<span class="nc bnc" id="L185" title="All 2 branches missed.">        if(unlockNumber&lt;10)</span>
+        {
+<span class="nc" id="L187">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L188">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L190">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+        else
+        {
+<span class="nc" id="L195">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L196">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/h2trK1F/polar10-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L198">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Wz50t26/polar10.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+        }
+<span class="nc" id="L201">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
