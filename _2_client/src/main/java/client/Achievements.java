@@ -21,6 +21,11 @@ public class Achievements {
          */
         int polarUnlock = Badges.polarUnlock(user);
 
+        /**
+         * Calls method to unlock food badges, sets unlock value for CSS.
+         */
+        int foodUnlock = Badges.foodUnlock(user);
+
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
         VBox achievements = new VBox();
