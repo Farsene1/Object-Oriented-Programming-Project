@@ -26,7 +26,7 @@ public class FootPrint {
 
     static TableView table = new TableView();
 
-    public static void showOptions(GridPane grid, User user) {
+    public static void showOptions(GridPane grid, User user,Label polarscore) {
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
@@ -70,6 +70,7 @@ public class FootPrint {
         Food.setOnAction(e -> {
             classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
 
         //My Transport footprint
@@ -78,6 +79,7 @@ public class FootPrint {
         Transport.setOnAction(e -> {
             classes.Transport transport = TransportBox.addVehicle("Transport Footprint","Select the transport option of your choice", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
 
         //My Electricity footprint
@@ -86,6 +88,7 @@ public class FootPrint {
         Electricity.setOnAction(e -> {
             classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
 
         //Add everything to grid

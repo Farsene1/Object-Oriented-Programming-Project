@@ -33,10 +33,6 @@ public class Controller {
         return restfulClient.addActivity(activity);
     }
 
-//    public List<Transport> getAllVehicles(User user){
-//        return restfulClient.getAllVehicles(user);
-//    }
-
     /**
      *
      * @param user
@@ -45,6 +41,7 @@ public class Controller {
      */
     public void sendMeal(User user, int amount){
         user.setFoodScore(amount + user.getFoodScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
@@ -56,6 +53,7 @@ public class Controller {
      */
     public void sendTransport(User user, int amount){
         user.setTransportScore(amount + user.getTransportScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
@@ -67,6 +65,7 @@ public class Controller {
      */
     public void sendElectricity(User user, int amount){
         user.setElectricityScore(amount + user.getElectricityScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
