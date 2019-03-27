@@ -70,6 +70,42 @@ public class Controller {
     }
 
     /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayYes(FriendRequest friendRequest) {
+        return restfulClient.respond(friendRequest);
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayNo(FriendRequest friendRequest) {
+        return restfulClient.fakeRespond(friendRequest);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<User> getAllFriends(User user) {
+        return restfulClient.getAllFriends(user);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<FriendRequest> getAllRequests(User user){
+        return restfulClient.getAllFriendRequests(user);
+    }
+
+    /**
      * This method checks for a valid email
      * @param email
      * @return boolean
