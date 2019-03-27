@@ -48,7 +48,7 @@ public class Home {
         Button mycarbonButton = new Button("Footprint");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-                FootPrint.showOptions(centerMenu, user);
+                FootPrint.showOptions(centerMenu, user, PolarScore);
         });
 
         //Statistics Button
