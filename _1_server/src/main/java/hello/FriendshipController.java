@@ -64,8 +64,8 @@ public class FriendshipController {
      * method for getting all the friendRequests.
      */
     @RequestMapping("/getallrequests")
-    public List<String> getAllRequest(@RequestBody String username) {
-        List<String> list = friendRequestRepository.findAllRequestsFor(username);
+    public List<FriendRequest> getAllRequest(@RequestBody String username) {
+        List<FriendRequest> list = friendRequestRepository.findAllRequestsFor(username);
         return list;
     }
 
