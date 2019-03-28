@@ -1,9 +1,6 @@
 package client;
 
-import classes.Controller;
-import classes.FriendRequest;
-import classes.RestfulClient;
-import classes.User;
+import classes.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -24,6 +21,8 @@ public class Friends {
 
 
     public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
+
+        String icon = UserBadge.getIcon();
 
 
         FriendRequest test = new FriendRequest("ok", "pablo");
@@ -72,7 +71,7 @@ public class Friends {
         Col3.setMinWidth(300);
         //backButton
         backButton.setOnAction(e -> {
-            Home.showHome(window, user);
+            Home.showHome(window, user, icon);
         });
 
 

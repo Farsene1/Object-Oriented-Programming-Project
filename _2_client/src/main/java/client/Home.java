@@ -15,8 +15,7 @@ import javafx.stage.Stage;
 
 public class Home {
 
-    public static void showHome(Stage window, classes.User user) {
-
+    public static void showHome(Stage window, classes.User user, String icon) {
 
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
@@ -28,10 +27,7 @@ public class Home {
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        String icon = UserBadge.getIcon();
-
         ImageView img = new ImageView(icon);
-
 
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
@@ -47,7 +43,7 @@ public class Home {
 
         //Trophy button click
         trophy.setOnAction(e -> {
-            Achievements.showBadges(centerMenu, user);
+            Achievements.showBadges(centerMenu, user, window);
         });
 
         //My Carbon footprint

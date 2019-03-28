@@ -2,6 +2,7 @@ package client;
 
 import classes.Badges;
 import classes.User;
+import classes.UserBadge;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
@@ -10,12 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 public class Achievements {
 
    static private boolean unlocked = false;
 
-    public static void showBadges(GridPane grid, User user) {
+    public static void showBadges(GridPane grid, User user, Stage window) {
 
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
@@ -82,12 +84,14 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(1);
+                Home.showHome(window, user, icon);
             }
         });
         polarBadge_2.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(2);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 2!");

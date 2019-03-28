@@ -19,8 +19,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class Login {
 
-
     public static void showLogin(Stage window){
+        String icon = "https://i.ibb.co/qskM93N/polar-alpha.png";
+
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;
         RestfulClient restfulClient = new RestfulClient();
@@ -56,7 +57,7 @@ public class Login {
                 if(res.equals("POSITIVE")){
                     // getting updates from the database
                     user = new Controller().getUpdates(user);
-                    Home.showHome(window, user);
+                    Home.showHome(window, user, icon);
                 }
                 else{
                     errorlabel.setText("INVALID CREDENTIALS");
