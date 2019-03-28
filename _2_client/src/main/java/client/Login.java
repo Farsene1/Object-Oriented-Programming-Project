@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public class Login {
 
     public static void showLogin(Stage window){
-        String icon = "https://i.ibb.co/qskM93N/polar-alpha.png";
+        String icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
 
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;

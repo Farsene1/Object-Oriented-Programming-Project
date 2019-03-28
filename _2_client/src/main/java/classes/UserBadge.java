@@ -17,6 +17,9 @@ public class UserBadge {
         if(number == 3){
             icon = "https://drive.google.com/uc?id=1RDJ3LQ7I5Bkezp8TN9umqC3bV9Dc-Az2";
         }
+        if(number == 4){
+            icon = "https://drive.google.com/uc?id=1x2eBc7C6S7y9AYmXgd_owcm3N-VGBBlC";
+        }
     return icon;
 }
 
