@@ -7,7 +7,7 @@ public class UserBadge {
     static public String iconChoice(int number){
 
         if(number == 2){
-          System.out.println("this is where i add a picture");
+          icon = "https://i.ibb.co/Sn20yTR/polar1.png";
         }
 
     return icon;
