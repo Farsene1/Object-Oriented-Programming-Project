@@ -1,6 +1,7 @@
 package client;
 
 import classes.RestfulClient;
+import classes.UserBadge;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ public class Home {
 
     public static void showHome(Stage window, classes.User user) {
 
+
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Home");
@@ -26,39 +28,10 @@ public class Home {
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img;
-        int badge = UserBadge.showBadge();
-        
-        if (badge == 1){
-          img  = new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
-        }
-        if (badge == 2){
+        String icon = UserBadge.getIcon();
 
-        }
-        if (badge == 3){
+        ImageView img = new ImageView(icon);
 
-        }
-        if (badge == 4){
-
-        }
-        if (badge == 5){
-
-        }
-        if (badge == 6){
-
-        }
-        if (badge == 7){
-
-        }
-        if (badge == 8){
-
-        }
-        if (badge == 9){
-
-        }
-        if (badge == 10){
-
-        }
 
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 

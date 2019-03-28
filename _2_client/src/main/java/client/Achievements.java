@@ -13,6 +13,8 @@ import javafx.scene.text.FontWeight;
 
 public class Achievements {
 
+   static private boolean unlocked = false;
+
     public static void showBadges(GridPane grid, User user) {
 
         /**
@@ -53,6 +55,7 @@ public class Achievements {
                 + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;" +
                 "-fx-background-color: rgba(255,255,255,0.4)");
 
+
         Button polarBadge_1 = new Button();
         Button polarBadge_2 = new Button();
         Button polarBadge_3 = new Button();
@@ -74,6 +77,17 @@ public class Achievements {
         CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
         CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
         CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
+
+        polarBadge_2.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
+
+            if(unlocked == true){
+                String icon = classes.UserBadge.iconChoice(2);
+            }
+            if(unlocked == false){
+                AlertBox.display("This is an error message", "You have not yet unlocked this badge!");
+            }
+        });
 
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));

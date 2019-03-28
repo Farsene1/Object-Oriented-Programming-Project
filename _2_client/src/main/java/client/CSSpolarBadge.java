@@ -2,12 +2,15 @@ package client;
 
 import classes.Badges;
 import classes.User;
+import classes.UserBadge;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
 public class CSSpolarBadge {
 
-    public static void setPolar1(Button button, int unlockNumber){
+    static private boolean unlocked = false;
+
+    public static boolean setPolar1(Button button, int unlockNumber){
 
         if(unlockNumber<1)
         {
@@ -16,6 +19,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -24,10 +29,13 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
+
         }
     }
 
-    public static void setPolar2(Button button, int unlockNumber){
+    public static boolean setPolar2(Button button, int unlockNumber){
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -35,6 +43,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -43,6 +53,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/F47F81C/polar2.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 

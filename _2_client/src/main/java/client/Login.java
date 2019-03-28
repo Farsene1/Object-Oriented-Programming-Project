@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 import java.security.NoSuchAlgorithmException;
 
 public class Login {
+
+
     public static void showLogin(Stage window){
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;
