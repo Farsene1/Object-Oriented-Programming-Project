@@ -114,7 +114,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 4!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 4!");
             }
         });
         polarBadge_5.setOnAction(e -> {
@@ -124,7 +124,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 5!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 5!");
             }
         });
         polarBadge_6.setOnAction(e -> {
@@ -134,7 +134,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 6!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 6!");
             }
         });
         polarBadge_7.setOnAction(e -> {
@@ -144,7 +144,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 7!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 7!");
             }
         });
         polarBadge_8.setOnAction(e -> {
@@ -154,7 +154,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 8!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 8!");
             }
         });
         polarBadge_9.setOnAction(e -> {
@@ -164,7 +164,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 9!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 9!");
             }
         });
         polarBadge_10.setOnAction(e -> {
@@ -174,7 +174,7 @@ public class Achievements {
                 Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
-                AlertBox.display("This is an error message", "You still have to unlock badge 10!");
+                AlertBox.display("Hold up!", "You still have to unlock badge 10!");
             }
         });
 
