@@ -101,6 +101,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(3);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 3!");
@@ -110,6 +111,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(4);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 4!");
@@ -128,6 +130,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(6);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 6!");
@@ -137,6 +140,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(7);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 7!");
@@ -146,6 +150,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(8);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 8!");
@@ -155,6 +160,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar4(polarBadge_9, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(9);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 9!");
@@ -164,6 +170,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(10);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 10!");

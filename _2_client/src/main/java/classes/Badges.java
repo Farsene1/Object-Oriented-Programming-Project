@@ -16,22 +16,22 @@ public class Badges {
             if(polarTotal <= 200000){
                 unlock = 2;
             }
-            if(polarTotal >= 300000){
+            if(polarTotal <= 300000){
                 unlock = 3;
             }
-            if(polarTotal >= 400000){
+            if(polarTotal <= 400000){
                 unlock = 4;
             }
-            if(polarTotal >= 500000){
+            if(polarTotal <= 500000){
                 unlock = 5;
             }
-            if(polarTotal >= 600000){
+            if(polarTotal <= 600000){
                 unlock = 6;
             }
-            if(polarTotal >= 700000){
+            if(polarTotal <= 700000){
                 unlock = 7;
             }
-            if(polarTotal >= 800000){
+            if(polarTotal <= 800000){
                 unlock = 8;
             }
             if(polarTotal >= 900000){
