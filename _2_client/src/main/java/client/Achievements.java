@@ -80,6 +80,9 @@ public class Achievements {
         CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
         CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
 
+        /**
+         * Selecting unlocked or locked polar score badges
+         */
         polarBadge_1.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
             if (unlocked == true) {
