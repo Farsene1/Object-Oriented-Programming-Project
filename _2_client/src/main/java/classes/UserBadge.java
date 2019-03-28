@@ -26,6 +26,9 @@ public class UserBadge {
         if(number == 6){
             icon = "https://drive.google.com/uc?id=1ED7zPRAKil8wndRIMN8pBL5Z-8Hcq9o1";
         }
+        if(number == 7){
+            icon = "https://drive.google.com/uc?id=1f9wOgt5n3evGQ7cEsxjUgHFue4cQsqN9";
+        }
     return icon;
 }
 
