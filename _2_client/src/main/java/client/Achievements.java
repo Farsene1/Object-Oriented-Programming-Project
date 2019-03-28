@@ -157,7 +157,7 @@ public class Achievements {
             }
         });
         polarBadge_9.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar4(polarBadge_9, polarUnlock);
+            unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(9);
                 Home.showHome(window, user, icon);
