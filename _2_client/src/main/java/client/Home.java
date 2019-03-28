@@ -1,6 +1,7 @@
 package client;
 
 import classes.RestfulClient;
+import classes.UserBadge;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ import javafx.stage.Stage;
 
 public class Home {
 
-    public static void showHome(Stage window, classes.User user) {
+    public static void showHome(Stage window, classes.User user, String icon) {
 
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
@@ -26,7 +27,8 @@ public class Home {
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img = new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
+        ImageView img = new ImageView(icon);
+
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
         HBox statusbar = new HBox();
@@ -41,7 +43,7 @@ public class Home {
 
         //Trophy button click
         trophy.setOnAction(e -> {
-            Achievements.showBadges(centerMenu, user);
+            Achievements.showBadges(centerMenu, user, window);
         });
 
         //My Carbon footprint

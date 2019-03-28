@@ -2,6 +2,7 @@ package client;
 
 import classes.Badges;
 import classes.User;
+import classes.UserBadge;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
@@ -10,10 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 public class Achievements {
 
-    public static void showBadges(GridPane grid, User user) {
+   static private boolean unlocked = false;
+
+    public static void showBadges(GridPane grid, User user, Stage window) {
 
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
@@ -53,6 +57,7 @@ public class Achievements {
                 + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;" +
                 "-fx-background-color: rgba(255,255,255,0.4)");
 
+
         Button polarBadge_1 = new Button();
         Button polarBadge_2 = new Button();
         Button polarBadge_3 = new Button();
@@ -74,6 +79,108 @@ public class Achievements {
         CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
         CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
         CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
+
+        /**
+         * Selecting unlocked or locked polar score badges
+         */
+        polarBadge_1.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(1);
+                Home.showHome(window, user, icon);
+            }
+        });
+        polarBadge_2.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(2);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("This is an error message", "You still have to unlock badge 2!");
+            }
+        });
+        polarBadge_3.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(3);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("This is an error message", "You still have to unlock badge 3!");
+            }
+        });
+        polarBadge_4.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(4);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 4!");
+            }
+        });
+        polarBadge_5.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(5);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 5!");
+            }
+        });
+        polarBadge_6.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(6);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 6!");
+            }
+        });
+        polarBadge_7.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(7);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 7!");
+            }
+        });
+        polarBadge_8.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(8);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 8!");
+            }
+        });
+        polarBadge_9.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(9);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 9!");
+            }
+        });
+        polarBadge_10.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(10);
+                Home.showHome(window, user, icon);
+            }
+            if (unlocked == false) {
+                AlertBox.display("Hold up!", "You still have to unlock badge 10!");
+            }
+        });
+
 
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));

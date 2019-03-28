@@ -22,6 +22,7 @@ public class Signup {
 
     public static void showSignup(Stage window){
 
+        String icon = "";
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Signup");
@@ -82,7 +83,7 @@ public class Signup {
                     passwordInput2.clear();
                     // check if registration is possible
                     if(res.equals("/POST successful")){
-                        Home.showHome(window, user);
+                        Home.showHome(window, user, icon);
                     } 
                     else{
                         errorlabel.setText("ALREADY REGISTERED UP!");

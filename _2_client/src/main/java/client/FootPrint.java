@@ -3,6 +3,7 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
+import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -29,6 +30,8 @@ public class FootPrint {
 
 
     public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
+
+        String icon = UserBadge.getIcon();
 
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
@@ -96,11 +99,10 @@ public class FootPrint {
 
         Button backButton = new Button("Back");
         backButton.setOnAction(e->{
-            Home.showHome(window,user);
+            Home.showHome(window,user,icon);
         });
 
         GridPane.setConstraints(backButton,10,10);
-
 
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);
