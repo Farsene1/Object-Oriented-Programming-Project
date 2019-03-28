@@ -121,6 +121,7 @@ public class Achievements {
             unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
             if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(5);
+                Home.showHome(window, user, icon);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 5!");

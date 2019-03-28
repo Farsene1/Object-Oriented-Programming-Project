@@ -20,6 +20,9 @@ public class UserBadge {
         if(number == 4){
             icon = "https://drive.google.com/uc?id=1x2eBc7C6S7y9AYmXgd_owcm3N-VGBBlC";
         }
+        if(number == 5){
+            icon = "https://drive.google.com/uc?id=1ntFWJcZznAGh-b_AMFEZHo3GKZrCQceq";
+        }
     return icon;
 }
 
