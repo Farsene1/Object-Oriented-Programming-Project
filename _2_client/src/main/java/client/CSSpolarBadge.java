@@ -58,7 +58,7 @@ public class CSSpolarBadge {
         }
     }
 
-    public static void setPolar3(Button button, int unlockNumber){
+    public static boolean setPolar3(Button button, int unlockNumber){
         if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -66,6 +66,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -74,10 +76,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar4(Button button, int unlockNumber){
+    public static boolean setPolar4(Button button, int unlockNumber){
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -85,6 +89,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -93,10 +99,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/q7sgXRy/polar4.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar5(Button button, int unlockNumber){
+    public static boolean setPolar5(Button button, int unlockNumber){
         if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -104,6 +112,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -112,10 +122,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/Q9J03vw/polar5.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar6(Button button, int unlockNumber){
+    public static boolean setPolar6(Button button, int unlockNumber){
         if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -123,6 +135,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -131,10 +145,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/Yd68SkW/polar6.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar7(Button button, int unlockNumber){
+    public static boolean setPolar7(Button button, int unlockNumber){
         if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -142,6 +158,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -150,10 +168,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/MpyQ16G/polar7.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar8(Button button, int unlockNumber){
+    public static boolean setPolar8(Button button, int unlockNumber){
         if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -161,6 +181,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -169,10 +191,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/x6t0QTD/polar8.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar9(Button button, int unlockNumber){
+    public static boolean setPolar9(Button button, int unlockNumber){
         if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -180,6 +204,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -188,10 +214,12 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/2tGhFdC/polar9.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 
-    public static void setPolar10(Button button, int unlockNumber){
+    public static boolean setPolar10(Button button, int unlockNumber){
         if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -199,6 +227,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = false;
+            return unlocked;
         }
         else
         {
@@ -207,6 +237,8 @@ public class CSSpolarBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/Wz50t26/polar10.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+            unlocked = true;
+            return unlocked;
         }
     }
 }

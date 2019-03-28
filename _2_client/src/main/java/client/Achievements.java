@@ -80,14 +80,32 @@ public class Achievements {
 
         polarBadge_2.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
-
-            if(unlocked == true){
+            if (unlocked == true) {
                 String icon = classes.UserBadge.iconChoice(2);
             }
-            if(unlocked == false){
+            if (unlocked == false) {
                 AlertBox.display("This is an error message", "You have not yet unlocked this badge!");
             }
         });
+        polarBadge_3.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(3);
+            }
+            if (unlocked == false) {
+                AlertBox.display("This is an error message", "You have not yet unlocked this badge!");
+            }
+        });
+        polarBadge_2.setOnAction(e -> {
+            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
+            if (unlocked == true) {
+                String icon = classes.UserBadge.iconChoice(2);
+            }
+            if (unlocked == false) {
+                AlertBox.display("This is an error message", "You have not yet unlocked this badge!");
+            }
+        });
+
 
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
