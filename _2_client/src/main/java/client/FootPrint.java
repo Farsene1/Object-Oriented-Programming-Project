@@ -74,27 +74,42 @@ public class FootPrint {
         //My Food footprint
         Button Food = new Button("+");
         Food.setOnAction(e -> {
+            try{
             classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         //My Transport footprint
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
+            try{
             classes.Transport transport = TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         //My Electricity footprint
         Button Electricity = new Button("+");
         //     GridPane.setConstraints(Electricity, 6, 1);
         Electricity.setOnAction(e -> {
-            classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
-            table.setItems(addItems(user));
-            polarscore.setText(user.getPolarScore().toString());
+            try {
+                classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
+                table.setItems(addItems(user));
+                polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         Button backButton = new Button("Back");
