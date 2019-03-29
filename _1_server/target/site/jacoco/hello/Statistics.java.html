@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Statistics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">server</a> &gt; <a href="index.source.html" class="el_package">hello</a> &gt; <span class="el_source">Statistics.java</span></div><h1>Statistics.java</h1><pre class="source lang-java linenums">package hello;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = &quot;statistics&quot;)
+/**
+ * this is the statistics class, converted into table.
+ */
+
+public class Statistics {
+    /**
+     * id.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    /**
+     * username attr.
+     */
+    private String username;
+    /**
+     * score attr.
+     */
+    private Integer score;
+    /**
+     * date attr.
+     */
+    private String date;
+    /**
+     * default constructor.
+     */
+<span class="nc" id="L33">    public Statistics() { }</span>
+    /**
+     * @param score
+     * @param date
+     */
+<span class="nc" id="L38">    public Statistics(String username, Integer score, String date) {</span>
+<span class="nc" id="L39">        this.username = username;</span>
+<span class="nc" id="L40">        this.score = score;</span>
+<span class="nc" id="L41">        this.date = date;</span>
+<span class="nc" id="L42">    }</span>
+    /**
+     * getId.
+     *
+     * @return id.
+     */
+<span class="nc" id="L48">    public Integer getId() {return id;}</span>
+    /**
+     * set id.
+     *
+     * @param id
+     */
+<span class="nc" id="L54">    public void setId(Integer id){this.id = id;}</span>
+    /**
+     * getUsername.
+     *
+     * @return username.
+     */
+<span class="nc" id="L60">    public String getUsername(){return username;}</span>
+    /**
+     * set username.
+     *
+     * @param username
+     */
+<span class="nc" id="L66">    public void setUsername(String username){this.username = username;}</span>
+    /**
+     * getScore.
+     *
+     * @return score.
+     */
+<span class="nc" id="L72">    public Integer getScore(){return score;}</span>
+    /**
+     * set score.
+     *
+     * @param score
+     */
+<span class="nc" id="L78">    public void setScore(Integer score){this.score = score;}</span>
+    /**
+     * getDate.
+     *
+     * @return date.
+     */
+<span class="nc" id="L84">    public String getDate(){return date;}</span>
+    /**
+     * set date.
+     *
+     * @param date
+     */
+<span class="nc" id="L90">    public void setDate(String date){this.date = date;}</span>
+
+    public String toString(){
+<span class="nc" id="L93">        return &quot;Statistics(&quot;</span>
+                + &quot;, username='&quot; + username + '\''
+                + &quot;, score='&quot; + score + '\''
+                + &quot;, date='&quot; + date + '\''
+                + &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
