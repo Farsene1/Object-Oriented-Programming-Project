@@ -1,5 +1,6 @@
 package classes;
 
+import client.Statistics;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
@@ -41,6 +42,10 @@ public class Controller {
     public void sendBadge(User user, int badge){
         user.setBadge(badge);
         restfulClient.badge(user);
+    }
+
+    public List<Statistics> getStatistics(String username) {
+        return this.restfulClient.getAllStatistics(username);
     }
 
     /**
