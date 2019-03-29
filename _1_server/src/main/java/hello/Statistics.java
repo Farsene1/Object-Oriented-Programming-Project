@@ -20,10 +20,6 @@ public class Statistics {
      */
     private String username;
     /**
-     * type attr.
-     */
-    private String type;
-    /**
      * score attr.
      */
     private Integer score;
@@ -39,9 +35,8 @@ public class Statistics {
      * @param score
      * @param date
      */
-    public Statistics(String username, String type, Integer score, String date) {
+    public Statistics(String username, Integer score, String date) {
         this.username = username;
-        this.type = type;
         this.score = score;
         this.date = date;
     }
@@ -70,18 +65,6 @@ public class Statistics {
      */
     public void setUsername(String username){this.username = username;}
     /**
-     * getType.
-     *
-     * @return type.
-     */
-    public String getType() { return type;}
-    /**
-     * set type.
-     *
-     * @param type
-     */
-    public void setType(String type){ this.type = type;}
-    /**
      * getScore.
      *
      * @return score.
@@ -109,7 +92,6 @@ public class Statistics {
     public String toString(){
         return "Statistics("
                 + ", username='" + username + '\''
-                + ", type='" + type + '\''
                 + ", score='" + score + '\''
                 + ", date='" + date + '\''
                 + "}";
