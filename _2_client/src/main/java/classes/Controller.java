@@ -33,6 +33,16 @@ public class Controller {
         return restfulClient.addActivity(activity);
     }
 
+//    /**
+//     *
+//     * @param user
+//     * @param badge
+//     */
+//    public void sendBadge(User user, int badge){
+//        user.setBadge(badge);
+//        restfulClient.badge(user);
+//    }
+
     /**
      *
      * @param user
