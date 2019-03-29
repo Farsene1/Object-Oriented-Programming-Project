@@ -25,7 +25,6 @@ client\CSS.class
 client\Login.class
 client\Achievements.class
 client\MeatMealBox.class
-classes\RestfulClient$5.class
 client\CSSfoodBadge.class
 client\Hash.class
 classes\RestfulClient$3.class

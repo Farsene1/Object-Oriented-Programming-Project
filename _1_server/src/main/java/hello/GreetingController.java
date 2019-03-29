@@ -25,6 +25,12 @@ public class GreetingController {
     private ActivityRepository activityRepository;
 
     /**
+     * autowiring statistics repo.
+     */
+    @Autowired
+    private StatisticsRepository statisticsRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
@@ -41,8 +47,28 @@ public class GreetingController {
     public List<Activity> addToActivitiesTable(@RequestBody Activity activity) {
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
+        Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
+        Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());
+        Statistics s = this.statisticsRepository.findStatisticByDate(activity.getDate());
+        if(s == null) {
+            this.statisticsRepository.save(s1);
+        }
+        else {
+            this.statisticsRepository.updateStatistic(sum, activity.getUsername());
+        }
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
+
+    /**
+     *
+     * @return List
+     */
+    @RequestMapping(value = "/statistics",
+            method = RequestMethod.GET)
+    public List<Statistics> getAllStats() {
+        return statisticsRepository.findAllStatistics();
+    }
+
 
     /**
      * @param user

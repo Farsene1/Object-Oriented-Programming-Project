@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatisticsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">server</a> &gt; <a href="index.source.html" class="el_package">hello</a> &gt; <span class="el_source">StatisticsController.java</span></div><h1>StatisticsController.java</h1><pre class="source lang-java linenums">package hello;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+
+/**
+ * This is the Rest Controller.
+ */
+@RestController
+<span class="nc" id="L11">public class StatisticsController {</span>
+
+    /**
+     * * autowiring the statisticsRepo.
+     */
+    @Autowired
+    private StatisticsRepository statisticsRepository;
+
+    /**
+     * * autowiring the activityRepo.
+     */
+    @Autowired
+    private ActivityRepository activityRepository;
+
+
+    /**
+     * addTotalFootprint
+     */
+    @RequestMapping(value = &quot;/totalFootprint&quot;, method = RequestMethod.POST)
+    public Integer addTotalFootprintToStatisticsTable(@RequestBody Statistics statistics) {
+<span class="nc" id="L31">        this.statisticsRepository.save(statistics);</span>
+<span class="nc" id="L32">        System.out.println(&quot;statistics table updates&quot;);</span>
+<span class="nc" id="L33">        return this.activityRepository.totalFootprint(statistics.getUsername(), statistics.getDate());</span>
+    }
+
+    /**
+     * just a setter.
+     *
+     * @param statisticsRepository
+     */
+    public void setStatisticsRepository(StatisticsRepository statisticsRepository) {
+<span class="nc" id="L42">        this.statisticsRepository = statisticsRepository;</span>
+<span class="nc" id="L43">    }</span>
+}
+
+//    /**
+//     * addTotalFoodFootprint
+//     */
+//    @RequestMapping(value = &quot;/totalFood&quot;, method = RequestMethod.POST)
+//    public Integer addFoodToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println(&quot;statistics table updates&quot;);
+//        return this.activityRepository.totalFoodFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+//
+//    /**
+//     * addTotalTransportFootprint
+//     */
+//    @RequestMapping(value = &quot;/totalTransport&quot;, method = RequestMethod.POST)
+//    public Integer addTransportToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println(&quot;statistics table updates&quot;);
+//        return this.activityRepository.totalTransportFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+//
+//    /**
+//     * addTotalElectricityFootprint
+//     */
+//    @RequestMapping(value = &quot;/totalElectricity&quot;, method = RequestMethod.POST)
+//    public Integer addElectricityToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println(&quot;statistics table updates&quot;);
+//        return this.activityRepository.totalElectricityFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

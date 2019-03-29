@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="7.2">
+<<<<<<< HEAD
+=======
 <file name="C:\Users\arsen\projects\template\_1_server\src\main\java\hello\Activity.java">
 <error line="3" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - javax.persistence.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="50" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
@@ -1458,4 +1460,5 @@
 <error line="20" column="17" severity="warning" message="Unnecessary parentheses around expression." source="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck"/>
 <error line="37" column="17" severity="warning" message="Unnecessary parentheses around identifier &apos;res&apos;." source="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck"/>
 </file>
+>>>>>>> master
 </checkstyle>
