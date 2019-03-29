@@ -17,13 +17,19 @@ public class StatisticsController {
     private StatisticsRepository statisticsRepository;
 
     /**
+     * * autowiring the activityRepo.
+     */
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    /**
      * addTotalFoodFootprint
      */
     @RequestMapping(value = "/totalFood", method = RequestMethod.POST)
     public Integer addFoodToStatisticsTable(@RequestBody Statistics statistics) {
         this.statisticsRepository.save(statistics);
         System.out.println("statistics table updates");
-        return this.statisticsRepository.totalFoodFootprint(statistics.getUsername(), statistics.getDate());
+        return this.activityRepository.totalFoodFootprint(statistics.getUsername(), statistics.getDate());
     }
 
     /**
@@ -33,7 +39,7 @@ public class StatisticsController {
     public Integer addTransportToStatisticsTable(@RequestBody Statistics statistics) {
         this.statisticsRepository.save(statistics);
         System.out.println("statistics table updates");
-        return this.statisticsRepository.totalTransportFootprint(statistics.getUsername(), statistics.getDate());
+        return this.activityRepository.totalTransportFootprint(statistics.getUsername(), statistics.getDate());
     }
 
     /**
@@ -43,7 +49,7 @@ public class StatisticsController {
     public Integer addElectricityToStatisticsTable(@RequestBody Statistics statistics) {
         this.statisticsRepository.save(statistics);
         System.out.println("statistics table updates");
-        return this.statisticsRepository.totalElectricityFootprint(statistics.getUsername(), statistics.getDate());
+        return this.activityRepository.totalElectricityFootprint(statistics.getUsername(), statistics.getDate());
     }
 
     /**
@@ -53,7 +59,7 @@ public class StatisticsController {
     public Integer addTotalFootprintToStatisticsTable(@RequestBody Statistics statistics) {
         this.statisticsRepository.save(statistics);
         System.out.println("statistics table updates");
-        return this.statisticsRepository.totalFootprint(statistics.getUsername(), statistics.getDate());
+        return this.activityRepository.totalFootprint(statistics.getUsername(), statistics.getDate());
     }
 
     /**
