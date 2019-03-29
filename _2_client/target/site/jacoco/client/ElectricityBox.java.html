@@ -79,7 +79,7 @@ import java.util.List;
 <span class="nc" id="L79">                    score = 100 * total_hrs;</span>
                 }
 <span class="nc" id="L81">                electricity.setScore(score);</span>
-<span class="nc" id="L82">                new Controller().sendTransport(user, score);</span>
+<span class="nc" id="L82">                new Controller().sendElectricity(user, score);</span>
                 // add electricity in the database
 <span class="nc" id="L84">                Activity activity = new Activity(user.getUsername(), 3, &quot;Electricity usage: &quot; + total_hrs + &quot; Hours&quot;,</span>
 <span class="nc" id="L85">                        electricity.getScore(), date);</span>

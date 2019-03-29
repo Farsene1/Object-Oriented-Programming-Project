@@ -132,6 +132,11 @@ public class GreetingController {
         return new User(username, hash);
     }
 
+    @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
+    public List<User> leaderboard(){
+        return this.userRepository.getTopTen();
+    }
+
     /**
      * default method for testing, dangerous to use.
      *

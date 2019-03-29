@@ -18,93 +18,96 @@ import javafx.stage.Stage;
 import java.security.NoSuchAlgorithmException;
 
 <span class="nc" id="L20">public class Login {</span>
+
     public static void showLogin(Stage window){
+<span class="nc" id="L23">        String icon = &quot;https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_&quot;;</span>
+
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;
-<span class="nc" id="L24">        RestfulClient restfulClient = new RestfulClient();</span>
-<span class="nc" id="L25">        restfulClient.getEntity();</span>
-<span class="nc" id="L26">        window.setTitle(&quot;Login&quot;);</span>
-<span class="nc" id="L27">        VBox vbox = new VBox();</span>
+<span class="nc" id="L27">        RestfulClient restfulClient = new RestfulClient();</span>
+<span class="nc" id="L28">        restfulClient.getEntity();</span>
+<span class="nc" id="L29">        window.setTitle(&quot;Login&quot;);</span>
+<span class="nc" id="L30">        VBox vbox = new VBox();</span>
 
-<span class="nc" id="L29">        BorderPane bp= new BorderPane();</span>
+<span class="nc" id="L32">        BorderPane bp= new BorderPane();</span>
         //username Input
-<span class="nc" id="L31">        usernameInput = new JFXTextField();</span>
-<span class="nc" id="L32">        usernameInput.setPromptText(&quot;username&quot;);</span>
-<span class="nc" id="L33">        usernameInput.setLabelFloat(true);</span>
+<span class="nc" id="L34">        usernameInput = new JFXTextField();</span>
+<span class="nc" id="L35">        usernameInput.setPromptText(&quot;username&quot;);</span>
+<span class="nc" id="L36">        usernameInput.setLabelFloat(true);</span>
 
         //Password Input
-<span class="nc" id="L36">        passwordInput = new JFXPasswordField();</span>
-<span class="nc" id="L37">        passwordInput.setPromptText(&quot;password&quot;);</span>
-<span class="nc" id="L38">        passwordInput.setLabelFloat(true);</span>
+<span class="nc" id="L39">        passwordInput = new JFXPasswordField();</span>
+<span class="nc" id="L40">        passwordInput.setPromptText(&quot;password&quot;);</span>
+<span class="nc" id="L41">        passwordInput.setLabelFloat(true);</span>
 
         //Login
-<span class="nc" id="L41">        Button loginButton = new Button(&quot;Login&quot;);</span>
-<span class="nc" id="L42">        loginButton.setDefaultButton(true);</span>
-<span class="nc" id="L43">        Label errorlabel = new Label();</span>
-<span class="nc" id="L44">        errorlabel.setVisible(false);</span>
-<span class="nc" id="L45">        errorlabel.setStyle(&quot;-fx-font-size: 16; -fx-text-fill: red;&quot;);</span>
-<span class="nc" id="L46">        loginButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L47">            String username = usernameInput.getText();</span>
-<span class="nc" id="L48">            String password = passwordInput.getText();</span>
-<span class="nc" id="L49">            usernameInput.clear();</span>
-<span class="nc" id="L50">            passwordInput.clear();</span>
+<span class="nc" id="L44">        Button loginButton = new Button(&quot;Login&quot;);</span>
+<span class="nc" id="L45">        loginButton.setDefaultButton(true);</span>
+<span class="nc" id="L46">        Label errorlabel = new Label();</span>
+<span class="nc" id="L47">        errorlabel.setVisible(false);</span>
+<span class="nc" id="L48">        errorlabel.setStyle(&quot;-fx-font-size: 16; -fx-text-fill: red;&quot;);</span>
+<span class="nc" id="L49">        loginButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L50">            String username = usernameInput.getText();</span>
+<span class="nc" id="L51">            String password = passwordInput.getText();</span>
+<span class="nc" id="L52">            usernameInput.clear();</span>
+<span class="nc" id="L53">            passwordInput.clear();</span>
             try {
-<span class="nc" id="L52">                User user = new User(username, Hash.generateHash(password, &quot;SHA-256&quot;));</span>
-<span class="nc" id="L53">                String res = restfulClient.login(user);</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">                if(res.equals(&quot;POSITIVE&quot;)){</span>
+<span class="nc" id="L55">                User user = new User(username, Hash.generateHash(password, &quot;SHA-256&quot;));</span>
+<span class="nc" id="L56">                String res = restfulClient.login(user);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">                if(res.equals(&quot;POSITIVE&quot;)){</span>
                     // getting updates from the database
-<span class="nc" id="L56">                    user = new Controller().getUpdates(user);</span>
-<span class="nc" id="L57">                    Home.showHome(window, user);</span>
+<span class="nc" id="L59">                    user = new Controller().getUpdates(user);</span>
+<span class="nc" id="L60">                    Home.showHome(window, user, icon);</span>
                 }
                 else{
-<span class="nc" id="L60">                    errorlabel.setText(&quot;INVALID CREDENTIALS&quot;);</span>
-<span class="nc" id="L61">                    errorlabel.setVisible(true);</span>
+<span class="nc" id="L63">                    errorlabel.setText(&quot;INVALID CREDENTIALS&quot;);</span>
+<span class="nc" id="L64">                    errorlabel.setVisible(true);</span>
                 }
-<span class="nc" id="L63">            }catch (NoSuchAlgorithmException NSA) {</span>
-<span class="nc" id="L64">                System.out.println(&quot;No such Algorithm&quot;);</span>
-<span class="nc" id="L65">            }</span>
-<span class="nc" id="L66">        });</span>
+<span class="nc" id="L66">            }catch (NoSuchAlgorithmException NSA) {</span>
+<span class="nc" id="L67">                System.out.println(&quot;No such Algorithm&quot;);</span>
+<span class="nc" id="L68">            }</span>
+<span class="nc" id="L69">        });</span>
 
         //Signup
-<span class="nc" id="L69">        HBox SignupBox= new HBox();</span>
-<span class="nc" id="L70">        Label regLabel = new Label(&quot;Not registered?&quot;);</span>
-<span class="nc" id="L71">        JFXButton Signup= new JFXButton(&quot;Signup&quot;);</span>
-<span class="nc" id="L72">        Signup.setStyle(&quot;-fx-text-fill: red&quot;);</span>
-<span class="nc" id="L73">        SignupBox.getChildren().addAll(regLabel,Signup);</span>
-<span class="nc" id="L74">        SignupBox.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L75">        Signup.setOnAction(e -&gt; client.Signup.showSignup(window));</span>
-<span class="nc" id="L76">        ImageView img= new ImageView(&quot;https://i.ibb.co/qskM93N/polar-alpha.png&quot;);</span>
-<span class="nc" id="L77">        img.setFitWidth(350);</span>
-<span class="nc" id="L78">        img.setFitHeight(350);</span>
-<span class="nc" id="L79">        img.setStyle(&quot;-fx-padding: 10&quot;);</span>
+<span class="nc" id="L72">        HBox SignupBox= new HBox();</span>
+<span class="nc" id="L73">        Label regLabel = new Label(&quot;Not registered?&quot;);</span>
+<span class="nc" id="L74">        JFXButton Signup= new JFXButton(&quot;Signup&quot;);</span>
+<span class="nc" id="L75">        Signup.setStyle(&quot;-fx-text-fill: red&quot;);</span>
+<span class="nc" id="L76">        SignupBox.getChildren().addAll(regLabel,Signup);</span>
+<span class="nc" id="L77">        SignupBox.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L78">        Signup.setOnAction(e -&gt; client.Signup.showSignup(window));</span>
+<span class="nc" id="L79">        ImageView img= new ImageView(&quot;https://i.ibb.co/qskM93N/polar-alpha.png&quot;);</span>
+<span class="nc" id="L80">        img.setFitWidth(350);</span>
+<span class="nc" id="L81">        img.setFitHeight(350);</span>
+<span class="nc" id="L82">        img.setStyle(&quot;-fx-padding: 10&quot;);</span>
         //Add everything to grid
 
 
-<span class="nc" id="L83">        vbox.getChildren().addAll(img,usernameInput, passwordInput,errorlabel, loginButton, SignupBox);</span>
-<span class="nc" id="L84">        vbox.setSpacing(30);</span>
-<span class="nc" id="L85">        Pane test1=new Pane();</span>
-<span class="nc" id="L86">        Pane test2=new Pane();</span>
-<span class="nc" id="L87">        Pane test3=new Pane();</span>
-<span class="nc" id="L88">        Pane test4=new Pane();</span>
-<span class="nc" id="L89">        test1.setPrefWidth(675);</span>
-<span class="nc" id="L90">        test2.setPrefWidth(675);</span>
-<span class="nc" id="L91">        test3.setMinHeight(200);</span>
-<span class="nc" id="L92">        test4.setMinHeight(200);</span>
-<span class="nc" id="L93">        bp.setCenter(vbox);</span>
-<span class="nc" id="L94">        bp.setLeft(test1);</span>
-<span class="nc" id="L95">        bp.setRight(test2);</span>
-<span class="nc" id="L96">        bp.setTop(test3);</span>
-<span class="nc" id="L97">        bp.setBottom(test4);</span>
+<span class="nc" id="L86">        vbox.getChildren().addAll(img,usernameInput, passwordInput,errorlabel, loginButton, SignupBox);</span>
+<span class="nc" id="L87">        vbox.setSpacing(30);</span>
+<span class="nc" id="L88">        Pane test1=new Pane();</span>
+<span class="nc" id="L89">        Pane test2=new Pane();</span>
+<span class="nc" id="L90">        Pane test3=new Pane();</span>
+<span class="nc" id="L91">        Pane test4=new Pane();</span>
+<span class="nc" id="L92">        test1.setPrefWidth(675);</span>
+<span class="nc" id="L93">        test2.setPrefWidth(675);</span>
+<span class="nc" id="L94">        test3.setMinHeight(200);</span>
+<span class="nc" id="L95">        test4.setMinHeight(200);</span>
+<span class="nc" id="L96">        bp.setCenter(vbox);</span>
+<span class="nc" id="L97">        bp.setLeft(test1);</span>
+<span class="nc" id="L98">        bp.setRight(test2);</span>
+<span class="nc" id="L99">        bp.setTop(test3);</span>
+<span class="nc" id="L100">        bp.setBottom(test4);</span>
 
-<span class="nc" id="L99">        CSS.setSmallButtonStyle(loginButton);</span>
-<span class="nc" id="L100">        bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
-<span class="nc" id="L101">        vbox.setStyle(&quot;-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt&quot;);</span>
-<span class="nc" id="L102">        vbox.setPadding(new Insets(20,60,40,60));</span>
-<span class="nc" id="L103">        Scene scene = new Scene(bp, 1920, 1080);</span>
-<span class="nc" id="L104">        window.setScene(scene);</span>
-<span class="nc" id="L105">        window.setMaximized(true);</span>
-<span class="nc" id="L106">        window.show();</span>
-<span class="nc" id="L107">    }</span>
+<span class="nc" id="L102">        CSS.setSmallButtonStyle(loginButton);</span>
+<span class="nc" id="L103">        bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
+<span class="nc" id="L104">        vbox.setStyle(&quot;-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt&quot;);</span>
+<span class="nc" id="L105">        vbox.setPadding(new Insets(20,60,40,60));</span>
+<span class="nc" id="L106">        Scene scene = new Scene(bp, 1920, 1080);</span>
+<span class="nc" id="L107">        window.setScene(scene);</span>
+<span class="nc" id="L108">        window.setMaximized(true);</span>
+<span class="nc" id="L109">        window.show();</span>
+<span class="nc" id="L110">    }</span>
 
 
 }

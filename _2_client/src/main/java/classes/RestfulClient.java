@@ -26,6 +26,19 @@ public class RestfulClient {
     }
 
     /**
+     * method for leaderboard.
+     * @return list.
+     */
+    public List<User> get10Users(){
+        String url = "http://localhost:8080/leaderboard";
+        List<User> res = restTemplate.getForObject(url, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> users = mapper.convertValue(res, new TypeReference<List<User>>() {
+        });
+        return users;
+    }
+
+    /**
      * get all activities
      */
     public List<Activity> getAllActivities(User user) {

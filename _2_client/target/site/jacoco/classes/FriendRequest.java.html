@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FriendRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">FriendRequest.java</span></div><h1>FriendRequest.java</h1><pre class="source lang-java linenums">package classes;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class FriendRequest {
 
 
+    private Integer id;
     private String sender;
     private String receiver;
-<span class="pc" id="L8">    private boolean accepted = false;</span>
+<span class="pc" id="L13">    private boolean accepted = false;</span>
 
-<span class="nc" id="L10">    public FriendRequest() { }</span>
+<span class="nc" id="L15">    public FriendRequest() { }</span>
 
-<span class="fc" id="L12">    public FriendRequest(String sender, String receiver) {</span>
-<span class="fc" id="L13">        this.sender = sender;</span>
-<span class="fc" id="L14">        this.receiver = receiver;</span>
+    public Integer getId() {
+<span class="nc" id="L18">        return id;</span>
+    }
 
-<span class="fc" id="L16">    }</span>
+    public void setId(Integer id) {
+<span class="nc" id="L22">        this.id = id;</span>
+<span class="nc" id="L23">    }</span>
+
+<span class="fc" id="L25">    public FriendRequest(String sender, String receiver) {</span>
+<span class="fc" id="L26">        this.sender = sender;</span>
+<span class="fc" id="L27">        this.receiver = receiver;</span>
+
+<span class="fc" id="L29">    }</span>
 
     public void setSender(String sender) {
-<span class="fc" id="L19">        this.sender = sender;</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L32">        this.sender = sender;</span>
+<span class="fc" id="L33">    }</span>
 
 
     public void setReceiver(String receiver) {
-<span class="fc" id="L24">        this.receiver = receiver;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L37">        this.receiver = receiver;</span>
+<span class="fc" id="L38">    }</span>
 
 
 
     public void setAccepted(boolean accepted) {
-<span class="fc" id="L30">        this.accepted = accepted;</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L43">        this.accepted = accepted;</span>
+<span class="fc" id="L44">    }</span>
 
     public String getSender() {
-<span class="fc" id="L34">        return sender;</span>
+<span class="fc" id="L47">        return sender;</span>
     }
 
     public String getReceiver() {
-<span class="fc" id="L38">        return receiver;</span>
+<span class="fc" id="L51">        return receiver;</span>
     }
 
     public boolean isAccepted() {
-<span class="fc" id="L42">        return accepted;</span>
+<span class="fc" id="L55">        return accepted;</span>
     }
 }
 
