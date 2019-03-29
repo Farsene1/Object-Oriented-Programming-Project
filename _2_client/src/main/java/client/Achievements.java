@@ -1,6 +1,7 @@
 package client;
 
 import classes.Badges;
+import classes.Controller;
 import classes.User;
 import classes.UserBadge;
 import javafx.scene.layout.GridPane;
@@ -86,15 +87,17 @@ public class Achievements {
         polarBadge_1.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(1);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 1);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
         });
         polarBadge_2.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(2);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 2);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 2!");
@@ -103,8 +106,9 @@ public class Achievements {
         polarBadge_3.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(3);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 3);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("This is an error message", "You still have to unlock badge 3!");
@@ -113,8 +117,9 @@ public class Achievements {
         polarBadge_4.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(4);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 4);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 4!");
@@ -123,8 +128,9 @@ public class Achievements {
         polarBadge_5.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(5);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 5);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 5!");
@@ -133,8 +139,9 @@ public class Achievements {
         polarBadge_6.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(6);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 6);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 6!");
@@ -143,8 +150,9 @@ public class Achievements {
         polarBadge_7.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(7);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 7);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 7!");
@@ -153,8 +161,9 @@ public class Achievements {
         polarBadge_8.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(8);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 8);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 8!");
@@ -163,8 +172,9 @@ public class Achievements {
         polarBadge_9.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(9);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 9);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 9!");
@@ -173,8 +183,9 @@ public class Achievements {
         polarBadge_10.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
             if (unlocked == true) {
-                String icon = classes.UserBadge.iconChoice(10);
-                Home.showHome(window, user, icon);
+                new Controller().sendBadge(user, 10);
+                String icon = classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
             }
             if (unlocked == false) {
                 AlertBox.display("Hold up!", "You still have to unlock badge 10!");
