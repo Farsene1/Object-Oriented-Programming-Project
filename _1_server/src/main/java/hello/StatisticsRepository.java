@@ -20,6 +20,9 @@ public interface StatisticsRepository extends CrudRepository<Statistics, Integer
     @Query(value = "SELECT * FROM statistics WHERE date = ?1", nativeQuery = true)
     Statistics findStatisticByDate(String date);
 
+    @Query(value = "SELECT * FROM statistics WHERE username = ?1", nativeQuery = true)
+    List<Statistics> findStatisticsByUsername(String username);
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2", nativeQuery = true)
