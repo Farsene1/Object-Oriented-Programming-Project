@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Badges.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">Badges.java</span></div><h1>Badges.java</h1><pre class="source lang-java linenums">package classes;
+
+<span class="nc" id="L3">public class Badges {</span>
+
+<span class="nc" id="L5">    static private int unlock = 0;</span>
+
+    /**
+     * Method to unlock polar badges
+     */
+    static public int polarUnlock(User user){
+
+<span class="nc" id="L12">        int polarTotal = user.getPolarScore();</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">            if(polarTotal &lt;= 100000){</span>
+<span class="nc" id="L14">                unlock = 1;</span>
+            }
+<span class="nc bnc" id="L16" title="All 2 branches missed.">            if(polarTotal &gt;= 200000){</span>
+<span class="nc" id="L17">                unlock = 2;</span>
+            }
+<span class="nc bnc" id="L19" title="All 2 branches missed.">            if(polarTotal &gt;= 300000){</span>
+<span class="nc" id="L20">                unlock = 3;</span>
+            }
+<span class="nc bnc" id="L22" title="All 2 branches missed.">            if(polarTotal &gt;= 400000){</span>
+<span class="nc" id="L23">                unlock = 4;</span>
+            }
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if(polarTotal &gt;= 500000){</span>
+<span class="nc" id="L26">                unlock = 5;</span>
+            }
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            if(polarTotal &gt;= 600000){</span>
+<span class="nc" id="L29">                unlock = 6;</span>
+            }
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            if(polarTotal &gt;= 700000){</span>
+<span class="nc" id="L32">                unlock = 7;</span>
+            }
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            if(polarTotal &gt;= 800000){</span>
+<span class="nc" id="L35">                unlock = 8;</span>
+            }
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if(polarTotal &gt;= 900000){</span>
+<span class="nc" id="L38">                unlock = 9;</span>
+            }
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            if(polarTotal &gt;= 1000000){</span>
+<span class="nc" id="L41">                unlock = 10;</span>
+            }
+<span class="nc" id="L43">        return unlock;</span>
+    }
+
+    /**
+     * Method to unlock food badges
+     */
+    static public int foodUnlock(User user){
+
+<span class="nc" id="L51">        int foodTotal = user.getFoodScore();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if(foodTotal &lt;= 10000){</span>
+<span class="nc" id="L53">                unlock = 1;</span>
+            }
+<span class="nc bnc" id="L55" title="All 2 branches missed.">            if(foodTotal &gt;= 20000){</span>
+<span class="nc" id="L56">                unlock = 2;</span>
+            }
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            if(foodTotal &gt;= 30000){</span>
+<span class="nc" id="L59">                unlock = 3;</span>
+            }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            if(foodTotal &gt;= 40000){</span>
+<span class="nc" id="L62">                unlock = 4;</span>
+            }
+<span class="nc bnc" id="L64" title="All 2 branches missed.">            if(foodTotal &gt;= 50000){</span>
+<span class="nc" id="L65">                unlock = 5;</span>
+            }
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            if(foodTotal &gt;= 60000){</span>
+<span class="nc" id="L68">                unlock = 6;</span>
+            }
+<span class="nc bnc" id="L70" title="All 2 branches missed.">            if(foodTotal &gt;= 70000){</span>
+<span class="nc" id="L71">                unlock = 7;</span>
+            }
+<span class="nc bnc" id="L73" title="All 2 branches missed.">            if(foodTotal &gt;= 80000){</span>
+<span class="nc" id="L74">                unlock = 8;</span>
+            }
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            if(foodTotal &gt;= 90000){</span>
+<span class="nc" id="L77">                unlock = 9;</span>
+            }
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if(foodTotal &gt;= 100000){</span>
+<span class="nc" id="L80">                unlock = 10;</span>
+            }
+<span class="nc" id="L82">        return unlock;</span>
+    }
+
+    /**
+     * Method to unlock transport badges
+     */
+    static public int transportUnlock(User user){
+
+<span class="nc" id="L90">        int transportTotal = user.getTransportScore();</span>
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if(transportTotal &lt;= 10000){</span>
+<span class="nc" id="L93">                unlock = 1;</span>
+            }
+<span class="nc bnc" id="L95" title="All 2 branches missed.">            if(transportTotal &gt;= 20000){</span>
+<span class="nc" id="L96">                unlock = 2;</span>
+            }
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            if(transportTotal &gt;= 30000){</span>
+<span class="nc" id="L99">                unlock = 3;</span>
+            }
+<span class="nc bnc" id="L101" title="All 2 branches missed.">            if(transportTotal &gt;= 40000){</span>
+<span class="nc" id="L102">                unlock = 4;</span>
+            }
+<span class="nc bnc" id="L104" title="All 2 branches missed.">            if(transportTotal &gt;= 50000){</span>
+<span class="nc" id="L105">                unlock = 5;</span>
+            }
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            if(transportTotal &gt;= 60000){</span>
+<span class="nc" id="L108">                unlock = 6;</span>
+            }
+<span class="nc bnc" id="L110" title="All 2 branches missed.">            if(transportTotal &gt;= 70000){</span>
+<span class="nc" id="L111">                unlock = 7;</span>
+            }
+<span class="nc bnc" id="L113" title="All 2 branches missed.">            if(transportTotal &gt;= 80000){</span>
+<span class="nc" id="L114">                unlock = 8;</span>
+            }
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            if(transportTotal &gt;= 90000){</span>
+<span class="nc" id="L117">                unlock = 9;</span>
+            }
+<span class="nc bnc" id="L119" title="All 2 branches missed.">            if(transportTotal &gt;= 100000){</span>
+<span class="nc" id="L120">                unlock = 10;</span>
+            }
+<span class="nc" id="L122">        return unlock;</span>
+    }
+
+    /**
+     * Method to unlock electricity badges
+     */
+    static public int electricityUnlock(User user){
+
+<span class="nc" id="L130">        int electricityTotal = user.getElectricityScore();</span>
+
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            if(electricityTotal &lt;= 10000){</span>
+<span class="nc" id="L133">                unlock = 1;</span>
+            }
+<span class="nc bnc" id="L135" title="All 2 branches missed.">            if(electricityTotal &gt;= 20000){</span>
+<span class="nc" id="L136">                unlock = 2;</span>
+            }
+<span class="nc bnc" id="L138" title="All 2 branches missed.">            if(electricityTotal &gt;= 30000){</span>
+<span class="nc" id="L139">                unlock = 3;</span>
+            }
+<span class="nc bnc" id="L141" title="All 2 branches missed.">            if(electricityTotal &gt;= 40000){</span>
+<span class="nc" id="L142">                unlock = 4;</span>
+            }
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            if(electricityTotal &gt;= 50000){</span>
+<span class="nc" id="L145">                unlock = 5;</span>
+            }
+<span class="nc bnc" id="L147" title="All 2 branches missed.">            if(electricityTotal &gt;= 60000){</span>
+<span class="nc" id="L148">                unlock = 6;</span>
+            }
+<span class="nc bnc" id="L150" title="All 2 branches missed.">            if(electricityTotal &gt;= 70000){</span>
+<span class="nc" id="L151">                unlock = 7;</span>
+            }
+<span class="nc bnc" id="L153" title="All 2 branches missed.">            if(electricityTotal &gt;= 80000){</span>
+<span class="nc" id="L154">                unlock = 8;</span>
+            }
+<span class="nc bnc" id="L156" title="All 2 branches missed.">            if(electricityTotal &gt;= 90000){</span>
+<span class="nc" id="L157">                unlock = 9;</span>
+            }
+<span class="nc bnc" id="L159" title="All 2 branches missed.">            if(electricityTotal &gt;= 100000){</span>
+<span class="nc" id="L160">                unlock = 10;</span>
+            }
+<span class="nc" id="L162">        return unlock;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

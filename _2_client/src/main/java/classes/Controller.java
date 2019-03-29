@@ -33,10 +33,6 @@ public class Controller {
         return restfulClient.addActivity(activity);
     }
 
-//    public List<Transport> getAllVehicles(User user){
-//        return restfulClient.getAllVehicles(user);
-//    }
-
     /**
      *
      * @param user
@@ -45,6 +41,7 @@ public class Controller {
      */
     public void sendMeal(User user, int amount){
         user.setFoodScore(amount + user.getFoodScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
@@ -56,6 +53,7 @@ public class Controller {
      */
     public void sendTransport(User user, int amount){
         user.setTransportScore(amount + user.getTransportScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
@@ -67,7 +65,44 @@ public class Controller {
      */
     public void sendElectricity(User user, int amount){
         user.setElectricityScore(amount + user.getElectricityScore());
+        user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayYes(FriendRequest friendRequest) {
+        return restfulClient.respond(friendRequest);
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayNo(FriendRequest friendRequest) {
+        return restfulClient.fakeRespond(friendRequest);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<User> getAllFriends(User user) {
+        return restfulClient.getAllFriends(user);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<FriendRequest> getAllRequests(User user){
+        return restfulClient.getAllFriendRequests(user);
     }
 
     /**

@@ -1,8 +1,4 @@
 ControllerTest.class
-UserTest.class
 ActivityTest.class
-FoodTest.class
-TransportTest.class
-GroceriesTest.class
+UserTest.class
 ActivityControllerTest.class
-ElectricityTest.class

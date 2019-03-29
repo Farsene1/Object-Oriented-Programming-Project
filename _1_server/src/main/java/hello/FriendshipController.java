@@ -35,21 +35,13 @@ public class FriendshipController {
     private UserRepository userRepository;
 
     /**
-     * default method.
-     */
-    @RequestMapping("/run")
-    public void setUp(){
-        this.friendRequestRepository.save(new FriendRequest("Flo","Tijs"));
-        this.friendRequestRepository.save(new FriendRequest("Hashim","Tijs"));
-    }
-    /**
      * method for getting all the friends in the database.
-     * @param username
+
      * @return response list.
      */
     @RequestMapping("/friends")
-    public List<User> getAllFriends(@RequestBody String username) {
-        List<String> temp = friendshipRepository.getAllFriends(username);
+    public List<User> getAllFriends(@RequestBody User user) {
+        List<String> temp = friendshipRepository.getAllFriends(user.getUsername());
         List<User> result = new ArrayList<User>();
         for (String s : temp) {
             result.add(userRepository.findUserByUsername(s).get(0));
@@ -64,7 +56,36 @@ public class FriendshipController {
      */
     @RequestMapping("/request")
     public String makeRequest(@RequestBody FriendRequest friendRequest) {
-        this.friendRequestRepository.save(friendRequest);
+        List<String> l1 = this.friendshipRepository.getAllFriends(friendRequest.getSender());
+        List<FriendRequest> l2 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getSender());
+        List<FriendRequest> l3 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getReceiver());
+
+        boolean ok = true;
+
+        if(friendRequest.getSender().equals(friendRequest.getReceiver())) {
+            ok = false;
+        }
+
+        if(l1.contains(friendRequest.getReceiver())){
+            ok = false;
+        }
+
+        for(FriendRequest f : l2){
+            if(f.getSender().equals(friendRequest.getReceiver())){
+                ok = false;
+            }
+        }
+
+        for(FriendRequest f : l3){
+            if(f.getSender().equals(friendRequest.getSender())){
+                ok = false;
+            }
+        }
+
+        if(ok == true){
+            this.friendRequestRepository.save(friendRequest);
+        } else System.out.println("Request cannot be sent: error");
+
         return "SENT";
     }
 
@@ -72,8 +93,8 @@ public class FriendshipController {
      * method for getting all the friendRequests.
      */
     @RequestMapping("/getallrequests")
-    public List<String> getAllRequest(@RequestBody String username) {
-        List<String> list = friendRequestRepository.findAllRequestsFor(username);
+    public List<FriendRequest> getAllRequest(@RequestBody User user) {
+        List<FriendRequest> list = friendRequestRepository.findAllRequestsFor(user.getUsername());
         return list;
     }
 
@@ -86,5 +107,27 @@ public class FriendshipController {
         this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));
         this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));
         return "OK";
+    }
+
+    /**
+     * this method sets the request answer to true so that it will not appear in the incoming requests.
+     * @param friendRequest
+     */
+    @RequestMapping("/fakeresponse")
+    public String fakeRespond(@RequestBody FriendRequest friendRequest) {
+        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());
+        return "OK";
+    }
+
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
+        this.friendshipRepository = friendshipRepository;
+    }
+
+    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
+        this.friendRequestRepository = friendRequestRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

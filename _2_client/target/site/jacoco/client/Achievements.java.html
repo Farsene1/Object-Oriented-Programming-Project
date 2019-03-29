@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Achievements.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">Achievements.java</span></div><h1>Achievements.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.Badges;
+import classes.User;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+
+<span class="nc" id="L14">public class Achievements {</span>
+
+    public static void showBadges(GridPane grid, User user) {
+
+        /**
+         * Calls method to unlock polar badges, sets unlock value for CSS.
+         */
+<span class="nc" id="L21">        int polarUnlock = Badges.polarUnlock(user);</span>
+
+        /**
+         * Calls method to unlock food badges, sets unlock value for CSS.
+         */
+<span class="nc" id="L26">        int foodUnlock = Badges.foodUnlock(user);</span>
+
+        /**
+         * Calls method to unlock transport badges, sets unlock value for CSS.
+         */
+<span class="nc" id="L31">        int transportUnlock = Badges.transportUnlock(user);</span>
+
+        /**
+         * Calls method to unlock electricity badges, sets unlock value for CSS.
+         */
+<span class="nc" id="L36">        int electricityUnlock = Badges.electricityUnlock(user);</span>
+
+<span class="nc" id="L38">        Label myAchievements = new Label(&quot;My Achievements!&quot;);</span>
+<span class="nc" id="L39">        myAchievements.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 35));</span>
+<span class="nc" id="L40">        VBox achievements = new VBox();</span>
+<span class="nc" id="L41">        achievements.setStyle(&quot;-fx-padding: 5;&quot;);</span>
+<span class="nc" id="L42">        achievements.setSpacing(10);</span>
+<span class="nc" id="L43">        achievements.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L44">        GridPane.setConstraints(achievements, 0, 0);</span>
+
+        /**
+         * Polar score badges
+         */
+<span class="nc" id="L49">        HBox polarHbox = new HBox();</span>
+<span class="nc" id="L50">        polarHbox.setSpacing(1);</span>
+<span class="nc" id="L51">        achievements.setStyle(&quot;-fx-padding: 1;&quot; + &quot;-fx-border-style: solid inside;&quot;</span>
+                + &quot;-fx-border-width: 5;&quot; + &quot;-fx-border-insets: 5;&quot;
+                + &quot;-fx-border-radius: 5;&quot; + &quot;-fx-border-color: #6dfff3;&quot; +
+                &quot;-fx-background-color: rgba(255,255,255,0.4)&quot;);
+
+<span class="nc" id="L56">        Button polarBadge_1 = new Button();</span>
+<span class="nc" id="L57">        Button polarBadge_2 = new Button();</span>
+<span class="nc" id="L58">        Button polarBadge_3 = new Button();</span>
+<span class="nc" id="L59">        Button polarBadge_4 = new Button();</span>
+<span class="nc" id="L60">        Button polarBadge_5 = new Button();</span>
+<span class="nc" id="L61">        Button polarBadge_6 = new Button();</span>
+<span class="nc" id="L62">        Button polarBadge_7 = new Button();</span>
+<span class="nc" id="L63">        Button polarBadge_8 = new Button();</span>
+<span class="nc" id="L64">        Button polarBadge_9 = new Button();</span>
+<span class="nc" id="L65">        Button polarBadge_10 = new Button();</span>
+
+<span class="nc" id="L67">        CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);</span>
+<span class="nc" id="L68">        CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);</span>
+<span class="nc" id="L69">        CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);</span>
+<span class="nc" id="L70">        CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);</span>
+<span class="nc" id="L71">        CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);</span>
+<span class="nc" id="L72">        CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);</span>
+<span class="nc" id="L73">        CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);</span>
+<span class="nc" id="L74">        CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);</span>
+<span class="nc" id="L75">        CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);</span>
+<span class="nc" id="L76">        CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);</span>
+
+<span class="nc" id="L78">        Label polarLabel = new Label(&quot;POLAR&quot;);</span>
+<span class="nc" id="L79">        polarLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L80">        polarHbox.getChildren().addAll(polarBadge_1, polarBadge_2, polarBadge_3, polarBadge_4, polarBadge_5,</span>
+                polarBadge_6, polarBadge_7, polarBadge_8, polarBadge_9, polarBadge_10);
+
+        /**
+         * Food score badges
+         */
+<span class="nc" id="L86">        HBox foodHbox = new HBox();</span>
+
+<span class="nc" id="L88">        Button foodBadge_1 = new Button();</span>
+<span class="nc" id="L89">        Button foodBadge_2 = new Button();</span>
+<span class="nc" id="L90">        Button foodBadge_3 = new Button();</span>
+<span class="nc" id="L91">        Button foodBadge_4 = new Button();</span>
+<span class="nc" id="L92">        Button foodBadge_5 = new Button();</span>
+<span class="nc" id="L93">        Button foodBadge_6 = new Button();</span>
+<span class="nc" id="L94">        Button foodBadge_7 = new Button();</span>
+<span class="nc" id="L95">        Button foodBadge_8 = new Button();</span>
+<span class="nc" id="L96">        Button foodBadge_9 = new Button();</span>
+<span class="nc" id="L97">        Button foodBadge_10 = new Button();</span>
+
+<span class="nc" id="L99">        CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);</span>
+<span class="nc" id="L100">        CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);</span>
+<span class="nc" id="L101">        CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);</span>
+<span class="nc" id="L102">        CSSfoodBadge.setFood4(foodBadge_4, foodUnlock);</span>
+<span class="nc" id="L103">        CSSfoodBadge.setFood5(foodBadge_5, foodUnlock);</span>
+<span class="nc" id="L104">        CSSfoodBadge.setFood6(foodBadge_6, foodUnlock);</span>
+<span class="nc" id="L105">        CSSfoodBadge.setFood7(foodBadge_7, foodUnlock);</span>
+<span class="nc" id="L106">        CSSfoodBadge.setFood8(foodBadge_8, foodUnlock);</span>
+<span class="nc" id="L107">        CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);</span>
+<span class="nc" id="L108">        CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);</span>
+
+<span class="nc" id="L110">        Label foodLabel = new Label(&quot;FOOD&quot;);</span>
+<span class="nc" id="L111">        foodLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+
+<span class="nc" id="L113">        foodHbox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,</span>
+                foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
+
+        /**
+         * transport score badges
+         */
+<span class="nc" id="L119">        HBox transportHbox = new HBox();</span>
+<span class="nc" id="L120">        transportHbox.setSpacing(1);</span>
+
+<span class="nc" id="L122">        Button transportBadge_1 = new Button();</span>
+<span class="nc" id="L123">        Button transportBadge_2 = new Button();</span>
+<span class="nc" id="L124">        Button transportBadge_3 = new Button();</span>
+<span class="nc" id="L125">        Button transportBadge_4 = new Button();</span>
+<span class="nc" id="L126">        Button transportBadge_5 = new Button();</span>
+<span class="nc" id="L127">        Button transportBadge_6 = new Button();</span>
+<span class="nc" id="L128">        Button transportBadge_7 = new Button();</span>
+<span class="nc" id="L129">        Button transportBadge_8 = new Button();</span>
+<span class="nc" id="L130">        Button transportBadge_9 = new Button();</span>
+<span class="nc" id="L131">        Button transportBadge_10 = new Button();</span>
+
+<span class="nc" id="L133">        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);</span>
+<span class="nc" id="L134">        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);</span>
+<span class="nc" id="L135">        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);</span>
+<span class="nc" id="L136">        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);</span>
+<span class="nc" id="L137">        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);</span>
+<span class="nc" id="L138">        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);</span>
+<span class="nc" id="L139">        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);</span>
+<span class="nc" id="L140">        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);</span>
+<span class="nc" id="L141">        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);</span>
+<span class="nc" id="L142">        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);</span>
+
+<span class="nc" id="L144">        Label transportLabel = new Label(&quot;TRANSPORT&quot;);</span>
+<span class="nc" id="L145">        transportLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+
+<span class="nc" id="L147">        transportHbox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,</span>
+                transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
+
+
+
+/**
+ * electricity score badges
+ */
+<span class="nc" id="L155">        HBox electricityHbox = new HBox();</span>
+<span class="nc" id="L156">        electricityHbox.setSpacing(1);</span>
+
+<span class="nc" id="L158">        Button electricityBadge_1 = new Button();</span>
+<span class="nc" id="L159">        Button electricityBadge_2 = new Button();</span>
+<span class="nc" id="L160">        Button electricityBadge_3 = new Button();</span>
+<span class="nc" id="L161">        Button electricityBadge_4 = new Button();</span>
+<span class="nc" id="L162">        Button electricityBadge_5 = new Button();</span>
+<span class="nc" id="L163">        Button electricityBadge_6 = new Button();</span>
+<span class="nc" id="L164">        Button electricityBadge_7 = new Button();</span>
+<span class="nc" id="L165">        Button electricityBadge_8 = new Button();</span>
+<span class="nc" id="L166">        Button electricityBadge_9 = new Button();</span>
+<span class="nc" id="L167">        Button electricityBadge_10 = new Button();</span>
+
+<span class="nc" id="L169">        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);</span>
+<span class="nc" id="L170">        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);</span>
+<span class="nc" id="L171">        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);</span>
+<span class="nc" id="L172">        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);</span>
+<span class="nc" id="L173">        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);</span>
+<span class="nc" id="L174">        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);</span>
+<span class="nc" id="L175">        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);</span>
+<span class="nc" id="L176">        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);</span>
+<span class="nc" id="L177">        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);</span>
+<span class="nc" id="L178">        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);</span>
+
+<span class="nc" id="L180">        Label electricityLabel = new Label(&quot;ELECTRICITY&quot;);</span>
+<span class="nc" id="L181">        electricityLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+
+<span class="nc" id="L183">        electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,</span>
+                electricityBadge_6, electricityBadge_7, electricityBadge_8, electricityBadge_9, electricityBadge_10);
+
+<span class="nc" id="L186">        achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);</span>
+
+<span class="nc" id="L188">        grid.getChildren().setAll(achievements);</span>
+<span class="nc" id="L189">        achievements.setAlignment(Pos.CENTER);</span>
+
+<span class="nc" id="L191">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L192">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+
+<span class="nc" id="L194">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

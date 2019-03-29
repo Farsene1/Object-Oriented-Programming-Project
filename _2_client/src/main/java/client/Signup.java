@@ -22,6 +22,7 @@ public class Signup {
 
     public static void showSignup(Stage window){
 
+        String icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Signup");
@@ -82,7 +83,7 @@ public class Signup {
                     passwordInput2.clear();
                     // check if registration is possible
                     if(res.equals("/POST successful")){
-                        Home.showHome(window, user);
+                        Home.showHome(window, user, icon);
                     } 
                     else{
                         errorlabel.setText("ALREADY REGISTERED UP!");
@@ -99,7 +100,7 @@ public class Signup {
             }
         });
 
-        ImageView img= new ImageView("https://drive.google.com/uc?id=12Bowa9WczV-WVRlgH-zsZcdcSQyMa2nn");
+        ImageView img= new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
         img.setFitWidth(350);
         img.setFitHeight(350);
         img.setStyle("-fx-padding: 10");
@@ -129,7 +130,7 @@ public class Signup {
         bp.setBottom(test4);
 
         hbox.setStyle("-fx-padding: 0 0 0 20");
-        bp.setStyle("-fx-background-image: url('https://i.pinimg.com/originals/36/f7/3d/36f73d2a6d91981d5a3aa644d897d467.jpg');");
+        bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
         VBox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         VBox.setPadding(new Insets(20,60,40,60));
         VBox.setSpacing(30);

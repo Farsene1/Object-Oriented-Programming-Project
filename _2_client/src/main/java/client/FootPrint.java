@@ -3,6 +3,7 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
+import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -18,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -26,7 +28,11 @@ public class FootPrint {
 
     static TableView table = new TableView();
 
-    public static void showOptions(GridPane grid, Scene scene, User user) {
+
+    public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
+
+        String icon = UserBadge.getIcon();
+
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
@@ -70,14 +76,16 @@ public class FootPrint {
         Food.setOnAction(e -> {
             classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
 
         //My Transport footprint
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
-            classes.Transport transport = TransportBox.addVehicle("Transport Footprint","Select the transport option of your choice", user);
+            classes.Transport transport = TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
 
         //My Electricity footprint
@@ -86,16 +94,24 @@ public class FootPrint {
         Electricity.setOnAction(e -> {
             classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
             table.setItems(addItems(user));
+            polarscore.setText(user.getPolarScore().toString());
         });
+
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e->{
+            Home.showHome(window,user,icon);
+        });
+
+        GridPane.setConstraints(backButton,10,10);
 
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);
         TransportOptions.getChildren().addAll(TransportLabel, Transport);
         ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);
         HBox Hbox = new HBox();
-        Hbox.getChildren().addAll(FoodOptions,TransportOptions,ElectricityOptions);
+        Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);
         GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().addAll(Hbox, Footprint);
+        grid.getChildren().setAll(Hbox, Footprint,backButton);
 
         Food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         Transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
@@ -108,12 +124,10 @@ public class FootPrint {
         TransportOptions.setMinWidth(476);
     }
 
-    public  static ObservableList<Activity> addItems(User user)
-    {
+    public static ObservableList<Activity> addItems(User user) {
         ObservableList<Activity> activities = FXCollections.observableArrayList();
-        List<Activity> act= new Controller().getAllActivities(user);
-        for (Activity a : act)
-        {
+        List<Activity> act = new Controller().getAllActivities(user);
+        for (Activity a : act) {
             activities.add(a);
         }
         return activities;

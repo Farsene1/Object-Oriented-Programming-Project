@@ -14,7 +14,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(&quot;/friendship&quot;)
-<span class="nc" id="L17">public class FriendshipController {</span>
+<span class="fc" id="L17">public class FriendshipController {</span>
 
     /**
      * friendshipRepository.
@@ -35,26 +35,18 @@ import java.util.List;
     private UserRepository userRepository;
 
     /**
-     * default method.
-     */
-    @RequestMapping(&quot;/run&quot;)
-    public void setUp(){
-<span class="nc" id="L42">        this.friendRequestRepository.save(new FriendRequest(&quot;Flo&quot;,&quot;Tijs&quot;));</span>
-<span class="nc" id="L43">        this.friendRequestRepository.save(new FriendRequest(&quot;Hashim&quot;,&quot;Tijs&quot;));</span>
-<span class="nc" id="L44">    }</span>
-    /**
      * method for getting all the friends in the database.
      * @param username
      * @return response list.
      */
     @RequestMapping(&quot;/friends&quot;)
     public List&lt;User&gt; getAllFriends(@RequestBody String username) {
-<span class="nc" id="L52">        List&lt;String&gt; temp = friendshipRepository.getAllFriends(username);</span>
-<span class="nc" id="L53">        List&lt;User&gt; result = new ArrayList&lt;User&gt;();</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        for (String s : temp) {</span>
-<span class="nc" id="L55">            result.add(userRepository.findUserByUsername(s).get(0));</span>
-<span class="nc" id="L56">        }</span>
-<span class="nc" id="L57">        return result;</span>
+<span class="fc" id="L44">        List&lt;String&gt; temp = friendshipRepository.getAllFriends(username);</span>
+<span class="fc" id="L45">        List&lt;User&gt; result = new ArrayList&lt;User&gt;();</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (String s : temp) {</span>
+<span class="fc" id="L47">            result.add(userRepository.findUserByUsername(s).get(0));</span>
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49">        return result;</span>
     }
 
     /**
@@ -64,17 +56,17 @@ import java.util.List;
      */
     @RequestMapping(&quot;/request&quot;)
     public String makeRequest(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L67">        this.friendRequestRepository.save(friendRequest);</span>
-<span class="nc" id="L68">        return &quot;SENT&quot;;</span>
+<span class="fc" id="L59">        this.friendRequestRepository.save(friendRequest);</span>
+<span class="fc" id="L60">        return &quot;SENT&quot;;</span>
     }
 
     /**
      * method for getting all the friendRequests.
      */
     @RequestMapping(&quot;/getallrequests&quot;)
-    public List&lt;String&gt; getAllRequest(@RequestBody String username) {
-<span class="nc" id="L76">        List&lt;String&gt; list = friendRequestRepository.findAllRequestsFor(username);</span>
-<span class="nc" id="L77">        return list;</span>
+    public List&lt;FriendRequest&gt; getAllRequest(@RequestBody String username) {
+<span class="nc" id="L68">        List&lt;FriendRequest&gt; list = friendRequestRepository.findAllRequestsFor(username);</span>
+<span class="nc" id="L69">        return list;</span>
     }
 
     /**
@@ -82,10 +74,22 @@ import java.util.List;
      */
     @RequestMapping(&quot;/respond&quot;)
     public String respond(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L85">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
-<span class="nc" id="L86">        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));</span>
-<span class="nc" id="L87">        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));</span>
-<span class="nc" id="L88">        return &quot;OK&quot;;</span>
+<span class="nc" id="L77">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
+<span class="nc" id="L78">        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));</span>
+<span class="nc" id="L79">        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));</span>
+<span class="nc" id="L80">        return &quot;OK&quot;;</span>
     }
+
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
+<span class="fc" id="L84">        this.friendshipRepository = friendshipRepository;</span>
+<span class="fc" id="L85">    }</span>
+
+    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
+<span class="fc" id="L88">        this.friendRequestRepository = friendRequestRepository;</span>
+<span class="fc" id="L89">    }</span>
+
+    public void setUserRepository(UserRepository userRepository) {
+<span class="fc" id="L92">        this.userRepository = userRepository;</span>
+<span class="fc" id="L93">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

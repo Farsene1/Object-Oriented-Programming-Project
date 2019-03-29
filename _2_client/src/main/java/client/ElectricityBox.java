@@ -79,7 +79,7 @@ public class ElectricityBox {
                     score = 100 * total_hrs;
                 }
                 electricity.setScore(score);
-                new Controller().sendTransport(user, score);
+                new Controller().sendElectricity(user, score);
                 // add electricity in the database
                 Activity activity = new Activity(user.getUsername(), 3, "Electricity usage: " + total_hrs + " Hours",
                         electricity.getScore(), date);
