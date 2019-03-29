@@ -3,6 +3,7 @@ package client;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
+import classes.UserBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -20,8 +21,6 @@ import java.security.NoSuchAlgorithmException;
 public class Login {
 
     public static void showLogin(Stage window){
-        String icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
-
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;
         RestfulClient restfulClient = new RestfulClient();
@@ -57,7 +56,7 @@ public class Login {
                 if(res.equals("POSITIVE")){
                     // getting updates from the database
                     user = new Controller().getUpdates(user);
-                    Home.showHome(window, user, icon);
+                    Home.showHome(window, user);
                 }
                 else{
                     errorlabel.setText("INVALID CREDENTIALS");

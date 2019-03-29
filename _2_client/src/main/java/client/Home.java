@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class Home {
 
-    public static void showHome(Stage window, classes.User user, String icon) {
+    public static void showHome(Stage window, classes.User user) {
 
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
@@ -27,7 +27,7 @@ public class Home {
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img = new ImageView(icon);
+        ImageView img = new ImageView(UserBadge.iconChoice(user));
 
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 

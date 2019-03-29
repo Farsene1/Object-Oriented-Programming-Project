@@ -71,7 +71,7 @@ public class Friends {
         Col3.setMinWidth(300);
         //backButton
         backButton.setOnAction(e -> {
-            Home.showHome(window, user, icon);
+            Home.showHome(window, user);
         });
 
 

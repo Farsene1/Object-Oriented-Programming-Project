@@ -99,10 +99,11 @@ public class FootPrint {
 
         Button backButton = new Button("Back");
         backButton.setOnAction(e->{
-            Home.showHome(window,user,icon);
+            System.out.println("Icon url: "+icon);
+            Home.showHome(window, user);
         });
 
-        GridPane.setConstraints(backButton,10,10);
+        GridPane.setConstraints(backButton,1,10);
 
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);
