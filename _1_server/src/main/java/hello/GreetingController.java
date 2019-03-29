@@ -64,9 +64,9 @@ public class GreetingController {
      * @return List
      */
     @RequestMapping(value = "/statistics",
-            method = RequestMethod.GET)
-    public List<Statistics> getAllStats() {
-        return statisticsRepository.findAllStatistics();
+            method = RequestMethod.POST)
+    public List<Statistics> getAllStats(@RequestBody String username) {
+        return statisticsRepository.findStatisticsByUsername(username);
     }
 
 

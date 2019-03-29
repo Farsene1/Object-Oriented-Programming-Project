@@ -28,37 +28,31 @@ public class RestfulClient {
         return getResponse;
     }
 
-    public Integer getTotalFoodFootprint(Statistics statistics){
-        System.out.println("Beginning /GET request!");
-        String url = "http://localhost:8080/totalFood";
-        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-        System.out.println(res.toString());
-        return res.getBody();
-    }
+//    public Integer getTotalFoodFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalFood";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
+//
+//    public Integer getTotalTransportFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalTransport";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
+//
+//    public Integer getTotalElectricityFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalElectricity";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
 
-    public Integer getTotalTransportFootprint(Statistics statistics){
-        System.out.println("Beginning /GET request!");
-        String url = "http://localhost:8080/totalTransport";
-        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-        System.out.println(res.toString());
-        return res.getBody();
-    }
 
-    public Integer getTotalElectricityFootprint(Statistics statistics){
-        System.out.println("Beginning /GET request!");
-        String url = "http://localhost:8080/totalElectricity";
-        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-        System.out.println(res.toString());
-        return res.getBody();
-    }
-
-    public Integer getTotalFootprint(Statistics statistics){
-        System.out.println("Beginning /GET request!");
-        String url = "http://localhost:8080/total";
-        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-        System.out.println(res.toString());
-        return res.getBody();
-    }
 
     /**
      * method for leaderboard.
@@ -218,11 +212,12 @@ public class RestfulClient {
         this.restTemplate = restTemplate;
     }
 
-    //    public List<Transport> getAllVehicles(User user){
-//        String url = "http://localhost:8080/transport/add";
-//        List<Transport> res = restTemplate.postForObject(url, user, List.class);
-//        ObjectMapper mapper = new ObjectMapper();
-//        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
-//        return vehicles;
-//    }
+    public List<Statistics> getAllStatistics(String username) {
+        String url = "http://localhost:8080/statistics";
+        List<Statistics> res = restTemplate.postForObject(url, username, List.class);
+        System.out.println(res);
+        ObjectMapper mapper = new ObjectMapper();
+        List<Statistics> result = mapper.convertValue(res, new TypeReference<List<Statistics>>(){});
+        return result;
+    }
 }
