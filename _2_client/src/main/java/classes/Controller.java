@@ -115,6 +115,10 @@ public class Controller {
         return restfulClient.getAllFriendRequests(user);
     }
 
+    public List<User> get10Users(){
+        return this.restfulClient.get10Users();
+    }
+
     /**
      * This method checks for a valid email
      * @param email
