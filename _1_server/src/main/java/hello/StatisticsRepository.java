@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * interface for hibernate.
  */
-public interface StatisticsRepository extends CrudRepository<Statistics, Integer> { }
+public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {
+    
+}
