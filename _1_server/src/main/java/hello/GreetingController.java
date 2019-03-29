@@ -49,7 +49,13 @@ public class GreetingController {
         System.out.println("activities table updates");
         Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
         Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());
-        this.statisticsRepository.save(s1);
+        Statistics s = this.statisticsRepository.findStatisticByDate(activity.getDate());
+        if(s == null) {
+            this.statisticsRepository.save(s1);
+        }
+        else {
+            this.statisticsRepository.updateStatistic(sum, activity.getUsername());
+        }
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
 
