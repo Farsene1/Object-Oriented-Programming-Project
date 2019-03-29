@@ -36,6 +36,11 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             " polar_score = ?4 WHERE username = ?5", nativeQuery = true)
     void updateActivity(Integer food, Integer transport, Integer electricity, Integer polarScore, String username);
 
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users SET badge = ?1 WHERE username = ?2", nativeQuery = true)
+    void updateBadge(Integer badge, String username);
+
 }
 
 
