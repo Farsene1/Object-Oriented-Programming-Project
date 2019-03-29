@@ -25,6 +25,12 @@ public class GreetingController {
     private ActivityRepository activityRepository;
 
     /**
+     * autowiring statistics repo.
+     */
+    @Autowired
+    private StatisticsRepository statisticsRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
@@ -41,6 +47,8 @@ public class GreetingController {
     public List<Activity> addToActivitiesTable(@RequestBody Activity activity) {
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
+        Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
+        Statistics s1 = new Statistics(activity.getUsername(), activity.)
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
 
