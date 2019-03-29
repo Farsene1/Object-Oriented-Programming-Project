@@ -152,6 +152,11 @@ import java.util.List;
 <span class="nc" id="L152">        return new User(username, hash);</span>
     }
 
+    @RequestMapping(value = &quot;/leaderboard&quot;, method = RequestMethod.GET)
+    public List&lt;User&gt; leaderboard(){
+<span class="nc" id="L137">        return this.userRepository.getTopTen();</span>
+    }
+
     /**
      * default method for testing, dangerous to use.
      *
@@ -160,7 +165,11 @@ import java.util.List;
     @RequestMapping(value = &quot;/d398hasd98qhwd98qwhq9dhq8wdhw8whd&quot;,
             method = RequestMethod.GET)
     public List&lt;User&gt; getAll() {
+<<<<<<< HEAD
 <span class="nc" id="L163">        return userRepository.findAllUsers();</span>
+=======
+<span class="nc" id="L148">        return userRepository.findAllUsers();</span>
+>>>>>>> origin/master
     }
 
     /**
@@ -169,8 +178,13 @@ import java.util.List;
      * @param userRepository
      */
     public void setUserRepository(UserRepository userRepository) {
+<<<<<<< HEAD
 <span class="nc" id="L172">        this.userRepository = userRepository;</span>
 <span class="nc" id="L173">    }</span>
+=======
+<span class="nc" id="L157">        this.userRepository = userRepository;</span>
+<span class="nc" id="L158">    }</span>
+>>>>>>> origin/master
 
     /**
      * setting the repo.
@@ -178,7 +192,12 @@ import java.util.List;
      * @param activityRepository
      */
     public void setActivityRepository(ActivityRepository activityRepository) {
+<<<<<<< HEAD
 <span class="nc" id="L181">        this.activityRepository = activityRepository;</span>
 <span class="nc" id="L182">    }</span>
+=======
+<span class="nc" id="L166">        this.activityRepository = activityRepository;</span>
+<span class="nc" id="L167">    }</span>
+>>>>>>> origin/master
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

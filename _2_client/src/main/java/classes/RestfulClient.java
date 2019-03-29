@@ -3,9 +3,11 @@ package classes;
 import client.Statistics;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class RestfulClient {
@@ -56,6 +58,19 @@ public class RestfulClient {
         ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
         System.out.println(res.toString());
         return res.getBody();
+    }
+
+    /**
+     * method for leaderboard.
+     * @return list.
+     */
+    public List<User> get10Users(){
+        String url = "http://localhost:8080/leaderboard";
+        List<User> res = restTemplate.getForObject(url, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> users = mapper.convertValue(res, new TypeReference<List<User>>() {
+        });
+        return users;
     }
 
     /**
@@ -119,6 +134,14 @@ public class RestfulClient {
     public String activity(User user) {
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/activity";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        System.out.println("Response for get request");
+        return postResponse.getBody();
+    }
+
+    public String badge(User user){
+        System.out.println("beginning /updateBadge request");
+        String postUrl = "http://localhost:8080/updateBadge";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();

@@ -36,6 +36,16 @@ public class Controller {
     /**
      *
      * @param user
+     * @param badge
+     */
+    public void sendBadge(User user, int badge){
+        user.setBadge(badge);
+        restfulClient.badge(user);
+    }
+
+    /**
+     *
+     * @param user
      * @param amount
      * @return foodfootprint + amount of meals eaten
      */
@@ -103,6 +113,10 @@ public class Controller {
      */
     public List<FriendRequest> getAllRequests(User user){
         return restfulClient.getAllFriendRequests(user);
+    }
+
+    public List<User> get10Users(){
+        return this.restfulClient.get10Users();
     }
 
     /**

@@ -116,6 +116,17 @@ public class GreetingController {
     }
 
     /**
+     * 
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "/updateBadge")
+    public String updateBadge(@RequestBody User user){
+        this.userRepository.updateBadge(user.getBadge(), user.getUsername());
+        return "OK";
+    }
+
+    /**
      * waiting for @HASHIM to call it in the GUI.
      * * @param user
      *
@@ -158,6 +169,11 @@ public class GreetingController {
         return new User(username, hash);
     }
 
+    @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
+    public List<User> leaderboard(){
+        return this.userRepository.getTopTen();
+    }
+
     /**
      * default method for testing, dangerous to use.
      *
@@ -186,4 +202,5 @@ public class GreetingController {
     public void setActivityRepository(ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
+
 }

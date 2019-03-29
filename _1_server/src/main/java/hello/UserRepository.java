@@ -27,6 +27,10 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             nativeQuery = true)
     List<User> findUserByUsername(@Param("username") String username);
 
+    // TO BE TESTED - 3 for simplicity; it is going to be 10 in the future!;
+    @Query(value = "SELECT * from users order by polar_score desc limit 3", nativeQuery = true)
+    List<User> getTopTen();
+
     /**
      * Query to update a users attributes.
      */
@@ -39,6 +43,11 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 //    @Query(value = "SELECT username FROM users ORDER BY polarScore DESC LIMIT 10", nativeQuery = true)
 //    void totalScore();
 
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users SET badge = ?1 WHERE username = ?2", nativeQuery = true)
+    void updateBadge(Integer badge, String username);
 
 }
 
