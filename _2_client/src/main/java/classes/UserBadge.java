@@ -4,39 +4,39 @@ package classes;
 
 public class UserBadge {
 
-    static String icon = "";
+    static String icon = "https://i.ibb.co/THM6prg/polar1.png";
 
-    static public String iconChoice(int number){
-
+    static public String iconChoice(User user){
+        int number= user.getBadge();
         if(number == 1){
-          icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
+          icon = "https://i.ibb.co/THM6prg/polar1.png";
         }
         if(number == 2){
-            icon = "https://drive.google.com/uc?id=1QV1p0s_JHtBfTx8-Vh_LgbucCgYWULrp";
+            icon = "https://i.ibb.co/KjLc4HL/polar2.png";
         }
         if(number == 3){
-            icon = "https://drive.google.com/uc?id=1RDJ3LQ7I5Bkezp8TN9umqC3bV9Dc-Az2";
+            icon = "https://i.ibb.co/2K8g0Mg/polar3.png";
         }
         if(number == 4){
-            icon = "https://drive.google.com/uc?id=1x2eBc7C6S7y9AYmXgd_owcm3N-VGBBlC";
+            icon = "https://i.ibb.co/8YxhNJy/polar4.png";
         }
         if(number == 5){
-            icon = "https://drive.google.com/uc?id=1ntFWJcZznAGh-b_AMFEZHo3GKZrCQceq";
+            icon = "https://i.ibb.co/sPXB0BS/polar5.png";
         }
         if(number == 6){
-            icon = "https://drive.google.com/uc?id=1ED7zPRAKil8wndRIMN8pBL5Z-8Hcq9o1";
+            icon = "https://i.ibb.co/BBCjx1T/polar6.png";
         }
         if(number == 7){
-            icon = "https://drive.google.com/uc?id=1f9wOgt5n3evGQ7cEsxjUgHFue4cQsqN9";
+            icon = "https://i.ibb.co/4t0wztb/polar7.png";
         }
         if(number == 8){
-            icon = "https://drive.google.com/uc?id=1hK41zhyhu6m1sWMKT3pW7vvUzauo6GgU";
+            icon = "https://i.ibb.co/GCdqgpT/polar8.png";
         }
         if(number == 9){
-            icon = "https://drive.google.com/uc?id=1784LSh_R646fpocnFqSOTWsPNIBpZEBi";
+            icon = "https://i.ibb.co/0s5PX56/polar9.png";
         }
         if(number == 10){
-            icon = "https://drive.google.com/uc?id=1BMSYIYMAcyKqh4PdwnSCEJbW5n3WTjSS";
+            icon = "https://i.ibb.co/48GCprf/polar10.png";
         }
     return icon;
 }
