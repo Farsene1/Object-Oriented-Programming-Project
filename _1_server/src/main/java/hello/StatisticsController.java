@@ -22,40 +22,11 @@ public class StatisticsController {
     @Autowired
     private ActivityRepository activityRepository;
 
-    /**
-     * addTotalFoodFootprint
-     */
-    @RequestMapping(value = "/totalFood", method = RequestMethod.POST)
-    public Integer addFoodToStatisticsTable(@RequestBody Statistics statistics) {
-        this.statisticsRepository.save(statistics);
-        System.out.println("statistics table updates");
-        return this.activityRepository.totalFoodFootprint(statistics.getUsername(), statistics.getDate());
-    }
-
-    /**
-     * addTotalTransportFootprint
-     */
-    @RequestMapping(value = "/totalTransport", method = RequestMethod.POST)
-    public Integer addTransportToStatisticsTable(@RequestBody Statistics statistics) {
-        this.statisticsRepository.save(statistics);
-        System.out.println("statistics table updates");
-        return this.activityRepository.totalTransportFootprint(statistics.getUsername(), statistics.getDate());
-    }
-
-    /**
-     * addTotalElectricityFootprint
-     */
-    @RequestMapping(value = "/totalElectricity", method = RequestMethod.POST)
-    public Integer addElectricityToStatisticsTable(@RequestBody Statistics statistics) {
-        this.statisticsRepository.save(statistics);
-        System.out.println("statistics table updates");
-        return this.activityRepository.totalElectricityFootprint(statistics.getUsername(), statistics.getDate());
-    }
 
     /**
      * addTotalFootprint
      */
-    @RequestMapping(value = "/total", method = RequestMethod.POST)
+    @RequestMapping(value = "/totalFootprint", method = RequestMethod.POST)
     public Integer addTotalFootprintToStatisticsTable(@RequestBody Statistics statistics) {
         this.statisticsRepository.save(statistics);
         System.out.println("statistics table updates");
@@ -71,3 +42,34 @@ public class StatisticsController {
         this.statisticsRepository = statisticsRepository;
     }
 }
+
+//    /**
+//     * addTotalFoodFootprint
+//     */
+//    @RequestMapping(value = "/totalFood", method = RequestMethod.POST)
+//    public Integer addFoodToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println("statistics table updates");
+//        return this.activityRepository.totalFoodFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+//
+//    /**
+//     * addTotalTransportFootprint
+//     */
+//    @RequestMapping(value = "/totalTransport", method = RequestMethod.POST)
+//    public Integer addTransportToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println("statistics table updates");
+//        return this.activityRepository.totalTransportFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+//
+//    /**
+//     * addTotalElectricityFootprint
+//     */
+//    @RequestMapping(value = "/totalElectricity", method = RequestMethod.POST)
+//    public Integer addElectricityToStatisticsTable(@RequestBody Statistics statistics) {
+//        this.statisticsRepository.save(statistics);
+//        System.out.println("statistics table updates");
+//        return this.activityRepository.totalElectricityFootprint(statistics.getUsername(), statistics.getDate());
+//    }
+
