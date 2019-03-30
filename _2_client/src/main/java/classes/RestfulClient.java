@@ -3,11 +3,9 @@ package classes;
 import client.Statistics;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class RestfulClient {
@@ -27,32 +25,6 @@ public class RestfulClient {
         System.out.println(getResponse.toString());
         return getResponse;
     }
-
-//    public Integer getTotalFoodFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalFood";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-//
-//    public Integer getTotalTransportFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalTransport";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-//
-//    public Integer getTotalElectricityFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalElectricity";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-
-
 
     /**
      * method for leaderboard.
