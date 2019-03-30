@@ -1,5 +1,6 @@
 package client;
 
+import com.jfoenix.controls.JFXSnackbar;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -37,4 +38,5 @@ public class CSS {
                 .then("")
                 .otherwise(""));
     }
+
 }
