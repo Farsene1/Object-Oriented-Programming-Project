@@ -42,14 +42,44 @@ public class FriendshipControllerTest {
     @Test
     public void getAllRequestsTest() {
         Mockito.when(friendRequestRepository.findAllRequestsFor("admin")).thenReturn(Arrays.asList(new FriendRequest(), new FriendRequest()));
-        List<FriendRequest> list = friendshipController.getAllRequest(new User("admin","root"));
+        List<FriendRequest> list = friendshipController.getAllRequest(new User("admin", "root"));
         assertEquals(2, list.size());
     }
 
     @Test
-    public void makeRequestTest() {
+    public void makeRequestTestPass() {
         FriendRequest f = new FriendRequest("a", "b");
         assertEquals("SENT", friendshipController.makeRequest(f));
+    }
+
+    @Test
+    public void makeRequestTestFail() {
+        FriendRequest f = new FriendRequest("a", "a");
+        assertEquals("SENT2", friendshipController.makeRequest(f));
+    }
+
+    @Test
+    public void makeRequestTestFail2(){
+        FriendRequest f1 = new FriendRequest("admin1","admin2");
+        Mockito.when(friendshipRepository.getAllFriends("admin1"))
+                .thenReturn(Arrays.asList("admin2"));
+        assertEquals("SENT2",friendshipController.makeRequest(f1));
+    }
+
+    @Test
+    public void makeRequestTest2LoopTest(){
+        FriendRequest f1 = new FriendRequest("admin1","admin2");
+        Mockito.when(friendRequestRepository.findAllRequestsFor("admin2"))
+                .thenReturn(Arrays.asList(new FriendRequest("admin1","admin2")));
+        assertEquals("SENT2", friendshipController.makeRequest(f1));
+    }
+
+    @Test
+    public void MakeRequestTest1LoopTest(){
+        FriendRequest f1 = new FriendRequest("admin1","admin2");
+        Mockito.when(friendRequestRepository.findAllRequestsFor("admin1"))
+                .thenReturn(Arrays.asList(new FriendRequest("admin2","admin1")));
+        assertEquals("SENT2", friendshipController.makeRequest(f1));
     }
 
     @Test
