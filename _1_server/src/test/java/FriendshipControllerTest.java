@@ -1,10 +1,11 @@
-import hello.FriendRequestRepository;
-import hello.FriendshipController;
-import hello.FriendshipRepository;
-import hello.UserRepository;
+import hello.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FriendshipControllerTest {
     @Autowired
@@ -19,12 +20,12 @@ public class FriendshipControllerTest {
     @MockBean
     private UserRepository userRepository = Mockito.mock(UserRepository.class);
 
-//    @Before
-//    public void setUp(){
-//        friendshipController.setFriendRequestRepository(friendRequestRepository);
-//        friendshipController.setFriendshipRepository(friendshipRepository);
-//        friendshipController.setUserRepository(userRepository);
-//    }
+    @BeforeEach
+    public void setUp(){
+        friendshipController.setFriendRequestRepository(friendRequestRepository);
+        friendshipController.setFriendshipRepository(friendshipRepository);
+        friendshipController.setUserRepository(userRepository);
+    }
 //
 //    @Test
 //    public void getAllFriendsTest(){
@@ -35,10 +36,10 @@ public class FriendshipControllerTest {
 //        assertEquals(2,list.size());
 //    }
 //
-//    @Test
-//    public void makeRequestTest(){
-//        FriendRequest f = new FriendRequest("a","b");
-//        assertEquals("SENT",friendshipController.makeRequest(f));
-//    }
+    @Test
+    public void makeRequestTest(){
+        FriendRequest f = new FriendRequest("a","b");
+        assertEquals("SENT",friendshipController.makeRequest(f));
+    }
 
 }
