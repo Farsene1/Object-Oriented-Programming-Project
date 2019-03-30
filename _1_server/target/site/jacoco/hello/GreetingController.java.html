@@ -25,13 +25,19 @@ import java.util.List;
     private ActivityRepository activityRepository;
 
     /**
+     * autowiring statistics repo.
+     */
+    @Autowired
+    private StatisticsRepository statisticsRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
      */
     @RequestMapping(&quot;/&quot;)
     public String getRootPath() {
-<span class="nc" id="L34">        return &quot;this is the default page&quot;;</span>
+<span class="nc" id="L40">        return &quot;this is the default page&quot;;</span>
     }
 
     /**
@@ -39,10 +45,24 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/test&quot;, method = RequestMethod.POST)
     public List&lt;Activity&gt; addToActivitiesTable(@RequestBody Activity activity) {
-<span class="nc" id="L42">        this.activityRepository.save(activity);</span>
-<span class="nc" id="L43">        System.out.println(&quot;activities table updates&quot;);</span>
-<span class="nc" id="L44">        return this.activityRepository.findActivitiesByUser(activity.getUsername());</span>
+<span class="nc" id="L48">        this.activityRepository.save(activity);</span>
+<span class="nc" id="L49">        System.out.println(&quot;activities table updates&quot;);</span>
+<span class="nc" id="L50">        Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());</span>
+<span class="nc" id="L51">        Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());</span>
+<span class="nc" id="L52">        this.statisticsRepository.save(s1);</span>
+<span class="nc" id="L53">        return this.activityRepository.findActivitiesByUser(activity.getUsername());</span>
     }
+
+    /**
+     *
+     * @return List
+     */
+    @RequestMapping(value = &quot;/statistics&quot;,
+            method = RequestMethod.GET)
+    public List&lt;Statistics&gt; getAllStats() {
+<span class="nc" id="L63">        return statisticsRepository.findAllStatistics();</span>
+    }
+
 
     /**
      * @param user
@@ -50,7 +70,7 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/firstactivities&quot;, method = RequestMethod.POST)
     public List&lt;Activity&gt; getUpdatesActivities(@RequestBody User user) {
-<span class="nc" id="L53">        return this.activityRepository.findActivitiesByUser(user.getUsername());</span>
+<span class="nc" id="L73">        return this.activityRepository.findActivitiesByUser(user.getUsername());</span>
     }
 
     /**
@@ -61,13 +81,13 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/post&quot;, method = RequestMethod.POST)
     public String postMethod(@RequestBody User user) {
-<span class="nc" id="L64">        List&lt;User&gt; users = this.userRepository</span>
-<span class="nc" id="L65">                .findUserByUsername(user.getUsername());</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (users.size() == 0) {</span>
-<span class="nc" id="L67">            this.userRepository.save(user);</span>
-<span class="nc" id="L68">            return &quot;/POST successful&quot;;</span>
+<span class="nc" id="L84">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L85">                .findUserByUsername(user.getUsername());</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (users.size() == 0) {</span>
+<span class="nc" id="L87">            this.userRepository.save(user);</span>
+<span class="nc" id="L88">            return &quot;/POST successful&quot;;</span>
         } else {
-<span class="nc" id="L70">            return &quot;/POST failed&quot;;</span>
+<span class="nc" id="L90">            return &quot;/POST failed&quot;;</span>
         }
     }
 
@@ -79,13 +99,13 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/login&quot;, method = RequestMethod.POST)
     public String login(@RequestBody User user) {
-<span class="nc" id="L82">        List&lt;User&gt; users = this.userRepository</span>
-<span class="nc" id="L83">                .findUserByUsername(user.getUsername());</span>
-<span class="nc" id="L84">        String hash2 = user.getHash();</span>
-<span class="nc bnc" id="L85" title="All 4 branches missed.">        if (users.size() &gt; 0 &amp;&amp; users.get(0).getHash().equals(hash2)) {</span>
-<span class="nc" id="L86">            return &quot;POSITIVE&quot;;</span>
+<span class="nc" id="L102">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L103">                .findUserByUsername(user.getUsername());</span>
+<span class="nc" id="L104">        String hash2 = user.getHash();</span>
+<span class="nc bnc" id="L105" title="All 4 branches missed.">        if (users.size() &gt; 0 &amp;&amp; users.get(0).getHash().equals(hash2)) {</span>
+<span class="nc" id="L106">            return &quot;POSITIVE&quot;;</span>
         } else {
-<span class="nc" id="L88">            return &quot;NEGATIVE&quot;;</span>
+<span class="nc" id="L108">            return &quot;NEGATIVE&quot;;</span>
         }
     }
 
@@ -97,10 +117,10 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/activity&quot;, method = RequestMethod.POST)
     public String addActivity(@RequestBody User user) {
-<span class="nc" id="L100">        System.out.println(&quot;No pain no gain&quot;);</span>
-<span class="nc" id="L101">        this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(),</span>
-<span class="nc" id="L102">                user.getElectricityScore(), user.getPolarScore(), user.getUsername());</span>
-<span class="nc" id="L103">        return &quot;OK&quot;;</span>
+<span class="nc" id="L120">        System.out.println(&quot;No pain no gain&quot;);</span>
+<span class="nc" id="L121">        this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(),</span>
+<span class="nc" id="L122">                user.getElectricityScore(), user.getPolarScore(), user.getUsername());</span>
+<span class="nc" id="L123">        return &quot;OK&quot;;</span>
     }
 
     /**
@@ -108,9 +128,9 @@ import java.util.List;
      */
     @RequestMapping(value = &quot;/requestforupdate&quot;, method = RequestMethod.POST)
     public User getUpdates(@RequestBody User user) {
-<span class="nc" id="L111">        List&lt;User&gt; users = this.userRepository</span>
-<span class="nc" id="L112">                .findUserByUsername(user.getUsername());</span>
-<span class="nc" id="L113">        return users.get(0);</span>
+<span class="nc" id="L131">        List&lt;User&gt; users = this.userRepository</span>
+<span class="nc" id="L132">                .findUserByUsername(user.getUsername());</span>
+<span class="nc" id="L133">        return users.get(0);</span>
     }
 
     /**
@@ -126,10 +146,15 @@ import java.util.List;
                                  String username,
                          @RequestParam(value = &quot;hash&quot;, defaultValue = &quot;0&quot;)
                                  String hash) {
-<span class="nc" id="L129">        String info = String.format(</span>
+<span class="nc" id="L149">        String info = String.format(</span>
                 &quot;/GET REQUEST info: username=%s, hash=%s&quot;, username, hash);
-<span class="nc" id="L131">        System.out.println(info);</span>
-<span class="nc" id="L132">        return new User(username, hash);</span>
+<span class="nc" id="L151">        System.out.println(info);</span>
+<span class="nc" id="L152">        return new User(username, hash);</span>
+    }
+
+    @RequestMapping(value = &quot;/leaderboard&quot;, method = RequestMethod.GET)
+    public List&lt;User&gt; leaderboard(){
+<span class="nc" id="L137">        return this.userRepository.getTopTen();</span>
     }
 
     /**
@@ -140,7 +165,11 @@ import java.util.List;
     @RequestMapping(value = &quot;/d398hasd98qhwd98qwhq9dhq8wdhw8whd&quot;,
             method = RequestMethod.GET)
     public List&lt;User&gt; getAll() {
-<span class="nc" id="L143">        return userRepository.findAllUsers();</span>
+<<<<<<< HEAD
+<span class="nc" id="L163">        return userRepository.findAllUsers();</span>
+=======
+<span class="nc" id="L148">        return userRepository.findAllUsers();</span>
+>>>>>>> origin/master
     }
 
     /**
@@ -149,8 +178,13 @@ import java.util.List;
      * @param userRepository
      */
     public void setUserRepository(UserRepository userRepository) {
-<span class="nc" id="L152">        this.userRepository = userRepository;</span>
-<span class="nc" id="L153">    }</span>
+<<<<<<< HEAD
+<span class="nc" id="L172">        this.userRepository = userRepository;</span>
+<span class="nc" id="L173">    }</span>
+=======
+<span class="nc" id="L157">        this.userRepository = userRepository;</span>
+<span class="nc" id="L158">    }</span>
+>>>>>>> origin/master
 
     /**
      * setting the repo.
@@ -158,7 +192,12 @@ import java.util.List;
      * @param activityRepository
      */
     public void setActivityRepository(ActivityRepository activityRepository) {
-<span class="nc" id="L161">        this.activityRepository = activityRepository;</span>
-<span class="nc" id="L162">    }</span>
+<<<<<<< HEAD
+<span class="nc" id="L181">        this.activityRepository = activityRepository;</span>
+<span class="nc" id="L182">    }</span>
+=======
+<span class="nc" id="L166">        this.activityRepository = activityRepository;</span>
+<span class="nc" id="L167">    }</span>
+>>>>>>> origin/master
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

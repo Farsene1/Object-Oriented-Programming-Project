@@ -25,6 +25,12 @@ public class GreetingController {
     private ActivityRepository activityRepository;
 
     /**
+     * autowiring statistics repo.
+     */
+    @Autowired
+    private StatisticsRepository statisticsRepository;
+
+    /**
      * default path for testing.
      *
      * @return String
@@ -41,8 +47,28 @@ public class GreetingController {
     public List<Activity> addToActivitiesTable(@RequestBody Activity activity) {
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
+        Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
+        Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());
+        Statistics s = this.statisticsRepository.findStatisticByDate(activity.getDate());
+        if(s == null) {
+            this.statisticsRepository.save(s1);
+        }
+        else {
+            this.statisticsRepository.updateStatistic(sum, activity.getUsername());
+        }
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
+
+    /**
+     *
+     * @return List
+     */
+    @RequestMapping(value = "/statistics",
+            method = RequestMethod.POST)
+    public List<Statistics> getAllStats(@RequestBody String username) {
+        return statisticsRepository.findStatisticsByUsername(username);
+    }
+
 
     /**
      * @param user
@@ -90,6 +116,17 @@ public class GreetingController {
     }
 
     /**
+     * 
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "/updateBadge")
+    public String updateBadge(@RequestBody User user){
+        this.userRepository.updateBadge(user.getBadge(), user.getUsername());
+        return "OK";
+    }
+
+    /**
      * waiting for @HASHIM to call it in the GUI.
      * * @param user
      *
@@ -132,6 +169,11 @@ public class GreetingController {
         return new User(username, hash);
     }
 
+    @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
+    public List<User> leaderboard(){
+        return this.userRepository.getTopTen();
+    }
+
     /**
      * default method for testing, dangerous to use.
      *
@@ -160,4 +202,5 @@ public class GreetingController {
     public void setActivityRepository(ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
+
 }

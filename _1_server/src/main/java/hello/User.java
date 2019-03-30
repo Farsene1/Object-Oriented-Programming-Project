@@ -47,7 +47,7 @@ public class User implements Serializable {
     /**
      * Attribute date declared as type timestamp.
      */
-    private Integer badge = 0;
+    private Integer badge = 1;
 
     @OneToMany
     @JoinColumn(name = "userId")

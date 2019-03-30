@@ -1,5 +1,6 @@
 package classes;
 
+import client.Statistics;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
@@ -36,6 +37,20 @@ public class Controller {
     /**
      *
      * @param user
+     * @param badge
+     */
+    public void sendBadge(User user, int badge){
+        user.setBadge(badge);
+        restfulClient.badge(user);
+    }
+
+    public List<Statistics> getStatistics(String username) {
+        return this.restfulClient.getAllStatistics(username);
+    }
+
+    /**
+     *
+     * @param user
      * @param amount
      * @return foodfootprint + amount of meals eaten
      */
@@ -67,6 +82,46 @@ public class Controller {
         user.setElectricityScore(amount + user.getElectricityScore());
         user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayYes(FriendRequest friendRequest) {
+        return restfulClient.respond(friendRequest);
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayNo(FriendRequest friendRequest) {
+        return restfulClient.fakeRespond(friendRequest);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<User> getAllFriends(User user) {
+        return restfulClient.getAllFriends(user);
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List<FriendRequest> getAllRequests(User user){
+        return restfulClient.getAllFriendRequests(user);
+    }
+
+    public List<User> get10Users(){
+        return this.restfulClient.get10Users();
     }
 
     /**

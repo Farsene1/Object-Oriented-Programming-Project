@@ -22,6 +22,7 @@ public class Signup {
 
     public static void showSignup(Stage window){
 
+        String icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Signup");

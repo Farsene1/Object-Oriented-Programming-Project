@@ -3,6 +3,7 @@ package client;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
+import classes.UserBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 import java.security.NoSuchAlgorithmException;
 
 public class Login {
+
     public static void showLogin(Stage window){
         JFXTextField usernameInput;
         JFXPasswordField passwordInput;

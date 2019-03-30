@@ -22,128 +22,129 @@ import static client.ValidatePassword.validatePassword;
 
     public static void showSignup(Stage window){
 
-<span class="nc" id="L25">        RestfulClient restfulClient = new RestfulClient();</span>
-<span class="nc" id="L26">        restfulClient.getEntity();</span>
-<span class="nc" id="L27">        window.setTitle(&quot;Signup&quot;);</span>
-<span class="nc" id="L28">        BorderPane bp= new BorderPane();</span>
-<span class="nc" id="L29">        VBox VBox = new VBox();</span>
-<span class="nc" id="L30">        VBox.setPadding(new Insets(10, 10, 10, 10));</span>
+<span class="nc" id="L25">        String icon = &quot;https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_&quot;;</span>
+<span class="nc" id="L26">        RestfulClient restfulClient = new RestfulClient();</span>
+<span class="nc" id="L27">        restfulClient.getEntity();</span>
+<span class="nc" id="L28">        window.setTitle(&quot;Signup&quot;);</span>
+<span class="nc" id="L29">        BorderPane bp= new BorderPane();</span>
+<span class="nc" id="L30">        VBox VBox = new VBox();</span>
+<span class="nc" id="L31">        VBox.setPadding(new Insets(10, 10, 10, 10));</span>
 
         //username-r Input
-<span class="nc" id="L33">        JFXTextField usernameInput = new JFXTextField();</span>
-<span class="nc" id="L34">        usernameInput.setPromptText(&quot;username&quot;);</span>
-<span class="nc" id="L35">        usernameInput.setLabelFloat(true);</span>
+<span class="nc" id="L34">        JFXTextField usernameInput = new JFXTextField();</span>
+<span class="nc" id="L35">        usernameInput.setPromptText(&quot;username&quot;);</span>
+<span class="nc" id="L36">        usernameInput.setLabelFloat(true);</span>
 
        //Password Input
-<span class="nc" id="L38">        JFXPasswordField passwordInput = new JFXPasswordField();</span>
-<span class="nc" id="L39">        passwordInput.setPromptText(&quot;password&quot;);</span>
-<span class="nc" id="L40">        passwordInput.setLabelFloat(true);</span>
+<span class="nc" id="L39">        JFXPasswordField passwordInput = new JFXPasswordField();</span>
+<span class="nc" id="L40">        passwordInput.setPromptText(&quot;password&quot;);</span>
+<span class="nc" id="L41">        passwordInput.setLabelFloat(true);</span>
 
         //password2 Input
-<span class="nc" id="L43">        JFXPasswordField passwordInput2 = new JFXPasswordField();</span>
-<span class="nc" id="L44">        passwordInput2.setPromptText(&quot;confirm password&quot;);</span>
-<span class="nc" id="L45">        passwordInput2.setLabelFloat(true);</span>
+<span class="nc" id="L44">        JFXPasswordField passwordInput2 = new JFXPasswordField();</span>
+<span class="nc" id="L45">        passwordInput2.setPromptText(&quot;confirm password&quot;);</span>
+<span class="nc" id="L46">        passwordInput2.setLabelFloat(true);</span>
 
-<span class="nc" id="L47">        Button back= new Button();</span>
-<span class="nc" id="L48">        back.setOnAction(e-&gt;{Login.showLogin(window);});</span>
-<span class="nc" id="L49">        back.setAlignment(Pos.TOP_LEFT);</span>
+<span class="nc" id="L48">        Button back= new Button();</span>
+<span class="nc" id="L49">        back.setOnAction(e-&gt;{Login.showLogin(window);});</span>
+<span class="nc" id="L50">        back.setAlignment(Pos.TOP_LEFT);</span>
 
 
 
         //Register
-<span class="nc" id="L54">        Button register = new Button(&quot;Register&quot;);</span>
-<span class="nc" id="L55">        register.setDefaultButton(true);</span>
-<span class="nc" id="L56">        Label errorlabel = new Label();</span>
-<span class="nc" id="L57">        errorlabel.setVisible(false);</span>
-<span class="nc" id="L58">        errorlabel.setStyle(&quot;-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0&quot;);</span>
-<span class="nc" id="L59">        register.setOnAction(e -&gt; {</span>
-<span class="nc" id="L60">            int step = 0;</span>
-<span class="nc" id="L61">            String valid = validatePassword(passwordInput.getText());</span>
-<span class="nc bnc" id="L62" title="All 2 branches missed.">            if (passwordInput.getText().equals(passwordInput2.getText())) {</span>
-<span class="nc" id="L63">                String Password = passwordInput.getText();</span>
-<span class="nc" id="L64">                step = 1;</span>
-<span class="nc" id="L65">            }</span>
+<span class="nc" id="L55">        Button register = new Button(&quot;Register&quot;);</span>
+<span class="nc" id="L56">        register.setDefaultButton(true);</span>
+<span class="nc" id="L57">        Label errorlabel = new Label();</span>
+<span class="nc" id="L58">        errorlabel.setVisible(false);</span>
+<span class="nc" id="L59">        errorlabel.setStyle(&quot;-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0&quot;);</span>
+<span class="nc" id="L60">        register.setOnAction(e -&gt; {</span>
+<span class="nc" id="L61">            int step = 0;</span>
+<span class="nc" id="L62">            String valid = validatePassword(passwordInput.getText());</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (passwordInput.getText().equals(passwordInput2.getText())) {</span>
+<span class="nc" id="L64">                String Password = passwordInput.getText();</span>
+<span class="nc" id="L65">                step = 1;</span>
+<span class="nc" id="L66">            }</span>
             else
             {
-<span class="nc" id="L68">                errorlabel.setText(&quot;The entered passwords do not match.&quot;);</span>
-<span class="nc" id="L69">                errorlabel.setVisible(true);</span>
+<span class="nc" id="L69">                errorlabel.setText(&quot;The entered passwords do not match.&quot;);</span>
+<span class="nc" id="L70">                errorlabel.setVisible(true);</span>
             }
 
-<span class="nc bnc" id="L72" title="All 4 branches missed.">            if (step == 1 &amp;&amp; valid.equals(&quot;valid&quot;)) {</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">            if (step == 1 &amp;&amp; valid.equals(&quot;valid&quot;)) {</span>
                 try {
-<span class="nc" id="L74">                    User user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), &quot;SHA-256&quot;));</span>
-<span class="nc" id="L75">                    String res = new Controller().signUp(user);</span>
+<span class="nc" id="L75">                    User user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), &quot;SHA-256&quot;));</span>
+<span class="nc" id="L76">                    String res = new Controller().signUp(user);</span>
 
-<span class="nc" id="L77">                    System.out.println(&quot;Username: &quot; + usernameInput.getText());</span>
-<span class="nc" id="L78">                    System.out.println(&quot;Password hash: &quot; + Hash.generateHash(passwordInput.getText(), &quot;SHA-256&quot;));</span>
+<span class="nc" id="L78">                    System.out.println(&quot;Username: &quot; + usernameInput.getText());</span>
+<span class="nc" id="L79">                    System.out.println(&quot;Password hash: &quot; + Hash.generateHash(passwordInput.getText(), &quot;SHA-256&quot;));</span>
 
-<span class="nc" id="L80">                    usernameInput.clear();</span>
-<span class="nc" id="L81">                    passwordInput.clear();</span>
-<span class="nc" id="L82">                    passwordInput2.clear();</span>
+<span class="nc" id="L81">                    usernameInput.clear();</span>
+<span class="nc" id="L82">                    passwordInput.clear();</span>
+<span class="nc" id="L83">                    passwordInput2.clear();</span>
                     // check if registration is possible
-<span class="nc bnc" id="L84" title="All 2 branches missed.">                    if(res.equals(&quot;/POST successful&quot;)){</span>
-<span class="nc" id="L85">                        Home.showHome(window, user);</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">                    if(res.equals(&quot;/POST successful&quot;)){</span>
+<span class="nc" id="L86">                        Home.showHome(window, user, icon);</span>
                     } 
                     else{
-<span class="nc" id="L88">                        errorlabel.setText(&quot;ALREADY REGISTERED UP!&quot;);</span>
-<span class="nc" id="L89">                        errorlabel.setVisible(true);</span>
+<span class="nc" id="L89">                        errorlabel.setText(&quot;ALREADY REGISTERED UP!&quot;);</span>
+<span class="nc" id="L90">                        errorlabel.setVisible(true);</span>
                     }
-<span class="nc" id="L91">                } catch (NoSuchAlgorithmException error) {</span>
-<span class="nc" id="L92">                    AlertBox.display(&quot;ERROR&quot;, &quot;No such algorithm exception&quot;);</span>
-<span class="nc" id="L93">                    error.printStackTrace();</span>
-<span class="nc" id="L94">                }</span>
+<span class="nc" id="L92">                } catch (NoSuchAlgorithmException error) {</span>
+<span class="nc" id="L93">                    AlertBox.display(&quot;ERROR&quot;, &quot;No such algorithm exception&quot;);</span>
+<span class="nc" id="L94">                    error.printStackTrace();</span>
+<span class="nc" id="L95">                }</span>
             }
-<span class="nc bnc" id="L96" title="All 2 branches missed.">            else if (step == 1){</span>
-<span class="nc" id="L97">                    errorlabel.setText(validatePassword(passwordInput.getText()));</span>
-<span class="nc" id="L98">                    errorlabel.setVisible(true);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">            else if (step == 1){</span>
+<span class="nc" id="L98">                    errorlabel.setText(validatePassword(passwordInput.getText()));</span>
+<span class="nc" id="L99">                    errorlabel.setVisible(true);</span>
             }
-<span class="nc" id="L100">        });</span>
+<span class="nc" id="L101">        });</span>
 
-<span class="nc" id="L102">        ImageView img= new ImageView(&quot;https://i.ibb.co/qskM93N/polar-alpha.png&quot;);</span>
-<span class="nc" id="L103">        img.setFitWidth(350);</span>
-<span class="nc" id="L104">        img.setFitHeight(350);</span>
-<span class="nc" id="L105">        img.setStyle(&quot;-fx-padding: 10&quot;);</span>
+<span class="nc" id="L103">        ImageView img= new ImageView(&quot;https://i.ibb.co/qskM93N/polar-alpha.png&quot;);</span>
+<span class="nc" id="L104">        img.setFitWidth(350);</span>
+<span class="nc" id="L105">        img.setFitHeight(350);</span>
+<span class="nc" id="L106">        img.setStyle(&quot;-fx-padding: 10&quot;);</span>
 
-<span class="nc" id="L107">        Pane backpane= new Pane();</span>
-<span class="nc" id="L108">        backpane.setMinWidth(300);</span>
+<span class="nc" id="L108">        Pane backpane= new Pane();</span>
+<span class="nc" id="L109">        backpane.setMinWidth(300);</span>
 
         //Add everything to grid
-<span class="nc" id="L111">        HBox hbox= new HBox();</span>
-<span class="nc" id="L112">        hbox.getChildren().addAll(back,backpane);</span>
+<span class="nc" id="L112">        HBox hbox= new HBox();</span>
+<span class="nc" id="L113">        hbox.getChildren().addAll(back,backpane);</span>
 
-<span class="nc" id="L114">        VBox.getChildren().addAll(hbox,img,usernameInput, passwordInput,passwordInput2, errorlabel, register);</span>
+<span class="nc" id="L115">        VBox.getChildren().addAll(hbox,img,usernameInput, passwordInput,passwordInput2, errorlabel, register);</span>
 
-<span class="nc" id="L116">        Pane test1=new Pane();</span>
-<span class="nc" id="L117">        Pane test2=new Pane();</span>
-<span class="nc" id="L118">        Pane test3=new Pane();</span>
-<span class="nc" id="L119">        Pane test4=new Pane();</span>
-<span class="nc" id="L120">        test1.setMinWidth(675);</span>
-<span class="nc" id="L121">        test2.setMinWidth(675);</span>
-<span class="nc" id="L122">        test3.setPrefHeight(100);</span>
-<span class="nc" id="L123">        test4.setPrefHeight(100);</span>
+<span class="nc" id="L117">        Pane test1=new Pane();</span>
+<span class="nc" id="L118">        Pane test2=new Pane();</span>
+<span class="nc" id="L119">        Pane test3=new Pane();</span>
+<span class="nc" id="L120">        Pane test4=new Pane();</span>
+<span class="nc" id="L121">        test1.setMinWidth(675);</span>
+<span class="nc" id="L122">        test2.setMinWidth(675);</span>
+<span class="nc" id="L123">        test3.setPrefHeight(100);</span>
+<span class="nc" id="L124">        test4.setPrefHeight(100);</span>
 
-<span class="nc" id="L125">        bp.setCenter(VBox);</span>
-<span class="nc" id="L126">        bp.setLeft(test1);</span>
-<span class="nc" id="L127">        bp.setRight(test2);</span>
-<span class="nc" id="L128">        bp.setTop(test3);</span>
-<span class="nc" id="L129">        bp.setBottom(test4);</span>
+<span class="nc" id="L126">        bp.setCenter(VBox);</span>
+<span class="nc" id="L127">        bp.setLeft(test1);</span>
+<span class="nc" id="L128">        bp.setRight(test2);</span>
+<span class="nc" id="L129">        bp.setTop(test3);</span>
+<span class="nc" id="L130">        bp.setBottom(test4);</span>
 
-<span class="nc" id="L131">        hbox.setStyle(&quot;-fx-padding: 0 0 0 20&quot;);</span>
-<span class="nc" id="L132">        bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
-<span class="nc" id="L133">        VBox.setStyle(&quot;-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt&quot;);</span>
-<span class="nc" id="L134">        VBox.setPadding(new Insets(20,60,40,60));</span>
-<span class="nc" id="L135">        VBox.setSpacing(30);</span>
-<span class="nc" id="L136">        CSS.setSmallButtonStyle(register);</span>
-<span class="nc" id="L137">        CSS.setBackButtonStyle(back);</span>
+<span class="nc" id="L132">        hbox.setStyle(&quot;-fx-padding: 0 0 0 20&quot;);</span>
+<span class="nc" id="L133">        bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
+<span class="nc" id="L134">        VBox.setStyle(&quot;-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt&quot;);</span>
+<span class="nc" id="L135">        VBox.setPadding(new Insets(20,60,40,60));</span>
+<span class="nc" id="L136">        VBox.setSpacing(30);</span>
+<span class="nc" id="L137">        CSS.setSmallButtonStyle(register);</span>
+<span class="nc" id="L138">        CSS.setBackButtonStyle(back);</span>
 
 
-<span class="nc" id="L140">        Scene scene = new Scene(bp, 1920, 1080);</span>
+<span class="nc" id="L141">        Scene scene = new Scene(bp, 1920, 1080);</span>
 //        grid.setPadding(new Insets(100,0,0,0));
 
-<span class="nc" id="L143">        window.setScene(scene);</span>
-<span class="nc" id="L144">        window.setMaximized(true);</span>
-<span class="nc" id="L145">        window.show();</span>
-<span class="nc" id="L146">    }</span>
+<span class="nc" id="L144">        window.setScene(scene);</span>
+<span class="nc" id="L145">        window.setMaximized(true);</span>
+<span class="nc" id="L146">        window.show();</span>
+<span class="nc" id="L147">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

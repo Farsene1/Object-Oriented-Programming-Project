@@ -3,6 +3,7 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
+import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -29,6 +30,8 @@ public class FootPrint {
 
 
     public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
+
+        String icon = UserBadge.getIcon();
 
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
@@ -71,36 +74,51 @@ public class FootPrint {
         //My Food footprint
         Button Food = new Button("+");
         Food.setOnAction(e -> {
+            try{
             classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         //My Transport footprint
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
+            try{
             classes.Transport transport = TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         //My Electricity footprint
         Button Electricity = new Button("+");
         //     GridPane.setConstraints(Electricity, 6, 1);
         Electricity.setOnAction(e -> {
-            classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
-            table.setItems(addItems(user));
-            polarscore.setText(user.getPolarScore().toString());
+            try {
+                classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
+                table.setItems(addItems(user));
+                polarscore.setText(user.getPolarScore().toString());
+            }
+            catch (NullPointerException NPE){
+
+            }
         });
 
         Button backButton = new Button("Back");
         backButton.setOnAction(e->{
-            Home.showHome(window,user);
+            System.out.println("Icon url: "+icon);
+            Home.showHome(window, user);
         });
 
-        GridPane.setConstraints(backButton,10,10);
-
+        GridPane.setConstraints(backButton,1,10);
 
         //Add everything to grid
         FoodOptions.getChildren().addAll(FoodLabel, Food);

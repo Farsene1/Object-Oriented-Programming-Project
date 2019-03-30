@@ -1,10 +1,13 @@
 package classes;
 
+import client.Statistics;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class RestfulClient {
@@ -25,6 +28,45 @@ public class RestfulClient {
         return getResponse;
     }
 
+//    public Integer getTotalFoodFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalFood";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
+//
+//    public Integer getTotalTransportFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalTransport";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
+//
+//    public Integer getTotalElectricityFootprint(Statistics statistics){
+//        System.out.println("Beginning /GET request!");
+//        String url = "http://localhost:8080/totalElectricity";
+//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
+//        System.out.println(res.toString());
+//        return res.getBody();
+//    }
+
+
+
+    /**
+     * method for leaderboard.
+     * @return list.
+     */
+    public List<User> get10Users(){
+        String url = "http://localhost:8080/leaderboard";
+        List<User> res = restTemplate.getForObject(url, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> users = mapper.convertValue(res, new TypeReference<List<User>>() {
+        });
+        return users;
+    }
+
     /**
      * get all activities
      */
@@ -35,23 +77,6 @@ public class RestfulClient {
         List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
         });
         return activities;
-    }
-
-
-    /**
-     * @param vehicle
-     * @return
-     */
-    public List<Transport> addTransport(Transport vehicle) {
-        String url = "http://localhost:8080/transport/add";
-        List<Transport> res = restTemplate.postForObject(url, vehicle, List.class);
-        System.out.println(res.toString());
-        System.out.println(res.size());
-        ObjectMapper mapper = new ObjectMapper();
-        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() {
-        });
-        System.out.println(vehicles.size());
-        return vehicles;
     }
 
     /**
@@ -108,6 +133,14 @@ public class RestfulClient {
         return postResponse.getBody();
     }
 
+    public String badge(User user){
+        System.out.println("beginning /updateBadge request");
+        String postUrl = "http://localhost:8080/updateBadge";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        System.out.println("Response for get request");
+        return postResponse.getBody();
+    }
+
     /**
      * @param user
      * @return
@@ -146,7 +179,7 @@ public class RestfulClient {
     /**
      * method for making a request.
      */
-    public String sendFriendRequest(FriendRequest friendRequest){
+    public String sendFriendRequest(FriendRequest friendRequest) {
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/friendship/request";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
@@ -155,15 +188,23 @@ public class RestfulClient {
     }
 
     /**
-     * method for replying to a friend request.
+     * method for positively replying to a friend request.
      */
-    public String respond(FriendRequest friendRequest){
-        System.out.println("beginning /activity request");
+    public String respond(FriendRequest friendRequest) {
         String postUrl = "http://localhost:8080/friendship/respond";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
-        System.out.println("Response for get request");
         return postResponse.getBody();
     }
+
+    /**
+     * method for negatively replying to the friend request.
+     */
+    public String fakeRespond(FriendRequest friendRequest) {
+        String postUrl = "http://localhost:8080/friendship/fakeresponse";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        return postResponse.getBody();
+    }
+
     /**
      * @param restTemplate
      */
@@ -171,11 +212,12 @@ public class RestfulClient {
         this.restTemplate = restTemplate;
     }
 
-    //    public List<Transport> getAllVehicles(User user){
-//        String url = "http://localhost:8080/transport/add";
-//        List<Transport> res = restTemplate.postForObject(url, user, List.class);
-//        ObjectMapper mapper = new ObjectMapper();
-//        List<Transport> vehicles = mapper.convertValue(res, new TypeReference<List<Transport>>() { });
-//        return vehicles;
-//    }
+    public List<Statistics> getAllStatistics(String username) {
+        String url = "http://localhost:8080/statistics";
+        List<Statistics> res = restTemplate.postForObject(url, username, List.class);
+        System.out.println(res);
+        ObjectMapper mapper = new ObjectMapper();
+        List<Statistics> result = mapper.convertValue(res, new TypeReference<List<Statistics>>(){});
+        return result;
+    }
 }

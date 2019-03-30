@@ -2,200 +2,244 @@
 
 import classes.Badges;
 import classes.User;
+import classes.UserBadge;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
-<span class="nc" id="L8">public class CSSpolarBadge {</span>
+<span class="nc" id="L9">public class CSSpolarBadge {</span>
 
-    public static void setPolar1(Button button, int unlockNumber){
+<span class="nc" id="L11">    static private boolean unlocked = false;</span>
 
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if(unlockNumber&lt;1)</span>
+    public static boolean setPolar1(Button button, int unlockNumber){
+
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        if(unlockNumber&lt;1)</span>
         {
-<span class="nc" id="L14">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L15">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L17">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L18">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L17">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L20">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L22">            unlocked = false;</span>
+<span class="nc" id="L23">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L22">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L23">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7gtw3k/polar1-hover.png'); &quot; +</span>
+<span class="nc" id="L27">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L28">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7gtw3k/polar1-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L25">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); &quot; +</span>
+<span class="nc" id="L30">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
-        }
-<span class="nc" id="L28">    }</span>
+<span class="nc" id="L32">            unlocked = true;</span>
+<span class="nc" id="L33">            return unlocked;</span>
 
-    public static void setPolar2(Button button, int unlockNumber){
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if(unlockNumber&lt;2)</span>
-        {
-<span class="nc" id="L33">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L34">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L36">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
         }
-        else
+    }
+
+    public static boolean setPolar2(Button button, int unlockNumber){
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if(unlockNumber&lt;2)</span>
         {
 <span class="nc" id="L41">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L42">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/LnLPFQX/polar2-hover.png'); &quot; +</span>
+<span class="nc" id="L42">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L44">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/F47F81C/polar2.png'); &quot; +</span>
+<span class="nc" id="L44">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
-        }
-<span class="nc" id="L47">    }</span>
-
-    public static void setPolar3(Button button, int unlockNumber){
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(unlockNumber&lt;3)</span>
-        {
-<span class="nc" id="L52">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L53">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L55">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L46">            unlocked = false;</span>
+<span class="nc" id="L47">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L60">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L61">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/pymBX0d/polar3-hover.png'); &quot; +</span>
+<span class="nc" id="L51">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L52">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/LnLPFQX/polar2-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L63">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); &quot; +</span>
+<span class="nc" id="L54">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/F47F81C/polar2.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L56">            unlocked = true;</span>
+<span class="nc" id="L57">            return unlocked;</span>
         }
-<span class="nc" id="L66">    }</span>
+    }
 
-    public static void setPolar4(Button button, int unlockNumber){
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if(unlockNumber&lt;4)</span>
+    public static boolean setPolar3(Button button, int unlockNumber){
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if(unlockNumber&lt;3)</span>
         {
-<span class="nc" id="L71">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L72">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L64">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L65">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L74">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L67">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L69">            unlocked = false;</span>
+<span class="nc" id="L70">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L79">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L80">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/M7j6PVn/polar4-hover.png'); &quot; +</span>
+<span class="nc" id="L74">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L75">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/pymBX0d/polar3-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L82">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/q7sgXRy/polar4.png'); &quot; +</span>
+<span class="nc" id="L77">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L79">            unlocked = true;</span>
+<span class="nc" id="L80">            return unlocked;</span>
         }
-<span class="nc" id="L85">    }</span>
+    }
 
-    public static void setPolar5(Button button, int unlockNumber){
-<span class="nc bnc" id="L88" title="All 2 branches missed.">        if(unlockNumber&lt;5)</span>
+    public static boolean setPolar4(Button button, int unlockNumber){
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if(unlockNumber&lt;4)</span>
         {
-<span class="nc" id="L90">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L91">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L87">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L88">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L93">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L90">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L92">            unlocked = false;</span>
+<span class="nc" id="L93">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L98">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L99">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7s5Fs8/polar5-hover.png'); &quot; +</span>
+<span class="nc" id="L97">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L98">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/M7j6PVn/polar4-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L101">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Q9J03vw/polar5.png'); &quot; +</span>
+<span class="nc" id="L100">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/q7sgXRy/polar4.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L102">            unlocked = true;</span>
+<span class="nc" id="L103">            return unlocked;</span>
         }
-<span class="nc" id="L104">    }</span>
+    }
 
-    public static void setPolar6(Button button, int unlockNumber){
-<span class="nc bnc" id="L107" title="All 2 branches missed.">        if(unlockNumber&lt;6)</span>
+    public static boolean setPolar5(Button button, int unlockNumber){
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if(unlockNumber&lt;5)</span>
         {
-<span class="nc" id="L109">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L110">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L110">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L111">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L112">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L113">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L115">            unlocked = false;</span>
+<span class="nc" id="L116">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L117">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L118">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/L94KFvK/polar6-hover.png'); &quot; +</span>
+<span class="nc" id="L120">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L121">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/F7s5Fs8/polar5-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L120">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Yd68SkW/polar6.png'); &quot; +</span>
+<span class="nc" id="L123">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Q9J03vw/polar5.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L125">            unlocked = true;</span>
+<span class="nc" id="L126">            return unlocked;</span>
         }
-<span class="nc" id="L123">    }</span>
+    }
 
-    public static void setPolar7(Button button, int unlockNumber){
-<span class="nc bnc" id="L126" title="All 2 branches missed.">        if(unlockNumber&lt;7)</span>
+    public static boolean setPolar6(Button button, int unlockNumber){
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if(unlockNumber&lt;6)</span>
         {
-<span class="nc" id="L128">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L129">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L133">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L134">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L131">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L136">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L138">            unlocked = false;</span>
+<span class="nc" id="L139">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L136">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L137">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/kSF2TQ3/polar7-hover.png'); &quot; +</span>
+<span class="nc" id="L143">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L144">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/L94KFvK/polar6-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L139">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/MpyQ16G/polar7.png'); &quot; +</span>
+<span class="nc" id="L146">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Yd68SkW/polar6.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L148">            unlocked = true;</span>
+<span class="nc" id="L149">            return unlocked;</span>
         }
-<span class="nc" id="L142">    }</span>
+    }
 
-    public static void setPolar8(Button button, int unlockNumber){
-<span class="nc bnc" id="L145" title="All 2 branches missed.">        if(unlockNumber&lt;8)</span>
+    public static boolean setPolar7(Button button, int unlockNumber){
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        if(unlockNumber&lt;7)</span>
         {
-<span class="nc" id="L147">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L148">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L156">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L157">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L150">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L159">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L161">            unlocked = false;</span>
+<span class="nc" id="L162">            return unlocked;</span>
         }
         else
-        {
-<span class="nc" id="L155">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L156">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/BcRKcjr/polar8-hover.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L158">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/x6t0QTD/polar8.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
-        }
-<span class="nc" id="L161">    }</span>
-
-    public static void setPolar9(Button button, int unlockNumber){
-<span class="nc bnc" id="L164" title="All 2 branches missed.">        if(unlockNumber&lt;9)</span>
         {
 <span class="nc" id="L166">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L167">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L167">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/kSF2TQ3/polar7-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L169">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L169">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/MpyQ16G/polar7.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L171">            unlocked = true;</span>
+<span class="nc" id="L172">            return unlocked;</span>
         }
-        else
-        {
-<span class="nc" id="L174">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L175">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/x27wBSK/polar9-hover.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L177">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/2tGhFdC/polar9.png'); &quot; +</span>
-                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
-        }
-<span class="nc" id="L180">    }</span>
+    }
 
-    public static void setPolar10(Button button, int unlockNumber){
-<span class="nc bnc" id="L183" title="All 2 branches missed.">        if(unlockNumber&lt;10)</span>
+    public static boolean setPolar8(Button button, int unlockNumber){
+<span class="nc bnc" id="L177" title="All 2 branches missed.">        if(unlockNumber&lt;8)</span>
         {
-<span class="nc" id="L185">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L186">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+<span class="nc" id="L179">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L180">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L188">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+<span class="nc" id="L182">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L184">            unlocked = false;</span>
+<span class="nc" id="L185">            return unlocked;</span>
         }
         else
         {
-<span class="nc" id="L193">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
-<span class="nc" id="L194">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/h2trK1F/polar10-hover.png'); &quot; +</span>
+<span class="nc" id="L189">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L190">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/BcRKcjr/polar8-hover.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
-<span class="nc" id="L196">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Wz50t26/polar10.png'); &quot; +</span>
+<span class="nc" id="L192">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/x6t0QTD/polar8.png'); &quot; +</span>
                             &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L194">            unlocked = true;</span>
+<span class="nc" id="L195">            return unlocked;</span>
         }
-<span class="nc" id="L199">    }</span>
+    }
+
+    public static boolean setPolar9(Button button, int unlockNumber){
+<span class="nc bnc" id="L200" title="All 2 branches missed.">        if(unlockNumber&lt;9)</span>
+        {
+<span class="nc" id="L202">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L203">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L205">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L207">            unlocked = false;</span>
+<span class="nc" id="L208">            return unlocked;</span>
+        }
+        else
+        {
+<span class="nc" id="L212">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L213">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/x27wBSK/polar9-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L215">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/2tGhFdC/polar9.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L217">            unlocked = true;</span>
+<span class="nc" id="L218">            return unlocked;</span>
+        }
+    }
+
+    public static boolean setPolar10(Button button, int unlockNumber){
+<span class="nc bnc" id="L223" title="All 2 branches missed.">        if(unlockNumber&lt;10)</span>
+        {
+<span class="nc" id="L225">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L226">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L228">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L230">            unlocked = false;</span>
+<span class="nc" id="L231">            return unlocked;</span>
+        }
+        else
+        {
+<span class="nc" id="L235">            button.styleProperty().bind(Bindings.when(button.hoverProperty())</span>
+<span class="nc" id="L236">                    .then(&quot;-fx-graphic: url('https://i.ibb.co/h2trK1F/polar10-hover.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;)
+<span class="nc" id="L238">                    .otherwise(&quot;-fx-graphic: url('https://i.ibb.co/Wz50t26/polar10.png'); &quot; +</span>
+                            &quot;-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);&quot;));
+<span class="nc" id="L240">            unlocked = true;</span>
+<span class="nc" id="L241">            return unlocked;</span>
+        }
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

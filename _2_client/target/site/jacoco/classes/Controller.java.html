@@ -70,21 +70,78 @@ public class Controller {
 <span class="nc" id="L70">    }</span>
 
     /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayYes(FriendRequest friendRequest) {
+<span class="nc" id="L78">        return restfulClient.respond(friendRequest);</span>
+    }
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayNo(FriendRequest friendRequest) {
+<span class="nc" id="L87">        return restfulClient.fakeRespond(friendRequest);</span>
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List&lt;User&gt; getAllFriends(User user) {
+<span class="nc" id="L96">        return restfulClient.getAllFriends(user);</span>
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public List&lt;FriendRequest&gt; getAllRequests(User user){
+<span class="nc" id="L105">        return restfulClient.getAllFriendRequests(user);</span>
+    }
+
+<<<<<<< HEAD
+=======
+    public List&lt;User&gt; get10Users(){
+<span class="nc" id="L109">        return this.restfulClient.get10Users();</span>
+    }
+
+>>>>>>> origin/master
+    /**
      * This method checks for a valid email
      * @param email
      * @return boolean
      */
     public static boolean checkEmail(String email){
-<span class="nc" id="L78">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
-<span class="nc" id="L79">        return emailValid;</span>
+<<<<<<< HEAD
+<span class="nc" id="L114">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
+<span class="nc" id="L115">        return emailValid;</span>
     }
 
     public RestfulClient getRestfulClient() {
-<span class="nc" id="L83">        return restfulClient;</span>
+<span class="nc" id="L119">        return restfulClient;</span>
     }
 
     public void setRestfulClient(RestfulClient restfulClient) {
-<span class="nc" id="L87">        this.restfulClient = restfulClient;</span>
-<span class="nc" id="L88">    }</span>
+<span class="nc" id="L123">        this.restfulClient = restfulClient;</span>
+<span class="nc" id="L124">    }</span>
+=======
+<span class="nc" id="L118">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
+<span class="nc" id="L119">        return emailValid;</span>
+    }
+
+    public RestfulClient getRestfulClient() {
+<span class="nc" id="L123">        return restfulClient;</span>
+    }
+
+    public void setRestfulClient(RestfulClient restfulClient) {
+<span class="nc" id="L127">        this.restfulClient = restfulClient;</span>
+<span class="nc" id="L128">    }</span>
+>>>>>>> origin/master
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
