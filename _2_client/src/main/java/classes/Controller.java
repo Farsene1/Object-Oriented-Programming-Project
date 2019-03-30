@@ -1,6 +1,5 @@
 package classes;
 
-import client.Statistics;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
@@ -44,7 +43,7 @@ public class Controller {
         restfulClient.badge(user);
     }
 
-    public List<Statistics> getStatistics(String username) {
+    public List<classes.Statistics> getStatistics(String username) {
         return this.restfulClient.getAllStatistics(username);
     }
 

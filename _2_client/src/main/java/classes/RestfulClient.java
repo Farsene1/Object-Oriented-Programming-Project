@@ -1,13 +1,10 @@
 package classes;
 
-import client.Statistics;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class RestfulClient {
@@ -28,37 +25,12 @@ public class RestfulClient {
         return getResponse;
     }
 
-//    public Integer getTotalFoodFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalFood";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-//
-//    public Integer getTotalTransportFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalTransport";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-//
-//    public Integer getTotalElectricityFootprint(Statistics statistics){
-//        System.out.println("Beginning /GET request!");
-//        String url = "http://localhost:8080/totalElectricity";
-//        ResponseEntity<Integer> res = restTemplate.postForEntity(url, statistics, Integer.class);
-//        System.out.println(res.toString());
-//        return res.getBody();
-//    }
-
-
-
     /**
      * method for leaderboard.
+     *
      * @return list.
      */
-    public List<User> get10Users(){
+    public List<User> get10Users() {
         String url = "http://localhost:8080/leaderboard";
         List<User> res = restTemplate.getForObject(url, List.class);
         ObjectMapper mapper = new ObjectMapper();
@@ -133,7 +105,7 @@ public class RestfulClient {
         return postResponse.getBody();
     }
 
-    public String badge(User user){
+    public String badge(User user) {
         System.out.println("beginning /updateBadge request");
         String postUrl = "http://localhost:8080/updateBadge";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
@@ -156,23 +128,25 @@ public class RestfulClient {
     /**
      * method for getting all the friends.
      */
-    public List<User> getAllFriends(User user){
+    public List<User> getAllFriends(User user) {
         String url = "http://localhost:8080/friendship/friends";
         List<User> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<User> result = mapper.convertValue(res, new TypeReference<List<User>>(){});
+        List<User> result = mapper.convertValue(res, new TypeReference<List<User>>() {
+        });
         return result;
     }
 
     /**
      * method for getting all the friend requests.
      */
-    public List<FriendRequest> getAllFriendRequests(User user){
+    public List<FriendRequest> getAllFriendRequests(User user) {
         String url = "http://localhost:8080/friendship/getallrequests";
         List<FriendRequest> res = restTemplate.postForObject(url, user, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
-        List<FriendRequest> result = mapper.convertValue(res, new TypeReference<List<FriendRequest>>(){});
+        List<FriendRequest> result = mapper.convertValue(res, new TypeReference<List<FriendRequest>>() {
+        });
         return result;
     }
 
@@ -212,12 +186,13 @@ public class RestfulClient {
         this.restTemplate = restTemplate;
     }
 
-    public List<Statistics> getAllStatistics(String username) {
+    public List<classes.Statistics> getAllStatistics(String username) {
         String url = "http://localhost:8080/statistics";
-        List<Statistics> res = restTemplate.postForObject(url, username, List.class);
+        List<classes.Statistics> res = restTemplate.postForObject(url, username, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
-        List<Statistics> result = mapper.convertValue(res, new TypeReference<List<Statistics>>(){});
+        List<classes.Statistics> result = mapper.convertValue(res, new TypeReference<List<classes.Statistics>>() {
+        });
         return result;
     }
 }

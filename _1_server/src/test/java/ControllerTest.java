@@ -23,6 +23,9 @@ public class ControllerTest {
     @MockBean
     private ActivityRepository activityRepository = Mockito.mock(ActivityRepository.class);
 
+    @MockBean
+    private StatisticsRepository statisticsRepository = Mockito.mock(StatisticsRepository.class);
+
     private User user1 = new User("admin","root");
     private User user2 = new User("postgres","root");
 
@@ -30,6 +33,7 @@ public class ControllerTest {
     public void setUp(){
         controller.setUserRepository(repository);
         controller.setActivityRepository(activityRepository);
+        controller.setStatisticsRepository(statisticsRepository);
     }
 
     @Test
@@ -111,5 +115,24 @@ public class ControllerTest {
     public void getUpdatesTest(){
         when(repository.findUserByUsername("admin")).thenReturn(Arrays.asList(user1));
         assertEquals("admin", controller.getUpdates(user1).getUsername());
+    }
+
+    @Test
+    public void leaderboardTest(){
+        Mockito.when(repository.getTopTen()).thenReturn(
+                Arrays.asList(new User(), new User(), new User()));
+        assertEquals(3, controller.leaderboard().size());
+    }
+
+    @Test
+    public void updateBadgeTest(){
+        assertEquals("OK", controller.updateBadge(new User()));
+    }
+
+    @Test
+    public void getAllStatsTest(){
+        Mockito.when(statisticsRepository.findStatisticsByUsername("admin"))
+                .thenReturn(Arrays.asList(new Statistics(),new Statistics()));
+        assertEquals(2, controller.getAllStats("admin").size());
     }
 }

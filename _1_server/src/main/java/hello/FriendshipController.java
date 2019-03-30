@@ -86,7 +86,9 @@ public class FriendshipController {
             this.friendRequestRepository.save(friendRequest);
         } else System.out.println("Request cannot be sent: error");
 
-        return "SENT";
+        if(ok == true)
+            return "SENT";
+        return "SENT2";
     }
 
     /**

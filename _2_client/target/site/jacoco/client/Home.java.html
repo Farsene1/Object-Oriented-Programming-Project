@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 <span class="nc" id="L16">public class Home {</span>
 
-    public static void showHome(Stage window, classes.User user, String icon) {
+    public static void showHome(Stage window, classes.User user) {
 
 <span class="nc" id="L20">        RestfulClient restfulClient = new RestfulClient();</span>
 <span class="nc" id="L21">        restfulClient.getEntity();</span>
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 <span class="nc" id="L27">        GridPane centerMenu = new GridPane();</span>
 <span class="nc" id="L28">        centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
 
-<span class="nc" id="L30">        ImageView img = new ImageView(icon);</span>
+<span class="nc" id="L30">        ImageView img = new ImageView(UserBadge.iconChoice(user));</span>
 
 <span class="nc" id="L32">        Label usernamelabel = new Label(user.getUsername().toUpperCase());</span>
 

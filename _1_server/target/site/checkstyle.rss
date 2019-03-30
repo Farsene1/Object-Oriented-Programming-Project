@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2019</copyright>
     <item>
-      <title>File: 13,
+      <title>File: 14,
              Errors: 0,
-             Warnings: 56,
+             Warnings: 154,
              Infos: 0
       </title>
             <link>https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html</link>
@@ -66,7 +66,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  6
                 </td>
                 <td>
                   0
@@ -102,20 +102,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.ActivityController.java">hello/ActivityController.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.FriendshipRepository.java">hello/FriendshipRepository.java</a>
                 </td>
                 <td>
@@ -136,7 +122,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  10
+                  16
                 </td>
                 <td>
                   0
@@ -145,6 +131,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.ActivityRepository.java">hello/ActivityRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.StatisticsRepository.java">hello/StatisticsRepository.java</a>
                 </td>
                 <td>
                   0
@@ -186,6 +186,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.Statistics.java">hello/Statistics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  63
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/server/checkstyle.html#hello.Friendship.java">hello/Friendship.java</a>
                 </td>
                 <td>
@@ -206,7 +220,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  26
                 </td>
                 <td>
                   0
