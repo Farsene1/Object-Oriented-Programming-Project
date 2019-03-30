@@ -1,25 +1,15 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-<<<<<<< HEAD
-client,classes,RestfulClient,379,0,0,0,83,0,18,0,18,0
+client,classes,RestfulClient,368,0,0,0,79,0,17,0,17,0
 client,classes,Electricity,3,40,0,0,2,17,1,9,1,9
 client,classes,FriendRequest,13,33,0,0,4,14,3,7,3,7
 client,classes,User,0,107,0,0,0,33,0,17,0,17
-client,classes,Controller,134,0,0,0,30,0,16,0,16,0
-client,classes,Meal,26,0,0,0,12,0,6,0,6,0
-client,classes,Activity,4,89,3,3,2,32,3,15,0,15
-=======
-client,classes,RestfulClient,317,0,0,0,68,0,15,0,15,0
-client,classes,Electricity,3,40,0,0,2,17,1,9,1,9
-client,classes,FriendRequest,13,33,0,0,4,14,3,7,3,7
-client,classes,User,0,107,0,0,0,33,0,17,0,17
-client,classes,Controller,138,0,0,0,31,0,17,0,17,0
+client,classes,Controller,153,0,0,0,35,0,19,0,19,0
 client,classes,Meal,26,0,0,0,12,0,6,0,6,0
 client,classes,Activity,4,89,3,3,2,32,3,15,0,15
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
-client,classes,UserBadge,60,0,20,0,24,0,14,0,4,0
->>>>>>> origin/master
+client,classes,UserBadge,64,0,20,0,25,0,14,0,4,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
-client,classes,UserBadge,60,0,20,0,24,0,14,0,4,0
+client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
@@ -30,21 +20,21 @@ client,client,ConfirmBox,89,0,0,0,24,0,4,0,4,0
 client,client,MeatMealBox,320,0,10,0,69,0,8,0,3,0
 client,client,AlertBox,68,0,0,0,16,0,3,0,3,0
 client,client,AddFriendBox,86,0,0,0,22,0,4,0,4,0
-client,client,Friends,421,0,14,0,84,0,16,0,9,0
-client,client,Signup,360,0,10,0,88,0,9,0,4,0
+client,client,Friends,419,0,14,0,84,0,16,0,9,0
+client,client,Signup,358,0,10,0,88,0,9,0,4,0
 client,client,CSSelectricityBadge,253,0,20,0,81,0,21,0,11,0
 client,client,FoodBox,341,0,10,0,76,0,10,0,5,0
 client,client,Hash,3,64,0,2,1,11,1,4,1,3
 client,client,Leaderboard,3,0,0,0,1,0,1,0,1,0
-client,client,Achievements,919,0,38,0,197,0,32,0,13,0
+client,client,Achievements,969,0,38,0,207,0,32,0,13,0
 client,client,TransportBox,228,0,0,0,46,0,3,0,3,0
 client,client,CSSpolarBadge,316,0,20,0,112,0,22,0,12,0
-client,client,FootPrint,397,0,2,0,78,0,9,0,8,0
+client,client,FootPrint,406,0,2,0,85,0,9,0,8,0
 client,client,ValidatePassword,3,87,0,28,1,18,1,15,1,1
-client,client,Home,276,0,2,0,64,0,9,0,8,0
+client,client,Home,277,0,2,0,64,0,9,0,8,0
 client,client,CSStransportBadge,253,0,20,0,81,0,21,0,11,0
 client,client,Main,61,0,2,0,20,0,6,0,5,0
 client,client,Statistics,3,0,0,0,1,0,1,0,1,0
 client,client,CSSfoodBadge,253,0,20,0,81,0,21,0,11,0
 client,client,CSS,58,0,0,0,21,0,6,0,6,0
-client,client,Login,283,0,2,0,69,0,5,0,4,0
+client,client,Login,279,0,2,0,68,0,5,0,4,0

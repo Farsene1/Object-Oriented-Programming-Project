@@ -86,7 +86,9 @@ import java.util.List;
 <span class="nc" id="L86">            this.friendRequestRepository.save(friendRequest);</span>
 <span class="nc" id="L87">        } else System.out.println(&quot;Request cannot be sent: error&quot;);</span>
 
-<span class="nc" id="L89">        return &quot;SENT&quot;;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(ok == true)</span>
+<span class="nc" id="L90">            return &quot;SENT&quot;;</span>
+<span class="nc" id="L91">        return &quot;SENT2&quot;;</span>
     }
 
     /**
@@ -94,8 +96,8 @@ import java.util.List;
      */
     @RequestMapping(&quot;/getallrequests&quot;)
     public List&lt;FriendRequest&gt; getAllRequest(@RequestBody User user) {
-<span class="nc" id="L97">        List&lt;FriendRequest&gt; list = friendRequestRepository.findAllRequestsFor(user.getUsername());</span>
-<span class="nc" id="L98">        return list;</span>
+<span class="nc" id="L99">        List&lt;FriendRequest&gt; list = friendRequestRepository.findAllRequestsFor(user.getUsername());</span>
+<span class="nc" id="L100">        return list;</span>
     }
 
     /**
@@ -103,10 +105,10 @@ import java.util.List;
      */
     @RequestMapping(&quot;/respond&quot;)
     public String respond(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L106">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
-<span class="nc" id="L107">        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));</span>
-<span class="nc" id="L108">        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));</span>
-<span class="nc" id="L109">        return &quot;OK&quot;;</span>
+<span class="nc" id="L108">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
+<span class="nc" id="L109">        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));</span>
+<span class="nc" id="L110">        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));</span>
+<span class="nc" id="L111">        return &quot;OK&quot;;</span>
     }
 
     /**
@@ -115,20 +117,20 @@ import java.util.List;
      */
     @RequestMapping(&quot;/fakeresponse&quot;)
     public String fakeRespond(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L118">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
-<span class="nc" id="L119">        return &quot;OK&quot;;</span>
+<span class="nc" id="L120">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
+<span class="nc" id="L121">        return &quot;OK&quot;;</span>
     }
 
     public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
-<span class="nc" id="L123">        this.friendshipRepository = friendshipRepository;</span>
-<span class="nc" id="L124">    }</span>
+<span class="nc" id="L125">        this.friendshipRepository = friendshipRepository;</span>
+<span class="nc" id="L126">    }</span>
 
     public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
-<span class="nc" id="L127">        this.friendRequestRepository = friendRequestRepository;</span>
-<span class="nc" id="L128">    }</span>
+<span class="nc" id="L129">        this.friendRequestRepository = friendRequestRepository;</span>
+<span class="nc" id="L130">    }</span>
 
     public void setUserRepository(UserRepository userRepository) {
-<span class="nc" id="L131">        this.userRepository = userRepository;</span>
-<span class="nc" id="L132">    }</span>
+<span class="nc" id="L133">        this.userRepository = userRepository;</span>
+<span class="nc" id="L134">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

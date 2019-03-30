@@ -74,63 +74,79 @@ import java.util.List;
         //My Food footprint
 <span class="nc" id="L75">        Button Food = new Button(&quot;+&quot;);</span>
 <span class="nc" id="L76">        Food.setOnAction(e -&gt; {</span>
-<span class="nc" id="L77">            classes.Meal food = FoodBox.addMeal(&quot;Food Footprint&quot;, &quot;Add to your food footprint from the choices below!&quot;, user);</span>
-<span class="nc" id="L78">            table.setItems(addItems(user));</span>
-<span class="nc" id="L79">            polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L80">        });</span>
+            try{
+<span class="nc" id="L78">            classes.Meal food = FoodBox.addMeal(&quot;Food Footprint&quot;, &quot;Add to your food footprint from the choices below!&quot;, user);</span>
+<span class="nc" id="L79">            table.setItems(addItems(user));</span>
+<span class="nc" id="L80">            polarscore.setText(user.getPolarScore().toString());</span>
+            }
+<span class="nc" id="L82">            catch (NullPointerException NPE){</span>
+
+<span class="nc" id="L84">            }</span>
+<span class="nc" id="L85">        });</span>
 
         //My Transport footprint
-<span class="nc" id="L83">        Button Transport = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L88">        Button Transport = new Button(&quot;+&quot;);</span>
         // GridPane.setConstraints(Transport, 5, 1);
-<span class="nc" id="L85">        Transport.setOnAction(e -&gt; {</span>
-<span class="nc" id="L86">            classes.Transport transport = TransportBox.addVehicle(&quot;Transport Footprint&quot;, &quot;Select the transport option of your choice&quot;, user);</span>
-<span class="nc" id="L87">            table.setItems(addItems(user));</span>
-<span class="nc" id="L88">            polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L89">        });</span>
+<span class="nc" id="L90">        Transport.setOnAction(e -&gt; {</span>
+            try{
+<span class="nc" id="L92">            classes.Transport transport = TransportBox.addVehicle(&quot;Transport Footprint&quot;, &quot;Select the transport option of your choice&quot;, user);</span>
+<span class="nc" id="L93">            table.setItems(addItems(user));</span>
+<span class="nc" id="L94">            polarscore.setText(user.getPolarScore().toString());</span>
+            }
+<span class="nc" id="L96">            catch (NullPointerException NPE){</span>
+
+<span class="nc" id="L98">            }</span>
+<span class="nc" id="L99">        });</span>
 
         //My Electricity footprint
-<span class="nc" id="L92">        Button Electricity = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L102">        Button Electricity = new Button(&quot;+&quot;);</span>
         //     GridPane.setConstraints(Electricity, 6, 1);
-<span class="nc" id="L94">        Electricity.setOnAction(e -&gt; {</span>
-<span class="nc" id="L95">            classes.Electricity electricity = ElectricityBox.addUsage(&quot;Electricity Footprint&quot;, &quot;Select your electricity usage&quot;, user);</span>
-<span class="nc" id="L96">            table.setItems(addItems(user));</span>
-<span class="nc" id="L97">            polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L98">        });</span>
+<span class="nc" id="L104">        Electricity.setOnAction(e -&gt; {</span>
+            try {
+<span class="nc" id="L106">                classes.Electricity electricity = ElectricityBox.addUsage(&quot;Electricity Footprint&quot;, &quot;Select your electricity usage&quot;, user);</span>
+<span class="nc" id="L107">                table.setItems(addItems(user));</span>
+<span class="nc" id="L108">                polarscore.setText(user.getPolarScore().toString());</span>
+            }
+<span class="nc" id="L110">            catch (NullPointerException NPE){</span>
 
-<span class="nc" id="L100">        Button backButton = new Button(&quot;Back&quot;);</span>
-<span class="nc" id="L101">        backButton.setOnAction(e-&gt;{</span>
-<span class="nc" id="L102">            Home.showHome(window,user,icon);</span>
-<span class="nc" id="L103">        });</span>
+<span class="nc" id="L112">            }</span>
+<span class="nc" id="L113">        });</span>
 
-<span class="nc" id="L105">        GridPane.setConstraints(backButton,10,10);</span>
+<span class="nc" id="L115">        Button backButton = new Button(&quot;Back&quot;);</span>
+<span class="nc" id="L116">        backButton.setOnAction(e-&gt;{</span>
+<span class="nc" id="L117">            System.out.println(&quot;Icon url: &quot;+icon);</span>
+<span class="nc" id="L118">            Home.showHome(window, user);</span>
+<span class="nc" id="L119">        });</span>
+
+<span class="nc" id="L121">        GridPane.setConstraints(backButton,1,10);</span>
 
         //Add everything to grid
-<span class="nc" id="L108">        FoodOptions.getChildren().addAll(FoodLabel, Food);</span>
-<span class="nc" id="L109">        TransportOptions.getChildren().addAll(TransportLabel, Transport);</span>
-<span class="nc" id="L110">        ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);</span>
-<span class="nc" id="L111">        HBox Hbox = new HBox();</span>
-<span class="nc" id="L112">        Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);</span>
-<span class="nc" id="L113">        GridPane.setConstraints(Hbox, 0, 0);</span>
-<span class="nc" id="L114">        grid.getChildren().setAll(Hbox, Footprint,backButton);</span>
+<span class="nc" id="L124">        FoodOptions.getChildren().addAll(FoodLabel, Food);</span>
+<span class="nc" id="L125">        TransportOptions.getChildren().addAll(TransportLabel, Transport);</span>
+<span class="nc" id="L126">        ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);</span>
+<span class="nc" id="L127">        HBox Hbox = new HBox();</span>
+<span class="nc" id="L128">        Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);</span>
+<span class="nc" id="L129">        GridPane.setConstraints(Hbox, 0, 0);</span>
+<span class="nc" id="L130">        grid.getChildren().setAll(Hbox, Footprint,backButton);</span>
 
-<span class="nc" id="L116">        Food.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L117">        Transport.setStyle(&quot;-fx-background-radius: 100; -fx-font-size: 42&quot;);</span>
+<span class="nc" id="L132">        Food.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L133">        Transport.setStyle(&quot;-fx-background-radius: 100; -fx-font-size: 42&quot;);</span>
         // quitButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);
-<span class="nc" id="L119">        Electricity.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L120">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L121">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
-<span class="nc" id="L122">        FoodOptions.setMinWidth(476);</span>
-<span class="nc" id="L123">        ElectricityOptions.setMinWidth(476);</span>
-<span class="nc" id="L124">        TransportOptions.setMinWidth(476);</span>
-<span class="nc" id="L125">    }</span>
+<span class="nc" id="L135">        Electricity.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L136">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L137">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L138">        FoodOptions.setMinWidth(476);</span>
+<span class="nc" id="L139">        ElectricityOptions.setMinWidth(476);</span>
+<span class="nc" id="L140">        TransportOptions.setMinWidth(476);</span>
+<span class="nc" id="L141">    }</span>
 
     public static ObservableList&lt;Activity&gt; addItems(User user) {
-<span class="nc" id="L128">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
-<span class="nc" id="L129">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
-<span class="nc bnc" id="L130" title="All 2 branches missed.">        for (Activity a : act) {</span>
-<span class="nc" id="L131">            activities.add(a);</span>
-<span class="nc" id="L132">        }</span>
-<span class="nc" id="L133">        return activities;</span>
+<span class="nc" id="L144">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
+<span class="nc" id="L145">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        for (Activity a : act) {</span>
+<span class="nc" id="L147">            activities.add(a);</span>
+<span class="nc" id="L148">        }</span>
+<span class="nc" id="L149">        return activities;</span>
     }
 }
 
