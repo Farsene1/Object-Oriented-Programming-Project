@@ -1,28 +1,24 @@
-//import hello.*;
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.mockito.Mockito;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.mock.mockito.MockBean;
-//
-//import java.util.Arrays;
-//import java.util.List;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//public class FriendshipControllerTest {
-//    @Autowired
-//    private FriendshipController friendshipController = new FriendshipController();
-//
-//    @MockBean
-//    private FriendshipRepository friendshipRepository = Mockito.mock(FriendshipRepository.class);
-//
-//    @MockBean
-//    private FriendRequestRepository friendRequestRepository = Mockito.mock(FriendRequestRepository.class);
-//
-//    @MockBean
-//    private UserRepository userRepository = Mockito.mock(UserRepository.class);
-//
+import hello.FriendRequestRepository;
+import hello.FriendshipController;
+import hello.FriendshipRepository;
+import hello.UserRepository;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+public class FriendshipControllerTest {
+    @Autowired
+    private FriendshipController friendshipController = new FriendshipController();
+
+    @MockBean
+    private FriendshipRepository friendshipRepository = Mockito.mock(FriendshipRepository.class);
+
+    @MockBean
+    private FriendRequestRepository friendRequestRepository = Mockito.mock(FriendRequestRepository.class);
+
+    @MockBean
+    private UserRepository userRepository = Mockito.mock(UserRepository.class);
+
 //    @Before
 //    public void setUp(){
 //        friendshipController.setFriendRequestRepository(friendRequestRepository);
@@ -44,5 +40,5 @@
 //        FriendRequest f = new FriendRequest("a","b");
 //        assertEquals("SENT",friendshipController.makeRequest(f));
 //    }
-//
-//}
+
+}
