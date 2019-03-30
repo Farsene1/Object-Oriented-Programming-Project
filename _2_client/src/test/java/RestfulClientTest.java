@@ -1,6 +1,4 @@
-import classes.Activity;
-import classes.RestfulClient;
-import classes.User;
+import classes.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -114,5 +112,53 @@ public class RestfulClientTest {
     public void getAllFriendsTest() {
         User u = new User("admin", "root");
         String url = "http://localhost:8080/friendship/friends";
+        Mockito.when(restTemplate.postForObject(url, u, List.class))
+                .thenReturn(Arrays.asList(u));
+        assertEquals(1, restfulClient.getAllFriends(u).size());
+    }
+
+    @Test
+    public void getAllFriendRequestsTest() {
+        User u = new User("admin", "root");
+        String url = "http://localhost:8080/friendship/getallrequests";
+        Mockito.when(restTemplate.postForObject(url, u, List.class))
+                .thenReturn(Arrays.asList(new FriendRequest()));
+        assertEquals(1, restfulClient.getAllFriendRequests(u).size());
+    }
+
+    @Test
+    public void sendFriendRequestTest() {
+        String postUrl = "http://localhost:8080/friendship/request";
+        FriendRequest f = new FriendRequest();
+        Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
+                .thenReturn(ResponseEntity.ok("OK"));
+        assertEquals("OK", restfulClient.sendFriendRequest(f));
+    }
+
+    @Test
+    public void respondTest(){
+        String postUrl = "http://localhost:8080/friendship/respond";
+        FriendRequest f = new FriendRequest();
+        Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
+                .thenReturn(ResponseEntity.ok("ERROR"));
+        assertEquals("ERROR", restfulClient.respond(f));
+    }
+
+    @Test
+    public void fakeRespondTest(){
+        String postUrl = "http://localhost:8080/friendship/fakeresponse";
+        FriendRequest f = new FriendRequest();
+        Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
+                .thenReturn(ResponseEntity.ok("ERROR"));
+        assertEquals("ERROR", restfulClient.fakeRespond(f));
+    }
+
+    @Test
+    public void getAllStatsTest(){
+        String url = "http://localhost:8080/statistics";
+        String username = "admin";
+        Mockito.when(restTemplate.postForObject(url, "admin", List.class))
+                .thenReturn(Arrays.asList(new Statistics("",12,"21")));
+        assertEquals(1, restfulClient.getAllStatistics(username).size());
     }
 }
