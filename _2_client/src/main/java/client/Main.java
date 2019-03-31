@@ -31,7 +31,6 @@ public class Main extends Application {
             new Controller().sendFood(new Activity("admin", 1, "easteregg",1500,"17-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg",100,"26-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg",1500,"29-03-2019"));
-
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

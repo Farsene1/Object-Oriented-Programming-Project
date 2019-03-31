@@ -28,8 +28,8 @@ public class Statistics {
             PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
         lineChart.getData().addAll(PolarSeries);
+        lineChart.setMinWidth(900);
+        lineChart.setMinHeight(450);
         grid.getChildren().setAll(lineChart);
-
-
     }
 }
