@@ -32,9 +32,10 @@ public class ElectricityBox {
         window.setMinWidth(500);
         Label label = new Label();
         label.setText(message);
-        Label errorlabel = new Label();
-        errorlabel.setText("You can only type numbers");
+        Label errorlabel = new Label("You can only type numbers");
         errorlabel.setVisible(false);
+        errorlabel.setStyle("-fx-text-fill: red;");
+
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         choiceBox.getItems().addAll("I have used solar energy", "I have NOT used solar energy");
         choiceBox.setValue("I have NOT used solar energy");
