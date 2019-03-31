@@ -1,19 +1,14 @@
 package client;
 
-import classes.Activity;
-import classes.Controller;
-import classes.User;
-import classes.UserBadge;
+import classes.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,58 +20,73 @@ import java.util.List;
 
 
 public class Leaderboard {
-
-    static TableView table = new TableView();
-
-
-    public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
-
-        String icon = UserBadge.getIcon();
-
-        Label myLeaderboard = new Label("Leaderboard");
-        myLeaderboard.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
-        VBox Leaderboard = new VBox(myLeaderboard, table);
-        Leaderboard.setStyle("-fx-padding: 15;");
-        Leaderboard.setSpacing(20);
-        Leaderboard.setAlignment(Pos.CENTER);
-
-        TableColumn Col1 = new TableColumn("User");
-        Col1.setCellValueFactory(new PropertyValueFactory<>("user"));
-        TableColumn Col2 = new TableColumn("PolarScore");
-        Col2.setCellValueFactory(new PropertyValueFactory<>("polarscore"));
-        Col1.setMinWidth(750);
-        Col2.setMinWidth(750);
+    static TableView Table = new TableView();
 
 
-        table.setItems(addItems());
-        table.getColumns().setAll(Col1, Col2);
+    public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
 
-        VBox UserOptions = new VBox();
-        VBox ScoreOptions = new VBox();
+        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
+        grid.getChildren().clear();
 
-        UserOptions.setStyle("-fx-padding: 15;");
-        ScoreOptions.setStyle("-fx-padding: 15;");
-        GridPane.setConstraints(Leaderboard, 0, 1);
+        //Creating Labels for addition
+        Label Header = new Label("Leaderboard");
+        Header.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        Button backButton = new Button("Back");
 
-        //Add everything to grid
-        HBox Hbox = new HBox();
-        Hbox.getChildren().addAll(UserOptions, ScoreOptions);
-        GridPane.setConstraints(Hbox, 0, 0);
-        grid.getChildren().setAll(Hbox, Leaderboard);
+
+        //Making of Vboxes and Hboxes in order to show the tables on screen
+        VBox Vbox1 = new VBox(Header, Table);
+        Vbox1.setStyle("-fx-padding:15;");
+        Vbox1.setSpacing(20);
+        Vbox1.setAlignment(Pos.CENTER);
+        //ADDING THE COLLUMNS TO THE TABLES
+        TableColumn Col1 = new TableColumn("Username");
+        Col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        TableColumn Col2 = new TableColumn("Score");
+        Col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
+
+
+        Table.getColumns().setAll(Col1, Col2);
+        Col1.setMinWidth(734);
+        Col2.setMinWidth(734);
+        //backButton
+        backButton.setOnAction(e -> {
+            Home.showHome(window, user);
+        });
+
+
+        //Lastly creating 2 different
+        //Hboxes so we can add everything to the grid
+
+        HBox toplayer = new HBox();
+        HBox middleLayer = new HBox();
+        toplayer.getChildren().addAll(Vbox1);
+        middleLayer.getChildren().addAll(backButton);
+        GridPane.setConstraints(toplayer, 5, 0);
+        GridPane.setConstraints(middleLayer, 5, 30);
+        toplayer.setAlignment(Pos.CENTER);
+        middleLayer.setAlignment(Pos.CENTER);
+        grid.getChildren().addAll(toplayer, middleLayer);
+
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
-        UserOptions.setMinWidth(750);
-        ScoreOptions.setMinWidth(750);
+
+        Table.setItems(addFriend());
+
+
     }
 
-  public static ObservableList<User> addItems() {
-        ObservableList<User> users = FXCollections.observableArrayList();
-        List<User> userList = new Controller().get10Users();
-        for (User a : userList) {
-            users.add(a);
+    public static ObservableList<User> addFriend() {
+        ObservableList<User> name = FXCollections.observableArrayList();
+        List<User> nameList = new Controller().get10Users();
+
+        for (User a : nameList) {
+            name.add(a);
         }
-        return users;
+        return name;
     }
+
+
 }
 
 

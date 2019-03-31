@@ -90,7 +90,7 @@ public class Home {
             //LeaderBoard button
             Button leaderboardButton = new Button("LeaderBoard");
             leaderboardButton.setOnAction(e -> {
-                Leaderboard.showOptions(centerMenu, user, PolarScore, window);
+                Leaderboard.showOptions(centerMenu, scene, user, window);
             });
             Button friendsbutton = new Button("Friends");
             friendsbutton.setOnAction(e -> {
