@@ -27,16 +27,11 @@ public class FoodBox {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(500);
-        Label label = new Label();
-        label.setText(message);
+        Label label = new Label(message);
 
-        ChoiceBox<String> dropdownMeal = new ChoiceBox<>();
-        dropdownMeal.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
-        dropdownMeal.getSelectionModel().select(0);
-
-        ChoiceBox<String> dropdownGroceries = new ChoiceBox<>();
-        dropdownGroceries.getItems().addAll("Imported", "Local");
-        dropdownGroceries.getSelectionModel().select(0);
+        ChoiceBox<String> dropdown = new ChoiceBox<>();
+        dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat","Imported Groceries", "Local Groceries");
+        dropdown.getSelectionModel().select(0);
 
         VBox layout = new VBox(10);
 
@@ -46,11 +41,10 @@ public class FoodBox {
         errorlabel.setText("You can only type numbers");
         errorlabel.setStyle("-fx-text-fill: red;");
 
-        Button mealButton = new Button("Submit meal!");
- Button groceriesButton = new Button("Submit groceries");
+        Button submitButton = new Button("Submit meal!");
 
-        mealButton.setOnAction(e -> {
-            foodAdded = dropdownMeal.getValue();
+        submitButton.setOnAction(e -> {
+            foodAdded = dropdown.getValue();
 
             if (foodAdded == "Vegan meal") {
                 foodAdded = "vegan";
@@ -88,15 +82,11 @@ public class FoodBox {
                             grams * -1, date));
                     window.close();
                 } catch (NumberFormatException nfe) {
-                    layout.getChildren().setAll(label, dropdownMeal, meatgrams, errorlabel, mealButton, dropdownGroceries, groceriesButton);
+                    layout.getChildren().setAll(label, dropdown, meatgrams, errorlabel, submitButton);
+                    window.setMinHeight(260);
+                    window.setMaxHeight(260);
                 }
             }
-        });
-
-        groceriesButton.setOnAction(e -> {
-
-            foodAdded = dropdownGroceries.getValue();
-
             if (foodAdded == "Imported") {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -120,23 +110,26 @@ public class FoodBox {
         });
 
 
-        dropdownMeal.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             if (newValue.equals("Meal with meat")) {
-                layout.getChildren().setAll(label, dropdownMeal, meatgrams, mealButton, dropdownGroceries, groceriesButton);
+                layout.getChildren().setAll(label, dropdown, meatgrams, submitButton);
+                window.setMinHeight(250);
+                window.setMaxHeight(250);
+                meatgrams.clear();
             }
             if (!newValue.equals("Meal with meat")) {
-                layout.getChildren().setAll(label, dropdownMeal, mealButton, dropdownGroceries, groceriesButton);
+                layout.getChildren().setAll(label, dropdown, submitButton);
+                window.setMinHeight(200);
+                window.setMaxHeight(200);
             }
         });
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
-        dropdownMeal.setStyle("-fx-padding: 7;");
-        mealButton.setStyle("-fx-padding: 10;");
-        dropdownGroceries.setStyle("-fx-padding: 7;");
-        groceriesButton.setStyle("-fx-padding: 10;");
+        dropdown.setStyle("-fx-padding: 7;");
+        submitButton.setStyle("-fx-padding: 10;");
 
         //Add buttons
-        layout.getChildren().setAll(label, dropdownMeal, mealButton, dropdownGroceries, groceriesButton);
+        layout.getChildren().setAll(label, dropdown, submitButton);
         layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
 
