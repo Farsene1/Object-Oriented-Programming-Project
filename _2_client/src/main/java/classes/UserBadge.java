@@ -59,5 +59,5 @@ public class UserBadge {
     static public String getIcon() {
         return icon;
     }
-    
+
 }
