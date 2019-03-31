@@ -13,4 +13,7 @@ public class FriendshipTest {
     public void setUp(){
         friendship = new Friendship("Julian", "Flo");
     }
+
+    @Test
+    public void constrTest(){assertEquals(true, friendship != null);}
 }
