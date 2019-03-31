@@ -16,5 +16,13 @@ public class StatisticsTest {
     @Test
     public void constrTest(){assertEquals(true, statistics != null);}
 
-    
+    @Test
+    public void getSetTest(){
+        assertEquals("Julian", statistics.getUsername());
+        assertEquals((Integer) 5000, statistics.getScore());
+        assertEquals("22-02-1999", statistics.getDate());
+        statistics.setUsername(statistics.getUsername());
+        statistics.setScore(6000);
+        statistics.setDate("22-02-1999");
+    }
 }
