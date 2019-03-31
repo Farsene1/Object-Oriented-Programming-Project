@@ -90,8 +90,7 @@ public class Home {
             //LeaderBoard button
             Button leaderboardButton = new Button("LeaderBoard");
             leaderboardButton.setOnAction(e -> {
-
-                AlertBox.display("This is an error message", "To Be Implemented");
+                Leaderboard.showOptions(centerMenu, user, PolarScore, window);
             });
             Button friendsbutton = new Button("Friends");
             friendsbutton.setOnAction(e -> {
