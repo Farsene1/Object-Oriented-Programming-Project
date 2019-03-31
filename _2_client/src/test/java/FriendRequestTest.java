@@ -44,4 +44,18 @@ public class FriendRequestTest {
         friendRequest.setAccepted(true);
         assertTrue(friendRequest.isAccepted());
     }
+
+    @Test
+    public void getId(){
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
+
+        assertEquals(null,friendRequest.getId());
+    }
+    @Test
+    public void setId(){
+        FriendRequest friendRequest= new FriendRequest("pablo","john");
+        friendRequest.setId(3);
+        assertTrue(3==friendRequest.getId());
+
+    }
 }

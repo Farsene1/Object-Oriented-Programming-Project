@@ -74,9 +74,9 @@ public class ElectricityBox {
                 total_hrs = light_hrs + heat_hrs;
                 Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);
                 if (solar) {
-                    score = 25 * total_hrs;
-                } else {
                     score = 100 * total_hrs;
+                } else {
+                    score = 20 * total_hrs;
                 }
                 electricity.setScore(score);
                 new Controller().sendElectricity(user, score);

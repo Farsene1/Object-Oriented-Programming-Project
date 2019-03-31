@@ -50,17 +50,15 @@ public class GreetingController {
         Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
         Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());
         Statistics s = this.statisticsRepository.findStatisticByDate(activity.getDate());
-        if(s == null) {
+        if (s == null) {
             this.statisticsRepository.save(s1);
-        }
-        else {
+        } else {
             this.statisticsRepository.updateStatistic(sum, activity.getUsername());
         }
         return this.activityRepository.findActivitiesByUser(activity.getUsername());
     }
 
     /**
-     *
      * @return List
      */
     @RequestMapping(value = "/statistics",
@@ -116,12 +114,11 @@ public class GreetingController {
     }
 
     /**
-     * 
      * @param user
      * @return
      */
     @RequestMapping(value = "/updateBadge")
-    public String updateBadge(@RequestBody User user){
+    public String updateBadge(@RequestBody User user) {
         this.userRepository.updateBadge(user.getBadge(), user.getUsername());
         return "OK";
     }
@@ -170,13 +167,12 @@ public class GreetingController {
     }
 
     @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
-    public List<User> leaderboard(){
+    public List<User> leaderboard() {
         return this.userRepository.getTopTen();
     }
 
     /**
      * default method for testing, dangerous to use.
-     *
      * @return List
      */
     @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
@@ -187,7 +183,6 @@ public class GreetingController {
 
     /**
      * just a setter.
-     *
      * @param userRepository
      */
     public void setUserRepository(UserRepository userRepository) {
@@ -203,4 +198,7 @@ public class GreetingController {
         this.activityRepository = activityRepository;
     }
 
+    public void setStatisticsRepository(StatisticsRepository statisticsRepository) {
+        this.statisticsRepository = statisticsRepository;
+    }
 }

@@ -83,7 +83,7 @@ public class Signup {
                     passwordInput2.clear();
                     // check if registration is possible
                     if(res.equals("/POST successful")){
-                        Home.showHome(window, user, icon);
+                        Home.showHome(window, user);
                     } 
                     else{
                         errorlabel.setText("ALREADY REGISTERED UP!");

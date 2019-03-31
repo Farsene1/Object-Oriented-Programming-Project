@@ -1,0 +1,14 @@
+.jfx-snackbar-content{
+     -fx-background-color: gray;
+
+}
+.jfx-snackbar-toast{
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+}
+
+.HomeLabelCss{
+
+    -fx-font-size: 50;
+    -fx-text-fill: white;
+}
