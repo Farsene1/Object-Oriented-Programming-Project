@@ -15,4 +15,12 @@ public class FriendRequestTest {
 
     @Test
     public void constrTest(){assertEquals(true, friendRequest != null);}
+
+    @Test
+    public void getSetTest(){
+        assertEquals("Julian", friendRequest.getSender());
+        assertEquals("Flo", friendRequest.getReceiver());
+        friendRequest.setSender(friendRequest.getSender());
+        friendRequest.setReceiver(friendRequest.getReceiver());
+    }
 }
