@@ -19,4 +19,8 @@ public class StatisticsControllerTest {
 
     @MockBean
     private ActivityRepository repository = Mockito.mock(ActivityRepository.class);
+
+    private Statistics stats1 = new Statistics("admin",5000,"22-02-1999");
+    private Statistics stats2 = new Statistics("Julian",6000,"31-03-2019");
+
 }
