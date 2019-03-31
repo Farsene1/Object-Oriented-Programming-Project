@@ -8,8 +8,14 @@ import javafx.scene.control.Button;
 
 public class CSSpolarBadge {
 
+    /**
+     * Initializes boolean unlocked false.
+     */
     static private boolean unlocked = false;
 
+    /**
+     * Method to set styling of polar badge 1 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar1(Button button, int unlockNumber){
 
         if(unlockNumber<1)
@@ -35,6 +41,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 2 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar2(Button button, int unlockNumber){
         if(unlockNumber<2)
         {
@@ -58,6 +67,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 3 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar3(Button button, int unlockNumber){
         if(unlockNumber<3)
         {
@@ -81,6 +93,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 4 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar4(Button button, int unlockNumber){
         if(unlockNumber<4)
         {
@@ -104,6 +119,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 5 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar5(Button button, int unlockNumber){
         if(unlockNumber<5)
         {
@@ -127,6 +145,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 6 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar6(Button button, int unlockNumber){
         if(unlockNumber<6)
         {
@@ -150,6 +171,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 7 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar7(Button button, int unlockNumber){
         if(unlockNumber<7)
         {
@@ -173,6 +197,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 8 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar8(Button button, int unlockNumber){
         if(unlockNumber<8)
         {
@@ -196,6 +223,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 9 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar9(Button button, int unlockNumber){
         if(unlockNumber<9)
         {
@@ -219,6 +249,9 @@ public class CSSpolarBadge {
         }
     }
 
+    /**
+     * Method to set styling of polar badge 10 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
     public static boolean setPolar10(Button button, int unlockNumber){
         if(unlockNumber<10)
         {
