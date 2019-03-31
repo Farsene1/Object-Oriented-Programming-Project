@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 
 public class Achievements {
 
+    /**
+     * Initializes boolean variable unlocked
+     */
    static private boolean unlocked = false;
 
     public static void showBadges(GridPane grid, User user, Stage window) {
@@ -40,6 +43,10 @@ public class Achievements {
          */
         int electricityUnlock = Badges.electricityUnlock(user);
 
+
+        /**
+         * Set label for achievments, initialize VBox for badges.
+         */
         Label myAchievements = new Label("My Achievements!");
         myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
         VBox achievements = new VBox();
@@ -49,7 +56,7 @@ public class Achievements {
         GridPane.setConstraints(achievements, 0, 0);
 
         /**
-         * Polar score badges
+         * Polar score badges.
          */
         HBox polarHbox = new HBox();
         polarHbox.setSpacing(1);
@@ -59,6 +66,9 @@ public class Achievements {
                 "-fx-background-color: rgba(255,255,255,0.4)");
 
 
+        /**
+         * Initialize buttons for polar badges.
+         */
         Button polarBadge_1 = new Button();
         Button polarBadge_2 = new Button();
         Button polarBadge_3 = new Button();
@@ -70,6 +80,9 @@ public class Achievements {
         Button polarBadge_9 = new Button();
         Button polarBadge_10 = new Button();
 
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked polar badges.
+         */
         CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
         CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
         CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
@@ -82,7 +95,8 @@ public class Achievements {
         CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
 
         /**
-         * Selecting unlocked or locked polar score badges
+         * Selecting unlocked or locked polar score badges on button click.
+         * Shows alert messages for each specific badge if they're not yet unlocked
          */
         polarBadge_1.setOnAction(e -> {
             unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
@@ -192,17 +206,22 @@ public class Achievements {
             }
         });
 
-
+        /**
+         * Label for polar badges
+         */
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
         polarHbox.getChildren().addAll(polarBadge_1, polarBadge_2, polarBadge_3, polarBadge_4, polarBadge_5,
                 polarBadge_6, polarBadge_7, polarBadge_8, polarBadge_9, polarBadge_10);
 
         /**
-         * Food score badges
+         * Food score badges.
          */
         HBox foodHbox = new HBox();
 
+        /**
+         * Initialize buttons for food badges.
+         */
         Button foodBadge_1 = new Button();
         Button foodBadge_2 = new Button();
         Button foodBadge_3 = new Button();
@@ -214,6 +233,9 @@ public class Achievements {
         Button foodBadge_9 = new Button();
         Button foodBadge_10 = new Button();
 
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked food badges.
+         */
         CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);
         CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);
         CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);
@@ -225,9 +247,16 @@ public class Achievements {
         CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);
         CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);
 
+
+        /**
+         * Label for food badges.
+         */
         Label foodLabel = new Label("FOOD");
         foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
+        /**
+         * Adds all badges for food to Hbox
+         */
         foodHbox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,
                 foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
 
@@ -237,6 +266,10 @@ public class Achievements {
         HBox transportHbox = new HBox();
         transportHbox.setSpacing(1);
 
+
+        /**
+         * Initialize buttons for transport badges.
+         */
         Button transportBadge_1 = new Button();
         Button transportBadge_2 = new Button();
         Button transportBadge_3 = new Button();
@@ -248,6 +281,9 @@ public class Achievements {
         Button transportBadge_9 = new Button();
         Button transportBadge_10 = new Button();
 
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked transport badges.
+         */
         CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);
         CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);
         CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);
@@ -259,20 +295,27 @@ public class Achievements {
         CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);
         CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);
 
+        /**
+         * Label for transport badges
+         */
         Label transportLabel = new Label("TRANSPORT");
         transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
+        /**
+         * Adds all badges for transport to Hbox.
+         */
         transportHbox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,
                 transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
 
-
-
-/**
- * electricity score badges
- */
+        /**
+         * electricity score badges.
+         */
         HBox electricityHbox = new HBox();
         electricityHbox.setSpacing(1);
 
+        /**
+         * Initialize buttons for electricity badges.
+         */
         Button electricityBadge_1 = new Button();
         Button electricityBadge_2 = new Button();
         Button electricityBadge_3 = new Button();
@@ -284,6 +327,9 @@ public class Achievements {
         Button electricityBadge_9 = new Button();
         Button electricityBadge_10 = new Button();
 
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked electricity badges.
+         */
         CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);
         CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);
         CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);
@@ -295,17 +341,24 @@ public class Achievements {
         CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);
         CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);
 
+        /**
+         * Label for electricity badges.
+         */
         Label electricityLabel = new Label("ELECTRICITY");
         electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
+        /**
+         * Adds all badges for electricity to Hbox.
+         */
         electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,
                 electricityBadge_6, electricityBadge_7, electricityBadge_8, electricityBadge_9, electricityBadge_10);
 
+        /**
+         * Adds all badges in specific Hboxes to Vbox // styling.
+         */
         achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);
-
         grid.getChildren().setAll(achievements);
         achievements.setAlignment(Pos.CENTER);
-
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 

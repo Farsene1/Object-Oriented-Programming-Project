@@ -18,10 +18,16 @@ import java.time.format.DateTimeFormatter;
 
 public class FoodBox {
 
+    /**
+     * Initializes string for food added as empty.
+     */
     static String foodAdded = "";
 
     public static classes.Meal addMeal(String title, String message, User user) {
 
+        /**
+         * Sets window.
+         */
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -29,20 +35,31 @@ public class FoodBox {
         Label label = new Label();
         label.setText(message);
 
+        /**
+         * Declares choice box for dropdown menu of meals.
+         */
         ChoiceBox<String> dropdownMeal= new ChoiceBox<>();
-
+        /**
+         * Adds meal items to drop down menu.
+         */
         dropdownMeal.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat");
         dropdownMeal.getSelectionModel().select(0);
-
+        /**
+         * Declares choice box for dropdown menu of groceries.
+         */
         ChoiceBox<String> dropdownGroceries= new ChoiceBox<>();
-
+        /**
+         * Adds grocery items to drop down menu.
+         */
         dropdownGroceries.getItems().addAll("Imported", "Local");
         dropdownGroceries.getSelectionModel().select(0);
 
+        /**
+         * Button for adding meal connected to drop down menu / depending on selection it adds meal type scores.
+         */
         Button mealButton= new Button("Submit meal!");
         mealButton.setOnAction(e -> {
             foodAdded = dropdownMeal.getValue();
-
             if(foodAdded == "Vegan meal"){
                 foodAdded = "vegan";
                 LocalDateTime myDateObj = LocalDateTime.now();
@@ -69,12 +86,18 @@ public class FoodBox {
                 List<Activity> list = new Controller().sendFood(activity);
                 window.close();
             }
+            /**
+             * When meal addes contains meat, method in new alert box for meat specific meals ins called on.
+             */
             if(foodAdded == "Meal with meat") {
                 MeatMealBox.meatMealCalculator("Meat meal calculator", "Please select the estimated amount of meat had in grams:", user);
                 window.close();
             }
         });
 
+        /**
+         * Button for adding groceries connected to drop down menu / depending on selection it adds grocery type scores.
+         */
         Button groceriesButton= new Button("Sumbit groceries");
         groceriesButton.setOnAction(e -> {
 
@@ -104,6 +127,9 @@ public class FoodBox {
             }
         });
 
+        /**
+         * Adding labels / Styling / adding items to Vbox.
+         */
         VBox layout = new VBox(10);
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
@@ -120,6 +146,9 @@ public class FoodBox {
         window.setScene(scene);
         window.showAndWait();
 
+        /**
+         * Returns food type to be added to database.
+         */
         //Make sure to return answer
         return new classes.Meal("Food", foodAdded);
     }
