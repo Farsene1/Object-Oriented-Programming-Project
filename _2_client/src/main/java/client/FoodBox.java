@@ -146,6 +146,9 @@ public class FoodBox {
         window.setScene(scene);
         window.showAndWait();
 
+        /**
+         * Returns food type to be added to database.
+         */
         //Make sure to return answer
         return new classes.Meal("Food", foodAdded);
     }
