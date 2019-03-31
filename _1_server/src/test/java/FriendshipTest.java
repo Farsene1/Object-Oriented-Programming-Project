@@ -8,4 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FriendshipTest {
     private Friendship friendship;
+
+    @Before
+    public void setUp(){
+        friendship = new Friendship("Julian", "Flo");
+    }
 }
