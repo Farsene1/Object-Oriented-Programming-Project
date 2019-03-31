@@ -17,19 +17,26 @@ import java.util.List;
 public class MeatMealBox {
 
     static public void meatMealCalculator(String title, String message, User user){
-
+        /**
+         * Sets window.
+         */
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(500);
         Label label = new Label();
         label.setText(message);
-
+        /**
+         * Declares choice box for dropdown menu of meat meals.
+         */
         ChoiceBox<Integer> dropdownGrams= new ChoiceBox<>();
 
         dropdownGrams.getItems().addAll(100, 200, 300, 400, 500);
         dropdownGrams.getSelectionModel().select(0);
 
+        /**
+         * Button to add meat meals / footprint score dependant on number of grams / window closes on meat meal added.
+         */
         Button gramsButton= new Button("Submit grams");
         gramsButton.setOnAction(e -> {
             int gramsAdded = dropdownGrams.getValue();
@@ -91,9 +98,7 @@ public class MeatMealBox {
                 window.close();
             }
         });
-
-
-
+        
         VBox layout = new VBox(10);
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
