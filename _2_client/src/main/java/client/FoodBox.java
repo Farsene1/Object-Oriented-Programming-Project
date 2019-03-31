@@ -3,6 +3,9 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,22 +24,26 @@ public class FoodBox {
 
     static String foodAdded = "";
 
-    public static classes.Meal addMeal(String title, String message, User user) {
+    public static void addMeal(String title, String message, User user) {
 
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
-        window.setMinWidth(500);
+        window.setMinWidth(475);
+        window.setMaxWidth(475);
+        window.setMinHeight(350);
+        window.setMaxHeight(350);
         Label label = new Label(message);
 
-        ChoiceBox<String> dropdown = new ChoiceBox<>();
-        dropdown.getItems().addAll("Vegan meal", "Vegetarian meal", "Meal with meat","Imported Groceries", "Local Groceries");
+        JFXComboBox<String> dropdown = new JFXComboBox<>();
+        dropdown.getItems().setAll("Vegan meal", "Vegetarian meal", "Meal with meat","Imported Groceries", "Local Groceries");
         dropdown.getSelectionModel().select(0);
 
         VBox layout = new VBox(10);
 
-        TextField meatgrams = new TextField();
+        JFXTextField meatgrams = new JFXTextField();
         meatgrams.setPromptText("Amount of meat(g)");
+        meatgrams.setLabelFloat(true);
         Label errorlabel = new Label();
         errorlabel.setText("You can only type numbers");
         errorlabel.setStyle("-fx-text-fill: red;");
@@ -82,12 +89,11 @@ public class FoodBox {
                             grams * -1, date));
                     window.close();
                 } catch (NumberFormatException nfe) {
-                    layout.getChildren().setAll(label, dropdown, meatgrams, errorlabel, submitButton);
-                    window.setMinHeight(260);
-                    window.setMaxHeight(260);
+                    layout.getChildren().removeAll(submitButton);
+                    layout.getChildren().addAll(errorlabel, submitButton);
                 }
             }
-            if (foodAdded == "Imported") {
+            if (foodAdded == "Imported Groceries") {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
@@ -97,7 +103,7 @@ public class FoodBox {
                         -150, date));
                 window.close();
             }
-            if (foodAdded == "Local") {
+            if (foodAdded == "Local Groceries") {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
@@ -112,32 +118,28 @@ public class FoodBox {
 
         dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             if (newValue.equals("Meal with meat")) {
-                layout.getChildren().setAll(label, dropdown, meatgrams, submitButton);
-                window.setMinHeight(250);
-                window.setMaxHeight(250);
+                layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(meatgrams, submitButton);
                 meatgrams.clear();
             }
             if (!newValue.equals("Meal with meat")) {
-                layout.getChildren().setAll(label, dropdown, submitButton);
-                window.setMinHeight(200);
-                window.setMaxHeight(200);
+                layout.getChildren().removeAll(errorlabel, meatgrams,submitButton);
+                layout.getChildren().addAll(submitButton);
             }
         });
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
-        dropdown.setStyle("-fx-padding: 7;");
-        submitButton.setStyle("-fx-padding: 10;");
+        meatgrams.setStyle("-fx-padding: 15;");
+        dropdown.setStyle("-fx-padding: 15;");
+        submitButton.setStyle("-fx-padding: 15;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue");
 
         //Add buttons
         layout.getChildren().setAll(label, dropdown, submitButton);
-        layout.setStyle(" -fx-padding: 10px;");
+        layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
         Scene scene = new Scene(layout);
 
         window.setScene(scene);
         window.showAndWait();
-
-        //Make sure to return answer
-        return new classes.Meal("Food", foodAdded);
     }
 
 }
