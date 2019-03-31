@@ -16,4 +16,7 @@ public class StatisticsControllerTest {
 
     @Autowired
     private StatisticsController controller = new StatisticsController();
+
+    @MockBean
+    private ActivityRepository repository = Mockito.mock(ActivityRepository.class);
 }
