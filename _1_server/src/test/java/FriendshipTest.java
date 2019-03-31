@@ -1,5 +1,4 @@
 import hello.Friendship;
-import hello.Statistics;
 import org.junit.Before;
 import org.junit.Test;
 
