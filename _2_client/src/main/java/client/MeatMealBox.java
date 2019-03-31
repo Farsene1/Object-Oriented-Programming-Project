@@ -98,13 +98,15 @@ public class MeatMealBox {
                 window.close();
             }
         });
-        
-        VBox layout = new VBox(10);
 
+        VBox layout = new VBox(10);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         dropdownGrams.setStyle("-fx-padding: 7;");
         gramsButton.setStyle("-fx-padding: 7;");
 
+        /**
+         * Add all items to Vbox.
+         */
         layout.getChildren().addAll(label, gramsButton, dropdownGrams);
         layout.setStyle(" -fx-padding: 10px;");
         Scene scene = new Scene(layout);
