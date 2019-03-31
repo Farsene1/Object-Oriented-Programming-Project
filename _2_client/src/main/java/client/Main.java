@@ -1,5 +1,6 @@
 package client;
 
+import classes.Activity;
 import classes.Controller;
 import classes.User;
 import javafx.application.Application;
@@ -22,6 +23,15 @@ public class Main extends Application {
         //EASTER EGG// default value in the database for shortcut when developing
         try {
             new Controller().signUp(new User("admin", Hash.generateHash("root", "SHA-256")));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",1500,"12-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",300,"13-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",700,"14-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",20,"15-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",500,"16-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",1500,"17-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",100,"26-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg",1500,"29-03-2019"));
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
