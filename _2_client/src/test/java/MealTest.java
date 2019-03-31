@@ -22,4 +22,5 @@ public class MealTest {
         assertEquals("meat",meal.getFoodType());
         assertEquals("food", meal.getFood());
     }
+
 }
