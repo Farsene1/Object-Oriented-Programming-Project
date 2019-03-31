@@ -75,7 +75,7 @@ public class FootPrint {
         Button Food = new Button("+");
         Food.setOnAction(e -> {
             try{
-            classes.Meal food = FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
+            FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
             }
@@ -89,7 +89,7 @@ public class FootPrint {
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
             try{
-            classes.Transport transport = TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
+           TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
             }
@@ -103,7 +103,7 @@ public class FootPrint {
         //     GridPane.setConstraints(Electricity, 6, 1);
         Electricity.setOnAction(e -> {
             try {
-                classes.Electricity electricity = ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
+               ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
             }
