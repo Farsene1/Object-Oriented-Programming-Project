@@ -12,4 +12,7 @@ public class FriendRequestTest {
     public void setUp(){
         friendRequest = new FriendRequest("Julian","Hashim");
     }
+
+    @Test
+    public void constrTest(){assertEquals(true, friendRequest != null);}
 }
