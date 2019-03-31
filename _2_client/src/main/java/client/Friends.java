@@ -1,8 +1,12 @@
 package client;
 
 import classes.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.List;
 
@@ -126,8 +131,25 @@ public class Friends {
 
         });
 
-        pendingTable.setItems(addFriendRequests(user));
-        friendsTable.setItems(addFriend(user));
+
+
+
+        //TIMER for friends
+        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler<ActionEvent>() {
+
+            //showing  friends
+            @Override
+            public void handle(ActionEvent event) {
+                pendingTable.setItems(addFriendRequests(user));
+                friendsTable.setItems(addFriend(user));
+
+            }
+        }));
+        timer.setCycleCount(Timeline.INDEFINITE);
+        timer.play();
+
+
+
 
 
     }
