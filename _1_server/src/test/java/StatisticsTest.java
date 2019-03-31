@@ -13,5 +13,8 @@ public class StatisticsTest {
         statistics = new Statistics("Julian", 5000, "22-02-1999");
     }
 
+    @Test
+    public void constrTest(){assertEquals(true, statistics != null);}
+
     
 }
