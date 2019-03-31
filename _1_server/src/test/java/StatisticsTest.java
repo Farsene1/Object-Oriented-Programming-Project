@@ -25,4 +25,13 @@ public class StatisticsTest {
         statistics.setScore(6000);
         statistics.setDate("22-02-1999");
     }
+
+    @Test
+    public void toStringTest(){
+        Statistics s = new Statistics();
+        s.setId(1);
+        assertEquals(s.getId()+0,1);
+
+        assertTrue(statistics.toString().contains("Julian"));
+    }
 }
