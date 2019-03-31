@@ -90,15 +90,11 @@ public class FriendshipController {
 
         if (ok == true) {
             this.friendRequestRepository.save(friendRequest);
-        } else {
-            System.out.println("Request cannot be sent: error");
+            return "SENT";
         }
 
-        if (ok == true) {
-            return "SENT";
-        } else {
-            return "SENT2";
-        }
+        System.out.println("Request cannot be sent: error");
+        return "SENT2";
     }
 
     /**
@@ -115,7 +111,8 @@ public class FriendshipController {
     }
 
     /**
-     * method for responding to a friendRequest. TO BE CHANGED LATER, depending on GUI.
+     * method for responding to a friendRequest. TO BE CHANGED LATER,
+     * depending on GUI.
      *
      * @param friendRequest
      * @return String
@@ -124,15 +121,16 @@ public class FriendshipController {
     public String respond(@RequestBody final FriendRequest friendRequest) {
         friendRequestRepository.respond(true,
                 friendRequest.getSender(), friendRequest.getReceiver());
-        this.friendshipRepository.save(new Friendship(friendRequest.getSender(),
-                friendRequest.getReceiver()));
-        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(),
-                friendRequest.getSender()));
+        this.friendshipRepository.save(new Friendship(
+                friendRequest.getSender(), friendRequest.getReceiver()));
+        this.friendshipRepository.save(new Friendship(
+                friendRequest.getReceiver(), friendRequest.getSender()));
         return "OK";
     }
 
     /**
-     * this method sets the request answer to true so that it will not appear in the incoming requests.
+     * this method sets the request answer to true
+     * so that it will not appear in the incoming requests.
      *
      * @param friendRequest
      * @return String
@@ -144,14 +142,28 @@ public class FriendshipController {
         return "OK";
     }
 
-    public void setFriendshipRepository(final FriendshipRepository friendshipRepository) {
+    /**
+     * set repo.
+     * @param friendshipRepository
+     */
+    public void setFriendshipRepository(
+            final FriendshipRepository friendshipRepository) {
         this.friendshipRepository = friendshipRepository;
     }
 
-    public void setFriendRequestRepository(final FriendRequestRepository friendRequestRepository) {
+    /**
+     * set repo.
+     * @param friendRequestRepository
+     */
+    public void setFriendRequestRepository(
+            final FriendRequestRepository friendRequestRepository) {
         this.friendRequestRepository = friendRequestRepository;
     }
 
+    /**
+     * set repo.
+     * @param userRepository
+     */
     public void setUserRepository(final UserRepository userRepository) {
         this.userRepository = userRepository;
     }
