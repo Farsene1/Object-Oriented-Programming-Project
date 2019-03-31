@@ -41,21 +41,33 @@ public class GreetingController {
     }
 
     /**
-     * addActivity
+     * addActivity.
+     * @return list.
      */
     @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public List<Activity> addToActivitiesTable(@RequestBody Activity activity) {
+    public List<Activity> addToActivitiesTable(
+            @RequestBody final Activity activity) {
+
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
-        Integer sum = this.activityRepository.totalFootprint(activity.getUsername(), activity.getDate());
-        Statistics s1 = new Statistics(activity.getUsername(), sum, activity.getDate());
-        Statistics s = this.statisticsRepository.findStatisticByDate(activity.getDate());
+
+        Integer sum = this.activityRepository
+                .totalFootprint(activity.getUsername(), activity.getDate());
+
+        Statistics s1 = new Statistics(
+                activity.getUsername(), sum, activity.getDate());
+
+        Statistics s = this.statisticsRepository
+                .findStatisticByDate(activity.getDate());
+
         if (s == null) {
             this.statisticsRepository.save(s1);
         } else {
-            this.statisticsRepository.updateStatistic(sum, activity.getUsername());
+            this.statisticsRepository
+                    .updateStatistic(sum, activity.getUsername());
         }
-        return this.activityRepository.findActivitiesByUser(activity.getUsername());
+        return this.activityRepository
+                .findActivitiesByUser(activity.getUsername());
     }
 
     /**
@@ -63,7 +75,7 @@ public class GreetingController {
      */
     @RequestMapping(value = "/statistics",
             method = RequestMethod.POST)
-    public List<Statistics> getAllStats(@RequestBody String username) {
+    public List<Statistics> getAllStats(@RequestBody final String username) {
         return statisticsRepository.findStatisticsByUsername(username);
     }
 
@@ -73,18 +85,20 @@ public class GreetingController {
      * @return List of Activity objects
      */
     @RequestMapping(value = "/firstactivities", method = RequestMethod.POST)
-    public List<Activity> getUpdatesActivities(@RequestBody User user) {
-        return this.activityRepository.findActivitiesByUser(user.getUsername());
+    public List<Activity> getUpdatesActivities(@RequestBody final User user) {
+        return this.activityRepository
+                .findActivitiesByUser(user.getUsername());
     }
 
     /**
-     * this is the registration method - checks if the registration is possible.
+     * this is the registration method - checks if the registration
+     * is possible.
      *
      * @param user
      * @return the message
      */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String postMethod(@RequestBody User user) {
+    public String postMethod(@RequestBody final User user) {
         List<User> users = this.userRepository
                 .findUserByUsername(user.getUsername());
         if (users.size() == 0) {
@@ -102,7 +116,7 @@ public class GreetingController {
      * @return String
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody User user) {
+    public String login(@RequestBody final User user) {
         List<User> users = this.userRepository
                 .findUserByUsername(user.getUsername());
         String hash2 = user.getHash();
@@ -115,10 +129,10 @@ public class GreetingController {
 
     /**
      * @param user
-     * @return
+     * @return res.
      */
     @RequestMapping(value = "/updateBadge")
-    public String updateBadge(@RequestBody User user) {
+    public String updateBadge(@RequestBody final User user) {
         this.userRepository.updateBadge(user.getBadge(), user.getUsername());
         return "OK";
     }
@@ -130,18 +144,22 @@ public class GreetingController {
      * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
-    public String addActivity(@RequestBody User user) {
+    public String addActivity(@RequestBody final User user) {
         System.out.println("No pain no gain");
-        this.userRepository.updateActivity(user.getFoodScore(), user.getTransportScore(),
-                user.getElectricityScore(), user.getPolarScore(), user.getUsername());
+        this.userRepository.updateActivity(user.getFoodScore(),
+                user.getTransportScore(),
+                user.getElectricityScore(),
+                user.getPolarScore(),
+                user.getUsername());
         return "OK";
     }
 
     /**
      * method for getting the most recent updates.
+     * @return user from db.
      */
     @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
-    public User getUpdates(@RequestBody User user) {
+    public User getUpdates(@RequestBody final User user) {
         List<User> users = this.userRepository
                 .findUserByUsername(user.getUsername());
         return users.get(0);
@@ -157,15 +175,19 @@ public class GreetingController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value = "username",
             defaultValue = "anonymous")
-                                 String username,
+                             final String username,
                          @RequestParam(value = "hash", defaultValue = "0")
-                                 String hash) {
+                         final String hash) {
         String info = String.format(
                 "/GET REQUEST info: username=%s, hash=%s", username, hash);
         System.out.println(info);
         return new User(username, hash);
     }
 
+    /**
+     * leaderboard method.
+     * @return list.
+     */
     @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
     public List<User> leaderboard() {
         return this.userRepository.getTopTen();
@@ -173,6 +195,7 @@ public class GreetingController {
 
     /**
      * default method for testing, dangerous to use.
+     *
      * @return List
      */
     @RequestMapping(value = "/d398hasd98qhwd98qwhq9dhq8wdhw8whd",
@@ -183,9 +206,10 @@ public class GreetingController {
 
     /**
      * just a setter.
+     *
      * @param userRepository
      */
-    public void setUserRepository(UserRepository userRepository) {
+    public void setUserRepository(final UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -194,11 +218,18 @@ public class GreetingController {
      *
      * @param activityRepository
      */
-    public void setActivityRepository(ActivityRepository activityRepository) {
+    public void setActivityRepository(
+            final ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
 
-    public void setStatisticsRepository(StatisticsRepository statisticsRepository) {
+    /**
+     * setter.
+     *
+     * @param statisticsRepository
+     */
+    public void setStatisticsRepository(
+            final StatisticsRepository statisticsRepository) {
         this.statisticsRepository = statisticsRepository;
     }
 }

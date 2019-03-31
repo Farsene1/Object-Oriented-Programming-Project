@@ -10,22 +10,42 @@ import java.util.List;
 /**
  * interface for hibernate.
  */
-public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {
+public interface StatisticsRepository
+        extends CrudRepository<Statistics, Integer> {
     /**
      * Query to findAllStatistics.
+     * @return list.
      */
     @Query(value = "SELECT * from statistics", nativeQuery = true)
     List<Statistics> findAllStatistics();
 
-    @Query(value = "SELECT * FROM statistics WHERE date = ?1", nativeQuery = true)
+    /**
+     * get by date.
+     * @param date
+     * @return Statistics obj.
+     */
+    @Query(value = "SELECT * FROM statistics WHERE date = ?1",
+            nativeQuery = true)
     Statistics findStatisticByDate(String date);
 
-    @Query(value = "SELECT * FROM statistics WHERE username = ?1", nativeQuery = true)
+    /**
+     * get by name.
+     * @param username
+     * @return list.
+     */
+    @Query(value = "SELECT * FROM statistics WHERE username = ?1",
+            nativeQuery = true)
     List<Statistics> findStatisticsByUsername(String username);
 
+    /**
+     * update.
+     * @param score
+     * @param username
+     */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2", nativeQuery = true)
+    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2",
+            nativeQuery = true)
     void updateStatistic(Integer score, String username);
 
 }

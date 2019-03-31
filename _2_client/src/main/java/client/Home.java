@@ -152,7 +152,7 @@ public class Home {
             factbar.setPrefWidth(500);
 
 
-            factbar.show(message,7000);
+            factbar.show(message,10000);
         }
 //GENERATING A RANDOM STRING FRO MTHE LIST
         public static String generate(List<String> list){
