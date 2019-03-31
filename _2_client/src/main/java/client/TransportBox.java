@@ -24,7 +24,7 @@ public class TransportBox {
     static String date;
     static int score;
 
-    public static Transport addVehicle(String title, String message, classes.User user) {
+    public static void addVehicle(String title, String message, classes.User user) {
         TextField distanceT;
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
@@ -76,15 +76,5 @@ public class TransportBox {
     Scene scene = new Scene(layout);
     window.setScene(scene);
     window.showAndWait();
-
-
-
-    return new
-
-    Transport(user.getUsername(),vehicle,distance,score,date );
-}
-
-
-
-
+    }
 }
