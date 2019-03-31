@@ -26,13 +26,22 @@ import java.util.List;
 
 public class FootPrint {
 
+    /**
+     * Initialise table.
+     */
     static TableView table = new TableView();
 
 
     public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
 
+        /**
+         * Gets user specific badge.
+         */
         String icon = UserBadge.getIcon();
 
+        /**
+         * Labels / Vbox added and styling.
+         */
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
         VBox Footprint = new VBox(myFootprint, table);
@@ -40,6 +49,9 @@ public class FootPrint {
         Footprint.setSpacing(20);
         Footprint.setAlignment(Pos.CENTER);
 
+        /**
+         * Adds columns to footprint table // simple styling.
+         */
         TableColumn Col1 = new TableColumn("Category");
         Col1.setCellValueFactory(new PropertyValueFactory<>("category"));
         TableColumn Col2 = new TableColumn("Description");
@@ -53,14 +65,22 @@ public class FootPrint {
         Col3.setMinWidth(300);
         Col4.setMinWidth(300);
 
+        /**
+         * Add items to table
+         */
         table.setItems(addItems(user));
         table.getColumns().setAll(Col1, Col2, Col3, Col4);
 
-        // window.setTitle("My Footprint");
+        /**
+         * Footprint type labels.
+         */
         Label FoodLabel = new Label("Food Footprint ");
         Label ElectricityLabel = new Label("Electricity Footprint");
         Label TransportLabel = new Label("Transport Footprint");
 
+        /**
+         * Initialixe Vboxes for footprint types.
+         */
         VBox FoodOptions = new VBox();
         VBox TransportOptions = new VBox();
         VBox ElectricityOptions = new VBox();
@@ -71,7 +91,9 @@ public class FootPrint {
         //Footprint.setStyle("-fx-padding: 15;");
         GridPane.setConstraints(Footprint, 0, 1);
 
-        //My Food footprint
+        /**
+         * Button to add food footprints.
+         */
         Button Food = new Button("+");
         Food.setOnAction(e -> {
             try{
@@ -84,7 +106,9 @@ public class FootPrint {
             }
         });
 
-        //My Transport footprint
+        /**
+         * Button to add transport footprints.
+         */
         Button Transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
@@ -98,7 +122,9 @@ public class FootPrint {
             }
         });
 
-        //My Electricity footprint
+        /**
+         * Button to add electricity footprints.
+         */
         Button Electricity = new Button("+");
         //     GridPane.setConstraints(Electricity, 6, 1);
         Electricity.setOnAction(e -> {
@@ -112,6 +138,9 @@ public class FootPrint {
             }
         });
 
+        /**
+         * Back button to return to home.
+         */
         Button backButton = new Button("Back");
         backButton.setOnAction(e->{
             System.out.println("Icon url: "+icon);
@@ -120,7 +149,9 @@ public class FootPrint {
 
         GridPane.setConstraints(backButton,1,10);
 
-        //Add everything to grid
+        /**
+         * Adding everything to the grid.
+         */
         FoodOptions.getChildren().addAll(FoodLabel, Food);
         TransportOptions.getChildren().addAll(TransportLabel, Transport);
         ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);
@@ -129,6 +160,9 @@ public class FootPrint {
         GridPane.setConstraints(Hbox, 0, 0);
         grid.getChildren().setAll(Hbox, Footprint,backButton);
 
+        /**
+         * Simple styling.
+         */
         Food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         Transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
         // quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
@@ -139,7 +173,9 @@ public class FootPrint {
         ElectricityOptions.setMinWidth(476);
         TransportOptions.setMinWidth(476);
     }
-
+    /**
+     * Adds items to observable list "activities" to be added to database.
+     */
     public static ObservableList<Activity> addItems(User user) {
         ObservableList<Activity> activities = FXCollections.observableArrayList();
         List<Activity> act = new Controller().getAllActivities(user);
