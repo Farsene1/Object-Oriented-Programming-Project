@@ -7,4 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StatisticsTest {
     Statistics statistics;
+
+    @Before
+    public void setUp(){
+        statistics = new Statistics("Julian", 5000, "22-02-1999");
+    }
+
+    
 }
