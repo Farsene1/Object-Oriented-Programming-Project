@@ -28,8 +28,8 @@ public class FoodBox {
         window.setTitle(title);
         window.setMinWidth(475);
         window.setMaxWidth(475);
-        window.setMinHeight(350);
-        window.setMaxHeight(350);
+        window.setMinHeight(285);
+        window.setMaxHeight(285);
         Label label = new Label(message);
 
         JFXComboBox<String> dropdown = new JFXComboBox<>();
@@ -43,7 +43,6 @@ public class FoodBox {
         meatgrams.setLabelFloat(true);
         Label errorlabel = new Label();
         errorlabel.setText("You can only type numbers");
-        errorlabel.setStyle("-fx-text-fill: red;");
 
         Button submitButton = new Button("Submit meal!");
 
@@ -126,13 +125,13 @@ public class FoodBox {
         });
 
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
-        meatgrams.setStyle("-fx-padding: 15;");
-        dropdown.setStyle("-fx-padding: 15;");
-        submitButton.setStyle("-fx-padding: 15;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue");
-
+        meatgrams.setStyle("-fx-padding: 10;");
+        errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
+        dropdown.setStyle("-fx-padding: 7;");
+        submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
+        layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
         //Add buttons
         layout.getChildren().setAll(label, dropdown, submitButton);
-        layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
         Scene scene = new Scene(layout);
 
         window.setScene(scene);
