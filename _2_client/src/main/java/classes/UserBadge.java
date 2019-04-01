@@ -1,13 +1,25 @@
 package classes;
 
-
-
 public class UserBadge {
 
+    /**
+     * Default logo image for badge 1 / new registered user.
+     */
     static String icon = "https://i.ibb.co/THM6prg/polar1.png";
 
+    /**
+     * Method for user selection of unlocked badge
+     */
     static public String iconChoice(User user){
+
+        /**
+         * Calls method getBadge and assigns value to int number.
+         */
         int number= user.getBadge();
+
+        /**
+         * If statements to change badge dependent on users choice from available badges.
+         */
         if(number == 1){
           icon = "https://i.ibb.co/THM6prg/polar1.png";
         }
@@ -41,11 +53,11 @@ public class UserBadge {
     return icon;
 }
 
+    /**
+     * Get method for icon choice.
+     */
     static public String getIcon() {
         return icon;
     }
-
-
-
 
 }

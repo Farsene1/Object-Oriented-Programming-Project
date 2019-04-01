@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 
 
 public class AddFriendBox {
-        static boolean answer;
-    public static boolean display(String title, FriendRequest friendRequest){
+        static int answer;
+    public static int display(String title, FriendRequest friendRequest){
         Stage window = new Stage();
 
         //Block events to other windows
@@ -23,12 +23,17 @@ public class AddFriendBox {
         Button yesButton = new Button("Accept");
         Button noButton = new Button("Decline");
 
+         window.setOnCloseRequest(e ->{
+             answer = 3;
+         });
+
+
         yesButton.setOnAction(e->{
-            answer = true;
+            answer = 1;
             window.close();
         });
         noButton.setOnAction(e->{
-            answer = false;
+            answer = 2;
             window.close();
         });
 

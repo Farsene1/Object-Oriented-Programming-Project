@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Friends.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">Friends.java</span></div><h1>Friends.java</h1><pre class="source lang-java linenums">package client;
 
 import classes.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,145 +16,163 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.List;
 
-<span class="nc" id="L18">public class Friends {</span>
-<span class="nc" id="L19">    static TableView friendsTable = new TableView();</span>
-<span class="nc" id="L20">    static TableView pendingTable = new TableView();</span>
+<span class="nc" id="L23">public class Friends {</span>
+<span class="nc" id="L24">    static TableView friendsTable = new TableView();</span>
+<span class="nc" id="L25">    static TableView pendingTable = new TableView();</span>
 
 
     public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
 
-<span class="nc" id="L25">        String icon = UserBadge.getIcon();</span>
+<span class="nc" id="L30">        String icon = UserBadge.getIcon();</span>
 
 
-<span class="nc" id="L28">        FriendRequest test = new FriendRequest(&quot;ok&quot;, &quot;pablo&quot;);</span>
-<span class="nc" id="L29">        User pablo = new User(&quot;pablo&quot;, &quot;alsihdbasd&quot;);</span>
-<span class="nc" id="L30">        pablo.setPolarScore(123);</span>
+<span class="nc" id="L33">        FriendRequest test = new FriendRequest(&quot;ok&quot;, &quot;pablo&quot;);</span>
+<span class="nc" id="L34">        User pablo = new User(&quot;pablo&quot;, &quot;alsihdbasd&quot;);</span>
+<span class="nc" id="L35">        pablo.setPolarScore(123);</span>
         //CLEARING THE GRID FROM PREVIOUS ADDITIONS
-<span class="nc" id="L32">        grid.getChildren().clear();</span>
+<span class="nc" id="L37">        grid.getChildren().clear();</span>
 
         //Creating Labels for addition
-<span class="nc" id="L35">        Label friendsL = new Label(&quot;My Friend List&quot;);</span>
-<span class="nc" id="L36">        Label friendsP = new Label(&quot;Pending friend Requests&quot;);</span>
-<span class="nc" id="L37">        TextField addaFriend = new TextField();</span>
-<span class="nc" id="L38">        Button addaFriendB = new Button(&quot;Add A Friend&quot;);</span>
-<span class="nc" id="L39">        Label FriendsLabel = new Label(&quot;FRIENDS&quot;);</span>
-<span class="nc" id="L40">        Button backButton = new Button(&quot;Back&quot;);</span>
+<span class="nc" id="L40">        Label friendsL = new Label(&quot;My Friend List&quot;);</span>
+<span class="nc" id="L41">        Label friendsP = new Label(&quot;Pending friend Requests&quot;);</span>
+<span class="nc" id="L42">        TextField addaFriend = new TextField();</span>
+<span class="nc" id="L43">        Button addaFriendB = new Button(&quot;Add A Friend&quot;);</span>
+<span class="nc" id="L44">        Label FriendsLabel = new Label(&quot;FRIENDS&quot;);</span>
+<span class="nc" id="L45">        Button backButton = new Button(&quot;Back&quot;);</span>
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
-<span class="nc" id="L44">        HBox Vbox = new HBox(addaFriend, addaFriendB);</span>
-<span class="nc" id="L45">        VBox Vbox1 = new VBox(friendsL, Vbox, friendsTable);</span>
-<span class="nc" id="L46">        VBox Vbox2 = new VBox(friendsP, pendingTable);</span>
-<span class="nc" id="L47">        Vbox1.setStyle(&quot;-fx-padding:15;&quot;);</span>
-<span class="nc" id="L48">        Vbox2.setStyle(&quot;-fx-padding:15;&quot;);</span>
-<span class="nc" id="L49">        Vbox1.setSpacing(20);</span>
-<span class="nc" id="L50">        Vbox2.setSpacing(20);</span>
+<span class="nc" id="L49">        HBox Vbox = new HBox(addaFriend, addaFriendB);</span>
+<span class="nc" id="L50">        VBox Vbox1 = new VBox(friendsL, Vbox, friendsTable);</span>
+<span class="nc" id="L51">        VBox Vbox2 = new VBox(friendsP, pendingTable);</span>
+<span class="nc" id="L52">        Vbox1.setStyle(&quot;-fx-padding:15;&quot;);</span>
+<span class="nc" id="L53">        Vbox2.setStyle(&quot;-fx-padding:15;&quot;);</span>
+<span class="nc" id="L54">        Vbox1.setSpacing(20);</span>
+<span class="nc" id="L55">        Vbox2.setSpacing(20);</span>
 
-<span class="nc" id="L52">        Vbox1.setAlignment(Pos.CENTER_LEFT);</span>
-<span class="nc" id="L53">        Vbox2.setAlignment(Pos.CENTER_RIGHT);</span>
+<span class="nc" id="L57">        Vbox1.setAlignment(Pos.CENTER_LEFT);</span>
+<span class="nc" id="L58">        Vbox2.setAlignment(Pos.CENTER_RIGHT);</span>
         // GridPane.setConstraints(Vbox1,0,0);
         //  GridPane.setConstraints(Vbox2,7,0);
         //ADDING THE COLLUMNS TO THE TABLES
-<span class="nc" id="L57">        TableColumn Col1 = new TableColumn(&quot;Username&quot;);</span>
-<span class="nc" id="L58">        Col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;username&quot;));</span>
-<span class="nc" id="L59">        TableColumn Col2 = new TableColumn(&quot;Score&quot;);</span>
-<span class="nc" id="L60">        Col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;PolarScore&quot;));</span>
+<span class="nc" id="L62">        TableColumn Col1 = new TableColumn(&quot;Username&quot;);</span>
+<span class="nc" id="L63">        Col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;username&quot;));</span>
+<span class="nc" id="L64">        TableColumn Col2 = new TableColumn(&quot;Score&quot;);</span>
+<span class="nc" id="L65">        Col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;PolarScore&quot;));</span>
 
 
-<span class="nc" id="L63">        TableColumn Col3 = new TableColumn(&quot;Username&quot;);</span>
-<span class="nc" id="L64">        Col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sender&quot;));</span>
+<span class="nc" id="L68">        TableColumn Col3 = new TableColumn(&quot;Username&quot;);</span>
+<span class="nc" id="L69">        Col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sender&quot;));</span>
         //   TableColumn Col4 = new TableColumn(&quot;Accept/Decline&quot;);
         //  Col4.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;accept/decline&quot;));
-<span class="nc" id="L67">        friendsTable.getColumns().setAll(Col1, Col2);</span>
-<span class="nc" id="L68">        pendingTable.getColumns().setAll(Col3);</span>
-<span class="nc" id="L69">        Col1.setMinWidth(300);</span>
-<span class="nc" id="L70">        Col2.setMinWidth(300);</span>
-<span class="nc" id="L71">        Col3.setMinWidth(300);</span>
+<span class="nc" id="L72">        friendsTable.getColumns().setAll(Col1, Col2);</span>
+<span class="nc" id="L73">        pendingTable.getColumns().setAll(Col3);</span>
+<span class="nc" id="L74">        Col1.setMinWidth(300);</span>
+<span class="nc" id="L75">        Col2.setMinWidth(300);</span>
+<span class="nc" id="L76">        Col3.setMinWidth(300);</span>
         //backButton
-<span class="nc" id="L73">        backButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L74">            Home.showHome(window, user);</span>
-<span class="nc" id="L75">        });</span>
+<span class="nc" id="L78">        backButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L79">            Home.showHome(window, user);</span>
+<span class="nc" id="L80">        });</span>
 
 
         //Lastly creating 2 different
         //Hboxes so we can add everything to the grid
 
-<span class="nc" id="L81">        HBox toplayer = new HBox();</span>
-<span class="nc" id="L82">        HBox middleLayer = new HBox();</span>
-<span class="nc" id="L83">        toplayer.getChildren().addAll(FriendsLabel, backButton);</span>
-<span class="nc" id="L84">        middleLayer.getChildren().addAll(Vbox1, Vbox2);</span>
-<span class="nc" id="L85">        GridPane.setConstraints(toplayer, 5, 0);</span>
-<span class="nc" id="L86">        GridPane.setConstraints(middleLayer, 5, 30);</span>
-<span class="nc" id="L87">        toplayer.setAlignment(Pos.TOP_CENTER);</span>
-<span class="nc" id="L88">        middleLayer.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L89">        grid.getChildren().addAll(toplayer, middleLayer);</span>
+<span class="nc" id="L86">        HBox toplayer = new HBox();</span>
+<span class="nc" id="L87">        HBox middleLayer = new HBox();</span>
+<span class="nc" id="L88">        toplayer.getChildren().addAll(FriendsLabel, backButton);</span>
+<span class="nc" id="L89">        middleLayer.getChildren().addAll(Vbox1, Vbox2);</span>
+<span class="nc" id="L90">        GridPane.setConstraints(toplayer, 5, 0);</span>
+<span class="nc" id="L91">        GridPane.setConstraints(middleLayer, 5, 30);</span>
+<span class="nc" id="L92">        toplayer.setAlignment(Pos.TOP_CENTER);</span>
+<span class="nc" id="L93">        middleLayer.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L94">        grid.getChildren().addAll(toplayer, middleLayer);</span>
 
-<span class="nc" id="L91">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L92">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L96">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L97">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
 
 
-<span class="nc" id="L95">        addaFriendB.setOnAction(e -&gt; {</span>
-<span class="nc" id="L96">            classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());</span>
-<span class="nc" id="L97">            new RestfulClient().sendFriendRequest(friendRequest);</span>
-<span class="nc" id="L98">            addaFriend.clear();</span>
-<span class="nc" id="L99">        });</span>
+<span class="nc" id="L100">        addaFriendB.setOnAction(e -&gt; {</span>
+<span class="nc" id="L101">            classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());</span>
+<span class="nc" id="L102">            new RestfulClient().sendFriendRequest(friendRequest);</span>
+<span class="nc" id="L103">            addaFriend.clear();</span>
+<span class="nc" id="L104">        });</span>
 
 
         //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
-<span class="nc" id="L103">        pendingTable.setRowFactory(tv -&gt; {</span>
-<span class="nc" id="L104">            TableRow&lt;FriendRequest&gt; row = new TableRow&lt;&gt;();</span>
-<span class="nc" id="L105">            row.setOnMouseClicked(event -&gt; {</span>
-<span class="nc bnc" id="L106" title="All 4 branches missed.">                if (!row.isEmpty() &amp;&amp; event.getButton() == MouseButton.PRIMARY</span>
-<span class="nc bnc" id="L107" title="All 2 branches missed.">                        &amp;&amp; event.getClickCount() == 2) {</span>
+<span class="nc" id="L108">        pendingTable.setRowFactory(tv -&gt; {</span>
+<span class="nc" id="L109">            TableRow&lt;FriendRequest&gt; row = new TableRow&lt;&gt;();</span>
+<span class="nc" id="L110">            row.setOnMouseClicked(event -&gt; {</span>
+<span class="nc bnc" id="L111" title="All 4 branches missed.">                if (!row.isEmpty() &amp;&amp; event.getButton() == MouseButton.PRIMARY</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">                        &amp;&amp; event.getClickCount() == 2) {</span>
 
-<span class="nc" id="L109">                    FriendRequest clickedRow = row.getItem();</span>
-<span class="nc" id="L110">                    boolean answer = AddFriendBox.display(&quot;Add A friend&quot;, clickedRow);</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">                    if (answer == false) {</span>
-<span class="nc" id="L112">                        pendingTable.getItems().remove(clickedRow);</span>
-<span class="nc" id="L113">                        new Controller().sayNo(clickedRow);</span>
+<span class="nc" id="L114">                    FriendRequest clickedRow = row.getItem();</span>
+<span class="nc" id="L115">                    boolean answer = AddFriendBox.display(&quot;Add A friend&quot;, clickedRow);</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">                    if (answer == false) {</span>
+<span class="nc" id="L117">                        pendingTable.getItems().remove(clickedRow);</span>
+<span class="nc" id="L118">                        new Controller().sayNo(clickedRow);</span>
                     } else {
-<span class="nc" id="L115">                        clickedRow.setAccepted(true);</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">                        if(!clickedRow.getSender().equals(clickedRow.getReceiver())){</span>
-<span class="nc" id="L117">                            new Controller().sayYes(clickedRow);</span>
+<span class="nc" id="L120">                        clickedRow.setAccepted(true);</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">                        if(!clickedRow.getSender().equals(clickedRow.getReceiver())){</span>
+<span class="nc" id="L122">                            new Controller().sayYes(clickedRow);</span>
                         }
-<span class="nc" id="L119">                        pendingTable.getItems().remove(clickedRow);</span>
+<span class="nc" id="L124">                        pendingTable.getItems().remove(clickedRow);</span>
 
 
                     }
                 }
-<span class="nc" id="L124">            });</span>
-<span class="nc" id="L125">            return row;</span>
+<span class="nc" id="L129">            });</span>
+<span class="nc" id="L130">            return row;</span>
 
         });
 
-<span class="nc" id="L129">        pendingTable.setItems(addFriendRequests(user));</span>
-<span class="nc" id="L130">        friendsTable.setItems(addFriend(user));</span>
 
 
-<span class="nc" id="L133">    }</span>
+
+        //TIMER for friends
+<span class="nc" id="L138">        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler&lt;ActionEvent&gt;() {</span>
+
+            //showing  friends
+            @Override
+            public void handle(ActionEvent event) {
+<span class="nc" id="L143">                pendingTable.setItems(addFriendRequests(user));</span>
+<span class="nc" id="L144">                friendsTable.setItems(addFriend(user));</span>
+
+<span class="nc" id="L146">            }</span>
+        }));
+<span class="nc" id="L148">        timer.setCycleCount(Timeline.INDEFINITE);</span>
+<span class="nc" id="L149">        timer.play();</span>
+
+
+
+
+
+<span class="nc" id="L155">    }</span>
 
     public static ObservableList&lt;User&gt; addFriend(User user) {
-<span class="nc" id="L136">        ObservableList&lt;User&gt; Friend = FXCollections.observableArrayList();</span>
-<span class="nc" id="L137">        List&lt;User&gt; FriendList = new Controller().getAllFriends(user);</span>
+<span class="nc" id="L158">        ObservableList&lt;User&gt; Friend = FXCollections.observableArrayList();</span>
+<span class="nc" id="L159">        List&lt;User&gt; FriendList = new Controller().getAllFriends(user);</span>
 
-<span class="nc bnc" id="L139" title="All 2 branches missed.">        for (User a : FriendList) {</span>
-<span class="nc" id="L140">            Friend.add(a);</span>
-<span class="nc" id="L141">        }</span>
-<span class="nc" id="L142">        return Friend;</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for (User a : FriendList) {</span>
+<span class="nc" id="L162">            Friend.add(a);</span>
+<span class="nc" id="L163">        }</span>
+<span class="nc" id="L164">        return Friend;</span>
     }
 
 
     public static ObservableList&lt;FriendRequest&gt; addFriendRequests(User user) {
-<span class="nc" id="L147">        ObservableList&lt;FriendRequest&gt; friendRequests = FXCollections.observableArrayList();</span>
-<span class="nc" id="L148">        List&lt;FriendRequest&gt; friendRequestList = new Controller().getAllRequests(user);</span>
+<span class="nc" id="L169">        ObservableList&lt;FriendRequest&gt; friendRequests = FXCollections.observableArrayList();</span>
+<span class="nc" id="L170">        List&lt;FriendRequest&gt; friendRequestList = new Controller().getAllRequests(user);</span>
 
-<span class="nc bnc" id="L150" title="All 2 branches missed.">        for (FriendRequest a : friendRequestList) {</span>
-<span class="nc" id="L151">            friendRequests.add(a);</span>
-<span class="nc" id="L152">        }</span>
-<span class="nc" id="L153">        return friendRequests;</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">        for (FriendRequest a : friendRequestList) {</span>
+<span class="nc" id="L173">            friendRequests.add(a);</span>
+<span class="nc" id="L174">        }</span>
+<span class="nc" id="L175">        return friendRequests;</span>
     }
 
 

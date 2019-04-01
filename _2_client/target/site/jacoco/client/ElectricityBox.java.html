@@ -74,9 +74,9 @@ import java.util.List;
 <span class="nc" id="L74">                total_hrs = light_hrs + heat_hrs;</span>
 <span class="nc" id="L75">                Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);</span>
 <span class="nc bnc" id="L76" title="All 2 branches missed.">                if (solar) {</span>
-<span class="nc" id="L77">                    score = 25 * total_hrs;</span>
+<span class="nc" id="L77">                    score = 100 * total_hrs;</span>
                 } else {
-<span class="nc" id="L79">                    score = 100 * total_hrs;</span>
+<span class="nc" id="L79">                    score = 20 * total_hrs;</span>
                 }
 <span class="nc" id="L81">                electricity.setScore(score);</span>
 <span class="nc" id="L82">                new Controller().sendElectricity(user, score);</span>

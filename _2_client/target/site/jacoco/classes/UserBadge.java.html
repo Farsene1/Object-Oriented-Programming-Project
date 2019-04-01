@@ -1,52 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserBadge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">UserBadge.java</span></div><h1>UserBadge.java</h1><pre class="source lang-java linenums">package classes;
 
+<span class="nc" id="L3">public class UserBadge {</span>
 
+    /**
+     * Default logo image for badge 1 / new registered user.
+     */
+<span class="nc" id="L8">    static String icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
 
-<span class="nc" id="L5">public class UserBadge {</span>
-
-<span class="nc" id="L7">    static String icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
-
+    /**
+     * Method for user selection of unlocked badge
+     */
     static public String iconChoice(User user){
-<span class="nc" id="L10">        int number= user.getBadge();</span>
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        if(number == 1){</span>
-<span class="nc" id="L12">          icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
+
+        /**
+         * Calls method getBadge and assigns value to int number.
+         */
+<span class="nc" id="L18">        int number= user.getBadge();</span>
+
+        /**
+         * If statements to change badge dependent on users choice from available badges.
+         */
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(number == 1){</span>
+<span class="nc" id="L24">          icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
         }
-<span class="nc bnc" id="L14" title="All 2 branches missed.">        if(number == 2){</span>
-<span class="nc" id="L15">            icon = &quot;https://i.ibb.co/KjLc4HL/polar2.png&quot;;</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(number == 2){</span>
+<span class="nc" id="L27">            icon = &quot;https://i.ibb.co/KjLc4HL/polar2.png&quot;;</span>
         }
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if(number == 3){</span>
-<span class="nc" id="L18">            icon = &quot;https://i.ibb.co/2K8g0Mg/polar3.png&quot;;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(number == 3){</span>
+<span class="nc" id="L30">            icon = &quot;https://i.ibb.co/2K8g0Mg/polar3.png&quot;;</span>
         }
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        if(number == 4){</span>
-<span class="nc" id="L21">            icon = &quot;https://i.ibb.co/8YxhNJy/polar4.png&quot;;</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if(number == 4){</span>
+<span class="nc" id="L33">            icon = &quot;https://i.ibb.co/8YxhNJy/polar4.png&quot;;</span>
         }
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(number == 5){</span>
-<span class="nc" id="L24">            icon = &quot;https://i.ibb.co/sPXB0BS/polar5.png&quot;;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(number == 5){</span>
+<span class="nc" id="L36">            icon = &quot;https://i.ibb.co/sPXB0BS/polar5.png&quot;;</span>
         }
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(number == 6){</span>
-<span class="nc" id="L27">            icon = &quot;https://i.ibb.co/BBCjx1T/polar6.png&quot;;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if(number == 6){</span>
+<span class="nc" id="L39">            icon = &quot;https://i.ibb.co/BBCjx1T/polar6.png&quot;;</span>
         }
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(number == 7){</span>
-<span class="nc" id="L30">            icon = &quot;https://i.ibb.co/4t0wztb/polar7.png&quot;;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if(number == 7){</span>
+<span class="nc" id="L42">            icon = &quot;https://i.ibb.co/4t0wztb/polar7.png&quot;;</span>
         }
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if(number == 8){</span>
-<span class="nc" id="L33">            icon = &quot;https://i.ibb.co/GCdqgpT/polar8.png&quot;;</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if(number == 8){</span>
+<span class="nc" id="L45">            icon = &quot;https://i.ibb.co/GCdqgpT/polar8.png&quot;;</span>
         }
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(number == 9){</span>
-<span class="nc" id="L36">            icon = &quot;https://i.ibb.co/0s5PX56/polar9.png&quot;;</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if(number == 9){</span>
+<span class="nc" id="L48">            icon = &quot;https://i.ibb.co/0s5PX56/polar9.png&quot;;</span>
         }
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        if(number == 10){</span>
-<span class="nc" id="L39">            icon = &quot;https://i.ibb.co/48GCprf/polar10.png&quot;;</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(number == 10){</span>
+<span class="nc" id="L51">            icon = &quot;https://i.ibb.co/48GCprf/polar10.png&quot;;</span>
         }
-<span class="nc" id="L41">    return icon;</span>
+<span class="nc" id="L53">    return icon;</span>
 }
 
+    /**
+     * Get method for icon choice.
+     */
     static public String getIcon() {
-<span class="nc" id="L45">        return icon;</span>
+<span class="nc" id="L60">        return icon;</span>
     }
-
-
-
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

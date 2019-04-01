@@ -17,10 +17,16 @@ import java.time.format.DateTimeFormatter;
 
 public class FoodBox {
 
+    /**
+     * Initializes string for food added as empty.
+     */
     static String foodAdded = "";
 
     public static void addMeal(String title, String message, User user) {
 
+        /**
+         * Sets window.
+         */
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
