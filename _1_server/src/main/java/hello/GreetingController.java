@@ -113,9 +113,9 @@ public class GreetingController {
      * @param type
      * @return list.x
      */
-    @RequestMapping(value = "/stats", method = RequestMethod.GET)
+    @RequestMapping(value = "/stats", method = RequestMethod.POST)
     public List<Statistics> getAllStatsByType(@RequestParam(value = "username",
-            defaultValue = "anonymous") String username, @RequestParam String type){
+            defaultValue = "anonymous") String username, @RequestBody String type){
         return statisticsRepository.findStatisticsByUsernameAndType(username, type);
     }
 
