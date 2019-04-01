@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 
 
-public class AddFriendBox {
+public class BoxAddFriend {
         static int answer;
     public static int display(String title, FriendRequest friendRequest){
         Stage window = new Stage();

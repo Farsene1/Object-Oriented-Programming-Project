@@ -5,12 +5,13 @@ import classes.User;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class ElectricityAchievements {
+public class AchievementsElectricity {
 
         /**
          * Initializes boolean variable unlocked
          */
         static private boolean unlocked = false;
+
         static HBox electricityBox;
 
         public static void showElectricityBadges(User user) {

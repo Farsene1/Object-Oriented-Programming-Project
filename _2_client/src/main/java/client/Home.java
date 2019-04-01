@@ -21,10 +21,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class Home {
@@ -99,7 +95,7 @@ public class Home {
             //Quit
             Button quitButton = new Button("Quit");
             quitButton.setOnAction(e -> {
-                boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
+                boolean result = BoxConfirm.display("Confirm", "Are you sure you want to quit?");
                 if (result) {
                     Login.showLogin(window);
                 }

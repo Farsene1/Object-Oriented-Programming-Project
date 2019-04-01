@@ -7,7 +7,6 @@ import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -20,7 +19,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.util.List;
 
 
@@ -97,7 +95,7 @@ public class FootPrint {
         Button Food = new Button("+");
         Food.setOnAction(e -> {
             try{
-            FoodBox.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
+            BoxFood.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
             }
@@ -113,7 +111,7 @@ public class FootPrint {
         // GridPane.setConstraints(Transport, 5, 1);
         Transport.setOnAction(e -> {
             try{
-           TransportBox.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
+           BoxTransport.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
             table.setItems(addItems(user));
             polarscore.setText(user.getPolarScore().toString());
             }
@@ -129,7 +127,7 @@ public class FootPrint {
         //     GridPane.setConstraints(Electricity, 6, 1);
         Electricity.setOnAction(e -> {
             try {
-               ElectricityBox.addUsage("Electricity Footprint", "Select your electricity usage", user);
+               BoxElectricity.addUsage("Electricity Footprint", "Select your electricity usage", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
             }

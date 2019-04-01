@@ -6,7 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.control.Button;
 
 
-public class TransportAchievements {
+public class AchievementsTransport {
 
     /**
      * Initializes boolean variable unlocked
@@ -16,8 +16,9 @@ public class TransportAchievements {
     static HBox transportBox;
 
     public static void showTransportBadges(User user) {
+
         /**
-         * Creats HBox
+         * Creates HBox.
          */
         transportBox = new HBox();
 
@@ -27,9 +28,9 @@ public class TransportAchievements {
         int transportUnlock = Badges.transportUnlock(user);
 
         /**
-        transportBox = new HBox();
+         transportBox = new HBox();
 
-        /**
+         /**
          * Initialize buttons for transport badges.
          */
         Button transportBadge_1 = new Button();
@@ -63,13 +64,12 @@ public class TransportAchievements {
          */
         transportBox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,
                 transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
-
     }
 
     /**
      * Getter for HBox of transport badges.
      */
-        static public HBox getTransportBox() {
-            return transportBox;
-        }
+    static public HBox getTransportBox() {
+        return transportBox;
+    }
 }

@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.AlertBox.java">client/AlertBox.java</a>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.BoxAlert.java">client/AlertBox.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.ConfirmBox.java">client/ConfirmBox.java</a>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/OOP-Project/checkstyle.html#client.BoxConfirm.java">client/ConfirmBox.java</a>
                 </td>
                 <td>
                   0
