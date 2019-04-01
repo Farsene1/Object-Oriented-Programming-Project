@@ -54,8 +54,8 @@ public interface StatisticsRepository
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2 and type = ?3",
+    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2 and type = ?3 and date = ?4",
             nativeQuery = true)
-    void updateStatistic(Integer score, String username, String type);
+    void updateStatistic(Integer score, String username, String type, String date);
 
 }
