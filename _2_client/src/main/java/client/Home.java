@@ -21,10 +21,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class Home {
@@ -70,7 +66,10 @@ public class Home {
 
             //Trophy button click
             trophy.setOnAction(e -> {
-                Achievements.showBadges(centerMenu, user, window);
+                PolarAchievements.showPolarBadges(centerMenu, user, window);
+//                FoodAchievements.showFoodBadges(centerMenu, user, window);
+//                TransportAchievements.showTransportBadges(centerMenu, user, window);
+//                ElectricityAchievements.ElectricityBadges(centerMenu, user, window);
             });
 
             //My Carbon footprint
