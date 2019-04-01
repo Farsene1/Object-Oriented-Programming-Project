@@ -107,6 +107,7 @@ public class FoodBox {
                 // add a meal in the database
                 List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 1,
                         "Local produce",300, date));
+
                 window.close();
             }
         });

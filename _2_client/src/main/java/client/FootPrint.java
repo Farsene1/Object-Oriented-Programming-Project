@@ -41,7 +41,7 @@ public class FootPrint {
         Footprint.setAlignment(Pos.CENTER);
 
         TableColumn Col1 = new TableColumn("Category");
-        Col1.setCellValueFactory(new PropertyValueFactory<>("category"));
+        Col1.setCellValueFactory(new PropertyValueFactory<>("cat"));
         TableColumn Col2 = new TableColumn("Description");
         Col2.setCellValueFactory(new PropertyValueFactory<>("description"));
         TableColumn Col3 = new TableColumn("Footprint");
