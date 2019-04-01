@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,6 +20,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -49,7 +49,7 @@ public class FootPrint {
         TableColumn Col4 = new TableColumn("Date");
         Col4.setCellValueFactory(new PropertyValueFactory<>("date"));
         Col1.setMinWidth(300);
-        Col2.setMinWidth(300);
+        Col2.setMinWidth(500);
         Col3.setMinWidth(300);
         Col4.setMinWidth(300);
 
@@ -134,10 +134,15 @@ public class FootPrint {
         // quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
         Electricity.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
         grid.setMinWidth(1500);
+        table.setMaxHeight(770);
+        table.setMinHeight(770);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
         FoodOptions.setMinWidth(476);
         ElectricityOptions.setMinWidth(476);
         TransportOptions.setMinWidth(476);
+
+
+        CSSTable.styleTable(table);
     }
 
     public static ObservableList<Activity> addItems(User user) {
