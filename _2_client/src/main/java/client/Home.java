@@ -84,7 +84,7 @@ public class Home {
             Button statisticsButton = new Button("Statistics");
             GridPane.setConstraints(statisticsButton, 0, 2);
             statisticsButton.setOnAction(e -> {
-                AlertBox.display("This is an error message", "To Be Implemented");
+                Statistics.showOptions(centerMenu, user, window);
             });
 
             //LeaderBoard button

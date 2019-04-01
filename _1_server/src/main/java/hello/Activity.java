@@ -27,6 +27,11 @@ public class Activity {
     private Integer category;
 
     /**
+     * category string attr.
+     */
+    private String cat;
+
+    /**
      * description attr.
      */
     private String description;
@@ -50,6 +55,7 @@ public class Activity {
     /**
      * @param username
      * @param category
+     * @param cat
      * @param description
      * @param footprint
      * @param date
@@ -61,6 +67,24 @@ public class Activity {
         this.description = description;
         this.footprint = footprint;
         this.date = date;
+        switch (category)
+        {
+            case 1:
+            {
+                this.cat="Food";
+                break;
+            }
+            case 2:
+            {
+                this.cat="Transport";
+                break;
+            }
+            case 3:
+            {
+                this.cat="Electricity";
+                break;
+            }
+        }
     }
 
     /**
@@ -96,18 +120,42 @@ public class Activity {
     }
 
     /**
-     * @return cat.
+     * @return category.
      */
     public Integer getCategory() {
         return category;
     }
 
     /**
-     * set cat.
+     * set category.
      */
     public void setCategory(Integer category) {
         this.category = category;
+        switch (category) {
+            case 1: {
+                this.cat = "Food";
+                break;
+            }
+            case 2: {
+                this.cat = "Transport";
+                break;
+            }
+            case 3: {
+                this.cat = "Electricity";
+                break;
+            }
+        }
     }
+
+    /**
+     * @return cat.
+     */
+    public String getCat() {return cat;}
+
+    /**
+     * set cat.
+     */
+    public void setCat(String cat) {this.cat = cat;}
 
     /**
      * @return desc.
@@ -157,21 +205,6 @@ public class Activity {
      * @return String representation of the object.
      */
     public String toString() {
-        String cat = "";
-
-        if (category == 1) {
-            cat = "food";
-        }
-        if (category == 2) {
-            cat = "transport";
-        }
-        if (category == 3) {
-            cat = "electricity";
-        }
-        if (category == 4) {
-            cat = "groceries";
-        }
-
         return "Activity("
                 + ", category='" + cat + '\''
                 + ", description='" + description + '\''

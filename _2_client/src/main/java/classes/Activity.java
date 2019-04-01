@@ -11,6 +11,8 @@ public class Activity {
 
     private Integer category;
 
+    private String cat;
+
     private String description;
 
     private Integer footprint;
@@ -25,6 +27,24 @@ public class Activity {
         this.description = description;
         this.footprint = footprint;
         this.date = date;
+        switch (category)
+                {
+                   case 1:
+                   {
+                       this.cat="Food";
+                       break;
+                   }
+                   case 2:
+                    {
+                        this.cat="Transport";
+                        break;
+                    }
+                    case 3:
+                    {
+                       this.cat="Electricity";
+                       break;
+                    }
+                }
     }
 
     public Integer getId() {
@@ -49,6 +69,32 @@ public class Activity {
 
     public void setCategory(Integer category) {
         this.category = category;
+        switch (category)
+        {
+            case 1:
+            {
+                this.cat="Food";
+                break;
+            }
+            case 2:
+            {
+                this.cat="Transport";
+                break;
+            }
+            case 3:
+            {
+                this.cat="Electricity";
+                break;
+            }
+        }
+    }
+
+    public String getCat() {
+        return cat;
+    }
+
+    public void setCat(String cat) {
+        this.cat = cat;
     }
 
     public String getDescription() {
@@ -77,15 +123,6 @@ public class Activity {
 
     @Override
     public String toString(){
-        String cat = "";
-        if (category == 1)
-            cat = "food";
-        if (category==2)
-            cat="transport";
-        if (category==3)
-            cat="water";
-
-
         return "Activity(" +
                 ", category='" + cat + '\'' +
                 ", description='" + description + '\'' +
