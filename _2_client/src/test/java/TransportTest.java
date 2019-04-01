@@ -30,7 +30,7 @@ public class TransportTest {
     @Test
     public void getScore() {
         Transport transport = new Transport("user","car",14,-350,"10/5");
-        assertEquals(4, transport.getScore());
+        assertEquals(-350, transport.getScore());
     }
 
 
@@ -82,34 +82,34 @@ public class TransportTest {
     //Calculator Testing
     @Test
     public void CalculatorTrain(){
-        Transport transport = new Transport("user","Train",14,-350,"10/5");
+        Transport transport = new Transport("user","Train",14,140,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
-        assertEquals(357, transport.getScore());
+        assertEquals(140, transport.getScore());
     }
 
     @Test
     public void CalculatorCar(){
         Transport transport = new Transport("user","Car",14,-350,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
-        assertEquals(214, transport.getScore());
+        assertEquals(-350, transport.getScore());
     }
     @Test
     public void CalculatorBicycle(){
-        Transport transport = new Transport("user","Bicycle",14,-350,"10/5");
+        Transport transport = new Transport("user","Bicycle",14,2100,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
-        assertEquals(1071, transport.getScore());
+        assertEquals(2100, transport.getScore());
     }
 
     @Test
     public void CalculatorAirplane(){
-        Transport transport = new Transport("user","Airplane",14,-350,"10/5");
+        Transport transport = new Transport("user","Airplane",14,-420,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
-        assertEquals(286, transport.getScore());
+        assertEquals(-420, transport.getScore());
     }
 
     @Test
     public void CalculatorNull(){
-        Transport transport = new Transport("user","",14,-350,"10/5");
+        Transport transport = new Transport("user","",14,0,"10/5");
         transport.setScore(transport.calculator(transport.getType(), transport.getDistance()));
         assertEquals(0, transport.getScore());
     }
