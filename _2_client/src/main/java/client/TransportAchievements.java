@@ -16,8 +16,10 @@ public class TransportAchievements {
     static HBox transportBox;
 
     public static void showTransportBadges(User user) {
-
-transportBox = new HBox();
+        /**
+         * Creats HBox
+         */
+        transportBox = new HBox();
 
         /**
          * Calls method to unlock transport badges, sets unlock value for CSS.
@@ -62,9 +64,11 @@ transportBox = new HBox();
         transportBox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,
                 transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
 
-//    }
     }
 
+    /**
+     * Getter for HBox of transport badges.
+     */
         static public HBox getTransportBox() {
             return transportBox;
         }

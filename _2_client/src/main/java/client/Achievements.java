@@ -1,9 +1,6 @@
 package client;
 
-import classes.Badges;
-import classes.Controller;
-import classes.User;
-import classes.UserBadge;
+import classes.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
@@ -25,25 +22,17 @@ public class Achievements {
 
         FoodAchievements.showFoodBadges(user);
         TransportAchievements.showTransportBadges(user);
+        ElectricityAchievements.showElectricityBadges(user);
+
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
          */
         int polarUnlock = Badges.polarUnlock(user);
 
 //        /**
-//         * Calls method to unlock food badges, sets unlock value for CSS.
+//         * Calls method to unlock electricity badges, sets unlock value for CSS.
 //         */
-//        int foodUnlock = Badges.foodUnlock(user);
-
-//        /**
-//         * Calls method to unlock transport badges, sets unlock value for CSS.
-//         */
-//        int transportUnlock = Badges.transportUnlock(user);
-//
-        /**
-         * Calls method to unlock electricity badges, sets unlock value for CSS.
-         */
-        int electricityUnlock = Badges.electricityUnlock(user);
+//        int electricityUnlock = Badges.electricityUnlock(user);
 
 
         /**
@@ -270,6 +259,12 @@ public class Achievements {
         HBox transportHbox = TransportAchievements.getTransportBox();
         transportHbox.setSpacing(1);
 
+        /**
+         * transport score badges
+         */
+        HBox electricityHbox = ElectricityAchievements.getElectricityBox();
+        electricityHbox.setSpacing(1);
+
 
 //        /**
 //         * Initialize buttons for transport badges.
@@ -311,39 +306,39 @@ public class Achievements {
 //        transportHbox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,
 //                transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
 
-        /**
-         * electricity score badges.
-         */
-        HBox electricityHbox = new HBox();
-        electricityHbox.setSpacing(1);
+//        /**
+//         * electricity score badges.
+//         */
+//        HBox electricityHbox = new HBox();
+//        electricityHbox.setSpacing(1);
 
-        /**
-         * Initialize buttons for electricity badges.
-         */
-        Button electricityBadge_1 = new Button();
-        Button electricityBadge_2 = new Button();
-        Button electricityBadge_3 = new Button();
-        Button electricityBadge_4 = new Button();
-        Button electricityBadge_5 = new Button();
-        Button electricityBadge_6 = new Button();
-        Button electricityBadge_7 = new Button();
-        Button electricityBadge_8 = new Button();
-        Button electricityBadge_9 = new Button();
-        Button electricityBadge_10 = new Button();
-
-        /**
-         * Calls setPolar methods from CSS class to show locked / unlocked electricity badges.
-         */
-        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);
-        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);
-        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);
-        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);
-        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);
-        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);
-        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);
-        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);
-        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);
-        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);
+//        /**
+//         * Initialize buttons for electricity badges.
+//         */
+//        Button electricityBadge_1 = new Button();
+//        Button electricityBadge_2 = new Button();
+//        Button electricityBadge_3 = new Button();
+//        Button electricityBadge_4 = new Button();
+//        Button electricityBadge_5 = new Button();
+//        Button electricityBadge_6 = new Button();
+//        Button electricityBadge_7 = new Button();
+//        Button electricityBadge_8 = new Button();
+//        Button electricityBadge_9 = new Button();
+//        Button electricityBadge_10 = new Button();
+//
+//        /**
+//         * Calls setPolar methods from CSS class to show locked / unlocked electricity badges.
+//         */
+//        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);
+//        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);
+//        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);
+//        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);
+//        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);
+//        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);
+//        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);
+//        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);
+//        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);
+//        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);
 
         /**
          * Label for electricity badges.
@@ -351,11 +346,11 @@ public class Achievements {
         Label electricityLabel = new Label("ELECTRICITY");
         electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
-        /**
-         * Adds all badges for electricity to Hbox.
-         */
-        electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,
-                electricityBadge_6, electricityBadge_7, electricityBadge_8, electricityBadge_9, electricityBadge_10);
+//        /**
+//         * Adds all badges for electricity to Hbox.
+//         */
+//        electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,
+//                electricityBadge_6, electricityBadge_7, electricityBadge_8, electricityBadge_9, electricityBadge_10);
 
         /**
          * Adds all badges in specific Hboxes to Vbox // styling.
