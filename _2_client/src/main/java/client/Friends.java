@@ -112,11 +112,11 @@ public class Friends {
                         && event.getClickCount() == 2) {
 
                     FriendRequest clickedRow = row.getItem();
-                    boolean answer = AddFriendBox.display("Add A friend", clickedRow);
-                    if (answer == false) {
+                    int answer = AddFriendBox.display("Add A friend", clickedRow);
+                    if (answer == 2) {
                         pendingTable.getItems().remove(clickedRow);
                         new Controller().sayNo(clickedRow);
-                    } else {
+                    } else if(answer== 1){
                         clickedRow.setAccepted(true);
                         if(!clickedRow.getSender().equals(clickedRow.getReceiver())){
                             new Controller().sayYes(clickedRow);
@@ -125,6 +125,7 @@ public class Friends {
 
 
                     }
+
                 }
             });
             return row;
@@ -135,18 +136,18 @@ public class Friends {
 
 
         //TIMER for friends
-        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(2), new EventHandler<ActionEvent>() {
+     //   Timeline timer = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
 
             //showing  friends
-            @Override
-            public void handle(ActionEvent event) {
+       //     @Override
+       //     public void handle(ActionEvent event) {
                 pendingTable.setItems(addFriendRequests(user));
                 friendsTable.setItems(addFriend(user));
 
-            }
-        }));
-        timer.setCycleCount(Timeline.INDEFINITE);
-        timer.play();
+         //   }
+     //   }));
+      //  timer.setCycleCount(Timeline.INDEFINITE);
+     //   timer.play();
 
 
 
