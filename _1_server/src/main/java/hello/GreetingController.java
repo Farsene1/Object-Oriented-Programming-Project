@@ -121,7 +121,7 @@ public class GreetingController {
 
 
     /**
-     * @param user
+     * @param user that needs their activites updated
      * @return List of Activity objects
      */
     @RequestMapping(value = "/firstactivities", method = RequestMethod.POST)
