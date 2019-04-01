@@ -24,9 +24,9 @@ public interface StatisticsRepository
      * @param date
      * @return Statistics obj.
      */
-    @Query(value = "SELECT * FROM statistics WHERE date = ?1",
+    @Query(value = "SELECT * FROM statistics WHERE date = ?1 and type = ?2",
             nativeQuery = true)
-    Statistics findStatisticByDate(String date);
+    Statistics findStatisticByDateAndType(String date, String type);
 
     /**
      * get by name.
@@ -38,14 +38,24 @@ public interface StatisticsRepository
     List<Statistics> findStatisticsByUsername(String username);
 
     /**
+     *
+     * @param username
+     * @param type
+     * @return list.
+     */
+    @Query(value = "SELECT * FROM statistics WHERE username = ?1 AND type = ?2",
+            nativeQuery = true)
+    List<Statistics> findStatisticsByUsernameAndType(String username, String type);
+
+    /**
      * update.
      * @param score
      * @param username
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2",
+    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2 and type = ?3",
             nativeQuery = true)
-    void updateStatistic(Integer score, String username);
+    void updateStatistic(Integer score, String username, String type);
 
 }

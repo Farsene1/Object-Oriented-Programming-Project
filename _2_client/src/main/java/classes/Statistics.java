@@ -16,6 +16,10 @@ public class Statistics implements Serializable {
      */
     private String username;
     /**
+     * type attr CAN BE -> ALL or FOOD or TRANSPORT or ELECTRICITY.
+     */
+    private String type;
+    /**
      * score attr.
      */
     private Integer score;
@@ -84,6 +88,22 @@ public class Statistics implements Serializable {
      * @param date
      */
     public void setDate(String date){this.date = date;}
+
+    /**
+     *
+     * @return type.
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     *
+     * @param type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String toString(){
         return "Statistics("

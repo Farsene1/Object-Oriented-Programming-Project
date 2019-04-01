@@ -43,8 +43,23 @@ public class Controller {
         restfulClient.badge(user);
     }
 
+    /**
+     *
+     * @param username
+     * @return list.
+     */
     public List<classes.Statistics> getStatistics(String username) {
         return this.restfulClient.getAllStatistics(username);
+    }
+
+    /**
+     *
+     * @param username
+     * @param type
+     * @return type.
+     */
+    public List<Statistics> getStatsByType(String username, String type){
+        return this.restfulClient.getStatsByType(username, type);
     }
 
     /**
