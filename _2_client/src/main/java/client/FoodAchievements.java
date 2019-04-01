@@ -55,11 +55,11 @@ import javafx.scene.layout.HBox;
             CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);
             CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);
 
-            /**
-             * Label for food badges.
-             */
-            Label foodLabel = new Label("FOOD");
-            foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+//            /**
+//             * Label for food badges.
+//             */
+//            Label foodLabel = new Label("FOOD");
+//            foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
             /**
              * Adds all badges for food to Hbox
