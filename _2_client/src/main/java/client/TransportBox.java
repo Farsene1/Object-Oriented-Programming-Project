@@ -4,6 +4,8 @@ package client;
 import classes.Activity;
 import classes.Controller;
 import classes.Transport;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
@@ -25,29 +27,34 @@ public class TransportBox {
     static int score;
 
     public static void addVehicle(String title, String message, classes.User user) {
-        TextField distanceT;
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
-        window.setMinWidth(500);
+        window.setMinWidth(475);
+        window.setMaxWidth(475);
+        window.setMinHeight(285);
+        window.setMaxHeight(285);
+
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label();
         errorlabel.setText("You can only type numbers");
+        errorlabel.setStyle("-fx-text-fill: red");
         errorlabel.setVisible(false);
-        ChoiceBox<String> choiceBox = new ChoiceBox<>();
-        choiceBox.getItems().addAll("Train", "Car", "Airplane", "Bicycle", "Walking");
-        choiceBox.setValue("Train");
-        distanceT = new TextField();
+        JFXComboBox<String> dropdown = new JFXComboBox<>();
+        dropdown.getItems().addAll("Train", "Car", "Airplane", "Bicycle", "Walking");
+        dropdown.getSelectionModel().select(0);
+        JFXTextField distanceT = new JFXTextField();
         distanceT.setMaxWidth(300);
-        Label Dlabel = new Label("Add the Distance you traveled");
-        Button send = new Button("Send");
-        send.setOnAction(e -> {
+        distanceT.setPromptText("Add the Distance you traveled (KM)");
+        distanceT.setLabelFloat(true);
+        Button submitButton = new Button("Send");
+        submitButton.setOnAction(e -> {
             try{
             LocalDateTime mydateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             date = mydateObj.format(myFormatObj);
-            vehicle = choiceBox.getValue();
+            vehicle = dropdown.getValue();
             distance = Double.parseDouble(distanceT.getText());
             Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
             score = transport.calculator(vehicle, distance);
@@ -68,13 +75,17 @@ public class TransportBox {
 
 
     VBox layout = new VBox(10);
+    layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
+        distanceT.setStyle("-fx-padding: 10;");
+        errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
+        dropdown.setStyle("-fx-padding: 7;");
+        submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
+        layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
 
-    layout.getChildren().
-
-    addAll(label, choiceBox, Dlabel, distanceT, errorlabel, send);
-    layout.setAlignment(Pos.CENTER);
     Scene scene = new Scene(layout);
     window.setScene(scene);
     window.showAndWait();
+
     }
 }
