@@ -27,7 +27,10 @@ public class ElectricityBox {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
-        window.setMinWidth(500);
+        window.setMinWidth(475);
+        window.setMaxWidth(475);
+        window.setMinHeight(325);
+        window.setMaxHeight(325);
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label("You can only type numbers");
@@ -43,8 +46,8 @@ public class ElectricityBox {
         heatfield.setLabelFloat(true);
         heatfield.setPromptText("Add your hours of heating usage");
         heatfield.setMaxWidth(300);
-        Button send = new Button("Submit");
-        send.setOnAction(e -> {
+        Button submitButton = new Button("Submit");
+        submitButton.setOnAction(e -> {
             try{
                 LocalDateTime mydateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -80,11 +83,15 @@ public class ElectricityBox {
             }
         });
 
-
         VBox layout = new VBox(10);
-
-        layout.getChildren().addAll(label, lightfield, heatfield, errorlabel, solarbox, send);
-        layout.setAlignment(Pos.CENTER);
+        label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
+        heatfield.setStyle("-fx-padding: 10;");
+        lightfield.setStyle("-fx-padding: 10;");
+        errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
+        solarbox.setStyle("-fx-padding: 7;");
+        submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
+        layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
+                layout.getChildren().addAll(label, lightfield, heatfield, errorlabel, solarbox, submitButton);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
