@@ -33,6 +33,17 @@ public interface ActivityRepository extends CrudRepository<Activity, Integer> {
             + " WHERE username=?1 AND date=?2", nativeQuery = true)
     Integer totalFootprint(String username, String date);
 
+    /**
+     *
+     * @param username
+     * @param date
+     * @param category
+     * @return sum by category for user.
+     */
+    @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2 AND category = ?3",
+    nativeQuery = true)
+    Integer totalScoreByCategory(String username, String date, Integer category);
+
     //    /**
 //     * @return total food footprint of a single user on a specific day.
 //     */
