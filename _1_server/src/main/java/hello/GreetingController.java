@@ -51,20 +51,48 @@ public class GreetingController {
         this.activityRepository.save(activity);
         System.out.println("activities table updates");
 
+        //updating statistics for type ALL
         Integer sum = this.activityRepository
                 .totalFootprint(activity.getUsername(), activity.getDate());
 
         Statistics s1 = new Statistics(
                 activity.getUsername(), sum, activity.getDate());
+        s1.setType("ALL");
 
         Statistics s = this.statisticsRepository
-                .findStatisticByDate(activity.getDate());
+                .findStatisticByDateAndType(activity.getDate(), "ALL");
 
         if (s == null) {
             this.statisticsRepository.save(s1);
         } else {
             this.statisticsRepository
-                    .updateStatistic(sum, activity.getUsername());
+                    .updateStatistic(sum, activity.getUsername(), "ALL");
+        }
+
+        //updating statistics for the type
+        Integer sumFood = this.activityRepository
+                .totalScoreByCategory(activity.getUsername(), activity.getDate(), activity.getCategory());
+
+        Statistics sFood = new Statistics(
+                activity.getUsername(), sumFood, activity.getDate());
+
+        int c = activity.getCategory();
+        if(c == 1) {
+            sFood.setType("FOOD");
+        }else if(c == 2){
+            sFood.setType("TRANSPORT");
+        }
+        else if(c == 3){
+            sFood.setType("ELECTRICITY");
+        }
+        Statistics sF = this.statisticsRepository
+                .findStatisticByDateAndType(activity.getDate(), sFood.getType());
+
+        if (sF == null) {
+            this.statisticsRepository.save(sFood);
+        } else {
+            this.statisticsRepository
+                    .updateStatistic(sumFood, activity.getUsername(), sFood.getType());
         }
         return this.activityRepository
                 .findActivitiesByUser(activity.getUsername());
