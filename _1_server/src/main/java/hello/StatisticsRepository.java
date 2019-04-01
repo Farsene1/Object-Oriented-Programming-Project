@@ -38,6 +38,16 @@ public interface StatisticsRepository
     List<Statistics> findStatisticsByUsername(String username);
 
     /**
+     *
+     * @param username
+     * @param type
+     * @return list.
+     */
+    @Query(value = "SELECT * FROM statistics WHERE username = ?1 AND type = ?2",
+            nativeQuery = true)
+    List<Statistics> findStatisticsByUsernameAndType(String username, String type);
+
+    /**
      * update.
      * @param score
      * @param username
