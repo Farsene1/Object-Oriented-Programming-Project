@@ -36,101 +36,136 @@ import java.util.List;
 
     /**
      * method for getting all the friends in the database.
-
+     *
+     * @param user
      * @return response list.
      */
     @RequestMapping(&quot;/friends&quot;)
-    public List&lt;User&gt; getAllFriends(@RequestBody User user) {
-<span class="nc" id="L44">        List&lt;String&gt; temp = friendshipRepository.getAllFriends(user.getUsername());</span>
-<span class="nc" id="L45">        List&lt;User&gt; result = new ArrayList&lt;User&gt;();</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (String s : temp) {</span>
-<span class="nc" id="L47">            result.add(userRepository.findUserByUsername(s).get(0));</span>
-<span class="nc" id="L48">        }</span>
-<span class="nc" id="L49">        return result;</span>
+    public List&lt;User&gt; getAllFriends(@RequestBody final User user) {
+<span class="nc" id="L45">        List&lt;String&gt; temp = friendshipRepository</span>
+<span class="nc" id="L46">                .getAllFriends(user.getUsername());</span>
+<span class="nc" id="L47">        List&lt;User&gt; result = new ArrayList&lt;User&gt;();</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (String s : temp) {</span>
+<span class="nc" id="L49">            result.add(userRepository.findUserByUsername(s).get(0));</span>
+<span class="nc" id="L50">        }</span>
+<span class="nc" id="L51">        return result;</span>
     }
 
     /**
      * method for making a friend request.
+     *
      * @param friendRequest
      * @return response.
      */
     @RequestMapping(&quot;/request&quot;)
-    public String makeRequest(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L59">        List&lt;String&gt; l1 = this.friendshipRepository.getAllFriends(friendRequest.getSender());</span>
-<span class="nc" id="L60">        List&lt;FriendRequest&gt; l2 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getSender());</span>
-<span class="nc" id="L61">        List&lt;FriendRequest&gt; l3 = this.friendRequestRepository.findAllRequestsFor(friendRequest.getReceiver());</span>
+    public String makeRequest(@RequestBody final FriendRequest friendRequest) {
+<span class="nc" id="L62">        List&lt;String&gt; l1 = this.friendshipRepository</span>
+<span class="nc" id="L63">                .getAllFriends(friendRequest.getSender());</span>
+<span class="nc" id="L64">        List&lt;FriendRequest&gt; l2 = this.friendRequestRepository</span>
+<span class="nc" id="L65">                .findAllRequestsFor(friendRequest.getSender());</span>
+<span class="nc" id="L66">        List&lt;FriendRequest&gt; l3 = this.friendRequestRepository</span>
+<span class="nc" id="L67">                .findAllRequestsFor(friendRequest.getReceiver());</span>
 
-<span class="nc" id="L63">        boolean ok = true;</span>
+<span class="nc" id="L69">        boolean ok = true;</span>
 
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        if(friendRequest.getSender().equals(friendRequest.getReceiver())) {</span>
-<span class="nc" id="L66">            ok = false;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (friendRequest.getSender().equals(friendRequest.getReceiver())) {</span>
+<span class="nc" id="L72">            ok = false;</span>
         }
 
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if(l1.contains(friendRequest.getReceiver())){</span>
-<span class="nc" id="L70">            ok = false;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (l1.contains(friendRequest.getReceiver())) {</span>
+<span class="nc" id="L76">            ok = false;</span>
         }
 
-<span class="nc bnc" id="L73" title="All 2 branches missed.">        for(FriendRequest f : l2){</span>
-<span class="nc bnc" id="L74" title="All 2 branches missed.">            if(f.getSender().equals(friendRequest.getReceiver())){</span>
-<span class="nc" id="L75">                ok = false;</span>
-            }
-<span class="nc" id="L77">        }</span>
-
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        for(FriendRequest f : l3){</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">            if(f.getSender().equals(friendRequest.getSender())){</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        for (FriendRequest f : l2) {</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">            if (f.getSender().equals(friendRequest.getReceiver())) {</span>
 <span class="nc" id="L81">                ok = false;</span>
             }
 <span class="nc" id="L83">        }</span>
 
-<span class="nc bnc" id="L85" title="All 2 branches missed.">        if(ok == true){</span>
-<span class="nc" id="L86">            this.friendRequestRepository.save(friendRequest);</span>
-<span class="nc" id="L87">        } else System.out.println(&quot;Request cannot be sent: error&quot;);</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for (FriendRequest f : l3) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (f.getSender().equals(friendRequest.getSender())) {</span>
+<span class="nc" id="L87">                ok = false;</span>
+            }
+<span class="nc" id="L89">        }</span>
 
-<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(ok == true)</span>
-<span class="nc" id="L90">            return &quot;SENT&quot;;</span>
-<span class="nc" id="L91">        return &quot;SENT2&quot;;</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        if (ok == true) {</span>
+<span class="nc" id="L92">            this.friendRequestRepository.save(friendRequest);</span>
+<span class="nc" id="L93">            return &quot;SENT&quot;;</span>
+        }
+
+<span class="nc" id="L96">        System.out.println(&quot;Request cannot be sent: error&quot;);</span>
+<span class="nc" id="L97">        return &quot;SENT2&quot;;</span>
     }
 
     /**
      * method for getting all the friendRequests.
+     *
+     * @param user
+     * @return list.
      */
     @RequestMapping(&quot;/getallrequests&quot;)
-    public List&lt;FriendRequest&gt; getAllRequest(@RequestBody User user) {
-<span class="nc" id="L99">        List&lt;FriendRequest&gt; list = friendRequestRepository.findAllRequestsFor(user.getUsername());</span>
-<span class="nc" id="L100">        return list;</span>
+    public List&lt;FriendRequest&gt; getAllRequest(@RequestBody final User user) {
+<span class="nc" id="L108">        List&lt;FriendRequest&gt; list = friendRequestRepository</span>
+<span class="nc" id="L109">                .findAllRequestsFor(user.getUsername());</span>
+<span class="nc" id="L110">        return list;</span>
     }
 
     /**
-     * method for responding to a friendRequest. TO BE CHANGED LATER, depending on GUI.
+     * method for responding to a friendRequest. TO BE CHANGED LATER,
+     * depending on GUI.
+     *
+     * @param friendRequest
+     * @return String
      */
     @RequestMapping(&quot;/respond&quot;)
-    public String respond(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L108">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
-<span class="nc" id="L109">        this.friendshipRepository.save(new Friendship(friendRequest.getSender(), friendRequest.getReceiver()));</span>
-<span class="nc" id="L110">        this.friendshipRepository.save(new Friendship(friendRequest.getReceiver(), friendRequest.getSender()));</span>
-<span class="nc" id="L111">        return &quot;OK&quot;;</span>
+    public String respond(@RequestBody final FriendRequest friendRequest) {
+<span class="nc" id="L122">        friendRequestRepository.respond(true,</span>
+<span class="nc" id="L123">                friendRequest.getSender(), friendRequest.getReceiver());</span>
+<span class="nc" id="L124">        this.friendshipRepository.save(new Friendship(</span>
+<span class="nc" id="L125">                friendRequest.getSender(), friendRequest.getReceiver()));</span>
+<span class="nc" id="L126">        this.friendshipRepository.save(new Friendship(</span>
+<span class="nc" id="L127">                friendRequest.getReceiver(), friendRequest.getSender()));</span>
+<span class="nc" id="L128">        return &quot;OK&quot;;</span>
     }
 
     /**
-     * this method sets the request answer to true so that it will not appear in the incoming requests.
+     * this method sets the request answer to true
+     * so that it will not appear in the incoming requests.
+     *
      * @param friendRequest
+     * @return String
      */
     @RequestMapping(&quot;/fakeresponse&quot;)
-    public String fakeRespond(@RequestBody FriendRequest friendRequest) {
-<span class="nc" id="L120">        friendRequestRepository.respond(true, friendRequest.getSender(), friendRequest.getReceiver());</span>
-<span class="nc" id="L121">        return &quot;OK&quot;;</span>
+    public String fakeRespond(@RequestBody final FriendRequest friendRequest) {
+<span class="nc" id="L140">        friendRequestRepository.respond(true,</span>
+<span class="nc" id="L141">                friendRequest.getSender(), friendRequest.getReceiver());</span>
+<span class="nc" id="L142">        return &quot;OK&quot;;</span>
     }
 
-    public void setFriendshipRepository(FriendshipRepository friendshipRepository) {
-<span class="nc" id="L125">        this.friendshipRepository = friendshipRepository;</span>
-<span class="nc" id="L126">    }</span>
+    /**
+     * set repo.
+     * @param friendshipRepository
+     */
+    public void setFriendshipRepository(
+            final FriendshipRepository friendshipRepository) {
+<span class="nc" id="L151">        this.friendshipRepository = friendshipRepository;</span>
+<span class="nc" id="L152">    }</span>
 
-    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository) {
-<span class="nc" id="L129">        this.friendRequestRepository = friendRequestRepository;</span>
-<span class="nc" id="L130">    }</span>
+    /**
+     * set repo.
+     * @param friendRequestRepository
+     */
+    public void setFriendRequestRepository(
+            final FriendRequestRepository friendRequestRepository) {
+<span class="nc" id="L160">        this.friendRequestRepository = friendRequestRepository;</span>
+<span class="nc" id="L161">    }</span>
 
-    public void setUserRepository(UserRepository userRepository) {
-<span class="nc" id="L133">        this.userRepository = userRepository;</span>
-<span class="nc" id="L134">    }</span>
+    /**
+     * set repo.
+     * @param userRepository
+     */
+    public void setUserRepository(final UserRepository userRepository) {
+<span class="nc" id="L168">        this.userRepository = userRepository;</span>
+<span class="nc" id="L169">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

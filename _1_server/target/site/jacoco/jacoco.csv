@@ -1,9 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-server,hello,FriendshipController,190,0,18,0,43,0,18,0,9,0
-server,hello,GreetingController,189,0,8,0,45,0,20,0,16,0
+server,hello,FriendshipController,186,0,16,0,51,0,17,0,9,0
+server,hello,GreetingController,189,0,8,0,54,0,20,0,16,0
 server,hello,Activity,6,96,4,4,3,34,4,15,0,15
-server,hello,Friendship,36,0,0,0,14,0,8,0,8,0
+server,hello,Friendship,0,36,0,0,0,14,0,8,0,8
 server,hello,User,0,107,0,0,0,33,0,17,0,17
 server,hello,Application,8,0,0,0,3,0,2,0,2,0
-server,hello,FriendRequest,46,0,0,0,18,0,10,0,10,0
-server,hello,Statistics,51,0,0,0,15,0,11,0,11,0
+server,hello,FriendRequest,6,40,0,0,1,17,1,9,1,9
+server,hello,Statistics,0,51,0,0,0,15,0,11,0,11

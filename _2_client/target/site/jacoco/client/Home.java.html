@@ -2,7 +2,13 @@
 
 import classes.RestfulClient;
 import classes.UserBadge;
+import com.jfoenix.controls.JFXSnackbar;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,95 +18,165 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-<span class="nc" id="L16">public class Home {</span>
+import java.io.*;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+
+<span class="nc" id="L30">public class Home {</span>
+<span class="nc" id="L31">   static ArrayList&lt;String&gt;  list= new ArrayList&lt;String&gt;();</span>
+
+
+
+
+
 
     public static void showHome(Stage window, classes.User user) {
 
-<span class="nc" id="L20">        RestfulClient restfulClient = new RestfulClient();</span>
-<span class="nc" id="L21">        restfulClient.getEntity();</span>
-<span class="nc" id="L22">        window.setTitle(&quot;Home&quot;);</span>
-
-<span class="nc" id="L24">        BorderPane bp = new BorderPane();</span>
-<span class="nc" id="L25">        VBox leftmenu = new VBox();</span>
-<span class="nc" id="L26">        Scene scene = new Scene(bp, 1920, 1080);</span>
-<span class="nc" id="L27">        GridPane centerMenu = new GridPane();</span>
-<span class="nc" id="L28">        centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
-
-<span class="nc" id="L30">        ImageView img = new ImageView(UserBadge.iconChoice(user));</span>
-
-<span class="nc" id="L32">        Label usernamelabel = new Label(user.getUsername().toUpperCase());</span>
-
-<span class="nc" id="L34">        HBox statusbar = new HBox();</span>
-<span class="nc" id="L35">        Label Polartext = new Label(&quot;Polar Score:&quot;);</span>
-<span class="nc" id="L36">        Label PolarScore = new Label();</span>
-<span class="nc" id="L37">        PolarScore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L38">        Button trophy = new Button();</span>
-<span class="nc" id="L39">        CSS.setTrophyButtonStyle(trophy);</span>
-<span class="nc" id="L40">        statusbar.setStyle(&quot;-fx-alignment: center&quot;);</span>
-<span class="nc" id="L41">        statusbar.getChildren().addAll(Polartext, PolarScore, trophy);</span>
-<span class="nc" id="L42">        statusbar.setMinHeight(50);</span>
-
-        //Trophy button click
-<span class="nc" id="L45">        trophy.setOnAction(e -&gt; {</span>
-<span class="nc" id="L46">            Achievements.showBadges(centerMenu, user, window);</span>
-<span class="nc" id="L47">        });</span>
-
-        //My Carbon footprint
-<span class="nc" id="L50">        Button mycarbonButton = new Button(&quot;Footprint&quot;);</span>
-<span class="nc" id="L51">        GridPane.setConstraints(mycarbonButton, 0, 1);</span>
-<span class="nc" id="L52">        mycarbonButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L53">            FootPrint.showOptions(centerMenu, user, PolarScore,window);</span>
-<span class="nc" id="L54">        });</span>
-
-        //Statistics Button
-<span class="nc" id="L57">        Button statisticsButton = new Button(&quot;Statistics&quot;);</span>
-<span class="nc" id="L58">        GridPane.setConstraints(statisticsButton, 0, 2);</span>
-<span class="nc" id="L59">        statisticsButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L60">            AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
-<span class="nc" id="L61">        });</span>
-
-        //LeaderBoard button
-<span class="nc" id="L64">        Button leaderboardButton = new Button(&quot;LeaderBoard&quot;);</span>
-<span class="nc" id="L65">        leaderboardButton.setOnAction(e -&gt; {</span>
-
-<span class="nc" id="L67">            AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
-<span class="nc" id="L68">        });</span>
-<span class="nc" id="L69">        Button friendsbutton = new Button(&quot;Friends&quot;);</span>
-<span class="nc" id="L70">        friendsbutton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L71">            Friends.showOptions(centerMenu, scene, user,window);</span>
-<span class="nc" id="L72">        });</span>
-        //Quit
-<span class="nc" id="L74">        Button quitButton = new Button(&quot;Quit&quot;);</span>
-<span class="nc" id="L75">        quitButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L76">            boolean result = ConfirmBox.display(&quot;Confirm&quot;, &quot;Are you sure you want to quit?&quot;);</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (result) {</span>
-<span class="nc" id="L78">                Login.showLogin(window);</span>
-            }
-
-<span class="nc" id="L81">        });</span>
 
 
-        //Add everything to grid
-<span class="nc" id="L85">        leftmenu.getChildren().addAll(img, usernamelabel, statusbar, mycarbonButton, statisticsButton, leaderboardButton, friendsbutton, quitButton);</span>
-<span class="nc" id="L86">        bp.setLeft(leftmenu);</span>
-<span class="nc" id="L87">        bp.setCenter(centerMenu);</span>
-<span class="nc" id="L88">        bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
 
-<span class="nc" id="L90">        img.setStyle(&quot;-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25&quot;);</span>
-<span class="nc" id="L91">        usernamelabel.setStyle(&quot;-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30&quot;);</span>
-<span class="nc" id="L92">        CSS.setButtonStyle(mycarbonButton);</span>
-<span class="nc" id="L93">        CSS.setButtonStyle(statisticsButton);</span>
-<span class="nc" id="L94">        CSS.setButtonStyle(leaderboardButton);</span>
-<span class="nc" id="L95">        CSS.setButtonStyle(friendsbutton);</span>
-<span class="nc" id="L96">        CSS.setButtonStyle(quitButton);</span>
-<span class="nc" id="L97">        leftmenu.setMinWidth(400);</span>
-<span class="nc" id="L98">        leftmenu.setStyle(&quot;-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);&quot;);</span>
+<span class="nc" id="L43">            factreading(list);</span>
+<span class="nc" id="L44">            RestfulClient restfulClient = new RestfulClient();</span>
+<span class="nc" id="L45">            restfulClient.getEntity();</span>
+<span class="nc" id="L46">            window.setTitle(&quot;Home&quot;);</span>
+
+<span class="nc" id="L48">            BorderPane bp = new BorderPane();</span>
+<span class="nc" id="L49">            VBox leftmenu = new VBox();</span>
+<span class="nc" id="L50">            Scene scene = new Scene(bp, 1920, 1080);</span>
+<span class="nc" id="L51">            GridPane centerMenu = new GridPane();</span>
+<span class="nc" id="L52">            centerMenu.setPadding(new Insets(10, 10, 10, 10));</span>
+
+<span class="nc" id="L54">            ImageView img = new ImageView(UserBadge.iconChoice(user));</span>
+<span class="nc" id="L55">            Label homeLabel = new Label(&quot;WE CARE , \n DO YOU?&quot;);</span>
+<span class="nc" id="L56">            homeLabel.getStyleClass().add(&quot;HomeLabelCss&quot;);</span>
+<span class="nc" id="L57">            homeLabel.setAlignment(Pos.CENTER);</span>
+       //  GridPane.setConstraints(homeLabel,5,5);
+<span class="nc" id="L59">            Label usernamelabel = new Label(user.getUsername().toUpperCase());</span>
+
+<span class="nc" id="L61">            HBox statusbar = new HBox();</span>
+<span class="nc" id="L62">            Label Polartext = new Label(&quot;Polar Score:&quot;);</span>
+<span class="nc" id="L63">            Label PolarScore = new Label();</span>
+<span class="nc" id="L64">            PolarScore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L65">            Button trophy = new Button();</span>
+<span class="nc" id="L66">            CSS.setTrophyButtonStyle(trophy);</span>
+<span class="nc" id="L67">            statusbar.setStyle(&quot;-fx-alignment: center&quot;);</span>
+<span class="nc" id="L68">            statusbar.getChildren().addAll(Polartext, PolarScore, trophy);</span>
+<span class="nc" id="L69">            statusbar.setMinHeight(50);</span>
+
+            //Trophy button click
+<span class="nc" id="L72">            trophy.setOnAction(e -&gt; {</span>
+<span class="nc" id="L73">                Achievements.showBadges(centerMenu, user, window);</span>
+<span class="nc" id="L74">            });</span>
+
+            //My Carbon footprint
+<span class="nc" id="L77">            Button mycarbonButton = new Button(&quot;Footprint&quot;);</span>
+<span class="nc" id="L78">            GridPane.setConstraints(mycarbonButton, 0, 1);</span>
+<span class="nc" id="L79">            mycarbonButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L80">                FootPrint.showOptions(centerMenu, user, PolarScore,window);</span>
+<span class="nc" id="L81">            });</span>
+
+            //Statistics Button
+<span class="nc" id="L84">            Button statisticsButton = new Button(&quot;Statistics&quot;);</span>
+<span class="nc" id="L85">            GridPane.setConstraints(statisticsButton, 0, 2);</span>
+<span class="nc" id="L86">            statisticsButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L87">                AlertBox.display(&quot;This is an error message&quot;, &quot;To Be Implemented&quot;);</span>
+<span class="nc" id="L88">            });</span>
+
+            //LeaderBoard button
+<span class="nc" id="L91">            Button leaderboardButton = new Button(&quot;LeaderBoard&quot;);</span>
+<span class="nc" id="L92">            leaderboardButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L93">                Leaderboard.showOptions(centerMenu, scene, user, window);</span>
+<span class="nc" id="L94">            });</span>
+<span class="nc" id="L95">            Button friendsbutton = new Button(&quot;Friends&quot;);</span>
+<span class="nc" id="L96">            friendsbutton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L97">                Friends.showOptions(centerMenu, scene, user,window);</span>
+<span class="nc" id="L98">            });</span>
+            //Quit
+<span class="nc" id="L100">            Button quitButton = new Button(&quot;Quit&quot;);</span>
+<span class="nc" id="L101">            quitButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L102">                boolean result = ConfirmBox.display(&quot;Confirm&quot;, &quot;Are you sure you want to quit?&quot;);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">                if (result) {</span>
+<span class="nc" id="L104">                    Login.showLogin(window);</span>
+                }
+
+<span class="nc" id="L107">            });</span>
+
+<span class="nc" id="L109">            centerMenu.getChildren().addAll(homeLabel);</span>
+
+            //Add everything to grid
+<span class="nc" id="L112">            leftmenu.getChildren().addAll(img, usernamelabel, statusbar, mycarbonButton, statisticsButton, leaderboardButton, friendsbutton, quitButton);</span>
+<span class="nc" id="L113">            bp.setLeft(leftmenu);</span>
+<span class="nc" id="L114">            bp.setCenter(centerMenu);</span>
+<span class="nc" id="L115">            bp.setStyle(&quot;-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');&quot;);</span>
+
+<span class="nc" id="L117">            img.setStyle(&quot;-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25&quot;);</span>
+<span class="nc" id="L118">            usernamelabel.setStyle(&quot;-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30&quot;);</span>
+<span class="nc" id="L119">            CSS.setButtonStyle(mycarbonButton);</span>
+<span class="nc" id="L120">            CSS.setButtonStyle(statisticsButton);</span>
+<span class="nc" id="L121">            CSS.setButtonStyle(leaderboardButton);</span>
+<span class="nc" id="L122">            CSS.setButtonStyle(friendsbutton);</span>
+<span class="nc" id="L123">            CSS.setButtonStyle(quitButton);</span>
+<span class="nc" id="L124">            leftmenu.setMinWidth(400);</span>
+<span class="nc" id="L125">            leftmenu.setStyle(&quot;-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);&quot;);</span>
 
 
-<span class="nc" id="L101">        window.setScene(scene);</span>
-<span class="nc" id="L102">        window.setMaximized(true);</span>
-<span class="nc" id="L103">        window.show();</span>
-<span class="nc" id="L104">    }</span>
+
+            //TIMER for facts
+<span class="nc" id="L130">            Timeline timer = new Timeline(new KeyFrame(Duration.seconds(30), new EventHandler&lt;ActionEvent&gt;() {</span>
+
+            //showing the fact
+                @Override
+                public void handle(ActionEvent event) {
+
+<span class="nc" id="L136">                    showFact(generate(list),centerMenu);</span>
+<span class="nc" id="L137">                }</span>
+            }));
+<span class="nc" id="L139">            timer.setCycleCount(Timeline.INDEFINITE);</span>
+<span class="nc" id="L140">            timer.play();</span>
+
+<span class="nc" id="L142">            scene.getStylesheets().add((new File(&quot;_2_client/src/resources/CSS/SnackBar.css&quot;)).toURI().toString());</span>
+<span class="nc" id="L143">            window.setScene(scene);</span>
+<span class="nc" id="L144">            window.setMaximized(true);</span>
+<span class="nc" id="L145">            window.show();</span>
+<span class="nc" id="L146">        }</span>
+
+
+
+        public static void showFact(String message,GridPane center){
+<span class="nc" id="L151">            JFXSnackbar  factbar = new JFXSnackbar(center);</span>
+<span class="nc" id="L152">            factbar.setPrefWidth(500);</span>
+
+
+<span class="nc" id="L155">            factbar.show(message,10000);</span>
+<span class="nc" id="L156">        }</span>
+//GENERATING A RANDOM STRING FRO MTHE LIST
+        public static String generate(List&lt;String&gt; list){
+<span class="nc" id="L159">            Random random= new Random();</span>
+<span class="nc" id="L160">            return list.get(random.nextInt(list.size()));</span>
+        }
+    //READING TO THE LIST
+
+        public static void factreading( List&lt;String&gt; list){
+
+            try {
+<span class="nc" id="L167">                BufferedReader br = new BufferedReader(new FileReader(&quot;_2_client/src/main/java/client/DailyFacts.txt&quot;));</span>
+                String currentL;
+
+<span class="nc bnc" id="L170" title="All 2 branches missed.">                while((currentL = br.readLine())!= null){</span>
+<span class="nc" id="L171">                    currentL = br.readLine();</span>
+<span class="nc" id="L172">                    list.add(currentL);</span>
+                }
+<span class="nc" id="L174">            } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L175">                System.out.println(list);</span>
+<span class="nc" id="L176">            } catch(IOException c){</span>
+<span class="nc" id="L177">                c.printStackTrace();</span>
+<span class="nc" id="L178">            }</span>
+
+<span class="nc" id="L180">        }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

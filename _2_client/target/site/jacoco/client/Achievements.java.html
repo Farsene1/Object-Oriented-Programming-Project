@@ -16,300 +16,353 @@ import javafx.stage.Stage;
 
 <span class="nc" id="L17">public class Achievements {</span>
 
-<span class="nc" id="L19">   static private boolean unlocked = false;</span>
+    /**
+     * Initializes boolean variable unlocked
+     */
+<span class="nc" id="L22">   static private boolean unlocked = false;</span>
 
     public static void showBadges(GridPane grid, User user, Stage window) {
 
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
          */
-<span class="nc" id="L26">        int polarUnlock = Badges.polarUnlock(user);</span>
+<span class="nc" id="L29">        int polarUnlock = Badges.polarUnlock(user);</span>
 
         /**
          * Calls method to unlock food badges, sets unlock value for CSS.
          */
-<span class="nc" id="L31">        int foodUnlock = Badges.foodUnlock(user);</span>
+<span class="nc" id="L34">        int foodUnlock = Badges.foodUnlock(user);</span>
 
         /**
          * Calls method to unlock transport badges, sets unlock value for CSS.
          */
-<span class="nc" id="L36">        int transportUnlock = Badges.transportUnlock(user);</span>
+<span class="nc" id="L39">        int transportUnlock = Badges.transportUnlock(user);</span>
 
         /**
          * Calls method to unlock electricity badges, sets unlock value for CSS.
          */
-<span class="nc" id="L41">        int electricityUnlock = Badges.electricityUnlock(user);</span>
+<span class="nc" id="L44">        int electricityUnlock = Badges.electricityUnlock(user);</span>
 
-<span class="nc" id="L43">        Label myAchievements = new Label(&quot;My Achievements!&quot;);</span>
-<span class="nc" id="L44">        myAchievements.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 35));</span>
-<span class="nc" id="L45">        VBox achievements = new VBox();</span>
-<span class="nc" id="L46">        achievements.setStyle(&quot;-fx-padding: 5;&quot;);</span>
-<span class="nc" id="L47">        achievements.setSpacing(10);</span>
-<span class="nc" id="L48">        achievements.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L49">        GridPane.setConstraints(achievements, 0, 0);</span>
 
         /**
-         * Polar score badges
+         * Set label for achievments, initialize VBox for badges.
          */
-<span class="nc" id="L54">        HBox polarHbox = new HBox();</span>
-<span class="nc" id="L55">        polarHbox.setSpacing(1);</span>
-<span class="nc" id="L56">        achievements.setStyle(&quot;-fx-padding: 1;&quot; + &quot;-fx-border-style: solid inside;&quot;</span>
+<span class="nc" id="L50">        Label myAchievements = new Label(&quot;My Achievements!&quot;);</span>
+<span class="nc" id="L51">        myAchievements.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 35));</span>
+<span class="nc" id="L52">        VBox achievements = new VBox();</span>
+<span class="nc" id="L53">        achievements.setStyle(&quot;-fx-padding: 5;&quot;);</span>
+<span class="nc" id="L54">        achievements.setSpacing(10);</span>
+<span class="nc" id="L55">        achievements.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L56">        GridPane.setConstraints(achievements, 0, 0);</span>
+
+        /**
+         * Polar score badges.
+         */
+<span class="nc" id="L61">        HBox polarHbox = new HBox();</span>
+<span class="nc" id="L62">        polarHbox.setSpacing(1);</span>
+<span class="nc" id="L63">        achievements.setStyle(&quot;-fx-padding: 1;&quot; + &quot;-fx-border-style: solid inside;&quot;</span>
                 + &quot;-fx-border-width: 5;&quot; + &quot;-fx-border-insets: 5;&quot;
                 + &quot;-fx-border-radius: 5;&quot; + &quot;-fx-border-color: #6dfff3;&quot; +
                 &quot;-fx-background-color: rgba(255,255,255,0.4)&quot;);
 
 
-<span class="nc" id="L62">        Button polarBadge_1 = new Button();</span>
-<span class="nc" id="L63">        Button polarBadge_2 = new Button();</span>
-<span class="nc" id="L64">        Button polarBadge_3 = new Button();</span>
-<span class="nc" id="L65">        Button polarBadge_4 = new Button();</span>
-<span class="nc" id="L66">        Button polarBadge_5 = new Button();</span>
-<span class="nc" id="L67">        Button polarBadge_6 = new Button();</span>
-<span class="nc" id="L68">        Button polarBadge_7 = new Button();</span>
-<span class="nc" id="L69">        Button polarBadge_8 = new Button();</span>
-<span class="nc" id="L70">        Button polarBadge_9 = new Button();</span>
-<span class="nc" id="L71">        Button polarBadge_10 = new Button();</span>
-
-<span class="nc" id="L73">        CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);</span>
-<span class="nc" id="L74">        CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);</span>
-<span class="nc" id="L75">        CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);</span>
-<span class="nc" id="L76">        CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);</span>
-<span class="nc" id="L77">        CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);</span>
-<span class="nc" id="L78">        CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);</span>
-<span class="nc" id="L79">        CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);</span>
-<span class="nc" id="L80">        CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);</span>
-<span class="nc" id="L81">        CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);</span>
-<span class="nc" id="L82">        CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);</span>
+        /**
+         * Initialize buttons for polar badges.
+         */
+<span class="nc" id="L72">        Button polarBadge_1 = new Button();</span>
+<span class="nc" id="L73">        Button polarBadge_2 = new Button();</span>
+<span class="nc" id="L74">        Button polarBadge_3 = new Button();</span>
+<span class="nc" id="L75">        Button polarBadge_4 = new Button();</span>
+<span class="nc" id="L76">        Button polarBadge_5 = new Button();</span>
+<span class="nc" id="L77">        Button polarBadge_6 = new Button();</span>
+<span class="nc" id="L78">        Button polarBadge_7 = new Button();</span>
+<span class="nc" id="L79">        Button polarBadge_8 = new Button();</span>
+<span class="nc" id="L80">        Button polarBadge_9 = new Button();</span>
+<span class="nc" id="L81">        Button polarBadge_10 = new Button();</span>
 
         /**
-         * Selecting unlocked or locked polar score badges
+         * Calls setPolar methods from CSS class to show locked / unlocked polar badges.
          */
-<span class="nc" id="L87">        polarBadge_1.setOnAction(e -&gt; {</span>
-<span class="nc" id="L88">            unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L90">                new Controller().sendBadge(user, 1);</span>
-<span class="nc" id="L91">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L92">                Home.showHome(window, user);</span>
-            }
-<span class="nc" id="L94">        });</span>
-<span class="nc" id="L95">        polarBadge_2.setOnAction(e -&gt; {</span>
-<span class="nc" id="L96">            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);</span>
-<span class="nc bnc" id="L97" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L98">                new Controller().sendBadge(user, 2);</span>
-<span class="nc" id="L99">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L100">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L102" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L103">                AlertBox.display(&quot;This is an error message&quot;, &quot;You still have to unlock badge 2!&quot;);</span>
-            }
-<span class="nc" id="L105">        });</span>
-<span class="nc" id="L106">        polarBadge_3.setOnAction(e -&gt; {</span>
-<span class="nc" id="L107">            unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L109">                new Controller().sendBadge(user, 3);</span>
-<span class="nc" id="L110">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L111">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L113" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L114">                AlertBox.display(&quot;This is an error message&quot;, &quot;You still have to unlock badge 3!&quot;);</span>
-            }
-<span class="nc" id="L116">        });</span>
-<span class="nc" id="L117">        polarBadge_4.setOnAction(e -&gt; {</span>
-<span class="nc" id="L118">            unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);</span>
-<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L120">                new Controller().sendBadge(user, 4);</span>
-<span class="nc" id="L121">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L122">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L124" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L125">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 4!&quot;);</span>
-            }
-<span class="nc" id="L127">        });</span>
-<span class="nc" id="L128">        polarBadge_5.setOnAction(e -&gt; {</span>
-<span class="nc" id="L129">            unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);</span>
-<span class="nc bnc" id="L130" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L131">                new Controller().sendBadge(user, 5);</span>
-<span class="nc" id="L132">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L133">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L135" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L136">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 5!&quot;);</span>
-            }
-<span class="nc" id="L138">        });</span>
-<span class="nc" id="L139">        polarBadge_6.setOnAction(e -&gt; {</span>
-<span class="nc" id="L140">            unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L142">                new Controller().sendBadge(user, 6);</span>
-<span class="nc" id="L143">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L144">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L146" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L147">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 6!&quot;);</span>
-            }
-<span class="nc" id="L149">        });</span>
-<span class="nc" id="L150">        polarBadge_7.setOnAction(e -&gt; {</span>
-<span class="nc" id="L151">            unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);</span>
-<span class="nc bnc" id="L152" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L153">                new Controller().sendBadge(user, 7);</span>
-<span class="nc" id="L154">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L155">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L157" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L158">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 7!&quot;);</span>
-            }
-<span class="nc" id="L160">        });</span>
-<span class="nc" id="L161">        polarBadge_8.setOnAction(e -&gt; {</span>
-<span class="nc" id="L162">            unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);</span>
-<span class="nc bnc" id="L163" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L164">                new Controller().sendBadge(user, 8);</span>
-<span class="nc" id="L165">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L166">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L168" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L169">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 8!&quot;);</span>
-            }
-<span class="nc" id="L171">        });</span>
-<span class="nc" id="L172">        polarBadge_9.setOnAction(e -&gt; {</span>
-<span class="nc" id="L173">            unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);</span>
-<span class="nc bnc" id="L174" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L175">                new Controller().sendBadge(user, 9);</span>
-<span class="nc" id="L176">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L177">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L179" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L180">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 9!&quot;);</span>
-            }
-<span class="nc" id="L182">        });</span>
-<span class="nc" id="L183">        polarBadge_10.setOnAction(e -&gt; {</span>
-<span class="nc" id="L184">            unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);</span>
-<span class="nc bnc" id="L185" title="All 2 branches missed.">            if (unlocked == true) {</span>
-<span class="nc" id="L186">                new Controller().sendBadge(user, 10);</span>
-<span class="nc" id="L187">                String icon = classes.UserBadge.iconChoice(user);</span>
-<span class="nc" id="L188">                Home.showHome(window, user);</span>
-            }
-<span class="nc bnc" id="L190" title="All 2 branches missed.">            if (unlocked == false) {</span>
-<span class="nc" id="L191">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 10!&quot;);</span>
-            }
-<span class="nc" id="L193">        });</span>
+<span class="nc" id="L86">        CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);</span>
+<span class="nc" id="L87">        CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);</span>
+<span class="nc" id="L88">        CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);</span>
+<span class="nc" id="L89">        CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);</span>
+<span class="nc" id="L90">        CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);</span>
+<span class="nc" id="L91">        CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);</span>
+<span class="nc" id="L92">        CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);</span>
+<span class="nc" id="L93">        CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);</span>
+<span class="nc" id="L94">        CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);</span>
+<span class="nc" id="L95">        CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);</span>
 
+        /**
+         * Selecting unlocked or locked polar score badges on button click.
+         * Shows alert messages for each specific badge if they're not yet unlocked
+         */
+<span class="nc" id="L101">        polarBadge_1.setOnAction(e -&gt; {</span>
+<span class="nc" id="L102">            unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L104">                new Controller().sendBadge(user, 1);</span>
+<span class="nc" id="L105">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L106">                Home.showHome(window, user);</span>
+            }
+<span class="nc" id="L108">        });</span>
+<span class="nc" id="L109">        polarBadge_2.setOnAction(e -&gt; {</span>
+<span class="nc" id="L110">            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L112">                new Controller().sendBadge(user, 2);</span>
+<span class="nc" id="L113">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L114">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L117">                AlertBox.display(&quot;This is an error message&quot;, &quot;You still have to unlock badge 2!&quot;);</span>
+            }
+<span class="nc" id="L119">        });</span>
+<span class="nc" id="L120">        polarBadge_3.setOnAction(e -&gt; {</span>
+<span class="nc" id="L121">            unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L123">                new Controller().sendBadge(user, 3);</span>
+<span class="nc" id="L124">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L125">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L128">                AlertBox.display(&quot;This is an error message&quot;, &quot;You still have to unlock badge 3!&quot;);</span>
+            }
+<span class="nc" id="L130">        });</span>
+<span class="nc" id="L131">        polarBadge_4.setOnAction(e -&gt; {</span>
+<span class="nc" id="L132">            unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L134">                new Controller().sendBadge(user, 4);</span>
+<span class="nc" id="L135">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L136">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L138" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L139">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 4!&quot;);</span>
+            }
+<span class="nc" id="L141">        });</span>
+<span class="nc" id="L142">        polarBadge_5.setOnAction(e -&gt; {</span>
+<span class="nc" id="L143">            unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L145">                new Controller().sendBadge(user, 5);</span>
+<span class="nc" id="L146">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L147">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L149" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L150">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 5!&quot;);</span>
+            }
+<span class="nc" id="L152">        });</span>
+<span class="nc" id="L153">        polarBadge_6.setOnAction(e -&gt; {</span>
+<span class="nc" id="L154">            unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L156">                new Controller().sendBadge(user, 6);</span>
+<span class="nc" id="L157">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L158">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L160" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L161">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 6!&quot;);</span>
+            }
+<span class="nc" id="L163">        });</span>
+<span class="nc" id="L164">        polarBadge_7.setOnAction(e -&gt; {</span>
+<span class="nc" id="L165">            unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L167">                new Controller().sendBadge(user, 7);</span>
+<span class="nc" id="L168">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L169">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L171" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L172">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 7!&quot;);</span>
+            }
+<span class="nc" id="L174">        });</span>
+<span class="nc" id="L175">        polarBadge_8.setOnAction(e -&gt; {</span>
+<span class="nc" id="L176">            unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L178">                new Controller().sendBadge(user, 8);</span>
+<span class="nc" id="L179">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L180">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L182" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L183">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 8!&quot;);</span>
+            }
+<span class="nc" id="L185">        });</span>
+<span class="nc" id="L186">        polarBadge_9.setOnAction(e -&gt; {</span>
+<span class="nc" id="L187">            unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);</span>
+<span class="nc bnc" id="L188" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L189">                new Controller().sendBadge(user, 9);</span>
+<span class="nc" id="L190">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L191">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L193" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L194">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 9!&quot;);</span>
+            }
+<span class="nc" id="L196">        });</span>
+<span class="nc" id="L197">        polarBadge_10.setOnAction(e -&gt; {</span>
+<span class="nc" id="L198">            unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">            if (unlocked == true) {</span>
+<span class="nc" id="L200">                new Controller().sendBadge(user, 10);</span>
+<span class="nc" id="L201">                String icon = classes.UserBadge.iconChoice(user);</span>
+<span class="nc" id="L202">                Home.showHome(window, user);</span>
+            }
+<span class="nc bnc" id="L204" title="All 2 branches missed.">            if (unlocked == false) {</span>
+<span class="nc" id="L205">                AlertBox.display(&quot;Hold up!&quot;, &quot;You still have to unlock badge 10!&quot;);</span>
+            }
+<span class="nc" id="L207">        });</span>
 
-<span class="nc" id="L196">        Label polarLabel = new Label(&quot;POLAR&quot;);</span>
-<span class="nc" id="L197">        polarLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
-<span class="nc" id="L198">        polarHbox.getChildren().addAll(polarBadge_1, polarBadge_2, polarBadge_3, polarBadge_4, polarBadge_5,</span>
+        /**
+         * Label for polar badges
+         */
+<span class="nc" id="L212">        Label polarLabel = new Label(&quot;POLAR&quot;);</span>
+<span class="nc" id="L213">        polarLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L214">        polarHbox.getChildren().addAll(polarBadge_1, polarBadge_2, polarBadge_3, polarBadge_4, polarBadge_5,</span>
                 polarBadge_6, polarBadge_7, polarBadge_8, polarBadge_9, polarBadge_10);
 
         /**
-         * Food score badges
+         * Food score badges.
          */
-<span class="nc" id="L204">        HBox foodHbox = new HBox();</span>
+<span class="nc" id="L220">        HBox foodHbox = new HBox();</span>
 
-<span class="nc" id="L206">        Button foodBadge_1 = new Button();</span>
-<span class="nc" id="L207">        Button foodBadge_2 = new Button();</span>
-<span class="nc" id="L208">        Button foodBadge_3 = new Button();</span>
-<span class="nc" id="L209">        Button foodBadge_4 = new Button();</span>
-<span class="nc" id="L210">        Button foodBadge_5 = new Button();</span>
-<span class="nc" id="L211">        Button foodBadge_6 = new Button();</span>
-<span class="nc" id="L212">        Button foodBadge_7 = new Button();</span>
-<span class="nc" id="L213">        Button foodBadge_8 = new Button();</span>
-<span class="nc" id="L214">        Button foodBadge_9 = new Button();</span>
-<span class="nc" id="L215">        Button foodBadge_10 = new Button();</span>
+        /**
+         * Initialize buttons for food badges.
+         */
+<span class="nc" id="L225">        Button foodBadge_1 = new Button();</span>
+<span class="nc" id="L226">        Button foodBadge_2 = new Button();</span>
+<span class="nc" id="L227">        Button foodBadge_3 = new Button();</span>
+<span class="nc" id="L228">        Button foodBadge_4 = new Button();</span>
+<span class="nc" id="L229">        Button foodBadge_5 = new Button();</span>
+<span class="nc" id="L230">        Button foodBadge_6 = new Button();</span>
+<span class="nc" id="L231">        Button foodBadge_7 = new Button();</span>
+<span class="nc" id="L232">        Button foodBadge_8 = new Button();</span>
+<span class="nc" id="L233">        Button foodBadge_9 = new Button();</span>
+<span class="nc" id="L234">        Button foodBadge_10 = new Button();</span>
 
-<span class="nc" id="L217">        CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);</span>
-<span class="nc" id="L218">        CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);</span>
-<span class="nc" id="L219">        CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);</span>
-<span class="nc" id="L220">        CSSfoodBadge.setFood4(foodBadge_4, foodUnlock);</span>
-<span class="nc" id="L221">        CSSfoodBadge.setFood5(foodBadge_5, foodUnlock);</span>
-<span class="nc" id="L222">        CSSfoodBadge.setFood6(foodBadge_6, foodUnlock);</span>
-<span class="nc" id="L223">        CSSfoodBadge.setFood7(foodBadge_7, foodUnlock);</span>
-<span class="nc" id="L224">        CSSfoodBadge.setFood8(foodBadge_8, foodUnlock);</span>
-<span class="nc" id="L225">        CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);</span>
-<span class="nc" id="L226">        CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);</span>
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked food badges.
+         */
+<span class="nc" id="L239">        CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);</span>
+<span class="nc" id="L240">        CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);</span>
+<span class="nc" id="L241">        CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);</span>
+<span class="nc" id="L242">        CSSfoodBadge.setFood4(foodBadge_4, foodUnlock);</span>
+<span class="nc" id="L243">        CSSfoodBadge.setFood5(foodBadge_5, foodUnlock);</span>
+<span class="nc" id="L244">        CSSfoodBadge.setFood6(foodBadge_6, foodUnlock);</span>
+<span class="nc" id="L245">        CSSfoodBadge.setFood7(foodBadge_7, foodUnlock);</span>
+<span class="nc" id="L246">        CSSfoodBadge.setFood8(foodBadge_8, foodUnlock);</span>
+<span class="nc" id="L247">        CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);</span>
+<span class="nc" id="L248">        CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);</span>
 
-<span class="nc" id="L228">        Label foodLabel = new Label(&quot;FOOD&quot;);</span>
-<span class="nc" id="L229">        foodLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
 
-<span class="nc" id="L231">        foodHbox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,</span>
+        /**
+         * Label for food badges.
+         */
+<span class="nc" id="L254">        Label foodLabel = new Label(&quot;FOOD&quot;);</span>
+<span class="nc" id="L255">        foodLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+
+        /**
+         * Adds all badges for food to Hbox
+         */
+<span class="nc" id="L260">        foodHbox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,</span>
                 foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
 
         /**
          * transport score badges
          */
-<span class="nc" id="L237">        HBox transportHbox = new HBox();</span>
-<span class="nc" id="L238">        transportHbox.setSpacing(1);</span>
+<span class="nc" id="L266">        HBox transportHbox = new HBox();</span>
+<span class="nc" id="L267">        transportHbox.setSpacing(1);</span>
 
-<span class="nc" id="L240">        Button transportBadge_1 = new Button();</span>
-<span class="nc" id="L241">        Button transportBadge_2 = new Button();</span>
-<span class="nc" id="L242">        Button transportBadge_3 = new Button();</span>
-<span class="nc" id="L243">        Button transportBadge_4 = new Button();</span>
-<span class="nc" id="L244">        Button transportBadge_5 = new Button();</span>
-<span class="nc" id="L245">        Button transportBadge_6 = new Button();</span>
-<span class="nc" id="L246">        Button transportBadge_7 = new Button();</span>
-<span class="nc" id="L247">        Button transportBadge_8 = new Button();</span>
-<span class="nc" id="L248">        Button transportBadge_9 = new Button();</span>
-<span class="nc" id="L249">        Button transportBadge_10 = new Button();</span>
 
-<span class="nc" id="L251">        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);</span>
-<span class="nc" id="L252">        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);</span>
-<span class="nc" id="L253">        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);</span>
-<span class="nc" id="L254">        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);</span>
-<span class="nc" id="L255">        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);</span>
-<span class="nc" id="L256">        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);</span>
-<span class="nc" id="L257">        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);</span>
-<span class="nc" id="L258">        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);</span>
-<span class="nc" id="L259">        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);</span>
-<span class="nc" id="L260">        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);</span>
+        /**
+         * Initialize buttons for transport badges.
+         */
+<span class="nc" id="L273">        Button transportBadge_1 = new Button();</span>
+<span class="nc" id="L274">        Button transportBadge_2 = new Button();</span>
+<span class="nc" id="L275">        Button transportBadge_3 = new Button();</span>
+<span class="nc" id="L276">        Button transportBadge_4 = new Button();</span>
+<span class="nc" id="L277">        Button transportBadge_5 = new Button();</span>
+<span class="nc" id="L278">        Button transportBadge_6 = new Button();</span>
+<span class="nc" id="L279">        Button transportBadge_7 = new Button();</span>
+<span class="nc" id="L280">        Button transportBadge_8 = new Button();</span>
+<span class="nc" id="L281">        Button transportBadge_9 = new Button();</span>
+<span class="nc" id="L282">        Button transportBadge_10 = new Button();</span>
 
-<span class="nc" id="L262">        Label transportLabel = new Label(&quot;TRANSPORT&quot;);</span>
-<span class="nc" id="L263">        transportLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked transport badges.
+         */
+<span class="nc" id="L287">        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);</span>
+<span class="nc" id="L288">        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);</span>
+<span class="nc" id="L289">        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);</span>
+<span class="nc" id="L290">        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);</span>
+<span class="nc" id="L291">        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);</span>
+<span class="nc" id="L292">        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);</span>
+<span class="nc" id="L293">        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);</span>
+<span class="nc" id="L294">        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);</span>
+<span class="nc" id="L295">        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);</span>
+<span class="nc" id="L296">        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);</span>
 
-<span class="nc" id="L265">        transportHbox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,</span>
+        /**
+         * Label for transport badges
+         */
+<span class="nc" id="L301">        Label transportLabel = new Label(&quot;TRANSPORT&quot;);</span>
+<span class="nc" id="L302">        transportLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+
+        /**
+         * Adds all badges for transport to Hbox.
+         */
+<span class="nc" id="L307">        transportHbox.getChildren().addAll(transportBadge_1, transportBadge_2, transportBadge_3, transportBadge_4, transportBadge_5,</span>
                 transportBadge_6, transportBadge_7, transportBadge_8, transportBadge_9, transportBadge_10);
 
+        /**
+         * electricity score badges.
+         */
+<span class="nc" id="L313">        HBox electricityHbox = new HBox();</span>
+<span class="nc" id="L314">        electricityHbox.setSpacing(1);</span>
 
+        /**
+         * Initialize buttons for electricity badges.
+         */
+<span class="nc" id="L319">        Button electricityBadge_1 = new Button();</span>
+<span class="nc" id="L320">        Button electricityBadge_2 = new Button();</span>
+<span class="nc" id="L321">        Button electricityBadge_3 = new Button();</span>
+<span class="nc" id="L322">        Button electricityBadge_4 = new Button();</span>
+<span class="nc" id="L323">        Button electricityBadge_5 = new Button();</span>
+<span class="nc" id="L324">        Button electricityBadge_6 = new Button();</span>
+<span class="nc" id="L325">        Button electricityBadge_7 = new Button();</span>
+<span class="nc" id="L326">        Button electricityBadge_8 = new Button();</span>
+<span class="nc" id="L327">        Button electricityBadge_9 = new Button();</span>
+<span class="nc" id="L328">        Button electricityBadge_10 = new Button();</span>
 
-/**
- * electricity score badges
- */
-<span class="nc" id="L273">        HBox electricityHbox = new HBox();</span>
-<span class="nc" id="L274">        electricityHbox.setSpacing(1);</span>
+        /**
+         * Calls setPolar methods from CSS class to show locked / unlocked electricity badges.
+         */
+<span class="nc" id="L333">        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);</span>
+<span class="nc" id="L334">        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);</span>
+<span class="nc" id="L335">        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);</span>
+<span class="nc" id="L336">        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);</span>
+<span class="nc" id="L337">        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);</span>
+<span class="nc" id="L338">        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);</span>
+<span class="nc" id="L339">        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);</span>
+<span class="nc" id="L340">        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);</span>
+<span class="nc" id="L341">        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);</span>
+<span class="nc" id="L342">        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);</span>
 
-<span class="nc" id="L276">        Button electricityBadge_1 = new Button();</span>
-<span class="nc" id="L277">        Button electricityBadge_2 = new Button();</span>
-<span class="nc" id="L278">        Button electricityBadge_3 = new Button();</span>
-<span class="nc" id="L279">        Button electricityBadge_4 = new Button();</span>
-<span class="nc" id="L280">        Button electricityBadge_5 = new Button();</span>
-<span class="nc" id="L281">        Button electricityBadge_6 = new Button();</span>
-<span class="nc" id="L282">        Button electricityBadge_7 = new Button();</span>
-<span class="nc" id="L283">        Button electricityBadge_8 = new Button();</span>
-<span class="nc" id="L284">        Button electricityBadge_9 = new Button();</span>
-<span class="nc" id="L285">        Button electricityBadge_10 = new Button();</span>
+        /**
+         * Label for electricity badges.
+         */
+<span class="nc" id="L347">        Label electricityLabel = new Label(&quot;ELECTRICITY&quot;);</span>
+<span class="nc" id="L348">        electricityLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
 
-<span class="nc" id="L287">        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);</span>
-<span class="nc" id="L288">        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);</span>
-<span class="nc" id="L289">        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);</span>
-<span class="nc" id="L290">        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);</span>
-<span class="nc" id="L291">        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);</span>
-<span class="nc" id="L292">        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);</span>
-<span class="nc" id="L293">        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);</span>
-<span class="nc" id="L294">        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);</span>
-<span class="nc" id="L295">        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);</span>
-<span class="nc" id="L296">        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);</span>
-
-<span class="nc" id="L298">        Label electricityLabel = new Label(&quot;ELECTRICITY&quot;);</span>
-<span class="nc" id="L299">        electricityLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
-
-<span class="nc" id="L301">        electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,</span>
+        /**
+         * Adds all badges for electricity to Hbox.
+         */
+<span class="nc" id="L353">        electricityHbox.getChildren().addAll(electricityBadge_1, electricityBadge_2, electricityBadge_3, electricityBadge_4, electricityBadge_5,</span>
                 electricityBadge_6, electricityBadge_7, electricityBadge_8, electricityBadge_9, electricityBadge_10);
 
-<span class="nc" id="L304">        achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);</span>
+        /**
+         * Adds all badges in specific Hboxes to Vbox // styling.
+         */
+<span class="nc" id="L359">        achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);</span>
+<span class="nc" id="L360">        grid.getChildren().setAll(achievements);</span>
+<span class="nc" id="L361">        achievements.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L362">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L363">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
 
-<span class="nc" id="L306">        grid.getChildren().setAll(achievements);</span>
-<span class="nc" id="L307">        achievements.setAlignment(Pos.CENTER);</span>
-
-<span class="nc" id="L309">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L310">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
-
-<span class="nc" id="L312">    }</span>
+<span class="nc" id="L365">    }</span>
 }
 
 
