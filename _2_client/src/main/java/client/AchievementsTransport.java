@@ -13,6 +13,9 @@ public class AchievementsTransport {
      */
     static private boolean unlocked = false;
 
+    /**
+     * Declare Hbox.
+     */
     static HBox transportBox;
 
     public static void showTransportBadges(User user) {

@@ -6,13 +6,7 @@ import classes.User;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import classes.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -22,15 +16,13 @@ public class AchievementsPolar {
      * Initializes boolean variable unlocked
      */
     static private boolean unlocked = false;
+
+    /**
+     * Declare Hbox.
+     */
     static HBox polarBox;
 
     public static void showPolarBadges(User user, Stage window) {
-
-//        /**
-//         * Calls method to unlock food badges, sets unlock value for CSS.
-//         */
-//        int foodUnlock = Badges.foodUnlock(user);
-//
 
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
@@ -189,41 +181,6 @@ public class AchievementsPolar {
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
         polarBox.getChildren().addAll(polarBadge_1, polarBadge_2, polarBadge_3, polarBadge_4, polarBadge_5,
                 polarBadge_6, polarBadge_7, polarBadge_8, polarBadge_9, polarBadge_10);
-
-//        /**
-//         * Initialize buttons for food badges.
-//         */
-//        Button foodBadge_1 = new Button();
-//        Button foodBadge_2 = new Button();
-//        Button foodBadge_3 = new Button();
-//        Button foodBadge_4 = new Button();
-//        Button foodBadge_5 = new Button();
-//        Button foodBadge_6 = new Button();
-//        Button foodBadge_7 = new Button();
-//        Button foodBadge_8 = new Button();
-//        Button foodBadge_9 = new Button();
-//        Button foodBadge_10 = new Button();
-//
-//        /**
-//         * Calls setPolar methods from CSS class to show locked / unlocked food badges.
-//         */
-//        CSSfoodBadge.setFood1(foodBadge_1, foodUnlock);
-//        CSSfoodBadge.setFood2(foodBadge_2, foodUnlock);
-//        CSSfoodBadge.setFood3(foodBadge_3, foodUnlock);
-//        CSSfoodBadge.setFood4(foodBadge_4, foodUnlock);
-//        CSSfoodBadge.setFood5(foodBadge_5, foodUnlock);
-//        CSSfoodBadge.setFood6(foodBadge_6, foodUnlock);
-//        CSSfoodBadge.setFood7(foodBadge_7, foodUnlock);
-//        CSSfoodBadge.setFood8(foodBadge_8, foodUnlock);
-//        CSSfoodBadge.setFood9(foodBadge_9, foodUnlock);
-//        CSSfoodBadge.setFood10(foodBadge_10, foodUnlock);
-//
-//        /**
-//         * Adds all badges for food to Hbox
-//         */
-//        foodBox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,
-//                foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
-//    }
     }
 
     /**

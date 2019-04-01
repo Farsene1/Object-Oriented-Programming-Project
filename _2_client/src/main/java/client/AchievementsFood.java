@@ -11,6 +11,10 @@ public class AchievementsFood {
      * Initializes boolean variable unlocked
      */
     static private boolean unlocked = false;
+
+    /**
+     * Declare Hbox.
+     */
     static HBox foodBox;
 
     public static void showFoodBadges(User user) {
