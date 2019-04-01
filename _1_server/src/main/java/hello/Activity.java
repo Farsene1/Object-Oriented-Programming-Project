@@ -131,6 +131,20 @@ public class Activity {
      */
     public void setCategory(Integer category) {
         this.category = category;
+        switch (category) {
+            case 1: {
+                this.cat = "Food";
+                break;
+            }
+            case 2: {
+                this.cat = "Transport";
+                break;
+            }
+            case 3: {
+                this.cat = "Electricity";
+                break;
+            }
+        }
     }
 
     /**
