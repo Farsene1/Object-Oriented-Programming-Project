@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class TransportBox {
+public class BoxTransport {
     static String vehicle;
     static double distance;
     static String date;

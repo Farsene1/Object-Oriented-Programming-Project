@@ -90,7 +90,7 @@ public class Signup {
                         errorlabel.setVisible(true);
                     }
                 } catch (NoSuchAlgorithmException error) {
-                    AlertBox.display("ERROR", "No such algorithm exception");
+                    BoxAlert.display("ERROR", "No such algorithm exception");
                     error.printStackTrace();
                 }
             }

@@ -2,6 +2,9 @@ package classes;
 
 public class Badges {
 
+    /**
+     * Declare/initialize unlock value for unlocking methods.
+     */
     static private int unlock = 0;
 
     /**
@@ -12,7 +15,9 @@ public class Badges {
          * Calls get polar score // assigns to int value to be checked
          */
         int polarTotal = user.getPolarScore();
-        //default unlock for polar badge 1
+        /**
+         * Defaults to unlock polar badge 1 automatically.
+         */
         if(polarTotal <= 100000){
             unlock = 1;
         }
@@ -54,8 +59,9 @@ public class Badges {
  * Calls get food score // assigns to int value to be checked
  */
         int foodTotal = user.getFoodScore();
-
-        //default unlock for food badge 1
+        /**
+         * Defaults to unlock food badge 1 automatically.
+         */
         if(foodTotal <= 10000){
             unlock = 1;
         }
@@ -97,8 +103,9 @@ public class Badges {
         * Calls get transport score // assigns to int value to be checked
         */
         int transportTotal = user.getTransportScore();
-
-//default unlock for transport badge 1
+        /**
+         * Defaults to unlock transport badge 1 automatically.
+         */
         if(transportTotal <= 10000){
             unlock = 1;
         }
@@ -141,7 +148,9 @@ public class Badges {
         */
         int electricityTotal = user.getElectricityScore();
 
-        //default unlock for electricity badge 1
+        /**
+         * Defaults to unlock electricity badge 1 automatically.
+         */
         if(electricityTotal <= 10000){
             unlock = 1;
         }
@@ -174,4 +183,5 @@ public class Badges {
         }
         return unlock;
     }
+
 }

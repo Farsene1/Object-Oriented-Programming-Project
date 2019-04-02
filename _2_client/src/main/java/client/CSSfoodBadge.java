@@ -33,7 +33,7 @@ public class CSSfoodBadge {
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));

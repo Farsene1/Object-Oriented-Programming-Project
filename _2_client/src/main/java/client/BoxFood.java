@@ -15,7 +15,7 @@ import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class FoodBox {
+public class BoxFood {
 
     /**
      * Initializes string for food added as empty.
