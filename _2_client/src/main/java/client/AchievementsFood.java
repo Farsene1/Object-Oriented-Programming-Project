@@ -69,7 +69,7 @@ public class AchievementsFood {
             classes.UserBadge.iconChoice(user);
             Home.showHome(window, user);
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_2.setOnAction(e -> {
             if(unlockNumber>2) {
                 new Controller().sendBadge(user, 12);
                 classes.UserBadge.iconChoice(user);
@@ -79,7 +79,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 2!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_3.setOnAction(e -> {
             if(unlockNumber>3) {
                 new Controller().sendBadge(user, 13);
                 classes.UserBadge.iconChoice(user);
@@ -89,7 +89,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 3!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_4.setOnAction(e -> {
             if(unlockNumber>4) {
                 new Controller().sendBadge(user, 14);
                 classes.UserBadge.iconChoice(user);
@@ -99,7 +99,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 4!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_5.setOnAction(e -> {
             if(unlockNumber>5) {
                 new Controller().sendBadge(user, 15);
                 classes.UserBadge.iconChoice(user);
@@ -109,7 +109,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 5!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_6.setOnAction(e -> {
             if(unlockNumber>6) {
                 new Controller().sendBadge(user, 16);
                 classes.UserBadge.iconChoice(user);
@@ -119,7 +119,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 6!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_7.setOnAction(e -> {
             if(unlockNumber>7) {
                 new Controller().sendBadge(user, 17);
                 classes.UserBadge.iconChoice(user);
@@ -129,7 +129,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 7!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_8.setOnAction(e -> {
             if(unlockNumber>8) {
                 new Controller().sendBadge(user, 18);
                 classes.UserBadge.iconChoice(user);
@@ -139,7 +139,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 8!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_9.setOnAction(e -> {
             if(unlockNumber>9) {
                 new Controller().sendBadge(user, 19);
                 classes.UserBadge.iconChoice(user);
@@ -149,7 +149,7 @@ public class AchievementsFood {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 9!");
             }
         });
-        foodBadge_1.setOnAction(e -> {
+        foodBadge_10.setOnAction(e -> {
             if (unlockNumber > 10) {
                 new Controller().sendBadge(user, 20);
                 classes.UserBadge.iconChoice(user);
