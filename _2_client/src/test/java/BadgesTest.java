@@ -1,9 +1,15 @@
 import classes.Badges;
 import classes.User;
+import classes.UserBadge;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BadgesTest {
 
+    /**
+     * Create 10 users for testing 10 badges
+     */
     User user1 = new User("ollie", "test1");
     User user2 = new User("ollie", "test2");
     User user3 = new User("ollie", "test3");
@@ -15,7 +21,32 @@ public class BadgesTest {
     User user9 = new User("ollie", "test9");
     User user10 = new User("ollie", "test10");
 
-
+    /**
+     * Test method for class Badges; method polarUnlock - all badges.
+     */
+    @Test
+    public void testPolarUnlock(){
+        user1.setPolarScore(100000);
+        assertEquals(1, Badges.polarUnlock(user1));
+        user2.setPolarScore(200000);
+        assertEquals(2, Badges.polarUnlock(user2));
+        user3.setPolarScore(300000);
+        assertEquals(3, Badges.polarUnlock(user3));
+        user4.setPolarScore(400000);
+        assertEquals(4, Badges.polarUnlock(user4));
+        user5.setPolarScore(500000);
+        assertEquals(5, Badges.polarUnlock(user5));
+        user6.setPolarScore(600000);
+        assertEquals(6, Badges.polarUnlock(user6));
+        user7.setPolarScore(700000);
+        assertEquals(7, Badges.polarUnlock(user7));
+        user8.setPolarScore(800000);
+        assertEquals(8, Badges.polarUnlock(user8));
+        user9.setPolarScore(900000);
+        assertEquals(9, Badges.polarUnlock(user9));
+        user10.setPolarScore(1000000);
+        assertEquals(10, Badges.polarUnlock(user10));
+    }
 
     }
 
