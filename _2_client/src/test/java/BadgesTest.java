@@ -1,5 +1,7 @@
 import classes.Badges;
+import classes.Transport;
 import classes.User;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +21,7 @@ public class BadgesTest {
     User user8 = new User("ollie", "test8");
     User user9 = new User("ollie", "test9");
     User user10 = new User("ollie", "test10");
-
+    
     /**
      * Test method for class Badges; method polarUnlock - all badges.
      */
@@ -99,6 +101,15 @@ public class BadgesTest {
         assertEquals(9, Badges.transportUnlock(user9));
         user10.setTransportScore(100000);
         assertEquals(10, Badges.transportUnlock(user10));
+    }
+
+    /**
+     * Test method for class Badges; method electricitytUnlock - all badges.
+     */
+    @Test
+    public void testElectricityUnlock() {
+        user1.setElectricityScore(10000);
+        assertEquals(1, Badges.transportUnlock(user1));
     }
     }
 

@@ -200,28 +200,28 @@ public class Badges {
         return unlock;
     }
 
-    /**
-     * Setter for polar total needed for test class.
-     */
-    public void setPolarTotal(Integer polarTotal) {
-        this.polarTotal = polarTotal;
-    }
-    /**
-     * Setter for food total needed for test class.
-     */
-    public void setFoodTotal(Integer foodTotal) {
-        this.foodTotal = foodTotal;
-    }
-    /**
-     * Setter for transport total needed for test class.
-     */
-    public void setTransportTotal(Integer transportTotal) {
-        this.transportTotal = transportTotal;
-    }
-    /**
-     * Setter for electricity total needed for test class.
-     */
-    public void setElectricityTotal(Integer electricityTotal) {
-        this.electricityTotal = electricityTotal;
-    }
+//    /**
+//     * Setter for polar total needed for test class.
+//     */
+//    public void setPolarTotal(Integer polarTotal) {
+//        this.polarTotal = polarTotal;
+//    }
+//    /**
+//     * Setter for food total needed for test class.
+//     */
+//    public void setFoodTotal(Integer foodTotal) {
+//        this.foodTotal = foodTotal;
+//    }
+//    /**
+//     * Setter for transport total needed for test class.
+//     */
+//    public void setTransportTotal(Integer transportTotal) {
+//        this.transportTotal = transportTotal;
+//    }
+//    /**
+//     * Setter for electricity total needed for test class.
+//     */
+//    public void setElectricityTotal(Integer electricityTotal) {
+//        this.electricityTotal = electricityTotal;
+//    }
 }
