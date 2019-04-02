@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
