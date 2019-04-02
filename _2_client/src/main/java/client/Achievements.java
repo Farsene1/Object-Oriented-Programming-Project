@@ -12,11 +12,6 @@ import javafx.stage.Stage;
 
 public class Achievements {
 
-    /**
-     * Initializes boolean variable unlocked
-     */
-   static private boolean unlocked = false;
-
     public static void showBadges(GridPane grid, User user, Stage window) {
 
         /**

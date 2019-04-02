@@ -184,9 +184,11 @@ public class AchievementsPolar {
     }
 
     /**
-     * Getter for foodBox
+     * Getter for polarBox
      */
     static public HBox getPolarBox() {
         return polarBox;
     }
+
+
 }
