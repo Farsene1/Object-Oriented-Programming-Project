@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSSTable;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
