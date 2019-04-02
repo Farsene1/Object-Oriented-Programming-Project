@@ -1,4 +1,5 @@
 package client;
+import CSS.CSStransportBadge;
 import classes.Badges;
 import classes.User;
 import javafx.scene.layout.HBox;
@@ -7,11 +8,6 @@ import javafx.scene.control.Button;
 
 
 public class AchievementsTransport {
-
-    /**
-     * Initializes boolean variable unlocked
-     */
-    static private boolean unlocked = false;
 
     /**
      * Declare Hbox.
@@ -28,7 +24,7 @@ public class AchievementsTransport {
         /**
          * Calls method to unlock transport badges, sets unlock value for CSS.
          */
-        int transportUnlock = Badges.transportUnlock(user);
+        int unlockNumber = Badges.transportUnlock(user);
 
         /**
          transportBox = new HBox();
@@ -50,16 +46,16 @@ public class AchievementsTransport {
         /**
          * Calls setPolar methods from CSS class to show locked / unlocked transport badges.
          */
-        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);
-        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);
-        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);
-        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);
-        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);
-        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);
-        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);
-        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);
-        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);
-        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);
+        CSStransportBadge.setTransport1(transportBadge_1, unlockNumber);
+        CSStransportBadge.setTransport2(transportBadge_2, unlockNumber);
+        CSStransportBadge.setTransport3(transportBadge_3, unlockNumber);
+        CSStransportBadge.setTransport4(transportBadge_4, unlockNumber);
+        CSStransportBadge.setTransport5(transportBadge_5, unlockNumber);
+        CSStransportBadge.setTransport6(transportBadge_6, unlockNumber);
+        CSStransportBadge.setTransport7(transportBadge_7, unlockNumber);
+        CSStransportBadge.setTransport8(transportBadge_8, unlockNumber);
+        CSStransportBadge.setTransport9(transportBadge_9, unlockNumber);
+        CSStransportBadge.setTransport10(transportBadge_10, unlockNumber);
 
 
         /**
