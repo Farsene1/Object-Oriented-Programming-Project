@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserBadgeTest {
 
+    /**
+     * Test method for class Badges; method foodUnlock - all badges.
+     */
     User user1 = new User("ollie", "test1");
     User user2 = new User("ollie", "test2");
     User user3 = new User("ollie", "test3");
@@ -17,6 +20,9 @@ public class UserBadgeTest {
     User user9 = new User("ollie", "test9");
     User user10 = new User("ollie", "test10");
 
+    /**
+     * Test method for class UserBadges; method iconChoice - all badge choices.
+     */
     @Test
     public void tesIconChoice(){
         user1.setBadge(1);
@@ -41,6 +47,9 @@ public class UserBadgeTest {
         assertEquals("https://i.ibb.co/48GCprf/polar10.png",UserBadge.iconChoice(user10));
     }
 
+    /**
+     * Test method for class Badges; method getIcon.
+     */
     @Test
     public void testGetIcon(){
         String badge = "https://i.ibb.co/THM6prg/polar1.png";

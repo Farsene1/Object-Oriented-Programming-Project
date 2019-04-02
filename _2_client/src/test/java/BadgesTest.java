@@ -1,6 +1,5 @@
 import classes.Badges;
 import classes.User;
-import classes.UserBadge;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -46,6 +45,33 @@ public class BadgesTest {
         assertEquals(9, Badges.polarUnlock(user9));
         user10.setPolarScore(1000000);
         assertEquals(10, Badges.polarUnlock(user10));
+    }
+
+    /**
+     * Test method for class Badges; method foodUnlock - all badges.
+     */
+    @Test
+    public void testFoodUnlock() {
+        user1.setFoodScore(10000);
+        assertEquals(1, Badges.foodUnlock(user1));
+        user2.setFoodScore(20000);
+        assertEquals(2, Badges.foodUnlock(user2));
+        user3.setFoodScore(30000);
+        assertEquals(3, Badges.foodUnlock(user3));
+        user4.setFoodScore(40000);
+        assertEquals(4, Badges.foodUnlock(user4));
+        user5.setFoodScore(50000);
+        assertEquals(5, Badges.foodUnlock(user5));
+        user6.setFoodScore(60000);
+        assertEquals(6, Badges.foodUnlock(user6));
+        user7.setFoodScore(70000);
+        assertEquals(7, Badges.foodUnlock(user7));
+        user8.setFoodScore(80000);
+        assertEquals(8, Badges.foodUnlock(user8));
+        user9.setFoodScore(90000);
+        assertEquals(9, Badges.foodUnlock(user9));
+        user10.setFoodScore(100000);
+        assertEquals(10, Badges.foodUnlock(user10));
     }
 
     }
