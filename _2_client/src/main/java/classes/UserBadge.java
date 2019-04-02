@@ -77,7 +77,7 @@ public class UserBadge {
         if (number == 19) {
             icon = "https://i.ibb.co/RHrTjW2/food9-400.png";
         }
-        if (number == 10) {
+        if (number == 20) {
             icon = "https://i.ibb.co/GWFPd6x/food10-400.png";
         }
 
