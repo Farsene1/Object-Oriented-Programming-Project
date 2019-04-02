@@ -61,113 +61,110 @@ public class AchievementsFood {
         CSSfoodBadge.setFood10(foodBadge_10, unlockNumber);
 
         /**
-         * Adds all badges for food to Hbox
-         */
-        foodBox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,
-                foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
-
-        /**
          * Selecting unlocked or locked polar score badges on button click.
          * Shows alert messages for each specific badge if they're not yet unlocked
          */
         foodBadge_1.setOnAction(e -> {
-            if(unlockNumber>1) {
-                new Controller().sendBadge(user, 11);
-                String icon = classes.UserBadge.iconChoice(user);
-                Home.showHome(window, user);
-            }
+            new Controller().sendBadge(user, 11);
+            classes.UserBadge.iconChoice(user);
+            Home.showHome(window, user);
         });
-        foodBadge_2.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>2) {
                 new Controller().sendBadge(user, 12);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 2!");
             }
         });
-        foodBadge_3.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>3) {
                 new Controller().sendBadge(user, 13);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 3!");
             }
         });
-        foodBadge_4.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>4) {
                 new Controller().sendBadge(user, 14);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 4!");
             }
         });
-        foodBadge_5.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>5) {
                 new Controller().sendBadge(user, 15);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 5!");
             }
         });
-        foodBadge_6.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>6) {
                 new Controller().sendBadge(user, 16);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 6!");
             }
         });
-        foodBadge_7.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>7) {
                 new Controller().sendBadge(user, 17);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 7!");
             }
         });
-        foodBadge_8.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>8) {
                 new Controller().sendBadge(user, 18);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 8!");
             }
         });
-        foodBadge_9.setOnAction(e -> {
+        foodBadge_1.setOnAction(e -> {
             if(unlockNumber>9) {
                 new Controller().sendBadge(user, 19);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
             else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 9!");
             }
         });
-        foodBadge_10.setOnAction(e -> {
-            if(unlockNumber>10) {
+        foodBadge_1.setOnAction(e -> {
+            if (unlockNumber > 10) {
                 new Controller().sendBadge(user, 20);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
-            }
-            else {
+            } else {
                 BoxAlert.display("Hold up!", "You still have to unlock food badge 10!");
             }
         });
-    }
+                    /**
+                     * Adds all badges for food to Hbox
+                     */
+        foodBox.getChildren().addAll(foodBadge_1, foodBadge_2, foodBadge_3, foodBadge_4, foodBadge_5,
+                foodBadge_6, foodBadge_7, foodBadge_8, foodBadge_9, foodBadge_10);
+
+        }
 
     /**
      * Getter for foodBox
