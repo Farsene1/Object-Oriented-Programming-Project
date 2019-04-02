@@ -1,4 +1,4 @@
-package client;
+package CSS;
 
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
