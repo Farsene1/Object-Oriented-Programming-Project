@@ -6,22 +6,6 @@ public class Badges {
      * Declare/initialize unlock value for unlocking methods.
      */
     static private int unlock = 0;
-    /**
-     * Declare/initialize polar total value for testing methods.
-     */
-    static public int polarTotal = 0;
-    /**
-     * Declare/initialize food total value for testing methods.
-     */
-    static public int foodTotal = 0;
-    /**
-     * Declare/initialize transport total value for testing methods.
-     */
-    static public int transportTotal = 0;
-    /**
-     * Declare/initialize electricity total value for testing methods.
-     */
-    static public int electricityTotal = 0;
 
     /**
      * Method to unlock polar badges
@@ -200,28 +184,4 @@ public class Badges {
         return unlock;
     }
 
-//    /**
-//     * Setter for polar total needed for test class.
-//     */
-//    public void setPolarTotal(Integer polarTotal) {
-//        this.polarTotal = polarTotal;
-//    }
-//    /**
-//     * Setter for food total needed for test class.
-//     */
-//    public void setFoodTotal(Integer foodTotal) {
-//        this.foodTotal = foodTotal;
-//    }
-//    /**
-//     * Setter for transport total needed for test class.
-//     */
-//    public void setTransportTotal(Integer transportTotal) {
-//        this.transportTotal = transportTotal;
-//    }
-//    /**
-//     * Setter for electricity total needed for test class.
-//     */
-//    public void setElectricityTotal(Integer electricityTotal) {
-//        this.electricityTotal = electricityTotal;
-//    }
 }

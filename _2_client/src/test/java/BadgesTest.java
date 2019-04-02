@@ -1,7 +1,5 @@
 import classes.Badges;
-import classes.Transport;
 import classes.User;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,7 +19,7 @@ public class BadgesTest {
     User user8 = new User("ollie", "test8");
     User user9 = new User("ollie", "test9");
     User user10 = new User("ollie", "test10");
-    
+
     /**
      * Test method for class Badges; method polarUnlock - all badges.
      */
@@ -104,12 +102,30 @@ public class BadgesTest {
     }
 
     /**
-     * Test method for class Badges; method electricitytUnlock - all badges.
+     * Test method for class Badges; method electricityUnlock - all badges.
      */
     @Test
     public void testElectricityUnlock() {
         user1.setElectricityScore(10000);
-        assertEquals(1, Badges.transportUnlock(user1));
+        assertEquals(1, Badges.electricityUnlock(user1));
+        user2.setElectricityScore(20000);
+        assertEquals(2, Badges.electricityUnlock(user2));
+        user3.setElectricityScore(30000);
+        assertEquals(3, Badges.electricityUnlock(user3));
+        user4.setElectricityScore(40000);
+        assertEquals(4, Badges.electricityUnlock(user4));
+        user5.setElectricityScore(50000);
+        assertEquals(5, Badges.electricityUnlock(user5));
+        user6.setElectricityScore(60000);
+        assertEquals(6, Badges.electricityUnlock(user6));
+        user7.setElectricityScore(70000);
+        assertEquals(7, Badges.electricityUnlock(user7));
+        user8.setElectricityScore(80000);
+        assertEquals(8, Badges.electricityUnlock(user8));
+        user9.setElectricityScore(90000);
+        assertEquals(9, Badges.electricityUnlock(user9));
+        user10.setElectricityScore(100000);
+        assertEquals(10, Badges.electricityUnlock(user10));
     }
-    }
+}
 
