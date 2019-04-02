@@ -21,7 +21,7 @@ public class Achievements {
         /**
          * Calls method in class to show FoodBadges.
          */
-        AchievementsFood.showFoodBadges(user);
+        AchievementsFood.showFoodBadges(user, window);
         /**
          * Calls method in class to show TransportBadges.
          */

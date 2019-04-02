@@ -82,7 +82,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("This is an error message", "You still have to unlock badge 2!");
+                BoxAlert.display("This is an error message", "You still have to unlock polar badge 2!");
             }
         });
         polarBadge_3.setOnAction(e -> {
@@ -93,7 +93,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("This is an error message", "You still have to unlock badge 3!");
+                BoxAlert.display("This is an error message", "You still have to unlock polar badge 3!");
             }
         });
         polarBadge_4.setOnAction(e -> {
@@ -104,7 +104,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 4!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 4!");
             }
         });
         polarBadge_5.setOnAction(e -> {
@@ -115,7 +115,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 5!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 5!");
             }
         });
         polarBadge_6.setOnAction(e -> {
@@ -126,7 +126,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 6!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 6!");
             }
         });
         polarBadge_7.setOnAction(e -> {
@@ -137,7 +137,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 7!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 7!");
             }
         });
         polarBadge_8.setOnAction(e -> {
@@ -148,7 +148,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 8!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 8!");
             }
         });
         polarBadge_9.setOnAction(e -> {
@@ -159,7 +159,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 9!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 9!");
             }
         });
         polarBadge_10.setOnAction(e -> {
@@ -170,8 +170,9 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
             }
             if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 10!");
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 10!");
             }
+
         });
 
         /**

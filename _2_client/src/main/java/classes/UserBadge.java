@@ -50,6 +50,9 @@ public class UserBadge {
         if(number == 10){
             icon = "https://i.ibb.co/48GCprf/polar10.png";
         }
+        if(number == 11){
+            icon = "https://drive.google.com/https://drive.google.com/uc?id=1HeVmqWIwobmIR6q_ymMOuxD4wjZOdsjR?id=1HeVmqWIwobmIR6q_ymMOuxD4wjZOdsjR";
+        }
     return icon;
 }
 
