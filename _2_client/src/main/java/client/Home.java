@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.RestfulClient;
 import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
