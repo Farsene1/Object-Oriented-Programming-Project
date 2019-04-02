@@ -1,4 +1,4 @@
-package client;
+package CSS;
 
 import com.jfoenix.controls.JFXSnackbar;
 import javafx.beans.binding.Bindings;
