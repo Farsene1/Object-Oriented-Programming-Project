@@ -1,4 +1,4 @@
-package client;
+package CSS;
 
 import classes.Badges;
 import classes.User;
@@ -9,12 +9,7 @@ import javafx.scene.control.Button;
 
 public class CSSfoodBadge {
 
-    /**
-     * Initializes boolean unlocked false.
-     */
-    static private boolean unlocked = false;
-
-    public static boolean setFood1(Button button, int unlockNumber){
+    public static void setFood1(Button button, int unlockNumber){
 
         if(unlockNumber<1)
         {
@@ -23,8 +18,6 @@ public class CSSfoodBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
-            unlocked = false;
-            return unlocked;
         }
         else
         {
@@ -33,8 +26,6 @@ public class CSSfoodBadge {
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://drive.google.com/uc?id=1UyJJoEZmVXboZvUnKZ1b2X2E1AsdVgNa'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
-            unlocked = true;
-            return unlocked;
         }
     }
 
