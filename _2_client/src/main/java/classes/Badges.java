@@ -2,7 +2,26 @@ package classes;
 
 public class Badges {
 
+    /**
+     * Declare/initialize unlock value for unlocking methods.
+     */
     static private int unlock = 0;
+    /**
+     * Declare/initialize polar total value for testing methods.
+     */
+    static public int polarTotal = 0;
+    /**
+     * Declare/initialize food total value for testing methods.
+     */
+    static public int foodTotal = 0;
+    /**
+     * Declare/initialize transport total value for testing methods.
+     */
+    static public int transportTotal = 0;
+    /**
+     * Declare/initialize electricity total value for testing methods.
+     */
+    static public int electricityTotal = 0;
 
     /**
      * Method to unlock polar badges
@@ -12,7 +31,9 @@ public class Badges {
          * Calls get polar score // assigns to int value to be checked
          */
         int polarTotal = user.getPolarScore();
-        //default unlock for polar badge 1
+        /**
+         * Defaults to unlock polar badge 1 automatically.
+         */
         if(polarTotal <= 100000){
             unlock = 1;
         }
@@ -54,8 +75,9 @@ public class Badges {
  * Calls get food score // assigns to int value to be checked
  */
         int foodTotal = user.getFoodScore();
-
-        //default unlock for food badge 1
+        /**
+         * Defaults to unlock food badge 1 automatically.
+         */
         if(foodTotal <= 10000){
             unlock = 1;
         }
@@ -97,8 +119,9 @@ public class Badges {
         * Calls get transport score // assigns to int value to be checked
         */
         int transportTotal = user.getTransportScore();
-
-//default unlock for transport badge 1
+        /**
+         * Defaults to unlock transport badge 1 automatically.
+         */
         if(transportTotal <= 10000){
             unlock = 1;
         }
@@ -141,7 +164,9 @@ public class Badges {
         */
         int electricityTotal = user.getElectricityScore();
 
-        //default unlock for electricity badge 1
+        /**
+         * Defaults to unlock electricity badge 1 automatically.
+         */
         if(electricityTotal <= 10000){
             unlock = 1;
         }
@@ -173,5 +198,30 @@ public class Badges {
             unlock = 10;
         }
         return unlock;
+    }
+
+    /**
+     * Setter for polar total needed for test class.
+     */
+    public void setPolarTotal(Integer polarTotal) {
+        this.polarTotal = polarTotal;
+    }
+    /**
+     * Setter for food total needed for test class.
+     */
+    public void setFoodTotal(Integer foodTotal) {
+        this.foodTotal = foodTotal;
+    }
+    /**
+     * Setter for transport total needed for test class.
+     */
+    public void setTransportTotal(Integer transportTotal) {
+        this.transportTotal = transportTotal;
+    }
+    /**
+     * Setter for electricity total needed for test class.
+     */
+    public void setElectricityTotal(Integer electricityTotal) {
+        this.electricityTotal = electricityTotal;
     }
 }
