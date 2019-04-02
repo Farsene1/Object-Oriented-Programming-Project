@@ -74,5 +74,31 @@ public class BadgesTest {
         assertEquals(10, Badges.foodUnlock(user10));
     }
 
+    /**
+     * Test method for class Badges; method transportUnlock - all badges.
+     */
+    @Test
+    public void testTransportUnlock() {
+        user1.setTransportScore(10000);
+        assertEquals(1, Badges.transportUnlock(user1));
+        user2.setTransportScore(20000);
+        assertEquals(2, Badges.transportUnlock(user2));
+        user3.setTransportScore(30000);
+        assertEquals(3, Badges.transportUnlock(user3));
+        user4.setTransportScore(40000);
+        assertEquals(4, Badges.transportUnlock(user4));
+        user5.setTransportScore(50000);
+        assertEquals(5, Badges.transportUnlock(user5));
+        user6.setTransportScore(60000);
+        assertEquals(6, Badges.transportUnlock(user6));
+        user7.setTransportScore(70000);
+        assertEquals(7, Badges.transportUnlock(user7));
+        user8.setTransportScore(80000);
+        assertEquals(8, Badges.transportUnlock(user8));
+        user9.setTransportScore(90000);
+        assertEquals(9, Badges.transportUnlock(user9));
+        user10.setTransportScore(100000);
+        assertEquals(10, Badges.transportUnlock(user10));
+    }
     }
 
