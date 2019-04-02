@@ -1,16 +1,12 @@
 package client;
 
+import CSS.CSSelectricityBadge;
 import classes.Badges;
 import classes.User;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 public class AchievementsElectricity {
-
-    /**
-     * Initializes boolean variable unlocked
-     */
-    static private boolean unlocked = false;
 
     /**
      * Declare Hbox.
@@ -22,7 +18,7 @@ public class AchievementsElectricity {
         /**
          * Calls method to unlock food badges, sets unlock value for CSS.
          */
-        int electricityUnlock = Badges.electricityUnlock(user);
+        int unlockNumber = Badges.electricityUnlock(user);
 
         /**
          * Initialize electricity Hbox.
@@ -46,16 +42,16 @@ public class AchievementsElectricity {
         /**
          * Calls setPolar methods from CSS class to show locked / unlocked electricity badges.
          */
-        CSSelectricityBadge.setElectricity1(electricityBadge_1, electricityUnlock);
-        CSSelectricityBadge.setElectricity2(electricityBadge_2, electricityUnlock);
-        CSSelectricityBadge.setElectricity3(electricityBadge_3, electricityUnlock);
-        CSSelectricityBadge.setElectricity4(electricityBadge_4, electricityUnlock);
-        CSSelectricityBadge.setElectricity5(electricityBadge_5, electricityUnlock);
-        CSSelectricityBadge.setElectricity6(electricityBadge_6, electricityUnlock);
-        CSSelectricityBadge.setElectricity7(electricityBadge_7, electricityUnlock);
-        CSSelectricityBadge.setElectricity8(electricityBadge_8, electricityUnlock);
-        CSSelectricityBadge.setElectricity9(electricityBadge_9, electricityUnlock);
-        CSSelectricityBadge.setElectricity10(electricityBadge_10, electricityUnlock);
+        CSSelectricityBadge.setElectricity1(electricityBadge_1, unlockNumber);
+        CSSelectricityBadge.setElectricity2(electricityBadge_2, unlockNumber);
+        CSSelectricityBadge.setElectricity3(electricityBadge_3, unlockNumber);
+        CSSelectricityBadge.setElectricity4(electricityBadge_4, unlockNumber);
+        CSSelectricityBadge.setElectricity5(electricityBadge_5, unlockNumber);
+        CSSelectricityBadge.setElectricity6(electricityBadge_6, unlockNumber);
+        CSSelectricityBadge.setElectricity7(electricityBadge_7, unlockNumber);
+        CSSelectricityBadge.setElectricity8(electricityBadge_8, unlockNumber);
+        CSSelectricityBadge.setElectricity9(electricityBadge_9, unlockNumber);
+        CSSelectricityBadge.setElectricity10(electricityBadge_10, unlockNumber);
 
         /**
          * Adds all badges for electricity to Hbox.
