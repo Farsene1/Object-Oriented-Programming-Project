@@ -1,4 +1,4 @@
-package client;
+package CSS;
 
 
 import javafx.scene.control.TableView;
