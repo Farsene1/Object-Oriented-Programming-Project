@@ -59,7 +59,7 @@ public class CSStransportBadge {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://i.ibb.co/kyPw9WD/transport3-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/xJpZCND/transport3.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
@@ -68,9 +68,9 @@ public class CSStransportBadge {
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url(''); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/xJpZCND/transport3.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
         else
