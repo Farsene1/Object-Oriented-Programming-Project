@@ -190,5 +190,4 @@ public class AchievementsPolar {
         return polarBox;
     }
 
-
 }
