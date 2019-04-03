@@ -22,12 +22,31 @@ public class Statistics {
 
         XYChart.Series PolarSeries = new XYChart.Series();
         PolarSeries.setName("POLAR SCORE");
+        XYChart.Series FoodSeries = new XYChart.Series();
+        FoodSeries.setName("FOOD SCORE");
+        XYChart.Series TransportSeries = new XYChart.Series();
+        TransportSeries.setName("TRANSPORT SCORE");
+        XYChart.Series ElectricitySeries = new XYChart.Series();
+        ElectricitySeries.setName("ELECTRICITY SCORE");
 
-        List<classes.Statistics> data= new Controller().getStatistics(user.getUsername());
-        for (classes.Statistics stat:data) {
+        List<classes.Statistics> polardata= new Controller().getStatsByType(user.getUsername(),"ALL");
+        for (classes.Statistics stat:polardata) {
             PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        lineChart.getData().addAll(PolarSeries);
+        List<classes.Statistics> fooddata= new Controller().getStatsByType(user.getUsername(),"FOOD");
+        for (classes.Statistics stat:fooddata) {
+            FoodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        }
+        List<classes.Statistics> transportdata= new Controller().getStatsByType(user.getUsername(),"TRANSPORT");
+        for (classes.Statistics stat:transportdata) {
+            TransportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        }
+        List<classes.Statistics> electricitydata= new Controller().getStatsByType(user.getUsername(),"ELECTRICITY");
+        for (classes.Statistics stat:electricitydata) {
+            ElectricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        }
+
+        lineChart.getData().addAll(PolarSeries, FoodSeries, TransportSeries,ElectricitySeries);
         lineChart.setMinWidth(1420);
         lineChart.setMinHeight(900);
         grid.getChildren().setAll(lineChart);

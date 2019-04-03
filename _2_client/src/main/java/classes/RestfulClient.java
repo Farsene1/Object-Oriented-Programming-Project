@@ -204,7 +204,7 @@ public class RestfulClient {
      */
     public List<Statistics> getStatsByType(String username, String type){
         String url = "http://localhost:8080/stats?username=" + username;
-        List<classes.Statistics> res = restTemplate.postForObject(url, username, List.class);
+        List<classes.Statistics> res = restTemplate.postForObject(url, type, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
         List<classes.Statistics> result = mapper.convertValue(res, new TypeReference<List<classes.Statistics>>() {

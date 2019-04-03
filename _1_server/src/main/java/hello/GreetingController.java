@@ -66,7 +66,7 @@ public class GreetingController {
             this.statisticsRepository.save(s1);
         } else {
             this.statisticsRepository
-                    .updateStatistic(sum, activity.getUsername(), "ALL");
+                    .updateStatistic(sum, activity.getUsername(), "ALL", activity.getDate());
         }
 
         //updating statistics for the type
@@ -92,7 +92,7 @@ public class GreetingController {
             this.statisticsRepository.save(sFood);
         } else {
             this.statisticsRepository
-                    .updateStatistic(sumFood, activity.getUsername(), sFood.getType());
+                    .updateStatistic(sumFood, activity.getUsername(), sFood.getType(), activity.getDate());
         }
         return this.activityRepository
                 .findActivitiesByUser(activity.getUsername());
@@ -113,9 +113,9 @@ public class GreetingController {
      * @param type
      * @return list.x
      */
-    @RequestMapping(value = "/stats", method = RequestMethod.GET)
+    @RequestMapping(value = "/stats", method = RequestMethod.POST)
     public List<Statistics> getAllStatsByType(@RequestParam(value = "username",
-            defaultValue = "anonymous") String username, @RequestParam String type){
+            defaultValue = "anonymous") String username, @RequestBody String type){
         return statisticsRepository.findStatisticsByUsernameAndType(username, type);
     }
 
