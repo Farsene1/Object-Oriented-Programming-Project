@@ -62,13 +62,17 @@ public class Friends {
 
         TableColumn Col3 = new TableColumn("Username");
         Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+
+        TableColumn Col4 = new TableColumn("Badge");
+        Col4.setCellValueFactory(new PropertyValueFactory<>("badge"));
         //   TableColumn Col4 = new TableColumn("Accept/Decline");
         //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(Col1, Col2);
+        friendsTable.getColumns().setAll(Col1, Col2, Col4);
         pendingTable.getColumns().setAll(Col3);
-        Col1.setMinWidth(300);
-        Col2.setMinWidth(300);
-        Col3.setMinWidth(300);
+        Col1.setMinWidth(250);
+        Col2.setMinWidth(250);
+        Col3.setMinWidth(250);
+        Col4.setMinWidth(250);
         //backButton
         backButton.setOnAction(e -> {
             Home.showHome(window, user);
