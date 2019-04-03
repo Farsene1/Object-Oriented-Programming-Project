@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class ElectricityBox {
+public class BoxElectricity {
     static Boolean solar;
     static int light_hrs;
     static int heat_hrs;

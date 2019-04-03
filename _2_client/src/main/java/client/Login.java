@@ -1,9 +1,9 @@
 package client;
 
+import CSS.CSS;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
-import classes.UserBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;

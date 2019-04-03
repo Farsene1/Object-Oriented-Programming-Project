@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
@@ -90,7 +91,7 @@ public class Signup {
                         errorlabel.setVisible(true);
                     }
                 } catch (NoSuchAlgorithmException error) {
-                    AlertBox.display("ERROR", "No such algorithm exception");
+                    BoxAlert.display("ERROR", "No such algorithm exception");
                     error.printStackTrace();
                 }
             }

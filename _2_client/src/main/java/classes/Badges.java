@@ -2,6 +2,9 @@ package classes;
 
 public class Badges {
 
+    /**
+     * Declare/initialize unlock value for unlocking methods.
+     */
     static private int unlock = 0;
 
     /**
@@ -12,35 +15,37 @@ public class Badges {
          * Calls get polar score // assigns to int value to be checked
          */
         int polarTotal = user.getPolarScore();
-        //default unlock for polar badge 1
-        if(polarTotal <= 100000){
+        /**
+         * Defaults to unlock polar badge 1 automatically.
+         */
+        if(polarTotal <= 10000){
             unlock = 1;
         }
-        if(polarTotal >= 200000){
+        if(polarTotal >= 20000){
             unlock = 2;
         }
-        if(polarTotal >= 300000){
+        if(polarTotal >= 30000){
             unlock = 3;
         }
-        if(polarTotal >= 400000){
+        if(polarTotal >= 40000){
             unlock = 4;
         }
-        if(polarTotal >= 500000){
+        if(polarTotal >= 50000){
             unlock = 5;
         }
-        if(polarTotal >= 600000){
+        if(polarTotal >= 60000){
             unlock = 6;
         }
-        if(polarTotal >= 700000){
+        if(polarTotal >= 70000){
             unlock = 7;
         }
-        if(polarTotal >= 800000){
+        if(polarTotal >= 80000){
             unlock = 8;
         }
-        if(polarTotal >= 900000){
+        if(polarTotal >= 90000){
             unlock = 9;
         }
-        if(polarTotal >= 1000000){
+        if(polarTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -54,36 +59,37 @@ public class Badges {
  * Calls get food score // assigns to int value to be checked
  */
         int foodTotal = user.getFoodScore();
-
-        //default unlock for food badge 1
-        if(foodTotal <= 10000){
+        /**
+         * Defaults to unlock food badge 1 automatically.
+         */
+        if(foodTotal <= 1000){
             unlock = 1;
         }
-        if(foodTotal >= 20000){
+        if(foodTotal >= 2000){
             unlock = 2;
         }
-        if(foodTotal >= 30000){
+        if(foodTotal >= 3000){
             unlock = 3;
         }
-        if(foodTotal >= 40000){
+        if(foodTotal >= 4000){
             unlock = 4;
         }
-        if(foodTotal >= 50000){
+        if(foodTotal >= 5000){
             unlock = 5;
         }
-        if(foodTotal >= 60000){
+        if(foodTotal >= 6000){
             unlock = 6;
         }
-        if(foodTotal >= 70000){
+        if(foodTotal >= 7000){
             unlock = 7;
         }
-        if(foodTotal >= 80000){
+        if(foodTotal >= 8000){
             unlock = 8;
         }
-        if(foodTotal >= 90000){
+        if(foodTotal >= 9000){
             unlock = 9;
         }
-        if(foodTotal >= 100000){
+        if(foodTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -97,36 +103,37 @@ public class Badges {
         * Calls get transport score // assigns to int value to be checked
         */
         int transportTotal = user.getTransportScore();
-
-//default unlock for transport badge 1
-        if(transportTotal <= 10000){
+        /**
+         * Defaults to unlock transport badge 1 automatically.
+         */
+        if(transportTotal <= 1000){
             unlock = 1;
         }
-        if(transportTotal >= 20000){
+        if(transportTotal >= 2000){
             unlock = 2;
         }
-        if(transportTotal >= 30000){
+        if(transportTotal >= 3000){
             unlock = 3;
         }
-        if(transportTotal >= 40000){
+        if(transportTotal >= 4000){
             unlock = 4;
         }
-        if(transportTotal >= 50000){
+        if(transportTotal >= 5000){
             unlock = 5;
         }
-        if(transportTotal >= 60000){
+        if(transportTotal >= 6000){
             unlock = 6;
         }
-        if(transportTotal >= 70000){
+        if(transportTotal >= 7000){
             unlock = 7;
         }
-        if(transportTotal >= 80000){
+        if(transportTotal >= 8000){
             unlock = 8;
         }
-        if(transportTotal >= 90000){
+        if(transportTotal >= 9000){
             unlock = 9;
         }
-        if(transportTotal >= 100000){
+        if(transportTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -141,37 +148,40 @@ public class Badges {
         */
         int electricityTotal = user.getElectricityScore();
 
-        //default unlock for electricity badge 1
-        if(electricityTotal <= 10000){
+        /**
+         * Defaults to unlock electricity badge 1 automatically.
+         */
+        if(electricityTotal <= 1000){
             unlock = 1;
         }
-        if(electricityTotal >= 20000){
+        if(electricityTotal >= 2000){
             unlock = 2;
         }
-        if(electricityTotal >= 30000){
+        if(electricityTotal >= 3000){
             unlock = 3;
         }
-        if(electricityTotal >= 40000){
+        if(electricityTotal >= 4000){
             unlock = 4;
         }
-        if(electricityTotal >= 50000){
+        if(electricityTotal >= 5000){
             unlock = 5;
         }
-        if(electricityTotal >= 60000){
+        if(electricityTotal >= 6000){
             unlock = 6;
         }
-        if(electricityTotal >= 70000){
+        if(electricityTotal >= 7000){
             unlock = 7;
         }
-        if(electricityTotal >= 80000){
+        if(electricityTotal >= 8000){
             unlock = 8;
         }
-        if(electricityTotal >= 90000){
+        if(electricityTotal >= 9000){
             unlock = 9;
         }
-        if(electricityTotal >= 100000){
+        if(electricityTotal >= 10000){
             unlock = 10;
         }
         return unlock;
     }
+
 }

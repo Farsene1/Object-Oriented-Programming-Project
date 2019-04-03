@@ -29,7 +29,7 @@ public class Statistics {
         XYChart.Series ElectricitySeries = new XYChart.Series();
         ElectricitySeries.setName("ELECTRICITY SCORE");
 
-        List<classes.Statistics> polardata= new Controller().getStatistics(user.getUsername());
+        List<classes.Statistics> polardata= new Controller().getStatsByType(user.getUsername(),"ALL");
         for (classes.Statistics stat:polardata) {
             PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }

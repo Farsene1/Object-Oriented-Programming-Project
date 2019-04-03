@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.RestfulClient;
 import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
@@ -21,24 +22,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class Home {
    static ArrayList<String>  list= new ArrayList<String>();
 
 
-
-
-
-
     public static void showHome(Stage window, classes.User user) {
-
-
-
 
             factreading(list);
             RestfulClient restfulClient = new RestfulClient();
@@ -99,7 +89,7 @@ public class Home {
             //Quit
             Button quitButton = new Button("Quit");
             quitButton.setOnAction(e -> {
-                boolean result = ConfirmBox.display("Confirm", "Are you sure you want to quit?");
+                boolean result = BoxConfirm.display("Confirm", "Are you sure you want to quit?");
                 if (result) {
                     Login.showLogin(window);
                 }

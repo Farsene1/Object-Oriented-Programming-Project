@@ -1,14 +1,15 @@
-package client;
+package CSS;
 
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
-public class CSSelectricityBadge {
+public class CSStransportBadge {
 
-    public static void setElectricity1(Button button, int unlockNumber){
+    public static void setTransport1(Button button, int unlockNumber){
 
         if(unlockNumber<1)
         {
+
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
@@ -18,14 +19,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/F7gtw3k/polar1-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/QJppnKz/transport1-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/Sn20yTR/polar1.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/k33fc0g/transport1.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity2(Button button, int unlockNumber){
+    public static void setTransport2(Button button, int unlockNumber){
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -37,14 +38,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/LnLPFQX/polar2-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/ChnJ7pJ/transport2-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/F47F81C/polar2.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/kGYYJN5/transport2.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity3(Button button, int unlockNumber){
+    public static void setTransport3(Button button, int unlockNumber){
         if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -56,14 +57,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/pymBX0d/polar3-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/kyPw9WD/transport3-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/TL2vJkx/polar3.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/xJpZCND/transport3.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity4(Button button, int unlockNumber){
+    public static void setTransport4(Button button, int unlockNumber){
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -75,14 +76,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/M7j6PVn/polar4-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/VDhjz4Y/transport4-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/q7sgXRy/polar4.png'); " +
+                    .otherwise("-fx-graphic: url(' https://i.ibb.co/GkD8Lr2/transport4png.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity5(Button button, int unlockNumber){
+    public static void setTransport5(Button button, int unlockNumber){
         if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -94,14 +95,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/F7s5Fs8/polar5-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/51SDhMd/transport5-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/Q9J03vw/polar5.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/1fZgN6N/transport5.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity6(Button button, int unlockNumber){
+    public static void setTransport6(Button button, int unlockNumber){
         if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -113,14 +114,13 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/L94KFvK/polar6-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/6rQ7yCS/transport6-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/Yd68SkW/polar6.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/hRh8ptr/transport6.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
-
-    public static void setElectricity7(Button button, int unlockNumber){
+    public static void setTransport7(Button button, int unlockNumber){
         if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -132,14 +132,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/kSF2TQ3/polar7-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/fDzhhML/transport7-hoverpng.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/MpyQ16G/polar7.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/qy2z5Qs/transport7.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity8(Button button, int unlockNumber){
+    public static void setTransport8(Button button, int unlockNumber){
         if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -151,14 +151,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/BcRKcjr/polar8-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/7QCvd2K/transport8-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/x6t0QTD/polar8.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/BT1STNF/transport8.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity9(Button button, int unlockNumber){
+    public static void setTransport9(Button button, int unlockNumber){
         if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -170,14 +170,14 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/x27wBSK/polar9-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/RDn9D74/transport9-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/2tGhFdC/polar9.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/n05kNyG/transport9.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }
 
-    public static void setElectricity10(Button button, int unlockNumber){
+    public static void setTransport10(Button button, int unlockNumber){
         if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -189,9 +189,9 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url('https://i.ibb.co/h2trK1F/polar10-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/DQSK8QL/transport10-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                    .otherwise("-fx-graphic: url('https://i.ibb.co/Wz50t26/polar10.png'); " +
+                    .otherwise("-fx-graphic: url('https://i.ibb.co/J7xjPy2/transport10.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
         }
     }

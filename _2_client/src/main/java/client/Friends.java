@@ -1,12 +1,8 @@
 package client;
 
 import classes.*;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,7 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.util.List;
 
@@ -112,7 +107,7 @@ public class Friends {
                         && event.getClickCount() == 2) {
 
                     FriendRequest clickedRow = row.getItem();
-                    int answer = AddFriendBox.display("Add A friend", clickedRow);
+                    int answer = BoxAddFriend.display("Add A friend", clickedRow);
                     if (answer == 2) {
                         pendingTable.getItems().remove(clickedRow);
                         new Controller().sayNo(clickedRow);

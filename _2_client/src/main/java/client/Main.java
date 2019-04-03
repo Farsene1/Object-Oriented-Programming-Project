@@ -64,7 +64,7 @@ public class Main extends Application {
 
     //Closing down the program method.
     public void closeProgram() {
-        boolean answer = ConfirmBox.display("Exit Box", "Are you sure you want to exit?");
+        boolean answer = BoxConfirm.display("Exit Box", "Are you sure you want to exit?");
         if (answer) {
             window.close();
         }
