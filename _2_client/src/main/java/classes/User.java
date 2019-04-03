@@ -177,6 +177,8 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" + "username='" + username
-                + '\'' + ", hash='" + hash + '\'' + '}';
+                + '\'' + ", hash='" + hash + '\'' + ", " + "badge= " + badge + "}";
     }
+
+    //
 }

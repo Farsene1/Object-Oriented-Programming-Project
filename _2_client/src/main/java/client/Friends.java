@@ -62,13 +62,19 @@ public class Friends {
 
         TableColumn Col3 = new TableColumn("Username");
         Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+
+        TableColumn Col4 = new TableColumn("Badge (click to see)");
+        Col4.setCellValueFactory(new PropertyValueFactory<>("badge")) ;
         //   TableColumn Col4 = new TableColumn("Accept/Decline");
         //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(Col1, Col2);
+        friendsTable.getColumns().setAll(Col1, Col2, Col4);
         pendingTable.getColumns().setAll(Col3);
-        Col1.setMinWidth(300);
-        Col2.setMinWidth(300);
-        Col3.setMinWidth(300);
+        Col1.setMinWidth(200);
+        Col1.setMaxWidth(200);
+        Col2.setMaxWidth(200);
+        Col2.setMinWidth(200);
+        Col3.setMinWidth(250);
+        Col4.setMinWidth(250);
         //backButton
         backButton.setOnAction(e -> {
             Home.showHome(window, user);
@@ -117,8 +123,6 @@ public class Friends {
                             new Controller().sayYes(clickedRow);
                         }
                         pendingTable.getItems().remove(clickedRow);
-
-
                     }
 
                 }
@@ -127,26 +131,27 @@ public class Friends {
 
         });
 
+        /**
+        * Row click to show badges of friends
+        */
+        friendsTable.setRowFactory(tv -> {
+            TableRow row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
+                        && event.getClickCount() == 1) {
+                    Object friend = friendsTable.getSelectionModel().getSelectedItem();
+                    String testBadge = friend.toString();
+                    String badge = testBadge.split(",")[2].substring(1);
+                    badge = badge.replace("badge= ","");
+                    badge = badge.replace("}", "");
+                    int badgeNumber = Integer.parseInt(badge);
+                    BoxBadge.displayFriendBadge("Friends badge", badgeNumber);
+                }});
+            return row;
+        });
 
-
-
-        //TIMER for friends
-     //   Timeline timer = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
-
-            //showing  friends
-       //     @Override
-       //     public void handle(ActionEvent event) {
-                pendingTable.setItems(addFriendRequests(user));
-                friendsTable.setItems(addFriend(user));
-
-         //   }
-     //   }));
-      //  timer.setCycleCount(Timeline.INDEFINITE);
-     //   timer.play();
-
-
-
-
+        pendingTable.setItems(addFriendRequests(user));
+        friendsTable.setItems(addFriend(user));
 
     }
 

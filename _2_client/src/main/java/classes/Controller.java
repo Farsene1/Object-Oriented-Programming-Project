@@ -138,6 +138,7 @@ public class Controller {
         return this.restfulClient.get10Users();
     }
 
+
     /**
      * This method checks for a valid email
      * @param email
