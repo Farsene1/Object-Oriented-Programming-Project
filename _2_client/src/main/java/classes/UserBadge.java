@@ -80,7 +80,66 @@ public class UserBadge {
         if (number == 20) {
             icon = "https://i.ibb.co/GWFPd6x/food10-400.png";
         }
-
+        if (number == 21) {
+            icon = "https://i.ibb.co/pXHj9FL/transport1-400.png";
+        }
+        if (number == 22) {
+            icon = "https://i.ibb.co/c1p4GHm/transport2-400.png";
+        }
+        if (number == 23) {
+            icon = "https://i.ibb.co/MVYxNbH/transport3.png";
+        }
+        if (number == 24) {
+            icon = "https://i.ibb.co/SwPcPbB/transport4png.png";
+        }
+        if (number == 25) {
+            icon = "https://i.ibb.co/dcjBtwD/transport5.png";
+        }
+        if (number == 26) {
+            icon = "https://i.ibb.co/8XbdTPd/transport6.png";
+        }
+        if (number == 27) {
+            icon = "https://i.ibb.co/JvFmzS6/transport7.png";
+        }
+        if (number == 28) {
+            icon = "https://i.ibb.co/LYqnnZ7/transport8.png";
+        }
+        if (number == 29) {
+            icon = "https://i.ibb.co/grvqsk9/transport9.png";
+        }
+        if (number == 30) {
+            icon = "https://i.ibb.co/znYJcqB/transport10.png";
+        }
+        if (number == 31) {
+            icon = "https://i.ibb.co/xq2rwtw/electricity1.png";
+        }
+        if (number == 32) {
+            icon = "https://i.ibb.co/QfXVd9k/electricity2.png";
+        }
+        if (number == 33) {
+            icon = "https://i.ibb.co/WfW4PvB/electricity3.png";
+        }
+        if (number == 34) {
+            icon = "https://i.ibb.co/swQY9hc/electricity4.png";
+        }
+        if (number == 35) {
+            icon = "https://i.ibb.co/0j3ZrsY/electricity5.png";
+        }
+        if (number == 36) {
+            icon = "https://i.ibb.co/xJ1kr1C/electricity6.png";
+        }
+        if (number == 37) {
+            icon = "https://i.ibb.co/drmchRC/electricity7.png";
+        }
+        if (number == 38) {
+            icon = "https://i.ibb.co/gmttZfZ/electricity8.png";
+        }
+        if (number == 39) {
+            icon = "https://i.ibb.co/Q9NDBjt/electricity9.png";
+        }
+        if (number == 40) {
+            icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
+        }
             return icon;
         }
 
