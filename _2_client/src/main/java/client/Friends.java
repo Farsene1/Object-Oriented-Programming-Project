@@ -132,24 +132,25 @@ public class Friends {
         });
 
 
-        //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
         friendsTable.setRowFactory(tv -> {
             TableRow row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                        && event.getClickCount() == 2) {
+                        && event.getClickCount() == 1) {
 
                     Object friend = friendsTable.getSelectionModel().getSelectedItem();
                     String testBadge = friend.toString();
-                    System.out.println(testBadge);
+//                    System.out.println(testBadge);
                     String badge = testBadge.split(",")[2].substring(1);
                     badge = badge.replace("badge= ","");
                     badge = badge.replace("}", "");
                     int badgeNumber = Integer.parseInt(badge);
+                    int answer = BoxBadge.display("Badge", badgeNumber);
 
-                    if (badgeNumber == 36 || badgeNumber == 27) {
-                        System.out.println(badge);
-                    //BoxBadge.display("Badge", clickedRow);
+//                    if (badgeNumber == 36 || badgeNumber == 27) {
+//                        System.out.println(badge);}
+
+
 //                    if (answer == 2) {
 //                        friendsTable.getItems().remove(clickedRow);
 //                        new Controller().sayNo(clickedRow);
