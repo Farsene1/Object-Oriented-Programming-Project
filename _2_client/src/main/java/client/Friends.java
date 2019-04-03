@@ -63,14 +63,16 @@ public class Friends {
         TableColumn Col3 = new TableColumn("Username");
         Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        TableColumn Col4 = new TableColumn("Badge");
-        Col4.setCellValueFactory(new PropertyValueFactory<>("badge"));
+        TableColumn Col4 = new TableColumn("Badge (click to see)");
+        Col4.setCellValueFactory(new PropertyValueFactory<>("badge")) ;
         //   TableColumn Col4 = new TableColumn("Accept/Decline");
         //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
         friendsTable.getColumns().setAll(Col1, Col2, Col4);
         pendingTable.getColumns().setAll(Col3);
-        Col1.setMinWidth(250);
-        Col2.setMinWidth(250);
+        Col1.setMinWidth(200);
+        Col1.setMaxWidth(200);
+        Col2.setMaxWidth(200);
+        Col2.setMinWidth(200);
         Col3.setMinWidth(250);
         Col4.setMinWidth(250);
         //backButton
@@ -121,8 +123,6 @@ public class Friends {
                             new Controller().sayYes(clickedRow);
                         }
                         pendingTable.getItems().remove(clickedRow);
-
-
                     }
 
                 }
@@ -131,6 +131,35 @@ public class Friends {
 
         });
 
+
+        //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
+        friendsTable.setRowFactory(tv -> {
+            TableRow row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
+                        && event.getClickCount() == 2) {
+
+                    Object friend = friendsTable.getSelectionModel().getSelectedItem();
+                    String testBadge = friend.toString();
+                    System.out.println(testBadge);
+
+                   // int answer = BoxBadge.display("Badge", clickedRow);
+//                    if (answer == 2) {
+//                        friendsTable.getItems().remove(clickedRow);
+//                        new Controller().sayNo(clickedRow);
+//                    } else if(answer== 1){
+//                        clickedRow.setAccepted(true);
+//                        if(!clickedRow.getSender().equals(clickedRow.getReceiver())){
+//                            new Controller().sayYes(clickedRow);
+//                        }
+//                        friendsTable.getItems().remove(clickedRow);
+//                    }
+
+                }
+            });
+            return row;
+
+        });
 
 
 
