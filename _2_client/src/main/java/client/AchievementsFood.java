@@ -70,7 +70,7 @@ public class AchievementsFood {
             Home.showHome(window, user);
         });
         foodBadge_2.setOnAction(e -> {
-            if(unlockNumber>2) {
+            if(unlockNumber>=2) {
                 new Controller().sendBadge(user, 12);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -80,7 +80,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_3.setOnAction(e -> {
-            if(unlockNumber>3) {
+            if(unlockNumber>=3) {
                 new Controller().sendBadge(user, 13);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -90,7 +90,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_4.setOnAction(e -> {
-            if(unlockNumber>4) {
+            if(unlockNumber>=4) {
                 new Controller().sendBadge(user, 14);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -100,7 +100,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_5.setOnAction(e -> {
-            if(unlockNumber>5) {
+            if(unlockNumber>=5) {
                 new Controller().sendBadge(user, 15);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -110,7 +110,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_6.setOnAction(e -> {
-            if(unlockNumber>6) {
+            if(unlockNumber>=6) {
                 new Controller().sendBadge(user, 16);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -120,7 +120,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_7.setOnAction(e -> {
-            if(unlockNumber>7) {
+            if(unlockNumber>=7) {
                 new Controller().sendBadge(user, 17);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -130,7 +130,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_8.setOnAction(e -> {
-            if(unlockNumber>8) {
+            if(unlockNumber>=8) {
                 new Controller().sendBadge(user, 18);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -140,7 +140,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_9.setOnAction(e -> {
-            if(unlockNumber>9) {
+            if(unlockNumber>=9) {
                 new Controller().sendBadge(user, 19);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -150,7 +150,7 @@ public class AchievementsFood {
             }
         });
         foodBadge_10.setOnAction(e -> {
-            if (unlockNumber > 10) {
+            if (unlockNumber>=10) {
                 new Controller().sendBadge(user, 20);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);

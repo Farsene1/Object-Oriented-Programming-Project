@@ -72,7 +72,7 @@ public class AchievementsPolar {
                 Home.showHome(window, user);
         });
         polarBadge_2.setOnAction(e -> {
-            if(unlockNumber>2) {
+            if(unlockNumber>=2) {
                 new Controller().sendBadge(user, 2);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -82,7 +82,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_3.setOnAction(e -> {
-            if(unlockNumber>3) {
+            if(unlockNumber>=3) {
                 new Controller().sendBadge(user, 3);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -92,7 +92,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_4.setOnAction(e -> {
-            if(unlockNumber>4) {
+            if(unlockNumber>=4) {
                 new Controller().sendBadge(user, 4);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -102,7 +102,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_5.setOnAction(e -> {
-            if(unlockNumber>5) {
+            if(unlockNumber>=5) {
                 new Controller().sendBadge(user, 5);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -112,7 +112,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_6.setOnAction(e -> {
-            if(unlockNumber>6) {
+            if(unlockNumber>=6) {
                 new Controller().sendBadge(user, 6);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -122,7 +122,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_7.setOnAction(e -> {
-            if(unlockNumber>7) {
+            if(unlockNumber>=7) {
                 new Controller().sendBadge(user, 7);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -132,7 +132,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_8.setOnAction(e -> {
-            if(unlockNumber>8) {
+            if(unlockNumber>=8) {
                 new Controller().sendBadge(user, 8);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -142,7 +142,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_9.setOnAction(e -> {
-            if(unlockNumber>9) {
+            if(unlockNumber>=9) {
                 new Controller().sendBadge(user, 9);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -152,7 +152,7 @@ public class AchievementsPolar {
             }
         });
         polarBadge_10.setOnAction(e -> {
-            if(unlockNumber>10) {
+            if(unlockNumber>=10) {
                 new Controller().sendBadge(user, 10);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);

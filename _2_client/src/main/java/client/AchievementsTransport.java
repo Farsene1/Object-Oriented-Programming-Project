@@ -69,7 +69,7 @@ public class AchievementsTransport {
             Home.showHome(window, user);
         });
         transportBadge_2.setOnAction(e -> {
-            if(unlockNumber>2) {
+            if(unlockNumber>=2) {
                 new Controller().sendBadge(user, 22);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -79,7 +79,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_3.setOnAction(e -> {
-            if(unlockNumber>3) {
+            if(unlockNumber>=3) {
                 new Controller().sendBadge(user, 23);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -89,7 +89,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_4.setOnAction(e -> {
-            if(unlockNumber>4) {
+            if(unlockNumber>=4) {
                 new Controller().sendBadge(user, 24);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -99,7 +99,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_5.setOnAction(e -> {
-            if(unlockNumber>5) {
+            if(unlockNumber>=5) {
                 new Controller().sendBadge(user, 25);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -109,7 +109,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_6.setOnAction(e -> {
-            if(unlockNumber>6) {
+            if(unlockNumber>=6) {
                 new Controller().sendBadge(user, 26);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -119,7 +119,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_7.setOnAction(e -> {
-            if(unlockNumber>7) {
+            if(unlockNumber>=7) {
                 new Controller().sendBadge(user, 27);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -129,7 +129,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_8.setOnAction(e -> {
-            if(unlockNumber>8) {
+            if(unlockNumber>=8) {
                 new Controller().sendBadge(user, 28);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -139,7 +139,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_9.setOnAction(e -> {
-            if(unlockNumber>9) {
+            if(unlockNumber>=9) {
                 new Controller().sendBadge(user, 29);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
@@ -149,7 +149,7 @@ public class AchievementsTransport {
             }
         });
         transportBadge_10.setOnAction(e -> {
-            if (unlockNumber>10) {
+            if (unlockNumber>=10) {
                 new Controller().sendBadge(user, 30);
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
