@@ -1,11 +1,17 @@
-package client;
+package CSS;
 
+import classes.Badges;
+import classes.User;
+import classes.UserBadge;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 
-public class CSStransportBadge {
+public class CSSpolarBadge {
 
-    public static void setTransport1(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 1 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar1(Button button, int unlockNumber){
 
         if(unlockNumber<1)
         {
@@ -25,14 +31,17 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport2(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 2 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar2(Button button, int unlockNumber){
         if(unlockNumber<2)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
                     .then("-fx-graphic: url('https://i.ibb.co/MsdMQF1/locked-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/zRP1CXq/locked.png'); " +
-                            "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+                            "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));           
         }
         else
         {
@@ -44,7 +53,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport3(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 3 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar3(Button button, int unlockNumber){
         if(unlockNumber<3)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -63,7 +75,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport4(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 4 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar4(Button button, int unlockNumber){
         if(unlockNumber<4)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -82,7 +97,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport5(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 5 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar5(Button button, int unlockNumber){
         if(unlockNumber<5)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -101,7 +119,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport6(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 6 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar6(Button button, int unlockNumber){
         if(unlockNumber<6)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -120,7 +141,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport7(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 7 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar7(Button button, int unlockNumber){
         if(unlockNumber<7)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -139,7 +163,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport8(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 8 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar8(Button button, int unlockNumber){
         if(unlockNumber<8)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -158,7 +185,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport9(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 9 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar9(Button button, int unlockNumber){
         if(unlockNumber<9)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -177,7 +207,10 @@ public class CSStransportBadge {
         }
     }
 
-    public static void setTransport10(Button button, int unlockNumber){
+    /**
+     * Method to set styling of polar badge 10 dependent on whether or not it locked/unlocked and or being hovered over before clicked.
+     */
+    public static void setPolar10(Button button, int unlockNumber){
         if(unlockNumber<10)
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())

@@ -21,15 +21,15 @@ public class Achievements {
         /**
          * Calls method in class to show FoodBadges.
          */
-        AchievementsFood.showFoodBadges(user);
+        AchievementsFood.showFoodBadges(user, window);
         /**
          * Calls method in class to show TransportBadges.
          */
-        AchievementsTransport.showTransportBadges(user);
+        AchievementsTransport.showTransportBadges(user, window);
         /**
-         * Calls method in class to show ElectricitytBadges.
+         * Calls method in class to show ElectricityBadges.
          */
-        AchievementsElectricity.showElectricityBadges(user);
+        AchievementsElectricity.showElectricityBadges(user, window);
 
         /**
          * Set label for achievements, initialize VBox for badges.
@@ -65,6 +65,7 @@ public class Achievements {
          * Food score badges.
          */
         HBox foodHbox = AchievementsFood.getFoodBox();
+        polarHbox.setSpacing(1);
 
         /**
          * transport score badges

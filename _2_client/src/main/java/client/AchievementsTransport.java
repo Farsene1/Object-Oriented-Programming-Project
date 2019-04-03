@@ -1,7 +1,10 @@
 package client;
+import CSS.CSStransportBadge;
 import classes.Badges;
+import classes.Controller;
 import classes.User;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import javafx.scene.control.Button;
 
@@ -9,16 +12,11 @@ import javafx.scene.control.Button;
 public class AchievementsTransport {
 
     /**
-     * Initializes boolean variable unlocked
-     */
-    static private boolean unlocked = false;
-
-    /**
      * Declare Hbox.
      */
     static HBox transportBox;
 
-    public static void showTransportBadges(User user) {
+    public static void showTransportBadges(User user, Stage window) {
 
         /**
          * Creates HBox.
@@ -28,7 +26,7 @@ public class AchievementsTransport {
         /**
          * Calls method to unlock transport badges, sets unlock value for CSS.
          */
-        int transportUnlock = Badges.transportUnlock(user);
+        int unlockNumber = Badges.transportUnlock(user);
 
         /**
          transportBox = new HBox();
@@ -50,18 +48,115 @@ public class AchievementsTransport {
         /**
          * Calls setPolar methods from CSS class to show locked / unlocked transport badges.
          */
-        CSStransportBadge.setTransport1(transportBadge_1, transportUnlock);
-        CSStransportBadge.setTransport2(transportBadge_2, transportUnlock);
-        CSStransportBadge.setTransport3(transportBadge_3, transportUnlock);
-        CSStransportBadge.setTransport4(transportBadge_4, transportUnlock);
-        CSStransportBadge.setTransport5(transportBadge_5, transportUnlock);
-        CSStransportBadge.setTransport6(transportBadge_6, transportUnlock);
-        CSStransportBadge.setTransport7(transportBadge_7, transportUnlock);
-        CSStransportBadge.setTransport8(transportBadge_8, transportUnlock);
-        CSStransportBadge.setTransport9(transportBadge_9, transportUnlock);
-        CSStransportBadge.setTransport10(transportBadge_10, transportUnlock);
+        CSStransportBadge.setTransport1(transportBadge_1, unlockNumber);
+        CSStransportBadge.setTransport2(transportBadge_2, unlockNumber);
+        CSStransportBadge.setTransport3(transportBadge_3, unlockNumber);
+        CSStransportBadge.setTransport4(transportBadge_4, unlockNumber);
+        CSStransportBadge.setTransport5(transportBadge_5, unlockNumber);
+        CSStransportBadge.setTransport6(transportBadge_6, unlockNumber);
+        CSStransportBadge.setTransport7(transportBadge_7, unlockNumber);
+        CSStransportBadge.setTransport8(transportBadge_8, unlockNumber);
+        CSStransportBadge.setTransport9(transportBadge_9, unlockNumber);
+        CSStransportBadge.setTransport10(transportBadge_10, unlockNumber);
 
-
+        /**
+         * Selecting unlocked or locked transport score badges on button click.
+         * Shows alert messages for each specific badge if they're not yet unlocked
+         */
+        transportBadge_1.setOnAction(e -> {
+            new Controller().sendBadge(user, 21);
+            classes.UserBadge.iconChoice(user);
+            Home.showHome(window, user);
+        });
+        transportBadge_2.setOnAction(e -> {
+            if(unlockNumber>=2) {
+                new Controller().sendBadge(user, 22);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 2!");
+            }
+        });
+        transportBadge_3.setOnAction(e -> {
+            if(unlockNumber>=3) {
+                new Controller().sendBadge(user, 23);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 3!");
+            }
+        });
+        transportBadge_4.setOnAction(e -> {
+            if(unlockNumber>=4) {
+                new Controller().sendBadge(user, 24);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 4!");
+            }
+        });
+        transportBadge_5.setOnAction(e -> {
+            if(unlockNumber>=5) {
+                new Controller().sendBadge(user, 25);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 5!");
+            }
+        });
+        transportBadge_6.setOnAction(e -> {
+            if(unlockNumber>=6) {
+                new Controller().sendBadge(user, 26);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 6!");
+            }
+        });
+        transportBadge_7.setOnAction(e -> {
+            if(unlockNumber>=7) {
+                new Controller().sendBadge(user, 27);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 7!");
+            }
+        });
+        transportBadge_8.setOnAction(e -> {
+            if(unlockNumber>=8) {
+                new Controller().sendBadge(user, 28);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 8!");
+            }
+        });
+        transportBadge_9.setOnAction(e -> {
+            if(unlockNumber>=9) {
+                new Controller().sendBadge(user, 29);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            }
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 9!");
+            }
+        });
+        transportBadge_10.setOnAction(e -> {
+            if (unlockNumber>=10) {
+                new Controller().sendBadge(user, 30);
+                classes.UserBadge.iconChoice(user);
+                Home.showHome(window, user);
+            } else {
+                BoxAlert.display("Hold up!", "You still have to unlock transport badge 10!");
+            }
+        });
         /**
          * Adds all badges for transport to Hbox.
          */

@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.RestfulClient;
 import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
@@ -27,14 +28,7 @@ public class Home {
    static ArrayList<String>  list= new ArrayList<String>();
 
 
-
-
-
-
     public static void showHome(Stage window, classes.User user) {
-
-
-
 
             factreading(list);
             RestfulClient restfulClient = new RestfulClient();

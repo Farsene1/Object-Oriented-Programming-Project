@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSSpolarBadge;
 import classes.Badges;
 import classes.Controller;
 import classes.User;
@@ -15,7 +16,6 @@ public class AchievementsPolar {
     /**
      * Initializes boolean variable unlocked
      */
-    static private boolean unlocked = false;
 
     /**
      * Declare Hbox.
@@ -27,7 +27,7 @@ public class AchievementsPolar {
         /**
          * Calls method to unlock polar badges, sets unlock value for CSS.
          */
-        int polarUnlock = Badges.polarUnlock(user);
+        int unlockNumber = Badges.polarUnlock(user);
 
         /**
          * Initialize Hbox for food.
@@ -51,127 +51,116 @@ public class AchievementsPolar {
         /**
          * Calls setPolar methods from CSS class to show locked / unlocked polar badges.
          */
-        CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
-        CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
-        CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
-        CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
-        CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
-        CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
-        CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
-        CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
-        CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
-        CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
+        CSSpolarBadge.setPolar1(polarBadge_1, unlockNumber);
+        CSSpolarBadge.setPolar2(polarBadge_2, unlockNumber);
+        CSSpolarBadge.setPolar3(polarBadge_3, unlockNumber);
+        CSSpolarBadge.setPolar4(polarBadge_4, unlockNumber);
+        CSSpolarBadge.setPolar5(polarBadge_5, unlockNumber);
+        CSSpolarBadge.setPolar6(polarBadge_6, unlockNumber);
+        CSSpolarBadge.setPolar7(polarBadge_7, unlockNumber);
+        CSSpolarBadge.setPolar8(polarBadge_8, unlockNumber);
+        CSSpolarBadge.setPolar9(polarBadge_9, unlockNumber);
+        CSSpolarBadge.setPolar10(polarBadge_10, unlockNumber);
 
         /**
          * Selecting unlocked or locked polar score badges on button click.
          * Shows alert messages for each specific badge if they're not yet unlocked
          */
         polarBadge_1.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar1(polarBadge_1, polarUnlock);
-            if (unlocked == true) {
                 new Controller().sendBadge(user, 1);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
-            }
         });
         polarBadge_2.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar2(polarBadge_2, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=2) {
                 new Controller().sendBadge(user, 2);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("This is an error message", "You still have to unlock badge 2!");
+            else {
+                BoxAlert.display("This is an error message", "You still have to unlock polar badge 2!");
             }
         });
         polarBadge_3.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar3(polarBadge_3, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=3) {
                 new Controller().sendBadge(user, 3);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("This is an error message", "You still have to unlock badge 3!");
+            else {
+                BoxAlert.display("This is an error message", "You still have to unlock polar badge 3!");
             }
         });
         polarBadge_4.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar4(polarBadge_4, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=4) {
                 new Controller().sendBadge(user, 4);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 4!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 4!");
             }
         });
         polarBadge_5.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar5(polarBadge_5, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=5) {
                 new Controller().sendBadge(user, 5);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 5!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 5!");
             }
         });
         polarBadge_6.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar6(polarBadge_6, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=6) {
                 new Controller().sendBadge(user, 6);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 6!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 6!");
             }
         });
         polarBadge_7.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar7(polarBadge_7, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=7) {
                 new Controller().sendBadge(user, 7);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 7!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 7!");
             }
         });
         polarBadge_8.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar8(polarBadge_8, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=8) {
                 new Controller().sendBadge(user, 8);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 8!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 8!");
             }
         });
         polarBadge_9.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar9(polarBadge_9, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=9) {
                 new Controller().sendBadge(user, 9);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 9!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 9!");
             }
         });
         polarBadge_10.setOnAction(e -> {
-            unlocked = CSSpolarBadge.setPolar10(polarBadge_10, polarUnlock);
-            if (unlocked == true) {
+            if(unlockNumber>=10) {
                 new Controller().sendBadge(user, 10);
-                String icon = classes.UserBadge.iconChoice(user);
+                classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             }
-            if (unlocked == false) {
-                BoxAlert.display("Hold up!", "You still have to unlock badge 10!");
+            else {
+                BoxAlert.display("Hold up!", "You still have to unlock polar badge 10!");
             }
+
         });
 
         /**
