@@ -56,7 +56,7 @@ public class CSSelectricityBadge {
         else
         {
             button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                    .then("-fx-graphic: url( https://i.ibb.co/VjwL5fj/electricity3-hover.png'); " +
+                    .then("-fx-graphic: url('https://i.ibb.co/VjwL5fj/electricity3-hover.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
                     .otherwise("-fx-graphic: url('https://i.ibb.co/WfZgJpV/electricity3.png'); " +
                             "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
