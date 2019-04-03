@@ -61,7 +61,7 @@ public class AchievementsFood {
         CSSfoodBadge.setFood10(foodBadge_10, unlockNumber);
 
         /**
-         * Selecting unlocked or locked polar score badges on button click.
+         * Selecting unlocked or locked food score badges on button click.
          * Shows alert messages for each specific badge if they're not yet unlocked
          */
         foodBadge_1.setOnAction(e -> {

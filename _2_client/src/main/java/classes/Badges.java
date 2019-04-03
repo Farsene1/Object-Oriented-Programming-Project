@@ -45,7 +45,7 @@ public class Badges {
         if(polarTotal >= 90000){
             unlock = 9;
         }
-        if(polarTotal <= 10000){
+        if(polarTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -89,7 +89,7 @@ public class Badges {
         if(foodTotal >= 9000){
             unlock = 9;
         }
-        if(foodTotal <= 10000){
+        if(foodTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -133,7 +133,7 @@ public class Badges {
         if(transportTotal >= 9000){
             unlock = 9;
         }
-        if(transportTotal <= 10000){
+        if(transportTotal >= 10000){
             unlock = 10;
         }
         return unlock;
@@ -178,7 +178,7 @@ public class Badges {
         if(electricityTotal >= 9000){
             unlock = 9;
         }
-        if(electricityTotal <= 10000){
+        if(electricityTotal >= 10000){
             unlock = 10;
         }
         return unlock;

@@ -60,7 +60,7 @@ public class AchievementsTransport {
         CSStransportBadge.setTransport10(transportBadge_10, unlockNumber);
 
         /**
-         * Selecting unlocked or locked polar score badges on button click.
+         * Selecting unlocked or locked transport score badges on button click.
          * Shows alert messages for each specific badge if they're not yet unlocked
          */
         transportBadge_1.setOnAction(e -> {

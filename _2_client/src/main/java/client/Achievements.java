@@ -27,9 +27,9 @@ public class Achievements {
          */
         AchievementsTransport.showTransportBadges(user, window);
         /**
-         * Calls method in class to show ElectricitytBadges.
+         * Calls method in class to show ElectricityBadges.
          */
-        AchievementsElectricity.showElectricityBadges(user);
+        AchievementsElectricity.showElectricityBadges(user, window);
 
         /**
          * Set label for achievements, initialize VBox for badges.
