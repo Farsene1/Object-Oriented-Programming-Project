@@ -1,9 +1,6 @@
 package client;
 
-        import classes.UserBadge;
         import javafx.scene.Scene;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.Label;
         import javafx.scene.image.ImageView;
         import javafx.scene.layout.VBox;
         import javafx.stage.Modality;
@@ -11,18 +8,22 @@ package client;
 
 
 public class BoxBadge {
-
+    /**
+     * Declare string for badge url.
+     */
     static String icon;
     public static void displayFriendBadge(String title, int number){
         Stage window = new Stage();
 
-        //Block events to other windows
+        /**
+         * Block events to other windows
+         */
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(200);
 
         /**
-         * If statements to change badge dependent on users choice from available badges.
+         * If statements to show badge dependent on users choice from available badges.
          */
         if (number == 1) {
             icon = "https://i.ibb.co/THM6prg/polar1.png";
@@ -144,6 +145,10 @@ public class BoxBadge {
         if (number == 40) {
             icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
         }
+
+        /**
+         * Sets image from given url.
+         */
         ImageView img = new ImageView(icon);
 
         VBox layout = new VBox(50);

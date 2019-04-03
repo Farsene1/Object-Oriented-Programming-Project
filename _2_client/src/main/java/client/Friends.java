@@ -131,6 +131,9 @@ public class Friends {
 
         });
 
+        /**
+        * Row click to show badges of friends
+        */
         friendsTable.setRowFactory(tv -> {
             TableRow row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -142,28 +145,13 @@ public class Friends {
                     badge = badge.replace("badge= ","");
                     badge = badge.replace("}", "");
                     int badgeNumber = Integer.parseInt(badge);
-                    BoxBadge.displayFriendBadge("Badge", badgeNumber);
+                    BoxBadge.displayFriendBadge("Friends badge", badgeNumber);
                 }});
             return row;
         });
 
-
-
-        //TIMER for friends
-     //   Timeline timer = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
-
-            //showing  friends
-       //     @Override
-       //     public void handle(ActionEvent event) {
-                pendingTable.setItems(addFriendRequests(user));
-                friendsTable.setItems(addFriend(user));
-
-         //   }
-     //   }));
-      //  timer.setCycleCount(Timeline.INDEFINITE);
-     //   timer.play();
-
-
+        pendingTable.setItems(addFriendRequests(user));
+        friendsTable.setItems(addFriend(user));
 
     }
 
