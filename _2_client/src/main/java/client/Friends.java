@@ -142,8 +142,14 @@ public class Friends {
                     Object friend = friendsTable.getSelectionModel().getSelectedItem();
                     String testBadge = friend.toString();
                     System.out.println(testBadge);
+                    String badge = testBadge.split(",")[2].substring(1);
+                    badge = badge.replace("badge= ","");
+                    badge = badge.replace("}", "");
+                    int badgeNumber = Integer.parseInt(badge);
 
-                   // int answer = BoxBadge.display("Badge", clickedRow);
+                    if (badgeNumber == 36 || badgeNumber == 27) {
+                        System.out.println(badge);
+                    //BoxBadge.display("Badge", clickedRow);
 //                    if (answer == 2) {
 //                        friendsTable.getItems().remove(clickedRow);
 //                        new Controller().sayNo(clickedRow);
