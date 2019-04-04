@@ -20,13 +20,26 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Box transport class.
+ */
 public class BoxTransport {
+    /**
+     * Variables.
+     */
     static String vehicle;
     static double distance;
     static String date;
     static int score;
 
-    public static void addVehicle(String title, String message, classes.User user) {
+    /**
+     * Add vehicle method.
+     *
+     * @param title   title paramter.
+     * @param message message parameter.
+     * @param user    user parameter.
+     */
+    public static void addVehicle(final String title, final String message, final classes.User user) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -35,59 +48,72 @@ public class BoxTransport {
         window.setMinHeight(285);
         window.setMaxHeight(285);
         VBox layout = new VBox(10);
+
+
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label();
         Label hint = new Label("Consider usinig  the bike or public transport instead of the car");
+
+
         errorlabel.setText("You can only type numbers");
         errorlabel.setStyle("-fx-text-fill: red");
         errorlabel.setVisible(false);
+
+
         JFXComboBox<String> dropdown = new JFXComboBox<>();
         dropdown.getItems().addAll("Train", "Car", "Airplane", "Bicycle", "Walking");
         dropdown.getSelectionModel().select(0);
+
+
         JFXTextField distanceT = new JFXTextField();
         distanceT.setMaxWidth(300);
         distanceT.setPromptText("Add the Distance you traveled (KM)");
         distanceT.setLabelFloat(true);
-        Button submitButton = new Button("Send");
-        submitButton.setOnAction(e -> {
-            try{
-            LocalDateTime mydateObj = LocalDateTime.now();
-            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            date = mydateObj.format(myFormatObj);
-            vehicle = dropdown.getValue();
-            distance = Double.parseDouble(distanceT.getText());
-            Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
-            score = transport.calculator(vehicle, distance);
-            transport.setScore(score);
-            new Controller().sendTransport(user, score);
-            // add a meal in the database
-            Activity activity = new Activity(user.getUsername(), 2, transport.getType() + ":" + transport.getDistance() + " KM",
-                    transport.getScore(), date);
-            List<Activity> list = new Controller().sendFood(activity);
-            System.out.println("\n The items are" + list.toString());
-            window.close();
-        }
-           catch (NumberFormatException N){
-            distanceT.clear();
-            errorlabel.setVisible(true);
-        }
-    });
 
-        dropdown.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue) ->{
-            if(newValue.equals("Car")){
-                layout.getChildren().removeAll(submitButton);
-                layout.getChildren().addAll(hint,submitButton);
+
+        Button submitButton = new Button("Send");
+
+
+        submitButton.setOnAction(e -> {
+            try {
+                LocalDateTime mydateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                date = mydateObj.format(myFormatObj);
+                vehicle = dropdown.getValue();
+                distance = Double.parseDouble(distanceT.getText());
+                Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
+                score = transport.calculator(vehicle, distance);
+                transport.setScore(score);
+
+
+                new Controller().sendTransport(user, score);
+                // add a meal in the database.
+                Activity activity = new Activity(user.getUsername(), 2, transport.getType() + ":" + transport.getDistance() + " KM",
+                        transport.getScore(), date);
+                List<Activity> list = new Controller().sendFood(activity);
+                System.out.println("\n The items are" + list.toString());
+                window.close();
+            } catch (NumberFormatException N) {
+                distanceT.clear();
+                errorlabel.setVisible(true);
             }
-            else{
-                layout.getChildren().removeAll(hint,submitButton);
+        });
+        /**
+         * Hint label projections.
+         */
+        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+            if (newValue.equals("Car")) {
+                layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(hint, submitButton);
+            } else {
+                layout.getChildren().removeAll(hint, submitButton);
                 layout.getChildren().addAll(submitButton);
             }
         });
 
 
-
-    layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
+        layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         distanceT.setStyle("-fx-padding: 10;");
         errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
@@ -95,9 +121,9 @@ public class BoxTransport {
         submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
 
-    Scene scene = new Scene(layout);
-    window.setScene(scene);
-    window.showAndWait();
+        Scene scene = new Scene(layout);
+        window.setScene(scene);
+        window.showAndWait();
 
     }
 }

@@ -15,20 +15,30 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
+/**
+ * Class friends.
+ */
 public class Friends {
+    /**
+     * Variables.
+     */
     static TableView friendsTable = new TableView();
     static TableView pendingTable = new TableView();
 
-
-    public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
+    /**
+     * Show options for friends method.
+     *
+     * @param grid   parameter grid
+     * @param scene  scene parameter
+     * @param user   user parameter
+     * @param window window parameter
+     */
+    public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
 
         String icon = UserBadge.getIcon();
 
 
-        FriendRequest test = new FriendRequest("ok", "pablo");
-        User pablo = new User("pablo", "alsihdbasd");
-        pablo.setPolarScore(123);
-        //CLEARING THE GRID FROM PREVIOUS ADDITIONS
+        //CLEARING THE GRID FROM PREVIOUS ADDITIONS.
         grid.getChildren().clear();
 
         //Creating Labels for addition
@@ -36,58 +46,58 @@ public class Friends {
         Label friendsP = new Label("Pending friend Requests");
         TextField addaFriend = new TextField();
         Button addaFriendB = new Button("Add A Friend");
-        Label FriendsLabel = new Label("FRIENDS");
+        Label friendsLabel = new Label("FRIENDS");
         Button backButton = new Button("Back");
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
-        HBox Vbox = new HBox(addaFriend, addaFriendB);
-        VBox Vbox1 = new VBox(friendsL, Vbox, friendsTable);
-        VBox Vbox2 = new VBox(friendsP, pendingTable);
-        Vbox1.setStyle("-fx-padding:15;");
-        Vbox2.setStyle("-fx-padding:15;");
-        Vbox1.setSpacing(20);
-        Vbox2.setSpacing(20);
+        HBox vbox = new HBox(addaFriend, addaFriendB);
+        VBox vbox1 = new VBox(friendsL, vbox, friendsTable);
+        VBox vbox2 = new VBox(friendsP, pendingTable);
+        vbox1.setStyle("-fx-padding:15;");
+        vbox2.setStyle("-fx-padding:15;");
+        vbox1.setSpacing(20);
+        vbox2.setSpacing(20);
 
-        Vbox1.setAlignment(Pos.CENTER_LEFT);
-        Vbox2.setAlignment(Pos.CENTER_RIGHT);
+        vbox1.setAlignment(Pos.CENTER_LEFT);
+        vbox2.setAlignment(Pos.CENTER_RIGHT);
         // GridPane.setConstraints(Vbox1,0,0);
         //  GridPane.setConstraints(Vbox2,7,0);
-        //ADDING THE COLLUMNS TO THE TABLES
-        TableColumn Col1 = new TableColumn("Username");
-        Col1.setCellValueFactory(new PropertyValueFactory<>("username"));
-        TableColumn Col2 = new TableColumn("Score");
-        Col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
+        //ADDING THE COLLUMNS TO THE TABLES.
+        TableColumn col1 = new TableColumn("Username");
+        col1.setCellValueFactory(new PropertyValueFactory<>("username"));
+        TableColumn col2 = new TableColumn("Score");
+        col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
 
 
-        TableColumn Col3 = new TableColumn("Username");
-        Col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        TableColumn col3 = new TableColumn("Username");
+        col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        TableColumn Col4 = new TableColumn("Badge (click to see)");
-        Col4.setCellValueFactory(new PropertyValueFactory<>("badge")) ;
-        //   TableColumn Col4 = new TableColumn("Accept/Decline");
-        //  Col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(Col1, Col2, Col4);
-        pendingTable.getColumns().setAll(Col3);
-        Col1.setMinWidth(200);
-        Col1.setMaxWidth(200);
-        Col2.setMaxWidth(200);
-        Col2.setMinWidth(200);
-        Col3.setMinWidth(250);
-        Col4.setMinWidth(250);
+        TableColumn col4 = new TableColumn("Badge (click to see)");
+        col4.setCellValueFactory(new PropertyValueFactory<>("badge"));
+        //   TableColumn col4 = new TableColumn("Accept/Decline");
+        //  col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
+        friendsTable.getColumns().setAll(col1, col2, col4);
+        pendingTable.getColumns().setAll(col3);
+        col1.setMinWidth(200);
+        col1.setMaxWidth(200);
+        col2.setMaxWidth(200);
+        col2.setMinWidth(200);
+        col3.setMinWidth(250);
+        col4.setMinWidth(250);
         //backButton
         backButton.setOnAction(e -> {
             Home.showHome(window, user);
         });
 
 
-        //Lastly creating 2 different
-        //Hboxes so we can add everything to the grid
+        //Lastly creating 2 different.
+        //Hboxes so we can add everything to the grid.
 
         HBox toplayer = new HBox();
         HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(FriendsLabel, backButton);
-        middleLayer.getChildren().addAll(Vbox1, Vbox2);
+        toplayer.getChildren().addAll(friendsLabel, backButton);
+        middleLayer.getChildren().addAll(vbox1, vbox2);
         GridPane.setConstraints(toplayer, 5, 0);
         GridPane.setConstraints(middleLayer, 5, 30);
         toplayer.setAlignment(Pos.TOP_CENTER);
@@ -97,6 +107,9 @@ public class Friends {
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 
+        /**
+         * Button set on action method.
+         */
 
         addaFriendB.setOnAction(e -> {
             classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());
@@ -105,7 +118,11 @@ public class Friends {
         });
 
 
-        //ON CLICKING ON A ROW YOU CHOOSE WHAT TOU WANT TO DO WITH THE FRIEND REQUEST
+        /**
+         * Row factory method
+         * so you can click and accept or decline
+         * a friend request.
+         */
         pendingTable.setRowFactory(tv -> {
             TableRow<FriendRequest> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -117,9 +134,9 @@ public class Friends {
                     if (answer == 2) {
                         pendingTable.getItems().remove(clickedRow);
                         new Controller().sayNo(clickedRow);
-                    } else if(answer== 1){
+                    } else if (answer == 1) {
                         clickedRow.setAccepted(true);
-                        if(!clickedRow.getSender().equals(clickedRow.getReceiver())){
+                        if (!clickedRow.getSender().equals(clickedRow.getReceiver())) {
                             new Controller().sayYes(clickedRow);
                         }
                         pendingTable.getItems().remove(clickedRow);
@@ -132,8 +149,8 @@ public class Friends {
         });
 
         /**
-        * Row click to show badges of friends
-        */
+         * Row click to show badges of friends.
+         */
         friendsTable.setRowFactory(tv -> {
             TableRow row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -142,11 +159,12 @@ public class Friends {
                     Object friend = friendsTable.getSelectionModel().getSelectedItem();
                     String testBadge = friend.toString();
                     String badge = testBadge.split(",")[2].substring(1);
-                    badge = badge.replace("badge= ","");
+                    badge = badge.replace("badge= ", "");
                     badge = badge.replace("}", "");
                     int badgeNumber = Integer.parseInt(badge);
                     BoxBadge.displayFriendBadge("Friends badge", badgeNumber);
-                }});
+                }
+            });
             return row;
         });
 
@@ -155,18 +173,29 @@ public class Friends {
 
     }
 
+    /**
+     * Gives back the list of friends to addd to thetable.
+     *
+     * @param user parameter
+     * @return returns al ist.
+     */
     public static ObservableList<User> addFriend(User user) {
-        ObservableList<User> Friend = FXCollections.observableArrayList();
-        List<User> FriendList = new Controller().getAllFriends(user);
+        ObservableList<User> friend = FXCollections.observableArrayList();
+        List<User> friendList = new Controller().getAllFriends(user);
 
-        for (User a : FriendList) {
-            Friend.add(a);
+        for (User a : friendList) {
+            friend.add(a);
         }
-        return Friend;
+        return friend;
     }
 
-
-    public static ObservableList<FriendRequest> addFriendRequests(User user) {
+    /**
+     * Returns a list of friend requests.
+     *
+     * @param user parameter
+     * @return a list of requests.
+     */
+    public static ObservableList<FriendRequest> addFriendRequests(final User user) {
         ObservableList<FriendRequest> friendRequests = FXCollections.observableArrayList();
         List<FriendRequest> friendRequestList = new Controller().getAllRequests(user);
 

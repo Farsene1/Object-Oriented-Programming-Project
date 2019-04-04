@@ -8,9 +8,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Alert box class.
+ */
 public class BoxAlert {
-
-    public static void display(String title, String message) {
+    /**
+     * Display box .
+     *
+     * @param title   parameter title.
+     * @param message parameter message.
+     */
+    public static void display(final String title, final String message) {
         Stage window = new Stage();
 
         //Block events to other windows
@@ -27,7 +35,7 @@ public class BoxAlert {
         layout.getChildren().addAll(label, closeButton);
         layout.setAlignment(Pos.CENTER);
 
-        //Display window and wait for it to be closed before returning
+        //Display window and wait for it to be closed before returning.
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();

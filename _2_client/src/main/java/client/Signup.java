@@ -19,24 +19,31 @@ import java.security.NoSuchAlgorithmException;
 
 import static client.ValidatePassword.validatePassword;
 
+/**
+ * Signup page.
+ */
 public class Signup {
-
-    public static void showSignup(Stage window){
+    /**
+     * Show singup method.
+     *
+     * @param window window parameter.
+     */
+    public static void showSignup(final Stage window) {
 
         String icon = "https://drive.google.com/uc?id=17b0fCmDcAogmyqUERNk7bMBOCRxwnYd_";
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Signup");
-        BorderPane bp= new BorderPane();
-        VBox VBox = new VBox();
-        VBox.setPadding(new Insets(10, 10, 10, 10));
+        BorderPane bp = new BorderPane();
+        VBox vBox = new VBox();
+        vBox.setPadding(new Insets(10, 10, 10, 10));
 
         //username-r Input
         JFXTextField usernameInput = new JFXTextField();
         usernameInput.setPromptText("username");
         usernameInput.setLabelFloat(true);
 
-       //Password Input
+        //Password Input
         JFXPasswordField passwordInput = new JFXPasswordField();
         passwordInput.setPromptText("password");
         passwordInput.setLabelFloat(true);
@@ -46,10 +53,11 @@ public class Signup {
         passwordInput2.setPromptText("confirm password");
         passwordInput2.setLabelFloat(true);
 
-        Button back= new Button();
-        back.setOnAction(e->{Login.showLogin(window);});
+        Button back = new Button();
+        back.setOnAction(e -> {
+            Login.showLogin(window);
+        });
         back.setAlignment(Pos.TOP_LEFT);
-
 
 
         //Register
@@ -60,13 +68,15 @@ public class Signup {
         errorlabel.setStyle("-fx-font-size: 12; -fx-text-fill: red; -fx-padding:0 0 3 0");
         register.setOnAction(e -> {
             int step = 0;
+
+            /**
+             * Whole register procedure.
+             */
             String valid = validatePassword(passwordInput.getText());
             if (passwordInput.getText().equals(passwordInput2.getText())) {
-                String Password = passwordInput.getText();
+                String password1 = passwordInput.getText();
                 step = 1;
-            }
-            else
-            {
+            } else {
                 errorlabel.setText("The entered passwords do not match.");
                 errorlabel.setVisible(true);
             }
@@ -83,10 +93,9 @@ public class Signup {
                     passwordInput.clear();
                     passwordInput2.clear();
                     // check if registration is possible
-                    if(res.equals("/POST successful")){
+                    if (res.equals("/POST successful")) {
                         Home.showHome(window, user);
-                    } 
-                    else{
+                    } else {
                         errorlabel.setText("ALREADY REGISTERED UP!");
                         errorlabel.setVisible(true);
                     }
@@ -94,37 +103,36 @@ public class Signup {
                     BoxAlert.display("ERROR", "No such algorithm exception");
                     error.printStackTrace();
                 }
-            }
-            else if (step == 1){
-                    errorlabel.setText(validatePassword(passwordInput.getText()));
-                    errorlabel.setVisible(true);
+            } else if (step == 1) {
+                errorlabel.setText(validatePassword(passwordInput.getText()));
+                errorlabel.setVisible(true);
             }
         });
 
-        ImageView img= new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
+        ImageView img = new ImageView("https://i.ibb.co/qskM93N/polar-alpha.png");
         img.setFitWidth(350);
         img.setFitHeight(350);
         img.setStyle("-fx-padding: 10");
 
-        Pane backpane= new Pane();
+        Pane backpane = new Pane();
         backpane.setMinWidth(300);
 
         //Add everything to grid
-        HBox hbox= new HBox();
-        hbox.getChildren().addAll(back,backpane);
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(back, backpane);
 
-        VBox.getChildren().addAll(hbox,img,usernameInput, passwordInput,passwordInput2, errorlabel, register);
+        vBox.getChildren().addAll(hbox, img, usernameInput, passwordInput, passwordInput2, errorlabel, register);
 
-        Pane test1=new Pane();
-        Pane test2=new Pane();
-        Pane test3=new Pane();
-        Pane test4=new Pane();
+        Pane test1 = new Pane();
+        Pane test2 = new Pane();
+        Pane test3 = new Pane();
+        Pane test4 = new Pane();
         test1.setMinWidth(675);
         test2.setMinWidth(675);
         test3.setPrefHeight(100);
         test4.setPrefHeight(100);
 
-        bp.setCenter(VBox);
+        bp.setCenter(vBox);
         bp.setLeft(test1);
         bp.setRight(test2);
         bp.setTop(test3);
@@ -132,9 +140,9 @@ public class Signup {
 
         hbox.setStyle("-fx-padding: 0 0 0 20");
         bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
-        VBox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
-        VBox.setPadding(new Insets(20,60,40,60));
-        VBox.setSpacing(30);
+        vBox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
+        vBox.setPadding(new Insets(20, 60, 40, 60));
+        vBox.setSpacing(30);
         CSS.setSmallButtonStyle(register);
         CSS.setBackButtonStyle(back);
 
