@@ -1,52 +1,115 @@
 package classes;
 
-
+/**
+ * Electricity object Class.
+ */
 public class Electricity {
-
-    private int heat_hrs;
-    private int light_hrs;
+    /**
+     * Heat Hours.
+     */
+    private int heatHours;
+    /**
+     * light Hours.
+     */
+    private int lightHours;
+    /**
+     * Solar variable.
+     */
     private boolean solar;
+    /**
+     * Score.
+     */
     private int score;
 
-    public Electricity(){
+    /**
+     * Empty Constructor.
+     */
+    public Electricity() {
 
     }
 
-    public Electricity(int heat_hrs, int light_hrs, boolean solar) {
-        this.heat_hrs = heat_hrs;
-        this.light_hrs = light_hrs;
+    /**
+     * Object electricity constructor.
+     *
+     * @param heatHours  heathours parameter.
+     * @param lightHours light Hours parameter.
+     * @param solar      solar hours parameter.
+     */
+    public Electricity(final int heatHours, final int lightHours, final boolean solar) {
+        this.heatHours = heatHours;
+        this.lightHours = lightHours;
         this.solar = solar;
     }
 
-    public int getHeat_hrs() {
-        return heat_hrs;
+    /**
+     * Gets heat hours.
+     *
+     * @return heat hours.
+     */
+    public int getheatHours() {
+        return heatHours;
     }
 
-    public void setHeat_hrs(int hrs) {
-        this.heat_hrs = hrs;
+    /**
+     * SSets heat hours.
+     *
+     * @param hrs hours.
+     */
+    public void setheatHours(final int hrs) {
+        this.heatHours = hrs;
     }
 
-    public int getLight_hrs() {
-        return light_hrs;
+    /**
+     * Gets light Hours.
+     *
+     * @return returns lightHours.
+     */
+    public int getlightHours() {
+        return lightHours;
     }
 
-    public void setLight_hrs(int hrs) {
-        this.light_hrs = hrs;
+    /**
+     * Sets lightHours.
+     *
+     * @param hrs hours parameter.
+     */
+    public void setlightHours(final int hrs) {
+        this.lightHours = hrs;
     }
 
+    /**
+     * Gets solar option.
+     *
+     * @return solar.
+     */
     public boolean getSolar() {
         return solar;
     }
 
-    public void setSolar(boolean solar) {
+    /**
+     * Sets solar.
+     *
+     * @param solar solar param.
+     */
+    public void setSolar(final boolean solar) {
         this.solar = solar;
     }
 
+    /**
+     * Gets score.
+     *
+     * @return returns score.
+     */
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    /**
+     * Sets score.
+     *
+     * @param score score parameter.
+     */
+    public void setScore(final int score) {
         this.score = score;
     }
 
