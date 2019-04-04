@@ -13,7 +13,9 @@ import java.util.List;
  */
 public interface UserRepository extends CrudRepository<User, Integer> {
     /**
-     * Query to findAllUsers.
+     * query to find all users.
+     *
+     * @return list
      */
     @Query(value = "SELECT * from users", nativeQuery = true)
     List<User> findAllUsers();
@@ -21,7 +23,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /**
      * Query to find a specific user by username.
      *
-     * @param username
+     * @param username username parameter.
      * @return list.
      */
     @Query(value = "SELECT * from users where username = ?1",
@@ -41,11 +43,12 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     /**
      * Query to update a users attributes.
-     * @param electricity
-     * @param food
-     * @param polarScore
-     * @param transport
-     * @param username
+     *
+     * @param electricity electricity.
+     * @param food        food param.
+     * @param polarScore  score
+     * @param transport   transport
+     * @param username    and the username.
      */
     @Modifying
     @Transactional
@@ -58,8 +61,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /**
      * SET BADGE.
      *
-     * @param badge
-     * @param username
+     * @param badge    badge parameter.
+     * @param username username parameter.
      */
     @Modifying
     @Transactional

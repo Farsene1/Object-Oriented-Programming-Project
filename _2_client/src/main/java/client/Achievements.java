@@ -104,7 +104,9 @@ public class Achievements {
         /**
          * Adds all badges in specific Hboxes to Vbox // styling.
          */
-        achievements.getChildren().addAll(myAchievements, polarLabel, polarHbox, foodLabel, foodHbox, transportLabel, transportHbox, electricityLabel, electricityHbox);
+        achievements.getChildren().addAll(myAchievements, polarLabel, polarHbox, foodLabel,
+                foodHbox, transportLabel,
+                transportHbox, electricityLabel, electricityHbox);
         grid.getChildren().setAll(achievements);
         achievements.setAlignment(Pos.CENTER);
         grid.setMinWidth(1500);

@@ -17,7 +17,7 @@ public interface ActivityRepository extends CrudRepository<Activity, Integer> {
     List<Activity> findAllActivities();
 
     /**
-     * @param username
+     * @param username username parameter.
      * @return the activity objects for a specific user.
      */
     @Query(value = "SELECT * from activities WHERE username = ?1",
@@ -25,8 +25,8 @@ public interface ActivityRepository extends CrudRepository<Activity, Integer> {
     List<Activity> findActivitiesByUser(String username);
 
     /**
-     * @param username
-     * @param date
+     * @param username username parameter.
+     * @param date     date parameter.
      * @return the toatal foorprint for one day.
      */
     @Query(value = "SELECT SUM(footprint) FROM activities"
@@ -34,14 +34,13 @@ public interface ActivityRepository extends CrudRepository<Activity, Integer> {
     Integer totalFootprint(String username, String date);
 
     /**
-     *
-     * @param username
-     * @param date
-     * @param category
+     * @param username username parameter.
+     * @param date     date parameter.
+     * @param category category parameter.
      * @return sum by category for user.
      */
     @Query(value = "SELECT SUM(footprint) FROM activities WHERE username=?1 AND date=?2 AND category = ?3",
-    nativeQuery = true)
+            nativeQuery = true)
     Integer totalScoreByCategory(String username, String date, Integer category);
 
     //    /**

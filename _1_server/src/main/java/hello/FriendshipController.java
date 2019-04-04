@@ -37,7 +37,7 @@ public class FriendshipController {
     /**
      * method for getting all the friends in the database.
      *
-     * @param user
+     * @param user user parameter.
      * @return response list.
      */
     @RequestMapping("/friends")
@@ -54,7 +54,7 @@ public class FriendshipController {
     /**
      * method for making a friend request.
      *
-     * @param friendRequest
+     * @param friendRequest friendrequest parameter.
      * @return response.
      */
     @RequestMapping("/request")
@@ -100,7 +100,7 @@ public class FriendshipController {
     /**
      * method for getting all the friendRequests.
      *
-     * @param user
+     * @param user user parameter.
      * @return list.
      */
     @RequestMapping("/getallrequests")
@@ -114,7 +114,7 @@ public class FriendshipController {
      * method for responding to a friendRequest. TO BE CHANGED LATER,
      * depending on GUI.
      *
-     * @param friendRequest
+     * @param friendRequest friendRequest parameter.
      * @return String
      */
     @RequestMapping("/respond")
@@ -132,7 +132,7 @@ public class FriendshipController {
      * this method sets the request answer to true
      * so that it will not appear in the incoming requests.
      *
-     * @param friendRequest
+     * @param friendRequest friendRequest paramter.
      * @return String
      */
     @RequestMapping("/fakeresponse")
@@ -144,7 +144,9 @@ public class FriendshipController {
 
     /**
      * set repo.
-     * @param friendshipRepository
+     *
+     * @param friendshipRepository friendship repository
+     *                             parameter.
      */
     public void setFriendshipRepository(
             final FriendshipRepository friendshipRepository) {
@@ -153,7 +155,8 @@ public class FriendshipController {
 
     /**
      * set repo.
-     * @param friendRequestRepository
+     *
+     * @param friendRequestRepository friendrequest repository paramter.
      */
     public void setFriendRequestRepository(
             final FriendRequestRepository friendRequestRepository) {
@@ -162,7 +165,8 @@ public class FriendshipController {
 
     /**
      * set repo.
-     * @param userRepository
+     *
+     * @param userRepository user repository parameter.
      */
     public void setUserRepository(final UserRepository userRepository) {
         this.userRepository = userRepository;

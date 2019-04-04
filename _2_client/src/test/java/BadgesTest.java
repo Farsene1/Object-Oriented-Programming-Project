@@ -24,7 +24,7 @@ public class BadgesTest {
      * Test method for class Badges; method polarUnlock - all badges.
      */
     @Test
-    public void testPolarUnlock(){
+    public void testPolarUnlock() {
         user1.setPolarScore(100000);
         assertEquals(1, Badges.polarUnlock(user1));
         user2.setPolarScore(200000);
