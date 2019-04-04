@@ -29,15 +29,17 @@ public class BoxElectricity {
         window.setTitle(title);
         window.setMinWidth(475);
         window.setMaxWidth(475);
-        window.setMinHeight(325);
-        window.setMaxHeight(325);
+        window.setMinHeight(350);
+        window.setMaxHeight(350);
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label("You can only type numbers");
         Label gap = new Label();
+        Label hint  = new Label("Bro, if you're not using solar energy, consider lowering the temp of your home.");
         gap.setVisible(false);
         errorlabel.setVisible(false);
         errorlabel.setStyle("-fx-text-fill: red;");
+        VBox layout = new VBox(10);
 
         CheckBox solarbox = new CheckBox("Solar energy");
         JFXTextField lightfield = new JFXTextField();
@@ -104,8 +106,8 @@ public class BoxElectricity {
                 else
                 {
                     Electricity electricity = new Electricity(heat_hrs, 0, solar);
-                        score= -300*heat_hrs;
-                        htScore=-300*heat_hrs;
+                    score= -300*heat_hrs;
+                    htScore=-300*heat_hrs;
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
                     // add electricity in the database
@@ -123,7 +125,15 @@ public class BoxElectricity {
             }
         });
 
-        VBox layout = new VBox(10);
+        solarbox.selectedProperty().addListener((e,oldValue,newValue) -> {
+            if(newValue.equals(true)){
+                hint.setVisible(false);
+            }
+            else{
+                hint.setVisible(true);
+            }
+        });
+
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         heatfield.setStyle("-fx-padding: 10;");
         lightfield.setStyle("-fx-padding: 10;");
@@ -132,10 +142,11 @@ public class BoxElectricity {
         solarbox.setStyle("-fx-padding: 3;");
         submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
-                layout.getChildren().addAll(label, lightfield,gap, heatfield, errorlabel, solarbox, submitButton);
+        layout.getChildren().addAll(label, lightfield,gap, heatfield, errorlabel, solarbox, hint, submitButton);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
+
     }
 
 
