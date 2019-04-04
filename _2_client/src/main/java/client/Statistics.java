@@ -8,11 +8,21 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.util.List;
 
+/**
+ * Statistics class.
+ */
 public class Statistics {
-
-    public static void showOptions(GridPane grid, User user, Stage window) {
+    /**
+     * Show options for statistics button.
+     *
+     * @param grid gridf parameter.
+     * @param user user parameter.
+     * @param window window parameter.
+     */
+    public static void showOptions(final GridPane grid, final User user, final Stage window) {
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Date");
@@ -20,33 +30,33 @@ public class Statistics {
 
         lineChart.setTitle("MY STATISTICS");
 
-        XYChart.Series PolarSeries = new XYChart.Series();
-        PolarSeries.setName("POLAR SCORE");
-        XYChart.Series FoodSeries = new XYChart.Series();
-        FoodSeries.setName("FOOD SCORE");
-        XYChart.Series TransportSeries = new XYChart.Series();
-        TransportSeries.setName("TRANSPORT SCORE");
-        XYChart.Series ElectricitySeries = new XYChart.Series();
-        ElectricitySeries.setName("ELECTRICITY SCORE");
+        XYChart.Series polarSeries = new XYChart.Series();
+        polarSeries.setName("POLAR SCORE");
+        XYChart.Series foodSeries = new XYChart.Series();
+        foodSeries.setName("FOOD SCORE");
+        XYChart.Series transportSeries = new XYChart.Series();
+        transportSeries.setName("TRANSPORT SCORE");
+        XYChart.Series electricitySeries = new XYChart.Series();
+        electricitySeries.setName("ELECTRICITY SCORE");
 
-        List<classes.Statistics> polardata= new Controller().getStatsByType(user.getUsername(),"ALL");
-        for (classes.Statistics stat:polardata) {
-            PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        List<classes.Statistics> polardata = new Controller().getStatsByType(user.getUsername(), "ALL");
+        for (classes.Statistics stat : polardata) {
+            polarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> fooddata= new Controller().getStatsByType(user.getUsername(),"FOOD");
-        for (classes.Statistics stat:fooddata) {
-            FoodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        List<classes.Statistics> fooddata = new Controller().getStatsByType(user.getUsername(), "FOOD");
+        for (classes.Statistics stat : fooddata) {
+            foodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> transportdata= new Controller().getStatsByType(user.getUsername(),"TRANSPORT");
-        for (classes.Statistics stat:transportdata) {
-            TransportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        List<classes.Statistics> transportdata = new Controller().getStatsByType(user.getUsername(), "TRANSPORT");
+        for (classes.Statistics stat : transportdata) {
+            transportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> electricitydata= new Controller().getStatsByType(user.getUsername(),"ELECTRICITY");
-        for (classes.Statistics stat:electricitydata) {
-            ElectricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
+        List<classes.Statistics> electricitydata = new Controller().getStatsByType(user.getUsername(), "ELECTRICITY");
+        for (classes.Statistics stat : electricitydata) {
+            electricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
 
-        lineChart.getData().addAll(PolarSeries, FoodSeries, TransportSeries,ElectricitySeries);
+        lineChart.getData().addAll(polarSeries, foodSeries, transportSeries, electricitySeries);
         lineChart.setMinWidth(1420);
         lineChart.setMinHeight(900);
         grid.getChildren().setAll(lineChart);
