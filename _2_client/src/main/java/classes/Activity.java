@@ -3,130 +3,227 @@ package classes;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
+/**
+ * Activity object class.
+ */
 public class Activity {
-
+    /**
+     * ID variable.
+     */
     private Integer id;
-
+    /**
+     * username variable.
+     */
     private String username;
-
+    /**
+     * category variable.
+     */
     private Integer category;
-
+    /**
+     * cat variable.
+     */
     private String cat;
-
+    /**
+     * description variable.
+     */
     private String description;
-
+    /**
+     * footprint variable.
+     */
     private Integer footprint;
-
+    /**
+     * date variable.
+     */
     private String date;
 
-    public Activity(){}
+    /**
+     * empty constructor
+     */
+    public Activity() {
+    }
 
-    public Activity(String username, Integer category, String description, Integer footprint, String date){
+    /**
+     * Activitty constructor.
+     *
+     * @param username    username variable.
+     * @param category    category parameter.
+     * @param description description parameter.
+     * @param footprint   ftooprint parameter.
+     * @param date        date parameter.
+     */
+    public Activity(final String username, final Integer category, final String description, final Integer footprint, final String date) {
         this.username = username;
         this.category = category;
         this.description = description;
         this.footprint = footprint;
         this.date = date;
-        switch (category)
-                {
-                   case 1:
-                   {
-                       this.cat="Food";
-                       break;
-                   }
-                   case 2:
-                    {
-                        this.cat="Transport";
-                        break;
-                    }
-                    case 3:
-                    {
-                       this.cat="Electricity";
-                       break;
-                    }
-                }
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Integer getCategory() {
-        return category;
-    }
-
-    public void setCategory(Integer category) {
-        this.category = category;
-        switch (category)
-        {
-            case 1:
-            {
-                this.cat="Food";
+        switch (category) {
+            case 1: {
+                this.cat = "Food";
                 break;
             }
-            case 2:
-            {
-                this.cat="Transport";
+            case 2: {
+                this.cat = "Transport";
                 break;
             }
-            case 3:
-            {
-                this.cat="Electricity";
+            case 3: {
+                this.cat = "Electricity";
                 break;
             }
         }
     }
 
+    /**
+     * GETS id.
+     *
+     * @return id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id id parameter.
+     */
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets username.
+     *
+     * @return username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Sets username.
+     *
+     * @param username username parameter
+     */
+    public void setUsername(final String username) {
+        this.username = username;
+    }
+
+    /**
+     * Gets category.
+     *
+     * @return category.
+     */
+    public Integer getCategory() {
+        return category;
+    }
+
+    /**
+     * Sets category.
+     *
+     * @param category parameter category.
+     */
+    public void setCategory(final Integer category) {
+        this.category = category;
+        switch (category) {
+            case 1: {
+                this.cat = "Food";
+                break;
+            }
+            case 2: {
+                this.cat = "Transport";
+                break;
+            }
+            case 3: {
+                this.cat = "Electricity";
+                break;
+            }
+        }
+    }
+
+    /**
+     * get category.
+     *
+     * @return cat
+     */
     public String getCat() {
         return cat;
     }
 
-    public void setCat(String cat) {
+    /**
+     * Sets cat
+     *
+     * @param cat parameter cat
+     */
+    public void setCat(final String cat) {
         this.cat = cat;
     }
 
+    /**
+     * Gets description.
+     *
+     * @return description
+     */
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    /**
+     * Sets description.
+     *
+     * @param description description parameter
+     */
+    public void setDescription(final String description) {
         this.description = description;
     }
 
+    /**
+     * Gets footprint.
+     *
+     * @return footprint
+     */
     public Integer getFootprint() {
         return footprint;
     }
 
-    public void setFootprint(Integer footprint) {
+    /**
+     * Sets footprint.
+     *
+     * @param footprint parameter footprint.
+     */
+    public void setFootprint(final Integer footprint) {
         this.footprint = footprint;
     }
 
+    /**
+     * Gets date.
+     *
+     * @return date
+     */
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    /**
+     * Sets date.
+     *
+     * @param date parameter date.
+     */
+    public void setDate(final String date) {
         this.date = date;
     }
 
+    /**
+     * Returns the to STRING OF ACTIVITY.
+     *
+     * @return String
+     */
     @Override
-    public String toString(){
-        return "Activity(" +
-                ", category='" + cat + '\'' +
-                ", description='" + description + '\'' +
-                ", carbonFootprint='" + footprint + '\'' +
-                "}";
+    public String toString() {
+        return "Activity("
+                + ", category='" + cat + '\''
+                + ", description='" + description + '\''
+                + ", carbonFootprint='" + footprint + '\''
+                + "}";
     }
 }

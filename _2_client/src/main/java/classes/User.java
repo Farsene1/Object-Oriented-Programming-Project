@@ -1,6 +1,8 @@
 package classes;
 
-import javax.persistence.*;
+
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -11,7 +13,7 @@ public class User implements Serializable {
     /**
      * Primary key id generated.
      *
-     * @param id
+     * @param id id parameter.
      */
     private Integer id;
 
@@ -43,7 +45,9 @@ public class User implements Serializable {
      * Attribute date declared as type timestamp.
      */
     private Integer badge = 1;
-
+    /**
+     * Sets activity.
+     */
     @OneToMany
     @JoinColumn(name = "userId")
     private Set<Activity> activities;
@@ -57,16 +61,17 @@ public class User implements Serializable {
     /**
      * Constructor declaration for user.
      *
-     * @param username
-     * @param hash
+     * @param username username parameter.
+     * @param hash hash parameter.
      */
-    public User(String username, String hash) {
+    public User(final String username, final String hash) {
         this.username = username;
         this.hash = hash;
     }
 
     /**
      * Getter for username.
+     * @return  username.
      */
     public String getUsername() {
         return username;
@@ -75,14 +80,15 @@ public class User implements Serializable {
     /**
      * Setter for username.
      *
-     * @param username
+     * @param username username parameter.
      */
-    public void setUsername(String username) {
+    public void setUsername(final String username) {
         this.username = username;
     }
 
     /**
-     * Getter for hash.
+     * Returns a string for hash.
+     * @return hash
      */
     public String getHash() {
         return hash;
@@ -91,29 +97,31 @@ public class User implements Serializable {
     /**
      * Setter for hash.
      *
-     * @param hash
+     * @param hash hash parameter.
      */
-    public void setHash(String hash) {
+    public void setHash(final String hash) {
         this.hash = hash;
     }
 
     /**
-     * Getter for foodFootprint.
+     * Getter for food score.
+     * @return food
      */
     public Integer getFoodScore() {
         return food;
     }
 
     /**
-     *
-     * @param food
+     * setter for food.
+     * @param food  food paramter.
      */
-    public void setFoodScore(Integer food) {
+    public void setFoodScore(final Integer food) {
         this.food = food;
     }
 
     /**
-     * Getter for waterFootprint.
+     * GETS electricity score.
+     * @return electricity
      */
     public Integer getElectricityScore() {
         return electricity;
@@ -122,14 +130,15 @@ public class User implements Serializable {
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity
+     * @param electricity electricity parameter.
      */
-    public void setElectricityScore(Integer electricity) {
+    public void setElectricityScore(final Integer electricity) {
         this.electricity = electricity;
     }
 
     /**
      * Getter for transportFootprint.
+     * @return  transport.
      */
     public Integer getTransportScore() {
         return transport;
@@ -138,14 +147,15 @@ public class User implements Serializable {
     /**
      * Setter for transportFootprint.
      *
-     * @param transport
+     * @param transport transport parameter.
      */
-    public void setTransportScore(Integer transport) {
+    public void setTransportScore(final Integer transport) {
         this.transport = transport;
     }
 
     /**
-     * Getter for polarScore.
+     * Gets  polar score.
+     * @return polarScore.
      */
     public Integer getPolarScore() {
         return polarScore;
@@ -154,25 +164,32 @@ public class User implements Serializable {
     /**
      * Setter for polarScore.
      *
-     * @param polarScore
+     * @param polarScore poalr score parameter.
      */
-    public void setPolarScore(Integer polarScore) {
+    public void setPolarScore(final Integer polarScore) {
         this.polarScore = polarScore;
     }
+
     /**
-     * Getter for date.
+     * Gets the badge.
+     * @return badge
      */
 
     public Integer getBadge() {
         return badge;
     }
 
-    public void setBadge(Integer badge) {
+    /**
+     * Sets the badge.
+     * @param badge badge parameter.
+     */
+    public void setBadge(final Integer badge) {
         this.badge = badge;
     }
 
     /**
-     * toString method for user.
+     * To string method.
+     * @return string
      */
     @Override
     public String toString() {

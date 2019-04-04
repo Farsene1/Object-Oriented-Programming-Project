@@ -1,5 +1,8 @@
 package classes;
 
+/**
+ * User badge class.
+ */
 public class UserBadge {
 
     /**
@@ -8,9 +11,11 @@ public class UserBadge {
     static String icon = "https://i.ibb.co/THM6prg/polar1.png";
 
     /**
-     * Method for user selection of unlocked badge
+     * icion choice method.
+     * @param user user param.
+     * @return returns a string.
      */
-    static public String iconChoice(User user) {
+    public static String iconChoice(final User user) {
 
         /**
          * Calls method getBadge and assigns value to int number.
@@ -18,7 +23,8 @@ public class UserBadge {
         int number = user.getBadge();
 
         /**
-         * If statements to change badge dependent on users choice from available badges.
+         * If statements to change badge dependent
+         * on users choice from available badges.
          */
         if (number == 1) {
             icon = "https://i.ibb.co/THM6prg/polar1.png";
@@ -144,9 +150,10 @@ public class UserBadge {
         }
 
     /**
-     * Get method for icon choice.
+     * Get Icon method.
+     * @return icon.
      */
-    static public String getIcon() {
+    public static String getIcon() {
         return icon;
     }
 
