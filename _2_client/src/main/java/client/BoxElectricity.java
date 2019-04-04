@@ -29,8 +29,8 @@ public class BoxElectricity {
         window.setTitle(title);
         window.setMinWidth(475);
         window.setMaxWidth(475);
-        window.setMinHeight(350);
-        window.setMaxHeight(350);
+        window.setMinHeight(400);
+        window.setMaxHeight(400);
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label("You can only type numbers");
@@ -50,6 +50,17 @@ public class BoxElectricity {
         heatfield.setLabelFloat(true);
         heatfield.setPromptText("Add your hours of heating usage");
         heatfield.setMaxWidth(300);
+
+        Button installSolar = new Button("I have installed solar panels");
+        installSolar.setOnAction(e -> {
+            //SET USER SOLAR SHIT TO TRUE PLS FLORENTIN
+            userHasSolar(installSolar, solarbox, hint);
+        });
+
+        /*if (USER HAS SOLAR PANELS INSTALLED PLS FLORENTIN) {
+            userHasSolar(installSolar, solarbox, hint);
+        }*/
+
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> {
             try{
@@ -142,11 +153,19 @@ public class BoxElectricity {
         solarbox.setStyle("-fx-padding: 3;");
         submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
-        layout.getChildren().addAll(label, lightfield,gap, heatfield, errorlabel, solarbox, hint, submitButton);
+        layout.getChildren().addAll(label, lightfield,gap, heatfield, errorlabel, solarbox, hint, submitButton, installSolar);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
 
+    }
+
+    private static void userHasSolar(Button installSolar, CheckBox solarbox, Label hint) {
+        installSolar.setVisible(false);
+        solarbox.setSelected(true);
+        solarbox.setDisable(true);
+        hint.setText("You have solar panels installed, good job!");
+        hint.setVisible(true);
     }
 
 
