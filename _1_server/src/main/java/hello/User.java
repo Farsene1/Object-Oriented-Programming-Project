@@ -13,7 +13,7 @@ public class User implements Serializable {
     /**
      * Primary key id generated.
      *
-     * @param id
+     * @param id id parameter.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,7 +48,9 @@ public class User implements Serializable {
      * Attribute date declared as type timestamp.
      */
     private Integer badge = 1;
-
+    /**
+     * Set activity.
+     */
     @OneToMany
     @JoinColumn(name = "userId")
     private Set<Activity> activities;
@@ -62,8 +64,8 @@ public class User implements Serializable {
     /**
      * Constructor declaration for user.
      *
-     * @param username
-     * @param hash
+     * @param username username parameter.
+     * @param hash hash parameter.
      */
     public User(String username, String hash) {
         this.username = username;
@@ -71,7 +73,8 @@ public class User implements Serializable {
     }
 
     /**
-     * Getter for username.
+     * get username.
+     * @return username.
      */
     public String getUsername() {
         return username;
@@ -80,14 +83,15 @@ public class User implements Serializable {
     /**
      * Setter for username.
      *
-     * @param username
+     * @param username username parameter.
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * Getter for hash.
+     * getter for hash.
+     * @return hash.
      */
     public String getHash() {
         return hash;
@@ -96,29 +100,31 @@ public class User implements Serializable {
     /**
      * Setter for hash.
      *
-     * @param hash
+     * @param hash hash parameter.
      */
     public void setHash(String hash) {
         this.hash = hash;
     }
 
     /**
-     * Getter for foodFootprint.
+     * get food score.
+     * @return food
      */
     public Integer getFoodScore() {
         return food;
     }
 
     /**
-     *
-     * @param food
+     * set food.
+     * @param food food score.
      */
     public void setFoodScore(Integer food) {
         this.food = food;
     }
 
     /**
-     * Getter for waterFootprint.
+     * get electricity score.
+     * @return electric score.
      */
     public Integer getElectricityScore() {
         return electricity;
@@ -127,14 +133,15 @@ public class User implements Serializable {
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity
+     * @param electricity electricity score.
      */
     public void setElectricityScore(Integer electricity) {
         this.electricity = electricity;
     }
 
     /**
-     * Getter for transportFootprint.
+     * get transport score.
+     * @return transport score.
      */
     public Integer getTransportScore() {
         return transport;
@@ -143,14 +150,15 @@ public class User implements Serializable {
     /**
      * Setter for transportFootprint.
      *
-     * @param transport
+     * @param transport transport score.
      */
     public void setTransportScore(Integer transport) {
         this.transport = transport;
     }
 
     /**
-     * Getter for polarScore.
+     * get polar score.
+     * @return polar score.
      */
     public Integer getPolarScore() {
         return polarScore;
@@ -159,25 +167,32 @@ public class User implements Serializable {
     /**
      * Setter for polarScore.
      *
-     * @param polarScore
+     * @param polarScore polar score parameter.
      */
     public void setPolarScore(Integer polarScore) {
         this.polarScore = polarScore;
     }
+
     /**
-     * Getter for date.
+     * get badge.
+     * @return returns badge.
      */
 
     public Integer getBadge() {
         return badge;
     }
 
+    /**
+     * sets badge.
+     * @param badge parameter.
+     */
     public void setBadge(Integer badge) {
         this.badge = badge;
     }
 
     /**
-     * toString method for user.
+     * to string method.
+     * @return the string.
      */
     @Override
     public String toString() {

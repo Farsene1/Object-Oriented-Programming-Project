@@ -2,6 +2,9 @@ package hello;
 
 import javax.persistence.*;
 
+/**
+ * Statistics table.
+ */
 @Entity
 @Table(name = "statistics")
 /**
@@ -31,70 +34,98 @@ public class Statistics {
      * date attr.
      */
     private String date;
+
     /**
      * default constructor.
      */
-    public Statistics() { }
+    public Statistics() {
+    }
+
     /**
-     * @param score
-     * @param date
+     * statistics constructor.
+     * @param score score parameter.
+     * @param date date paramater.
+     * @param username  username parameter.
      */
     public Statistics(String username, Integer score, String date) {
         this.username = username;
         this.score = score;
         this.date = date;
     }
+
     /**
      * getId.
      *
      * @return id.
      */
-    public Integer getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
+
     /**
      * set id.
      *
-     * @param id
+     * @param id parameter id.
      */
-    public void setId(Integer id){this.id = id;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     /**
      * getUsername.
      *
      * @return username.
      */
-    public String getUsername(){return username;}
+    public String getUsername() {
+        return username;
+    }
+
     /**
      * set username.
      *
-     * @param username
+     * @param username username parameter.
      */
-    public void setUsername(String username){this.username = username;}
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     /**
      * getScore.
      *
      * @return score.
      */
-    public Integer getScore(){return score;}
+    public Integer getScore() {
+        return score;
+    }
+
     /**
      * set score.
      *
-     * @param score
+     * @param score score parameter.
      */
-    public void setScore(Integer score){this.score = score;}
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
     /**
      * getDate.
      *
      * @return date.
      */
-    public String getDate(){return date;}
+    public String getDate() {
+        return date;
+    }
+
     /**
      * set date.
      *
-     * @param date
+     * @param date date parameter.
      */
-    public void setDate(String date){this.date = date;}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     /**
-     *
      * @return type.
      */
     public String getType() {
@@ -102,14 +133,17 @@ public class Statistics {
     }
 
     /**
-     *
-     * @param type
+     * @param type type parameter.
      */
     public void setType(String type) {
         this.type = type;
     }
 
-    public String toString(){
+    /**
+     * to string method.
+     * @return string
+     */
+    public String toString() {
         return "Statistics("
                 + ", username='" + username + '\''
                 + ", score='" + score + '\''

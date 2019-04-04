@@ -12,7 +12,8 @@ public interface FriendshipRepository extends CrudRepository<Friendship, Integer
 
     /**
      * get.
-     * @param username
+     *
+     * @param username username parameter.
      * @return friends list.
      */
     @Query(value = "SELECT username2 FROM friendships WHERE username1 = ?1", nativeQuery = true)

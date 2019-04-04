@@ -14,6 +14,7 @@ public interface StatisticsRepository
         extends CrudRepository<Statistics, Integer> {
     /**
      * Query to findAllStatistics.
+     *
      * @return list.
      */
     @Query(value = "SELECT * from statistics", nativeQuery = true)
@@ -21,7 +22,8 @@ public interface StatisticsRepository
 
     /**
      * get by date.
-     * @param date
+     *
+     * @param date date parameter.
      * @return Statistics obj.
      */
     @Query(value = "SELECT * FROM statistics WHERE date = ?1 and type = ?2",
@@ -30,7 +32,8 @@ public interface StatisticsRepository
 
     /**
      * get by name.
-     * @param username
+     *
+     * @param username get by username.
      * @return list.
      */
     @Query(value = "SELECT * FROM statistics WHERE username = ?1",
@@ -38,9 +41,10 @@ public interface StatisticsRepository
     List<Statistics> findStatisticsByUsername(String username);
 
     /**
+     * find statistics by username and type.
      *
-     * @param username
-     * @param type
+     * @param username username parameter
+     * @param type     type parameter.
      * @return list.
      */
     @Query(value = "SELECT * FROM statistics WHERE username = ?1 AND type = ?2",
@@ -49,8 +53,9 @@ public interface StatisticsRepository
 
     /**
      * update.
-     * @param score
-     * @param username
+     *
+     * @param score    score parameter.
+     * @param username username parameter.
      */
     @Modifying
     @Transactional

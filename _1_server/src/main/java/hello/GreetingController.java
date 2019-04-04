@@ -42,6 +42,7 @@ public class GreetingController {
 
     /**
      * addActivity.
+     *
      * @return list.
      */
     @RequestMapping(value = "/test", method = RequestMethod.POST)
@@ -77,12 +78,11 @@ public class GreetingController {
                 activity.getUsername(), sumFood, activity.getDate());
 
         int c = activity.getCategory();
-        if(c == 1) {
+        if (c == 1) {
             sFood.setType("FOOD");
-        }else if(c == 2){
+        } else if (c == 2) {
             sFood.setType("TRANSPORT");
-        }
-        else if(c == 3){
+        } else if (c == 3) {
             sFood.setType("ELECTRICITY");
         }
         Statistics sF = this.statisticsRepository
@@ -99,6 +99,8 @@ public class GreetingController {
     }
 
     /**
+     * returns a list for statistics.
+     *
      * @return List
      */
     @RequestMapping(value = "/statistics",
@@ -108,19 +110,22 @@ public class GreetingController {
     }
 
     /**
+     * gets all stats by type.
      *
-     * @param username
-     * @param type
+     * @param username username parameter.
+     * @param type     type parameter.
      * @return list.x
      */
     @RequestMapping(value = "/stats", method = RequestMethod.POST)
     public List<Statistics> getAllStatsByType(@RequestParam(value = "username",
-            defaultValue = "anonymous") String username, @RequestBody String type){
+            defaultValue = "anonymous") String username, @RequestBody String type) {
         return statisticsRepository.findStatisticsByUsernameAndType(username, type);
     }
 
 
     /**
+     * updates activities for a user.
+     *
      * @param user that needs their activites updated
      * @return List of Activity objects
      */
@@ -134,7 +139,7 @@ public class GreetingController {
      * this is the registration method - checks if the registration
      * is possible.
      *
-     * @param user
+     * @param user that wants to register.
      * @return the message
      */
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -152,7 +157,7 @@ public class GreetingController {
     /**
      * method called for login request.
      *
-     * @param user
+     * @param user that wants to login.
      * @return String
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -168,7 +173,9 @@ public class GreetingController {
     }
 
     /**
-     * @param user
+     * update the badge for a user.
+     *
+     * @param user that has a badge.
      * @return res.
      */
     @RequestMapping(value = "/updateBadge")
@@ -178,9 +185,9 @@ public class GreetingController {
     }
 
     /**
-     * waiting for @HASHIM to call it in the GUI.
-     * * @param user
+     * adds activity to a user.
      *
+     * @param user that has an activity to be added.
      * @return the current user
      */
     @RequestMapping(value = "/activity", method = RequestMethod.POST)
@@ -196,6 +203,7 @@ public class GreetingController {
 
     /**
      * method for getting the most recent updates.
+     *
      * @return user from db.
      */
     @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
@@ -208,16 +216,14 @@ public class GreetingController {
     /**
      * just a default method.
      *
-     * @param username
-     * @param hash
-     * @return User
+     * @param username username parameter.
+     * @param hash     hash parameter.
+     * @return User parameter.
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value = "username",
-            defaultValue = "anonymous")
-                             final String username,
-                         @RequestParam(value = "hash", defaultValue = "0")
-                         final String hash) {
+            defaultValue = "anonymous") final String username,
+                         @RequestParam(value = "hash", defaultValue = "0") final String hash) {
         String info = String.format(
                 "/GET REQUEST info: username=%s, hash=%s", username, hash);
         System.out.println(info);
@@ -226,6 +232,7 @@ public class GreetingController {
 
     /**
      * leaderboard method.
+     *
      * @return list.
      */
     @RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
@@ -247,7 +254,7 @@ public class GreetingController {
     /**
      * just a setter.
      *
-     * @param userRepository
+     * @param userRepository user repository.
      */
     public void setUserRepository(final UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -256,7 +263,7 @@ public class GreetingController {
     /**
      * setting the repo.
      *
-     * @param activityRepository
+     * @param activityRepository activity repository.
      */
     public void setActivityRepository(
             final ActivityRepository activityRepository) {
@@ -266,7 +273,7 @@ public class GreetingController {
     /**
      * setter.
      *
-     * @param statisticsRepository
+     * @param statisticsRepository setter for statistics repo.
      */
     public void setStatisticsRepository(
             final StatisticsRepository statisticsRepository) {
