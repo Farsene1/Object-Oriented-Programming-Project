@@ -20,6 +20,10 @@ public class Statistics {
      */
     private String username;
     /**
+     * type attr CAN BE -&gt; ALL or FOOD or TRANSPORT or ELECTRICITY.
+     */
+    private String type;
+    /**
      * score attr.
      */
     private Integer score;
@@ -30,67 +34,83 @@ public class Statistics {
     /**
      * default constructor.
      */
-<span class="fc" id="L33">    public Statistics() { }</span>
+<span class="fc" id="L37">    public Statistics() { }</span>
     /**
      * @param score
      * @param date
      */
-<span class="fc" id="L38">    public Statistics(String username, Integer score, String date) {</span>
-<span class="fc" id="L39">        this.username = username;</span>
-<span class="fc" id="L40">        this.score = score;</span>
-<span class="fc" id="L41">        this.date = date;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L42">    public Statistics(String username, Integer score, String date) {</span>
+<span class="fc" id="L43">        this.username = username;</span>
+<span class="fc" id="L44">        this.score = score;</span>
+<span class="fc" id="L45">        this.date = date;</span>
+<span class="fc" id="L46">    }</span>
     /**
      * getId.
      *
      * @return id.
      */
-<span class="fc" id="L48">    public Integer getId() {return id;}</span>
+<span class="fc" id="L52">    public Integer getId() {return id;}</span>
     /**
      * set id.
      *
      * @param id
      */
-<span class="fc" id="L54">    public void setId(Integer id){this.id = id;}</span>
+<span class="fc" id="L58">    public void setId(Integer id){this.id = id;}</span>
     /**
      * getUsername.
      *
      * @return username.
      */
-<span class="fc" id="L60">    public String getUsername(){return username;}</span>
+<span class="fc" id="L64">    public String getUsername(){return username;}</span>
     /**
      * set username.
      *
      * @param username
      */
-<span class="fc" id="L66">    public void setUsername(String username){this.username = username;}</span>
+<span class="fc" id="L70">    public void setUsername(String username){this.username = username;}</span>
     /**
      * getScore.
      *
      * @return score.
      */
-<span class="fc" id="L72">    public Integer getScore(){return score;}</span>
+<span class="fc" id="L76">    public Integer getScore(){return score;}</span>
     /**
      * set score.
      *
      * @param score
      */
-<span class="fc" id="L78">    public void setScore(Integer score){this.score = score;}</span>
+<span class="fc" id="L82">    public void setScore(Integer score){this.score = score;}</span>
     /**
      * getDate.
      *
      * @return date.
      */
-<span class="fc" id="L84">    public String getDate(){return date;}</span>
+<span class="fc" id="L88">    public String getDate(){return date;}</span>
     /**
      * set date.
      *
      * @param date
      */
-<span class="fc" id="L90">    public void setDate(String date){this.date = date;}</span>
+<span class="fc" id="L94">    public void setDate(String date){this.date = date;}</span>
+
+    /**
+     *
+     * @return type.
+     */
+    public String getType() {
+<span class="nc" id="L101">        return type;</span>
+    }
+
+    /**
+     *
+     * @param type
+     */
+    public void setType(String type) {
+<span class="nc" id="L109">        this.type = type;</span>
+<span class="nc" id="L110">    }</span>
 
     public String toString(){
-<span class="fc" id="L93">        return &quot;Statistics(&quot;</span>
+<span class="fc" id="L113">        return &quot;Statistics(&quot;</span>
                 + &quot;, username='&quot; + username + '\''
                 + &quot;, score='&quot; + score + '\''
                 + &quot;, date='&quot; + date + '\''

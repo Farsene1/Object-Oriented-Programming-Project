@@ -1,63 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserBadge.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">UserBadge.java</span></div><h1>UserBadge.java</h1><pre class="source lang-java linenums">package classes;
 
-<span class="nc" id="L3">public class UserBadge {</span>
+/**
+ * User badge class.
+ */
+<span class="nc" id="L6">public class UserBadge {</span>
 
     /**
      * Default logo image for badge 1 / new registered user.
      */
-<span class="nc" id="L8">    static String icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
+<span class="nc" id="L11">    static String icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
 
     /**
-     * Method for user selection of unlocked badge
+     * icion choice method.
+     * @param user user param.
+     * @return returns a string.
      */
-    static public String iconChoice(User user){
+    public static String iconChoice(final User user) {
 
         /**
          * Calls method getBadge and assigns value to int number.
          */
-<span class="nc" id="L18">        int number= user.getBadge();</span>
+<span class="nc" id="L23">        int number = user.getBadge();</span>
 
         /**
-         * If statements to change badge dependent on users choice from available badges.
+         * If statements to change badge dependent
+         * on users choice from available badges.
          */
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(number == 1){</span>
-<span class="nc" id="L24">          icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (number == 1) {</span>
+<span class="nc" id="L30">            icon = &quot;https://i.ibb.co/THM6prg/polar1.png&quot;;</span>
         }
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(number == 2){</span>
-<span class="nc" id="L27">            icon = &quot;https://i.ibb.co/KjLc4HL/polar2.png&quot;;</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (number == 2) {</span>
+<span class="nc" id="L33">            icon = &quot;https://i.ibb.co/KjLc4HL/polar2.png&quot;;</span>
         }
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if(number == 3){</span>
-<span class="nc" id="L30">            icon = &quot;https://i.ibb.co/2K8g0Mg/polar3.png&quot;;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (number == 3) {</span>
+<span class="nc" id="L36">            icon = &quot;https://i.ibb.co/2K8g0Mg/polar3.png&quot;;</span>
         }
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if(number == 4){</span>
-<span class="nc" id="L33">            icon = &quot;https://i.ibb.co/8YxhNJy/polar4.png&quot;;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        if (number == 4) {</span>
+<span class="nc" id="L39">            icon = &quot;https://i.ibb.co/8YxhNJy/polar4.png&quot;;</span>
         }
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(number == 5){</span>
-<span class="nc" id="L36">            icon = &quot;https://i.ibb.co/sPXB0BS/polar5.png&quot;;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (number == 5) {</span>
+<span class="nc" id="L42">            icon = &quot;https://i.ibb.co/sPXB0BS/polar5.png&quot;;</span>
         }
-<span class="nc bnc" id="L38" title="All 2 branches missed.">        if(number == 6){</span>
-<span class="nc" id="L39">            icon = &quot;https://i.ibb.co/BBCjx1T/polar6.png&quot;;</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (number == 6) {</span>
+<span class="nc" id="L45">            icon = &quot;https://i.ibb.co/BBCjx1T/polar6.png&quot;;</span>
         }
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if(number == 7){</span>
-<span class="nc" id="L42">            icon = &quot;https://i.ibb.co/4t0wztb/polar7.png&quot;;</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (number == 7) {</span>
+<span class="nc" id="L48">            icon = &quot;https://i.ibb.co/4t0wztb/polar7.png&quot;;</span>
         }
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        if(number == 8){</span>
-<span class="nc" id="L45">            icon = &quot;https://i.ibb.co/GCdqgpT/polar8.png&quot;;</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (number == 8) {</span>
+<span class="nc" id="L51">            icon = &quot;https://i.ibb.co/GCdqgpT/polar8.png&quot;;</span>
         }
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        if(number == 9){</span>
-<span class="nc" id="L48">            icon = &quot;https://i.ibb.co/0s5PX56/polar9.png&quot;;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (number == 9) {</span>
+<span class="nc" id="L54">            icon = &quot;https://i.ibb.co/0s5PX56/polar9.png&quot;;</span>
         }
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(number == 10){</span>
-<span class="nc" id="L51">            icon = &quot;https://i.ibb.co/48GCprf/polar10.png&quot;;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (number == 10) {</span>
+<span class="nc" id="L57">            icon = &quot;https://i.ibb.co/48GCprf/polar10.png&quot;;</span>
         }
-<span class="nc" id="L53">    return icon;</span>
-}
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (number == 11) {</span>
+<span class="nc" id="L60">            icon = &quot;https://i.ibb.co/PTtCXg1/food1-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (number == 12) {</span>
+<span class="nc" id="L63">            icon = &quot;https://i.ibb.co/JnXmDsZ/food2-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (number == 13) {</span>
+<span class="nc" id="L66">            icon = &quot;https://i.ibb.co/5RT1G9S/food3-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (number == 14) {</span>
+<span class="nc" id="L69">            icon = &quot;https://i.ibb.co/1myHV54/food4-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (number == 15) {</span>
+<span class="nc" id="L72">            icon = &quot;https://i.ibb.co/jH8Jhk4/food5-400-copy.png&quot;;</span>
+        }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (number == 16) {</span>
+<span class="nc" id="L75">            icon = &quot;https://i.ibb.co/Qp3RfGW/food6-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (number == 17) {</span>
+<span class="nc" id="L78">            icon = &quot;https://i.ibb.co/MV6NLdZ/food7-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (number == 18) {</span>
+<span class="nc" id="L81">            icon = &quot;https://i.ibb.co/5W3DyB8/food8-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (number == 19) {</span>
+<span class="nc" id="L84">            icon = &quot;https://i.ibb.co/RHrTjW2/food9-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (number == 20) {</span>
+<span class="nc" id="L87">            icon = &quot;https://i.ibb.co/GWFPd6x/food10-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if (number == 21) {</span>
+<span class="nc" id="L90">            icon = &quot;https://i.ibb.co/pXHj9FL/transport1-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if (number == 22) {</span>
+<span class="nc" id="L93">            icon = &quot;https://i.ibb.co/c1p4GHm/transport2-400.png&quot;;</span>
+        }
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (number == 23) {</span>
+<span class="nc" id="L96">            icon = &quot;https://i.ibb.co/MVYxNbH/transport3.png&quot;;</span>
+        }
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if (number == 24) {</span>
+<span class="nc" id="L99">            icon = &quot;https://i.ibb.co/SwPcPbB/transport4png.png&quot;;</span>
+        }
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (number == 25) {</span>
+<span class="nc" id="L102">            icon = &quot;https://i.ibb.co/dcjBtwD/transport5.png&quot;;</span>
+        }
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        if (number == 26) {</span>
+<span class="nc" id="L105">            icon = &quot;https://i.ibb.co/8XbdTPd/transport6.png&quot;;</span>
+        }
+<span class="nc bnc" id="L107" title="All 2 branches missed.">        if (number == 27) {</span>
+<span class="nc" id="L108">            icon = &quot;https://i.ibb.co/JvFmzS6/transport7.png&quot;;</span>
+        }
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (number == 28) {</span>
+<span class="nc" id="L111">            icon = &quot;https://i.ibb.co/LYqnnZ7/transport8.png&quot;;</span>
+        }
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (number == 29) {</span>
+<span class="nc" id="L114">            icon = &quot;https://i.ibb.co/grvqsk9/transport9.png&quot;;</span>
+        }
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        if (number == 30) {</span>
+<span class="nc" id="L117">            icon = &quot;https://i.ibb.co/znYJcqB/transport10.png&quot;;</span>
+        }
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if (number == 31) {</span>
+<span class="nc" id="L120">        icon = &quot;https://i.ibb.co/xq2rwtw/electricity1.png&quot;;</span>
+    }
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        if (number == 32) {</span>
+<span class="nc" id="L123">        icon = &quot;https://i.ibb.co/QfXVd9k/electricity2.png&quot;;</span>
+    }
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (number == 33) {</span>
+<span class="nc" id="L126">        icon = &quot;https://i.ibb.co/WfW4PvB/electricity3.png&quot;;</span>
+    }
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        if (number == 34) {</span>
+<span class="nc" id="L129">        icon = &quot;https://i.ibb.co/swQY9hc/electricity4.png&quot;;</span>
+    }
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (number == 35) {</span>
+<span class="nc" id="L132">        icon = &quot;https://i.ibb.co/0j3ZrsY/electricity5.png&quot;;</span>
+    }
+<span class="nc bnc" id="L134" title="All 2 branches missed.">        if (number == 36) {</span>
+<span class="nc" id="L135">        icon = &quot;https://i.ibb.co/xJ1kr1C/electricity6.png&quot;;</span>
+    }
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if (number == 37) {</span>
+<span class="nc" id="L138">        icon = &quot;https://i.ibb.co/drmchRC/electricity7.png&quot;;</span>
+    }
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if (number == 38) {</span>
+<span class="nc" id="L141">        icon = &quot;https://i.ibb.co/gmttZfZ/electricity8.png&quot;;</span>
+    }
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (number == 39) {</span>
+<span class="nc" id="L144">        icon = &quot;https://i.ibb.co/Q9NDBjt/electricity9.png&quot;;</span>
+    }
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        if (number == 40) {</span>
+<span class="nc" id="L147">        icon = &quot;https://i.ibb.co/zfFPw6N/electricity10.png&quot;;</span>
+    }
+<span class="nc" id="L149">            return icon;</span>
+        }
 
     /**
-     * Get method for icon choice.
+     * Get Icon method.
+     * @return icon.
      */
-    static public String getIcon() {
-<span class="nc" id="L60">        return icon;</span>
+    public static String getIcon() {
+<span class="nc" id="L157">        return icon;</span>
     }
 
 }

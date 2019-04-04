@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Statistics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">Statistics.java</span></div><h1>Statistics.java</h1><pre class="source lang-java linenums">package client;
 
-<span class="nc" id="L3">public class Statistics {</span>
+import classes.Controller;
+import classes.User;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import java.util.List;
+
+<span class="nc" id="L13">public class Statistics {</span>
+
+    public static void showOptions(GridPane grid, User user, Stage window) {
+<span class="nc" id="L16">        final CategoryAxis xAxis = new CategoryAxis();</span>
+<span class="nc" id="L17">        final NumberAxis yAxis = new NumberAxis();</span>
+<span class="nc" id="L18">        xAxis.setLabel(&quot;Date&quot;);</span>
+<span class="nc" id="L19">        final LineChart&lt;String, Number&gt; lineChart = new LineChart&lt;&gt;(xAxis, yAxis);</span>
+
+<span class="nc" id="L21">        lineChart.setTitle(&quot;MY STATISTICS&quot;);</span>
+
+<span class="nc" id="L23">        XYChart.Series PolarSeries = new XYChart.Series();</span>
+<span class="nc" id="L24">        PolarSeries.setName(&quot;POLAR SCORE&quot;);</span>
+<span class="nc" id="L25">        XYChart.Series FoodSeries = new XYChart.Series();</span>
+<span class="nc" id="L26">        FoodSeries.setName(&quot;FOOD SCORE&quot;);</span>
+<span class="nc" id="L27">        XYChart.Series TransportSeries = new XYChart.Series();</span>
+<span class="nc" id="L28">        TransportSeries.setName(&quot;TRANSPORT SCORE&quot;);</span>
+<span class="nc" id="L29">        XYChart.Series ElectricitySeries = new XYChart.Series();</span>
+<span class="nc" id="L30">        ElectricitySeries.setName(&quot;ELECTRICITY SCORE&quot;);</span>
+
+<span class="nc" id="L32">        List&lt;classes.Statistics&gt; polardata= new Controller().getStatsByType(user.getUsername(),&quot;ALL&quot;);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (classes.Statistics stat:polardata) {</span>
+<span class="nc" id="L34">            PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        List&lt;classes.Statistics&gt; fooddata= new Controller().getStatsByType(user.getUsername(),&quot;FOOD&quot;);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (classes.Statistics stat:fooddata) {</span>
+<span class="nc" id="L38">            FoodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L39">        }</span>
+<span class="nc" id="L40">        List&lt;classes.Statistics&gt; transportdata= new Controller().getStatsByType(user.getUsername(),&quot;TRANSPORT&quot;);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (classes.Statistics stat:transportdata) {</span>
+<span class="nc" id="L42">            TransportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">        List&lt;classes.Statistics&gt; electricitydata= new Controller().getStatsByType(user.getUsername(),&quot;ELECTRICITY&quot;);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (classes.Statistics stat:electricitydata) {</span>
+<span class="nc" id="L46">            ElectricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L47">        }</span>
+
+<span class="nc" id="L49">        lineChart.getData().addAll(PolarSeries, FoodSeries, TransportSeries,ElectricitySeries);</span>
+<span class="nc" id="L50">        lineChart.setMinWidth(1420);</span>
+<span class="nc" id="L51">        lineChart.setMinHeight(900);</span>
+<span class="nc" id="L52">        grid.getChildren().setAll(lineChart);</span>
+<span class="nc" id="L53">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
