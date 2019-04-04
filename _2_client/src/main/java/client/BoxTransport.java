@@ -34,10 +34,11 @@ public class BoxTransport {
         window.setMaxWidth(475);
         window.setMinHeight(285);
         window.setMaxHeight(285);
-
+        VBox layout = new VBox(10);
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label();
+        Label hint = new Label("Consider usinig  the bike or public transport instead of the car");
         errorlabel.setText("You can only type numbers");
         errorlabel.setStyle("-fx-text-fill: red");
         errorlabel.setVisible(false);
@@ -73,8 +74,19 @@ public class BoxTransport {
         }
     });
 
+        dropdown.getSelectionModel().selectedItemProperty().addListener((v,oldValue,newValue) ->{
+            if(newValue.equals("Car")){
+                layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(hint,submitButton);
+            }
+            else{
+                layout.getChildren().removeAll(hint,submitButton);
+                layout.getChildren().addAll(submitButton);
+            }
+        });
 
-    VBox layout = new VBox(10);
+
+
     layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         distanceT.setStyle("-fx-padding: 10;");
