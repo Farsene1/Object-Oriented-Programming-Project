@@ -10,11 +10,20 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * Electrcity box.
+ */
 public class BoxElectricity {
+
+
+    /**
+     * Variables.
+     */
     static Boolean solar;
     static int light_hrs;
     static int heat_hrs;
@@ -23,7 +32,14 @@ public class BoxElectricity {
     static String date;
     static int score;
 
-    public static void addUsage(String title, String message, classes.User user) {
+    /**
+     * add usage box for electricity.
+     *
+     * @param title   title parameter.
+     * @param message message parameter.
+     * @param user    user parameter.
+     */
+    public static void addUsage(final String title, final String message, final classes.User user) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -50,30 +66,28 @@ public class BoxElectricity {
         heatfield.setMaxWidth(300);
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> {
-            try{
+            try {
                 LocalDateTime mydateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 date = mydateObj.format(myFormatObj);
                 solar = solarbox.isSelected();
                 light_hrs = Integer.parseInt(lightfield.getText());
                 heat_hrs = Integer.parseInt(heatfield.getText());
-                if(light_hrs!=0)
-                {
-                    if (heat_hrs!=0)
-                    {
+                if (light_hrs != 0) {
+                    if (heat_hrs != 0) {
                         Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);
                         if (solar) {
-                            score= 50 * light_hrs+ -300*heat_hrs;
-                            lightscore=50 * light_hrs ;
-                            htScore=-300*heat_hrs;
+                            score = 50 * light_hrs + -300 * heat_hrs;
+                            lightscore = 50 * light_hrs;
+                            htScore = -300 * heat_hrs;
                         } else {
-                            score= -50 * light_hrs+ -300*heat_hrs;
-                            lightscore=-50 * light_hrs ;
-                            htScore=-300*heat_hrs;
+                            score = -50 * light_hrs + -300 * heat_hrs;
+                            lightscore = -50 * light_hrs;
+                            htScore = -300 * heat_hrs;
                         }
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
-                        // add electricity in the database
+                        // add electricity in the database.
                         List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
                                 lightscore, date));
                         System.out.println("\n The items are" + list.toString());
@@ -81,42 +95,37 @@ public class BoxElectricity {
                                 htScore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
-                    }
-                    else
-                    {
+                    } else {
                         Electricity electricity = new Electricity(0, light_hrs, solar);
                         if (solar) {
-                            score= 50 * light_hrs;
-                            lightscore=50 * light_hrs ;
+                            score = 50 * light_hrs;
+                            lightscore = 50 * light_hrs;
                         } else {
-                            score= -50 * light_hrs;
-                            lightscore=-50 * light_hrs ;
+                            score = -50 * light_hrs;
+                            lightscore = -50 * light_hrs;
                         }
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
-                        // add electricity in the database
+                        // add electricity in the database.
                         List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
                                 lightscore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
                     }
-                }
-                else
-                {
+                } else {
                     Electricity electricity = new Electricity(heat_hrs, 0, solar);
-                        score= -300*heat_hrs;
-                        htScore=-300*heat_hrs;
+                    score = -300 * heat_hrs;
+                    htScore = -300 * heat_hrs;
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
-                    // add electricity in the database
+                    // add electricity in the database.
                     List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Heat usage: " + heat_hrs + " Hours",
                             htScore, date));
                     System.out.println("\n The items are" + list.toString());
                     window.close();
                 }
 
-            }
-            catch (NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 lightfield.clear();
                 heatfield.clear();
                 errorlabel.setVisible(true);
@@ -132,7 +141,7 @@ public class BoxElectricity {
         solarbox.setStyle("-fx-padding: 3;");
         submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
-                layout.getChildren().addAll(label, lightfield,gap, heatfield, errorlabel, solarbox, submitButton);
+        layout.getChildren().addAll(label, lightfield, gap, heatfield, errorlabel, solarbox, submitButton);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();

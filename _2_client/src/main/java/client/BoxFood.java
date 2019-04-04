@@ -11,10 +11,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Box food class.
+ */
 public class BoxFood {
 
     /**
@@ -22,7 +26,14 @@ public class BoxFood {
      */
     static String foodAdded = "";
 
-    public static void addMeal(String title, String message, User user) {
+    /**
+     * Add meal method.
+     *
+     * @param title   parameter title
+     * @param message message parameter.
+     * @param user    user parameter.
+     */
+    public static void addMeal(final String title, final String message, final User user) {
 
         /**
          * Sets window.
@@ -37,7 +48,7 @@ public class BoxFood {
         Label label = new Label(message);
 
         JFXComboBox<String> dropdown = new JFXComboBox<>();
-        dropdown.getItems().setAll("Vegan meal", "Vegetarian meal", "Meal with meat","Imported Groceries", "Local Groceries");
+        dropdown.getItems().setAll("Vegan meal", "Vegetarian meal", "Meal with meat", "Imported Groceries", "Local Groceries");
         dropdown.getSelectionModel().select(0);
 
         VBox layout = new VBox(10);
@@ -110,7 +121,7 @@ public class BoxFood {
                 new Controller().sendMeal(user, 300);
                 // add a meal in the database
                 List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 1,
-                        "Local produce",300, date));
+                        "Local produce", 300, date));
 
                 window.close();
             }
@@ -124,7 +135,7 @@ public class BoxFood {
                 meatgrams.clear();
             }
             if (!newValue.equals("Meal with meat")) {
-                layout.getChildren().removeAll(errorlabel, meatgrams,submitButton);
+                layout.getChildren().removeAll(errorlabel, meatgrams, submitButton);
                 layout.getChildren().addAll(submitButton);
             }
         });

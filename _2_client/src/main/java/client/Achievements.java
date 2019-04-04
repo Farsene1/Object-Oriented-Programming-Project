@@ -10,9 +10,18 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+/**
+ * Class achievements.
+ */
 public class Achievements {
-
-    public static void showBadges(GridPane grid, User user, Stage window) {
+    /**
+     * Show badges method.
+     *
+     * @param grid   paramter grid
+     * @param user   parameter user.
+     * @param window window parameter.
+     */
+    public static void showBadges(final GridPane grid, final User user, final Stage window) {
 
         /**
          * Calls method in class to show PolarBadges.
@@ -40,10 +49,11 @@ public class Achievements {
         achievements.setStyle("-fx-padding: 5;");
         achievements.setSpacing(10);
         achievements.setAlignment(Pos.CENTER);
-        achievements.setStyle("-fx-padding: 1;" + "-fx-border-style: solid inside;"
+        achievements.setStyle("-fx-padding: 1;"
+                + "-fx-border-style: solid inside;"
                 + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
-                + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;" +
-                "-fx-background-color: rgba(255,255,255,0.4)");
+                + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;"
+                + "-fx-background-color: rgba(255,255,255,0.4)");
         GridPane.setConstraints(achievements, 0, 0);
 
         /**
@@ -68,19 +78,19 @@ public class Achievements {
         polarHbox.setSpacing(1);
 
         /**
-         * transport score badges
+         * transport score badges.
          */
         HBox transportHbox = AchievementsTransport.getTransportBox();
         transportHbox.setSpacing(1);
 
         /**
-         * transport score badges
+         * transport score badges.
          */
         HBox electricityHbox = AchievementsElectricity.getElectricityBox();
         electricityHbox.setSpacing(1);
 
         /**
-         * Label for transport badges
+         * Label for transport badges.
          */
         Label transportLabel = new Label("TRANSPORT");
         transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
@@ -94,7 +104,7 @@ public class Achievements {
         /**
          * Adds all badges in specific Hboxes to Vbox // styling.
          */
-        achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);
+        achievements.getChildren().addAll(myAchievements, polarLabel, polarHbox, foodLabel, foodHbox, transportLabel, transportHbox, electricityLabel, electricityHbox);
         grid.getChildren().setAll(achievements);
         achievements.setAlignment(Pos.CENTER);
         grid.setMinWidth(1500);
