@@ -45,8 +45,8 @@ public class BoxTransport {
         window.setTitle(title);
         window.setMinWidth(475);
         window.setMaxWidth(475);
-        window.setMinHeight(285);
-        window.setMaxHeight(285);
+        window.setMinHeight(400);
+        window.setMaxHeight(400);
         VBox layout = new VBox(10);
 
 
