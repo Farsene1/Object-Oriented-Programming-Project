@@ -7,7 +7,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -15,16 +14,10 @@ import static org.mockito.Mockito.when;
 public class ControllerTest {
 
     @Autowired
-    private GreetingController controller = new GreetingController();
+    private UserController controller = new UserController();
 
     @MockBean
     private UserRepository repository = Mockito.mock(UserRepository.class);
-
-    @MockBean
-    private ActivityRepository activityRepository = Mockito.mock(ActivityRepository.class);
-
-    @MockBean
-    private StatisticsRepository statisticsRepository = Mockito.mock(StatisticsRepository.class);
 
     private User user1 = new User("admin","root");
     private User user2 = new User("postgres","root");
@@ -32,8 +25,6 @@ public class ControllerTest {
     @BeforeEach
     public void setUp(){
         controller.setUserRepository(repository);
-        controller.setActivityRepository(activityRepository);
-        controller.setStatisticsRepository(statisticsRepository);
     }
 
     @Test
@@ -89,22 +80,6 @@ public class ControllerTest {
     }
 
     @Test
-    public void testPath(){
-        when(activityRepository.findActivitiesByUser("admin"))
-                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
-        List<Activity> list = controller.addToActivitiesTable(new Activity("admin",1,"vegan",200,""));
-        assertEquals(1,list.size());
-    }
-
-    @Test
-    public void firstActivitiesPath(){
-        when(activityRepository.findActivitiesByUser("admin"))
-                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
-        List<Activity> list = controller.getUpdatesActivities(new User("admin",""));
-        assertEquals(1,list.size());
-    }
-
-    @Test
     public void addActivityTest(){
         user1.setFoodScore(10);
         String res = controller.addActivity(user1);
@@ -127,12 +102,5 @@ public class ControllerTest {
     @Test
     public void updateBadgeTest(){
         assertEquals("OK", controller.updateBadge(new User()));
-    }
-
-    @Test
-    public void getAllStatsTest(){
-        Mockito.when(statisticsRepository.findStatisticsByUsername("admin"))
-                .thenReturn(Arrays.asList(new Statistics(),new Statistics()));
-        assertEquals(2, controller.getAllStats("admin").size());
     }
 }
