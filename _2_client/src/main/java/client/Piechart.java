@@ -24,7 +24,7 @@ public class Piechart {
         PieChart.Data data[] = new PieChart.Data[3];
 
         // string and integer data
-        String status[] = {"Transport",  "Electricity", "Food"};
+        String status[] = {"Food", "Transport",  "Electricity"};
 
         pieChartBox = new VBox();
 
