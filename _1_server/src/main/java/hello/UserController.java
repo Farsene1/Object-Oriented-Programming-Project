@@ -96,6 +96,7 @@ public class UserController {
 
     /**
      * this adds solar panels to user.
+     *
      * @param user that added solar panels or deleted them.
      * @return message.
      */

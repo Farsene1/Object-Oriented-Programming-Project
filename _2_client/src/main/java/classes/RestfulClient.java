@@ -140,6 +140,18 @@ public class RestfulClient {
     }
 
     /**
+     * sets the solar panels attribute.
+     *
+     * @param user to be passed to the server.
+     * @return the response for the post request.
+     */
+    public String setSolar(final User user) {
+        String postUrl = "http://localhost:8080/addsolar";
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        return postResponse.getBody();
+    }
+
+    /**
      * Gets update for a user.
      *
      * @param user user parameter.

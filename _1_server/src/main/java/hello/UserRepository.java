@@ -72,8 +72,9 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     /**
      * sets the solar_panel attribute.
+     *
      * @param username username.
-     * @param solar boolean.
+     * @param solar    boolean.
      */
     @Query(value = "UPDATE users SET solar_panels = ?2 WHERE username = ?1")
     void addSolarPanels(String username, boolean solar);

@@ -83,6 +83,16 @@ public class Controller {
     }
 
     /**
+     * this methods adds or deletes the solar panels.
+     *
+     * @param user to be passed to the server.
+     * @return the response.
+     */
+    public String updateSolarPanels(User user) {
+        return restfulClient.setSolar(user);
+    }
+
+    /**
      * Returns a list of statistics.
      *
      * @param username username parameter.
@@ -144,6 +154,7 @@ public class Controller {
 
     /**
      * Returns a string response.
+     *
      * @param friendRequest friend request parameter.
      * @return string.
      */
@@ -153,6 +164,7 @@ public class Controller {
 
     /**
      * Returns a string response for no.
+     *
      * @param friendRequest friend request parameter.
      * @return string.
      */
@@ -162,6 +174,7 @@ public class Controller {
 
     /**
      * Gets all friends.
+     *
      * @param user user parameter.
      * @return returns a list.
      */
@@ -171,6 +184,7 @@ public class Controller {
 
     /**
      * Returns a list of friend Requests.
+     *
      * @param user parameter user.
      * @return list.
      */
@@ -180,6 +194,7 @@ public class Controller {
 
     /**
      * Returns a list of uisers.
+     *
      * @return list.
      */
     public List<User> get10Users() {
@@ -200,6 +215,7 @@ public class Controller {
 
     /**
      * Returns restufl.
+     *
      * @return restfulClient.
      */
     public RestfulClient getRestfulClient() {
@@ -208,6 +224,7 @@ public class Controller {
 
     /**
      * Sets restful.
+     *
      * @param restfulClient restful parameter.
      */
     public void setRestfulClient(final RestfulClient restfulClient) {
