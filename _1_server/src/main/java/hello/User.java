@@ -2,7 +2,6 @@ package hello;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * User table entity generated.
@@ -41,6 +40,10 @@ public class User implements Serializable {
      */
     private Integer transport = 0;
     /**
+     * attribute for solar panels.
+     */
+    private boolean solar_panels = false;
+    /**
      * Attribute polarScore declared as type integer.
      */
     private Integer polarScore = 0;
@@ -48,12 +51,6 @@ public class User implements Serializable {
      * Attribute date declared as type timestamp.
      */
     private Integer badge = 1;
-    /**
-     * Set activity.
-     */
-    @OneToMany
-    @JoinColumn(name = "userId")
-    private Set<Activity> activities;
 
     /**
      * Empty constructor declaration for user.
@@ -191,9 +188,26 @@ public class User implements Serializable {
     }
 
     /**
+     * checks if the user has solar panels.
+     * @return true or false.
+     */
+    public boolean isSolar() {
+        return solar_panels;
+    }
+
+    /**
+     * sets to true or false.
+     */
+    public void setSolar(boolean solar_panels) {
+        this.solar_panels = solar_panels;
+    }
+
+    /**
      * to string method.
      * @return the string.
      */
+
+
     @Override
     public String toString() {
         return "User{" + "username='" + username
