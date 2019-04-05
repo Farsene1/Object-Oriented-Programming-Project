@@ -70,4 +70,11 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             nativeQuery = true)
     void updateBadge(Integer badge, String username);
 
+    /**
+     * sets the solar_panel attribute.
+     * @param username username.
+     * @param solar boolean.
+     */
+    @Query(value = "UPDATE users SET solar_panels = ?2 WHERE username = ?1")
+    void addSolarPanels(String username, boolean solar);
 }

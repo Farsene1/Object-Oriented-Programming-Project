@@ -95,6 +95,17 @@ public class UserController {
     }
 
     /**
+     * this adds solar panels to user.
+     * @param user that added solar panels or deleted them.
+     * @return message.
+     */
+    @RequestMapping(value = "/addsolar", method = RequestMethod.POST)
+    public String addSolarPanel(@RequestBody final User user) {
+        this.userRepository.addSolarPanels(user.getUsername(), user.isSolar());
+        return "added solar panels";
+    }
+
+    /**
      * method for getting the most recent updates.
      *
      * @return user from db.
