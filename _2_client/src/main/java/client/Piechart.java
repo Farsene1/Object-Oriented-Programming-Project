@@ -29,22 +29,24 @@ public class Piechart {
         pieChartBox = new VBox();
 
         foodTotal = user.getFoodScore();
-        System.out.println(foodTotal);
-        if(foodTotal == 0){foodTotal = 33;}
-
+        electricityTotal = user.getElectricityScore();
         transportTotal = user.getTransportScore();
         System.out.println(transportTotal);
-        if(transportTotal == 0){transportTotal = 34;}
-
-        electricityTotal = user.getElectricityScore();
+        System.out.println(foodTotal);
         System.out.println(electricityTotal);
-        if(electricityTotal == 0){electricityTotal = 33;}
+
+        if((foodTotal == 0) && (transportTotal == 0) && (electricityTotal == 0)){
+            foodTotal = 33;
+            transportTotal = 33;
+            electricityTotal = 34;
+        }
+
 
         int sum = foodTotal + transportTotal + electricityTotal;
 
-        foodPercent = (foodTotal / sum) * 100;
-        transportPercent = (transportTotal / sum) * 100;
-        electricityPercent = (electricityTotal / sum) * 100;
+        foodPercent = ((foodTotal / sum) * 100);
+        transportPercent = ((transportTotal / sum) * 100);
+        electricityPercent = ((electricityTotal / sum) * 100);
         System.out.println(foodPercent);
         System.out.println(transportPercent);
         System.out.println(electricityPercent);
