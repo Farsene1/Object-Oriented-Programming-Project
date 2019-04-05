@@ -1,7 +1,7 @@
 package CSS;
 
-
 import javafx.beans.binding.Bindings;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -12,7 +12,7 @@ public class CSS {
     /**
      * Sets button style.
      *
-     * @param button buttom parameter.
+     * @param button button parameter.
      */
     public static void setButtonStyle(final Button button) {
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
@@ -53,27 +53,27 @@ public class CSS {
      */
     public static void setBackButtonStyle(final Button button) {
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                .then("-fx-graphic: url('https://i.ibb.co/dgvMZgJ/back-hover-small.png'); " +
-                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                .otherwise("-fx-graphic: url('https://i.ibb.co/j9CkHzX/back-small.png'); " +
-                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+                .then("-fx-graphic: url('https://i.ibb.co/dgvMZgJ/back-hover-small.png'); "
+                        + "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
+                .otherwise("-fx-graphic: url('https://i.ibb.co/j9CkHzX/back-small.png'); "
+                        + "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
     }
 
     /**
-     * Sets trohpy button style.
+     * Sets trophy button style.
      *
      * @param button trophy button
      */
     public static void setTrophyButtonStyle(final Button button) {
         button.styleProperty().bind(Bindings.when(button.hoverProperty())
-                .then("-fx-graphic: url('https://i.ibb.co/Jxsmw99/trophy-hover.png'); " +
-                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
-                .otherwise("-fx-graphic: url('https://i.ibb.co/YcCNG8K/trophy.png'); " +
-                        "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+                .then("-fx-graphic: url('https://i.ibb.co/Jxsmw99/trophy-hover.png'); "
+                      +  "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
+                .otherwise("-fx-graphic: url('https://i.ibb.co/YcCNG8K/trophy.png'); "
+                        + "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
     }
 
     /**
-     * Seets text field style.
+     * Sets text field style.
      *
      * @param textField textfield parameter.
      */
