@@ -53,7 +53,7 @@ public class UserBadgeTest {
     @Test
     public void testGetIcon(){
         String badge = "https://i.ibb.co/THM6prg/polar1.png";
-        assertEquals(badge ,UserBadge.getIcon());
+        assertEquals(badge ,UserBadge.geticon(1));
     }
 
 }
