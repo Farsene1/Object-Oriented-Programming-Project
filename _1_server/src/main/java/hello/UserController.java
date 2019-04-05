@@ -10,25 +10,13 @@ import java.util.List;
  * This is the Rest Controller.
  */
 @RestController
-public class GreetingController {
+public class UserController {
 
     /**
      * * autowiring the userRepo.
      */
     @Autowired
     private UserRepository userRepository;
-
-    /**
-     * autowiring activities repo.
-     */
-    @Autowired
-    private ActivityRepository activityRepository;
-
-    /**
-     * autowiring statistics repo.
-     */
-    @Autowired
-    private StatisticsRepository statisticsRepository;
 
     /**
      * default path for testing.
@@ -38,101 +26,6 @@ public class GreetingController {
     @RequestMapping("/")
     public String getRootPath() {
         return "this is the default page";
-    }
-
-    /**
-     * addActivity.
-     *
-     * @return list.
-     */
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public List<Activity> addToActivitiesTable(
-            @RequestBody final Activity activity) {
-
-        this.activityRepository.save(activity);
-        System.out.println("activities table updates");
-
-        //updating statistics for type ALL
-        Integer sum = this.activityRepository
-                .totalFootprint(activity.getUsername(), activity.getDate());
-
-        Statistics s1 = new Statistics(
-                activity.getUsername(), sum, activity.getDate());
-        s1.setType("ALL");
-
-        Statistics s = this.statisticsRepository
-                .findStatisticByDateAndType(activity.getDate(), "ALL");
-
-        if (s == null) {
-            this.statisticsRepository.save(s1);
-        } else {
-            this.statisticsRepository
-                    .updateStatistic(sum, activity.getUsername(), "ALL", activity.getDate());
-        }
-
-        //updating statistics for the type
-        Integer sumFood = this.activityRepository
-                .totalScoreByCategory(activity.getUsername(), activity.getDate(), activity.getCategory());
-
-        Statistics sFood = new Statistics(
-                activity.getUsername(), sumFood, activity.getDate());
-
-        int c = activity.getCategory();
-        if (c == 1) {
-            sFood.setType("FOOD");
-        } else if (c == 2) {
-            sFood.setType("TRANSPORT");
-        } else if (c == 3) {
-            sFood.setType("ELECTRICITY");
-        }
-        Statistics sF = this.statisticsRepository
-                .findStatisticByDateAndType(activity.getDate(), sFood.getType());
-
-        if (sF == null) {
-            this.statisticsRepository.save(sFood);
-        } else {
-            this.statisticsRepository
-                    .updateStatistic(sumFood, activity.getUsername(), sFood.getType(), activity.getDate());
-        }
-        return this.activityRepository
-                .findActivitiesByUser(activity.getUsername());
-    }
-
-    /**
-     * returns a list for statistics.
-     *
-     * @return List
-     */
-    @RequestMapping(value = "/statistics",
-            method = RequestMethod.POST)
-    public List<Statistics> getAllStats(@RequestBody final String username) {
-        return statisticsRepository.findStatisticsByUsername(username);
-    }
-
-    /**
-     * gets all stats by type.
-     *
-     * @param username username parameter.
-     * @param type     type parameter.
-     * @return list.x
-     */
-    @RequestMapping(value = "/stats", method = RequestMethod.POST)
-    public List<Statistics> getAllStatsByType(@RequestParam(value = "username",
-            defaultValue = "anonymous") String username, @RequestBody String type) {
-        return statisticsRepository.findStatisticsByUsernameAndType(username, type);
-    }
-
-
-    /**
-     * updates activities for a user.
-     *
-     * @param user that needs their activites updated
-     * @return List of Activity objects
-     */
-    @RequestMapping(value = "/firstactivities", method = RequestMethod.POST)
-    public List<Activity> getUpdatesActivities(@RequestBody final User user) {
-        return this.activityRepository
-                .findActivitiesByUser(user.getUsername());
     }
 
     /**
@@ -185,7 +78,7 @@ public class GreetingController {
     }
 
     /**
-     * adds activity to a user.
+     * updates the scores of the user in db.
      *
      * @param user that has an activity to be added.
      * @return the current user
@@ -260,23 +153,5 @@ public class GreetingController {
         this.userRepository = userRepository;
     }
 
-    /**
-     * setting the repo.
-     *
-     * @param activityRepository activity repository.
-     */
-    public void setActivityRepository(
-            final ActivityRepository activityRepository) {
-        this.activityRepository = activityRepository;
-    }
 
-    /**
-     * setter.
-     *
-     * @param statisticsRepository setter for statistics repo.
-     */
-    public void setStatisticsRepository(
-            final StatisticsRepository statisticsRepository) {
-        this.statisticsRepository = statisticsRepository;
-    }
 }
