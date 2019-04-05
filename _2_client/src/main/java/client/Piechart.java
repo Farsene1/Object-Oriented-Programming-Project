@@ -1,13 +1,10 @@
 package client;
 
-        import javafx.application.Application;
-        import javafx.scene.Scene;
-        import javafx.scene.chart.PieChart;
-        import javafx.scene.layout.HBox;
-        import javafx.scene.layout.VBox;
-        import javafx.stage.Stage;
+import javafx.scene.chart.PieChart;
+import javafx.scene.layout.HBox;
 
-        public class PieChart{
+
+public class Piechart {
 
     /**
      * Declare Hbox.
@@ -15,12 +12,8 @@ package client;
     static HBox pieChartBox;
 
 
-    @Override
     public void PieChart() {
-        //primaryStage.setTitle("My First JavaFX App");
-
         PieChart pieChart = new PieChart();
-
         PieChart.Data slice1 = new PieChart.Data("Desktop", 213);
 
         
