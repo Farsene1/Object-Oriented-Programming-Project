@@ -58,9 +58,9 @@ public class Home {
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
         ImageView img = new ImageView(UserBadge.iconChoice(user));
-        Label homeLabel = new Label("WE CARE , \n DO YOU?");
-        homeLabel.getStyleClass().add("HomeLabelCss");
-        homeLabel.setAlignment(Pos.CENTER);
+       // Label homeLabel = new Label("WE CARE , \n DO YOU?");
+        //homeLabel.getStyleClass().add("HomeLabelCss");
+       // homeLabel.setAlignment(Pos.CENTER);
         //  GridPane.setConstraints(homeLabel,5,5);
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
@@ -114,9 +114,9 @@ public class Home {
 
         Piechart.showPieChart(user);
         VBox pieChart = Piechart.getPieChartBox();
-        
 
-        centerMenu.getChildren().addAll(homeLabel, pieChart);
+
+        centerMenu.getChildren().addAll(pieChart);
 
         //Add everything to grid
         leftmenu.getChildren().addAll(img, usernamelabel, statusbar, mycarbonButton, statisticsButton, leaderboardButton, friendsbutton, quitButton);
