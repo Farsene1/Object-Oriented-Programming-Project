@@ -35,7 +35,7 @@ public class Friends {
      */
     public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
 
-        String icon = UserBadge.getIcon();
+        String icon = UserBadge.iconChoice(user);
 
 
         //CLEARING THE GRID FROM PREVIOUS ADDITIONS.
