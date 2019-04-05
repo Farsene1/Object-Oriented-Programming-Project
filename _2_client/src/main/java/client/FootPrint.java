@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
@@ -42,10 +43,12 @@ public class FootPrint {
      */
     public static void showOptions(final GridPane grid, final User user, final Label polarscore, final Stage window) {
 
+            new JMetro(JMetro.Style.LIGHT).applyTheme(table);
+
         /**
          * Gets user specific badge.
          */
-        String icon = UserBadge.getIcon();
+        String icon = UserBadge.iconChoice(user);
 
         /**
          * Labels / Vbox added and styling.
@@ -60,6 +63,7 @@ public class FootPrint {
         /**
          * Adds columns to footprint table // simple styling.
          */
+
         TableColumn col1 = new TableColumn("Category");
         col1.setCellValueFactory(new PropertyValueFactory<>("cat"));
         TableColumn col2 = new TableColumn("Description");
@@ -179,9 +183,6 @@ public class FootPrint {
         foodOptions.setMinWidth(476);
         electricityOptions.setMinWidth(476);
         transportOptions.setMinWidth(476);
-
-
-        CSSTable.styleTable(table);
     }
 
     /**

@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Leaderboard {
      * @param window window parameter.
      */
     public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
-
+        new JMetro(JMetro.Style.LIGHT).applyTheme(tableL);
         //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
 
