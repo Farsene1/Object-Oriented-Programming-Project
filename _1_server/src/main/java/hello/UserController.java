@@ -146,6 +146,16 @@ public class UserController {
     }
 
     /**
+     * this method gets all the users whose usenames start with regex.
+     * @param regex regular expression.
+     * @return list.
+     */
+    @RequestMapping(value = "/regex", method = RequestMethod.POST)
+    public List<String> getUsernamesLike(@RequestBody String regex){
+        return this.userRepository.findByRegex(regex);
+    }
+
+    /**
      * default method for testing, dangerous to use.
      *
      * @return List

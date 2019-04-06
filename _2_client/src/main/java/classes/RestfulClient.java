@@ -278,8 +278,8 @@ public class RestfulClient {
 
     /**
      * returns people matching names.
-     * @param regex
-     * @return
+     * @param regex regualar expression.
+     * @return list of usernames.
      */
     public List<String> findUsersByRegex(final String regex) {
         String url = "http://localhost:8080/regex";
