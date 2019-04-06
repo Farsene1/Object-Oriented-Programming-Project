@@ -172,10 +172,28 @@ public class FootPrint {
         /**
          * Simple styling.
          */
-        food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
-        transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
-        // quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
-        electricity.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
+        food.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+        
+        transport.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+
+        electricity.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+
+
         grid.setMinWidth(1500);
         table.setMaxHeight(770);
         table.setMinHeight(770);

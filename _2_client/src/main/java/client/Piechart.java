@@ -7,6 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 public class Piechart {
@@ -20,11 +22,12 @@ public class Piechart {
     public static void showPieChart(final User user) {
 
         Label label = new Label("Track your progress!");
+        label.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
 
         PieChart.Data data[] = new PieChart.Data[3];
 
         // string and integer data
-        String status[] = {"Food", "Transport",  "Electricity"};
+        String status[] = {"FOOD", "TRANSPORT",  "ELECTRICITY"};
 
         pieChartBox = new VBox();
 
@@ -71,7 +74,7 @@ public class Piechart {
                         new PieChart.Data("Electricity", electricityPercent));
         final PieChart chart = new PieChart(pieChartData);
 
-        chart.setTitle("Track your progress!");
+        //chart.setTitle("Track your progress!");
 
         PieChart pie_chart = new PieChart(FXCollections.observableArrayList(data));
 
