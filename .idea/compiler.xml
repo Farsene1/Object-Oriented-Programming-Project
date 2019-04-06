@@ -10,11 +10,6 @@
         <module name="server" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="client" target="10.0.2" />
-      <module name="server" target="10.0.2" />
-      <module name="template" target="10.0.2" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

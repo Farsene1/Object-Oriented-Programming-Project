@@ -161,4 +161,20 @@ public class RestfulClientTest {
                 .thenReturn(Arrays.asList(new Statistics("",12,"21")));
         assertEquals(1, restfulClient.getAllStatistics(username).size());
     }
+
+    @Test
+    public void setSolarTest(){
+        String postUrl = "http://localhost:8080/addsolar";
+        User u = new User("admin","hash");
+        Mockito.when(restTemplate.postForEntity(postUrl, u, String.class)).thenReturn(ResponseEntity.ok("OK"));
+        assertEquals("OK", restfulClient.setSolar(u));
+    }
+
+    @Test
+    public void getStatsByTypeTest(){
+        String url = "http://localhost:8080/stats?username=admin";
+        Mockito.when(restTemplate.postForObject(url, "ALL", List.class))
+                .thenReturn(Arrays.asList(new Statistics(), new Statistics()));
+        assertEquals(2, restfulClient.getStatsByType("admin","ALL").size());
+    }
 }
