@@ -5,15 +5,15 @@ client,CSS,CSSelectricityBadge,253,0,20,0,81,0,21,0,11,0
 client,CSS,CSSfoodBadge,253,0,20,0,81,0,21,0,11,0
 client,CSS,CSSpolarBadge,253,0,20,0,81,0,21,0,11,0
 client,CSS,CSS,58,0,0,0,21,0,6,0,6,0
-client,classes,RestfulClient,399,0,0,0,85,0,18,0,18,0
+client,classes,RestfulClient,414,0,0,0,88,0,19,0,19,0
 client,classes,Electricity,3,40,0,0,2,17,1,9,1,9
 client,classes,FriendRequest,6,40,0,0,2,17,1,9,1,9
-client,classes,User,0,109,0,0,0,33,0,17,0,17
-client,classes,Controller,159,0,0,0,36,0,20,0,20,0
+client,classes,User,7,113,0,0,3,34,2,17,2,17
+client,classes,Controller,164,0,0,0,37,0,21,0,21,0
 client,classes,Meal,26,0,0,0,12,0,6,0,6,0
 client,classes,Activity,0,106,2,6,0,43,2,21,0,17
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
-client,classes,UserBadge,214,0,80,0,85,0,44,0,4,0
+client,classes,UserBadge,822,0,320,0,328,0,166,0,6,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,classes,Statistics,58,0,0,0,23,0,13,0,13,0
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
@@ -25,24 +25,24 @@ client,classes,Transport,9,101,1,9,3,33,2,16,1,12
 client,classes,RestfulClient.new TypeReference() {...},6,0,0,0,1,0,1,0,1,0
 client,client,AchievementsTransport,381,0,18,0,94,0,22,0,13,0
 client,client,BoxConfirm,89,0,0,0,24,0,4,0,4,0
-client,client,Friends,503,0,22,0,104,0,22,0,11,0
+client,client,Friends,488,0,22,0,101,0,22,0,11,0
 client,client,BoxElectricity,415,0,8,0,94,0,7,0,3,0
-client,client,Signup,358,0,10,0,88,0,9,0,4,0
+client,client,Signup,358,0,10,0,90,0,9,0,4,0
+client,client,Piechart,220,0,8,0,38,0,7,0,3,0
 client,client,Home.new EventHandler() {...},12,0,0,0,3,0,2,0,2,0
 client,client,BoxTransport,311,0,2,0,62,0,5,0,4,0
 client,client,Hash,3,64,0,2,1,11,1,4,1,3
-client,client,Leaderboard,191,0,2,0,39,0,6,0,5,0
+client,client,Leaderboard,197,0,2,0,40,0,6,0,5,0
 client,client,Achievements,172,0,0,0,35,0,2,0,2,0
 client,client,BoxFood,452,0,14,0,91,0,12,0,5,0
-client,client,FootPrint,411,0,2,0,88,0,9,0,8,0
-client,client,ValidatePassword,3,87,0,28,1,18,1,15,1,1
+client,client,FootPrint,416,0,2,0,88,0,9,0,8,0
+client,client,ValidatePassword,3,87,0,28,1,19,1,15,1,1
 client,client,BoxBadge,247,0,80,0,92,0,42,0,2,0
-client,client,Home,408,0,4,0,90,0,14,0,12,0
+client,client,Home,399,0,4,0,89,0,14,0,12,0
 client,client,AchievementsFood,384,0,18,0,95,0,23,0,14,0
 client,client,Main,421,0,2,0,44,0,6,0,5,0
 client,client,AchievementsElectricity,381,0,18,0,94,0,22,0,13,0
 client,client,AchievementsPolar,392,0,18,0,96,0,22,0,13,0
-client,client,PieChart,3,0,0,0,1,0,1,0,1,0
 client,client,BoxAddFriend,92,0,0,0,25,0,5,0,5,0
 client,client,Statistics,210,0,8,0,35,0,6,0,2,0
 client,client,BoxAlert,68,0,0,0,16,0,3,0,3,0

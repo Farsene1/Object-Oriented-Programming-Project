@@ -65,25 +65,26 @@ public class Friends {
         //  GridPane.setConstraints(Vbox2,7,0);
         //ADDING THE COLLUMNS TO THE TABLES.
         TableColumn col1 = new TableColumn("Username");
-        col1.setCellValueFactory(new PropertyValueFactory<>("username"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
         TableColumn col2 = new TableColumn("Score");
-        col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("Polarscore"));
+        TableColumn col3 = new TableColumn("Badge");
+        col3.setCellValueFactory(new PropertyValueFactory<>("Badge"));
 
 
-        TableColumn col3 = new TableColumn("Username");
-        col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        TableColumn col4 = new TableColumn("Username");
+        col4.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        TableColumn col4 = new TableColumn("Badge (click to see)");
-        col4.setCellValueFactory(new PropertyValueFactory<>("badge"));
         //   TableColumn col4 = new TableColumn("Accept/Decline");
         //  col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(col1, col2, col4);
-        pendingTable.getColumns().setAll(col3);
+        friendsTable.getColumns().setAll(col1, col2, col3);
+        pendingTable.getColumns().setAll(col4);
         col1.setMinWidth(200);
         col1.setMaxWidth(200);
         col2.setMaxWidth(200);
         col2.setMinWidth(200);
-        col3.setMinWidth(250);
+        col3.setMinWidth(125);
+        col3.setMaxWidth(125);
         col4.setMinWidth(250);
         //backButton
         backButton.setOnAction(e -> {
@@ -148,26 +149,6 @@ public class Friends {
 
         });
 
-        /**
-         * Row click to show badges of friends.
-         */
-        friendsTable.setRowFactory(tv -> {
-            TableRow row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                        && event.getClickCount() == 1) {
-                    Object friend = friendsTable.getSelectionModel().getSelectedItem();
-                    String testBadge = friend.toString();
-                    String badge = testBadge.split(",")[2].substring(1);
-                    badge = badge.replace("badge= ", "");
-                    badge = badge.replace("}", "");
-                    int badgeNumber = Integer.parseInt(badge);
-                    BoxBadge.displayFriendBadge("Friends badge", badgeNumber);
-                }
-            });
-            return row;
-        });
-
         pendingTable.setItems(addFriendRequests(user));
         friendsTable.setItems(addFriend(user));
 
@@ -179,12 +160,12 @@ public class Friends {
      * @param user parameter
      * @return returns al ist.
      */
-    public static ObservableList<User> addFriend(User user) {
-        ObservableList<User> friend = FXCollections.observableArrayList();
+    public static ObservableList<Friend> addFriend(User user) {
+        ObservableList<Friend> friend = FXCollections.observableArrayList();
         List<User> friendList = new Controller().getAllFriends(user);
 
         for (User a : friendList) {
-            friend.add(a);
+            friend.add(new Friend(a));
         }
         return friend;
     }

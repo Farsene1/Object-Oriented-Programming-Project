@@ -8,48 +8,58 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.util.List;
 
-<span class="nc" id="L13">public class Statistics {</span>
+/**
+ * Statistics class.
+ */
+<span class="nc" id="L17">public class Statistics {</span>
+    /**
+     * Show options for statistics button.
+     *
+     * @param grid gridf parameter.
+     * @param user user parameter.
+     * @param window window parameter.
+     */
+    public static void showOptions(final GridPane grid, final User user, final Stage window) {
+<span class="nc" id="L26">        final CategoryAxis xAxis = new CategoryAxis();</span>
+<span class="nc" id="L27">        final NumberAxis yAxis = new NumberAxis();</span>
+<span class="nc" id="L28">        xAxis.setLabel(&quot;Date&quot;);</span>
+<span class="nc" id="L29">        final LineChart&lt;String, Number&gt; lineChart = new LineChart&lt;&gt;(xAxis, yAxis);</span>
 
-    public static void showOptions(GridPane grid, User user, Stage window) {
-<span class="nc" id="L16">        final CategoryAxis xAxis = new CategoryAxis();</span>
-<span class="nc" id="L17">        final NumberAxis yAxis = new NumberAxis();</span>
-<span class="nc" id="L18">        xAxis.setLabel(&quot;Date&quot;);</span>
-<span class="nc" id="L19">        final LineChart&lt;String, Number&gt; lineChart = new LineChart&lt;&gt;(xAxis, yAxis);</span>
+<span class="nc" id="L31">        lineChart.setTitle(&quot;MY STATISTICS&quot;);</span>
 
-<span class="nc" id="L21">        lineChart.setTitle(&quot;MY STATISTICS&quot;);</span>
+<span class="nc" id="L33">        XYChart.Series polarSeries = new XYChart.Series();</span>
+<span class="nc" id="L34">        polarSeries.setName(&quot;POLAR SCORE&quot;);</span>
+<span class="nc" id="L35">        XYChart.Series foodSeries = new XYChart.Series();</span>
+<span class="nc" id="L36">        foodSeries.setName(&quot;FOOD SCORE&quot;);</span>
+<span class="nc" id="L37">        XYChart.Series transportSeries = new XYChart.Series();</span>
+<span class="nc" id="L38">        transportSeries.setName(&quot;TRANSPORT SCORE&quot;);</span>
+<span class="nc" id="L39">        XYChart.Series electricitySeries = new XYChart.Series();</span>
+<span class="nc" id="L40">        electricitySeries.setName(&quot;ELECTRICITY SCORE&quot;);</span>
 
-<span class="nc" id="L23">        XYChart.Series PolarSeries = new XYChart.Series();</span>
-<span class="nc" id="L24">        PolarSeries.setName(&quot;POLAR SCORE&quot;);</span>
-<span class="nc" id="L25">        XYChart.Series FoodSeries = new XYChart.Series();</span>
-<span class="nc" id="L26">        FoodSeries.setName(&quot;FOOD SCORE&quot;);</span>
-<span class="nc" id="L27">        XYChart.Series TransportSeries = new XYChart.Series();</span>
-<span class="nc" id="L28">        TransportSeries.setName(&quot;TRANSPORT SCORE&quot;);</span>
-<span class="nc" id="L29">        XYChart.Series ElectricitySeries = new XYChart.Series();</span>
-<span class="nc" id="L30">        ElectricitySeries.setName(&quot;ELECTRICITY SCORE&quot;);</span>
+<span class="nc" id="L42">        List&lt;classes.Statistics&gt; polardata = new Controller().getStatsByType(user.getUsername(), &quot;ALL&quot;);</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (classes.Statistics stat : polardata) {</span>
+<span class="nc" id="L44">            polarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L45">        }</span>
+<span class="nc" id="L46">        List&lt;classes.Statistics&gt; fooddata = new Controller().getStatsByType(user.getUsername(), &quot;FOOD&quot;);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (classes.Statistics stat : fooddata) {</span>
+<span class="nc" id="L48">            foodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L49">        }</span>
+<span class="nc" id="L50">        List&lt;classes.Statistics&gt; transportdata = new Controller().getStatsByType(user.getUsername(), &quot;TRANSPORT&quot;);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        for (classes.Statistics stat : transportdata) {</span>
+<span class="nc" id="L52">            transportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L53">        }</span>
+<span class="nc" id="L54">        List&lt;classes.Statistics&gt; electricitydata = new Controller().getStatsByType(user.getUsername(), &quot;ELECTRICITY&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (classes.Statistics stat : electricitydata) {</span>
+<span class="nc" id="L56">            electricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
+<span class="nc" id="L57">        }</span>
 
-<span class="nc" id="L32">        List&lt;classes.Statistics&gt; polardata= new Controller().getStatsByType(user.getUsername(),&quot;ALL&quot;);</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (classes.Statistics stat:polardata) {</span>
-<span class="nc" id="L34">            PolarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
-<span class="nc" id="L35">        }</span>
-<span class="nc" id="L36">        List&lt;classes.Statistics&gt; fooddata= new Controller().getStatsByType(user.getUsername(),&quot;FOOD&quot;);</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for (classes.Statistics stat:fooddata) {</span>
-<span class="nc" id="L38">            FoodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
-<span class="nc" id="L39">        }</span>
-<span class="nc" id="L40">        List&lt;classes.Statistics&gt; transportdata= new Controller().getStatsByType(user.getUsername(),&quot;TRANSPORT&quot;);</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (classes.Statistics stat:transportdata) {</span>
-<span class="nc" id="L42">            TransportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
-<span class="nc" id="L43">        }</span>
-<span class="nc" id="L44">        List&lt;classes.Statistics&gt; electricitydata= new Controller().getStatsByType(user.getUsername(),&quot;ELECTRICITY&quot;);</span>
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (classes.Statistics stat:electricitydata) {</span>
-<span class="nc" id="L46">            ElectricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));</span>
-<span class="nc" id="L47">        }</span>
-
-<span class="nc" id="L49">        lineChart.getData().addAll(PolarSeries, FoodSeries, TransportSeries,ElectricitySeries);</span>
-<span class="nc" id="L50">        lineChart.setMinWidth(1420);</span>
-<span class="nc" id="L51">        lineChart.setMinHeight(900);</span>
-<span class="nc" id="L52">        grid.getChildren().setAll(lineChart);</span>
-<span class="nc" id="L53">    }</span>
+<span class="nc" id="L59">        lineChart.getData().addAll(polarSeries, foodSeries, transportSeries, electricitySeries);</span>
+<span class="nc" id="L60">        lineChart.setMinWidth(1420);</span>
+<span class="nc" id="L61">        lineChart.setMinHeight(900);</span>
+<span class="nc" id="L62">        grid.getChildren().setAll(lineChart);</span>
+<span class="nc" id="L63">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
