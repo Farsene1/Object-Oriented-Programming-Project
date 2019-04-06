@@ -36,30 +36,8 @@ public class Main extends Application {
         //EASTER EGG// default value in the database for shortcut when developing
         try {
             new Controller().signUp(new User("admin", Hash.generateHash("root", "SHA-256")));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "12-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 300, "13-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 700, "14-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 20, "15-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 500, "16-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "17-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 100, "26-03-2019"));
-            new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "29-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 400, "12-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 600, "13-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 1400, "14-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 260, "15-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 50, "16-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 100, "17-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 700, "26-03-2019"));
-            new Controller().sendFood(new Activity("admin", 2, "easteregg", 500, "29-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 700, "12-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 100, "13-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 100, "14-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 600, "15-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 520, "16-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 1030, "17-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 170, "26-03-2019"));
-            new Controller().sendFood(new Activity("admin", 3, "easteregg", 900, "29-03-2019"));
+            new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "04-03-2019"));
+            new Controller().sendFood(new Activity("admin", 3, "easteregg", 900, "05-03-2019"));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

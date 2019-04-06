@@ -30,7 +30,7 @@ public class RestfulClient {
      */
     public User getEntity() {
         System.out.println("Beginning /GET request!");
-        String getUrl = "https://poolar.herokuapp.com/get?username=Florentin&hash=abcdef";
+        String getUrl = "http://localhost:8080/get?username=Florentin&hash=abcdef";
         User getResponse = restTemplate.getForObject(getUrl, User.class);
         System.out.println(getResponse.toString());
         return getResponse;
@@ -42,7 +42,7 @@ public class RestfulClient {
      * @return list.
      */
     public List<User> get10Users() {
-        String url = "https://poolar.herokuapp.com/leaderboard";
+        String url = "http://localhost:8080/leaderboard";
         List<User> res = restTemplate.getForObject(url, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<User> users = mapper.convertValue(res, new TypeReference<List<User>>() {
@@ -57,7 +57,7 @@ public class RestfulClient {
      * @return list.
      */
     public List<Activity> getAllActivities(final User user) {
-        String url = "https://poolar.herokuapp.com/firstactivities";
+        String url = "http://localhost:8080/firstactivities";
         List<Activity> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
@@ -72,7 +72,7 @@ public class RestfulClient {
      * @return activities.
      */
     public List<Activity> addActivity(final Activity activity) {
-        String url = "https://poolar.herokuapp.com/test";
+        String url = "http://localhost:8080/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
         System.out.println("Response: " + res.toString());
         ObjectMapper mapper = new ObjectMapper();
@@ -90,7 +90,7 @@ public class RestfulClient {
      */
     public String postEntity(final User user) {
         System.out.println("Beginning /POST request");
-        String postUrl = "https://poolar.herokuapp.com/post";
+        String postUrl = "http://localhost:8080/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
         return postResponse.getBody();
@@ -105,7 +105,7 @@ public class RestfulClient {
      */
     public String login(final User user) {
         System.out.println("Beginning /login request");
-        String postUrl = "https://poolar.herokuapp.com/login";
+        String postUrl = "http://localhost:8080/login";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for Post Request: " + postResponse.getBody());
         return postResponse.getBody();
@@ -119,7 +119,7 @@ public class RestfulClient {
      */
     public String activity(final User user) {
         System.out.println("beginning /activity request");
-        String postUrl = "https://poolar.herokuapp.com/activity";
+        String postUrl = "http://localhost:8080/activity";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
@@ -133,7 +133,7 @@ public class RestfulClient {
      */
     public String badge(final User user) {
         System.out.println("beginning /updateBadge request");
-        String postUrl = "https://poolar.herokuapp.com/updateBadge";
+        String postUrl = "http://localhost:8080/updateBadge";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
@@ -146,7 +146,7 @@ public class RestfulClient {
      * @return the response for the post request.
      */
     public String setSolar(final User user) {
-        String postUrl = "https://poolar.herokuapp.com/addsolar";
+        String postUrl = "http://localhost:8080/addsolar";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
         return postResponse.getBody();
     }
@@ -159,7 +159,7 @@ public class RestfulClient {
      */
     public User getUpdates(final User user) {
         System.out.println("Beginning /requestforupdate request");
-        String postUrl = "https://poolar.herokuapp.com/requestforupdate";
+        String postUrl = "http://localhost:8080/requestforupdate";
         ResponseEntity<User> getUpdate = restTemplate.postForEntity(postUrl, user, User.class);
         System.out.println("Response for Post Request: " + getUpdate.getBody());
         return getUpdate.getBody();
@@ -172,7 +172,7 @@ public class RestfulClient {
      * @return returns a list of users.
      */
     public List<User> getAllFriends(final User user) {
-        String url = "https://poolar.herokuapp.com/friendship/friends";
+        String url = "http://localhost:8080/friendship/friends";
         List<User> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<User> result = mapper.convertValue(res, new TypeReference<List<User>>() {
@@ -187,7 +187,7 @@ public class RestfulClient {
      * @return returns a list of friend requests.
      */
     public List<FriendRequest> getAllFriendRequests(final User user) {
-        String url = "https://poolar.herokuapp.com/friendship/getallrequests";
+        String url = "http://localhost:8080/friendship/getallrequests";
         List<FriendRequest> res = restTemplate.postForObject(url, user, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
@@ -204,7 +204,7 @@ public class RestfulClient {
      */
     public String sendFriendRequest(final FriendRequest friendRequest) {
         System.out.println("beginning /activity request");
-        String postUrl = "https://poolar.herokuapp.com/friendship/request";
+        String postUrl = "http://localhost:8080/friendship/request";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
@@ -217,7 +217,7 @@ public class RestfulClient {
      * @return returns a string.
      */
     public String respond(final FriendRequest friendRequest) {
-        String postUrl = "https://poolar.herokuapp.com/friendship/respond";
+        String postUrl = "http://localhost:8080/friendship/respond";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
         return postResponse.getBody();
     }
@@ -229,7 +229,7 @@ public class RestfulClient {
      * @return returns a stirng.
      */
     public String fakeRespond(final FriendRequest friendRequest) {
-        String postUrl = "https://poolar.herokuapp.com/friendship/fakeresponse";
+        String postUrl = "http://localhost:8080/friendship/fakeresponse";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
         return postResponse.getBody();
     }
@@ -250,7 +250,7 @@ public class RestfulClient {
      * @return returns a list of statistics.
      */
     public List<classes.Statistics> getAllStatistics(final String username) {
-        String url = "https://poolar.herokuapp.com/statistics";
+        String url = "http://localhost:8080/statistics";
         List<classes.Statistics> res = restTemplate.postForObject(url, username, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
@@ -267,7 +267,7 @@ public class RestfulClient {
      * @return stats.
      */
     public List<Statistics> getStatsByType(final String username, final String type) {
-        String url = "https://poolar.herokuapp.com/stats?username=" + username;
+        String url = "http://localhost:8080/stats?username=" + username;
         List<classes.Statistics> res = restTemplate.postForObject(url, type, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
