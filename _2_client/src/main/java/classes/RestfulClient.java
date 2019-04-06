@@ -275,4 +275,18 @@ public class RestfulClient {
         });
         return result;
     }
+
+    /**
+     * returns people matching names.
+     * @param regex
+     * @return
+     */
+    public List<String> findUsersByRegex(final String regex) {
+        String url = "http://localhost:8080/regex";
+        List<String> res = restTemplate.postForObject(url, regex, List.class);
+        ObjectMapper mapper = new ObjectMapper();
+        List<String> result = mapper.convertValue(res, new TypeReference<List<String>>() {
+        });
+        return result;
+    }
 }
