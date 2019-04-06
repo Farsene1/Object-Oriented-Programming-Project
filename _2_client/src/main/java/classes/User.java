@@ -1,10 +1,5 @@
 package classes;
-
-
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * User table entity generated.
@@ -38,6 +33,10 @@ public class User implements Serializable {
      */
     private Integer transport = 0;
     /**
+     * attribute for solar panels.
+     */
+    private boolean solar_panels = false;
+    /**
      * Attribute polarScore declared as type integer.
      */
     private Integer polarScore = 0;
@@ -45,12 +44,6 @@ public class User implements Serializable {
      * Attribute date declared as type timestamp.
      */
     private Integer badge = 1;
-    /**
-     * Sets activity.
-     */
-    @OneToMany
-    @JoinColumn(name = "userId")
-    private Set<Activity> activities;
 
     /**
      * Empty constructor declaration for user.
@@ -64,14 +57,14 @@ public class User implements Serializable {
      * @param username username parameter.
      * @param hash hash parameter.
      */
-    public User(final String username, final String hash) {
+    public User(String username, String hash) {
         this.username = username;
         this.hash = hash;
     }
 
     /**
-     * Getter for username.
-     * @return  username.
+     * get username.
+     * @return username.
      */
     public String getUsername() {
         return username;
@@ -82,13 +75,13 @@ public class User implements Serializable {
      *
      * @param username username parameter.
      */
-    public void setUsername(final String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * Returns a string for hash.
-     * @return hash
+     * getter for hash.
+     * @return hash.
      */
     public String getHash() {
         return hash;
@@ -99,12 +92,12 @@ public class User implements Serializable {
      *
      * @param hash hash parameter.
      */
-    public void setHash(final String hash) {
+    public void setHash(String hash) {
         this.hash = hash;
     }
 
     /**
-     * Getter for food score.
+     * get food score.
      * @return food
      */
     public Integer getFoodScore() {
@@ -112,16 +105,16 @@ public class User implements Serializable {
     }
 
     /**
-     * setter for food.
-     * @param food  food paramter.
+     * set food.
+     * @param food food score.
      */
-    public void setFoodScore(final Integer food) {
+    public void setFoodScore(Integer food) {
         this.food = food;
     }
 
     /**
-     * GETS electricity score.
-     * @return electricity
+     * get electricity score.
+     * @return electric score.
      */
     public Integer getElectricityScore() {
         return electricity;
@@ -130,15 +123,15 @@ public class User implements Serializable {
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity electricity parameter.
+     * @param electricity electricity score.
      */
-    public void setElectricityScore(final Integer electricity) {
+    public void setElectricityScore(Integer electricity) {
         this.electricity = electricity;
     }
 
     /**
-     * Getter for transportFootprint.
-     * @return  transport.
+     * get transport score.
+     * @return transport score.
      */
     public Integer getTransportScore() {
         return transport;
@@ -147,15 +140,15 @@ public class User implements Serializable {
     /**
      * Setter for transportFootprint.
      *
-     * @param transport transport parameter.
+     * @param transport transport score.
      */
-    public void setTransportScore(final Integer transport) {
+    public void setTransportScore(Integer transport) {
         this.transport = transport;
     }
 
     /**
-     * Gets  polar score.
-     * @return polarScore.
+     * get polar score.
+     * @return polar score.
      */
     public Integer getPolarScore() {
         return polarScore;
@@ -164,15 +157,15 @@ public class User implements Serializable {
     /**
      * Setter for polarScore.
      *
-     * @param polarScore poalr score parameter.
+     * @param polarScore polar score parameter.
      */
-    public void setPolarScore(final Integer polarScore) {
+    public void setPolarScore(Integer polarScore) {
         this.polarScore = polarScore;
     }
 
     /**
-     * Gets the badge.
-     * @return badge
+     * get badge.
+     * @return returns badge.
      */
 
     public Integer getBadge() {
@@ -180,22 +173,37 @@ public class User implements Serializable {
     }
 
     /**
-     * Sets the badge.
-     * @param badge badge parameter.
+     * sets badge.
+     * @param badge parameter.
      */
-    public void setBadge(final Integer badge) {
+    public void setBadge(Integer badge) {
         this.badge = badge;
     }
 
     /**
-     * To string method.
-     * @return string
+     * checks if the user has solar panels.
+     * @return true or false.
      */
+    public boolean isSolar() {
+        return solar_panels;
+    }
+
+    /**
+     * sets to true or false.
+     */
+    public void setSolar(boolean solar_panels) {
+        this.solar_panels = solar_panels;
+    }
+
+    /**
+     * to string method.
+     * @return the string.
+     */
+
+
     @Override
     public String toString() {
         return "User{" + "username='" + username
-                + '\'' + ", hash='" + hash + '\'' + ", " + "badge= " + badge + "}";
+                + '\'' + ", hash='" + hash + '\'' + '}';
     }
-
-    //
 }
