@@ -1,4 +1,7 @@
 ControllerTest.class
 ActivityTest.class
 UserTest.class
+FriendRequestTest.class
 ActivityControllerTest.class
+FriendshipControllerTest.class
+FriendshipTest.class

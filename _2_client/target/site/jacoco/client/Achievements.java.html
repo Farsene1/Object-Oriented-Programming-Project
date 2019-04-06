@@ -10,97 +10,109 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-<span class="nc" id="L13">public class Achievements {</span>
-
-    public static void showBadges(GridPane grid, User user, Stage window) {
+/**
+ * Class achievements.
+ */
+<span class="nc" id="L16">public class Achievements {</span>
+    /**
+     * Show badges method.
+     *
+     * @param grid   paramter grid
+     * @param user   parameter user.
+     * @param window window parameter.
+     */
+    public static void showBadges(final GridPane grid, final User user, final Stage window) {
 
         /**
          * Calls method in class to show PolarBadges.
          */
-<span class="nc" id="L20">        AchievementsPolar.showPolarBadges(user, window);</span>
+<span class="nc" id="L29">        AchievementsPolar.showPolarBadges(user, window);</span>
         /**
          * Calls method in class to show FoodBadges.
          */
-<span class="nc" id="L24">        AchievementsFood.showFoodBadges(user, window);</span>
+<span class="nc" id="L33">        AchievementsFood.showFoodBadges(user, window);</span>
         /**
          * Calls method in class to show TransportBadges.
          */
-<span class="nc" id="L28">        AchievementsTransport.showTransportBadges(user, window);</span>
+<span class="nc" id="L37">        AchievementsTransport.showTransportBadges(user, window);</span>
         /**
          * Calls method in class to show ElectricityBadges.
          */
-<span class="nc" id="L32">        AchievementsElectricity.showElectricityBadges(user, window);</span>
+<span class="nc" id="L41">        AchievementsElectricity.showElectricityBadges(user, window);</span>
 
         /**
          * Set label for achievements, initialize VBox for badges.
          */
-<span class="nc" id="L37">        Label myAchievements = new Label(&quot;My Achievements!&quot;);</span>
-<span class="nc" id="L38">        myAchievements.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 35));</span>
-<span class="nc" id="L39">        VBox achievements = new VBox();</span>
-<span class="nc" id="L40">        achievements.setStyle(&quot;-fx-padding: 5;&quot;);</span>
-<span class="nc" id="L41">        achievements.setSpacing(10);</span>
-<span class="nc" id="L42">        achievements.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L43">        achievements.setStyle(&quot;-fx-padding: 1;&quot; + &quot;-fx-border-style: solid inside;&quot;</span>
+<span class="nc" id="L46">        Label myAchievements = new Label(&quot;My Achievements!&quot;);</span>
+<span class="nc" id="L47">        myAchievements.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 35));</span>
+<span class="nc" id="L48">        VBox achievements = new VBox();</span>
+<span class="nc" id="L49">        achievements.setStyle(&quot;-fx-padding: 5;&quot;);</span>
+<span class="nc" id="L50">        achievements.setSpacing(10);</span>
+<span class="nc" id="L51">        achievements.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L52">        achievements.setStyle(&quot;-fx-padding: 1;&quot;</span>
+                + &quot;-fx-border-style: solid inside;&quot;
                 + &quot;-fx-border-width: 5;&quot; + &quot;-fx-border-insets: 5;&quot;
-                + &quot;-fx-border-radius: 5;&quot; + &quot;-fx-border-color: #6dfff3;&quot; +
-                &quot;-fx-background-color: rgba(255,255,255,0.4)&quot;);
-<span class="nc" id="L47">        GridPane.setConstraints(achievements, 0, 0);</span>
+                + &quot;-fx-border-radius: 5;&quot; + &quot;-fx-border-color: #6dfff3;&quot;
+                + &quot;-fx-background-color: rgba(255,255,255,0.4)&quot;);
+<span class="nc" id="L57">        GridPane.setConstraints(achievements, 0, 0);</span>
 
         /**
          * Label for polar badges
          */
-<span class="nc" id="L52">        Label polarLabel = new Label(&quot;POLAR&quot;);</span>
-<span class="nc" id="L53">        polarLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L62">        Label polarLabel = new Label(&quot;POLAR&quot;);</span>
+<span class="nc" id="L63">        polarLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
         /**
          * Polar score badges.
          */
-<span class="nc" id="L57">        HBox polarHbox = AchievementsPolar.getPolarBox();</span>
-<span class="nc" id="L58">        polarHbox.setSpacing(1);</span>
+<span class="nc" id="L67">        HBox polarHbox = AchievementsPolar.getPolarBox();</span>
+<span class="nc" id="L68">        polarHbox.setSpacing(1);</span>
         /**
          * Label for food badges.
          */
-<span class="nc" id="L62">        Label foodLabel = new Label(&quot;FOOD&quot;);</span>
-<span class="nc" id="L63">        foodLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L72">        Label foodLabel = new Label(&quot;FOOD&quot;);</span>
+<span class="nc" id="L73">        foodLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
         /**
          * Food score badges.
          */
-<span class="nc" id="L67">        HBox foodHbox = AchievementsFood.getFoodBox();</span>
-<span class="nc" id="L68">        polarHbox.setSpacing(1);</span>
+<span class="nc" id="L77">        HBox foodHbox = AchievementsFood.getFoodBox();</span>
+<span class="nc" id="L78">        polarHbox.setSpacing(1);</span>
 
         /**
-         * transport score badges
+         * transport score badges.
          */
-<span class="nc" id="L73">        HBox transportHbox = AchievementsTransport.getTransportBox();</span>
-<span class="nc" id="L74">        transportHbox.setSpacing(1);</span>
+<span class="nc" id="L83">        HBox transportHbox = AchievementsTransport.getTransportBox();</span>
+<span class="nc" id="L84">        transportHbox.setSpacing(1);</span>
 
         /**
-         * transport score badges
+         * transport score badges.
          */
-<span class="nc" id="L79">        HBox electricityHbox = AchievementsElectricity.getElectricityBox();</span>
-<span class="nc" id="L80">        electricityHbox.setSpacing(1);</span>
+<span class="nc" id="L89">        HBox electricityHbox = AchievementsElectricity.getElectricityBox();</span>
+<span class="nc" id="L90">        electricityHbox.setSpacing(1);</span>
 
         /**
-         * Label for transport badges
+         * Label for transport badges.
          */
-<span class="nc" id="L85">        Label transportLabel = new Label(&quot;TRANSPORT&quot;);</span>
-<span class="nc" id="L86">        transportLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L95">        Label transportLabel = new Label(&quot;TRANSPORT&quot;);</span>
+<span class="nc" id="L96">        transportLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
 
         /**
          * Label for electricity badges.
          */
-<span class="nc" id="L91">        Label electricityLabel = new Label(&quot;ELECTRICITY&quot;);</span>
-<span class="nc" id="L92">        electricityLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
+<span class="nc" id="L101">        Label electricityLabel = new Label(&quot;ELECTRICITY&quot;);</span>
+<span class="nc" id="L102">        electricityLabel.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 20));</span>
 
         /**
          * Adds all badges in specific Hboxes to Vbox // styling.
          */
-<span class="nc" id="L97">        achievements.getChildren().addAll(myAchievements,polarLabel, polarHbox,foodLabel, foodHbox,transportLabel, transportHbox,electricityLabel, electricityHbox);</span>
-<span class="nc" id="L98">        grid.getChildren().setAll(achievements);</span>
-<span class="nc" id="L99">        achievements.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L100">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L101">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L107">        achievements.getChildren().addAll(myAchievements, polarLabel, polarHbox, foodLabel,</span>
+                foodHbox, transportLabel,
+                transportHbox, electricityLabel, electricityHbox);
+<span class="nc" id="L110">        grid.getChildren().setAll(achievements);</span>
+<span class="nc" id="L111">        achievements.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L112">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L113">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
 
-<span class="nc" id="L103">    }</span>
+<span class="nc" id="L115">    }</span>
 }
 
 

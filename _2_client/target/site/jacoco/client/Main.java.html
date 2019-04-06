@@ -6,69 +6,84 @@ import classes.User;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 import java.io.FileNotFoundException;
 import java.security.NoSuchAlgorithmException;
 
-<span class="nc" id="L12">public class Main extends Application {</span>
+/**
+ * MAIN CLASS.
+ */
+<span class="nc" id="L16">public class Main extends Application {</span>
     Stage window;
 
+    /**
+     * Main Program.
+     * @param args
+     */
     public static void main(String[] args) {
-<span class="nc" id="L16">        launch(args);</span>
-<span class="nc" id="L17">    }</span>
+<span class="nc" id="L24">        launch(args);</span>
+<span class="nc" id="L25">    }</span>
 
+    /**
+     * This is the main. starts the whole program.
+     * @param primaryStage
+     * @throws FileNotFoundException
+     */
     @Override
-    public void start(Stage primaryStage) throws FileNotFoundException {
-<span class="nc" id="L21">        primaryStage.getIcons().add(new Image(&quot;https://i.imgur.com/diKacP0.png&quot;));</span>
+    public void start(final Stage primaryStage) throws FileNotFoundException {
+<span class="nc" id="L34">        primaryStage.getIcons().add(new Image(&quot;https://i.imgur.com/diKacP0.png&quot;));</span>
 
         //EASTER EGG// default value in the database for shortcut when developing
         try {
-<span class="nc" id="L25">            new Controller().signUp(new User(&quot;admin&quot;, Hash.generateHash(&quot;root&quot;, &quot;SHA-256&quot;)));</span>
-<span class="nc" id="L26">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,1500,&quot;12-03-2019&quot;));</span>
-<span class="nc" id="L27">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,300,&quot;13-03-2019&quot;));</span>
-<span class="nc" id="L28">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,700,&quot;14-03-2019&quot;));</span>
-<span class="nc" id="L29">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,20,&quot;15-03-2019&quot;));</span>
-<span class="nc" id="L30">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,500,&quot;16-03-2019&quot;));</span>
-<span class="nc" id="L31">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,1500,&quot;17-03-2019&quot;));</span>
-<span class="nc" id="L32">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,100,&quot;26-03-2019&quot;));</span>
-<span class="nc" id="L33">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;,1500,&quot;29-03-2019&quot;));</span>
-<span class="nc" id="L34">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,400,&quot;12-03-2019&quot;));</span>
-<span class="nc" id="L35">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,600,&quot;13-03-2019&quot;));</span>
-<span class="nc" id="L36">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,1400,&quot;14-03-2019&quot;));</span>
-<span class="nc" id="L37">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,260,&quot;15-03-2019&quot;));</span>
-<span class="nc" id="L38">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,50,&quot;16-03-2019&quot;));</span>
-<span class="nc" id="L39">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,100,&quot;17-03-2019&quot;));</span>
-<span class="nc" id="L40">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,700,&quot;26-03-2019&quot;));</span>
-<span class="nc" id="L41">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;,500,&quot;29-03-2019&quot;));</span>
-<span class="nc" id="L42">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,700,&quot;12-03-2019&quot;));</span>
-<span class="nc" id="L43">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,100,&quot;13-03-2019&quot;));</span>
-<span class="nc" id="L44">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,100,&quot;14-03-2019&quot;));</span>
-<span class="nc" id="L45">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,600,&quot;15-03-2019&quot;));</span>
-<span class="nc" id="L46">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,520,&quot;16-03-2019&quot;));</span>
-<span class="nc" id="L47">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,1030,&quot;17-03-2019&quot;));</span>
-<span class="nc" id="L48">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,170,&quot;26-03-2019&quot;));</span>
-<span class="nc" id="L49">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;,900,&quot;29-03-2019&quot;));</span>
-<span class="nc" id="L50">        } catch (NoSuchAlgorithmException e) {</span>
-<span class="nc" id="L51">            e.printStackTrace();</span>
-<span class="nc" id="L52">        }</span>
+<span class="nc" id="L38">            new Controller().signUp(new User(&quot;admin&quot;, Hash.generateHash(&quot;root&quot;, &quot;SHA-256&quot;)));</span>
+<span class="nc" id="L39">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 1500, &quot;12-03-2019&quot;));</span>
+<span class="nc" id="L40">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 300, &quot;13-03-2019&quot;));</span>
+<span class="nc" id="L41">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 700, &quot;14-03-2019&quot;));</span>
+<span class="nc" id="L42">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 20, &quot;15-03-2019&quot;));</span>
+<span class="nc" id="L43">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 500, &quot;16-03-2019&quot;));</span>
+<span class="nc" id="L44">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 1500, &quot;17-03-2019&quot;));</span>
+<span class="nc" id="L45">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 100, &quot;26-03-2019&quot;));</span>
+<span class="nc" id="L46">            new Controller().sendFood(new Activity(&quot;admin&quot;, 1, &quot;easteregg&quot;, 1500, &quot;29-03-2019&quot;));</span>
+<span class="nc" id="L47">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 400, &quot;12-03-2019&quot;));</span>
+<span class="nc" id="L48">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 600, &quot;13-03-2019&quot;));</span>
+<span class="nc" id="L49">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 1400, &quot;14-03-2019&quot;));</span>
+<span class="nc" id="L50">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 260, &quot;15-03-2019&quot;));</span>
+<span class="nc" id="L51">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 50, &quot;16-03-2019&quot;));</span>
+<span class="nc" id="L52">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 100, &quot;17-03-2019&quot;));</span>
+<span class="nc" id="L53">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 700, &quot;26-03-2019&quot;));</span>
+<span class="nc" id="L54">            new Controller().sendFood(new Activity(&quot;admin&quot;, 2, &quot;easteregg&quot;, 500, &quot;29-03-2019&quot;));</span>
+<span class="nc" id="L55">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 700, &quot;12-03-2019&quot;));</span>
+<span class="nc" id="L56">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 100, &quot;13-03-2019&quot;));</span>
+<span class="nc" id="L57">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 100, &quot;14-03-2019&quot;));</span>
+<span class="nc" id="L58">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 600, &quot;15-03-2019&quot;));</span>
+<span class="nc" id="L59">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 520, &quot;16-03-2019&quot;));</span>
+<span class="nc" id="L60">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 1030, &quot;17-03-2019&quot;));</span>
+<span class="nc" id="L61">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 170, &quot;26-03-2019&quot;));</span>
+<span class="nc" id="L62">            new Controller().sendFood(new Activity(&quot;admin&quot;, 3, &quot;easteregg&quot;, 900, &quot;29-03-2019&quot;));</span>
+<span class="nc" id="L63">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L64">            e.printStackTrace();</span>
+<span class="nc" id="L65">        }</span>
 
         //.........//
-<span class="nc" id="L55">        window = primaryStage;</span>
-<span class="nc" id="L56">        window.setOnCloseRequest(e -&gt; {</span>
-<span class="nc" id="L57">            e.consume();</span>
-<span class="nc" id="L58">            closeProgram();</span>
-<span class="nc" id="L59">        });</span>
-<span class="nc" id="L60">        window.setResizable(false);</span>
-<span class="nc" id="L61">        Login.showLogin(window);</span>
-<span class="nc" id="L62">    }</span>
+<span class="nc" id="L68">        window = primaryStage;</span>
+<span class="nc" id="L69">        window.setOnCloseRequest(e -&gt; {</span>
+<span class="nc" id="L70">            e.consume();</span>
+<span class="nc" id="L71">            closeProgram();</span>
+<span class="nc" id="L72">        });</span>
+<span class="nc" id="L73">        window.setResizable(false);</span>
+<span class="nc" id="L74">        Login.showLogin(window);</span>
+<span class="nc" id="L75">    }</span>
 
 
-    //Closing down the program method.
+    /**
+     * Closes the progoram.
+     */
     public void closeProgram() {
-<span class="nc" id="L67">        boolean answer = BoxConfirm.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (answer) {</span>
-<span class="nc" id="L69">            window.close();</span>
+<span class="nc" id="L82">        boolean answer = BoxConfirm.display(&quot;Exit Box&quot;, &quot;Are you sure you want to exit?&quot;);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (answer) {</span>
+<span class="nc" id="L84">            window.close();</span>
         }
-<span class="nc" id="L71">    }</span>
+<span class="nc" id="L86">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
