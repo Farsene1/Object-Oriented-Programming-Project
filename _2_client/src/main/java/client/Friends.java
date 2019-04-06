@@ -11,6 +11,9 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -43,10 +46,16 @@ public class Friends {
 
         //Creating Labels for addition
         Label friendsL = new Label("My Friend List");
+        friendsL.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        friendsL.setTextFill(Color.web("#0076a3"));
         Label friendsP = new Label("Pending friend Requests");
+        friendsP.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        friendsP.setTextFill(Color.web("#0076a3"));
         TextField addaFriend = new TextField();
         Button addaFriendB = new Button("Add A Friend");
         Label friendsLabel = new Label("FRIENDS");
+        friendsLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
+        friendsLabel.setTextFill(Color.web("#0076a3"));
         Button backButton = new Button("Back");
 
 
