@@ -37,7 +37,7 @@ import java.util.List;
     /**
      * method for getting all the friends in the database.
      *
-     * @param user
+     * @param user user parameter.
      * @return response list.
      */
     @RequestMapping(&quot;/friends&quot;)
@@ -54,7 +54,7 @@ import java.util.List;
     /**
      * method for making a friend request.
      *
-     * @param friendRequest
+     * @param friendRequest friendrequest parameter.
      * @return response.
      */
     @RequestMapping(&quot;/request&quot;)
@@ -100,7 +100,7 @@ import java.util.List;
     /**
      * method for getting all the friendRequests.
      *
-     * @param user
+     * @param user user parameter.
      * @return list.
      */
     @RequestMapping(&quot;/getallrequests&quot;)
@@ -114,7 +114,7 @@ import java.util.List;
      * method for responding to a friendRequest. TO BE CHANGED LATER,
      * depending on GUI.
      *
-     * @param friendRequest
+     * @param friendRequest friendRequest parameter.
      * @return String
      */
     @RequestMapping(&quot;/respond&quot;)
@@ -132,7 +132,7 @@ import java.util.List;
      * this method sets the request answer to true
      * so that it will not appear in the incoming requests.
      *
-     * @param friendRequest
+     * @param friendRequest friendRequest paramter.
      * @return String
      */
     @RequestMapping(&quot;/fakeresponse&quot;)
@@ -144,28 +144,32 @@ import java.util.List;
 
     /**
      * set repo.
-     * @param friendshipRepository
+     *
+     * @param friendshipRepository friendship repository
+     *                             parameter.
      */
     public void setFriendshipRepository(
             final FriendshipRepository friendshipRepository) {
-<span class="nc" id="L151">        this.friendshipRepository = friendshipRepository;</span>
-<span class="nc" id="L152">    }</span>
+<span class="nc" id="L153">        this.friendshipRepository = friendshipRepository;</span>
+<span class="nc" id="L154">    }</span>
 
     /**
      * set repo.
-     * @param friendRequestRepository
+     *
+     * @param friendRequestRepository friendrequest repository paramter.
      */
     public void setFriendRequestRepository(
             final FriendRequestRepository friendRequestRepository) {
-<span class="nc" id="L160">        this.friendRequestRepository = friendRequestRepository;</span>
-<span class="nc" id="L161">    }</span>
+<span class="nc" id="L163">        this.friendRequestRepository = friendRequestRepository;</span>
+<span class="nc" id="L164">    }</span>
 
     /**
      * set repo.
-     * @param userRepository
+     *
+     * @param userRepository user repository parameter.
      */
     public void setUserRepository(final UserRepository userRepository) {
-<span class="nc" id="L168">        this.userRepository = userRepository;</span>
-<span class="nc" id="L169">    }</span>
+<span class="nc" id="L172">        this.userRepository = userRepository;</span>
+<span class="nc" id="L173">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
