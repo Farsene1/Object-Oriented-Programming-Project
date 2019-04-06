@@ -20,13 +20,21 @@ public class StatisticsControllerTest {
     private StatisticsRepository statisticsRepository = Mockito.mock(StatisticsRepository.class);
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         statisticsController.setStatisticsRepository(statisticsRepository);
     }
+
     @Test
-    public void getAllStatsTest(){
+    public void getAllStatsTest() {
         Mockito.when(statisticsRepository.findStatisticsByUsername("admin"))
-                .thenReturn(Arrays.asList(new Statistics(),new Statistics()));
+                .thenReturn(Arrays.asList(new Statistics(), new Statistics()));
         assertEquals(2, statisticsController.getAllStats("admin").size());
+    }
+
+    @Test
+    public void getAllStatsByTypeTest() {
+        Mockito.when(statisticsRepository.findStatisticsByUsernameAndType("Florentin", "FOOD"))
+                .thenReturn(Arrays.asList(new Statistics()));
+        assertEquals(1, statisticsController.getAllStatsByType("Florentin", "FOOD").size());
     }
 }

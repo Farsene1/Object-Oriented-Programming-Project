@@ -27,13 +27,39 @@ public class ActivityControllerTest {
         activityController.setActivityRepository(activityRepository);
         activityController.setStatisticsRepository(statisticsRepository);
     }
+
     @Test
-    public void testPath(){
+    public void testPath() {
         when(activityRepository.findActivitiesByUser("admin"))
-                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
-        when(statisticsRepository.findStatisticByDateAndType("","ALL")).thenReturn(null);
-        List<Activity> list = activityController.addToActivitiesTable(new Activity("admin",1,"vegan",200,""));
-        assertEquals(1,list.size());
+                .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
+        when(statisticsRepository.findStatisticByDateAndType("", "ALL")).thenReturn(null);
+        List<Activity> list = activityController.addToActivitiesTable(new Activity("admin", 1, "vegan", 200, ""));
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testPathFail() {
+        when(activityRepository.findActivitiesByUser("admin"))
+                .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
+        when(statisticsRepository.findStatisticByDateAndType("", "ALL"))
+                .thenReturn(new Statistics("admin",10,""));
+        when(statisticsRepository.findStatisticByDateAndType("","FOOD")).thenReturn(new Statistics("admin",10,""));
+        List<Activity> list = activityController.addToActivitiesTable(new Activity("admin", 1, "vegan", 200, ""));
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void addActivityOfTypesTest(){
+        when(activityRepository.findActivitiesByUser("admin"))
+                .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
+        when(statisticsRepository.findStatisticByDateAndType("", "ALL"))
+                .thenReturn(new Statistics("admin",10,""));
+        when(statisticsRepository.findStatisticByDateAndType("","TRANSPORT")).thenReturn(new Statistics("admin",10,""));
+        List<Activity> list = activityController.addToActivitiesTable(new Activity("admin", 2, "vegan", 200, ""));
+        when(statisticsRepository.findStatisticByDateAndType("","ELECTRICITY")).thenReturn(new Statistics("admin",10,""));
+        List<Activity> list2 = activityController.addToActivitiesTable(new Activity("admin", 3, "vegan", 200, ""));
+        assertEquals(1, list2.size());
+
     }
 
     @Test
