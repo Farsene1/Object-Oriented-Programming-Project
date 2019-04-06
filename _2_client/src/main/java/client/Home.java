@@ -6,11 +6,14 @@ import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,9 +23,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import javafx.scene.Group;
 import java.io.*;
 import java.util.*;
+import javafx.scene.layout.VBox;
 
 /**
  * HOME CLASS.
@@ -42,11 +46,11 @@ public class Home {
      */
     public static void showHome(final Stage window, final classes.User user) {
 
+
         factreading(list);
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Home");
-
         BorderPane bp = new BorderPane();
         VBox leftmenu = new VBox();
         Scene scene = new Scene(bp, 1920, 1080);
@@ -54,9 +58,9 @@ public class Home {
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
         ImageView img = new ImageView(UserBadge.iconChoice(user));
-        Label homeLabel = new Label("WE CARE , \n DO YOU?");
-        homeLabel.getStyleClass().add("HomeLabelCss");
-        homeLabel.setAlignment(Pos.CENTER);
+       // Label homeLabel = new Label("WE CARE , \n DO YOU?");
+        //homeLabel.getStyleClass().add("HomeLabelCss");
+       // homeLabel.setAlignment(Pos.CENTER);
         //  GridPane.setConstraints(homeLabel,5,5);
         Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
@@ -108,7 +112,11 @@ public class Home {
 
         });
 
-        centerMenu.getChildren().addAll(homeLabel);
+        Piechart.showPieChart(user);
+        VBox pieChart = Piechart.getPieChartBox();
+
+
+        centerMenu.getChildren().addAll(pieChart);
 
         //Add everything to grid
         leftmenu.getChildren().addAll(img, usernamelabel, statusbar, mycarbonButton, statisticsButton, leaderboardButton, friendsbutton, quitButton);
@@ -141,6 +149,7 @@ public class Home {
         timer.play();
 
         scene.getStylesheets().add((new File("_2_client/src/resources/CSS/SnackBar.css")).toURI().toString());
+
         window.setScene(scene);
         window.setMaximized(true);
         window.show();
