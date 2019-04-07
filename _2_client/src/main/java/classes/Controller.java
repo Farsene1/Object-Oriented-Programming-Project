@@ -55,7 +55,7 @@ public class Controller {
      * Returns a list of activities.
      *
      * @param user paramter user.
-     * @return List<Activity < / Activity>.
+     * @return List<Activity>
      */
     public List<Activity> getAllActivities(final User user) {
         return restfulClient.getAllActivities(user);
@@ -118,7 +118,6 @@ public class Controller {
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return foodfootprint amount of meals eaten.
      */
     public void sendMeal(final User user, final int amount) {
         user.setFoodScore(amount + user.getFoodScore());
@@ -131,7 +130,6 @@ public class Controller {
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return transportfootprint amount of kilometers driven.
      */
     public void sendTransport(final User user, final int amount) {
         user.setTransportScore(amount + user.getTransportScore());
@@ -144,7 +142,6 @@ public class Controller {
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return electricity amount of liters of water wasted.
      */
     public void sendElectricity(final User user, final int amount) {
         user.setElectricityScore(amount + user.getElectricityScore());
@@ -205,7 +202,7 @@ public class Controller {
     /**
      * This method checks for a valid email.
      *
-     * @param email
+     * @param email parameter email.
      * @return boolean
      */
     public static boolean checkEmail(final String email) {

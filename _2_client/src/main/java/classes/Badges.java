@@ -11,7 +11,7 @@ public class Badges {
     private static int unlock = 0;
 
     /**
-     * Method to unlock polar badges
+     * Method to unlock polar badges.
      *
      * @param user parameter user.
      * @return returns an int unlock
@@ -59,12 +59,14 @@ public class Badges {
 
     /**
      * parameter to unlock food badges.
+     *
      * @param user user parameter
-     * @return unlock int for food*/
+     * @return unlock int for food
+     */
     public static int foodUnlock(final User user) {
-/**
- * Calls get food score // assigns to int value to be checked.
- */
+        /**
+         *   Calls get food score // assigns to int value to be checked.
+         */
         int foodTotal = user.getFoodScore();
         /**
          * Defaults to unlock food badge 1 automatically.
@@ -104,6 +106,7 @@ public class Badges {
 
     /**
      * Returns an unlock for transport.
+     *
      * @param user user parameter.
      * @return returns an int for unlocking badges
      */
@@ -150,6 +153,7 @@ public class Badges {
 
     /**
      * Method to unlock electricity badges.
+     *
      * @param user parameter user.
      * @return returns an int for unlocking.
      */

@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSS;
+import CSS.Css;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
@@ -143,8 +143,8 @@ public class Signup {
         vBox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         vBox.setPadding(new Insets(20, 60, 40, 60));
         vBox.setSpacing(30);
-        CSS.setSmallButtonStyle(register);
-        CSS.setBackButtonStyle(back);
+        Css.setSmallButtonStyle(register);
+        Css.setBackButtonStyle(back);
 
 
         Scene scene = new Scene(bp, 1920, 1080);

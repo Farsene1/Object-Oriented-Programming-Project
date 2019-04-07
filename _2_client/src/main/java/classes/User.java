@@ -1,4 +1,5 @@
 package classes;
+
 import java.io.Serializable;
 
 /**
@@ -35,7 +36,7 @@ public class User implements Serializable {
     /**
      * attribute for solar panels.
      */
-    private boolean solar_panels = false;
+    private boolean solarpanels = false;
     /**
      * Attribute polarScore declared as type integer.
      */
@@ -185,14 +186,15 @@ public class User implements Serializable {
      * @return true or false.
      */
     public boolean isSolar() {
-        return solar_panels;
+        return solarpanels;
     }
 
     /**
-     * sets to true or false.
+     * Set solar panels
+     * @param solarpanels set solar panels.
      */
-    public void setSolar(boolean solar_panels) {
-        this.solar_panels = solar_panels;
+    public void setSolar(boolean solarpanels) {
+        this.solarpanels = solarpanels;
     }
 
     /**

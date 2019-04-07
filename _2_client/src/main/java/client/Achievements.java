@@ -2,8 +2,9 @@ package client;
 
 import classes.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -59,7 +60,7 @@ public class Achievements {
         GridPane.setConstraints(achievements, 0, 0);
 
         /**
-         * Label for polar badges
+         * Label for polar badges.
          */
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
@@ -78,7 +79,7 @@ public class Achievements {
         /**
          * Food score badges.
          */
-        HBox foodHbox = AchievementsFood.getFoodBox();
+       final HBox foodHbox = AchievementsFood.getFoodBox();
         polarHbox.setSpacing(1);
 
         /**

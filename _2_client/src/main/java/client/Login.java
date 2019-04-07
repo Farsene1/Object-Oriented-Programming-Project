@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSS;
+import CSS.Css;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
@@ -108,7 +108,7 @@ public class Login {
         bp.setTop(test3);
         bp.setBottom(test4);
 
-        CSS.setSmallButtonStyle(loginButton);
+        Css.setSmallButtonStyle(loginButton);
         bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
         vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20, 60, 40, 60));

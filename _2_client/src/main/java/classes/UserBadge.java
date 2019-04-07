@@ -12,6 +12,7 @@ public class UserBadge {
 
     /**
      * icon choice method.
+     *
      * @param user user param.
      * @return returns a string.
      */
@@ -117,40 +118,41 @@ public class UserBadge {
             icon = "https://i.ibb.co/znYJcqB/transport10.png";
         }
         if (number == 31) {
-        icon = "https://i.ibb.co/xq2rwtw/electricity1.png";
-    }
-        if (number == 32) {
-        icon = "https://i.ibb.co/QfXVd9k/electricity2.png";
-    }
-        if (number == 33) {
-        icon = "https://i.ibb.co/WfW4PvB/electricity3.png";
-    }
-        if (number == 34) {
-        icon = "https://i.ibb.co/swQY9hc/electricity4.png";
-    }
-        if (number == 35) {
-        icon = "https://i.ibb.co/0j3ZrsY/electricity5.png";
-    }
-        if (number == 36) {
-        icon = "https://i.ibb.co/xJ1kr1C/electricity6.png";
-    }
-        if (number == 37) {
-        icon = "https://i.ibb.co/drmchRC/electricity7.png";
-    }
-        if (number == 38) {
-        icon = "https://i.ibb.co/gmttZfZ/electricity8.png";
-    }
-        if (number == 39) {
-        icon = "https://i.ibb.co/Q9NDBjt/electricity9.png";
-    }
-        if (number == 40) {
-        icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
-    }
-            return icon;
+            icon = "https://i.ibb.co/xq2rwtw/electricity1.png";
         }
+        if (number == 32) {
+            icon = "https://i.ibb.co/QfXVd9k/electricity2.png";
+        }
+        if (number == 33) {
+            icon = "https://i.ibb.co/WfW4PvB/electricity3.png";
+        }
+        if (number == 34) {
+            icon = "https://i.ibb.co/swQY9hc/electricity4.png";
+        }
+        if (number == 35) {
+            icon = "https://i.ibb.co/0j3ZrsY/electricity5.png";
+        }
+        if (number == 36) {
+            icon = "https://i.ibb.co/xJ1kr1C/electricity6.png";
+        }
+        if (number == 37) {
+            icon = "https://i.ibb.co/drmchRC/electricity7.png";
+        }
+        if (number == 38) {
+            icon = "https://i.ibb.co/gmttZfZ/electricity8.png";
+        }
+        if (number == 39) {
+            icon = "https://i.ibb.co/Q9NDBjt/electricity9.png";
+        }
+        if (number == 40) {
+            icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
+        }
+        return icon;
+    }
 
     /**
      * Get Icon method.
+     *
      * @return icon.
      */
     public static String geticon(int number) {
@@ -281,6 +283,11 @@ public class UserBadge {
         return icon;
     }
 
+    /**
+     * Mini icon choice.
+     * @param user user param.
+     * @return returns a string.
+     */
     public static String miniiconChoice(final User user) {
 
         /**
@@ -415,6 +422,11 @@ public class UserBadge {
         return icon;
     }
 
+    /**
+     * Get mini icon.
+     * @param number numbe raprameter.
+     * @return returns a string
+     */
     public static String getminiIcon(int number) {
 
         /**

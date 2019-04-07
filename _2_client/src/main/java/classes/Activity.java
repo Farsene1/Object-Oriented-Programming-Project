@@ -37,7 +37,7 @@ public class Activity {
     private String date;
 
     /**
-     * empty constructor
+     * empty constructor.
      */
     public Activity() {
     }
@@ -51,7 +51,11 @@ public class Activity {
      * @param footprint   ftooprint parameter.
      * @param date        date parameter.
      */
-    public Activity(final String username, final Integer category, final String description, final Integer footprint, final String date) {
+    public Activity(final String username,
+                    final Integer category,
+                    final String description,
+                    final Integer footprint,
+                    final String date) {
         this.username = username;
         this.category = category;
         this.description = description;
@@ -70,6 +74,9 @@ public class Activity {
                 this.cat = "Electricity";
                 break;
             }
+            default:
+
+
         }
     }
 
@@ -151,7 +158,7 @@ public class Activity {
     }
 
     /**
-     * Sets cat
+     * Sets cat.
      *
      * @param cat parameter cat
      */

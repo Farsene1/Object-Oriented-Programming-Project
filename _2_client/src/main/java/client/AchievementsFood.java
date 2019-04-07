@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSSfoodBadge;
+import CSS.CssfoodBadge;
 import classes.Badges;
 import classes.Controller;
 import classes.User;
@@ -21,7 +21,7 @@ public class AchievementsFood {
     /**
      * Declare Hbox.
      */
-    static HBox foodBox;
+    private  static HBox foodBox;
 
     /**
      * Show food badges.
@@ -59,16 +59,16 @@ public class AchievementsFood {
          * Calls setPolar methods from CSS class to show locked .
          * unlocked food badges.
          */
-        CSSfoodBadge.setFood1(foodBadge1, unlockNumber);
-        CSSfoodBadge.setFood2(foodBadge2, unlockNumber);
-        CSSfoodBadge.setFood3(foodBadge3, unlockNumber);
-        CSSfoodBadge.setFood4(foodBadge4, unlockNumber);
-        CSSfoodBadge.setFood5(foodBadge5, unlockNumber);
-        CSSfoodBadge.setFood6(foodBadge6, unlockNumber);
-        CSSfoodBadge.setFood7(foodBadge7, unlockNumber);
-        CSSfoodBadge.setFood8(foodBadge8, unlockNumber);
-        CSSfoodBadge.setFood9(foodBadge9, unlockNumber);
-        CSSfoodBadge.setFood10(foodBadge10, unlockNumber);
+        CssfoodBadge.setFood1(foodBadge1, unlockNumber);
+        CssfoodBadge.setFood2(foodBadge2, unlockNumber);
+        CssfoodBadge.setFood3(foodBadge3, unlockNumber);
+        CssfoodBadge.setFood4(foodBadge4, unlockNumber);
+        CssfoodBadge.setFood5(foodBadge5, unlockNumber);
+        CssfoodBadge.setFood6(foodBadge6, unlockNumber);
+        CssfoodBadge.setFood7(foodBadge7, unlockNumber);
+        CssfoodBadge.setFood8(foodBadge8, unlockNumber);
+        CssfoodBadge.setFood9(foodBadge9, unlockNumber);
+        CssfoodBadge.setFood10(foodBadge10, unlockNumber);
 
         /**
          * Selecting unlocked or locked food score badges on button click.

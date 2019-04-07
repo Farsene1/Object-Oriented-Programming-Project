@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSS;
+import CSS.Css;
 import classes.RestfulClient;
 import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
@@ -69,7 +69,7 @@ public class Home {
         Label polarScore = new Label();
         polarScore.setText(user.getPolarScore().toString());
         Button trophy = new Button();
-        CSS.setTrophyButtonStyle(trophy);
+        Css.setTrophyButtonStyle(trophy);
         statusbar.setStyle("-fx-alignment: center");
         statusbar.getChildren().addAll(polarText, polarScore, trophy);
         statusbar.setMinHeight(50);
@@ -126,11 +126,11 @@ public class Home {
 
         img.setStyle("-fx-pref-width: 350; -fx-pref-height: 350; -fx-padding: 25");
         usernamelabel.setStyle("-fx-padding: 20 0 50 0; -fx-alignment: center; -fx-font-size: 30");
-        CSS.setButtonStyle(mycarbonButton);
-        CSS.setButtonStyle(statisticsButton);
-        CSS.setButtonStyle(leaderboardButton);
-        CSS.setButtonStyle(friendsbutton);
-        CSS.setButtonStyle(quitButton);
+        Css.setButtonStyle(mycarbonButton);
+        Css.setButtonStyle(statisticsButton);
+        Css.setButtonStyle(leaderboardButton);
+        Css.setButtonStyle(friendsbutton);
+        Css.setButtonStyle(quitButton);
         leftmenu.setMinWidth(400);
         leftmenu.setStyle("-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);");
 
@@ -148,7 +148,7 @@ public class Home {
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
 
-        scene.getStylesheets().add((new File("_2_client/src/resources/CSS/SnackBar.css")).toURI().toString());
+        scene.getStylesheets().add((new File("_2_client/src/resources/Css/SnackBar.Css")).toURI().toString());
 
         window.setScene(scene);
         window.setMaximized(true);

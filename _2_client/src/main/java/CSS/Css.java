@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 /**
  * CSS class.
  */
-public class CSS {
+public class Css {
     /**
      * Sets button style.
      *

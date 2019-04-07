@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSSTable;
+
 import classes.Activity;
 import classes.Controller;
 import classes.User;
@@ -20,10 +20,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro8.JMetro;
-import javafx.scene.effect.Shadow;
+
 import java.util.List;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+
 
 /**
  * FootPrint class.
@@ -180,26 +180,26 @@ public class FootPrint {
         /**
          * Simple styling.
          */
-        food.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        food.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
-        transport.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        transport.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
-        electricity.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        electricity.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
 
         grid.setMinWidth(1500);
