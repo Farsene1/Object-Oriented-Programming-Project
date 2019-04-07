@@ -11,6 +11,9 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -43,10 +46,16 @@ public class Friends {
 
         //Creating Labels for addition
         Label friendsL = new Label("My Friend List");
+        friendsL.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        friendsL.setTextFill(Color.web("#0076a3"));
         Label friendsP = new Label("Pending friend Requests");
+        friendsP.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        friendsP.setTextFill(Color.web("#0076a3"));
         TextField addaFriend = new TextField();
         Button addaFriendB = new Button("Add A Friend");
         Label friendsLabel = new Label("FRIENDS");
+        friendsLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
+        friendsLabel.setTextFill(Color.web("#0076a3"));
         Button backButton = new Button("Back");
 
 
@@ -65,25 +74,26 @@ public class Friends {
         //  GridPane.setConstraints(Vbox2,7,0);
         //ADDING THE COLLUMNS TO THE TABLES.
         TableColumn col1 = new TableColumn("Username");
-        col1.setCellValueFactory(new PropertyValueFactory<>("username"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
         TableColumn col2 = new TableColumn("Score");
-        col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("Polarscore"));
+        TableColumn col3 = new TableColumn("Badge");
+        col3.setCellValueFactory(new PropertyValueFactory<>("Badge"));
 
 
-        TableColumn col3 = new TableColumn("Username");
-        col3.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        TableColumn col4 = new TableColumn("Username");
+        col4.setCellValueFactory(new PropertyValueFactory<>("sender"));
 
-        TableColumn col4 = new TableColumn("Badge (click to see)");
-        col4.setCellValueFactory(new PropertyValueFactory<>("badge"));
         //   TableColumn col4 = new TableColumn("Accept/Decline");
         //  col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
-        friendsTable.getColumns().setAll(col1, col2, col4);
-        pendingTable.getColumns().setAll(col3);
+        friendsTable.getColumns().setAll(col1, col2, col3);
+        pendingTable.getColumns().setAll(col4);
         col1.setMinWidth(200);
         col1.setMaxWidth(200);
         col2.setMaxWidth(200);
         col2.setMinWidth(200);
-        col3.setMinWidth(250);
+        col3.setMinWidth(125);
+        col3.setMaxWidth(125);
         col4.setMinWidth(250);
         //backButton
         backButton.setOnAction(e -> {
@@ -148,26 +158,6 @@ public class Friends {
 
         });
 
-        /**
-         * Row click to show badges of friends.
-         */
-        friendsTable.setRowFactory(tv -> {
-            TableRow row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                        && event.getClickCount() == 1) {
-                    Object friend = friendsTable.getSelectionModel().getSelectedItem();
-                    String testBadge = friend.toString();
-                    String badge = testBadge.split(",")[2].substring(1);
-                    badge = badge.replace("badge= ", "");
-                    badge = badge.replace("}", "");
-                    int badgeNumber = Integer.parseInt(badge);
-                    BoxBadge.displayFriendBadge("Friends badge", badgeNumber);
-                }
-            });
-            return row;
-        });
-
         pendingTable.setItems(addFriendRequests(user));
         friendsTable.setItems(addFriend(user));
 
@@ -179,12 +169,12 @@ public class Friends {
      * @param user parameter
      * @return returns al ist.
      */
-    public static ObservableList<User> addFriend(User user) {
-        ObservableList<User> friend = FXCollections.observableArrayList();
+    public static ObservableList<Friend> addFriend(User user) {
+        ObservableList<Friend> friend = FXCollections.observableArrayList();
         List<User> friendList = new Controller().getAllFriends(user);
 
         for (User a : friendList) {
-            friend.add(a);
+            friend.add(new Friend(a));
         }
         return friend;
     }

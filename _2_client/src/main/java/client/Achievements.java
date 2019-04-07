@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -44,7 +45,8 @@ public class Achievements {
          * Set label for achievements, initialize VBox for badges.
          */
         Label myAchievements = new Label("My Achievements!");
-        myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
+        myAchievements.setFont(Font.font("Amble CN", FontWeight.BOLD, 45));
+        myAchievements.setTextFill(Color.web("#0076a3"));
         VBox achievements = new VBox();
         achievements.setStyle("-fx-padding: 5;");
         achievements.setSpacing(10);
@@ -60,7 +62,8 @@ public class Achievements {
          * Label for polar badges
          */
         Label polarLabel = new Label("POLAR");
-        polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        polarLabel.setTextFill(Color.web("#0076a3"));
         /**
          * Polar score badges.
          */
@@ -70,7 +73,8 @@ public class Achievements {
          * Label for food badges.
          */
         Label foodLabel = new Label("FOOD");
-        foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        foodLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        foodLabel.setTextFill(Color.web("#0076a3"));
         /**
          * Food score badges.
          */
@@ -93,13 +97,15 @@ public class Achievements {
          * Label for transport badges.
          */
         Label transportLabel = new Label("TRANSPORT");
-        transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        transportLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        transportLabel.setTextFill(Color.web("#0076a3"));
 
         /**
          * Label for electricity badges.
          */
         Label electricityLabel = new Label("ELECTRICITY");
-        electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
+        electricityLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        electricityLabel.setTextFill(Color.web("#0076a3"));
 
         /**
          * Adds all badges in specific Hboxes to Vbox // styling.

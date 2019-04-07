@@ -20,8 +20,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro8.JMetro;
-
+import javafx.scene.effect.Shadow;
 import java.util.List;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 /**
  * FootPrint class.
@@ -54,11 +56,13 @@ public class FootPrint {
          * Labels / Vbox added and styling.
          */
         Label myFootprint = new Label("My Activities!");
-        myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 50));
+        myFootprint.setTextFill(Color.web("#0076a3"));
         VBox footprint = new VBox(myFootprint, table);
         footprint.setStyle("-fx-padding: 15;");
         footprint.setSpacing(20);
         footprint.setAlignment(Pos.CENTER);
+
 
         /**
          * Adds columns to footprint table // simple styling.
@@ -89,7 +93,12 @@ public class FootPrint {
         Label foodLabel = new Label("Food Footprint ");
         Label electricityLabel = new Label("Electricity Footprint");
         Label transportLabel = new Label("Transport Footprint");
-
+        foodLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
+        foodLabel.setTextFill(Color.web("#0076a3"));
+        electricityLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
+        electricityLabel.setTextFill(Color.web("#0076a3"));
+        transportLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
+        transportLabel.setTextFill(Color.web("#0076a3"));
         /**
          * Initialixe Vboxes for footprint types.
          */
@@ -100,7 +109,6 @@ public class FootPrint {
         foodOptions.setStyle("-fx-padding: 15;");
         transportOptions.setStyle("-fx-padding: 15;");
         electricityOptions.setStyle("-fx-padding: 15;");
-        //Footprint.setStyle("-fx-padding: 15;");
         GridPane.setConstraints(footprint, 0, 1);
 
         /**
@@ -172,10 +180,28 @@ public class FootPrint {
         /**
          * Simple styling.
          */
-        food.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
-        transport.setStyle("-fx-background-radius: 100; -fx-font-size: 42");
-        // quitButton.setStyle("-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42");
-        electricity.setStyle("-fx-background-radius: 100;-fx-font-size: 42");
+        food.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+
+        transport.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+
+        electricity.setStyle("-fx-background-color: #87c9ff; " +
+                "-fx-background-radius: 100; " +
+                "-fx-font-size: 42; " +
+                "-fx-border-radius: 100;" +
+                "-fx-border-color: #5cffee; " +
+                "-fx-border-width: 5px;");
+
+
         grid.setMinWidth(1500);
         table.setMaxHeight(770);
         table.setMinHeight(770);

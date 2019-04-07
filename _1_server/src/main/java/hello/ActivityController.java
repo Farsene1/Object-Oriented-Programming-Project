@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * activity controller.
+ */
 @RestController
 public class ActivityController {
 
@@ -39,7 +42,7 @@ public class ActivityController {
 
     /**
      * addActivity.
-     *
+     * @param activity that is added.
      * @return list.
      */
     @RequestMapping(value = "/test", method = RequestMethod.POST)
@@ -64,12 +67,14 @@ public class ActivityController {
             this.statisticsRepository.save(s1);
         } else {
             this.statisticsRepository
-                    .updateStatistic(sum, activity.getUsername(), "ALL", activity.getDate());
+                    .updateStatistic(sum, activity.getUsername(),
+                            "ALL", activity.getDate());
         }
 
         //updating statistics for the type
         Integer sumFood = this.activityRepository
-                .totalScoreByCategory(activity.getUsername(), activity.getDate(), activity.getCategory());
+                .totalScoreByCategory(activity.getUsername(),
+                        activity.getDate(), activity.getCategory());
 
         Statistics sFood = new Statistics(
                 activity.getUsername(), sumFood, activity.getDate());
@@ -83,34 +88,37 @@ public class ActivityController {
             sFood.setType("ELECTRICITY");
         }
         Statistics sF = this.statisticsRepository
-                .findStatisticByDateAndType(activity.getDate(), sFood.getType());
+                .findStatisticByDateAndType(activity.getDate(),
+                        sFood.getType());
 
         if (sF == null) {
             this.statisticsRepository.save(sFood);
         } else {
             this.statisticsRepository
-                    .updateStatistic(sumFood, activity.getUsername(), sFood.getType(), activity.getDate());
+                    .updateStatistic(sumFood, activity.getUsername(),
+                            sFood.getType(), activity.getDate());
         }
         return this.activityRepository
                 .findActivitiesByUser(activity.getUsername());
     }
+
     /**
      * setting the repo.
      *
-     * @param activityRepository activity repository.
+     * @param activityRepository2 activity repository.
      */
     public void setActivityRepository(
-            final ActivityRepository activityRepository) {
-        this.activityRepository = activityRepository;
+            final ActivityRepository activityRepository2) {
+        this.activityRepository = activityRepository2;
     }
 
     /**
      * setter.
      *
-     * @param statisticsRepository setter for statistics repo.
+     * @param statisticsRepository2 setter for statistics repo.
      */
     public void setStatisticsRepository(
-            final StatisticsRepository statisticsRepository) {
-        this.statisticsRepository = statisticsRepository;
+            final StatisticsRepository statisticsRepository2) {
+        this.statisticsRepository = statisticsRepository2;
     }
 }

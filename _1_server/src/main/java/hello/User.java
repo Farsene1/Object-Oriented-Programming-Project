@@ -61,16 +61,17 @@ public class User implements Serializable {
     /**
      * Constructor declaration for user.
      *
-     * @param username username parameter.
-     * @param hash hash parameter.
+     * @param username2 username parameter.
+     * @param hash2     hash parameter.
      */
-    public User(String username, String hash) {
-        this.username = username;
-        this.hash = hash;
+    public User(final String username2, final String hash2) {
+        this.username = username2;
+        this.hash = hash2;
     }
 
     /**
      * get username.
+     *
      * @return username.
      */
     public String getUsername() {
@@ -80,14 +81,15 @@ public class User implements Serializable {
     /**
      * Setter for username.
      *
-     * @param username username parameter.
+     * @param username2 username parameter.
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(final String username2) {
+        this.username = username2;
     }
 
     /**
      * getter for hash.
+     *
      * @return hash.
      */
     public String getHash() {
@@ -97,14 +99,15 @@ public class User implements Serializable {
     /**
      * Setter for hash.
      *
-     * @param hash hash parameter.
+     * @param hash2 hash parameter.
      */
-    public void setHash(String hash) {
-        this.hash = hash;
+    public void setHash(final String hash2) {
+        this.hash = hash2;
     }
 
     /**
      * get food score.
+     *
      * @return food
      */
     public Integer getFoodScore() {
@@ -113,14 +116,16 @@ public class User implements Serializable {
 
     /**
      * set food.
-     * @param food food score.
+     *
+     * @param food2 food score.
      */
-    public void setFoodScore(Integer food) {
-        this.food = food;
+    public void setFoodScore(final Integer food2) {
+        this.food = food2;
     }
 
     /**
      * get electricity score.
+     *
      * @return electric score.
      */
     public Integer getElectricityScore() {
@@ -130,14 +135,15 @@ public class User implements Serializable {
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity electricity score.
+     * @param electricity2 electricity score.
      */
-    public void setElectricityScore(Integer electricity) {
-        this.electricity = electricity;
+    public void setElectricityScore(final Integer electricity2) {
+        this.electricity = electricity2;
     }
 
     /**
      * get transport score.
+     *
      * @return transport score.
      */
     public Integer getTransportScore() {
@@ -147,14 +153,15 @@ public class User implements Serializable {
     /**
      * Setter for transportFootprint.
      *
-     * @param transport transport score.
+     * @param transport2 transport score.
      */
-    public void setTransportScore(Integer transport) {
-        this.transport = transport;
+    public void setTransportScore(final Integer transport2) {
+        this.transport = transport2;
     }
 
     /**
      * get polar score.
+     *
      * @return polar score.
      */
     public Integer getPolarScore() {
@@ -164,14 +171,15 @@ public class User implements Serializable {
     /**
      * Setter for polarScore.
      *
-     * @param polarScore polar score parameter.
+     * @param polarScore2 polar score parameter.
      */
-    public void setPolarScore(Integer polarScore) {
-        this.polarScore = polarScore;
+    public void setPolarScore(final Integer polarScore2) {
+        this.polarScore = polarScore2;
     }
 
     /**
      * get badge.
+     *
      * @return returns badge.
      */
 
@@ -181,14 +189,16 @@ public class User implements Serializable {
 
     /**
      * sets badge.
-     * @param badge parameter.
+     *
+     * @param badge2 parameter.
      */
-    public void setBadge(Integer badge) {
-        this.badge = badge;
+    public void setBadge(final Integer badge2) {
+        this.badge = badge2;
     }
 
     /**
      * checks if the user has solar panels.
+     *
      * @return true or false.
      */
     public boolean isSolar() {
@@ -197,17 +207,18 @@ public class User implements Serializable {
 
     /**
      * sets to true or false.
+     *
+     * @param solar_panels2 value.
      */
-    public void setSolar(boolean solar_panels) {
-        this.solar_panels = solar_panels;
+    public void setSolar(final boolean solar_panels2) {
+        this.solar_panels = solar_panels2;
     }
 
     /**
      * to string method.
+     *
      * @return the string.
      */
-
-
     @Override
     public String toString() {
         return "User{" + "username='" + username

@@ -109,6 +109,7 @@ public class UserController {
     /**
      * method for getting the most recent updates.
      *
+     * @param user that gets updates from the database.
      * @return user from db.
      */
     @RequestMapping(value = "/requestforupdate", method = RequestMethod.POST)
@@ -128,7 +129,8 @@ public class UserController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value = "username",
             defaultValue = "anonymous") final String username,
-                         @RequestParam(value = "hash", defaultValue = "0") final String hash) {
+                         @RequestParam(value = "hash", defaultValue = "0")
+                         final String hash) {
         String info = String.format(
                 "/GET REQUEST info: username=%s, hash=%s", username, hash);
         System.out.println(info);
@@ -146,6 +148,17 @@ public class UserController {
     }
 
     /**
+     * this method gets all the users whose usenames start with regex.
+     *
+     * @param regex regular expression.
+     * @return list.
+     */
+    @RequestMapping(value = "/regex", method = RequestMethod.POST)
+    public List<String> getUsernamesLike(@RequestBody final String regex) {
+        return this.userRepository.findByRegex(regex);
+    }
+
+    /**
      * default method for testing, dangerous to use.
      *
      * @return List
@@ -159,10 +172,10 @@ public class UserController {
     /**
      * just a setter.
      *
-     * @param userRepository user repository.
+     * @param userRepository2 user repository.
      */
-    public void setUserRepository(final UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public void setUserRepository(final UserRepository userRepository2) {
+        this.userRepository = userRepository2;
     }
 
 

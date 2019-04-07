@@ -60,19 +60,20 @@ public class Activity {
     /**
      * activity constructor.
      *
-     * @param username    username parameter.
-     * @param category    category parameter.
-     * @param description description parameter.
-     * @param footprint   footprint parameter.
-     * @param date        date parameter.
+     * @param username2    username parameter.
+     * @param category2    category parameter.
+     * @param description2 description parameter.
+     * @param footprint2   footprint parameter.
+     * @param date2        date parameter.
      */
-    public Activity(String username, Integer category, String description,
-                    Integer footprint, String date) {
-        this.username = username;
-        this.category = category;
-        this.description = description;
-        this.footprint = footprint;
-        this.date = date;
+    public Activity(final String username2, final Integer category2,
+                    final String description2,
+                    final Integer footprint2, final String date2) {
+        this.username = username2;
+        this.category = category2;
+        this.description = description2;
+        this.footprint = footprint2;
+        this.date = date2;
         switch (category) {
             case 1: {
                 this.cat = "Food";
@@ -101,10 +102,10 @@ public class Activity {
     /**
      * sets Id.
      *
-     * @param id parameter id.
+     * @param id2 parameter id.
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(final Integer id2) {
+        this.id = id2;
     }
 
     /**
@@ -119,10 +120,10 @@ public class Activity {
     /**
      * set username.
      *
-     * @param username paramter username.
+     * @param username2 paramter username.
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(final String username2) {
+        this.username = username2;
     }
 
     /**
@@ -137,10 +138,10 @@ public class Activity {
     /**
      * sets category.
      *
-     * @param category category parameter.
+     * @param category2 category parameter.
      */
-    public void setCategory(Integer category) {
-        this.category = category;
+    public void setCategory(final Integer category2) {
+        this.category = category2;
         switch (category) {
             case 1: {
                 this.cat = "Food";
@@ -169,10 +170,10 @@ public class Activity {
     /**
      * sets cat.
      *
-     * @param cat parameter cat.
+     * @param cat2 parameter cat.
      */
-    public void setCat(String cat) {
-        this.cat = cat;
+    public void setCat(final String cat2) {
+        this.cat = cat2;
     }
 
     /**
@@ -187,10 +188,10 @@ public class Activity {
     /**
      * sets description.
      *
-     * @param description parameter description.
+     * @param description2 parameter description.
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(final String description2) {
+        this.description = description2;
     }
 
     /**
@@ -205,10 +206,10 @@ public class Activity {
     /**
      * set score.
      *
-     * @param footprint footprint parameter.
+     * @param footprint2 footprint parameter.
      */
-    public void setFootprint(Integer footprint) {
-        this.footprint = footprint;
+    public void setFootprint(final Integer footprint2) {
+        this.footprint = footprint2;
     }
 
     /**
@@ -223,10 +224,10 @@ public class Activity {
     /**
      * sets date.
      *
-     * @param date parameter date.
+     * @param date2 parameter date.
      */
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(final String date2) {
+        this.date = date2;
     }
 
     /**

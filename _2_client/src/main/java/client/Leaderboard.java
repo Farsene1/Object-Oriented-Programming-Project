@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -42,7 +43,8 @@ public class Leaderboard {
 
         //Creating Labels for addition
         Label header = new Label("Leaderboard");
-        header.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
+        header.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
+        header.setTextFill(Color.web("#0076a3"));
         Button backButton = new Button("Back");
 
 
