@@ -46,7 +46,7 @@ Run `maven site`
 
 **Sayf El Kaddouri** `Student number: 4687809`
 
-![Sayf El Kaddouri](https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/55614034_1041141646097173_2871558749774938112_n.jpg?_nc_cat=101&_nc_ht=scontent-amt2-1.xx&oh=1ed14f214d4ae8eaaadbc2140859d275&oe=5D3DD5E8)
+![Sayf El Kaddouri]https://docs.google.com/uc?id=1k5-8syzS0L7mLqq1ExWkkiNNtFLo2OtI)
 
 **Florentin-Ionut Arsene** `Student number: 4839684`
 
