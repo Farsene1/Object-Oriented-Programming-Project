@@ -5,11 +5,14 @@ import classes.Badges;
 import classes.Controller;
 import classes.User;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import javafx.scene.control.Label;
+
+import javafx.scene.layout.HBox;
+
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+
 
 /**
  * achievements polar.
@@ -88,7 +91,8 @@ public class AchievementsPolar {
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             } else {
-                BoxAlert.display("This is an error message", "You still have to unlock polar badge 2!");
+                BoxAlert.display("This is an error message",
+                        "You still have to unlock polar badge 2!");
             }
         });
         polarBadge3.setOnAction(e -> {
@@ -97,7 +101,8 @@ public class AchievementsPolar {
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             } else {
-                BoxAlert.display("This is an error message", "You still have to unlock polar badge 3!");
+                BoxAlert.display("This is an error message",
+                        "You still have to unlock polar badge 3!");
             }
         });
         polarBadge4.setOnAction(e -> {
@@ -166,11 +171,12 @@ public class AchievementsPolar {
         });
 
         /**
-         * Label for polar badges
+         * Label for polar badges.
          */
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
-        polarBox.getChildren().addAll(polarBadge1, polarBadge2, polarBadge3, polarBadge4, polarBadge5,
+        polarBox.getChildren().addAll(polarBadge1, polarBadge2, polarBadge3,
+                polarBadge4, polarBadge5,
                 polarBadge6, polarBadge7, polarBadge8, polarBadge9, polarBadge10);
     }
 

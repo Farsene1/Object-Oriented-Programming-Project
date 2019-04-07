@@ -4,10 +4,11 @@ import CSS.CSStransportBadge;
 import classes.Badges;
 import classes.Controller;
 import classes.User;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import javafx.scene.control.Button;
+
 
 /**
  * Achievements for transport.
@@ -163,8 +164,10 @@ public class AchievementsTransport {
         /**
          * Adds all badges for transport to Hbox.
          */
-        transportBox.getChildren().addAll(transportBadge1, transportBadge2, transportBadge3, transportBadge4, transportBadge5,
-                transportBadge6, transportBadge7, transportBadge8, transportBadge9, transportBadge10);
+        transportBox.getChildren().addAll(transportBadge1, transportBadge2, transportBadge3,
+                transportBadge4, transportBadge5, transportBadge6,
+                transportBadge7, transportBadge8, transportBadge9,
+                transportBadge10);
     }
 
     /**

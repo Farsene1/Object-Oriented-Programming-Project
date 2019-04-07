@@ -62,18 +62,18 @@ public class Activity {
         this.footprint = footprint;
         this.date = date;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
             default:
 
 
@@ -133,18 +133,19 @@ public class Activity {
     public void setCategory(final Integer category) {
         this.category = category;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
+            default:
         }
     }
 

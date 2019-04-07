@@ -1,6 +1,13 @@
 package hello;
 
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * Table activities in database.
@@ -75,18 +82,19 @@ public class Activity {
         this.footprint = footprint2;
         this.date = date2;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
+            default:
         }
     }
 
@@ -143,18 +151,19 @@ public class Activity {
     public void setCategory(final Integer category2) {
         this.category = category2;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
+            default:
         }
     }
 

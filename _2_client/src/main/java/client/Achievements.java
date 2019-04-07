@@ -1,11 +1,12 @@
 package client;
 
-import classes.*;
-import javafx.scene.layout.GridPane;
+import classes.User;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+
 import javafx.scene.layout.HBox;
 
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -79,7 +80,7 @@ public class Achievements {
         /**
          * Food score badges.
          */
-       final HBox foodHbox = AchievementsFood.getFoodBox();
+        final HBox foodHbox = AchievementsFood.getFoodBox();
         polarHbox.setSpacing(1);
 
         /**
