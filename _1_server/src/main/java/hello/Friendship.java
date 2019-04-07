@@ -15,18 +15,25 @@ public class Friendship {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    /**
+     * username1 attribute.
+     */
     private String username1;
+
+    /**
+     * username2 attribute.
+     */
     private String username2;
 
     /**
      * constructor for friendship.
      *
-     * @param username1 username 1 paramter.
-     * @param username2 username 2 parameter.
+     * @param username1s username 1 parameter.
+     * @param username2s username 2 parameter.
      */
-    public Friendship(String username1, String username2) {
-        this.username1 = username1;
-        this.username2 = username2;
+    public Friendship(final String username1s, final String username2s) {
+        this.username1 = username1s;
+        this.username2 = username2s;
     }
 
     /**
@@ -56,10 +63,10 @@ public class Friendship {
     /**
      * sets id.
      *
-     * @param id id parameter.
+     * @param id2 id parameter.
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(final Integer id2) {
+        this.id = id2;
     }
 
     /**
@@ -74,10 +81,10 @@ public class Friendship {
     /**
      * sets username1.
      *
-     * @param username1
+     * @param username1s parameter.
      */
-    public void setUsername1(String username1) {
-        this.username1 = username1;
+    public void setUsername1(final String username1s) {
+        this.username1 = username1s;
     }
 
     /**
@@ -92,9 +99,9 @@ public class Friendship {
     /**
      * set username2.
      *
-     * @param username2 username2 parameter.
+     * @param username2s username2 parameter.
      */
-    public void setUsername2(String username2) {
-        this.username2 = username2;
+    public void setUsername2(final String username2s) {
+        this.username2 = username2s;
     }
 }

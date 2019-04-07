@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @author OOPP server team.
+ */
 @RestController
 public class StatisticsController {
     /**
@@ -16,6 +19,7 @@ public class StatisticsController {
     /**
      * returns a list for statistics.
      *
+     * @param username for statistics.
      * @return List
      */
     @RequestMapping(value = "/statistics",
@@ -33,17 +37,19 @@ public class StatisticsController {
      */
     @RequestMapping(value = "/stats", method = RequestMethod.POST)
     public List<Statistics> getAllStatsByType(@RequestParam(value = "username",
-            defaultValue = "anonymous") String username, @RequestBody String type) {
-        return statisticsRepository.findStatisticsByUsernameAndType(username, type);
+            defaultValue = "anonymous") final String username,
+                                              @RequestBody final String type) {
+        return statisticsRepository
+                .findStatisticsByUsernameAndType(username, type);
     }
 
     /**
      * setter.
      *
-     * @param statisticsRepository setter for statistics repo.
+     * @param statisticsRepository2 setter for statistics repo.
      */
     public void setStatisticsRepository(
-            final StatisticsRepository statisticsRepository) {
-        this.statisticsRepository = statisticsRepository;
+            final StatisticsRepository statisticsRepository2) {
+        this.statisticsRepository = statisticsRepository2;
     }
 }

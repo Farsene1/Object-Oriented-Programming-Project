@@ -17,10 +17,16 @@ public class FriendRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     /**
-     * variables.
+     * sender attribute.
      */
     private String sender;
+    /**
+     * receiver attribute.
+     */
     private String receiver;
+    /**
+     * state attribute.
+     */
     private boolean accepted = false;
 
     /**
@@ -32,48 +38,48 @@ public class FriendRequest {
     /**
      * friend request constructor.
      *
-     * @param sender   sender parameter.
-     * @param receiver receiver parameter.
+     * @param sender2   sender parameter.
+     * @param receiver2 receiver parameter.
      */
-    public FriendRequest(String sender, String receiver) {
-        this.sender = sender;
-        this.receiver = receiver;
+    public FriendRequest(final String sender2, final String receiver2) {
+        this.sender = sender2;
+        this.receiver = receiver2;
     }
 
     /**
      * sets id.
      *
-     * @param id parameter id.
+     * @param id2 parameter id.
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(final Integer id2) {
+        this.id = id2;
     }
 
     /**
      * sets sender.
      *
-     * @param sender parameter sender.
+     * @param sender2 parameter sender.
      */
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setSender(final String sender2) {
+        this.sender = sender2;
     }
 
     /**
      * sets receiver.
      *
-     * @param receiver parameter receiver.
+     * @param receiver2 parameter receiver.
      */
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setReceiver(final String receiver2) {
+        this.receiver = receiver2;
     }
 
     /**
      * sets accepted.
      *
-     * @param accepted parameter accepted.
+     * @param accepted2 parameter accepted.
      */
-    public void setAccepted(boolean accepted) {
-        this.accepted = accepted;
+    public void setAccepted(final boolean accepted2) {
+        this.accepted = accepted2;
     }
 
     /**

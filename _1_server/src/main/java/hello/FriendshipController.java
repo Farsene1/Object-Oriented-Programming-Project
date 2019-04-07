@@ -145,30 +145,30 @@ public class FriendshipController {
     /**
      * set repo.
      *
-     * @param friendshipRepository friendship repository
+     * @param friendshipRepository2 friendship repository
      *                             parameter.
      */
     public void setFriendshipRepository(
-            final FriendshipRepository friendshipRepository) {
-        this.friendshipRepository = friendshipRepository;
+            final FriendshipRepository friendshipRepository2) {
+        this.friendshipRepository = friendshipRepository2;
     }
 
     /**
      * set repo.
      *
-     * @param friendRequestRepository friendrequest repository paramter.
+     * @param friendRequestRepository2 friendrequest repository paramter.
      */
     public void setFriendRequestRepository(
-            final FriendRequestRepository friendRequestRepository) {
-        this.friendRequestRepository = friendRequestRepository;
+            final FriendRequestRepository friendRequestRepository2) {
+        this.friendRequestRepository = friendRequestRepository2;
     }
 
     /**
      * set repo.
      *
-     * @param userRepository user repository parameter.
+     * @param userRepository2 user repository parameter.
      */
-    public void setUserRepository(final UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public void setUserRepository(final UserRepository userRepository2) {
+        this.userRepository = userRepository2;
     }
 }

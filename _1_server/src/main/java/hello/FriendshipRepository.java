@@ -8,7 +8,8 @@ import java.util.List;
 /**
  * friendship table.
  */
-public interface FriendshipRepository extends CrudRepository<Friendship, Integer> {
+public interface FriendshipRepository
+        extends CrudRepository<Friendship, Integer> {
 
     /**
      * get.
@@ -16,6 +17,7 @@ public interface FriendshipRepository extends CrudRepository<Friendship, Integer
      * @param username username parameter.
      * @return friends list.
      */
-    @Query(value = "SELECT username2 FROM friendships WHERE username1 = ?1", nativeQuery = true)
+    @Query(value = "SELECT username2 FROM friendships WHERE username1 = ?1",
+            nativeQuery = true)
     List<String> getAllFriends(String username);
 }

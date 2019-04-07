@@ -10,7 +10,6 @@ import javax.persistence.*;
 /**
  * this is the statistics class, converted into table.
  */
-
 public class Statistics {
     /**
      * id.
@@ -43,14 +42,17 @@ public class Statistics {
 
     /**
      * statistics constructor.
-     * @param score score parameter.
-     * @param date date paramater.
-     * @param username  username parameter.
+     *
+     * @param score2    score parameter.
+     * @param date2     date paramater.
+     * @param username2 username parameter.
      */
-    public Statistics(String username, Integer score, String date) {
-        this.username = username;
-        this.score = score;
-        this.date = date;
+    public Statistics(final String username2,
+                      final Integer score2,
+                      final String date2) {
+        this.username = username2;
+        this.score = score2;
+        this.date = date2;
     }
 
     /**
@@ -65,10 +67,10 @@ public class Statistics {
     /**
      * set id.
      *
-     * @param id parameter id.
+     * @param id2 parameter id.
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(final Integer id2) {
+        this.id = id2;
     }
 
     /**
@@ -83,10 +85,10 @@ public class Statistics {
     /**
      * set username.
      *
-     * @param username username parameter.
+     * @param username2 username parameter.
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(final String username2) {
+        this.username = username2;
     }
 
     /**
@@ -101,10 +103,10 @@ public class Statistics {
     /**
      * set score.
      *
-     * @param score score parameter.
+     * @param score2 score parameter.
      */
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setScore(final Integer score2) {
+        this.score = score2;
     }
 
     /**
@@ -119,10 +121,10 @@ public class Statistics {
     /**
      * set date.
      *
-     * @param date date parameter.
+     * @param date2 date parameter.
      */
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(final String date2) {
+        this.date = date2;
     }
 
     /**
@@ -133,14 +135,15 @@ public class Statistics {
     }
 
     /**
-     * @param type type parameter.
+     * @param type2 type parameter.
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setType(final String type2) {
+        this.type = type2;
     }
 
     /**
      * to string method.
+     *
      * @return string
      */
     public String toString() {

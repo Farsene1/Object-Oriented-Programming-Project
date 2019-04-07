@@ -78,14 +78,17 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE users SET solar_panels = ?2 WHERE username = ?1", nativeQuery = true)
+    @Query(value = "UPDATE users SET solar_panels = ?2 WHERE username = ?1",
+            nativeQuery = true)
     void addSolarPanels(String username, boolean solar);
 
     /**
      * finds usernames with regex.
+     *
      * @param regex for finding usernames.
      * @return list of usernames.
      */
-    @Query(value = "SELECT username from users where username LIKE CONCAT(:regex,'%')", nativeQuery = true)
+    @Query(value = "SELECT username from users where username"
+            + " LIKE CONCAT(:regex,'%')", nativeQuery = true)
     List<String> findByRegex(@Param("regex") String regex);
 }
