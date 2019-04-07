@@ -8,6 +8,7 @@ public class ElectricityTest {
     @Test
     public void getheatHours() {
         Electricity electricity = new Electricity(1,2,true);
+        Electricity electricity1 = new Electricity();
         assertEquals(1, electricity.getheatHours());
     }
 
