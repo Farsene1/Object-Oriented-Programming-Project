@@ -108,4 +108,10 @@ public class ControllerTest {
     public void updateSolarTest() {
         assertEquals("added solar panels", controller.addSolarPanel(new User()));
     }
+
+    @Test
+    public void getUsernamesLikeTest() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin", "ad"));
+        assertEquals(2, controller.getUsernamesLike("ad").size());
+    }
 }
