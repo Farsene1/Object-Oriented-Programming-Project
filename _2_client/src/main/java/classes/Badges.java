@@ -51,7 +51,7 @@ public class Badges {
         if (polarTotal >= 90000) {
             unlock = 9;
         }
-        if (polarTotal >= 10000) {
+        if (polarTotal >= 100000) {
             unlock = 10;
         }
         return unlock;

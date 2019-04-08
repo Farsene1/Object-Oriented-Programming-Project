@@ -177,4 +177,11 @@ public class RestfulClientTest {
                 .thenReturn(Arrays.asList(new Statistics(), new Statistics()));
         assertEquals(2, restfulClient.getStatsByType("admin","ALL").size());
     }
+
+    @Test
+    public void findUsersByRegexTest(){
+        String url = "http://localhost:8080/regex";
+        Mockito.when(restTemplate.postForObject(url, "ad", List.class)).thenReturn(Arrays.asList("ad1","ad2"));
+        assertEquals(2, restfulClient.findUsersByRegex("ad").size());
+    }
 }
