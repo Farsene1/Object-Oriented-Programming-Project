@@ -1,11 +1,13 @@
 package client;
 
-import CSS.CSSTable;
 import classes.Activity;
+
 import classes.Controller;
 import classes.User;
 import classes.UserBadge;
+
 import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -16,14 +18,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro8.JMetro;
-import javafx.scene.effect.Shadow;
+
 import java.util.List;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+
+import jfxtras.styles.jmetro8.JMetro;
 
 /**
  * FootPrint class.
@@ -43,14 +46,15 @@ public class FootPrint {
      * @param polarscore polarscore parameter
      * @param window     window parameter
      */
-    public static void showOptions(final GridPane grid, final User user, final Label polarscore, final Stage window) {
+    public static void showOptions(
+            final GridPane grid, final User user, final Label polarscore, final Stage window) {
 
-            new JMetro(JMetro.Style.LIGHT).applyTheme(table);
+        new JMetro(JMetro.Style.LIGHT).applyTheme(table);
 
         /**
          * Gets user specific badge.
          */
-        String icon = UserBadge.iconChoice(user);
+        final String icon = UserBadge.iconChoice(user);
 
         /**
          * Labels / Vbox added and styling.
@@ -92,7 +96,7 @@ public class FootPrint {
          */
         Label foodLabel = new Label("Food Footprint ");
         Label electricityLabel = new Label("Electricity Footprint");
-        Label transportLabel = new Label("Transport Footprint");
+        final Label transportLabel = new Label("Transport Footprint");
         foodLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
         foodLabel.setTextFill(Color.web("#0076a3"));
         electricityLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
@@ -117,11 +121,13 @@ public class FootPrint {
         Button food = new Button("+");
         food.setOnAction(e -> {
             try {
-                BoxFood.addMeal("Food Footprint", "Add to your food footprint from the choices below!", user);
+                BoxFood.addMeal(
+                        "Food Footprint",
+                        "Add to your food footprint from the choices below!", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
-            } catch (NullPointerException NPE) {
-
+            } catch (NullPointerException Npe) {
+                Npe.printStackTrace();
             }
         });
 
@@ -132,11 +138,13 @@ public class FootPrint {
         // GridPane.setConstraints(Transport, 5, 1);
         transport.setOnAction(e -> {
             try {
-                BoxTransport.addVehicle("Transport Footprint", "Select the transport option of your choice", user);
+                BoxTransport.addVehicle(
+                        "Transport Footprint",
+                        "Select the transport option of your choice", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
-            } catch (NullPointerException NPE) {
-
+            } catch (NullPointerException Npe) {
+                Npe.printStackTrace();
             }
         });
 
@@ -147,11 +155,13 @@ public class FootPrint {
         //     GridPane.setConstraints(Electricity, 6, 1);
         electricity.setOnAction(e -> {
             try {
-                BoxElectricity.addUsage("Electricity Footprint", "Select your electricity usage", user);
+                BoxElectricity.addUsage(
+                        "Electricity Footprint",
+                        "Select your electricity usage", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
-            } catch (NullPointerException NPE) {
-
+            } catch (NullPointerException Npe) {
+                Npe.printStackTrace();
             }
         });
 
@@ -180,26 +190,26 @@ public class FootPrint {
         /**
          * Simple styling.
          */
-        food.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        food.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
-        transport.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        transport.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
-        electricity.setStyle("-fx-background-color: #87c9ff; " +
-                "-fx-background-radius: 100; " +
-                "-fx-font-size: 42; " +
-                "-fx-border-radius: 100;" +
-                "-fx-border-color: #5cffee; " +
-                "-fx-border-width: 5px;");
+        electricity.setStyle("-fx-background-color: #87c9ff; "
+                + "-fx-background-radius: 100; "
+                + "-fx-font-size: 42; "
+                + "-fx-border-radius: 100;"
+                + "-fx-border-color: #5cffee; "
+                + "-fx-border-width: 5px;");
 
 
         grid.setMinWidth(1500);

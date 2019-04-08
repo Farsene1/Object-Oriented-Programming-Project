@@ -3,37 +3,41 @@ package classes;
 import javafx.scene.image.ImageView;
 
 public class Friend {
-    private String Username;
-    private int Polarscore;
-    private ImageView Badge;
+    private String username;
+    private int polarScore;
+    private ImageView badge;
 
+    /**
+     * Friend constrcutor.
+     * @param user parameter user.
+     */
     public Friend(User user) {
-        Username = user.getUsername();
-        Polarscore = user.getPolarScore();
-        Badge = new ImageView(UserBadge.miniiconChoice(user));
+        username = user.getUsername();
+        polarScore = user.getPolarScore();
+        badge = new ImageView(UserBadge.miniiconChoice(user));
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        username = username;
     }
 
     public int getPolarscore() {
-        return Polarscore;
+        return polarScore;
     }
 
     public void setPolarscore(int polarscore) {
-        Polarscore = polarscore;
+        polarScore = polarscore;
     }
 
     public ImageView getBadge() {
-        return Badge;
+        return badge;
     }
 
     public void setBadge(ImageView badge) {
-        Badge = badge;
+        badge = badge;
     }
 }

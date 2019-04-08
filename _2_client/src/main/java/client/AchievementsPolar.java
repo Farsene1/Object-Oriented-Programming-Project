@@ -1,15 +1,21 @@
 package client;
 
-import CSS.CSSpolarBadge;
+
 import classes.Badges;
+
 import classes.Controller;
 import classes.User;
+import css.CsspolarBadge;
+
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import javafx.scene.control.Label;
+
+import javafx.scene.layout.HBox;
+
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+
 
 /**
  * achievements polar.
@@ -34,7 +40,7 @@ public class AchievementsPolar {
     public static void showPolarBadges(final User user, final Stage window) {
 
         /**
-         * Calls method to unlock polar badges, sets unlock value for CSS.
+         * Calls method to unlock polar badges, sets unlock value for css.
          */
         int unlockNumber = Badges.polarUnlock(user);
 
@@ -58,19 +64,19 @@ public class AchievementsPolar {
         Button polarBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked.
+         * Calls setPolar methods from css class to show locked.
          * unlocked polar badges.
          */
-        CSSpolarBadge.setPolar1(polarBadge1, unlockNumber);
-        CSSpolarBadge.setPolar2(polarBadge2, unlockNumber);
-        CSSpolarBadge.setPolar3(polarBadge3, unlockNumber);
-        CSSpolarBadge.setPolar4(polarBadge4, unlockNumber);
-        CSSpolarBadge.setPolar5(polarBadge5, unlockNumber);
-        CSSpolarBadge.setPolar6(polarBadge6, unlockNumber);
-        CSSpolarBadge.setPolar7(polarBadge7, unlockNumber);
-        CSSpolarBadge.setPolar8(polarBadge8, unlockNumber);
-        CSSpolarBadge.setPolar9(polarBadge9, unlockNumber);
-        CSSpolarBadge.setPolar10(polarBadge10, unlockNumber);
+        CsspolarBadge.setPolar1(polarBadge1, unlockNumber);
+        CsspolarBadge.setPolar2(polarBadge2, unlockNumber);
+        CsspolarBadge.setPolar3(polarBadge3, unlockNumber);
+        CsspolarBadge.setPolar4(polarBadge4, unlockNumber);
+        CsspolarBadge.setPolar5(polarBadge5, unlockNumber);
+        CsspolarBadge.setPolar6(polarBadge6, unlockNumber);
+        CsspolarBadge.setPolar7(polarBadge7, unlockNumber);
+        CsspolarBadge.setPolar8(polarBadge8, unlockNumber);
+        CsspolarBadge.setPolar9(polarBadge9, unlockNumber);
+        CsspolarBadge.setPolar10(polarBadge10, unlockNumber);
 
         /**
          * Selecting unlocked or locked polar score badges on button click.
@@ -88,7 +94,8 @@ public class AchievementsPolar {
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             } else {
-                BoxAlert.display("This is an error message", "You still have to unlock polar badge 2!");
+                BoxAlert.display("This is an error message",
+                        "You still have to unlock polar badge 2!");
             }
         });
         polarBadge3.setOnAction(e -> {
@@ -97,7 +104,8 @@ public class AchievementsPolar {
                 classes.UserBadge.iconChoice(user);
                 Home.showHome(window, user);
             } else {
-                BoxAlert.display("This is an error message", "You still have to unlock polar badge 3!");
+                BoxAlert.display("This is an error message",
+                        "You still have to unlock polar badge 3!");
             }
         });
         polarBadge4.setOnAction(e -> {
@@ -166,11 +174,12 @@ public class AchievementsPolar {
         });
 
         /**
-         * Label for polar badges
+         * Label for polar badges.
          */
         Label polarLabel = new Label("POLAR");
         polarLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 20));
-        polarBox.getChildren().addAll(polarBadge1, polarBadge2, polarBadge3, polarBadge4, polarBadge5,
+        polarBox.getChildren().addAll(polarBadge1, polarBadge2, polarBadge3,
+                polarBadge4, polarBadge5,
                 polarBadge6, polarBadge7, polarBadge8, polarBadge9, polarBadge10);
     }
 

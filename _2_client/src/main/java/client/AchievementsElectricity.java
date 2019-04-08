@@ -1,9 +1,10 @@
 package client;
 
-import CSS.CSSelectricityBadge;
 import classes.Badges;
 import classes.Controller;
 import classes.User;
+import css.CsselectricityBadge;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -27,7 +28,7 @@ public class AchievementsElectricity {
     public static void showElectricityBadges(final User user, final Stage window) {
 
         /**
-         * Calls method to unlock food badges, sets unlock value for CSS.
+         * Calls method to unlock food badges, sets unlock value for css.
          */
         int unlockNumber = Badges.electricityUnlock(user);
 
@@ -51,19 +52,19 @@ public class AchievementsElectricity {
         Button electricityBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked
+         * Calls setPolar methods from css class to show locked
          * unlocked electricity badges.
          */
-        CSSelectricityBadge.setElectricity1(electricityBadge1, unlockNumber);
-        CSSelectricityBadge.setElectricity2(electricityBadge2, unlockNumber);
-        CSSelectricityBadge.setElectricity3(electricityBadge3, unlockNumber);
-        CSSelectricityBadge.setElectricity4(electricityBadge4, unlockNumber);
-        CSSelectricityBadge.setElectricity5(electricityBadge5, unlockNumber);
-        CSSelectricityBadge.setElectricity6(electricityBadge6, unlockNumber);
-        CSSelectricityBadge.setElectricity7(electricityBadge7, unlockNumber);
-        CSSelectricityBadge.setElectricity8(electricityBadge8, unlockNumber);
-        CSSelectricityBadge.setElectricity9(electricityBadge9, unlockNumber);
-        CSSelectricityBadge.setElectricity10(electricityBadge10, unlockNumber);
+        CsselectricityBadge.setElectricity1(electricityBadge1, unlockNumber);
+        CsselectricityBadge.setElectricity2(electricityBadge2, unlockNumber);
+        CsselectricityBadge.setElectricity3(electricityBadge3, unlockNumber);
+        CsselectricityBadge.setElectricity4(electricityBadge4, unlockNumber);
+        CsselectricityBadge.setElectricity5(electricityBadge5, unlockNumber);
+        CsselectricityBadge.setElectricity6(electricityBadge6, unlockNumber);
+        CsselectricityBadge.setElectricity7(electricityBadge7, unlockNumber);
+        CsselectricityBadge.setElectricity8(electricityBadge8, unlockNumber);
+        CsselectricityBadge.setElectricity9(electricityBadge9, unlockNumber);
+        CsselectricityBadge.setElectricity10(electricityBadge10, unlockNumber);
         /**
          * Selecting unlocked or locked electricity score
          * badges on button click.
@@ -159,8 +160,12 @@ public class AchievementsElectricity {
         /**
          * Adds all badges for electricity to Hbox.
          */
-        electricityBox.getChildren().addAll(electricityBadge1, electricityBadge2, electricityBadge3, electricityBadge4, electricityBadge5,
-                electricityBadge6, electricityBadge7, electricityBadge8, electricityBadge9, electricityBadge10);
+        electricityBox.getChildren().addAll(electricityBadge1,
+                electricityBadge2, electricityBadge3,
+                electricityBadge4, electricityBadge5,
+                electricityBadge6, electricityBadge7,
+                electricityBadge8, electricityBadge9,
+                electricityBadge10);
     }
 
     /**

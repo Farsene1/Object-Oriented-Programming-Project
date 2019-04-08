@@ -30,7 +30,8 @@ public class RestfulClient {
      */
     public User getEntity() {
         System.out.println("Beginning /GET request!");
-        String getUrl = "http://localhost:8080/get?username=Florentin&hash=abcdef";
+        String getUrl = "http://localhost:8080/"
+                + "get?username=Florentin&hash=abcdef";
         User getResponse = restTemplate.getForObject(getUrl, User.class);
         System.out.println(getResponse.toString());
         return getResponse;
@@ -45,8 +46,9 @@ public class RestfulClient {
         String url = "http://localhost:8080/leaderboard";
         List<User> res = restTemplate.getForObject(url, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<User> users = mapper.convertValue(res, new TypeReference<List<User>>() {
-        });
+        List<User> users = mapper.convertValue(
+                res, new TypeReference<List<User>>() {
+                });
         return users;
     }
 
@@ -60,8 +62,9 @@ public class RestfulClient {
         String url = "http://localhost:8080/firstactivities";
         List<Activity> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
-        });
+        List<Activity> activities = mapper.convertValue(
+                res, new TypeReference<List<Activity>>() {
+                });
         return activities;
     }
 
@@ -73,11 +76,13 @@ public class RestfulClient {
      */
     public List<Activity> addActivity(final Activity activity) {
         String url = "http://localhost:8080/test";
-        List<Activity> res = (List<Activity>) restTemplate.postForObject(url, activity, List.class);
+        List<Activity> res = (List<Activity>) restTemplate.postForObject(
+                url, activity, List.class);
         System.out.println("Response: " + res.toString());
         ObjectMapper mapper = new ObjectMapper();
-        List<Activity> activities = mapper.convertValue(res, new TypeReference<List<Activity>>() {
-        });
+        List<Activity> activities = mapper.convertValue(
+                res, new TypeReference<List<Activity>>() {
+                });
         return activities;
     }
 
@@ -91,8 +96,10 @@ public class RestfulClient {
     public String postEntity(final User user) {
         System.out.println("Beginning /POST request");
         String postUrl = "http://localhost:8080/post";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
-        System.out.println("Response for Post Request: " + postResponse.getBody());
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, user, String.class);
+        System.out.println("Response for Post Request: "
+                + postResponse.getBody());
         return postResponse.getBody();
     }
 
@@ -106,8 +113,10 @@ public class RestfulClient {
     public String login(final User user) {
         System.out.println("Beginning /login request");
         String postUrl = "http://localhost:8080/login";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
-        System.out.println("Response for Post Request: " + postResponse.getBody());
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, user, String.class);
+        System.out.println("Response for Post Request: "
+                + postResponse.getBody());
         return postResponse.getBody();
     }
 
@@ -120,7 +129,8 @@ public class RestfulClient {
     public String activity(final User user) {
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/activity";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, user, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
     }
@@ -134,7 +144,8 @@ public class RestfulClient {
     public String badge(final User user) {
         System.out.println("beginning /updateBadge request");
         String postUrl = "http://localhost:8080/updateBadge";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, user, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
     }
@@ -147,7 +158,8 @@ public class RestfulClient {
      */
     public String setSolar(final User user) {
         String postUrl = "http://localhost:8080/addsolar";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, user, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, user, String.class);
         return postResponse.getBody();
     }
 
@@ -160,8 +172,10 @@ public class RestfulClient {
     public User getUpdates(final User user) {
         System.out.println("Beginning /requestforupdate request");
         String postUrl = "http://localhost:8080/requestforupdate";
-        ResponseEntity<User> getUpdate = restTemplate.postForEntity(postUrl, user, User.class);
-        System.out.println("Response for Post Request: " + getUpdate.getBody());
+        ResponseEntity<User> getUpdate = restTemplate.postForEntity(
+                postUrl, user, User.class);
+        System.out.println("Response for Post Request: "
+                + getUpdate.getBody());
         return getUpdate.getBody();
     }
 
@@ -175,8 +189,9 @@ public class RestfulClient {
         String url = "http://localhost:8080/friendship/friends";
         List<User> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<User> result = mapper.convertValue(res, new TypeReference<List<User>>() {
-        });
+        List<User> result = mapper.convertValue(
+                res, new TypeReference<List<User>>() {
+                });
         return result;
     }
 
@@ -188,11 +203,13 @@ public class RestfulClient {
      */
     public List<FriendRequest> getAllFriendRequests(final User user) {
         String url = "http://localhost:8080/friendship/getallrequests";
-        List<FriendRequest> res = restTemplate.postForObject(url, user, List.class);
+        List<FriendRequest> res = restTemplate.postForObject(
+                url, user, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
-        List<FriendRequest> result = mapper.convertValue(res, new TypeReference<List<FriendRequest>>() {
-        });
+        List<FriendRequest> result = mapper.convertValue(
+                res, new TypeReference<List<FriendRequest>>() {
+                });
         return result;
     }
 
@@ -205,7 +222,8 @@ public class RestfulClient {
     public String sendFriendRequest(final FriendRequest friendRequest) {
         System.out.println("beginning /activity request");
         String postUrl = "http://localhost:8080/friendship/request";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, friendRequest, String.class);
         System.out.println("Response for get request");
         return postResponse.getBody();
     }
@@ -218,7 +236,8 @@ public class RestfulClient {
      */
     public String respond(final FriendRequest friendRequest) {
         String postUrl = "http://localhost:8080/friendship/respond";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, friendRequest, String.class);
         return postResponse.getBody();
     }
 
@@ -230,7 +249,8 @@ public class RestfulClient {
      */
     public String fakeRespond(final FriendRequest friendRequest) {
         String postUrl = "http://localhost:8080/friendship/fakeresponse";
-        ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, friendRequest, String.class);
+        ResponseEntity<String> postResponse = restTemplate.postForEntity(
+                postUrl, friendRequest, String.class);
         return postResponse.getBody();
     }
 
@@ -251,11 +271,13 @@ public class RestfulClient {
      */
     public List<classes.Statistics> getAllStatistics(final String username) {
         String url = "http://localhost:8080/statistics";
-        List<classes.Statistics> res = restTemplate.postForObject(url, username, List.class);
+        List<classes.Statistics> res = restTemplate.postForObject(
+                url, username, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
-        List<classes.Statistics> result = mapper.convertValue(res, new TypeReference<List<classes.Statistics>>() {
-        });
+        List<classes.Statistics> result = mapper.convertValue(
+                res, new TypeReference<List<classes.Statistics>>() {
+                });
         return result;
     }
 
@@ -266,18 +288,22 @@ public class RestfulClient {
      * @param type     type parmaeter.
      * @return stats.
      */
-    public List<Statistics> getStatsByType(final String username, final String type) {
+    public List<Statistics> getStatsByType(
+            final String username, final String type) {
         String url = "http://localhost:8080/stats?username=" + username;
-        List<classes.Statistics> res = restTemplate.postForObject(url, type, List.class);
+        List<classes.Statistics> res = restTemplate.postForObject(
+                url, type, List.class);
         System.out.println(res);
         ObjectMapper mapper = new ObjectMapper();
-        List<classes.Statistics> result = mapper.convertValue(res, new TypeReference<List<classes.Statistics>>() {
-        });
+        List<classes.Statistics> result = mapper.convertValue(
+                res, new TypeReference<List<classes.Statistics>>() {
+                });
         return result;
     }
 
     /**
      * returns people matching names.
+     *
      * @param regex regualar expression.
      * @return list of usernames.
      */
@@ -285,8 +311,9 @@ public class RestfulClient {
         String url = "http://localhost:8080/regex";
         List<String> res = restTemplate.postForObject(url, regex, List.class);
         ObjectMapper mapper = new ObjectMapper();
-        List<String> result = mapper.convertValue(res, new TypeReference<List<String>>() {
-        });
+        List<String> result = mapper.convertValue(
+                res, new TypeReference<List<String>>() {
+                });
         return result;
     }
 }

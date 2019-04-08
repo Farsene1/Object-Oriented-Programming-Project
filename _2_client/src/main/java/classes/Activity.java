@@ -37,7 +37,7 @@ public class Activity {
     private String date;
 
     /**
-     * empty constructor
+     * empty constructor.
      */
     public Activity() {
     }
@@ -51,25 +51,32 @@ public class Activity {
      * @param footprint   ftooprint parameter.
      * @param date        date parameter.
      */
-    public Activity(final String username, final Integer category, final String description, final Integer footprint, final String date) {
+    public Activity(final String username,
+                    final Integer category,
+                    final String description,
+                    final Integer footprint,
+                    final String date) {
         this.username = username;
         this.category = category;
         this.description = description;
         this.footprint = footprint;
         this.date = date;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
+            default:
+
+
         }
     }
 
@@ -126,18 +133,19 @@ public class Activity {
     public void setCategory(final Integer category) {
         this.category = category;
         switch (category) {
-            case 1: {
+            case 1:
                 this.cat = "Food";
                 break;
-            }
-            case 2: {
+
+            case 2:
                 this.cat = "Transport";
                 break;
-            }
-            case 3: {
+
+            case 3:
                 this.cat = "Electricity";
                 break;
-            }
+
+            default:
         }
     }
 
@@ -151,7 +159,7 @@ public class Activity {
     }
 
     /**
-     * Sets cat
+     * Sets cat.
      *
      * @param cat parameter cat
      */

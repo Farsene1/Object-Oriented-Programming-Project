@@ -2,19 +2,19 @@ package client;
 
 
 import classes.Activity;
+
 import classes.Controller;
 import classes.Transport;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+
 import javafx.scene.layout.VBox;
-import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+
+import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -39,7 +39,9 @@ public class BoxTransport {
      * @param message message parameter.
      * @param user    user parameter.
      */
-    public static void addVehicle(final String title, final String message, final classes.User user) {
+    public static void addVehicle(final String title,
+                                  final String message,
+                                  final classes.User user) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -47,13 +49,14 @@ public class BoxTransport {
         window.setMaxWidth(475);
         window.setMinHeight(400);
         window.setMaxHeight(400);
-        VBox layout = new VBox(10);
+        final VBox layout = new VBox(10);
 
 
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label();
-        Label hint = new Label("Consider usinig  the bike or public transport instead of the car");
+        final Label hint = new Label(
+                "Consider usinig  the bike or public transport instead of the car");
 
 
         errorlabel.setText("You can only type numbers");
@@ -89,7 +92,9 @@ public class BoxTransport {
 
                 new Controller().sendTransport(user, score);
                 // add a meal in the database.
-                Activity activity = new Activity(user.getUsername(), 2, transport.getType() + ":" + transport.getDistance() + " KM",
+                Activity activity = new Activity(
+                        user.getUsername(), 2,
+                        transport.getType() + ":" + transport.getDistance() + " KM",
                         transport.getScore(), date);
                 List<Activity> list = new Controller().sendFood(activity);
                 System.out.println("\n The items are" + list.toString());
@@ -118,7 +123,10 @@ public class BoxTransport {
         distanceT.setStyle("-fx-padding: 10;");
         errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
         dropdown.setStyle("-fx-padding: 7;");
-        submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
+        submitButton.setStyle("-fx-padding: 7;"
+                + "-fx-background-color: rgba(255,255,255,0);"
+                + "-fx-border-color: darkblue;"
+                + "-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
 
         Scene scene = new Scene(layout);

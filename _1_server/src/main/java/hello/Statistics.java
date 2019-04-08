@@ -1,6 +1,11 @@
 package hello;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * Statistics table.
@@ -128,6 +133,7 @@ public class Statistics {
     }
 
     /**
+     * Get type method.
      * @return type.
      */
     public String getType() {
@@ -135,6 +141,7 @@ public class Statistics {
     }
 
     /**
+     * Sets type method.
      * @param type2 type parameter.
      */
     public void setType(final String type2) {

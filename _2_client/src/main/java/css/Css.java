@@ -1,4 +1,4 @@
-package CSS;
+package css;
 
 import javafx.beans.binding.Bindings;
 
@@ -6,9 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 /**
- * CSS class.
+ * css class.
  */
-public class CSS {
+public class Css {
     /**
      * Sets button style.
      *
