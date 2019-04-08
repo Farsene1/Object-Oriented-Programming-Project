@@ -316,22 +316,4 @@ public class RestfulClient {
                 });
         return result;
     }
-
-    /**
-     * returns people whose usernames match the patters.
-     *
-     * @param regex    the pattern.
-     * @param username to identify who is calling the method.
-     * @return the list of all people that can be added as friends.
-     */
-    public List<String> findUsersByRegex(final String regex,
-                                         final String username) {
-        String url = "http://localhost:8080/regex2?username=" + username;
-        List<String> res = restTemplate.postForObject(url, regex, List.class);
-        ObjectMapper mapper = new ObjectMapper();
-        List<String> result = mapper.convertValue(
-                res, new TypeReference<List<String>>() {
-                });
-        return result;
-    }
 }

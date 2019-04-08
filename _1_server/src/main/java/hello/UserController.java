@@ -24,18 +24,6 @@ public class UserController {
     private UserRepository userRepository;
 
     /**
-     * friendshipRepository.
-     */
-    @Autowired
-    private FriendshipRepository friendshipRepository;
-
-    /**
-     * friendRequestRepository.
-     */
-    @Autowired
-    private FriendRequestRepository friendRequestRepository;
-
-    /**
      * default path for testing.
      *
      * @return String
@@ -173,42 +161,6 @@ public class UserController {
     @RequestMapping(value = "/regex", method = RequestMethod.POST)
     public List<String> getUsernamesLike(@RequestBody final String regex) {
         return this.userRepository.findByRegex(regex);
-    }
-
-    /**
-     * this method gets all the users whose usenames start with regex.
-     *
-     * @param regex regular expression.
-     * @return list.
-     */
-    @RequestMapping(value = "/regex2", method = RequestMethod.POST)
-    public List<String> getUsernamesLike2(@RequestBody final String regex,
-                                          @RequestParam(value = "username",
-                                                  defaultValue = "anonymous")
-                                          final String username) {
-        List<String> all = this.userRepository.findByRegex(regex);
-        List<String> l1 = this.friendshipRepository
-                .getAllFriends(username);
-
-        for(String s : l1){
-            if(all.contains(s)){
-                all.remove(s);
-            }
-        }
-
-        List<FriendRequest> l2 = this.friendRequestRepository
-                .findAllRequestsFor(username);
-
-        for(FriendRequest f : l2){
-            if(all.contains(f.getReceiver())){
-                all.remove(f.getReceiver());
-            }
-            if(all.contains(f.getSender())){
-                all.remove(f.getSender());
-            }
-        }
-
-        return all;
     }
 
     /**
