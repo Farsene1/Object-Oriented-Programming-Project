@@ -1,6 +1,6 @@
 package client;
 
-import CSS.CSS;
+import css.Css;
 import classes.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +28,7 @@ public class Friends {
      * Variables.
      */
     static TableView friendsTable = new TableView();
+
     /**
      * Show options for friends method.
      *
@@ -46,17 +47,17 @@ public class Friends {
 
         //Creating Labels for addition
         Label friendsL = new Label("My Friends");
-        HBox Friendsbox= new HBox();
+        HBox Friendsbox = new HBox();
         Button backButton = new Button();
-        CSS.setBackButtonStyle(backButton);
+        Css.setBackButtonStyle(backButton);
         Friendsbox.getChildren().addAll(backButton, friendsL);
         TextField searchField = new TextField();
         Label findfriendsLabel = new Label("ADD FRIENDS");
-        VBox results= new VBox();
-        VBox pending= new VBox();
+        VBox results = new VBox();
+        VBox pending = new VBox();
         VBox friendsVbox = new VBox(Friendsbox, friendsTable);
-        VBox findfriendsVbox = new VBox(findfriendsLabel,searchField, results);
-        addFriendRequests(user,pending);
+        VBox findfriendsVbox = new VBox(findfriendsLabel, searchField, results);
+        addFriendRequests(user, pending);
 
         searchField.setPromptText("Search to Follow");
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -87,7 +88,7 @@ public class Friends {
 
 
         HBox ROW1 = new HBox();
-        ROW1.getChildren().addAll(friendsVbox,findfriendsVbox, pending);
+        ROW1.getChildren().addAll(friendsVbox, findfriendsVbox, pending);
         ROW1.setAlignment(Pos.CENTER);
         grid.getChildren().addAll(ROW1);
 
@@ -132,32 +133,32 @@ public class Friends {
         List<FriendRequest> friendRequestList = new Controller().getAllRequests(user);
         pending.getChildren().clear();
         for (FriendRequest a : friendRequestList) {
-            HBox row= new HBox();
-            Label sender= new Label(a.getSender());
-            Button accept= new Button("Accept");
+            HBox row = new HBox();
+            Label sender = new Label(a.getSender());
+            Button accept = new Button("Accept");
             Button reject = new Button("Reject");
-            accept.setOnAction(e->{
+            accept.setOnAction(e -> {
                 new Controller().sayYes(a);
                 friendsTable.setItems(addFriend(user));
                 addFriendRequests(user, pending);
             });
-            reject.setOnAction(e->{
+            reject.setOnAction(e -> {
                 new Controller().sayNo(a);
                 friendsTable.setItems(addFriend(user));
                 addFriendRequests(user, pending);
             });
-            row.getChildren().addAll(sender,accept,reject);
+            row.getChildren().addAll(sender, accept, reject);
             row.setSpacing(20);
             pending.getChildren().add(row);
         }
     }
 
     public static void getResults(User user, String search, VBox resultsbox, TextField searchfield) {
-        if (search.length()>=3) {
+        if (search.length() >= 3) {
             List<String> Results = new RestfulClient().findUsersByRegex(search);
             resultsbox.getChildren().clear();
             for (String a : Results) {
-                if(!a.equals(user.getUsername())) {
+                if (!a.equals(user.getUsername())) {
                     HBox row = new HBox();
                     Label username = new Label(a);
                     Button add = new Button("ADD");
@@ -171,8 +172,7 @@ public class Friends {
                     resultsbox.getChildren().add(row);
                 }
             }
-        }
-        else {
+        } else {
             resultsbox.getChildren().clear();
         }
     }
