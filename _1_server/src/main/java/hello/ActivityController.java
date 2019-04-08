@@ -60,10 +60,10 @@ public class ActivityController {
                 activity.getUsername(), sum, activity.getDate());
         s1.setType("ALL");
 
-        Statistics s = this.statisticsRepository
+        Statistics stats = this.statisticsRepository
                 .findStatisticByDateAndType(activity.getDate(), "ALL");
 
-        if (s == null) {
+        if (stats == null) {
             this.statisticsRepository.save(s1);
         } else {
             this.statisticsRepository
@@ -76,27 +76,27 @@ public class ActivityController {
                 .totalScoreByCategory(activity.getUsername(),
                         activity.getDate(), activity.getCategory());
 
-        Statistics sFood = new Statistics(
+        Statistics sfood = new Statistics(
                 activity.getUsername(), sumFood, activity.getDate());
 
-        int c = activity.getCategory();
-        if (c == 1) {
-            sFood.setType("FOOD");
-        } else if (c == 2) {
-            sFood.setType("TRANSPORT");
-        } else if (c == 3) {
-            sFood.setType("ELECTRICITY");
+        int category = activity.getCategory();
+        if (category  == 1) {
+            sfood.setType("FOOD");
+        } else if (category  == 2) {
+            sfood.setType("TRANSPORT");
+        } else if (category  == 3) {
+            sfood.setType("ELECTRICITY");
         }
-        Statistics sF = this.statisticsRepository
+        Statistics statsrepo = this.statisticsRepository
                 .findStatisticByDateAndType(activity.getDate(),
-                        sFood.getType());
+                        sfood.getType());
 
-        if (sF == null) {
-            this.statisticsRepository.save(sFood);
+        if (statsrepo == null) {
+            this.statisticsRepository.save(sfood);
         } else {
             this.statisticsRepository
                     .updateStatistic(sumFood, activity.getUsername(),
-                            sFood.getType(), activity.getDate());
+                            sfood.getType(), activity.getDate());
         }
         return this.activityRepository
                 .findActivitiesByUser(activity.getUsername());

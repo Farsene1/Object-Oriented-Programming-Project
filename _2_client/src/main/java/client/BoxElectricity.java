@@ -4,9 +4,12 @@ import classes.Activity;
 import classes.Controller;
 import classes.Electricity;
 import com.jfoenix.controls.JFXTextField;
-import javafx.geometry.Pos;
+
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -55,7 +58,7 @@ public class BoxElectricity {
         errorlabel.setVisible(false);
         errorlabel.setStyle("-fx-text-fill: red;");
 
-        CheckBox solarbox = new CheckBox("Solar energy");
+        final CheckBox solarbox = new CheckBox("Solar energy");
         JFXTextField lightfield = new JFXTextField();
         lightfield.setLabelFloat(true);
         lightfield.setPromptText("Add your hours of light usage");
@@ -88,11 +91,18 @@ public class BoxElectricity {
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
                         // add electricity in the database.
-                        List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
-                                lightscore, date));
+                        List<Activity> list = new Controller().sendFood(
+                                new Activity(
+                                        user.getUsername(),
+                                        3,
+                                        "Lights usage: " + light_hrs + " Hours",
+                                        lightscore, date));
                         System.out.println("\n The items are" + list.toString());
-                        list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Heat usage: " + heat_hrs + " Hours",
-                                htScore, date));
+                        list = new Controller().sendFood(
+                                new Activity(user.getUsername(),
+                                        3,
+                                        "Heat usage: " + heat_hrs + " Hours",
+                                        htScore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
                     } else {
@@ -107,7 +117,10 @@ public class BoxElectricity {
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
                         // add electricity in the database.
-                        List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
+                        List<Activity> list = new Controller().sendFood(new Activity(
+                                user.getUsername(),
+                                3,
+                                "Lights usage: " + light_hrs + " Hours",
                                 lightscore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
@@ -119,8 +132,11 @@ public class BoxElectricity {
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
                     // add electricity in the database.
-                    List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Heat usage: " + heat_hrs + " Hours",
-                            htScore, date));
+                    List<Activity> list = new Controller().sendFood(
+                            new Activity(user.getUsername(),
+                                    3,
+                                    "Heat usage: " + heat_hrs + " Hours",
+                                    htScore, date));
                     System.out.println("\n The items are" + list.toString());
                     window.close();
                 }
@@ -132,16 +148,24 @@ public class BoxElectricity {
             }
         });
 
-        VBox layout = new VBox(10);
+        final VBox layout = new VBox(10);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         heatfield.setStyle("-fx-padding: 10;");
         lightfield.setStyle("-fx-padding: 10;");
         errorlabel.setStyle("-fx-padding: 4;-fx-text-fill: red;");
         gap.setStyle("-fx-font-size: 4");
         solarbox.setStyle("-fx-padding: 3;");
-        submitButton.setStyle("-fx-padding: 7;-fx-background-color: rgba(255,255,255,0);-fx-border-color: darkblue;-fx-border-radius: 2");
+        submitButton.setStyle("-fx-padding: 7;"
+                + "-fx-background-color: rgba(255,255,255,0);"
+                + "-fx-border-color: darkblue;"
+                + "-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
-        layout.getChildren().addAll(label, lightfield, gap, heatfield, errorlabel, solarbox, submitButton);
+        layout.getChildren().addAll(label,
+                lightfield,
+                gap, heatfield,
+                errorlabel,
+                solarbox,
+                submitButton);
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();

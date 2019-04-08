@@ -33,10 +33,9 @@ public class BoxAddFriend {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(250);
-        Label label = new Label(friendRequest.getSender() + " wants to add you");
+        final Label label = new Label(friendRequest.getSender() + " wants to add you");
         Button yesButton = new Button("Accept");
         Button noButton = new Button("Decline");
-
         window.setOnCloseRequest(e -> {
             answer = 3;
         });
@@ -50,7 +49,6 @@ public class BoxAddFriend {
             answer = 2;
             window.close();
         });
-
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label, yesButton, noButton);
         Scene scene = new Scene(layout);

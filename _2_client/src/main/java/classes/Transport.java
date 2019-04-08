@@ -29,7 +29,11 @@ public class Transport {
      * @param score    score
      * @param date     date
      */
-    public Transport(final String username, final String type, final double distance, final int score, final String date) {
+    public Transport(final String username,
+                     final String type,
+                     final double distance,
+                     final int score,
+                     final String date) {
         this.username = username;
         this.type = type;
         this.distance = distance;
@@ -40,7 +44,7 @@ public class Transport {
     }
 
     /**
-     *Get username.
+     * Get username.
      *
      * @return returns username.
      */
@@ -50,6 +54,7 @@ public class Transport {
 
     /**
      * Sets username.
+     *
      * @param username username parameter
      */
     public void setUsername(final String username) {
@@ -58,6 +63,7 @@ public class Transport {
 
     /**
      * GETS TYPE.
+     *
      * @return returns type.
      */
     public String getType() {
@@ -66,6 +72,7 @@ public class Transport {
 
     /**
      * Sets type.
+     *
      * @param type type parameter.
      */
     public void setType(final String type) {
@@ -74,6 +81,7 @@ public class Transport {
 
     /**
      * Gets distance.
+     *
      * @return gets distance.
      */
     public double getDistance() {
@@ -82,6 +90,7 @@ public class Transport {
 
     /**
      * sets distance.
+     *
      * @param distance distance parameter
      */
     public void setDistance(final double distance) {
@@ -90,6 +99,7 @@ public class Transport {
 
     /**
      * Gets score.
+     *
      * @return returns score.
      */
     public int getScore() {
@@ -98,6 +108,7 @@ public class Transport {
 
     /**
      * sets score.
+     *
      * @param score score parameter.
      */
     public void setScore(final int score) {
@@ -106,6 +117,7 @@ public class Transport {
 
     /**
      * Gets date.
+     *
      * @return returns date.
      */
     public String getDate() {
@@ -114,6 +126,7 @@ public class Transport {
 
     /**
      * Sets date.
+     *
      * @param date date parameter.
      */
     public void setDate(final String date) {
@@ -122,7 +135,8 @@ public class Transport {
 
     /**
      * Calulations for score.
-     * @param type parameter type
+     *
+     * @param type     parameter type
      * @param distance distance parameter
      * @return returns a score.
      */

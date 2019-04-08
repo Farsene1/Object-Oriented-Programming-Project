@@ -63,7 +63,7 @@ public class FriendshipController {
                 .getAllFriends(friendRequest.getSender());
         List<FriendRequest> l2 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getSender());
-        List<FriendRequest> l3 = this.friendRequestRepository
+        final List<FriendRequest> l3 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getReceiver());
 
         boolean ok = true;
@@ -146,7 +146,7 @@ public class FriendshipController {
      * set repo.
      *
      * @param friendshipRepository2 friendship repository
-     *                             parameter.
+     *                              parameter.
      */
     public void setFriendshipRepository(
             final FriendshipRepository friendshipRepository2) {

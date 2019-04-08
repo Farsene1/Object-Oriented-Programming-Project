@@ -7,10 +7,9 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+
 import javafx.stage.Stage;
+
 import java.util.List;
 
 /**
@@ -41,19 +40,23 @@ public class Statistics {
         XYChart.Series electricitySeries = new XYChart.Series();
         electricitySeries.setName("ELECTRICITY SCORE");
 
-        List<classes.Statistics> polardata = new Controller().getStatsByType(user.getUsername(), "ALL");
+        List<classes.Statistics> polardata = new Controller().getStatsByType(
+                user.getUsername(), "ALL");
         for (classes.Statistics stat : polardata) {
             polarSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> fooddata = new Controller().getStatsByType(user.getUsername(), "FOOD");
+        List<classes.Statistics> fooddata = new Controller().getStatsByType(
+                user.getUsername(), "FOOD");
         for (classes.Statistics stat : fooddata) {
             foodSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> transportdata = new Controller().getStatsByType(user.getUsername(), "TRANSPORT");
+        List<classes.Statistics> transportdata = new Controller().getStatsByType(
+                user.getUsername(), "TRANSPORT");
         for (classes.Statistics stat : transportdata) {
             transportSeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }
-        List<classes.Statistics> electricitydata = new Controller().getStatsByType(user.getUsername(), "ELECTRICITY");
+        List<classes.Statistics> electricitydata = new Controller().getStatsByType(
+                user.getUsername(), "ELECTRICITY");
         for (classes.Statistics stat : electricitydata) {
             electricitySeries.getData().add(new XYChart.Data(stat.getDate(), stat.getScore()));
         }

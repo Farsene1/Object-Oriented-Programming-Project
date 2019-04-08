@@ -1,13 +1,17 @@
 package client;
 
-import CSS.CSStransportBadge;
+
 import classes.Badges;
+
 import classes.Controller;
 import classes.User;
+import css.CsstransportBadge;
+
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-import javafx.scene.control.Button;
+
 
 /**
  * Achievements for transport.
@@ -33,7 +37,7 @@ public class AchievementsTransport {
         transportBox = new HBox();
 
         /**
-         * Calls method to unlock transport badges, sets unlock value for CSS.
+         * Calls method to unlock transport badges, sets unlock value for css.
          */
         int unlockNumber = Badges.transportUnlock(user);
 
@@ -55,19 +59,19 @@ public class AchievementsTransport {
         Button transportBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked.
+         * Calls setPolar methods from css class to show locked.
          * unlocked transport badges.
          */
-        CSStransportBadge.setTransport1(transportBadge1, unlockNumber);
-        CSStransportBadge.setTransport2(transportBadge2, unlockNumber);
-        CSStransportBadge.setTransport3(transportBadge3, unlockNumber);
-        CSStransportBadge.setTransport4(transportBadge4, unlockNumber);
-        CSStransportBadge.setTransport5(transportBadge5, unlockNumber);
-        CSStransportBadge.setTransport6(transportBadge6, unlockNumber);
-        CSStransportBadge.setTransport7(transportBadge7, unlockNumber);
-        CSStransportBadge.setTransport8(transportBadge8, unlockNumber);
-        CSStransportBadge.setTransport9(transportBadge9, unlockNumber);
-        CSStransportBadge.setTransport10(transportBadge10, unlockNumber);
+        CsstransportBadge.setTransport1(transportBadge1, unlockNumber);
+        CsstransportBadge.setTransport2(transportBadge2, unlockNumber);
+        CsstransportBadge.setTransport3(transportBadge3, unlockNumber);
+        CsstransportBadge.setTransport4(transportBadge4, unlockNumber);
+        CsstransportBadge.setTransport5(transportBadge5, unlockNumber);
+        CsstransportBadge.setTransport6(transportBadge6, unlockNumber);
+        CsstransportBadge.setTransport7(transportBadge7, unlockNumber);
+        CsstransportBadge.setTransport8(transportBadge8, unlockNumber);
+        CsstransportBadge.setTransport9(transportBadge9, unlockNumber);
+        CsstransportBadge.setTransport10(transportBadge10, unlockNumber);
 
         /**
          * Selecting unlocked or locked transport score badges on button click.
@@ -163,8 +167,10 @@ public class AchievementsTransport {
         /**
          * Adds all badges for transport to Hbox.
          */
-        transportBox.getChildren().addAll(transportBadge1, transportBadge2, transportBadge3, transportBadge4, transportBadge5,
-                transportBadge6, transportBadge7, transportBadge8, transportBadge9, transportBadge10);
+        transportBox.getChildren().addAll(transportBadge1, transportBadge2, transportBadge3,
+                transportBadge4, transportBadge5, transportBadge6,
+                transportBadge7, transportBadge8, transportBadge9,
+                transportBadge10);
     }
 
     /**
