@@ -5,15 +5,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import javax.transaction.Transactional;
 import java.util.List;
+import javax.transaction.Transactional;
+
 
 /**
  * User repository extending to crud repository.
  */
 public interface UserRepository extends CrudRepository<User, Integer> {
     /**
-     * Query to findAllUsers.
+     * query to find all users.
+     *
+     * @return list
      */
     @Query(value = "SELECT * from users", nativeQuery = true)
     List<User> findAllUsers();
@@ -21,7 +24,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /**
      * Query to find a specific user by username.
      *
-     * @param username
+     * @param username username parameter.
      * @return list.
      */
     @Query(value = "SELECT * from users where username = ?1",
@@ -41,11 +44,12 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     /**
      * Query to update a users attributes.
-     * @param electricity
-     * @param food
-     * @param polarScore
-     * @param transport
-     * @param username
+     *
+     * @param electricity electricity.
+     * @param food        food param.
+     * @param polarScore  score
+     * @param transport   transport
+     * @param username    and the username.
      */
     @Modifying
     @Transactional
@@ -58,8 +62,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     /**
      * SET BADGE.
      *
-     * @param badge
-     * @param username
+     * @param badge    badge parameter.
+     * @param username username parameter.
      */
     @Modifying
     @Transactional
@@ -67,4 +71,25 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             nativeQuery = true)
     void updateBadge(Integer badge, String username);
 
+    /**
+     * sets the solar_panel attribute.
+     *
+     * @param username username.
+     * @param solar    boolean.
+     */
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE users SET solar_panels = ?2 WHERE username = ?1",
+            nativeQuery = true)
+    void addSolarPanels(String username, boolean solar);
+
+    /**
+     * finds usernames with regex.
+     *
+     * @param regex for finding usernames.
+     * @return list of usernames.
+     */
+    @Query(value = "SELECT username from users where username"
+            + " LIKE CONCAT(:regex,'%')", nativeQuery = true)
+    List<String> findByRegex(@Param("regex") String regex);
 }

@@ -2,10 +2,15 @@
 
 import javax.persistence.*;
 
+/**
+ * ties this to the friendshipps table.
+ */
 @Entity
 @Table(name = &quot;friendships&quot;)
 public class Friendship {
-
+    /**
+     * generating id for friendship.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -13,41 +18,84 @@ public class Friendship {
     private String username1;
     private String username2;
 
-<span class="fc" id="L16">    public Friendship(String username1, String username2) {</span>
-<span class="fc" id="L17">        this.username1 = username1;</span>
-<span class="fc" id="L18">        this.username2 = username2;</span>
-<span class="fc" id="L19">    }</span>
+    /**
+     * constructor for friendship.
+     *
+     * @param username1 username 1 paramter.
+     * @param username2 username 2 parameter.
+     */
+<span class="fc" id="L27">    public Friendship(String username1, String username2) {</span>
+<span class="fc" id="L28">        this.username1 = username1;</span>
+<span class="fc" id="L29">        this.username2 = username2;</span>
+<span class="fc" id="L30">    }</span>
 
+    /**
+     * To string method of friendship.
+     *
+     * @return return string.
+     */
     @Override
     public String toString() {
-<span class="fc" id="L23">        return &quot;Friendship{&quot; +</span>
-                &quot;username1='&quot; + username1 + '\'' +
-                &quot;, username2='&quot; + username2 + '\'' +
-                '}';
+<span class="fc" id="L39">        return &quot;Friendship{&quot;</span>
+                + &quot;username1='&quot; + username1
+                + '\''
+                + &quot;, username2='&quot; + username2
+                + '\''
+                + '}';
     }
 
+    /**
+     * Get id.
+     *
+     * @return returns id.
+     */
     public Integer getId() {
-<span class="fc" id="L30">        return id;</span>
+<span class="fc" id="L53">        return id;</span>
     }
 
+    /**
+     * sets id.
+     *
+     * @param id id parameter.
+     */
     public void setId(Integer id) {
-<span class="fc" id="L34">        this.id = id;</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L62">        this.id = id;</span>
+<span class="fc" id="L63">    }</span>
 
+    /**
+     * get username1.
+     *
+     * @return username1
+     */
     public String getUsername1() {
-<span class="fc" id="L38">        return username1;</span>
+<span class="fc" id="L71">        return username1;</span>
     }
 
+    /**
+     * sets username1.
+     *
+     * @param username1
+     */
     public void setUsername1(String username1) {
-<span class="fc" id="L42">        this.username1 = username1;</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L80">        this.username1 = username1;</span>
+<span class="fc" id="L81">    }</span>
 
+    /**
+     * gets username2.
+     *
+     * @return return username2
+     */
     public String getUsername2() {
-<span class="fc" id="L46">        return username2;</span>
+<span class="fc" id="L89">        return username2;</span>
     }
 
+    /**
+     * set username2.
+     *
+     * @param username2 username2 parameter.
+     */
     public void setUsername2(String username2) {
-<span class="fc" id="L50">        this.username2 = username2;</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L98">        this.username2 = username2;</span>
+<span class="fc" id="L99">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

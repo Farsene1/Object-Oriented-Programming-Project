@@ -1,13 +1,20 @@
 package hello;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+
+/**
+ * Statistics table.
+ */
 @Entity
 @Table(name = "statistics")
 /**
  * this is the statistics class, converted into table.
  */
-
 public class Statistics {
     /**
      * id.
@@ -31,70 +38,102 @@ public class Statistics {
      * date attr.
      */
     private String date;
+
     /**
      * default constructor.
      */
-    public Statistics() { }
-    /**
-     * @param score
-     * @param date
-     */
-    public Statistics(String username, Integer score, String date) {
-        this.username = username;
-        this.score = score;
-        this.date = date;
+    public Statistics() {
     }
+
+    /**
+     * statistics constructor.
+     *
+     * @param score2    score parameter.
+     * @param date2     date paramater.
+     * @param username2 username parameter.
+     */
+    public Statistics(final String username2,
+                      final Integer score2,
+                      final String date2) {
+        this.username = username2;
+        this.score = score2;
+        this.date = date2;
+    }
+
     /**
      * getId.
      *
      * @return id.
      */
-    public Integer getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
+
     /**
      * set id.
      *
-     * @param id
+     * @param id2 parameter id.
      */
-    public void setId(Integer id){this.id = id;}
+    public void setId(final Integer id2) {
+        this.id = id2;
+    }
+
     /**
      * getUsername.
      *
      * @return username.
      */
-    public String getUsername(){return username;}
+    public String getUsername() {
+        return username;
+    }
+
     /**
      * set username.
      *
-     * @param username
+     * @param username2 username parameter.
      */
-    public void setUsername(String username){this.username = username;}
+    public void setUsername(final String username2) {
+        this.username = username2;
+    }
+
     /**
      * getScore.
      *
      * @return score.
      */
-    public Integer getScore(){return score;}
+    public Integer getScore() {
+        return score;
+    }
+
     /**
      * set score.
      *
-     * @param score
+     * @param score2 score parameter.
      */
-    public void setScore(Integer score){this.score = score;}
+    public void setScore(final Integer score2) {
+        this.score = score2;
+    }
+
     /**
      * getDate.
      *
      * @return date.
      */
-    public String getDate(){return date;}
+    public String getDate() {
+        return date;
+    }
+
     /**
      * set date.
      *
-     * @param date
+     * @param date2 date parameter.
      */
-    public void setDate(String date){this.date = date;}
+    public void setDate(final String date2) {
+        this.date = date2;
+    }
 
     /**
-     *
+     * Get type method.
      * @return type.
      */
     public String getType() {
@@ -102,14 +141,19 @@ public class Statistics {
     }
 
     /**
-     *
-     * @param type
+     * Sets type method.
+     * @param type2 type parameter.
      */
-    public void setType(String type) {
-        this.type = type;
+    public void setType(final String type2) {
+        this.type = type2;
     }
 
-    public String toString(){
+    /**
+     * to string method.
+     *
+     * @return string
+     */
+    public String toString() {
         return "Statistics("
                 + ", username='" + username + '\''
                 + ", score='" + score + '\''

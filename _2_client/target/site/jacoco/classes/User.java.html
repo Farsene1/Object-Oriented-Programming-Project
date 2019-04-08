@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package classes;
-
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * User table entity generated.
@@ -11,7 +8,7 @@ public class User implements Serializable {
     /**
      * Primary key id generated.
      *
-     * @param id
+     * @param id id parameter.
      */
     private Integer id;
 
@@ -26,157 +23,187 @@ public class User implements Serializable {
     /**
      * Attribute foodFootprint declared as type integer.
      */
-<span class="fc" id="L29">    private Integer food = 0;</span>
+<span class="fc" id="L26">    private Integer food = 0;</span>
     /**
      * Attribute waterFootprint declared as type integer.
      */
-<span class="fc" id="L33">    private Integer electricity = 0;</span>
+<span class="fc" id="L30">    private Integer electricity = 0;</span>
     /**
      * Attribute transportFootprint declared as type integer.
      */
-<span class="fc" id="L37">    private Integer transport = 0;</span>
+<span class="fc" id="L34">    private Integer transport = 0;</span>
+    /**
+     * attribute for solar panels.
+     */
+<span class="fc" id="L38">    private boolean solar_panels = false;</span>
     /**
      * Attribute polarScore declared as type integer.
      */
-<span class="fc" id="L41">    private Integer polarScore = 0;</span>
+<span class="fc" id="L42">    private Integer polarScore = 0;</span>
     /**
      * Attribute date declared as type timestamp.
      */
-<span class="fc" id="L45">    private Integer badge = 1;</span>
-
-    @OneToMany
-    @JoinColumn(name = &quot;userId&quot;)
-    private Set&lt;Activity&gt; activities;
+<span class="fc" id="L46">    private Integer badge = 1;</span>
 
     /**
      * Empty constructor declaration for user.
      */
-<span class="fc" id="L54">    public User() {</span>
-<span class="fc" id="L55">    }</span>
+<span class="fc" id="L51">    public User() {</span>
+<span class="fc" id="L52">    }</span>
 
     /**
      * Constructor declaration for user.
      *
-     * @param username
-     * @param hash
+     * @param username username parameter.
+     * @param hash hash parameter.
      */
-<span class="fc" id="L63">    public User(String username, String hash) {</span>
-<span class="fc" id="L64">        this.username = username;</span>
-<span class="fc" id="L65">        this.hash = hash;</span>
-<span class="fc" id="L66">    }</span>
+<span class="fc" id="L60">    public User(String username, String hash) {</span>
+<span class="fc" id="L61">        this.username = username;</span>
+<span class="fc" id="L62">        this.hash = hash;</span>
+<span class="fc" id="L63">    }</span>
 
     /**
-     * Getter for username.
+     * get username.
+     * @return username.
      */
     public String getUsername() {
-<span class="fc" id="L72">        return username;</span>
+<span class="fc" id="L70">        return username;</span>
     }
 
     /**
      * Setter for username.
      *
-     * @param username
+     * @param username username parameter.
      */
     public void setUsername(String username) {
-<span class="fc" id="L81">        this.username = username;</span>
-<span class="fc" id="L82">    }</span>
+<span class="fc" id="L79">        this.username = username;</span>
+<span class="fc" id="L80">    }</span>
 
     /**
-     * Getter for hash.
+     * getter for hash.
+     * @return hash.
      */
     public String getHash() {
-<span class="fc" id="L88">        return hash;</span>
+<span class="fc" id="L87">        return hash;</span>
     }
 
     /**
      * Setter for hash.
      *
-     * @param hash
+     * @param hash hash parameter.
      */
     public void setHash(String hash) {
-<span class="fc" id="L97">        this.hash = hash;</span>
-<span class="fc" id="L98">    }</span>
+<span class="fc" id="L96">        this.hash = hash;</span>
+<span class="fc" id="L97">    }</span>
 
     /**
-     * Getter for foodFootprint.
+     * get food score.
+     * @return food
      */
     public Integer getFoodScore() {
 <span class="fc" id="L104">        return food;</span>
     }
 
     /**
-     *
-     * @param food
+     * set food.
+     * @param food food score.
      */
     public void setFoodScore(Integer food) {
 <span class="fc" id="L112">        this.food = food;</span>
 <span class="fc" id="L113">    }</span>
 
     /**
-     * Getter for waterFootprint.
+     * get electricity score.
+     * @return electric score.
      */
     public Integer getElectricityScore() {
-<span class="fc" id="L119">        return electricity;</span>
+<span class="fc" id="L120">        return electricity;</span>
     }
 
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity
+     * @param electricity electricity score.
      */
     public void setElectricityScore(Integer electricity) {
-<span class="fc" id="L128">        this.electricity = electricity;</span>
-<span class="fc" id="L129">    }</span>
+<span class="fc" id="L129">        this.electricity = electricity;</span>
+<span class="fc" id="L130">    }</span>
 
     /**
-     * Getter for transportFootprint.
+     * get transport score.
+     * @return transport score.
      */
     public Integer getTransportScore() {
-<span class="fc" id="L135">        return transport;</span>
+<span class="fc" id="L137">        return transport;</span>
     }
 
     /**
      * Setter for transportFootprint.
      *
-     * @param transport
+     * @param transport transport score.
      */
     public void setTransportScore(Integer transport) {
-<span class="fc" id="L144">        this.transport = transport;</span>
-<span class="fc" id="L145">    }</span>
+<span class="fc" id="L146">        this.transport = transport;</span>
+<span class="fc" id="L147">    }</span>
 
     /**
-     * Getter for polarScore.
+     * get polar score.
+     * @return polar score.
      */
     public Integer getPolarScore() {
-<span class="fc" id="L151">        return polarScore;</span>
+<span class="fc" id="L154">        return polarScore;</span>
     }
 
     /**
      * Setter for polarScore.
      *
-     * @param polarScore
+     * @param polarScore polar score parameter.
      */
     public void setPolarScore(Integer polarScore) {
-<span class="fc" id="L160">        this.polarScore = polarScore;</span>
-<span class="fc" id="L161">    }</span>
+<span class="fc" id="L163">        this.polarScore = polarScore;</span>
+<span class="fc" id="L164">    }</span>
+
     /**
-     * Getter for date.
+     * get badge.
+     * @return returns badge.
      */
 
     public Integer getBadge() {
-<span class="fc" id="L167">        return badge;</span>
+<span class="fc" id="L172">        return badge;</span>
     }
 
+    /**
+     * sets badge.
+     * @param badge parameter.
+     */
     public void setBadge(Integer badge) {
-<span class="fc" id="L171">        this.badge = badge;</span>
-<span class="fc" id="L172">    }</span>
+<span class="fc" id="L180">        this.badge = badge;</span>
+<span class="fc" id="L181">    }</span>
 
     /**
-     * toString method for user.
+     * checks if the user has solar panels.
+     * @return true or false.
      */
+    public boolean isSolar() {
+<span class="nc" id="L188">        return solar_panels;</span>
+    }
+
+    /**
+     * sets to true or false.
+     */
+    public void setSolar(boolean solar_panels) {
+<span class="nc" id="L195">        this.solar_panels = solar_panels;</span>
+<span class="nc" id="L196">    }</span>
+
+    /**
+     * to string method.
+     * @return the string.
+     */
+
+
     @Override
     public String toString() {
-<span class="fc" id="L179">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
+<span class="fc" id="L206">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
                 + '\'' + &quot;, hash='&quot; + hash + '\'' + '}';
     }
 }

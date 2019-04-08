@@ -2,6 +2,9 @@
 
 import javax.persistence.*;
 
+/**
+ * Statistics table.
+ */
 @Entity
 @Table(name = &quot;statistics&quot;)
 /**
@@ -20,6 +23,10 @@ public class Statistics {
      */
     private String username;
     /**
+     * type attr CAN BE -&gt; ALL or FOOD or TRANSPORT or ELECTRICITY.
+     */
+    private String type;
+    /**
      * score attr.
      */
     private Integer score;
@@ -27,70 +34,117 @@ public class Statistics {
      * date attr.
      */
     private String date;
+
     /**
      * default constructor.
      */
-<span class="fc" id="L33">    public Statistics() { }</span>
-    /**
-     * @param score
-     * @param date
-     */
-<span class="fc" id="L38">    public Statistics(String username, Integer score, String date) {</span>
-<span class="fc" id="L39">        this.username = username;</span>
-<span class="fc" id="L40">        this.score = score;</span>
-<span class="fc" id="L41">        this.date = date;</span>
+<span class="fc" id="L41">    public Statistics() {</span>
 <span class="fc" id="L42">    }</span>
+
+    /**
+     * statistics constructor.
+     * @param score score parameter.
+     * @param date date paramater.
+     * @param username  username parameter.
+     */
+<span class="fc" id="L50">    public Statistics(String username, Integer score, String date) {</span>
+<span class="fc" id="L51">        this.username = username;</span>
+<span class="fc" id="L52">        this.score = score;</span>
+<span class="fc" id="L53">        this.date = date;</span>
+<span class="fc" id="L54">    }</span>
+
     /**
      * getId.
      *
      * @return id.
      */
-<span class="fc" id="L48">    public Integer getId() {return id;}</span>
+    public Integer getId() {
+<span class="fc" id="L62">        return id;</span>
+    }
+
     /**
      * set id.
      *
-     * @param id
+     * @param id parameter id.
      */
-<span class="fc" id="L54">    public void setId(Integer id){this.id = id;}</span>
+    public void setId(Integer id) {
+<span class="fc" id="L71">        this.id = id;</span>
+<span class="fc" id="L72">    }</span>
+
     /**
      * getUsername.
      *
      * @return username.
      */
-<span class="fc" id="L60">    public String getUsername(){return username;}</span>
+    public String getUsername() {
+<span class="fc" id="L80">        return username;</span>
+    }
+
     /**
      * set username.
      *
-     * @param username
+     * @param username username parameter.
      */
-<span class="fc" id="L66">    public void setUsername(String username){this.username = username;}</span>
+    public void setUsername(String username) {
+<span class="fc" id="L89">        this.username = username;</span>
+<span class="fc" id="L90">    }</span>
+
     /**
      * getScore.
      *
      * @return score.
      */
-<span class="fc" id="L72">    public Integer getScore(){return score;}</span>
+    public Integer getScore() {
+<span class="fc" id="L98">        return score;</span>
+    }
+
     /**
      * set score.
      *
-     * @param score
+     * @param score score parameter.
      */
-<span class="fc" id="L78">    public void setScore(Integer score){this.score = score;}</span>
+    public void setScore(Integer score) {
+<span class="fc" id="L107">        this.score = score;</span>
+<span class="fc" id="L108">    }</span>
+
     /**
      * getDate.
      *
      * @return date.
      */
-<span class="fc" id="L84">    public String getDate(){return date;}</span>
+    public String getDate() {
+<span class="fc" id="L116">        return date;</span>
+    }
+
     /**
      * set date.
      *
-     * @param date
+     * @param date date parameter.
      */
-<span class="fc" id="L90">    public void setDate(String date){this.date = date;}</span>
+    public void setDate(String date) {
+<span class="fc" id="L125">        this.date = date;</span>
+<span class="fc" id="L126">    }</span>
 
-    public String toString(){
-<span class="fc" id="L93">        return &quot;Statistics(&quot;</span>
+    /**
+     * @return type.
+     */
+    public String getType() {
+<span class="nc" id="L132">        return type;</span>
+    }
+
+    /**
+     * @param type type parameter.
+     */
+    public void setType(String type) {
+<span class="nc" id="L139">        this.type = type;</span>
+<span class="nc" id="L140">    }</span>
+
+    /**
+     * to string method.
+     * @return string
+     */
+    public String toString() {
+<span class="fc" id="L147">        return &quot;Statistics(&quot;</span>
                 + &quot;, username='&quot; + username + '\''
                 + &quot;, score='&quot; + score + '\''
                 + &quot;, date='&quot; + date + '\''

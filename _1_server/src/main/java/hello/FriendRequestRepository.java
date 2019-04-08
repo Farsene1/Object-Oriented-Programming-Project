@@ -4,18 +4,20 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import javax.transaction.Transactional;
 import java.util.List;
+import javax.transaction.Transactional;
+
 
 /**
- *  table for requests.
+ * table for requests.
  */
 public interface FriendRequestRepository extends
         CrudRepository<FriendRequest, Integer> {
 
     /**
      * get.
-     * @param username
+     *
+     * @param username username parameter.
      * @return list.
      */
     @Query(value = "SELECT * from requests "
@@ -24,9 +26,10 @@ public interface FriendRequestRepository extends
 
     /**
      * update.
-     * @param response
-     * @param username1
-     * @param username2
+     *
+     * @param response  response parameter.
+     * @param username1 username 1 parameter.
+     * @param username2 username 2 parameter.
      */
     @Modifying
     @Transactional

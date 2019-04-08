@@ -1,56 +1,109 @@
 package classes;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+/**
+ * Friend Request ClaSS.
+ */
 public class FriendRequest {
 
-
+    /**
+     * Variables.
+     */
     private Integer id;
     private String sender;
     private String receiver;
     private boolean accepted = false;
 
-    public FriendRequest() { }
+    /**
+     * Empty Constructor.
+     */
+    public FriendRequest() {
+    }
 
+
+    /**
+     * FriendRequst constructor.
+     *
+     * @param sender   paramter sender.
+     * @param receiver parameter receiver.
+     */
+    public FriendRequest(final String sender, final String receiver) {
+        this.sender = sender;
+        this.receiver = receiver;
+
+    }
+
+
+    /**
+     * Returns the id.
+     *
+     * @return id.
+     */
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    /**
+     * Sets ID.
+     *
+     * @param id parameter id.
+     */
+    public void setId(final Integer id) {
         this.id = id;
     }
 
-    public FriendRequest(String sender, String receiver) {
+
+    /**
+     * sETS Sender.
+     *
+     * @param sender parameter sender.
+     */
+    public void setSender(final String sender) {
         this.sender = sender;
-        this.receiver = receiver;
-
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-
-    public void setReceiver(String receiver) {
+    /**
+     * Sets receiver.
+     *
+     * @param receiver parameter Receiver.
+     */
+    public void setReceiver(final String receiver) {
         this.receiver = receiver;
     }
 
 
-
-    public void setAccepted(boolean accepted) {
+    /**
+     * Sets accepted.
+     *
+     * @param accepted accepted parameter.
+     */
+    public void setAccepted(final boolean accepted) {
         this.accepted = accepted;
     }
 
+    /**
+     * Gets Sender.
+     *
+     * @return sender.
+     */
     public String getSender() {
         return sender;
     }
 
+    /**
+     * Gets receiver.
+     *
+     * @return reciver.
+     */
     public String getReceiver() {
         return receiver;
     }
 
+    /**
+     * Gets accepted.
+     *
+     * @return accepted.
+     */
     public boolean isAccepted() {
         return accepted;
     }
