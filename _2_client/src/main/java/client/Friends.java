@@ -143,7 +143,7 @@ public class Friends {
 
     public static void getResults(User user, String search, VBox resultsbox, TextField searchfield) {
         if (search.length()>=1) {
-            List<String> Results = new RestfulClient().findUsersByRegex(search);
+            List<String> Results = new RestfulClient().findUsersByRegex(search, user.getUsername());
             // new RestfulClient().findUsersByRegex(search, user.getUsername());
             resultsbox.getChildren().clear();
             for (String a : Results) {
