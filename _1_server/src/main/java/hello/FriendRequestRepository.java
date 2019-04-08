@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 /**
@@ -23,6 +23,16 @@ public interface FriendRequestRepository extends
     @Query(value = "SELECT * from requests "
             + "where receiver = ?1 AND accepted = false", nativeQuery = true)
     List<FriendRequest> findAllRequestsFor(String username);
+
+    /**
+     * get.
+     *
+     * @param username username parameter.
+     * @return list.
+     */
+    @Query(value = "SELECT * from requests "
+            + "where sender = ?1 AND accepted = false", nativeQuery = true)
+    List<FriendRequest> findAllRequestsSentBy(String username);
 
     /**
      * update.

@@ -200,14 +200,19 @@ public class UserController {
                 .findAllRequestsFor(username);
 
         for(FriendRequest f : l2){
-            if(all.contains(f.getReceiver())){
-                all.remove(f.getReceiver());
-            }
             if(all.contains(f.getSender())){
                 all.remove(f.getSender());
             }
         }
 
+        List<FriendRequest> l3 = this.friendRequestRepository
+                .findAllRequestsSentBy(username);
+
+        for(FriendRequest f : l3){
+            if(all.contains(f.getReceiver())){
+                all.remove(f.getReceiver());
+            }
+        }
         return all;
     }
 
