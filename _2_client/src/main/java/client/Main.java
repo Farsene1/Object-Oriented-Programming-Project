@@ -36,6 +36,10 @@ public class Main extends Application {
         //EASTER EGG// default value in the database for shortcut when developing
         try {
             new Controller().signUp(new User("admin", Hash.generateHash("root", "SHA-256")));
+            new Controller().signUp(new User("admin1", Hash.generateHash("root", "SHA-256")));
+            new Controller().signUp(new User("admin2", Hash.generateHash("root", "SHA-256")));
+            new Controller().signUp(new User("admin3", Hash.generateHash("root", "SHA-256")));
+            new Controller().signUp(new User("admin4", Hash.generateHash("root", "SHA-256")));
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "12-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 300, "13-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 700, "14-03-2019"));

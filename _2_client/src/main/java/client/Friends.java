@@ -1,5 +1,6 @@
 package client;
 
+import CSS.CSS;
 import classes.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,8 +28,6 @@ public class Friends {
      * Variables.
      */
     static TableView friendsTable = new TableView();
-    static TableView pendingTable = new TableView();
-
     /**
      * Show options for friends method.
      *
@@ -45,33 +45,26 @@ public class Friends {
         grid.getChildren().clear();
 
         //Creating Labels for addition
-        Label friendsL = new Label("My Friend List");
-        friendsL.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
-        friendsL.setTextFill(Color.web("#0076a3"));
-        Label friendsP = new Label("Pending friend Requests");
-        friendsP.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
-        friendsP.setTextFill(Color.web("#0076a3"));
-        TextField addaFriend = new TextField();
-        Button addaFriendB = new Button("Add A Friend");
-        Label friendsLabel = new Label("FRIENDS");
-        friendsLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
-        friendsLabel.setTextFill(Color.web("#0076a3"));
-        Button backButton = new Button("Back");
+        Label friendsL = new Label("My Friends");
+        HBox Friendsbox= new HBox();
+        Button backButton = new Button();
+        CSS.setBackButtonStyle(backButton);
+        Friendsbox.getChildren().addAll(backButton, friendsL);
+        TextField searchField = new TextField();
+        Label findfriendsLabel = new Label("ADD FRIENDS");
+        VBox results= new VBox();
+        VBox pending= new VBox();
+        VBox friendsVbox = new VBox(Friendsbox, friendsTable);
+        VBox findfriendsVbox = new VBox(findfriendsLabel,searchField, results);
+        addFriendRequests(user,pending);
 
+        searchField.setPromptText("Search to Follow");
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            getResults(user, newValue, results, searchField);
+            System.out.println("textfield changed from " + oldValue + " to " + newValue);
 
-        //Making of Vboxes and Hboxes in order to show the tables on screen
-        HBox vbox = new HBox(addaFriend, addaFriendB);
-        VBox vbox1 = new VBox(friendsL, vbox, friendsTable);
-        VBox vbox2 = new VBox(friendsP, pendingTable);
-        vbox1.setStyle("-fx-padding:15;");
-        vbox2.setStyle("-fx-padding:15;");
-        vbox1.setSpacing(20);
-        vbox2.setSpacing(20);
+        });
 
-        vbox1.setAlignment(Pos.CENTER_LEFT);
-        vbox2.setAlignment(Pos.CENTER_RIGHT);
-        // GridPane.setConstraints(Vbox1,0,0);
-        //  GridPane.setConstraints(Vbox2,7,0);
         //ADDING THE COLLUMNS TO THE TABLES.
         TableColumn col1 = new TableColumn("Username");
         col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
@@ -79,88 +72,38 @@ public class Friends {
         col2.setCellValueFactory(new PropertyValueFactory<>("Polarscore"));
         TableColumn col3 = new TableColumn("Badge");
         col3.setCellValueFactory(new PropertyValueFactory<>("Badge"));
-
-
-        TableColumn col4 = new TableColumn("Username");
-        col4.setCellValueFactory(new PropertyValueFactory<>("sender"));
-
-        //   TableColumn col4 = new TableColumn("Accept/Decline");
-        //  col4.setCellValueFactory(new PropertyValueFactory<>("accept/decline"));
         friendsTable.getColumns().setAll(col1, col2, col3);
-        pendingTable.getColumns().setAll(col4);
         col1.setMinWidth(200);
         col1.setMaxWidth(200);
         col2.setMaxWidth(200);
         col2.setMinWidth(200);
         col3.setMinWidth(125);
         col3.setMaxWidth(125);
-        col4.setMinWidth(250);
+
         //backButton
         backButton.setOnAction(e -> {
             Home.showHome(window, user);
         });
 
 
-        //Lastly creating 2 different.
-        //Hboxes so we can add everything to the grid.
+        HBox ROW1 = new HBox();
+        ROW1.getChildren().addAll(friendsVbox,findfriendsVbox, pending);
+        ROW1.setAlignment(Pos.CENTER);
+        grid.getChildren().addAll(ROW1);
 
-        HBox toplayer = new HBox();
-        HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(friendsLabel, backButton);
-        middleLayer.getChildren().addAll(vbox1, vbox2);
-        GridPane.setConstraints(toplayer, 5, 0);
-        GridPane.setConstraints(middleLayer, 5, 30);
-        toplayer.setAlignment(Pos.TOP_CENTER);
-        middleLayer.setAlignment(Pos.CENTER);
-        grid.getChildren().addAll(toplayer, middleLayer);
-
+        friendsTable.setItems(addFriend(user));
+        friendsL.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
+        friendsL.setTextFill(Color.web("#0076a3"));
+        findfriendsLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
+        findfriendsLabel.setTextFill(Color.web("#0076a3"));
+        friendsVbox.setStyle("-fx-padding:15;");
+        friendsVbox.setSpacing(20);
+        friendsVbox.setAlignment(Pos.CENTER_LEFT);
+        findfriendsVbox.setStyle("-fx-padding:20; -fx-background-color: white");
+        findfriendsVbox.setSpacing(20);
+        pending.setStyle("-fx-padding:20; -fx-background-color: white");
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
-
-        /**
-         * Button set on action method.
-         */
-
-        addaFriendB.setOnAction(e -> {
-            classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());
-            new RestfulClient().sendFriendRequest(friendRequest);
-            addaFriend.clear();
-        });
-
-
-        /**
-         * Row factory method
-         * so you can click and accept or decline
-         * a friend request.
-         */
-        pendingTable.setRowFactory(tv -> {
-            TableRow<FriendRequest> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY
-                        && event.getClickCount() == 2) {
-
-                    FriendRequest clickedRow = row.getItem();
-                    int answer = BoxAddFriend.display("Add A friend", clickedRow);
-                    if (answer == 2) {
-                        pendingTable.getItems().remove(clickedRow);
-                        new Controller().sayNo(clickedRow);
-                    } else if (answer == 1) {
-                        clickedRow.setAccepted(true);
-                        if (!clickedRow.getSender().equals(clickedRow.getReceiver())) {
-                            new Controller().sayYes(clickedRow);
-                        }
-                        pendingTable.getItems().remove(clickedRow);
-                    }
-
-                }
-            });
-            return row;
-
-        });
-
-        pendingTable.setItems(addFriendRequests(user));
-        friendsTable.setItems(addFriend(user));
-
     }
 
     /**
@@ -185,15 +128,52 @@ public class Friends {
      * @param user parameter
      * @return a list of requests.
      */
-    public static ObservableList<FriendRequest> addFriendRequests(final User user) {
-        ObservableList<FriendRequest> friendRequests = FXCollections.observableArrayList();
+    public static void addFriendRequests(final User user, VBox pending) {
         List<FriendRequest> friendRequestList = new Controller().getAllRequests(user);
-
+        pending.getChildren().clear();
         for (FriendRequest a : friendRequestList) {
-            friendRequests.add(a);
+            HBox row= new HBox();
+            Label sender= new Label(a.getSender());
+            Button accept= new Button("Accept");
+            Button reject = new Button("Reject");
+            accept.setOnAction(e->{
+                new Controller().sayYes(a);
+                friendsTable.setItems(addFriend(user));
+                addFriendRequests(user, pending);
+            });
+            reject.setOnAction(e->{
+                new Controller().sayNo(a);
+                friendsTable.setItems(addFriend(user));
+                addFriendRequests(user, pending);
+            });
+            row.getChildren().addAll(sender,accept,reject);
+            row.setSpacing(20);
+            pending.getChildren().add(row);
         }
-        return friendRequests;
     }
 
-
+    public static void getResults(User user, String search, VBox resultsbox, TextField searchfield) {
+        if (search.length()>=3) {
+            List<String> Results = new RestfulClient().findUsersByRegex(search);
+            resultsbox.getChildren().clear();
+            for (String a : Results) {
+                if(!a.equals(user.getUsername())) {
+                    HBox row = new HBox();
+                    Label username = new Label(a);
+                    Button add = new Button("ADD");
+                    add.setOnAction(e -> {
+                        classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), a);
+                        new RestfulClient().sendFriendRequest(friendRequest);
+                        searchfield.clear();
+                    });
+                    row.getChildren().addAll(username, add);
+                    row.setSpacing(15);
+                    resultsbox.getChildren().add(row);
+                }
+            }
+        }
+        else {
+            resultsbox.getChildren().clear();
+        }
+    }
 }
