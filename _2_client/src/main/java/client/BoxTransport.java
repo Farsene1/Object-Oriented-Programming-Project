@@ -1,6 +1,5 @@
 package client;
 
-
 import classes.Activity;
 
 import classes.Controller;
