@@ -12,7 +12,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="client" target="10.0.2" />
-      <module name="OOP-Project" target="10.0.2" />
       <module name="server" target="10.0.2" />
       <module name="template" target="10.0.2" />
     </bytecodeTargetLevel>

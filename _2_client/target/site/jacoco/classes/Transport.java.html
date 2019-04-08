@@ -1,149 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Transport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">Transport.java</span></div><h1>Transport.java</h1><pre class="source lang-java linenums">package classes;
 
-/**
- * Transport class.
- */
 public class Transport {
-    /**
-     * Variables.
-     */
-    private String username;
+    private String  username;
     private String type;
     private double distance;
     private int score;
-    private String date;
-
-    /**
-     * Empty Constructor.
-     */
-<span class="nc" id="L19">    public Transport() {</span>
-
-<span class="nc" id="L21">    }</span>
-
-    /**
-     * Transport Object Constructor.
-     *
-     * @param username user name parameter
-     * @param type     type parameter
-     * @param distance distance
-     * @param score    score
-     * @param date     date
-     */
-<span class="fc" id="L32">    public Transport(final String username, final String type, final double distance, final int score, final String date) {</span>
-<span class="fc" id="L33">        this.username = username;</span>
-<span class="fc" id="L34">        this.type = type;</span>
-<span class="fc" id="L35">        this.distance = distance;</span>
-<span class="fc" id="L36">        this.score = score;</span>
-<span class="fc" id="L37">        this.date = date;</span>
+    private  String date;
 
 
+<span class="nc" id="L11">        public Transport(){</span>
+
+<span class="nc" id="L13">        }</span>
+
+<span class="fc" id="L15">       public Transport(String username, String type, double distance, int score, String date){</span>
+<span class="fc" id="L16">            this.username=username;</span>
+<span class="fc" id="L17">            this.type=type;</span>
+<span class="fc" id="L18">            this.distance=distance;</span>
+<span class="fc" id="L19">            this.score=score;</span>
+<span class="fc" id="L20">            this.date=date;</span>
+
+
+
+<span class="fc" id="L24">       }</span>
+
+    public String getUsername() {
+<span class="fc" id="L27">        return username;</span>
+    }
+
+    public void setUsername(String username) {
+<span class="fc" id="L31">        this.username = username;</span>
+<span class="fc" id="L32">    }</span>
+
+    public String getType() {
+<span class="fc" id="L35">        return type;</span>
+    }
+
+    public void setType(String type) {
+<span class="fc" id="L39">        this.type = type;</span>
 <span class="fc" id="L40">    }</span>
 
-    /**
-     *Get username.
-     *
-     * @return returns username.
-     */
-    public String getUsername() {
-<span class="fc" id="L48">        return username;</span>
-    }
-
-    /**
-     * Sets username.
-     * @param username username parameter
-     */
-    public void setUsername(final String username) {
-<span class="fc" id="L56">        this.username = username;</span>
-<span class="fc" id="L57">    }</span>
-
-    /**
-     * GETS TYPE.
-     * @return returns type.
-     */
-    public String getType() {
-<span class="fc" id="L64">        return type;</span>
-    }
-
-    /**
-     * Sets type.
-     * @param type type parameter.
-     */
-    public void setType(final String type) {
-<span class="fc" id="L72">        this.type = type;</span>
-<span class="fc" id="L73">    }</span>
-
-    /**
-     * Gets distance.
-     * @return gets distance.
-     */
     public double getDistance() {
-<span class="fc" id="L80">        return distance;</span>
+<span class="fc" id="L43">        return distance;</span>
     }
 
-    /**
-     * sets distance.
-     * @param distance distance parameter
-     */
-    public void setDistance(final double distance) {
-<span class="fc" id="L88">        this.distance = distance;</span>
-<span class="fc" id="L89">    }</span>
+    public void setDistance(double distance) {
+<span class="fc" id="L47">        this.distance = distance;</span>
+<span class="fc" id="L48">    }</span>
 
-    /**
-     * Gets score.
-     * @return returns score.
-     */
     public int getScore() {
-<span class="fc" id="L96">        return score;</span>
+<span class="fc" id="L51">        return score;</span>
     }
 
-    /**
-     * sets score.
-     * @param score score parameter.
-     */
-    public void setScore(final int score) {
-<span class="fc" id="L104">        this.score = score;</span>
-<span class="fc" id="L105">    }</span>
+    public void setScore(int score) {
+<span class="fc" id="L55">        this.score = score;</span>
+<span class="fc" id="L56">    }</span>
 
-    /**
-     * Gets date.
-     * @return returns date.
-     */
     public String getDate() {
-<span class="fc" id="L112">        return date;</span>
+<span class="fc" id="L59">        return date;</span>
     }
 
-    /**
-     * Sets date.
-     * @param date date parameter.
-     */
-    public void setDate(final String date) {
-<span class="fc" id="L120">        this.date = date;</span>
-<span class="fc" id="L121">    }</span>
+    public void setDate(String date) {
+<span class="fc" id="L63">        this.date = date;</span>
+<span class="fc" id="L64">    }</span>
 
-    /**
-     * Calulations for score.
-     * @param type parameter type
-     * @param distance distance parameter
-     * @return returns a score.
-     */
-    public int calculator(final String type, final double distance) {
-<span class="fc" id="L130">        int score = 0;</span>
-<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (type.equals(&quot;Train&quot;)) {</span>
-<span class="fc" id="L132">            score = (int) Math.round(10 * distance);</span>
+       public int calculator(String type,double distance){
+<span class="fc" id="L67">        int score=0;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if(type.equals(&quot;Train&quot;)){</span>
+<span class="fc" id="L69">            score=(int) Math.round(50*100/distance);</span>
         }
-<span class="fc bfc" id="L134" title="All 2 branches covered.">        if (type.equals(&quot;Car&quot;)) {</span>
-<span class="fc" id="L135">            score = (int) Math.round(-25 * distance);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if(type.equals(&quot;Car&quot;)){</span>
+<span class="fc" id="L72">            score=(int) Math.round(30*100/distance);</span>
         }
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (type.equals(&quot;Bicycle&quot;)) {</span>
-<span class="fc" id="L138">            score = (int) Math.round(150 * distance);</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if(type.equals(&quot;Bicycle&quot;)){</span>
+<span class="fc" id="L75">            score=(int) Math.round(150*100/distance);</span>
         }
-<span class="fc bfc" id="L140" title="All 2 branches covered.">        if (type.equals(&quot;Airplane&quot;)) {</span>
-<span class="fc" id="L141">            score = (int) Math.round(-30 * distance);</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if(type.equals(&quot;Airplane&quot;)){</span>
+<span class="fc" id="L78">            score=(int) Math.round(40*100/distance);</span>
         }
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (type.equals(&quot;Walking&quot;)) {</span>
-<span class="nc" id="L144">            score = (int) Math.round(200 * distance);</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        if(type.equals(&quot;Walking&quot;)){</span>
+<span class="nc" id="L81">            score=(int) Math.round(200*100/distance);</span>
         }
-<span class="fc" id="L146">        return score;</span>
+<span class="fc" id="L83">        return score;</span>
     }
 
 }

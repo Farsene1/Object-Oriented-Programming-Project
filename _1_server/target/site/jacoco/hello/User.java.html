@@ -2,6 +2,7 @@
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * User table entity generated.
@@ -12,7 +13,7 @@ public class User implements Serializable {
     /**
      * Primary key id generated.
      *
-     * @param id id parameter.
+     * @param id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,48 +31,47 @@ public class User implements Serializable {
     /**
      * Attribute foodFootprint declared as type integer.
      */
-<span class="fc" id="L33">    private Integer food = 0;</span>
+<span class="fc" id="L34">    private Integer food = 0;</span>
     /**
      * Attribute waterFootprint declared as type integer.
      */
-<span class="fc" id="L37">    private Integer electricity = 0;</span>
+<span class="fc" id="L38">    private Integer electricity = 0;</span>
     /**
      * Attribute transportFootprint declared as type integer.
      */
-<span class="fc" id="L41">    private Integer transport = 0;</span>
-    /**
-     * attribute for solar panels.
-     */
-<span class="fc" id="L45">    private boolean solar_panels = false;</span>
+<span class="fc" id="L42">    private Integer transport = 0;</span>
     /**
      * Attribute polarScore declared as type integer.
      */
-<span class="fc" id="L49">    private Integer polarScore = 0;</span>
+<span class="fc" id="L46">    private Integer polarScore = 0;</span>
     /**
      * Attribute date declared as type timestamp.
      */
-<span class="fc" id="L53">    private Integer badge = 1;</span>
+<span class="fc" id="L50">    private Integer badge = 1;</span>
+
+    @OneToMany
+    @JoinColumn(name = &quot;userId&quot;)
+    private Set&lt;Activity&gt; activities;
 
     /**
      * Empty constructor declaration for user.
      */
-<span class="fc" id="L58">    public User() {</span>
-<span class="fc" id="L59">    }</span>
+<span class="fc" id="L59">    public User() {</span>
+<span class="fc" id="L60">    }</span>
 
     /**
      * Constructor declaration for user.
      *
-     * @param username username parameter.
-     * @param hash hash parameter.
+     * @param username
+     * @param hash
      */
-<span class="fc" id="L67">    public User(String username, String hash) {</span>
-<span class="fc" id="L68">        this.username = username;</span>
-<span class="fc" id="L69">        this.hash = hash;</span>
-<span class="fc" id="L70">    }</span>
+<span class="fc" id="L68">    public User(String username, String hash) {</span>
+<span class="fc" id="L69">        this.username = username;</span>
+<span class="fc" id="L70">        this.hash = hash;</span>
+<span class="fc" id="L71">    }</span>
 
     /**
-     * get username.
-     * @return username.
+     * Getter for username.
      */
     public String getUsername() {
 <span class="fc" id="L77">        return username;</span>
@@ -80,137 +80,108 @@ public class User implements Serializable {
     /**
      * Setter for username.
      *
-     * @param username username parameter.
+     * @param username
      */
     public void setUsername(String username) {
 <span class="fc" id="L86">        this.username = username;</span>
 <span class="fc" id="L87">    }</span>
 
     /**
-     * getter for hash.
-     * @return hash.
+     * Getter for hash.
      */
     public String getHash() {
-<span class="fc" id="L94">        return hash;</span>
+<span class="fc" id="L93">        return hash;</span>
     }
 
     /**
      * Setter for hash.
      *
-     * @param hash hash parameter.
+     * @param hash
      */
     public void setHash(String hash) {
-<span class="fc" id="L103">        this.hash = hash;</span>
-<span class="fc" id="L104">    }</span>
+<span class="fc" id="L102">        this.hash = hash;</span>
+<span class="fc" id="L103">    }</span>
 
     /**
-     * get food score.
-     * @return food
+     * Getter for foodFootprint.
      */
     public Integer getFoodScore() {
-<span class="fc" id="L111">        return food;</span>
+<span class="fc" id="L109">        return food;</span>
     }
 
     /**
-     * set food.
-     * @param food food score.
+     *
+     * @param food
      */
     public void setFoodScore(Integer food) {
-<span class="fc" id="L119">        this.food = food;</span>
-<span class="fc" id="L120">    }</span>
+<span class="fc" id="L117">        this.food = food;</span>
+<span class="fc" id="L118">    }</span>
 
     /**
-     * get electricity score.
-     * @return electric score.
+     * Getter for waterFootprint.
      */
     public Integer getElectricityScore() {
-<span class="fc" id="L127">        return electricity;</span>
+<span class="fc" id="L124">        return electricity;</span>
     }
 
     /**
      * Setter for waterFootprint.
      *
-     * @param electricity electricity score.
+     * @param electricity
      */
     public void setElectricityScore(Integer electricity) {
-<span class="fc" id="L136">        this.electricity = electricity;</span>
-<span class="fc" id="L137">    }</span>
+<span class="fc" id="L133">        this.electricity = electricity;</span>
+<span class="fc" id="L134">    }</span>
 
     /**
-     * get transport score.
-     * @return transport score.
+     * Getter for transportFootprint.
      */
     public Integer getTransportScore() {
-<span class="fc" id="L144">        return transport;</span>
+<span class="fc" id="L140">        return transport;</span>
     }
 
     /**
      * Setter for transportFootprint.
      *
-     * @param transport transport score.
+     * @param transport
      */
     public void setTransportScore(Integer transport) {
-<span class="fc" id="L153">        this.transport = transport;</span>
-<span class="fc" id="L154">    }</span>
+<span class="fc" id="L149">        this.transport = transport;</span>
+<span class="fc" id="L150">    }</span>
 
     /**
-     * get polar score.
-     * @return polar score.
+     * Getter for polarScore.
      */
     public Integer getPolarScore() {
-<span class="fc" id="L161">        return polarScore;</span>
+<span class="fc" id="L156">        return polarScore;</span>
     }
 
     /**
      * Setter for polarScore.
      *
-     * @param polarScore polar score parameter.
+     * @param polarScore
      */
     public void setPolarScore(Integer polarScore) {
-<span class="fc" id="L170">        this.polarScore = polarScore;</span>
-<span class="fc" id="L171">    }</span>
-
+<span class="fc" id="L165">        this.polarScore = polarScore;</span>
+<span class="fc" id="L166">    }</span>
     /**
-     * get badge.
-     * @return returns badge.
+     * Getter for date.
      */
 
     public Integer getBadge() {
-<span class="fc" id="L179">        return badge;</span>
+<span class="fc" id="L172">        return badge;</span>
     }
 
-    /**
-     * sets badge.
-     * @param badge parameter.
-     */
     public void setBadge(Integer badge) {
-<span class="fc" id="L187">        this.badge = badge;</span>
-<span class="fc" id="L188">    }</span>
+<span class="fc" id="L176">        this.badge = badge;</span>
+<span class="fc" id="L177">    }</span>
 
     /**
-     * checks if the user has solar panels.
-     * @return true or false.
+     * toString method for user.
      */
-    public boolean isSolar() {
-<span class="fc" id="L195">        return solar_panels;</span>
-    }
-
-    /**
-     * sets to true or false.
-     */
-    public void setSolar(boolean solar_panels) {
-<span class="fc" id="L202">        this.solar_panels = solar_panels;</span>
-<span class="fc" id="L203">    }</span>
-
-    /**
-     * to string method.
-     * @return the string.
-     */
-
-
     @Override
     public String toString() {
-<span class="fc" id="L213">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
+<span class="fc" id="L184">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
                 + '\'' + &quot;, hash='&quot; + hash + '\'' + '}';
     }
 }

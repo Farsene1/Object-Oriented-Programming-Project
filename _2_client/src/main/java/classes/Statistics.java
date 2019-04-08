@@ -27,99 +27,69 @@ public class Statistics implements Serializable {
      * date attr.
      */
     private String date;
-
     /**
      * default constructor.
      */
-    public Statistics() {
-    }
-
+    public Statistics() { }
     /**
-     * Stats constructor.
-     *
-     * @param score score parmater.
-     * @param date  date parameter.
+     * @param score
+     * @param date
      */
-    public Statistics(final String username, final Integer score, final String date) {
+    public Statistics(String username, Integer score, String date) {
         this.username = username;
         this.score = score;
         this.date = date;
     }
-
     /**
      * getId.
      *
      * @return id.
      */
-    public Integer getId() {
-        return id;
-    }
-
+    public Integer getId() {return id;}
     /**
      * set id.
      *
-     * @param id id parameter.
+     * @param id
      */
-    public void setId(final Integer id) {
-        this.id = id;
-    }
-
+    public void setId(Integer id){this.id = id;}
     /**
      * getUsername.
      *
      * @return username.
      */
-    public String getUsername() {
-        return username;
-    }
-
+    public String getUsername(){return username;}
     /**
      * set username.
      *
-     * @param username username parameter.
+     * @param username
      */
-    public void setUsername(final String username) {
-        this.username = username;
-    }
-
+    public void setUsername(String username){this.username = username;}
     /**
      * getScore.
      *
      * @return score.
      */
-    public Integer getScore() {
-        return score;
-    }
-
+    public Integer getScore(){return score;}
     /**
      * set score.
      *
-     * @param score score parameter.
+     * @param score
      */
-    public void setScore(final Integer score) {
-        this.score = score;
-    }
-
+    public void setScore(Integer score){this.score = score;}
     /**
      * getDate.
      *
      * @return date.
      */
-    public String getDate() {
-        return date;
-    }
-
+    public String getDate(){return date;}
     /**
      * set date.
      *
-     * @param date date paramter.
+     * @param date
      */
-    public void setDate(final String date) {
-        this.date = date;
-    }
+    public void setDate(String date){this.date = date;}
 
     /**
-     * returns type.
      *
      * @return type.
      */
@@ -128,20 +98,14 @@ public class Statistics implements Serializable {
     }
 
     /**
-     * sets type.
      *
-     * @param type type parameter.
+     * @param type
      */
-    public void setType(final String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    /**
-     * To string stats.
-     *
-     * @return returns a string.
-     */
-    public String toString() {
+    public String toString(){
         return "Statistics("
                 + ", username='" + username + '\''
                 + ", score='" + score + '\''

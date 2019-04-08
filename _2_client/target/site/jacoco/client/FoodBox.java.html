@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FoodBox.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">FoodBox.java</span></div><h1>FoodBox.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.Activity;
+import classes.Controller;
+import classes.User;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.control.ChoiceBox;
+
+import java.util.List;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+<span class="nc" id="L19">public class FoodBox {</span>
+
+    /**
+     * Initializes string for food added as empty.
+     */
+<span class="nc" id="L24">    static String foodAdded = &quot;&quot;;</span>
+
+    public static classes.Meal addMeal(String title, String message, User user) {
+
+        /**
+         * Sets window.
+         */
+<span class="nc" id="L31">        Stage window = new Stage();</span>
+<span class="nc" id="L32">        window.initModality(Modality.APPLICATION_MODAL);</span>
+<span class="nc" id="L33">        window.setTitle(title);</span>
+<span class="nc" id="L34">        window.setMinWidth(500);</span>
+<span class="nc" id="L35">        Label label = new Label();</span>
+<span class="nc" id="L36">        label.setText(message);</span>
+
+        /**
+         * Declares choice box for dropdown menu of meals.
+         */
+<span class="nc" id="L41">        ChoiceBox&lt;String&gt; dropdownMeal= new ChoiceBox&lt;&gt;();</span>
+        /**
+         * Adds meal items to drop down menu.
+         */
+<span class="nc" id="L45">        dropdownMeal.getItems().addAll(&quot;Vegan meal&quot;, &quot;Vegetarian meal&quot;, &quot;Meal with meat&quot;);</span>
+<span class="nc" id="L46">        dropdownMeal.getSelectionModel().select(0);</span>
+        /**
+         * Declares choice box for dropdown menu of groceries.
+         */
+<span class="nc" id="L50">        ChoiceBox&lt;String&gt; dropdownGroceries= new ChoiceBox&lt;&gt;();</span>
+        /**
+         * Adds grocery items to drop down menu.
+         */
+<span class="nc" id="L54">        dropdownGroceries.getItems().addAll(&quot;Imported&quot;, &quot;Local&quot;);</span>
+<span class="nc" id="L55">        dropdownGroceries.getSelectionModel().select(0);</span>
+
+        /**
+         * Button for adding meal connected to drop down menu / depending on selection it adds meal type scores.
+         */
+<span class="nc" id="L60">        Button mealButton= new Button(&quot;Submit meal!&quot;);</span>
+<span class="nc" id="L61">        mealButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L62">            foodAdded = dropdownMeal.getValue();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if(foodAdded == &quot;Vegan meal&quot;){</span>
+<span class="nc" id="L64">                foodAdded = &quot;vegan&quot;;</span>
+<span class="nc" id="L65">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L66">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L67">                String date = myDateObj.format(myFormatObj);</span>
+                // hardcoded - add 200 points for vegan
+<span class="nc" id="L69">                new Controller().sendMeal(user, 25);</span>
+                // add a meal in the database
+<span class="nc" id="L71">                Activity activity = new Activity(user.getUsername(),1,&quot;Vegan meal&quot;,</span>
+<span class="nc" id="L72">                        25, date);</span>
+<span class="nc" id="L73">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L74">                System.out.println(&quot;\n The items are&quot;+list.toString());</span>
+<span class="nc" id="L75">                window.close();</span>
+            }
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if(foodAdded == &quot;Vegetarian meal&quot;) {</span>
+<span class="nc" id="L78">                foodAdded = &quot;vegetarian&quot;;</span>
+<span class="nc" id="L79">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L80">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L81">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L82">                new Controller().sendMeal(user, 50);</span>
+                // add a meal in the database
+<span class="nc" id="L84">                Activity activity = new Activity(user.getUsername(), 1, &quot;Vegetarian meal&quot;,</span>
+<span class="nc" id="L85">                        50, date);</span>
+<span class="nc" id="L86">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L87">                window.close();</span>
+            }
+            /**
+             * When meal addes contains meat, method in new alert box for meat specific meals ins called on.
+             */
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if(foodAdded == &quot;Meal with meat&quot;) {</span>
+<span class="nc" id="L93">                MeatMealBox.meatMealCalculator(&quot;Meat meal calculator&quot;, &quot;Please select the estimated amount of meat had in grams:&quot;, user);</span>
+<span class="nc" id="L94">                window.close();</span>
+            }
+<span class="nc" id="L96">        });</span>
+
+        /**
+         * Button for adding groceries connected to drop down menu / depending on selection it adds grocery type scores.
+         */
+<span class="nc" id="L101">        Button groceriesButton= new Button(&quot;Sumbit groceries&quot;);</span>
+<span class="nc" id="L102">        groceriesButton.setOnAction(e -&gt; {</span>
+
+<span class="nc" id="L104">            foodAdded = dropdownGroceries.getValue();</span>
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if (foodAdded == &quot;Imported&quot;) {</span>
+<span class="nc" id="L107">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L108">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L109">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L110">                new Controller().sendMeal(user, 250);</span>
+                // add a meal in the database
+<span class="nc" id="L112">                Activity activity = new Activity(user.getUsername(), 1, &quot;Imported produce&quot;,</span>
+<span class="nc" id="L113">                        250, date);</span>
+<span class="nc" id="L114">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L115">                window.close();</span>
+            }
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (foodAdded == &quot;Local&quot;) {</span>
+<span class="nc" id="L118">                LocalDateTime myDateObj = LocalDateTime.now();</span>
+<span class="nc" id="L119">                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L120">                String date = myDateObj.format(myFormatObj);</span>
+<span class="nc" id="L121">                new Controller().sendMeal(user, 50);</span>
+                // add a meal in the database
+<span class="nc" id="L123">                Activity activity = new Activity(user.getUsername(), 1, &quot;Local produce&quot;,</span>
+<span class="nc" id="L124">                        50, date);</span>
+<span class="nc" id="L125">                List&lt;Activity&gt; list = new Controller().sendFood(activity);</span>
+<span class="nc" id="L126">                window.close();</span>
+            }
+<span class="nc" id="L128">        });</span>
+
+        /**
+         * Adding labels / Styling / adding items to Vbox.
+         */
+<span class="nc" id="L133">        VBox layout = new VBox(10);</span>
+
+<span class="nc" id="L135">        label.setStyle(&quot;-fx-font-size: 12pt; -fx-padding: 10;&quot;);</span>
+<span class="nc" id="L136">        dropdownMeal.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+<span class="nc" id="L137">        mealButton.setStyle(&quot;-fx-padding: 10;&quot;);</span>
+<span class="nc" id="L138">        dropdownGroceries.setStyle(&quot;-fx-padding: 7;&quot;);</span>
+<span class="nc" id="L139">        groceriesButton.setStyle(&quot;-fx-padding: 10;&quot;);</span>
+
+        //Add buttons
+<span class="nc" id="L142">        layout.getChildren().addAll(label, dropdownMeal,  mealButton, dropdownGroceries, groceriesButton);</span>
+<span class="nc" id="L143">        layout.setStyle(&quot; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L144">        Scene scene = new Scene(layout);</span>
+
+<span class="nc" id="L146">        window.setScene(scene);</span>
+<span class="nc" id="L147">        window.showAndWait();</span>
+
+        /**
+         * Returns food type to be added to database.
+         */
+        //Make sure to return answer
+<span class="nc" id="L153">        return new classes.Meal(&quot;Food&quot;, foodAdded);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

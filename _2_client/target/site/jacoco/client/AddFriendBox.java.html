@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AddFriendBox.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">AddFriendBox.java</span></div><h1>AddFriendBox.java</h1><pre class="source lang-java linenums">package client;
+
+import classes.FriendRequest;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+
+
+<span class="nc" id="L13">public class AddFriendBox {</span>
+        static boolean answer;
+    public static boolean display(String title, FriendRequest friendRequest){
+<span class="nc" id="L16">        Stage window = new Stage();</span>
+
+        //Block events to other windows
+<span class="nc" id="L19">        window.initModality(Modality.APPLICATION_MODAL);</span>
+<span class="nc" id="L20">        window.setTitle(title);</span>
+<span class="nc" id="L21">        window.setMinWidth(250);</span>
+<span class="nc" id="L22">        Label label = new Label(friendRequest.getSender()+&quot; wants to add you&quot;);</span>
+<span class="nc" id="L23">        Button yesButton = new Button(&quot;Accept&quot;);</span>
+<span class="nc" id="L24">        Button noButton = new Button(&quot;Decline&quot;);</span>
+
+<span class="nc" id="L26">        yesButton.setOnAction(e-&gt;{</span>
+<span class="nc" id="L27">            answer = true;</span>
+<span class="nc" id="L28">            window.close();</span>
+<span class="nc" id="L29">        });</span>
+<span class="nc" id="L30">        noButton.setOnAction(e-&gt;{</span>
+<span class="nc" id="L31">            answer = false;</span>
+<span class="nc" id="L32">            window.close();</span>
+<span class="nc" id="L33">        });</span>
+
+<span class="nc" id="L35">        VBox layout = new VBox(10);</span>
+<span class="nc" id="L36">        layout.getChildren().addAll(label,yesButton,noButton);</span>
+<span class="nc" id="L37">        Scene scene = new Scene(layout);</span>
+<span class="nc" id="L38">        window.setScene(scene);</span>
+<span class="nc" id="L39">        window.showAndWait();</span>
+<span class="nc" id="L40">        return answer;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

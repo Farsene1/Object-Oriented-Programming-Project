@@ -4,227 +4,156 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
 
-/**
- * Controller class.
- */
 public class Controller {
-    /**
-     * RestfulClient .
-     */
+
     private RestfulClient restfulClient;
 
-    /**
-     * Construcgtor.
-     */
-    public Controller() {
+    public Controller(){
         restfulClient = new RestfulClient();
     }
 
-    /**
-     * SignUp metrhod.
-     *
-     * @param user user parameter.
-     * @return returns a string.
-     */
-    public String signUp(final User user) {
+    public String signUp(User user){
         return restfulClient.postEntity(user);
     }
 
-    /**
-     * Returns a string for login.
-     *
-     * @param user user paramter.
-     * @return returns a string.
-     */
-    public String login(final User user) {
+    public String login(User user){
         return restfulClient.login(user);
     }
 
-    /**
-     * Gets updates for a user.
-     *
-     * @param user user parameter.
-     * @return returns the user.
-     */
-    public User getUpdates(final User user) {
+    public User getUpdates(User user){
         User result = restfulClient.getUpdates(user);
         return result;
     }
 
-    /**
-     * Returns a list of activities.
-     *
-     * @param user paramter user.
-     * @return List of activities.
-     */
-    public List<Activity> getAllActivities(final User user) {
+    public List<Activity> getAllActivities(User user){
         return restfulClient.getAllActivities(user);
     }
 
-    /**
-     * Returns a list of activities .
-     *
-     * @param activity activity parameter.
-     * @return returns a list.
-     */
-    public List<Activity> sendFood(final Activity activity) {
+    public List<Activity> sendFood(Activity activity){
         return restfulClient.addActivity(activity);
     }
 
     /**
-     * Sends a badge to the user.
      *
-     * @param user  use rparameter.
-     * @param badge badge parameter.
+     * @param user
+     * @param badge
      */
-    public void sendBadge(User user, int badge) {
+    public void sendBadge(User user, int badge){
         user.setBadge(badge);
         restfulClient.badge(user);
     }
 
     /**
-     * this methods adds or deletes the solar panels.
      *
-     * @param user to be passed to the server.
-     * @return the response.
-     */
-    public String updateSolarPanels(User user) {
-        return restfulClient.setSolar(user);
-    }
-
-    /**
-     * Returns a list of statistics.
-     *
-     * @param username username parameter.
+     * @param username
      * @return list.
      */
-    public List<classes.Statistics> getStatistics(final String username) {
+    public List<classes.Statistics> getStatistics(String username) {
         return this.restfulClient.getAllStatistics(username);
     }
 
     /**
-     * Returns a list of statistics by type.
      *
-     * @param username parameter username.
-     * @param type     type parameter
-     * @return list
+     * @param username
+     * @param type
+     * @return type.
      */
-    public List<Statistics> getStatsByType(final String username, final String type) {
+    public List<Statistics> getStatsByType(String username, String type){
         return this.restfulClient.getStatsByType(username, type);
     }
 
     /**
-     * Sends a meal to the user.
      *
-     * @param user   user parameter.
-     * @param amount amount parameter.
+     * @param user
+     * @param amount
+     * @return foodfootprint + amount of meals eaten
      */
-    public void sendMeal(final User user, final int amount) {
+    public void sendMeal(User user, int amount){
         user.setFoodScore(amount + user.getFoodScore());
         user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
     /**
-     * Sends transport.
      *
-     * @param user   user parameter.
-     * @param amount amount parameter.
+     * @param user
+     * @param amount
+     * @return transportfootprint + amount of kilometers driven
      */
-    public void sendTransport(final User user, final int amount) {
+    public void sendTransport(User user, int amount){
         user.setTransportScore(amount + user.getTransportScore());
         user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
     /**
-     * Sends electricity object.
      *
-     * @param user   user parameter.
-     * @param amount amount parameter.
+     * @param user
+     * @param amount
+     * @return electricity + amount of liters of water wasted
      */
-    public void sendElectricity(final User user, final int amount) {
+    public void sendElectricity(User user, int amount){
         user.setElectricityScore(amount + user.getElectricityScore());
         user.setPolarScore(user.getPolarScore() + amount);
         restfulClient.activity(user);
     }
 
     /**
-     * Returns a string response.
      *
-     * @param friendRequest friend request parameter.
-     * @return string.
+     * @param friendRequest
+     * @return
      */
-    public String sayYes(final FriendRequest friendRequest) {
+    public String sayYes(FriendRequest friendRequest) {
         return restfulClient.respond(friendRequest);
     }
 
     /**
-     * Returns a string response for no.
      *
-     * @param friendRequest friend request parameter.
-     * @return string.
+     * @param friendRequest
+     * @return
      */
-    public String sayNo(final FriendRequest friendRequest) {
+    public String sayNo(FriendRequest friendRequest) {
         return restfulClient.fakeRespond(friendRequest);
     }
 
     /**
-     * Gets all friends.
      *
-     * @param user user parameter.
-     * @return returns a list.
+     * @param user
+     * @return
      */
-    public List<User> getAllFriends(final User user) {
+    public List<User> getAllFriends(User user) {
         return restfulClient.getAllFriends(user);
     }
 
     /**
-     * Returns a list of friend Requests.
      *
-     * @param user parameter user.
-     * @return list.
+     * @param user
+     * @return
      */
-    public List<FriendRequest> getAllRequests(User user) {
+    public List<FriendRequest> getAllRequests(User user){
         return restfulClient.getAllFriendRequests(user);
     }
 
-    /**
-     * Returns a list of uisers.
-     *
-     * @return list.
-     */
-    public List<User> get10Users() {
+    public List<User> get10Users(){
         return this.restfulClient.get10Users();
     }
 
 
     /**
-     * This method checks for a valid email.
-     *
-     * @param email parameter email.
+     * This method checks for a valid email
+     * @param email
      * @return boolean
      */
-    public static boolean checkEmail(final String email) {
+    public static boolean checkEmail(String email){
         boolean emailValid = EmailValidator.getInstance().isValid(email);
         return emailValid;
     }
 
-    /**
-     * Returns restufl.
-     *
-     * @return restfulClient.
-     */
     public RestfulClient getRestfulClient() {
         return restfulClient;
     }
 
-    /**
-     * Sets restful.
-     *
-     * @param restfulClient restful parameter.
-     */
-    public void setRestfulClient(final RestfulClient restfulClient) {
+    public void setRestfulClient(RestfulClient restfulClient) {
         this.restfulClient = restfulClient;
     }
 }

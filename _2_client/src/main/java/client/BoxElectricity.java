@@ -5,29 +5,17 @@ import classes.Controller;
 import classes.Electricity;
 import classes.User;
 import com.jfoenix.controls.JFXTextField;
-
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Electrcity box.
- */
 public class BoxElectricity {
-
-
-    /**
-     * Variables.
-     */
     static Boolean solar;
     static int light_hrs;
     static int heat_hrs;
@@ -36,14 +24,7 @@ public class BoxElectricity {
     static String date;
     static int score;
 
-    /**
-     * add usage box for electricity.
-     *
-     * @param title   title parameter.
-     * @param message message parameter.
-     * @param user    user parameter.
-     */
-    public static void addUsage(final String title, final String message, final classes.User user) {
+    public static void addUsage(String title, String message, classes.User user) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
@@ -61,7 +42,7 @@ public class BoxElectricity {
         errorlabel.setStyle("-fx-text-fill: red;");
         VBox layout = new VBox(10);
 
-        final CheckBox solarbox = new CheckBox("Solar energy");
+        CheckBox solarbox = new CheckBox("Solar energy");
         JFXTextField lightfield = new JFXTextField();
         lightfield.setLabelFloat(true);
         lightfield.setPromptText("Add your hours of light usage");
@@ -151,68 +132,60 @@ public class BoxElectricity {
                     {
                         Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);
                         if (solar) {
-                            score = 50 * light_hrs + -300 * heat_hrs;
-                            lightscore = 50 * light_hrs;
-                            htScore = -300 * heat_hrs;
+                            score= 50 * light_hrs+ -300*heat_hrs;
+                            lightscore=50 * light_hrs ;
+                            htScore=-300*heat_hrs;
                         } else {
-                            score = -50 * light_hrs + -300 * heat_hrs;
-                            lightscore = -50 * light_hrs;
-                            htScore = -300 * heat_hrs;
+                            score= -50 * light_hrs+ -300*heat_hrs;
+                            lightscore=-50 * light_hrs ;
+                            htScore=-300*heat_hrs;
                         }
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
-                        // add electricity in the database.
-                        List<Activity> list = new Controller().sendFood(
-                                new Activity(
-                                        user.getUsername(),
-                                        3,
-                                        "Lights usage: " + light_hrs + " Hours",
-                                        lightscore, date));
+                        // add electricity in the database
+                        List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
+                                lightscore, date));
                         System.out.println("\n The items are" + list.toString());
-                        list = new Controller().sendFood(
-                                new Activity(user.getUsername(),
-                                        3,
-                                        "Heat usage: " + heat_hrs + " Hours",
-                                        htScore, date));
+                        list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Heat usage: " + heat_hrs + " Hours",
+                                htScore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
-                    } else {
+                    }
+                    else
+                    {
                         Electricity electricity = new Electricity(0, light_hrs, solar);
                         if (solar) {
-                            score = 50 * light_hrs;
-                            lightscore = 50 * light_hrs;
+                            score= 50 * light_hrs;
+                            lightscore=50 * light_hrs ;
                         } else {
-                            score = -50 * light_hrs;
-                            lightscore = -50 * light_hrs;
+                            score= -50 * light_hrs;
+                            lightscore=-50 * light_hrs ;
                         }
                         electricity.setScore(score);
                         new Controller().sendElectricity(user, score);
-                        // add electricity in the database.
-                        List<Activity> list = new Controller().sendFood(new Activity(
-                                user.getUsername(),
-                                3,
-                                "Lights usage: " + light_hrs + " Hours",
+                        // add electricity in the database
+                        List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Lights usage: " + light_hrs + " Hours",
                                 lightscore, date));
                         System.out.println("\n The items are" + list.toString());
                         window.close();
                     }
-                } else {
+                }
+                else
+                {
                     Electricity electricity = new Electricity(heat_hrs, 0, solar);
-                    score = -300 * heat_hrs;
-                    htScore = -300 * heat_hrs;
+                    score= -300*heat_hrs;
+                    htScore=-300*heat_hrs;
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
-                    // add electricity in the database.
-                    List<Activity> list = new Controller().sendFood(
-                            new Activity(user.getUsername(),
-                                    3,
-                                    "Heat usage: " + heat_hrs + " Hours",
-                                    htScore, date));
+                    // add electricity in the database
+                    List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 3, "Heat usage: " + heat_hrs + " Hours",
+                            htScore, date));
                     System.out.println("\n The items are" + list.toString());
                     window.close();
                 }
 
-            } catch (NumberFormatException nfe) {
+            }
+            catch (NumberFormatException nfe){
                 lightfield.clear();
                 heatfield.clear();
                 errorlabel.setVisible(true);

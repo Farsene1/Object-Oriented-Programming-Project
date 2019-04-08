@@ -1,8 +1,5 @@
 package classes;
 
-/**
- * User badge class.
- */
 public class UserBadge {
 
     /**
@@ -11,12 +8,9 @@ public class UserBadge {
     static String icon = "https://i.ibb.co/THM6prg/polar1.png";
 
     /**
-     * icon choice method.
-     *
-     * @param user user param.
-     * @return returns a string.
+     * Method for user selection of unlocked badge
      */
-    public static String iconChoice(final User user) {
+    static public String iconChoice(User user) {
 
         /**
          * Calls method getBadge and assigns value to int number.
@@ -24,8 +18,7 @@ public class UserBadge {
         int number = user.getBadge();
 
         /**
-         * If statements to change badge dependent
-         * on users choice from available badges.
+         * If statements to change badge dependent on users choice from available badges.
          */
         if (number == 1) {
             icon = "https://i.ibb.co/THM6prg/polar1.png";
@@ -118,175 +111,43 @@ public class UserBadge {
             icon = "https://i.ibb.co/znYJcqB/transport10.png";
         }
         if (number == 31) {
-            icon = "https://i.ibb.co/xq2rwtw/electricity1.png";
-        }
-        if (number == 32) {
-            icon = "https://i.ibb.co/QfXVd9k/electricity2.png";
-        }
-        if (number == 33) {
-            icon = "https://i.ibb.co/WfW4PvB/electricity3.png";
-        }
-        if (number == 34) {
-            icon = "https://i.ibb.co/swQY9hc/electricity4.png";
-        }
-        if (number == 35) {
-            icon = "https://i.ibb.co/0j3ZrsY/electricity5.png";
-        }
-        if (number == 36) {
-            icon = "https://i.ibb.co/xJ1kr1C/electricity6.png";
-        }
-        if (number == 37) {
-            icon = "https://i.ibb.co/drmchRC/electricity7.png";
-        }
-        if (number == 38) {
-            icon = "https://i.ibb.co/gmttZfZ/electricity8.png";
-        }
-        if (number == 39) {
-            icon = "https://i.ibb.co/Q9NDBjt/electricity9.png";
-        }
-        if (number == 40) {
-            icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
-        }
-        return icon;
+        icon = "https://i.ibb.co/xq2rwtw/electricity1.png";
     }
+        if (number == 32) {
+        icon = "https://i.ibb.co/QfXVd9k/electricity2.png";
+    }
+        if (number == 33) {
+        icon = "https://i.ibb.co/WfW4PvB/electricity3.png";
+    }
+        if (number == 34) {
+        icon = "https://i.ibb.co/swQY9hc/electricity4.png";
+    }
+        if (number == 35) {
+        icon = "https://i.ibb.co/0j3ZrsY/electricity5.png";
+    }
+        if (number == 36) {
+        icon = "https://i.ibb.co/xJ1kr1C/electricity6.png";
+    }
+        if (number == 37) {
+        icon = "https://i.ibb.co/drmchRC/electricity7.png";
+    }
+        if (number == 38) {
+        icon = "https://i.ibb.co/gmttZfZ/electricity8.png";
+    }
+        if (number == 39) {
+        icon = "https://i.ibb.co/Q9NDBjt/electricity9.png";
+    }
+        if (number == 40) {
+        icon = "https://i.ibb.co/zfFPw6N/electricity10.png";
+    }
+            return icon;
+        }
 
     /**
-     * Returns a string with the icon choice.
-     *
-     * @param user use rparameter.
-     * @return returns a string.
+     * Get method for icon choice.
      */
-    public static String miniiconChoice(final User user) {
-
-        /**
-         * Calls method getBadge and assigns value to int number.
-         */
-        int number = user.getBadge();
-
-        /**
-         * If statements to change badge dependent
-         * on users choice from available badges.
-         */
-        if (number == 1) {
-            icon = "https://i.ibb.co/Sn20yTR/polar1.png";
-        }
-        if (number == 2) {
-            icon = "https://i.ibb.co/F47F81C/polar2.png";
-        }
-        if (number == 3) {
-            icon = "https://i.ibb.co/TL2vJkx/polar3.png";
-        }
-        if (number == 4) {
-            icon = "https://i.ibb.co/q7sgXRy/polar4.png";
-        }
-        if (number == 5) {
-            icon = "https://i.ibb.co/Q9J03vw/polar5.png";
-        }
-        if (number == 6) {
-            icon = "https://i.ibb.co/Yd68SkW/polar6.png";
-        }
-        if (number == 7) {
-            icon = "https://i.ibb.co/MpyQ16G/polar7.png";
-        }
-        if (number == 8) {
-            icon = "https://i.ibb.co/x6t0QTD/polar8.png";
-        }
-        if (number == 9) {
-            icon = "https://i.ibb.co/2tGhFdC/polar9.png";
-        }
-        if (number == 10) {
-            icon = "https://i.ibb.co/Wz50t26/polar10.png";
-        }
-        if (number == 11) {
-            icon = "https://i.ibb.co/pZgvZGg/food1-400.png";
-        }
-        if (number == 12) {
-            icon = "https://i.ibb.co/0BXBY6B/food2-400.png";
-        }
-        if (number == 13) {
-            icon = "https://i.ibb.co/2Mm890v/food3-400.png";
-        }
-        if (number == 14) {
-            icon = "https://i.ibb.co/9YDZvHh/food4-400.png";
-        }
-        if (number == 15) {
-            icon = "https://i.ibb.co/2yk5mkN/food5-400-copy.png";
-        }
-        if (number == 16) {
-            icon = "https://i.ibb.co/1b6WZqn/food6-400.png";
-        }
-        if (number == 17) {
-            icon = "https://i.ibb.co/8MX4TDm/food7-400.png";
-        }
-        if (number == 18) {
-            icon = "https://i.ibb.co/WHtnppf/food8-400.png";
-        }
-        if (number == 19) {
-            icon = "https://i.ibb.co/z2grRsH/food9-400.png";
-        }
-        if (number == 20) {
-            icon = "https://i.ibb.co/zrQ9FjB/food10-400.png";
-        }
-        if (number == 21) {
-            icon = "https://i.ibb.co/k33fc0g/transport1.png";
-        }
-        if (number == 22) {
-            icon = "https://i.ibb.co/kGYYJN5/transport2.png";
-        }
-        if (number == 23) {
-            icon = "https://i.ibb.co/xJpZCND/transport3.png";
-        }
-        if (number == 24) {
-            icon = "https://i.ibb.co/GkD8Lr2/transport4png.png";
-        }
-        if (number == 25) {
-            icon = "https://i.ibb.co/1fZgN6N/transport5.png";
-        }
-        if (number == 26) {
-            icon = "https://i.ibb.co/hRh8ptr/transport6.png";
-        }
-        if (number == 27) {
-            icon = "https://i.ibb.co/qy2z5Qs/transport7.png";
-        }
-        if (number == 28) {
-            icon = "https://i.ibb.co/BT1STNF/transport8.png";
-        }
-        if (number == 29) {
-            icon = "https://i.ibb.co/n05kNyG/transport9.png";
-        }
-        if (number == 30) {
-            icon = "https://i.ibb.co/J7xjPy2/transport10.png";
-        }
-        if (number == 31) {
-            icon = "https://i.ibb.co/4fYS0q9/electricity1.png";
-        }
-        if (number == 32) {
-            icon = "https://i.ibb.co/ZmDnjQY/electricity2.png";
-        }
-        if (number == 33) {
-            icon = "https://i.ibb.co/WfZgJpV/electricity3.png";
-        }
-        if (number == 34) {
-            icon = "https://i.ibb.co/nsFK9qz/electricity4.png";
-        }
-        if (number == 35) {
-            icon = "https://i.ibb.co/WHCcbY2/electricity5.png";
-        }
-        if (number == 36) {
-            icon = "https://i.ibb.co/8BcFLRg/electricity6.png";
-        }
-        if (number == 37) {
-            icon = "https://i.ibb.co/8jz0k5p/electricity7.png";
-        }
-        if (number == 38) {
-            icon = "https://i.ibb.co/r02HtdS/electricity8.png";
-        }
-        if (number == 39) {
-            icon = "https://i.ibb.co/znNq6Gk/electricity9.png";
-        }
-        if (number == 40) {
-            icon = "https://i.ibb.co/xq6pt06/electricity10.png";
-        }
+    static public String getIcon() {
         return icon;
     }
+
 }

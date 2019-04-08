@@ -13,10 +13,9 @@ public class Application {
 
     /**
      * here we start the springapplication.
-     *
-     * @param args main of the server.
+     * @param args
      */
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 }

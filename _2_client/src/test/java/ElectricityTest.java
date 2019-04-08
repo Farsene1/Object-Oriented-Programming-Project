@@ -6,30 +6,29 @@ import static org.junit.Assert.*;
 public class ElectricityTest {
 
     @Test
-    public void getheatHours() {
+    public void getHeat_hrs() {
         Electricity electricity = new Electricity(1,2,true);
-        Electricity electricity1 = new Electricity();
-        assertEquals(1, electricity.getheatHours());
+        assertEquals(1, electricity.getHeat_hrs());
     }
 
     @Test
     public void setHeat_hrs() {
         Electricity electricity = new Electricity(1,2,true);
-        electricity.setheatHours(3);
-        assertEquals(3, electricity.getheatHours());
+        electricity.setHeat_hrs(3);
+        assertEquals(3, electricity.getHeat_hrs());
     }
 
     @Test
-    public void getlightHours() {
+    public void getLight_hrs() {
         Electricity electricity = new Electricity(1,2,true);
-        assertEquals(2, electricity.getlightHours());
+        assertEquals(2, electricity.getLight_hrs());
     }
 
     @Test
-    public void setlightHours() {
+    public void setLight_hrs() {
         Electricity electricity = new Electricity(1,2,true);
-        electricity.setlightHours(3);
-        assertEquals(3, electricity.getlightHours());
+        electricity.setLight_hrs(3);
+        assertEquals(3, electricity.getLight_hrs());
     }
 
     @Test

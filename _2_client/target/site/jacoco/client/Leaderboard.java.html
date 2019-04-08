@@ -7,100 +7,83 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
-/**
- * LeaderBoard class.
- */
-<span class="nc" id="L24">public class Leaderboard {</span>
-    /**
-     * Variable table view.
-     */
-<span class="nc" id="L28">    static TableView tableL = new TableView();</span>
 
-    /**
-     * Show options method for leaderboards.
-     *
-     * @param grid   paramter grid.
-     * @param scene  parameter scene
-     * @param user   user parameter.
-     * @param window window parameter.
-     */
-    public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
-<span class="nc" id="L39">        new JMetro(JMetro.Style.LIGHT).applyTheme(tableL);</span>
+<span class="nc" id="L22">public class Leaderboard {</span>
+<span class="nc" id="L23">    static TableView Table = new TableView();</span>
+
+
+    public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
+
         //CLEARING THE GRID FROM PREVIOUS ADDITIONS
-<span class="nc" id="L41">        grid.getChildren().clear();</span>
+<span class="nc" id="L29">        grid.getChildren().clear();</span>
 
         //Creating Labels for addition
-<span class="nc" id="L44">        Label header = new Label(&quot;Leaderboard&quot;);</span>
-<span class="nc" id="L45">        header.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 30));</span>
-<span class="nc" id="L46">        Button backButton = new Button(&quot;Back&quot;);</span>
+<span class="nc" id="L32">        Label Header = new Label(&quot;Leaderboard&quot;);</span>
+<span class="nc" id="L33">        Header.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 30));</span>
+<span class="nc" id="L34">        Button backButton = new Button(&quot;Back&quot;);</span>
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
-<span class="nc" id="L50">        VBox vbox1 = new VBox(header, tableL);</span>
-<span class="nc" id="L51">        vbox1.setStyle(&quot;-fx-padding:15;&quot;);</span>
-<span class="nc" id="L52">        vbox1.setSpacing(20);</span>
-<span class="nc" id="L53">        vbox1.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L38">        VBox Vbox1 = new VBox(Header, Table);</span>
+<span class="nc" id="L39">        Vbox1.setStyle(&quot;-fx-padding:15;&quot;);</span>
+<span class="nc" id="L40">        Vbox1.setSpacing(20);</span>
+<span class="nc" id="L41">        Vbox1.setAlignment(Pos.CENTER);</span>
         //ADDING THE COLLUMNS TO THE TABLES
-<span class="nc" id="L55">        TableColumn col1 = new TableColumn(&quot;Username&quot;);</span>
-<span class="nc" id="L56">        col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;Username&quot;));</span>
-<span class="nc" id="L57">        TableColumn col2 = new TableColumn(&quot;Score&quot;);</span>
-<span class="nc" id="L58">        col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;PolarScore&quot;));</span>
+<span class="nc" id="L43">        TableColumn Col1 = new TableColumn(&quot;Username&quot;);</span>
+<span class="nc" id="L44">        Col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;Username&quot;));</span>
+<span class="nc" id="L45">        TableColumn Col2 = new TableColumn(&quot;Score&quot;);</span>
+<span class="nc" id="L46">        Col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;PolarScore&quot;));</span>
 
 
-<span class="nc" id="L61">        tableL.getColumns().setAll(col1, col2);</span>
-<span class="nc" id="L62">        col1.setMinWidth(734);</span>
-<span class="nc" id="L63">        col2.setMinWidth(734);</span>
+<span class="nc" id="L49">        Table.getColumns().setAll(Col1, Col2);</span>
+<span class="nc" id="L50">        Col1.setMinWidth(734);</span>
+<span class="nc" id="L51">        Col2.setMinWidth(734);</span>
         //backButton
-<span class="nc" id="L65">        backButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L66">            Home.showHome(window, user);</span>
-<span class="nc" id="L67">        });</span>
+<span class="nc" id="L53">        backButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L54">            Home.showHome(window, user);</span>
+<span class="nc" id="L55">        });</span>
 
 
         //Lastly creating 2 different
         //Hboxes so we can add everything to the grid
 
-<span class="nc" id="L73">        HBox toplayer = new HBox();</span>
-<span class="nc" id="L74">        HBox middleLayer = new HBox();</span>
-<span class="nc" id="L75">        toplayer.getChildren().addAll(vbox1);</span>
-<span class="nc" id="L76">        middleLayer.getChildren().addAll(backButton);</span>
-<span class="nc" id="L77">        GridPane.setConstraints(toplayer, 5, 0);</span>
-<span class="nc" id="L78">        GridPane.setConstraints(middleLayer, 5, 30);</span>
-<span class="nc" id="L79">        toplayer.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L80">        middleLayer.setAlignment(Pos.CENTER);</span>
-<span class="nc" id="L81">        grid.getChildren().addAll(toplayer, middleLayer);</span>
+<span class="nc" id="L61">        HBox toplayer = new HBox();</span>
+<span class="nc" id="L62">        HBox middleLayer = new HBox();</span>
+<span class="nc" id="L63">        toplayer.getChildren().addAll(Vbox1);</span>
+<span class="nc" id="L64">        middleLayer.getChildren().addAll(backButton);</span>
+<span class="nc" id="L65">        GridPane.setConstraints(toplayer, 5, 0);</span>
+<span class="nc" id="L66">        GridPane.setConstraints(middleLayer, 5, 30);</span>
+<span class="nc" id="L67">        toplayer.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L68">        middleLayer.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L69">        grid.getChildren().addAll(toplayer, middleLayer);</span>
 
-<span class="nc" id="L83">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L84">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L71">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L72">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
 
-<span class="nc" id="L86">        tableL.setItems(addFriend());</span>
+<span class="nc" id="L74">        Table.setItems(addFriend());</span>
 
 
-<span class="nc" id="L89">    }</span>
+<span class="nc" id="L77">    }</span>
 
-    /**
-     * Adds users to the leaderboard table.
-     *
-     * @return returns a list.
-     */
     public static ObservableList&lt;User&gt; addFriend() {
-<span class="nc" id="L97">        ObservableList&lt;User&gt; name = FXCollections.observableArrayList();</span>
-<span class="nc" id="L98">        List&lt;User&gt; nameList = new Controller().get10Users();</span>
+<span class="nc" id="L80">        ObservableList&lt;User&gt; name = FXCollections.observableArrayList();</span>
+<span class="nc" id="L81">        List&lt;User&gt; nameList = new Controller().get10Users();</span>
 
-<span class="nc bnc" id="L100" title="All 2 branches missed.">        for (User a : nameList) {</span>
-<span class="nc" id="L101">            name.add(a);</span>
-<span class="nc" id="L102">        }</span>
-<span class="nc" id="L103">        return name;</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        for (User a : nameList) {</span>
+<span class="nc" id="L84">            name.add(a);</span>
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">        return name;</span>
     }
 
 

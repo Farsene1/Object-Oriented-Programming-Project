@@ -37,7 +37,7 @@ public class FriendshipController {
     /**
      * method for getting all the friends in the database.
      *
-     * @param user user parameter.
+     * @param user
      * @return response list.
      */
     @RequestMapping("/friends")
@@ -54,7 +54,7 @@ public class FriendshipController {
     /**
      * method for making a friend request.
      *
-     * @param friendRequest friendrequest parameter.
+     * @param friendRequest
      * @return response.
      */
     @RequestMapping("/request")
@@ -63,7 +63,7 @@ public class FriendshipController {
                 .getAllFriends(friendRequest.getSender());
         List<FriendRequest> l2 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getSender());
-        final List<FriendRequest> l3 = this.friendRequestRepository
+        List<FriendRequest> l3 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getReceiver());
 
         boolean ok = true;
@@ -100,7 +100,7 @@ public class FriendshipController {
     /**
      * method for getting all the friendRequests.
      *
-     * @param user user parameter.
+     * @param user
      * @return list.
      */
     @RequestMapping("/getallrequests")
@@ -114,7 +114,7 @@ public class FriendshipController {
      * method for responding to a friendRequest. TO BE CHANGED LATER,
      * depending on GUI.
      *
-     * @param friendRequest friendRequest parameter.
+     * @param friendRequest
      * @return String
      */
     @RequestMapping("/respond")
@@ -132,7 +132,7 @@ public class FriendshipController {
      * this method sets the request answer to true
      * so that it will not appear in the incoming requests.
      *
-     * @param friendRequest friendRequest paramter.
+     * @param friendRequest
      * @return String
      */
     @RequestMapping("/fakeresponse")
@@ -144,31 +144,27 @@ public class FriendshipController {
 
     /**
      * set repo.
-     *
-     * @param friendshipRepository2 friendship repository
-     *                              parameter.
+     * @param friendshipRepository
      */
     public void setFriendshipRepository(
-            final FriendshipRepository friendshipRepository2) {
-        this.friendshipRepository = friendshipRepository2;
+            final FriendshipRepository friendshipRepository) {
+        this.friendshipRepository = friendshipRepository;
     }
 
     /**
      * set repo.
-     *
-     * @param friendRequestRepository2 friendrequest repository paramter.
+     * @param friendRequestRepository
      */
     public void setFriendRequestRepository(
-            final FriendRequestRepository friendRequestRepository2) {
-        this.friendRequestRepository = friendRequestRepository2;
+            final FriendRequestRepository friendRequestRepository) {
+        this.friendRequestRepository = friendRequestRepository;
     }
 
     /**
      * set repo.
-     *
-     * @param userRepository2 user repository parameter.
+     * @param userRepository
      */
-    public void setUserRepository(final UserRepository userRepository2) {
-        this.userRepository = userRepository2;
+    public void setUserRepository(final UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

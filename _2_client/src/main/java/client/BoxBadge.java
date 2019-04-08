@@ -1,39 +1,29 @@
 package client;
 
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+        import javafx.scene.Scene;
+        import javafx.scene.image.ImageView;
+        import javafx.scene.layout.VBox;
+        import javafx.stage.Modality;
+        import javafx.stage.Stage;
 
-/**
- * Box Badge.
- */
+
 public class BoxBadge {
     /**
      * Declare string for badge url.
      */
     static String icon;
-
-    /**
-     * Display the badge.
-     *
-     * @param title parameter title.
-     * @param number parameter number.
-     */
-    public static void displayFriendBadge(final String title, final int number) {
+    public static void displayFriendBadge(String title, int number){
         Stage window = new Stage();
 
         /**
-         * Block events to other windows.
+         * Block events to other windows
          */
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(200);
 
         /**
-         * If statements to show badge dependent
-         * on users choice from available badges.
+         * If statements to show badge dependent on users choice from available badges.
          */
         if (number == 1) {
             icon = "https://i.ibb.co/THM6prg/polar1.png";

@@ -52,28 +52,6 @@ Run `maven site`
 
 ![Florentin-Ionut Arsene](https://docs.google.com/uc?id=1MxrZbUFPXh7hYQax38IY44IETB5p6H8b)
 
-# Polar
+..
 
-## About
-
-Polar is a Java application to make the you and your friends more aware of their ecological footprint and it will help you to reduce your footprint. Compete against friends and compare statistics with each other to see how green you are. Install it now and save the world.
-
-## Installation
-
-
-```git
-git clone git@gitlab.ewi.tudelft.nl:cse1105/2018-2019/oopp-group-3/template.git
-```
-```maven
-mvn clean install -U
-```
-After typing this in the bash, simply run the program through the **client package**.
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
 

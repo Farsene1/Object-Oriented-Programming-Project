@@ -4,231 +4,141 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 import java.util.List;
 
-/**
- * Controller class.
- */
 public class Controller {
-    /**
-     * RestfulClient .
-     */
+
     private RestfulClient restfulClient;
 
-    /**
-     * Construcgtor.
-     */
-<span class="nc" id="L19">    public Controller() {</span>
-<span class="nc" id="L20">        restfulClient = new RestfulClient();</span>
-<span class="nc" id="L21">    }</span>
+<span class="nc" id="L11">    public Controller(){</span>
+<span class="nc" id="L12">        restfulClient = new RestfulClient();</span>
+<span class="nc" id="L13">    }</span>
 
-    /**
-     * SignUp metrhod.
-     *
-     * @param user user parameter.
-     * @return returns a string.
-     */
-    public String signUp(final User user) {
-<span class="nc" id="L30">        return restfulClient.postEntity(user);</span>
+    public String signUp(User user){
+<span class="nc" id="L16">        return restfulClient.postEntity(user);</span>
+    }
+
+    public String login(User user){
+<span class="nc" id="L20">        return restfulClient.login(user);</span>
+    }
+
+    public User getUpdates(User user){
+<span class="nc" id="L24">        User result = restfulClient.getUpdates(user);</span>
+<span class="nc" id="L25">        return result;</span>
+    }
+
+    public List&lt;Activity&gt; getAllActivities(User user){
+<span class="nc" id="L29">        return restfulClient.getAllActivities(user);</span>
+    }
+
+    public List&lt;Activity&gt; sendFood(Activity activity){
+<span class="nc" id="L33">        return restfulClient.addActivity(activity);</span>
     }
 
     /**
-     * Returns a string for login.
      *
-     * @param user user paramter.
-     * @return returns a string.
+     * @param user
+     * @param badge
      */
-    public String login(final User user) {
-<span class="nc" id="L40">        return restfulClient.login(user);</span>
+    public void sendBadge(User user, int badge){
+<span class="nc" id="L42">        user.setBadge(badge);</span>
+<span class="nc" id="L43">        restfulClient.badge(user);</span>
+<span class="nc" id="L44">    }</span>
+
+    public List&lt;classes.Statistics&gt; getStatistics(String username) {
+<span class="nc" id="L47">        return this.restfulClient.getAllStatistics(username);</span>
     }
 
     /**
-     * Gets updates for a user.
      *
-     * @param user user parameter.
-     * @return returns the user.
+     * @param user
+     * @param amount
+     * @return foodfootprint + amount of meals eaten
      */
-    public User getUpdates(final User user) {
-<span class="nc" id="L50">        User result = restfulClient.getUpdates(user);</span>
-<span class="nc" id="L51">        return result;</span>
+    public void sendMeal(User user, int amount){
+<span class="nc" id="L57">        user.setFoodScore(amount + user.getFoodScore());</span>
+<span class="nc" id="L58">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L59">        restfulClient.activity(user);</span>
+<span class="nc" id="L60">    }</span>
+
+    /**
+     *
+     * @param user
+     * @param amount
+     * @return transportfootprint + amount of kilometers driven
+     */
+    public void sendTransport(User user, int amount){
+<span class="nc" id="L69">        user.setTransportScore(amount + user.getTransportScore());</span>
+<span class="nc" id="L70">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L71">        restfulClient.activity(user);</span>
+<span class="nc" id="L72">    }</span>
+
+    /**
+     *
+     * @param user
+     * @param amount
+     * @return electricity + amount of liters of water wasted
+     */
+    public void sendElectricity(User user, int amount){
+<span class="nc" id="L81">        user.setElectricityScore(amount + user.getElectricityScore());</span>
+<span class="nc" id="L82">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L83">        restfulClient.activity(user);</span>
+<span class="nc" id="L84">    }</span>
+
+    /**
+     *
+     * @param friendRequest
+     * @return
+     */
+    public String sayYes(FriendRequest friendRequest) {
+<span class="nc" id="L92">        return restfulClient.respond(friendRequest);</span>
     }
 
     /**
-     * Returns a list of activities.
      *
-     * @param user paramter user.
-     * @return List&lt;Activity &lt; / Activity&gt;.
+     * @param friendRequest
+     * @return
      */
-    public List&lt;Activity&gt; getAllActivities(final User user) {
-<span class="nc" id="L61">        return restfulClient.getAllActivities(user);</span>
+    public String sayNo(FriendRequest friendRequest) {
+<span class="nc" id="L101">        return restfulClient.fakeRespond(friendRequest);</span>
     }
 
     /**
-     * Returns a list of activities .
      *
-     * @param activity activity parameter.
-     * @return returns a list.
+     * @param user
+     * @return
      */
-    public List&lt;Activity&gt; sendFood(final Activity activity) {
-<span class="nc" id="L71">        return restfulClient.addActivity(activity);</span>
+    public List&lt;User&gt; getAllFriends(User user) {
+<span class="nc" id="L110">        return restfulClient.getAllFriends(user);</span>
     }
 
     /**
-     * Sends a badge to the user.
      *
-     * @param user  use rparameter.
-     * @param badge badge parameter.
+     * @param user
+     * @return
      */
-    public void sendBadge(User user, int badge) {
-<span class="nc" id="L81">        user.setBadge(badge);</span>
-<span class="nc" id="L82">        restfulClient.badge(user);</span>
-<span class="nc" id="L83">    }</span>
+    public List&lt;FriendRequest&gt; getAllRequests(User user){
+<span class="nc" id="L119">        return restfulClient.getAllFriendRequests(user);</span>
+    }
 
-    /**
-     * this methods adds or deletes the solar panels.
-     *
-     * @param user to be passed to the server.
-     * @return the response.
-     */
-    public String updateSolarPanels(User user) {
-<span class="nc" id="L92">        return restfulClient.setSolar(user);</span>
+    public List&lt;User&gt; get10Users(){
+<span class="nc" id="L123">        return this.restfulClient.get10Users();</span>
     }
 
     /**
-     * Returns a list of statistics.
-     *
-     * @param username username parameter.
-     * @return list.
-     */
-    public List&lt;classes.Statistics&gt; getStatistics(final String username) {
-<span class="nc" id="L102">        return this.restfulClient.getAllStatistics(username);</span>
-    }
-
-    /**
-     * Returns a list of statistics by type.
-     *
-     * @param username parameter username.
-     * @param type     type parameter
-     * @return list
-     */
-    public List&lt;Statistics&gt; getStatsByType(final String username, final String type) {
-<span class="nc" id="L113">        return this.restfulClient.getStatsByType(username, type);</span>
-    }
-
-    /**
-     * Sends a meal to the user.
-     *
-     * @param user   user parameter.
-     * @param amount amount parameter.
-     * @return foodfootprint amount of meals eaten.
-     */
-    public void sendMeal(final User user, final int amount) {
-<span class="nc" id="L124">        user.setFoodScore(amount + user.getFoodScore());</span>
-<span class="nc" id="L125">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L126">        restfulClient.activity(user);</span>
-<span class="nc" id="L127">    }</span>
-
-    /**
-     * Sends transport.
-     *
-     * @param user   user parameter.
-     * @param amount amount parameter.
-     * @return transportfootprint amount of kilometers driven.
-     */
-    public void sendTransport(final User user, final int amount) {
-<span class="nc" id="L137">        user.setTransportScore(amount + user.getTransportScore());</span>
-<span class="nc" id="L138">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L139">        restfulClient.activity(user);</span>
-<span class="nc" id="L140">    }</span>
-
-    /**
-     * Sends electricity object.
-     *
-     * @param user   user parameter.
-     * @param amount amount parameter.
-     * @return electricity amount of liters of water wasted.
-     */
-    public void sendElectricity(final User user, final int amount) {
-<span class="nc" id="L150">        user.setElectricityScore(amount + user.getElectricityScore());</span>
-<span class="nc" id="L151">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L152">        restfulClient.activity(user);</span>
-<span class="nc" id="L153">    }</span>
-
-    /**
-     * Returns a string response.
-     *
-     * @param friendRequest friend request parameter.
-     * @return string.
-     */
-    public String sayYes(final FriendRequest friendRequest) {
-<span class="nc" id="L162">        return restfulClient.respond(friendRequest);</span>
-    }
-
-    /**
-     * Returns a string response for no.
-     *
-     * @param friendRequest friend request parameter.
-     * @return string.
-     */
-    public String sayNo(final FriendRequest friendRequest) {
-<span class="nc" id="L172">        return restfulClient.fakeRespond(friendRequest);</span>
-    }
-
-    /**
-     * Gets all friends.
-     *
-     * @param user user parameter.
-     * @return returns a list.
-     */
-    public List&lt;User&gt; getAllFriends(final User user) {
-<span class="nc" id="L182">        return restfulClient.getAllFriends(user);</span>
-    }
-
-    /**
-     * Returns a list of friend Requests.
-     *
-     * @param user parameter user.
-     * @return list.
-     */
-    public List&lt;FriendRequest&gt; getAllRequests(User user) {
-<span class="nc" id="L192">        return restfulClient.getAllFriendRequests(user);</span>
-    }
-
-    /**
-     * Returns a list of uisers.
-     *
-     * @return list.
-     */
-    public List&lt;User&gt; get10Users() {
-<span class="nc" id="L201">        return this.restfulClient.get10Users();</span>
-    }
-
-
-    /**
-     * This method checks for a valid email.
-     *
+     * This method checks for a valid email
      * @param email
      * @return boolean
      */
-    public static boolean checkEmail(final String email) {
-<span class="nc" id="L212">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
-<span class="nc" id="L213">        return emailValid;</span>
+    public static boolean checkEmail(String email){
+<span class="nc" id="L132">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
+<span class="nc" id="L133">        return emailValid;</span>
     }
 
-    /**
-     * Returns restufl.
-     *
-     * @return restfulClient.
-     */
     public RestfulClient getRestfulClient() {
-<span class="nc" id="L222">        return restfulClient;</span>
+<span class="nc" id="L137">        return restfulClient;</span>
     }
 
-    /**
-     * Sets restful.
-     *
-     * @param restfulClient restful parameter.
-     */
-    public void setRestfulClient(final RestfulClient restfulClient) {
-<span class="nc" id="L231">        this.restfulClient = restfulClient;</span>
-<span class="nc" id="L232">    }</span>
+    public void setRestfulClient(RestfulClient restfulClient) {
+<span class="nc" id="L141">        this.restfulClient = restfulClient;</span>
+<span class="nc" id="L142">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

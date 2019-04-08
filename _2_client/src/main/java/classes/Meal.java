@@ -1,8 +1,6 @@
 package classes;
 
-/**
- * Meal Class.
- */
+
 public class Meal {
 
     /**
@@ -12,53 +10,45 @@ public class Meal {
     private String food;
 
     /**
-     * Empty constructor.
+     * Empty constructor
      */
-    public Meal() {
+    public Meal(){
 
     }
 
     /**
-     * Constructor for meal.
-     *
-     * @param food     food param.
-     * @param foodType foodType.
+     * Constructor using variables
      */
-    public Meal(final String food, final String foodType) {
+    public Meal(String food,String foodType) {
         this.food = food;
-        this.foodType = foodType;
+        this.foodType= foodType;
     }
 
     /**
-     * Returns food Type.
-     * @return foodType.
+     * Getter for type of food (1, 2, 3)
      */
     public String getFoodType() {
         return foodType;
     }
 
     /**
-     * Sets food type.
-     * @param foodType food type parameter.
+     * Setter for type of food (1, 2, 3)
      */
-    public void setFoodType(final String foodType) {
+    public void setFoodType(String foodType) {
         this.foodType = foodType;
     }
 
 
     /**
-     * Returns food.
-     * @return food
+     * Getter for food (1, 2, 3)
      */
     public String getFood() {
         return food;
     }
-
     /**
-     * sETS FOOD.
-     * @param food food paramter.
+     * Setter for food (vegan, vegetarian, meat)
      */
-    public void setFood(final String food) {
+    public void setFood(String food) {
         this.food = food;
     }
 

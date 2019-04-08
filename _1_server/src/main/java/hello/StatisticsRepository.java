@@ -4,10 +4,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
-
+import java.util.List;
 
 /**
  * interface for hibernate.
@@ -16,7 +14,6 @@ public interface StatisticsRepository
         extends CrudRepository<Statistics, Integer> {
     /**
      * Query to findAllStatistics.
-     *
      * @return list.
      */
     @Query(value = "SELECT * from statistics", nativeQuery = true)
@@ -24,9 +21,7 @@ public interface StatisticsRepository
 
     /**
      * get by date.
-     *
-     * @param date date parameter.
-     * @param type type parameter.
+     * @param date
      * @return Statistics obj.
      */
     @Query(value = "SELECT * FROM statistics WHERE date = ?1 and type = ?2",
@@ -35,8 +30,7 @@ public interface StatisticsRepository
 
     /**
      * get by name.
-     *
-     * @param username get by username.
+     * @param username
      * @return list.
      */
     @Query(value = "SELECT * FROM statistics WHERE username = ?1",
@@ -44,31 +38,24 @@ public interface StatisticsRepository
     List<Statistics> findStatisticsByUsername(String username);
 
     /**
-     * find statistics by username and type.
      *
-     * @param username username parameter
-     * @param type     type parameter.
+     * @param username
+     * @param type
      * @return list.
      */
-    @Query(value = "SELECT * FROM statistics "
-            + "WHERE username = ?1 AND type = ?2", nativeQuery = true)
-    List<Statistics> findStatisticsByUsernameAndType(String username,
-                                                     String type);
+    @Query(value = "SELECT * FROM statistics WHERE username = ?1 AND type = ?2",
+            nativeQuery = true)
+    List<Statistics> findStatisticsByUsernameAndType(String username, String type);
 
     /**
-     * updates the statistic.
-     *
-     * @param score    to be set.
-     * @param username condition.
-     * @param type     condition.
-     * @param date     condition.
+     * update.
+     * @param score
+     * @param username
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE statistics SET score = ?1 "
-            + "WHERE username = ?2 and type = ?3 and date = ?4",
+    @Query(value = "UPDATE statistics SET score = ?1 WHERE username = ?2 and type = ?3 and date = ?4",
             nativeQuery = true)
-    void updateStatistic(Integer score, String username,
-                         String type, String date);
+    void updateStatistic(Integer score, String username, String type, String date);
 
 }
