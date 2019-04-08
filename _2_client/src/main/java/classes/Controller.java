@@ -55,7 +55,7 @@ public class Controller {
      * Returns a list of activities.
      *
      * @param user paramter user.
-     * @return List<Activity>
+     * @return List of activities.
      */
     public List<Activity> getAllActivities(final User user) {
         return restfulClient.getAllActivities(user);

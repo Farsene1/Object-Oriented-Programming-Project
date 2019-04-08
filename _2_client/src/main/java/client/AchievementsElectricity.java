@@ -1,9 +1,10 @@
 package client;
 
-import CSS.CsselectricityBadge;
 import classes.Badges;
 import classes.Controller;
 import classes.User;
+import css.CsselectricityBadge;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -27,7 +28,7 @@ public class AchievementsElectricity {
     public static void showElectricityBadges(final User user, final Stage window) {
 
         /**
-         * Calls method to unlock food badges, sets unlock value for CSS.
+         * Calls method to unlock food badges, sets unlock value for css.
          */
         int unlockNumber = Badges.electricityUnlock(user);
 
@@ -51,7 +52,7 @@ public class AchievementsElectricity {
         Button electricityBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked
+         * Calls setPolar methods from css class to show locked
          * unlocked electricity badges.
          */
         CsselectricityBadge.setElectricity1(electricityBadge1, unlockNumber);

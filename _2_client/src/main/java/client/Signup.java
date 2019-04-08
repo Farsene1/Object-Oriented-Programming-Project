@@ -1,18 +1,24 @@
 package client;
 
-import CSS.Css;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import css.Css;
+
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
@@ -34,9 +40,9 @@ public class Signup {
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Signup");
-        BorderPane bp = new BorderPane();
-        VBox vBox = new VBox();
-        vBox.setPadding(new Insets(10, 10, 10, 10));
+        final BorderPane bp = new BorderPane();
+        VBox vbox = new VBox();
+        vbox.setPadding(new Insets(10, 10, 10, 10));
 
         //username-r Input
         JFXTextField usernameInput = new JFXTextField();
@@ -83,11 +89,16 @@ public class Signup {
 
             if (step == 1 && valid.equals("valid")) {
                 try {
-                    User user = new User(usernameInput.getText(), Hash.generateHash(passwordInput.getText(), "SHA-256"));
-                    String res = new Controller().signUp(user);
+                    User user = new User(
+                            usernameInput.getText(),
+                            Hash.generateHash(passwordInput.getText(),
+                                    "SHA-256"));
+                    final String res = new Controller().signUp(user);
 
                     System.out.println("Username: " + usernameInput.getText());
-                    System.out.println("Password hash: " + Hash.generateHash(passwordInput.getText(), "SHA-256"));
+                    System.out.println(
+                            "Password hash: " + Hash.generateHash(passwordInput.getText(),
+                                    "SHA-256"));
 
                     usernameInput.clear();
                     passwordInput.clear();
@@ -121,18 +132,19 @@ public class Signup {
         HBox hbox = new HBox();
         hbox.getChildren().addAll(back, backpane);
 
-        vBox.getChildren().addAll(hbox, img, usernameInput, passwordInput, passwordInput2, errorlabel, register);
+        vbox.getChildren().addAll(
+                hbox, img, usernameInput, passwordInput, passwordInput2, errorlabel, register);
 
         Pane test1 = new Pane();
         Pane test2 = new Pane();
         Pane test3 = new Pane();
-        Pane test4 = new Pane();
+        final Pane test4 = new Pane();
         test1.setMinWidth(675);
         test2.setMinWidth(675);
         test3.setPrefHeight(100);
         test4.setPrefHeight(100);
 
-        bp.setCenter(vBox);
+        bp.setCenter(vbox);
         bp.setLeft(test1);
         bp.setRight(test2);
         bp.setTop(test3);
@@ -140,15 +152,15 @@ public class Signup {
 
         hbox.setStyle("-fx-padding: 0 0 0 20");
         bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
-        vBox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
-        vBox.setPadding(new Insets(20, 60, 40, 60));
-        vBox.setSpacing(30);
+        vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
+        vbox.setPadding(new Insets(20, 60, 40, 60));
+        vbox.setSpacing(30);
         Css.setSmallButtonStyle(register);
         Css.setBackButtonStyle(back);
 
 
         Scene scene = new Scene(bp, 1920, 1080);
-//        grid.setPadding(new Insets(100,0,0,0));
+
 
         window.setScene(scene);
         window.setMaximized(true);

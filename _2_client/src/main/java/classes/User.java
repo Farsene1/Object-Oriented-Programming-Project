@@ -190,7 +190,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Set solar panels
+     * Set solar panels.
      * @param solarpanels set solar panels.
      */
     public void setSolar(boolean solarpanels) {

@@ -1,9 +1,12 @@
 package client;
 
-import CSS.CSSpolarBadge;
+
 import classes.Badges;
+
 import classes.Controller;
 import classes.User;
+import css.CsspolarBadge;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -37,7 +40,7 @@ public class AchievementsPolar {
     public static void showPolarBadges(final User user, final Stage window) {
 
         /**
-         * Calls method to unlock polar badges, sets unlock value for CSS.
+         * Calls method to unlock polar badges, sets unlock value for css.
          */
         int unlockNumber = Badges.polarUnlock(user);
 
@@ -61,19 +64,19 @@ public class AchievementsPolar {
         Button polarBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked.
+         * Calls setPolar methods from css class to show locked.
          * unlocked polar badges.
          */
-        CSSpolarBadge.setPolar1(polarBadge1, unlockNumber);
-        CSSpolarBadge.setPolar2(polarBadge2, unlockNumber);
-        CSSpolarBadge.setPolar3(polarBadge3, unlockNumber);
-        CSSpolarBadge.setPolar4(polarBadge4, unlockNumber);
-        CSSpolarBadge.setPolar5(polarBadge5, unlockNumber);
-        CSSpolarBadge.setPolar6(polarBadge6, unlockNumber);
-        CSSpolarBadge.setPolar7(polarBadge7, unlockNumber);
-        CSSpolarBadge.setPolar8(polarBadge8, unlockNumber);
-        CSSpolarBadge.setPolar9(polarBadge9, unlockNumber);
-        CSSpolarBadge.setPolar10(polarBadge10, unlockNumber);
+        CsspolarBadge.setPolar1(polarBadge1, unlockNumber);
+        CsspolarBadge.setPolar2(polarBadge2, unlockNumber);
+        CsspolarBadge.setPolar3(polarBadge3, unlockNumber);
+        CsspolarBadge.setPolar4(polarBadge4, unlockNumber);
+        CsspolarBadge.setPolar5(polarBadge5, unlockNumber);
+        CsspolarBadge.setPolar6(polarBadge6, unlockNumber);
+        CsspolarBadge.setPolar7(polarBadge7, unlockNumber);
+        CsspolarBadge.setPolar8(polarBadge8, unlockNumber);
+        CsspolarBadge.setPolar9(polarBadge9, unlockNumber);
+        CsspolarBadge.setPolar10(polarBadge10, unlockNumber);
 
         /**
          * Selecting unlocked or locked polar score badges on button click.

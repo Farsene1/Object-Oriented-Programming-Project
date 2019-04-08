@@ -1,19 +1,17 @@
 package client;
 
-import CSS.Css;
 import classes.RestfulClient;
 import classes.UserBadge;
 import com.jfoenix.controls.JFXSnackbar;
+
+import css.Css;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -23,10 +21,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.Group;
-import java.io.*;
-import java.util.*;
-import javafx.scene.layout.VBox;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 /**
  * HOME CLASS.
@@ -52,20 +56,20 @@ public class Home {
         restfulClient.getEntity();
         window.setTitle("Home");
         BorderPane bp = new BorderPane();
-        VBox leftmenu = new VBox();
-        Scene scene = new Scene(bp, 1920, 1080);
+        final VBox leftmenu = new VBox();
+        final Scene scene = new Scene(bp, 1920, 1080);
         GridPane centerMenu = new GridPane();
         centerMenu.setPadding(new Insets(10, 10, 10, 10));
 
-        ImageView img = new ImageView(UserBadge.iconChoice(user));
-       // Label homeLabel = new Label("WE CARE , \n DO YOU?");
+        final ImageView img = new ImageView(UserBadge.iconChoice(user));
+        // Label homeLabel = new Label("WE CARE , \n DO YOU?");
         //homeLabel.getStyleClass().add("HomeLabelCss");
-       // homeLabel.setAlignment(Pos.CENTER);
+        // homeLabel.setAlignment(Pos.CENTER);
         //  GridPane.setConstraints(homeLabel,5,5);
-        Label usernamelabel = new Label(user.getUsername().toUpperCase());
+        final Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
         HBox statusbar = new HBox();
-        Label polarText = new Label("Polar Score:");
+        final Label polarText = new Label("Polar Score:");
         Label polarScore = new Label();
         polarScore.setText(user.getPolarScore().toString());
         Button trophy = new Button();
@@ -119,7 +123,15 @@ public class Home {
         centerMenu.getChildren().addAll(pieChart);
 
         //Add everything to grid
-        leftmenu.getChildren().addAll(img, usernamelabel, statusbar, mycarbonButton, statisticsButton, leaderboardButton, friendsbutton, quitButton);
+        leftmenu.getChildren().addAll(
+                img,
+                usernamelabel,
+                statusbar,
+                mycarbonButton,
+                statisticsButton,
+                leaderboardButton,
+                friendsbutton,
+                quitButton);
         bp.setLeft(leftmenu);
         bp.setCenter(centerMenu);
         bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
@@ -132,23 +144,27 @@ public class Home {
         Css.setButtonStyle(friendsbutton);
         Css.setButtonStyle(quitButton);
         leftmenu.setMinWidth(400);
-        leftmenu.setStyle("-fx-font-size: 18pt; -fx-alignment: center; -fx-background-color: rgba(255,255,255,0.4);");
+        leftmenu.setStyle("-fx-font-size: 18pt;"
+                + " -fx-alignment: center;"
+                + " -fx-background-color: rgba(255,255,255,0.4);");
 
 
         //TIMER for facts
-        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(30), new EventHandler<ActionEvent>() {
+        Timeline timer = new Timeline(
+                new KeyFrame(Duration.seconds(30), new EventHandler<ActionEvent>() {
 
-            //showing the fact
-            @Override
-            public void handle(final ActionEvent event) {
+                    //showing the fact
+                    @Override
+                    public void handle(final ActionEvent event) {
 
-                showFact(generate(list), centerMenu);
-            }
-        }));
+                        showFact(generate(list), centerMenu);
+                    }
+                }));
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
 
-        scene.getStylesheets().add((new File("_2_client/src/resources/Css/SnackBar.Css")).toURI().toString());
+        scene.getStylesheets().add((new File(
+                "_2_client/src/resources/css/SnackBar.css")).toURI().toString());
 
         window.setScene(scene);
         window.setMaximized(true);
@@ -188,7 +204,8 @@ public class Home {
     public static void factreading(final List<String> list) {
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("_2_client/src/main/java/client/DailyFacts.txt"));
+            BufferedReader br = new BufferedReader(
+                    new FileReader("_2_client/src/main/java/client/DailyFacts.txt"));
             String currentL;
 
             while ((currentL = br.readLine()) != null) {

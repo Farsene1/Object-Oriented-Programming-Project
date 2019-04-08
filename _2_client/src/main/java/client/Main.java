@@ -18,7 +18,7 @@ public class Main extends Application {
 
     /**
      * Main Program.
-     * @param args
+     * @param args args parameter.
      */
     public static void main(String[] args) {
         launch(args);
@@ -26,8 +26,8 @@ public class Main extends Application {
 
     /**
      * This is the main. starts the whole program.
-     * @param primaryStage
-     * @throws FileNotFoundException
+     * @param primaryStage primary stage param.
+     * @throws FileNotFoundException exception.
      */
     @Override
     public void start(final Stage primaryStage) throws FileNotFoundException {

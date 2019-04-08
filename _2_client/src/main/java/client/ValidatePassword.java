@@ -18,16 +18,17 @@ public class ValidatePassword {
 
         for (int i = 0; i < length; i++) {
 
-            if (!((password.charAt(i) >= 47 && password.charAt(i) <= 58) || (password.charAt(i) >= 64 && password.charAt(i) <= 91)
+            if (!((password.charAt(i) >= 47 && password.charAt(i) <= 58)
+                    || (password.charAt(i) >= 64 && password.charAt(i) <= 91)
                     || (password.charAt(i) >= 97 && password.charAt(i) <= 122))) {
                 res = "Your password contains a forbidden character.";
             }
 
-            if ((password.charAt(i) > 47 && password.charAt(i) < 58)) {
+            if (password.charAt(i) > 47 && password.charAt(i) < 58) {
                 numAmount++;
             }
 
-            if ((password.charAt(i) > 64 && password.charAt(i) < 91)) {
+            if (password.charAt(i) > 64 && password.charAt(i) < 91) {
                 capAmount++;
             }
         }
@@ -44,6 +45,6 @@ public class ValidatePassword {
             res = "Your password must be at least 8 characters in length.";
         }
 
-        return (res);
+        return res;
     }
 }

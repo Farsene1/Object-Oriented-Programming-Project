@@ -1,7 +1,17 @@
 package hello;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.Column;
+
+import javax.persistence.Entity;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import javax.persistence.Id;
+
+import javax.persistence.Table;
+
 
 /**
  * User table entity generated.
@@ -42,7 +52,7 @@ public class User implements Serializable {
     /**
      * attribute for solar panels.
      */
-    private boolean solar_panels = false;
+    private boolean solarpanels = false;
     /**
      * Attribute polarScore declared as type integer.
      */
@@ -202,16 +212,16 @@ public class User implements Serializable {
      * @return true or false.
      */
     public boolean isSolar() {
-        return solar_panels;
+        return solarpanels;
     }
 
     /**
      * sets to true or false.
      *
-     * @param solar_panels2 value.
+     * @param solarpanels2 value.
      */
-    public void setSolar(final boolean solar_panels2) {
-        this.solar_panels = solar_panels2;
+    public void setSolar(final boolean solarpanels2) {
+        this.solarpanels = solarpanels2;
     }
 
     /**

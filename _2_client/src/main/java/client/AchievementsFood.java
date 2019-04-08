@@ -1,9 +1,12 @@
 package client;
 
-import CSS.CssfoodBadge;
+
 import classes.Badges;
+
 import classes.Controller;
 import classes.User;
+import css.CssfoodBadge;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -21,7 +24,7 @@ public class AchievementsFood {
     /**
      * Declare Hbox.
      */
-    private  static HBox foodBox;
+    private static HBox foodBox;
 
     /**
      * Show food badges.
@@ -32,7 +35,7 @@ public class AchievementsFood {
     public static void showFoodBadges(final User user, final Stage window) {
 
         /**
-         * Calls method to unlock food badges, sets unlock value for CSS.
+         * Calls method to unlock food badges, sets unlock value for css.
          */
         int unlockNumber = Badges.foodUnlock(user);
 
@@ -56,7 +59,7 @@ public class AchievementsFood {
         Button foodBadge10 = new Button();
 
         /**
-         * Calls setPolar methods from CSS class to show locked .
+         * Calls setPolar methods from css class to show locked .
          * unlocked food badges.
          */
         CssfoodBadge.setFood1(foodBadge1, unlockNumber);

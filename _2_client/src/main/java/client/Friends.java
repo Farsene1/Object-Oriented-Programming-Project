@@ -1,11 +1,22 @@
 package client;
 
-import classes.*;
+import classes.Controller;
+
+import classes.Friend;
+import classes.FriendRequest;
+import classes.RestfulClient;
+import classes.User;
+import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
@@ -36,7 +47,8 @@ public class Friends {
      * @param user   user parameter
      * @param window window parameter
      */
-    public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
+    public static void showOptions(
+            final GridPane grid, final Scene scene, final User user, final Stage window) {
 
         String icon = UserBadge.iconChoice(user);
 
@@ -56,7 +68,7 @@ public class Friends {
         Label friendsLabel = new Label("FRIENDS");
         friendsLabel.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
         friendsLabel.setTextFill(Color.web("#0076a3"));
-        Button backButton = new Button("Back");
+        final Button backButton = new Button("Back");
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
@@ -122,7 +134,8 @@ public class Friends {
          */
 
         addaFriendB.setOnAction(e -> {
-            classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), addaFriend.getText());
+            classes.FriendRequest friendRequest =
+                    new classes.FriendRequest(user.getUsername(), addaFriend.getText());
             new RestfulClient().sendFriendRequest(friendRequest);
             addaFriend.clear();
         });

@@ -1,19 +1,24 @@
 package client;
 
-import CSS.Css;
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import css.Css;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
@@ -29,13 +34,13 @@ public class Login {
      */
     public static void showLogin(final Stage window) {
         JFXTextField usernameInput;
-        JFXPasswordField passwordInput;
+        final JFXPasswordField passwordInput;
         RestfulClient restfulClient = new RestfulClient();
         restfulClient.getEntity();
         window.setTitle("Login");
-        VBox vbox = new VBox();
+        final VBox vbox = new VBox();
 
-        BorderPane bp = new BorderPane();
+        final BorderPane bp = new BorderPane();
         //username Input
         usernameInput = new JFXTextField();
         usernameInput.setPromptText("username");
@@ -72,7 +77,7 @@ public class Login {
                     errorlabel.setText("INVALID CREDENTIALS");
                     errorlabel.setVisible(true);
                 }
-            } catch (NoSuchAlgorithmException NSA) {
+            } catch (NoSuchAlgorithmException Nsa) {
                 System.out.println("No such Algorithm");
             }
         });
@@ -92,12 +97,13 @@ public class Login {
         //Add everything to grid
 
 
-        vbox.getChildren().addAll(img, usernameInput, passwordInput, errorlabel, loginButton, signupBox);
+        vbox.getChildren().addAll(
+                img, usernameInput, passwordInput, errorlabel, loginButton, signupBox);
         vbox.setSpacing(30);
         Pane test1 = new Pane();
         Pane test2 = new Pane();
         Pane test3 = new Pane();
-        Pane test4 = new Pane();
+        final Pane test4 = new Pane();
         test1.setPrefWidth(675);
         test2.setPrefWidth(675);
         test3.setMinHeight(200);
@@ -109,8 +115,10 @@ public class Login {
         bp.setBottom(test4);
 
         Css.setSmallButtonStyle(loginButton);
-        bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
-        vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
+        bp.setStyle("-fx-background-image:"
+                + " url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
+        vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4);"
+                + " -fx-alignment: top-center; -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20, 60, 40, 60));
         Scene scene = new Scene(bp, 1920, 1080);
         window.setScene(scene);

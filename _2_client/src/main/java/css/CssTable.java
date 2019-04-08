@@ -1,10 +1,9 @@
-package CSS;
-
+package css;
 
 import javafx.scene.control.TableView;
 
 /**
- * CSS TABLE.
+ * css TABLE.
  */
 public class CssTable {
     /**

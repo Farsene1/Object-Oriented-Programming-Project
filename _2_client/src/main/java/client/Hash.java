@@ -17,7 +17,8 @@ public class Hash {
      * @return returns a hash.
      * @throws NoSuchAlgorithmException exception thrown
      */
-    public static String generateHash(final String data, final String algorithm) throws NoSuchAlgorithmException {
+    public static String generateHash(
+            final String data, final String algorithm) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance(algorithm);
         digest.reset();
         byte[] hash = digest.digest(data.getBytes());
@@ -27,7 +28,7 @@ public class Hash {
     /**
      * variable array.
      */
-    private static final char[] HEXARRAY = "0123456789ABCDEF".toCharArray();
+    private static char[] HEXARRAY = "0123456789ABCDEF".toCharArray();
 
     /**
      * Bytes to string.
@@ -38,9 +39,9 @@ public class Hash {
     private static String bytesToStringHex(final byte[] bytes) {
         char[] hexChars = new char[bytes.length * 2];
         for (int i = 0; i < bytes.length; i++) {
-            int x = bytes[i] & 0xFF;
-            hexChars[i * 2] = HEXARRAY[x >>> 4];
-            hexChars[i * 2 + 1] = HEXARRAY[x & 0x0F];
+            int x1 = bytes[i] & 0xFF;
+            hexChars[i * 2] = HEXARRAY[x1 >>> 4];
+            hexChars[i * 2 + 1] = HEXARRAY[x1 & 0x0F];
         }
         return new String(hexChars);
     }
