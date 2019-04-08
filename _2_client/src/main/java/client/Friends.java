@@ -45,15 +45,11 @@ public class Friends {
 
         //Creating Labels for addition
         Label friendsL = new Label("My Friends");
-        HBox Friendsbox= new HBox();
-        Button backButton = new Button();
-        Css.setBackButtonStyle(backButton);
-        Friendsbox.getChildren().addAll(backButton, friendsL);
         TextField searchField = new TextField();
         Label findfriendsLabel = new Label("ADD FRIENDS");
         VBox results= new VBox();
         VBox pending= new VBox();
-        VBox friendsVbox = new VBox(Friendsbox, friendsTable);
+        VBox friendsVbox = new VBox(friendsL, friendsTable);
         VBox findfriendsVbox = new VBox(findfriendsLabel,searchField, results);
         addFriendRequests(user,pending);
 
@@ -78,12 +74,6 @@ public class Friends {
         col2.setMinWidth(200);
         col3.setMinWidth(125);
         col3.setMaxWidth(125);
-
-        //backButton
-        backButton.setOnAction(e -> {
-            Home.showHome(window, user);
-        });
-
 
         HBox ROW1 = new HBox();
         ROW1.getChildren().addAll(friendsVbox,findfriendsVbox, pending);

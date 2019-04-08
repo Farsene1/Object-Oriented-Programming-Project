@@ -60,6 +60,19 @@ public class Css {
     }
 
     /**
+     * Sets home button style.
+     *
+     * @param button button parameter.
+     */
+    public static void setHomeButtonStyle(final Button button) {
+        button.styleProperty().bind(Bindings.when(button.hoverProperty())
+                .then("-fx-graphic: url('https://i.ibb.co/9qcK3Vt/home.png'); "
+                        + "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);")
+                .otherwise("-fx-graphic: url('https://i.ibb.co/2yQnNyG/home-alt.png'); "
+                        + "-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);"));
+    }
+
+    /**
      * Sets trophy button style.
      *
      * @param button trophy button
@@ -83,4 +96,25 @@ public class Css {
                 .otherwise(""));
     }
 
+    /**
+     * Sets plus button style.
+     *
+     * @param button button parameter.
+     */
+    public static void setplusButtonStyle(final Button button) {
+        button.styleProperty().bind(Bindings.when(button.hoverProperty())
+                .then("-fx-background-color: #79b4e5; "
+                        + "-fx-background-radius: 100; "
+                        + "-fx-font-size: 42; "
+                        + "-fx-border-radius: 100;"
+                        + "-fx-border-color: #52e5d6; "
+                        + "-fx-border-width: 5px;" +
+                        "-fx-text-fill: white")
+                .otherwise("-fx-background-color: #87c9ff; "
+                        + "-fx-background-radius: 100; "
+                        + "-fx-font-size: 42; "
+                        + "-fx-border-radius: 100;"
+                        + "-fx-border-color: #5cffee; "
+                        + "-fx-border-width: 5px;"));
+    }
 }

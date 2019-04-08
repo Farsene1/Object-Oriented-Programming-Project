@@ -6,6 +6,7 @@ import classes.Controller;
 import classes.User;
 import classes.UserBadge;
 
+import css.Css;
 import javafx.collections.FXCollections;
 
 import javafx.collections.ObservableList;
@@ -62,6 +63,7 @@ public class FootPrint {
         Label myFootprint = new Label("My Activities!");
         myFootprint.setFont(Font.font("Amble CN", FontWeight.BOLD, 50));
         myFootprint.setTextFill(Color.web("#0076a3"));
+
         VBox footprint = new VBox(myFootprint, table);
         footprint.setStyle("-fx-padding: 15;");
         footprint.setSpacing(20);
@@ -164,18 +166,6 @@ public class FootPrint {
                 Npe.printStackTrace();
             }
         });
-
-        /**
-         * Back button to return to home.
-         */
-        Button backButton = new Button("Back");
-        backButton.setOnAction(e -> {
-            System.out.println("Icon url: " + icon);
-            Home.showHome(window, user);
-        });
-
-        GridPane.setConstraints(backButton, 1, 10);
-
         /**
          * Adding everything to the grid.
          */
@@ -185,36 +175,19 @@ public class FootPrint {
         HBox hbox = new HBox();
         hbox.getChildren().addAll(foodOptions, transportOptions, electricityOptions);
         GridPane.setConstraints(hbox, 0, 0);
-        grid.getChildren().setAll(hbox, footprint, backButton);
+        grid.getChildren().setAll(hbox, footprint);
 
         /**
          * Simple styling.
          */
-        food.setStyle("-fx-background-color: #87c9ff; "
-                + "-fx-background-radius: 100; "
-                + "-fx-font-size: 42; "
-                + "-fx-border-radius: 100;"
-                + "-fx-border-color: #5cffee; "
-                + "-fx-border-width: 5px;");
-
-        transport.setStyle("-fx-background-color: #87c9ff; "
-                + "-fx-background-radius: 100; "
-                + "-fx-font-size: 42; "
-                + "-fx-border-radius: 100;"
-                + "-fx-border-color: #5cffee; "
-                + "-fx-border-width: 5px;");
-
-        electricity.setStyle("-fx-background-color: #87c9ff; "
-                + "-fx-background-radius: 100; "
-                + "-fx-font-size: 42; "
-                + "-fx-border-radius: 100;"
-                + "-fx-border-color: #5cffee; "
-                + "-fx-border-width: 5px;");
+        Css.setplusButtonStyle(food);
+        Css.setplusButtonStyle(transport);
+        Css.setplusButtonStyle(electricity);
 
 
         grid.setMinWidth(1500);
-        table.setMaxHeight(770);
-        table.setMinHeight(770);
+        table.setMaxHeight(700);
+        table.setMinHeight(700);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
         foodOptions.setMinWidth(476);
         electricityOptions.setMinWidth(476);

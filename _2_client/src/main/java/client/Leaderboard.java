@@ -51,7 +51,6 @@ public class Leaderboard {
         Label header = new Label("Leaderboard");
         header.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
         header.setTextFill(Color.web("#0076a3"));
-        final Button backButton = new Button("Back");
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
@@ -69,31 +68,13 @@ public class Leaderboard {
         tableL.getColumns().setAll(col1, col2);
         col1.setMinWidth(734);
         col2.setMinWidth(734);
-        //backButton
-        backButton.setOnAction(e -> {
-            Home.showHome(window, user);
-        });
 
 
-        //Lastly creating 2 different
-        //Hboxes so we can add everything to the grid
-
-        HBox toplayer = new HBox();
-        HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(vbox1);
-        middleLayer.getChildren().addAll(backButton);
-        GridPane.setConstraints(toplayer, 5, 0);
-        GridPane.setConstraints(middleLayer, 5, 30);
-        toplayer.setAlignment(Pos.CENTER);
-        middleLayer.setAlignment(Pos.CENTER);
-        grid.getChildren().addAll(toplayer, middleLayer);
-
+        grid.getChildren().addAll(vbox1);
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 
         tableL.setItems(addFriend());
-
-
     }
 
     /**

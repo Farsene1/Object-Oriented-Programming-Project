@@ -74,13 +74,20 @@ public class Home {
         polarScore.setText(user.getPolarScore().toString());
         Button trophy = new Button();
         Css.setTrophyButtonStyle(trophy);
-        statusbar.setStyle("-fx-alignment: center");
-        statusbar.getChildren().addAll(polarText, polarScore, trophy);
+        Button home = new Button();
+        Css.setHomeButtonStyle(home);
+        statusbar.setStyle("-fx-alignment: center-right");
+        statusbar.getChildren().addAll(polarText, polarScore, trophy, home);
         statusbar.setMinHeight(50);
 
         //Trophy button click
         trophy.setOnAction(e -> {
             Achievements.showBadges(centerMenu, user, window);
+        });
+
+        //home button click
+        home.setOnAction(e -> {
+            showHome(window, user);
         });
 
         //My Carbon footprint
