@@ -1,8 +1,12 @@
 ActivityTest.class
 UserTest.class
+TransportTest.class
 MealTest.class
 ValidatePasswordTest.class
-classes\TransportTest.class
 HashTest.class
+classes\FriendRequestTest.class
 ElectricityTest.class
+UserBadgeTest.class
+BadgesTest.class
 RestfulClientTest.class
+AchievementsTest.class

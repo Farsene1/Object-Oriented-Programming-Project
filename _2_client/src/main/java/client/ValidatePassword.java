@@ -1,23 +1,34 @@
 package client;
 
+/**
+ * Validation of password class.
+ */
 public class ValidatePassword {
-    public static String validatePassword(String Password) {
+    /**
+     * Method for validating.
+     *
+     * @param password password parameter.
+     * @return returns a string.
+     */
+    public static String validatePassword(final String password) {
         String res = "valid";
-        int length = Password.length();
+        int length = password.length();
         int numAmount = 0;
         int capAmount = 0;
 
-        for (int i=0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
 
-            if (!((Password.charAt(i) >= 47 && Password.charAt(i) <= 58) || (Password.charAt(i) >= 64 && Password.charAt(i) <= 91) || (Password.charAt(i) >= 97 && Password.charAt(i) <= 122))) {
+            if (!((password.charAt(i) >= 47 && password.charAt(i) <= 58)
+                    || (password.charAt(i) >= 64 && password.charAt(i) <= 91)
+                    || (password.charAt(i) >= 97 && password.charAt(i) <= 122))) {
                 res = "Your password contains a forbidden character.";
             }
 
-            if ((Password.charAt(i) > 47 && Password.charAt(i) < 58)) {
+            if (password.charAt(i) > 47 && password.charAt(i) < 58) {
                 numAmount++;
             }
 
-            if ((Password.charAt(i) > 64 && Password.charAt(i) < 91)) {
+            if (password.charAt(i) > 64 && password.charAt(i) < 91) {
                 capAmount++;
             }
         }
@@ -34,6 +45,6 @@ public class ValidatePassword {
             res = "Your password must be at least 8 characters in length.";
         }
 
-        return (res);
+        return res;
     }
 }

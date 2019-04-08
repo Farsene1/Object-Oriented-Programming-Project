@@ -1,54 +1,74 @@
 package client;
 
-import classes.*;
+import classes.Controller;
+import classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
-
+/**
+ * LeaderBoard class.
+ */
 public class Leaderboard {
-    static TableView Table = new TableView();
+    /**
+     * Variable table view.
+     */
+    static TableView tableL = new TableView();
 
-
-    public static void showOptions(GridPane grid, Scene scene, User user, Stage window) {
-
+    /**
+     * Show options method for leaderboards.
+     *
+     * @param grid   paramter grid.
+     * @param scene  parameter scene
+     * @param user   user parameter.
+     * @param window window parameter.
+     */
+    public static void showOptions(
+            final GridPane grid, final Scene scene, final User user, final Stage window) {
+        new JMetro(JMetro.Style.LIGHT).applyTheme(tableL);
         //CLEARING THE GRID FROM PREVIOUS ADDITIONS
         grid.getChildren().clear();
 
         //Creating Labels for addition
-        Label Header = new Label("Leaderboard");
-        Header.setFont(Font.font("Amble CN", FontWeight.BOLD, 30));
-        Button backButton = new Button("Back");
+        Label header = new Label("Leaderboard");
+        header.setFont(Font.font("Amble CN", FontWeight.BOLD, 40));
+        header.setTextFill(Color.web("#0076a3"));
+        final Button backButton = new Button("Back");
 
 
         //Making of Vboxes and Hboxes in order to show the tables on screen
-        VBox Vbox1 = new VBox(Header, Table);
-        Vbox1.setStyle("-fx-padding:15;");
-        Vbox1.setSpacing(20);
-        Vbox1.setAlignment(Pos.CENTER);
+        VBox vbox1 = new VBox(header, tableL);
+        vbox1.setStyle("-fx-padding:15;");
+        vbox1.setSpacing(20);
+        vbox1.setAlignment(Pos.CENTER);
         //ADDING THE COLLUMNS TO THE TABLES
-        TableColumn Col1 = new TableColumn("Username");
-        Col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
-        TableColumn Col2 = new TableColumn("Score");
-        Col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
+        TableColumn col1 = new TableColumn("Username");
+        col1.setCellValueFactory(new PropertyValueFactory<>("Username"));
+        TableColumn col2 = new TableColumn("Score");
+        col2.setCellValueFactory(new PropertyValueFactory<>("PolarScore"));
 
 
-        Table.getColumns().setAll(Col1, Col2);
-        Col1.setMinWidth(734);
-        Col2.setMinWidth(734);
+        tableL.getColumns().setAll(col1, col2);
+        col1.setMinWidth(734);
+        col2.setMinWidth(734);
         //backButton
         backButton.setOnAction(e -> {
             Home.showHome(window, user);
@@ -60,7 +80,7 @@ public class Leaderboard {
 
         HBox toplayer = new HBox();
         HBox middleLayer = new HBox();
-        toplayer.getChildren().addAll(Vbox1);
+        toplayer.getChildren().addAll(vbox1);
         middleLayer.getChildren().addAll(backButton);
         GridPane.setConstraints(toplayer, 5, 0);
         GridPane.setConstraints(middleLayer, 5, 30);
@@ -71,11 +91,16 @@ public class Leaderboard {
         grid.setMinWidth(1500);
         grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
 
-        Table.setItems(addFriend());
+        tableL.setItems(addFriend());
 
 
     }
 
+    /**
+     * Adds users to the leaderboard table.
+     *
+     * @return returns a list.
+     */
     public static ObservableList<User> addFriend() {
         ObservableList<User> name = FXCollections.observableArrayList();
         List<User> nameList = new Controller().get10Users();

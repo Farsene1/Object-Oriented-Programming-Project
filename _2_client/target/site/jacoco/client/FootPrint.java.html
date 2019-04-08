@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FootPrint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">FootPrint.java</span></div><h1>FootPrint.java</h1><pre class="source lang-java linenums">package client;
 
+import CSS.CSSTable;
 import classes.Activity;
 import classes.Controller;
 import classes.User;
@@ -7,182 +8,196 @@ import classes.UserBadge;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
-
-<span class="nc" id="L27">public class FootPrint {</span>
+/**
+ * FootPrint class.
+ */
+<span class="nc" id="L29">public class FootPrint {</span>
 
     /**
      * Initialise table.
      */
-<span class="nc" id="L32">    static TableView table = new TableView();</span>
+<span class="nc" id="L34">    static TableView table = new TableView();</span>
 
+    /**
+     * Show options for footprint.
+     *
+     * @param grid       gird parameter
+     * @param user       user parameter
+     * @param polarscore polarscore parameter
+     * @param window     window parameter
+     */
+    public static void showOptions(final GridPane grid, final User user, final Label polarscore, final Stage window) {
 
-    public static void showOptions(GridPane grid, User user, Label polarscore, Stage window) {
+<span class="nc" id="L46">            new JMetro(JMetro.Style.LIGHT).applyTheme(table);</span>
 
         /**
          * Gets user specific badge.
          */
-<span class="nc" id="L40">        String icon = UserBadge.getIcon();</span>
+<span class="nc" id="L51">        String icon = UserBadge.iconChoice(user);</span>
 
         /**
          * Labels / Vbox added and styling.
          */
-<span class="nc" id="L45">        Label myFootprint = new Label(&quot;My Activities!&quot;);</span>
-<span class="nc" id="L46">        myFootprint.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 30));</span>
-<span class="nc" id="L47">        VBox Footprint = new VBox(myFootprint, table);</span>
-<span class="nc" id="L48">        Footprint.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L49">        Footprint.setSpacing(20);</span>
-<span class="nc" id="L50">        Footprint.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L56">        Label myFootprint = new Label(&quot;My Activities!&quot;);</span>
+<span class="nc" id="L57">        myFootprint.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 30));</span>
+<span class="nc" id="L58">        VBox footprint = new VBox(myFootprint, table);</span>
+<span class="nc" id="L59">        footprint.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L60">        footprint.setSpacing(20);</span>
+<span class="nc" id="L61">        footprint.setAlignment(Pos.CENTER);</span>
 
         /**
          * Adds columns to footprint table // simple styling.
          */
-<span class="nc" id="L55">        TableColumn Col1 = new TableColumn(&quot;Category&quot;);</span>
-<span class="nc" id="L56">        Col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;category&quot;));</span>
-<span class="nc" id="L57">        TableColumn Col2 = new TableColumn(&quot;Description&quot;);</span>
-<span class="nc" id="L58">        Col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;description&quot;));</span>
-<span class="nc" id="L59">        TableColumn Col3 = new TableColumn(&quot;Footprint&quot;);</span>
-<span class="nc" id="L60">        Col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;footprint&quot;));</span>
-<span class="nc" id="L61">        TableColumn Col4 = new TableColumn(&quot;Date&quot;);</span>
-<span class="nc" id="L62">        Col4.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;date&quot;));</span>
-<span class="nc" id="L63">        Col1.setMinWidth(300);</span>
-<span class="nc" id="L64">        Col2.setMinWidth(300);</span>
-<span class="nc" id="L65">        Col3.setMinWidth(300);</span>
-<span class="nc" id="L66">        Col4.setMinWidth(300);</span>
+
+<span class="nc" id="L67">        TableColumn col1 = new TableColumn(&quot;Category&quot;);</span>
+<span class="nc" id="L68">        col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;cat&quot;));</span>
+<span class="nc" id="L69">        TableColumn col2 = new TableColumn(&quot;Description&quot;);</span>
+<span class="nc" id="L70">        col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;description&quot;));</span>
+<span class="nc" id="L71">        TableColumn col3 = new TableColumn(&quot;Footprint&quot;);</span>
+<span class="nc" id="L72">        col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;footprint&quot;));</span>
+<span class="nc" id="L73">        TableColumn col4 = new TableColumn(&quot;Date&quot;);</span>
+<span class="nc" id="L74">        col4.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;date&quot;));</span>
+<span class="nc" id="L75">        col1.setMinWidth(300);</span>
+<span class="nc" id="L76">        col2.setMinWidth(500);</span>
+<span class="nc" id="L77">        col3.setMinWidth(300);</span>
+<span class="nc" id="L78">        col4.setMinWidth(300);</span>
 
         /**
-         * Add items to table
+         * Add items to table.
          */
-<span class="nc" id="L71">        table.setItems(addItems(user));</span>
-<span class="nc" id="L72">        table.getColumns().setAll(Col1, Col2, Col3, Col4);</span>
+<span class="nc" id="L83">        table.setItems(addItems(user));</span>
+<span class="nc" id="L84">        table.getColumns().setAll(col1, col2, col3, col4);</span>
 
         /**
          * Footprint type labels.
          */
-<span class="nc" id="L77">        Label FoodLabel = new Label(&quot;Food Footprint &quot;);</span>
-<span class="nc" id="L78">        Label ElectricityLabel = new Label(&quot;Electricity Footprint&quot;);</span>
-<span class="nc" id="L79">        Label TransportLabel = new Label(&quot;Transport Footprint&quot;);</span>
+<span class="nc" id="L89">        Label foodLabel = new Label(&quot;Food Footprint &quot;);</span>
+<span class="nc" id="L90">        Label electricityLabel = new Label(&quot;Electricity Footprint&quot;);</span>
+<span class="nc" id="L91">        Label transportLabel = new Label(&quot;Transport Footprint&quot;);</span>
 
         /**
          * Initialixe Vboxes for footprint types.
          */
-<span class="nc" id="L84">        VBox FoodOptions = new VBox();</span>
-<span class="nc" id="L85">        VBox TransportOptions = new VBox();</span>
-<span class="nc" id="L86">        VBox ElectricityOptions = new VBox();</span>
+<span class="nc" id="L96">        VBox foodOptions = new VBox();</span>
+<span class="nc" id="L97">        VBox transportOptions = new VBox();</span>
+<span class="nc" id="L98">        VBox electricityOptions = new VBox();</span>
 
-<span class="nc" id="L88">        FoodOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L89">        TransportOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L90">        ElectricityOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L100">        foodOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L101">        transportOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L102">        electricityOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
         //Footprint.setStyle(&quot;-fx-padding: 15;&quot;);
-<span class="nc" id="L92">        GridPane.setConstraints(Footprint, 0, 1);</span>
+<span class="nc" id="L104">        GridPane.setConstraints(footprint, 0, 1);</span>
 
         /**
          * Button to add food footprints.
          */
-<span class="nc" id="L97">        Button Food = new Button(&quot;+&quot;);</span>
-<span class="nc" id="L98">        Food.setOnAction(e -&gt; {</span>
-            try{
-<span class="nc" id="L100">            classes.Meal food = FoodBox.addMeal(&quot;Food Footprint&quot;, &quot;Add to your food footprint from the choices below!&quot;, user);</span>
-<span class="nc" id="L101">            table.setItems(addItems(user));</span>
-<span class="nc" id="L102">            polarscore.setText(user.getPolarScore().toString());</span>
-            }
-<span class="nc" id="L104">            catch (NullPointerException NPE){</span>
+<span class="nc" id="L109">        Button food = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L110">        food.setOnAction(e -&gt; {</span>
+            try {
+<span class="nc" id="L112">                BoxFood.addMeal(&quot;Food Footprint&quot;, &quot;Add to your food footprint from the choices below!&quot;, user);</span>
+<span class="nc" id="L113">                table.setItems(addItems(user));</span>
+<span class="nc" id="L114">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L115">            } catch (NullPointerException NPE) {</span>
 
-<span class="nc" id="L106">            }</span>
-<span class="nc" id="L107">        });</span>
+<span class="nc" id="L117">            }</span>
+<span class="nc" id="L118">        });</span>
 
         /**
          * Button to add transport footprints.
          */
-<span class="nc" id="L112">        Button Transport = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L123">        Button transport = new Button(&quot;+&quot;);</span>
         // GridPane.setConstraints(Transport, 5, 1);
-<span class="nc" id="L114">        Transport.setOnAction(e -&gt; {</span>
-            try{
-<span class="nc" id="L116">            classes.Transport transport = TransportBox.addVehicle(&quot;Transport Footprint&quot;, &quot;Select the transport option of your choice&quot;, user);</span>
-<span class="nc" id="L117">            table.setItems(addItems(user));</span>
-<span class="nc" id="L118">            polarscore.setText(user.getPolarScore().toString());</span>
-            }
-<span class="nc" id="L120">            catch (NullPointerException NPE){</span>
+<span class="nc" id="L125">        transport.setOnAction(e -&gt; {</span>
+            try {
+<span class="nc" id="L127">                BoxTransport.addVehicle(&quot;Transport Footprint&quot;, &quot;Select the transport option of your choice&quot;, user);</span>
+<span class="nc" id="L128">                table.setItems(addItems(user));</span>
+<span class="nc" id="L129">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L130">            } catch (NullPointerException NPE) {</span>
 
-<span class="nc" id="L122">            }</span>
-<span class="nc" id="L123">        });</span>
+<span class="nc" id="L132">            }</span>
+<span class="nc" id="L133">        });</span>
 
         /**
          * Button to add electricity footprints.
          */
-<span class="nc" id="L128">        Button Electricity = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L138">        Button electricity = new Button(&quot;+&quot;);</span>
         //     GridPane.setConstraints(Electricity, 6, 1);
-<span class="nc" id="L130">        Electricity.setOnAction(e -&gt; {</span>
+<span class="nc" id="L140">        electricity.setOnAction(e -&gt; {</span>
             try {
-<span class="nc" id="L132">                classes.Electricity electricity = ElectricityBox.addUsage(&quot;Electricity Footprint&quot;, &quot;Select your electricity usage&quot;, user);</span>
-<span class="nc" id="L133">                table.setItems(addItems(user));</span>
-<span class="nc" id="L134">                polarscore.setText(user.getPolarScore().toString());</span>
-            }
-<span class="nc" id="L136">            catch (NullPointerException NPE){</span>
+<span class="nc" id="L142">                BoxElectricity.addUsage(&quot;Electricity Footprint&quot;, &quot;Select your electricity usage&quot;, user);</span>
+<span class="nc" id="L143">                table.setItems(addItems(user));</span>
+<span class="nc" id="L144">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L145">            } catch (NullPointerException NPE) {</span>
 
-<span class="nc" id="L138">            }</span>
-<span class="nc" id="L139">        });</span>
+<span class="nc" id="L147">            }</span>
+<span class="nc" id="L148">        });</span>
 
         /**
          * Back button to return to home.
          */
-<span class="nc" id="L144">        Button backButton = new Button(&quot;Back&quot;);</span>
-<span class="nc" id="L145">        backButton.setOnAction(e-&gt;{</span>
-<span class="nc" id="L146">            System.out.println(&quot;Icon url: &quot;+icon);</span>
-<span class="nc" id="L147">            Home.showHome(window, user);</span>
-<span class="nc" id="L148">        });</span>
+<span class="nc" id="L153">        Button backButton = new Button(&quot;Back&quot;);</span>
+<span class="nc" id="L154">        backButton.setOnAction(e -&gt; {</span>
+<span class="nc" id="L155">            System.out.println(&quot;Icon url: &quot; + icon);</span>
+<span class="nc" id="L156">            Home.showHome(window, user);</span>
+<span class="nc" id="L157">        });</span>
 
-<span class="nc" id="L150">        GridPane.setConstraints(backButton,1,10);</span>
+<span class="nc" id="L159">        GridPane.setConstraints(backButton, 1, 10);</span>
 
         /**
          * Adding everything to the grid.
          */
-<span class="nc" id="L155">        FoodOptions.getChildren().addAll(FoodLabel, Food);</span>
-<span class="nc" id="L156">        TransportOptions.getChildren().addAll(TransportLabel, Transport);</span>
-<span class="nc" id="L157">        ElectricityOptions.getChildren().addAll(ElectricityLabel, Electricity);</span>
-<span class="nc" id="L158">        HBox Hbox = new HBox();</span>
-<span class="nc" id="L159">        Hbox.getChildren().addAll(FoodOptions, TransportOptions, ElectricityOptions);</span>
-<span class="nc" id="L160">        GridPane.setConstraints(Hbox, 0, 0);</span>
-<span class="nc" id="L161">        grid.getChildren().setAll(Hbox, Footprint,backButton);</span>
+<span class="nc" id="L164">        foodOptions.getChildren().addAll(foodLabel, food);</span>
+<span class="nc" id="L165">        transportOptions.getChildren().addAll(transportLabel, transport);</span>
+<span class="nc" id="L166">        electricityOptions.getChildren().addAll(electricityLabel, electricity);</span>
+<span class="nc" id="L167">        HBox hbox = new HBox();</span>
+<span class="nc" id="L168">        hbox.getChildren().addAll(foodOptions, transportOptions, electricityOptions);</span>
+<span class="nc" id="L169">        GridPane.setConstraints(hbox, 0, 0);</span>
+<span class="nc" id="L170">        grid.getChildren().setAll(hbox, footprint, backButton);</span>
 
         /**
          * Simple styling.
          */
-<span class="nc" id="L166">        Food.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L167">        Transport.setStyle(&quot;-fx-background-radius: 100; -fx-font-size: 42&quot;);</span>
+<span class="nc" id="L175">        food.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L176">        transport.setStyle(&quot;-fx-background-radius: 100; -fx-font-size: 42&quot;);</span>
         // quitButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);
-<span class="nc" id="L169">        Electricity.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L170">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L171">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
-<span class="nc" id="L172">        FoodOptions.setMinWidth(476);</span>
-<span class="nc" id="L173">        ElectricityOptions.setMinWidth(476);</span>
-<span class="nc" id="L174">        TransportOptions.setMinWidth(476);</span>
-<span class="nc" id="L175">    }</span>
+<span class="nc" id="L178">        electricity.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
+<span class="nc" id="L179">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L180">        table.setMaxHeight(770);</span>
+<span class="nc" id="L181">        table.setMinHeight(770);</span>
+<span class="nc" id="L182">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L183">        foodOptions.setMinWidth(476);</span>
+<span class="nc" id="L184">        electricityOptions.setMinWidth(476);</span>
+<span class="nc" id="L185">        transportOptions.setMinWidth(476);</span>
+<span class="nc" id="L186">    }</span>
+
     /**
-     * Adds items to observable list &quot;activities&quot; to be added to database.
+     * Adds item to the table of activities.
+     *
+     * @param user user parameter.
+     * @return returns a list.
      */
-    public static ObservableList&lt;Activity&gt; addItems(User user) {
-<span class="nc" id="L180">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
-<span class="nc" id="L181">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
-<span class="nc bnc" id="L182" title="All 2 branches missed.">        for (Activity a : act) {</span>
-<span class="nc" id="L183">            activities.add(a);</span>
-<span class="nc" id="L184">        }</span>
-<span class="nc" id="L185">        return activities;</span>
+    public static ObservableList&lt;Activity&gt; addItems(final User user) {
+<span class="nc" id="L195">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
+<span class="nc" id="L196">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">        for (Activity a : act) {</span>
+<span class="nc" id="L198">            activities.add(a);</span>
+<span class="nc" id="L199">        }</span>
+<span class="nc" id="L200">        return activities;</span>
     }
 }
 
