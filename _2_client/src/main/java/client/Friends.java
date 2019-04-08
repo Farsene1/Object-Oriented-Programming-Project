@@ -1,14 +1,14 @@
 package client;
 
-import CSS.CSS;
+
 import classes.*;
+import css.Css;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,7 +17,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,7 +47,7 @@ public class Friends {
         Label friendsL = new Label("My Friends");
         HBox Friendsbox= new HBox();
         Button backButton = new Button();
-        CSS.setBackButtonStyle(backButton);
+        Css.setBackButtonStyle(backButton);
         Friendsbox.getChildren().addAll(backButton, friendsL);
         TextField searchField = new TextField();
         Label findfriendsLabel = new Label("ADD FRIENDS");
@@ -153,7 +152,7 @@ public class Friends {
     }
 
     public static void getResults(User user, String search, VBox resultsbox, TextField searchfield) {
-        if (search.length()>=3) {
+        if (search.length()>=1) {
             List<String> Results = new RestfulClient().findUsersByRegex(search);
             resultsbox.getChildren().clear();
             for (String a : Results) {
