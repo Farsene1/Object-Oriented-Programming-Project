@@ -63,7 +63,7 @@ public class FriendshipController {
                 .getAllFriends(friendRequest.getSender());
         List<FriendRequest> l2 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getSender());
-        final List<FriendRequest> l3 = this.friendRequestRepository
+        List<FriendRequest> l3 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getReceiver());
 
         boolean ok = true;
