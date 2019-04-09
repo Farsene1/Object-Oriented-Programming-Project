@@ -8,6 +8,4 @@
  Presentation | Screenshot updates + small changes | Ollie | 1 hour
  Server | Checkstyle | Sayf | 1 hour
  Client | Checkstyle | Stelios | 1 hour
- 
- Optional
  Client | Changes to calculator | Tijs | 2 hours
