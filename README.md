@@ -2,10 +2,10 @@
 
 ## Table of contents
 1. [About](#about)
-2. [Installation](#Installation)
-3. [Contributing](#Contributing)
-4. [The team](#THE_TEAM)
-5. [License](#License)
+2. [Installation](#installation)
+3. [Contributing](#contributing)
+4. [Team](#team)
+5. [License](#license)
 
 ## About
 
@@ -26,7 +26,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## THE TEAM
+## Team
 **Oliver Parfitt van Pallandt**:
 `Student number: 4943945`
 
