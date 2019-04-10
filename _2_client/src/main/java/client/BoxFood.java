@@ -105,11 +105,17 @@ public class BoxFood extends Calculator {
         window.showAndWait();
     }
 
-    private static void submit(JFXComboBox<String> dropdown, User user, Stage window, JFXTextField meatgrams, VBox layout, Button submitButton, Label errorlabel) {
+    private static void submit(JFXComboBox<String> dropdown,
+                               User user,
+                               Stage window,
+                               JFXTextField meatgrams,
+                               VBox layout,
+                               Button submitButton,
+                               Label errorlabel) {
 
         foodAdded = dropdown.getValue();
 
-        if (foodAdded.equals("Vegan meal") ) {
+        if (foodAdded.equals("Vegan meal")) {
             foodAdded = "vegan";
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");

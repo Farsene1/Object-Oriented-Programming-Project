@@ -1,5 +1,7 @@
 package client;
 
+import static client.ValidatePassword.validatePassword;
+
 import classes.Controller;
 import classes.RestfulClient;
 import classes.User;
@@ -7,8 +9,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import css.Css;
 
-
 import javafx.geometry.Insets;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,7 +25,7 @@ import javafx.stage.Stage;
 
 import java.security.NoSuchAlgorithmException;
 
-import static client.ValidatePassword.validatePassword;
+
 
 /**
  * Signup page.
@@ -152,7 +154,9 @@ public class Signup {
 
         hbox.setStyle("-fx-padding: 0 0 0 20");
         bp.setStyle("-fx-background-image: url('https://i.ibb.co/855rPQb/polar-bear-3277930-1920.jpg');");
-        vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4); -fx-alignment: top-center; -fx-font-size: 17pt");
+        vbox.setStyle("-fx-background-color: rgba(255,255,255, 0.4);"
+                + " -fx-alignment: top-center;"
+                + " -fx-font-size: 17pt");
         vbox.setPadding(new Insets(20, 60, 40, 60));
         vbox.setSpacing(30);
         Css.setSmallButtonStyle(register);

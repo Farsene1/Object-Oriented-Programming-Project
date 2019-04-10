@@ -1,6 +1,5 @@
 package client;
 
-
 import classes.Badges;
 
 import classes.Controller;

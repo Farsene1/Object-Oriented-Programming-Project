@@ -1,8 +1,6 @@
 package client;
 
-
 import classes.Badges;
-
 import classes.Controller;
 import classes.User;
 import css.CssfoodBadge;

@@ -24,6 +24,7 @@ public class Badges {
         /**
          * Defaults to unlock polar badge 1 automatically.
          */
+
         if (polarTotal <= 10000) {
             unlock = 1;
         }

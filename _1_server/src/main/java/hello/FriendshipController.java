@@ -59,11 +59,11 @@ public class FriendshipController {
      */
     @RequestMapping("/request")
     public String makeRequest(@RequestBody final FriendRequest friendRequest) {
-        List<String> l1 = this.friendshipRepository
+        final List<String> l1 = this.friendshipRepository
                 .getAllFriends(friendRequest.getSender());
-        List<FriendRequest> l2 = this.friendRequestRepository
+        final List<FriendRequest> l2 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getSender());
-        List<FriendRequest> l3 = this.friendRequestRepository
+        final List<FriendRequest> l3 = this.friendRequestRepository
                 .findAllRequestsFor(friendRequest.getReceiver());
 
         boolean ok = true;

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
+ * Statistics controller class.
  * @author OOPP server team.
+ *
  */
 @RestController
 public class StatisticsController {

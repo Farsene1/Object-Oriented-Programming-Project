@@ -1,13 +1,22 @@
 package client;
 
+import classes.Controller;
+import classes.Friend;
+import classes.FriendRequest;
+import classes.RestfulClient;
+import classes.User;
+import classes.UserBadge;
 
-import classes.*;
-import css.Css;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -27,6 +36,7 @@ public class Friends {
      * Variables.
      */
     static TableView friendsTable = new TableView();
+
     /**
      * Show options for friends method.
      *
@@ -35,7 +45,10 @@ public class Friends {
      * @param user   user parameter
      * @param window window parameter
      */
-    public static void showOptions(final GridPane grid, final Scene scene, final User user, final Stage window) {
+    public static void showOptions(final GridPane grid,
+                                   final Scene scene,
+                                   final User user,
+                                   final Stage window) {
 
         String icon = UserBadge.iconChoice(user);
 
@@ -47,11 +60,11 @@ public class Friends {
         Label friendsL = new Label("My Friends");
         TextField searchField = new TextField();
         Label findfriendsLabel = new Label("ADD FRIENDS");
-        VBox results= new VBox();
-        VBox pending= new VBox();
-        VBox friendsVbox = new VBox(friendsL, friendsTable);
-        VBox findfriendsVbox = new VBox(findfriendsLabel,searchField, results);
-        addFriendRequests(user,pending);
+        VBox results = new VBox();
+        VBox pending = new VBox();
+        final VBox friendsVbox = new VBox(friendsL, friendsTable);
+        final VBox findfriendsVbox = new VBox(findfriendsLabel, searchField, results);
+        addFriendRequests(user, pending);
 
         searchField.setPromptText("Search to Follow");
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -75,10 +88,10 @@ public class Friends {
         col3.setMinWidth(125);
         col3.setMaxWidth(125);
 
-        HBox ROW1 = new HBox();
-        ROW1.getChildren().addAll(friendsVbox,findfriendsVbox, pending);
-        ROW1.setAlignment(Pos.CENTER);
-        grid.getChildren().addAll(ROW1);
+        HBox row1 = new HBox();
+        row1.getChildren().addAll(friendsVbox, findfriendsVbox, pending);
+        row1.setAlignment(Pos.CENTER);
+        grid.getChildren().addAll(row1);
 
         friendsTable.setItems(addFriend(user));
         friendsL.setFont(Font.font("Amble CN", FontWeight.BOLD, 35));
@@ -115,44 +128,55 @@ public class Friends {
      * Returns a list of friend requests.
      *
      * @param user parameter
-     * @return a list of requests.
      */
     public static void addFriendRequests(final User user, VBox pending) {
         List<FriendRequest> friendRequestList = new Controller().getAllRequests(user);
         pending.getChildren().clear();
         for (FriendRequest a : friendRequestList) {
-            HBox row= new HBox();
-            Label sender= new Label(a.getSender());
-            Button accept= new Button("Accept");
+            HBox row = new HBox();
+            Label sender = new Label(a.getSender());
+            Button accept = new Button("Accept");
             Button reject = new Button("Reject");
-            accept.setOnAction(e->{
+            accept.setOnAction(e -> {
                 new Controller().sayYes(a);
                 friendsTable.setItems(addFriend(user));
                 addFriendRequests(user, pending);
             });
-            reject.setOnAction(e->{
+            reject.setOnAction(e -> {
                 new Controller().sayNo(a);
                 friendsTable.setItems(addFriend(user));
                 addFriendRequests(user, pending);
             });
-            row.getChildren().addAll(sender,accept,reject);
+            row.getChildren().addAll(sender, accept, reject);
             row.setSpacing(20);
             pending.getChildren().add(row);
         }
     }
 
-    public static void getResults(User user, String search, VBox resultsbox, TextField searchfield) {
-        if (search.length()>=1) {
-            List<String> Results = new RestfulClient().findUsersByRegex(search, user.getUsername());
+    /**
+     * Get results for user.
+     *
+     * @param user        user parameter.
+     * @param search      search parameter.
+     * @param resultsbox  resultsbox parameter.
+     * @param searchfield search field parameter.
+     */
+    public static void getResults(User user,
+                                  String search,
+                                  VBox resultsbox,
+                                  TextField searchfield) {
+        if (search.length() >= 1) {
+            List<String> results = new RestfulClient().findUsersByRegex(search, user.getUsername());
             // new RestfulClient().findUsersByRegex(search, user.getUsername());
             resultsbox.getChildren().clear();
-            for (String a : Results) {
-                if(!a.equals(user.getUsername())) {
+            for (String a : results) {
+                if (!a.equals(user.getUsername())) {
                     HBox row = new HBox();
                     Label username = new Label(a);
                     Button add = new Button("ADD");
                     add.setOnAction(e -> {
-                        classes.FriendRequest friendRequest = new classes.FriendRequest(user.getUsername(), a);
+                        classes.FriendRequest friendRequest = new classes.FriendRequest(
+                                user.getUsername(), a);
                         new RestfulClient().sendFriendRequest(friendRequest);
                         searchfield.clear();
                     });
@@ -161,8 +185,7 @@ public class Friends {
                     resultsbox.getChildren().add(row);
                 }
             }
-        }
-        else {
+        } else {
             resultsbox.getChildren().clear();
         }
     }
