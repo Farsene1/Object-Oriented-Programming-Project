@@ -146,8 +146,7 @@ public class UserController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public User greeting(@RequestParam(value = "username",
             defaultValue = "anonymous") final String username,
-                         @RequestParam(value = "hash", defaultValue = "0")
-                         final String hash) {
+                         @RequestParam(value = "hash", defaultValue = "0") final String hash) {
         String info = String.format(
                 "/GET REQUEST info: username=%s, hash=%s", username, hash);
         System.out.println(info);
@@ -182,16 +181,16 @@ public class UserController {
      * @return list.
      */
     @RequestMapping(value = "/regex2", method = RequestMethod.POST)
-    public List<String> getUsernamesLike2(@RequestBody final String regex,
-                                          @RequestParam(value = "username",
-                                                  defaultValue = "anonymous")
-                                          final String username) {
+    public List<String> getUsernamesLike2(
+            @RequestBody final String regex,
+            @RequestParam(
+                    value = "username", defaultValue = "anonymous") final String username) {
         List<String> all = this.userRepository.findByRegex(regex);
         List<String> l1 = this.friendshipRepository
                 .getAllFriends(username);
 
-        for(String s : l1){
-            if(all.contains(s)){
+        for (String s : l1) {
+            if (all.contains(s)) {
                 all.remove(s);
             }
         }
@@ -199,8 +198,8 @@ public class UserController {
         List<FriendRequest> l2 = this.friendRequestRepository
                 .findAllRequestsFor(username);
 
-        for(FriendRequest f : l2){
-            if(all.contains(f.getSender())){
+        for (FriendRequest f : l2) {
+            if (all.contains(f.getSender())) {
                 all.remove(f.getSender());
             }
         }
@@ -208,8 +207,8 @@ public class UserController {
         List<FriendRequest> l3 = this.friendRequestRepository
                 .findAllRequestsSentBy(username);
 
-        for(FriendRequest f : l3){
-            if(all.contains(f.getReceiver())){
+        for (FriendRequest f : l3) {
+            if (all.contains(f.getReceiver())) {
                 all.remove(f.getReceiver());
             }
         }

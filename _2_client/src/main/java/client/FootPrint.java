@@ -24,10 +24,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
-import jfxtras.styles.jmetro8.JMetro;
+
 
 /**
  * FootPrint class.

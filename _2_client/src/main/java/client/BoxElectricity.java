@@ -1,6 +1,5 @@
 package client;
 
-import client.Calculator;
 import classes.Activity;
 import classes.Controller;
 import classes.Electricity;
@@ -31,9 +30,9 @@ public class BoxElectricity extends Calculator {
     /**
      * Method to add usage.
      *
-     * @param title title parameter.
+     * @param title   title parameter.
      * @param message message parameter.
-     * @param user user parameter.
+     * @param user    user parameter.
      */
     public static void addUsage(String title, String message, classes.User user) {
         Stage window = new Stage();
@@ -50,13 +49,13 @@ public class BoxElectricity extends Calculator {
         Label gap = new Label();
         String hinttext =
                 "Bro, if you're not using solar energy, consider lowering the temp of your home.";
-        Label hint = new Label(hinttext);
+        final Label hint = new Label(hinttext);
         gap.setVisible(false);
         errorlabel.setVisible(false);
         errorlabel.setStyle(
                 "-fx-text-fill: red;");
 
-        CheckBox solarbox = new CheckBox("Solar energy");
+        final CheckBox solarbox = new CheckBox("Solar energy");
         JFXTextField lightfield = new JFXTextField();
         lightfield.setLabelFloat(true);
         lightfield.setPromptText("Add your kWh of light/electricity usage");
@@ -173,7 +172,7 @@ public class BoxElectricity extends Calculator {
             }
             if (light_kWh != 0) {
                 if (heat_kWh != 0) {
-                    Electricity electricity = new Electricity(heat_kWh, light_kWh, solar);
+                    final Electricity electricity = new Electricity(heat_kWh, light_kWh, solar);
                     lightscore = lightscoreCalc(light_kWh, solar);
                     htScore = htScoreCalc(heat_kWh);
                     score = lightscore + htScore;

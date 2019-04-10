@@ -108,8 +108,8 @@ public class Css {
                         + "-fx-font-size: 42; "
                         + "-fx-border-radius: 100;"
                         + "-fx-border-color: #52e5d6; "
-                        + "-fx-border-width: 5px;" +
-                        "-fx-text-fill: white")
+                        + "-fx-border-width: 5px;"
+                        + "-fx-text-fill: white")
                 .otherwise("-fx-background-color: #87c9ff; "
                         + "-fx-background-radius: 100; "
                         + "-fx-font-size: 42; "

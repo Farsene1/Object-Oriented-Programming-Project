@@ -103,7 +103,10 @@ public class BoxTransport extends Calculator {
 
     }
 
-    private static void submit(JFXComboBox<String> dropdown, JFXTextField distanceT, User user, Stage window, Label errorlabel) {
+    private static void submit(JFXComboBox<String> dropdown,
+                               JFXTextField distanceT,
+                               User user, Stage window,
+                               Label errorlabel) {
         try {
             LocalDateTime mydateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");

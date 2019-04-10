@@ -68,7 +68,7 @@ public class Home {
         //  GridPane.setConstraints(homeLabel,5,5);
         final Label usernamelabel = new Label(user.getUsername().toUpperCase());
 
-        HBox statusbar = new HBox();
+        final HBox statusbar = new HBox();
         final Label polarText = new Label("Polar Score:");
         Label polarScore = new Label();
         polarScore.setText(user.getPolarScore().toString());
