@@ -19,7 +19,9 @@ git clone git@gitlab.ewi.tudelft.nl:cse1105/2018-2019/oopp-group-3/template.git
 ```bash
 mvn clean install -U
 ```
-After typing this in the bash, simply run the program through the **client package**.
+After typing this in the bash, simply run the program through running main in the **client package**.
+
+Or you can download the project through clicking on the download link of [this page](https://imnublet.github.io/Polar/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
