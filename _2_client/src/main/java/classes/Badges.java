@@ -24,10 +24,7 @@ public class Badges {
         /**
          * Defaults to unlock polar badge 1 automatically.
          */
-
-        if (polarTotal <= 10000) {
-            unlock = 1;
-        }
+        unlock = 1;
         if (polarTotal >= 20000) {
             unlock = 2;
         }
@@ -72,9 +69,7 @@ public class Badges {
         /**
          * Defaults to unlock food badge 1 automatically.
          */
-        if (foodTotal <= 100) {
-            unlock = 1;
-        }
+        unlock = 1;
         if (foodTotal >= 200) {
             unlock = 2;
         }
@@ -119,9 +114,7 @@ public class Badges {
         /**
          * Defaults to unlock transport badge 1 automatically.
          */
-        if (transportTotal <= 1000) {
-            unlock = 1;
-        }
+        unlock = 1;
         if (transportTotal >= 2000) {
             unlock = 2;
         }
@@ -167,9 +160,7 @@ public class Badges {
         /**
          * Defaults to unlock electricity badge 1 automatically.
          */
-        if (electricityTotal <= 10000) {
-            unlock = 1;
-        }
+        unlock = 1;
         if (electricityTotal >= 20000) {
             unlock = 2;
         }
