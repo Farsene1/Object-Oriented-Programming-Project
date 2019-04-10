@@ -4,6 +4,7 @@ import classes.Activity;
 
 import classes.Controller;
 import classes.Transport;
+import classes.User;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.scene.Scene;
@@ -78,44 +79,12 @@ public class BoxTransport extends Calculator {
 
 
         submitButton.setOnAction(e -> {
-            try {
-                LocalDateTime mydateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                date = mydateObj.format(myFormatObj);
-                vehicle = dropdown.getValue();
-                distance = Double.parseDouble(distanceT.getText());
-                Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
-                score = transportCalc(vehicle, distance);
-                transport.setScore(score);
-
-
-                new Controller().sendTransport(user, score);
-                // add a meal in the database.
-                Activity activity = new Activity(
-                        user.getUsername(), 2,
-                        transport.getType() + ":" + transport.getDistance() + " KM",
-                        transport.getScore(), date);
-                List<Activity> list = new Controller().sendFood(activity);
-                System.out.println("\n The items are" + list.toString());
-                window.close();
-            } catch (NumberFormatException N) {
-                distanceT.clear();
-                errorlabel.setVisible(true);
-            }
-        });
-        /**
-         * Hint label projections.
-         */
-        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            if (newValue.equals("Car")) {
-                layout.getChildren().removeAll(submitButton);
-                layout.getChildren().addAll(hint, submitButton);
-            } else {
-                layout.getChildren().removeAll(hint, submitButton);
-                layout.getChildren().addAll(submitButton);
-            }
+            submit(dropdown, distanceT, user, window, errorlabel);
         });
 
+        distanceT.setOnAction(e -> {
+            submit(dropdown, distanceT, user, window, errorlabel);
+        });
 
         layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
@@ -132,5 +101,32 @@ public class BoxTransport extends Calculator {
         window.setScene(scene);
         window.showAndWait();
 
+    }
+
+    private static void submit(JFXComboBox<String> dropdown, JFXTextField distanceT, User user, Stage window, Label errorlabel) {
+        try {
+            LocalDateTime mydateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            date = mydateObj.format(myFormatObj);
+            vehicle = dropdown.getValue();
+            distance = Double.parseDouble(distanceT.getText());
+            Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
+            score = transportCalc(vehicle, distance);
+            transport.setScore(score);
+
+
+            new Controller().sendTransport(user, score);
+            // add a meal in the database.
+            Activity activity = new Activity(
+                    user.getUsername(), 2,
+                    transport.getType() + ":" + transport.getDistance() + " KM",
+                    transport.getScore(), date);
+            List<Activity> list = new Controller().sendFood(activity);
+            System.out.println("\n The items are" + list.toString());
+            window.close();
+        } catch (NumberFormatException N) {
+            distanceT.clear();
+            errorlabel.setVisible(true);
+        }
     }
 }
