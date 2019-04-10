@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Box food class.
  */
-public class BoxFood {
+public class BoxFood extends Calculator {
 
     /**
      * Initializes string for food added as empty.
@@ -75,12 +75,13 @@ public class BoxFood {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
-                // hardcoded - add 200 points for vegan
-                new Controller().sendMeal(user, 500);
+                // hardcoded - add 500 points for vegan
+                // value for amount is negative footprint of average meat meal with a 4x bonus
+                new Controller().sendMeal(user, meatScoreCalc(120) * -4);
                 // add a meal in the database
                 List<Activity> list = new Controller().sendFood(
                         new Activity(user.getUsername(), 1, "Vegan meal",
-                                500, date));
+                                meatScoreCalc(120) * -4, date));
                 System.out.println("\n The items are" + list.toString());
                 window.close();
             }
@@ -89,11 +90,12 @@ public class BoxFood {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 400);
+                // value for amount is negative footprint of average meat meal with a 2x bonus
+                new Controller().sendMeal(user, meatScoreCalc(120) * -2);
                 // add a meal in the database
                 List<Activity> list = new Controller().sendFood(
                         new Activity(user.getUsername(), 1, "Vegetarian meal",
-                                400, date));
+                                meatScoreCalc(120) * -2, date));
                 window.close();
             }
             if (foodAdded.equals("Meal with meat")) {
@@ -102,11 +104,12 @@ public class BoxFood {
                 String date = myDateObj.format(myFormatObj);
                 try {
                     int grams = Integer.parseInt(meatgrams.getText());
-                    new Controller().sendMeal(user, grams * -1);
+                    int meatScore = meatScoreCalc(grams);
+                    new Controller().sendMeal(user, meatScore);
                     // add a meal in the database
                     List<Activity> list = new Controller().sendFood(new Activity(
                             user.getUsername(), 1, "Meat (" + grams + " grams)",
-                            grams * -1, date));
+                            meatScore, date));
                     window.close();
                 } catch (NumberFormatException nfe) {
                     layout.getChildren().removeAll(submitButton);

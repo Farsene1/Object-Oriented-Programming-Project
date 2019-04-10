@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Box transport class.
  */
-public class BoxTransport {
+public class BoxTransport extends Calculator {
     /**
      * Variables.
      */
@@ -85,7 +85,7 @@ public class BoxTransport {
                 vehicle = dropdown.getValue();
                 distance = Double.parseDouble(distanceT.getText());
                 Transport transport = new Transport(user.getUsername(), vehicle, distance, 0, date);
-                score = transport.calculator(vehicle, distance);
+                score = transportCalc(vehicle, distance);
                 transport.setScore(score);
 
 

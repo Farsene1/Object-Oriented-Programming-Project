@@ -140,24 +140,5 @@ public class Transport {
      * @param distance distance parameter
      * @return returns a score.
      */
-    public int calculator(final String type, final double distance) {
-        int score = 0;
-        if (type.equals("Train")) {
-            score = (int) Math.round(10 * distance);
-        }
-        if (type.equals("Car")) {
-            score = (int) Math.round(-25 * distance);
-        }
-        if (type.equals("Bicycle")) {
-            score = (int) Math.round(150 * distance);
-        }
-        if (type.equals("Airplane")) {
-            score = (int) Math.round(-30 * distance);
-        }
-        if (type.equals("Walking")) {
-            score = (int) Math.round(200 * distance);
-        }
-        return score;
-    }
 
 }
