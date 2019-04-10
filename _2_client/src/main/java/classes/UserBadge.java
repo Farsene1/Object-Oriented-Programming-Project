@@ -28,6 +28,9 @@ public class UserBadge {
          * on users choice from available badges.
          */
         switch (number) {
+            case 0:
+                icon = "https://i.ibb.co/zFhWtRc/David400.png";
+                break;
             case 1:
                 icon = "https://i.ibb.co/THM6prg/polar1.png";
                 break;
@@ -173,6 +176,9 @@ public class UserBadge {
          * on users choice from available badges.
          */
         switch (number) {
+            case 0:
+                icon = "https://i.ibb.co/p0gQgGN/david.png";
+                break;
             case 1:
                 icon = "https://i.ibb.co/Sn20yTR/polar1.png";
                 break;
