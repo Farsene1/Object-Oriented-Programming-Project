@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Box food class.
  */
-public class BoxFood {
+public class BoxFood extends Calculator {
 
     /**
      * Initializes string for food added as empty.
@@ -67,86 +67,23 @@ public class BoxFood {
 
         Button submitButton = new Button("Submit meal!");
 
-        submitButton.setOnAction(e -> {
-            foodAdded = dropdown.getValue();
-
-            if (foodAdded.equals("Vegan meal") ) {
-                foodAdded = "vegan";
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                // hardcoded - add 200 points for vegan
-                new Controller().sendMeal(user, 500);
-                // add a meal in the database
-                List<Activity> list = new Controller().sendFood(
-                        new Activity(user.getUsername(), 1, "Vegan meal",
-                                500, date));
-                System.out.println("\n The items are" + list.toString());
-                window.close();
-            }
-            if (foodAdded.equals("Vegetarian meal")) {
-                foodAdded = "vegetarian";
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 400);
-                // add a meal in the database
-                List<Activity> list = new Controller().sendFood(
-                        new Activity(user.getUsername(), 1, "Vegetarian meal",
-                                400, date));
-                window.close();
-            }
-            if (foodAdded.equals("Meal with meat")) {
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                try {
-                    int grams = Integer.parseInt(meatgrams.getText());
-                    new Controller().sendMeal(user, grams * -1);
-                    // add a meal in the database
-                    List<Activity> list = new Controller().sendFood(new Activity(
-                            user.getUsername(), 1, "Meat (" + grams + " grams)",
-                            grams * -1, date));
-                    window.close();
-                } catch (NumberFormatException nfe) {
-                    layout.getChildren().removeAll(submitButton);
-                    layout.getChildren().addAll(errorlabel, submitButton);
-                }
-            }
-            if (foodAdded.equals("Imported Groceries")) {
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, -150);
-                // add a meal in the database
-                List<Activity> list = new Controller().sendFood(
-                        new Activity(user.getUsername(), 1, "Imported produce",
-                        -150, date));
-                window.close();
-            }
-            if (foodAdded.equals("Local Groceries")) {
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                String date = myDateObj.format(myFormatObj);
-                new Controller().sendMeal(user, 300);
-                // add a meal in the database
-                List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 1,
-                        "Local produce", 300, date));
-
-                window.close();
-            }
+        meatgrams.setOnAction(e -> {
+            submit(dropdown, user, window, meatgrams, layout, submitButton, errorlabel);
         });
 
+        submitButton.setOnAction(e -> {
+            submit(dropdown, user, window, meatgrams, layout, submitButton, errorlabel);
+        });
 
         dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             if (newValue.equals("Meal with meat")) {
-                layout.getChildren().removeAll(submitButton);
-                layout.getChildren().addAll(meatgrams, submitButton);
-                meatgrams.clear();
-            }
-            if (!newValue.equals("Meal with meat")) {
-                layout.getChildren().removeAll(errorlabel, meatgrams, submitButton);
-                layout.getChildren().addAll(submitButton);
+                /*layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(meatgrams, submitButton);*/
+                meatgrams.setVisible(true);
+            } else {
+                /*layout.getChildren().removeAll(meatgrams, submitButton);
+                layout.getChildren().addAll(submitButton);*/
+                meatgrams.setVisible(false);
             }
         });
 
@@ -160,11 +97,86 @@ public class BoxFood {
                 + "-fx-border-radius: 2");
         layout.setStyle(" -fx-padding: 10px;-fx-alignment: top-center");
         //Add buttons
-        layout.getChildren().setAll(label, dropdown, submitButton);
+        layout.getChildren().setAll(label, dropdown, meatgrams, submitButton);
+        meatgrams.setVisible(false);
         Scene scene = new Scene(layout);
 
         window.setScene(scene);
         window.showAndWait();
+    }
+
+    private static void submit(JFXComboBox<String> dropdown, User user, Stage window, JFXTextField meatgrams, VBox layout, Button submitButton, Label errorlabel) {
+
+        foodAdded = dropdown.getValue();
+
+        if (foodAdded.equals("Vegan meal") ) {
+            foodAdded = "vegan";
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String date = myDateObj.format(myFormatObj);
+            // hardcoded - add 500 points for vegan
+            // value for amount is negative footprint of average meat meal with a 4x bonus
+            new Controller().sendMeal(user, meatScoreCalc(120) * -4);
+            // add a meal in the database
+            List<Activity> list = new Controller().sendFood(
+                    new Activity(user.getUsername(), 1, "Vegan meal",
+                            meatScoreCalc(120) * -4, date));
+            System.out.println("\n The items are" + list.toString());
+            window.close();
+        }
+        if (foodAdded.equals("Vegetarian meal")) {
+            foodAdded = "vegetarian";
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String date = myDateObj.format(myFormatObj);
+            // value for amount is negative footprint of average meat meal with a 2x bonus
+            new Controller().sendMeal(user, meatScoreCalc(120) * -2);
+            // add a meal in the database
+            List<Activity> list = new Controller().sendFood(
+                    new Activity(user.getUsername(), 1, "Vegetarian meal",
+                            meatScoreCalc(120) * -2, date));
+            window.close();
+        }
+        if (foodAdded.equals("Meal with meat")) {
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String date = myDateObj.format(myFormatObj);
+            try {
+                int grams = Integer.parseInt(meatgrams.getText());
+                int meatScore = meatScoreCalc(grams);
+                new Controller().sendMeal(user, meatScore);
+                // add a meal in the database
+                List<Activity> list = new Controller().sendFood(new Activity(
+                        user.getUsername(), 1, "Meat (" + grams + " grams)",
+                        meatScore, date));
+                window.close();
+            } catch (NumberFormatException nfe) {
+                layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(errorlabel, submitButton);
+            }
+        }
+        if (foodAdded.equals("Imported Groceries")) {
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String date = myDateObj.format(myFormatObj);
+            new Controller().sendMeal(user, -150);
+            // add a meal in the database
+            List<Activity> list = new Controller().sendFood(
+                    new Activity(user.getUsername(), 1, "Imported produce",
+                            -150, date));
+            window.close();
+        }
+        if (foodAdded.equals("Local Groceries")) {
+            LocalDateTime myDateObj = LocalDateTime.now();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String date = myDateObj.format(myFormatObj);
+            new Controller().sendMeal(user, 300);
+            // add a meal in the database
+            List<Activity> list = new Controller().sendFood(new Activity(user.getUsername(), 1,
+                    "Local produce", 300, date));
+
+            window.close();
+        }
     }
 
 }

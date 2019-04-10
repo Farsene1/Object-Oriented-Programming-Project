@@ -13,7 +13,7 @@ public class ElectricityTest {
     }
 
     @Test
-    public void setHeat_hrs() {
+    public void setheat_kWh() {
         Electricity electricity = new Electricity(1,2,true);
         electricity.setheatHours(3);
         assertEquals(3, electricity.getheatHours());

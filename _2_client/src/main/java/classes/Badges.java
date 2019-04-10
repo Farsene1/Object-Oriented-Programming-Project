@@ -71,34 +71,34 @@ public class Badges {
         /**
          * Defaults to unlock food badge 1 automatically.
          */
-        if (foodTotal <= 1000) {
+        if (foodTotal <= 100) {
             unlock = 1;
         }
-        if (foodTotal >= 2000) {
+        if (foodTotal >= 200) {
             unlock = 2;
         }
-        if (foodTotal >= 3000) {
+        if (foodTotal >= 300) {
             unlock = 3;
         }
-        if (foodTotal >= 4000) {
+        if (foodTotal >= 400) {
             unlock = 4;
         }
-        if (foodTotal >= 5000) {
+        if (foodTotal >= 500) {
             unlock = 5;
         }
-        if (foodTotal >= 6000) {
+        if (foodTotal >= 600) {
             unlock = 6;
         }
-        if (foodTotal >= 7000) {
+        if (foodTotal >= 700) {
             unlock = 7;
         }
-        if (foodTotal >= 8000) {
+        if (foodTotal >= 800) {
             unlock = 8;
         }
-        if (foodTotal >= 9000) {
+        if (foodTotal >= 900) {
             unlock = 9;
         }
-        if (foodTotal >= 10000) {
+        if (foodTotal >= 1000) {
             unlock = 10;
         }
         return unlock;
@@ -166,34 +166,34 @@ public class Badges {
         /**
          * Defaults to unlock electricity badge 1 automatically.
          */
-        if (electricityTotal <= 1000) {
+        if (electricityTotal <= 10000) {
             unlock = 1;
         }
-        if (electricityTotal >= 2000) {
+        if (electricityTotal >= 20000) {
             unlock = 2;
         }
-        if (electricityTotal >= 3000) {
+        if (electricityTotal >= 30000) {
             unlock = 3;
         }
-        if (electricityTotal >= 4000) {
+        if (electricityTotal >= 40000) {
             unlock = 4;
         }
-        if (electricityTotal >= 5000) {
+        if (electricityTotal >= 50000) {
             unlock = 5;
         }
-        if (electricityTotal >= 6000) {
+        if (electricityTotal >= 60000) {
             unlock = 6;
         }
-        if (electricityTotal >= 7000) {
+        if (electricityTotal >= 70000) {
             unlock = 7;
         }
-        if (electricityTotal >= 8000) {
+        if (electricityTotal >= 80000) {
             unlock = 8;
         }
-        if (electricityTotal >= 9000) {
+        if (electricityTotal >= 90000) {
             unlock = 9;
         }
-        if (electricityTotal >= 10000) {
+        if (electricityTotal >= 100000) {
             unlock = 10;
         }
         return unlock;

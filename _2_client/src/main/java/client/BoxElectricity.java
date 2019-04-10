@@ -1,5 +1,6 @@
 package client;
 
+import client.Calculator;
 import classes.Activity;
 import classes.Controller;
 import classes.Electricity;
@@ -18,10 +19,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class BoxElectricity {
+public class BoxElectricity extends Calculator {
     static Boolean solar;
-    static int light_hrs;
-    static int heat_hrs;
+    static int light_kWh;
+    static int heat_kWh;
     static int lightscore;
     static int htScore;
     static String date;
@@ -58,11 +59,11 @@ public class BoxElectricity {
         CheckBox solarbox = new CheckBox("Solar energy");
         JFXTextField lightfield = new JFXTextField();
         lightfield.setLabelFloat(true);
-        lightfield.setPromptText("Add your hours of light usage");
+        lightfield.setPromptText("Add your kWh of light/electricity usage");
         lightfield.setMaxWidth(300);
         JFXTextField heatfield = new JFXTextField();
         heatfield.setLabelFloat(true);
-        heatfield.setPromptText("Add your hours of heating usage");
+        heatfield.setPromptText("Add your kWh of heating usage");
         heatfield.setMaxWidth(300);
 
         lightfield.setOnAction(e -> {
@@ -161,27 +162,21 @@ public class BoxElectricity {
             date = mydateObj.format(myFormatObj);
             solar = solarbox.isSelected();
             if (lightfield.getText() == null || lightfield.getText().trim().isEmpty()) {
-                light_hrs = 0;
+                light_kWh = 0;
             } else {
-                light_hrs = Integer.parseInt(lightfield.getText());
+                light_kWh = Integer.parseInt(lightfield.getText());
             }
             if (heatfield.getText() == null || heatfield.getText().trim().isEmpty()) {
-                heat_hrs = 0;
+                heat_kWh = 0;
             } else {
-                heat_hrs = Integer.parseInt(heatfield.getText());
+                heat_kWh = Integer.parseInt(heatfield.getText());
             }
-            if (light_hrs != 0) {
-                if (heat_hrs != 0) {
-                    Electricity electricity = new Electricity(heat_hrs, light_hrs, solar);
-                    if (solar) {
-                        score = 50 * light_hrs + -300 * heat_hrs;
-                        lightscore = 50 * light_hrs;
-                        htScore = -300 * heat_hrs;
-                    } else {
-                        score = -50 * light_hrs + -300 * heat_hrs;
-                        lightscore = -50 * light_hrs;
-                        htScore = -300 * heat_hrs;
-                    }
+            if (light_kWh != 0) {
+                if (heat_kWh != 0) {
+                    Electricity electricity = new Electricity(heat_kWh, light_kWh, solar);
+                    lightscore = lightscoreCalc(light_kWh, solar);
+                    htScore = htScoreCalc(heat_kWh);
+                    score = lightscore + htScore;
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
                     // add electricity in the database
@@ -189,7 +184,7 @@ public class BoxElectricity {
                             new Activity(
                                     user.getUsername(),
                                     3,
-                                    "Lights usage: " + light_hrs + " Hours",
+                                    "Lights/electricity usage: " + light_kWh + " kWh",
                                     lightscore,
                                     date));
                     System.out.println("\n The items are" + list.toString());
@@ -197,20 +192,15 @@ public class BoxElectricity {
                             new Activity(
                                     user.getUsername(),
                                     3,
-                                    "Heat usage: " + heat_hrs + " Hours",
+                                    "Heat usage: " + heat_kWh + " kWh",
                                     htScore,
                                     date));
                     System.out.println("\n The items are" + list.toString());
                     window.close();
                 } else {
-                    Electricity electricity = new Electricity(0, light_hrs, solar);
-                    if (solar) {
-                        score = 50 * light_hrs;
-                        lightscore = 50 * light_hrs;
-                    } else {
-                        score = -50 * light_hrs;
-                        lightscore = -50 * light_hrs;
-                    }
+                    Electricity electricity = new Electricity(0, light_kWh, solar);
+                    lightscore = lightscoreCalc(light_kWh, solar);
+                    score = lightscore;
                     electricity.setScore(score);
                     new Controller().sendElectricity(user, score);
                     // add electricity in the database
@@ -218,16 +208,16 @@ public class BoxElectricity {
                             new Activity(
                                     user.getUsername(),
                                     3,
-                                    "Lights usage: " + light_hrs + " Hours",
+                                    "Lights/electricity usage: " + light_kWh + " kWh",
                                     lightscore,
                                     date));
                     System.out.println("\n The items are" + list.toString());
                     window.close();
                 }
             } else {
-                Electricity electricity = new Electricity(heat_hrs, 0, solar);
-                score = -300 * heat_hrs;
-                htScore = -300 * heat_hrs;
+                Electricity electricity = new Electricity(heat_kWh, 0, solar);
+                htScore = htScoreCalc(heat_kWh);
+                score = htScore;
                 electricity.setScore(score);
                 new Controller().sendElectricity(user, score);
                 // add electricity in the database
@@ -235,7 +225,7 @@ public class BoxElectricity {
                         new Activity(
                                 user.getUsername(),
                                 3,
-                                "Heat usage: " + heat_hrs + " Hours",
+                                "Heat usage: " + heat_kWh + " Hours",
                                 htScore,
                                 date));
                 System.out.println("\n The items are" + list.toString());
