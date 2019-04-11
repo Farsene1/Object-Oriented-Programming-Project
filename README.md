@@ -13,15 +13,38 @@ Polar is a Java application to make the you and your friends more aware of their
 
 ## Installation
 
+There are 2 ways of running our program, you can connect to the server on your local machine or you can connect to the one on Heroku.
+
+To open the application without using any IDE, simply download the project through clicking on the download link of [this page](https://imnublet.github.io/Polar/) and run it.
+
+If you want to use Intellij there are several steps:
+
+1. Run the following commands.
+
 ```bash
 git clone git@gitlab.ewi.tudelft.nl:cse1105/2018-2019/oopp-group-3/template.git
 ```
+
 ```bash
 mvn clean install -U
 ```
-After typing this in the bash, simply run the program through running main in the **client package**.
 
-Or you can download the project through clicking on the download link of [this page](https://imnublet.github.io/Polar/)
+2. After running the previous commands, if you still want to connect to Heroku, go directly to the client module, specifically the RestfulClient class from the classes package and replace every instance of "http://localhost:8080/" with "https://poolar.herokuapp.com/" and then simply run the Main class from the client package.
+
+3. If you do not want to use Heroku, after running the previous commands, follow the next steps: 
+
+4. Make sure you have PGADMIN("https://www.pgadmin.org/") installed on your computer and you know the login creadentials. 
+
+5. Open PGADNIN and create a database called "test_gogreen". 
+
+6. Change the application.properties file from the resources directory found in the server module and replace the login credentials.
+
+7. Now, it's time to run the Application class from the server module.
+
+8. And the only thing left now is to run the Main class from the client module.
+
+9. If you experience any issues with the installation or you find any bugs, do not hesitate to contact any of us.
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
