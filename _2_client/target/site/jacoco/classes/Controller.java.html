@@ -55,7 +55,7 @@ public class Controller {
      * Returns a list of activities.
      *
      * @param user paramter user.
-     * @return List&lt;Activity &lt; / Activity&gt;.
+     * @return List of activities.
      */
     public List&lt;Activity&gt; getAllActivities(final User user) {
 <span class="nc" id="L61">        return restfulClient.getAllActivities(user);</span>
@@ -118,39 +118,36 @@ public class Controller {
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return foodfootprint amount of meals eaten.
      */
     public void sendMeal(final User user, final int amount) {
-<span class="nc" id="L124">        user.setFoodScore(amount + user.getFoodScore());</span>
-<span class="nc" id="L125">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L126">        restfulClient.activity(user);</span>
-<span class="nc" id="L127">    }</span>
+<span class="nc" id="L123">        user.setFoodScore(amount + user.getFoodScore());</span>
+<span class="nc" id="L124">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L125">        restfulClient.activity(user);</span>
+<span class="nc" id="L126">    }</span>
 
     /**
      * Sends transport.
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return transportfootprint amount of kilometers driven.
      */
     public void sendTransport(final User user, final int amount) {
-<span class="nc" id="L137">        user.setTransportScore(amount + user.getTransportScore());</span>
-<span class="nc" id="L138">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L139">        restfulClient.activity(user);</span>
-<span class="nc" id="L140">    }</span>
+<span class="nc" id="L135">        user.setTransportScore(amount + user.getTransportScore());</span>
+<span class="nc" id="L136">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L137">        restfulClient.activity(user);</span>
+<span class="nc" id="L138">    }</span>
 
     /**
      * Sends electricity object.
      *
      * @param user   user parameter.
      * @param amount amount parameter.
-     * @return electricity amount of liters of water wasted.
      */
     public void sendElectricity(final User user, final int amount) {
-<span class="nc" id="L150">        user.setElectricityScore(amount + user.getElectricityScore());</span>
-<span class="nc" id="L151">        user.setPolarScore(user.getPolarScore() + amount);</span>
-<span class="nc" id="L152">        restfulClient.activity(user);</span>
-<span class="nc" id="L153">    }</span>
+<span class="nc" id="L147">        user.setElectricityScore(amount + user.getElectricityScore());</span>
+<span class="nc" id="L148">        user.setPolarScore(user.getPolarScore() + amount);</span>
+<span class="nc" id="L149">        restfulClient.activity(user);</span>
+<span class="nc" id="L150">    }</span>
 
     /**
      * Returns a string response.
@@ -159,7 +156,7 @@ public class Controller {
      * @return string.
      */
     public String sayYes(final FriendRequest friendRequest) {
-<span class="nc" id="L162">        return restfulClient.respond(friendRequest);</span>
+<span class="nc" id="L159">        return restfulClient.respond(friendRequest);</span>
     }
 
     /**
@@ -169,7 +166,7 @@ public class Controller {
      * @return string.
      */
     public String sayNo(final FriendRequest friendRequest) {
-<span class="nc" id="L172">        return restfulClient.fakeRespond(friendRequest);</span>
+<span class="nc" id="L169">        return restfulClient.fakeRespond(friendRequest);</span>
     }
 
     /**
@@ -179,7 +176,7 @@ public class Controller {
      * @return returns a list.
      */
     public List&lt;User&gt; getAllFriends(final User user) {
-<span class="nc" id="L182">        return restfulClient.getAllFriends(user);</span>
+<span class="nc" id="L179">        return restfulClient.getAllFriends(user);</span>
     }
 
     /**
@@ -189,7 +186,7 @@ public class Controller {
      * @return list.
      */
     public List&lt;FriendRequest&gt; getAllRequests(User user) {
-<span class="nc" id="L192">        return restfulClient.getAllFriendRequests(user);</span>
+<span class="nc" id="L189">        return restfulClient.getAllFriendRequests(user);</span>
     }
 
     /**
@@ -198,19 +195,19 @@ public class Controller {
      * @return list.
      */
     public List&lt;User&gt; get10Users() {
-<span class="nc" id="L201">        return this.restfulClient.get10Users();</span>
+<span class="nc" id="L198">        return this.restfulClient.get10Users();</span>
     }
 
 
     /**
      * This method checks for a valid email.
      *
-     * @param email
+     * @param email parameter email.
      * @return boolean
      */
     public static boolean checkEmail(final String email) {
-<span class="nc" id="L212">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
-<span class="nc" id="L213">        return emailValid;</span>
+<span class="nc" id="L209">        boolean emailValid = EmailValidator.getInstance().isValid(email);</span>
+<span class="nc" id="L210">        return emailValid;</span>
     }
 
     /**
@@ -219,7 +216,7 @@ public class Controller {
      * @return restfulClient.
      */
     public RestfulClient getRestfulClient() {
-<span class="nc" id="L222">        return restfulClient;</span>
+<span class="nc" id="L219">        return restfulClient;</span>
     }
 
     /**
@@ -228,7 +225,7 @@ public class Controller {
      * @param restfulClient restful parameter.
      */
     public void setRestfulClient(final RestfulClient restfulClient) {
-<span class="nc" id="L231">        this.restfulClient = restfulClient;</span>
-<span class="nc" id="L232">    }</span>
+<span class="nc" id="L228">        this.restfulClient = restfulClient;</span>
+<span class="nc" id="L229">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

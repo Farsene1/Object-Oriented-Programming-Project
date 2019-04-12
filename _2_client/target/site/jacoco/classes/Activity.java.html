@@ -37,7 +37,7 @@ public class Activity {
     private String date;
 
     /**
-     * empty constructor
+     * empty constructor.
      */
 <span class="fc" id="L42">    public Activity() {</span>
 <span class="fc" id="L43">    }</span>
@@ -51,27 +51,34 @@ public class Activity {
      * @param footprint   ftooprint parameter.
      * @param date        date parameter.
      */
-<span class="fc" id="L54">    public Activity(final String username, final Integer category, final String description, final Integer footprint, final String date) {</span>
-<span class="fc" id="L55">        this.username = username;</span>
-<span class="fc" id="L56">        this.category = category;</span>
-<span class="fc" id="L57">        this.description = description;</span>
-<span class="fc" id="L58">        this.footprint = footprint;</span>
-<span class="fc" id="L59">        this.date = date;</span>
-<span class="pc bpc" id="L60" title="1 of 4 branches missed.">        switch (category) {</span>
-            case 1: {
-<span class="fc" id="L62">                this.cat = &quot;Food&quot;;</span>
-<span class="fc" id="L63">                break;</span>
-            }
-            case 2: {
-<span class="fc" id="L66">                this.cat = &quot;Transport&quot;;</span>
+    public Activity(final String username,
+                    final Integer category,
+                    final String description,
+                    final Integer footprint,
+<span class="fc" id="L58">                    final String date) {</span>
+<span class="fc" id="L59">        this.username = username;</span>
+<span class="fc" id="L60">        this.category = category;</span>
+<span class="fc" id="L61">        this.description = description;</span>
+<span class="fc" id="L62">        this.footprint = footprint;</span>
+<span class="fc" id="L63">        this.date = date;</span>
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">        switch (category) {</span>
+            case 1:
+<span class="fc" id="L66">                this.cat = &quot;Food&quot;;</span>
 <span class="fc" id="L67">                break;</span>
-            }
-            case 3: {
-<span class="fc" id="L70">                this.cat = &quot;Electricity&quot;;</span>
-                break;
-            }
+
+            case 2:
+<span class="fc" id="L70">                this.cat = &quot;Transport&quot;;</span>
+<span class="fc" id="L71">                break;</span>
+
+            case 3:
+<span class="fc" id="L74">                this.cat = &quot;Electricity&quot;;</span>
+<span class="fc" id="L75">                break;</span>
+
+            default:
+
+
         }
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L81">    }</span>
 
     /**
      * GETS id.
@@ -79,7 +86,7 @@ public class Activity {
      * @return id
      */
     public Integer getId() {
-<span class="fc" id="L82">        return id;</span>
+<span class="fc" id="L89">        return id;</span>
     }
 
     /**
@@ -88,8 +95,8 @@ public class Activity {
      * @param id id parameter.
      */
     public void setId(final Integer id) {
-<span class="fc" id="L91">        this.id = id;</span>
-<span class="fc" id="L92">    }</span>
+<span class="fc" id="L98">        this.id = id;</span>
+<span class="fc" id="L99">    }</span>
 
     /**
      * Gets username.
@@ -97,7 +104,7 @@ public class Activity {
      * @return username
      */
     public String getUsername() {
-<span class="fc" id="L100">        return username;</span>
+<span class="fc" id="L107">        return username;</span>
     }
 
     /**
@@ -106,8 +113,8 @@ public class Activity {
      * @param username username parameter
      */
     public void setUsername(final String username) {
-<span class="fc" id="L109">        this.username = username;</span>
-<span class="fc" id="L110">    }</span>
+<span class="fc" id="L116">        this.username = username;</span>
+<span class="fc" id="L117">    }</span>
 
     /**
      * Gets category.
@@ -115,7 +122,7 @@ public class Activity {
      * @return category.
      */
     public Integer getCategory() {
-<span class="fc" id="L118">        return category;</span>
+<span class="fc" id="L125">        return category;</span>
     }
 
     /**
@@ -124,22 +131,23 @@ public class Activity {
      * @param category parameter category.
      */
     public void setCategory(final Integer category) {
-<span class="fc" id="L127">        this.category = category;</span>
-<span class="pc bpc" id="L128" title="1 of 4 branches missed.">        switch (category) {</span>
-            case 1: {
-<span class="fc" id="L130">                this.cat = &quot;Food&quot;;</span>
-<span class="fc" id="L131">                break;</span>
-            }
-            case 2: {
-<span class="fc" id="L134">                this.cat = &quot;Transport&quot;;</span>
-<span class="fc" id="L135">                break;</span>
-            }
-            case 3: {
-<span class="fc" id="L138">                this.cat = &quot;Electricity&quot;;</span>
-                break;
-            }
+<span class="fc" id="L134">        this.category = category;</span>
+<span class="pc bpc" id="L135" title="1 of 4 branches missed.">        switch (category) {</span>
+            case 1:
+<span class="fc" id="L137">                this.cat = &quot;Food&quot;;</span>
+<span class="fc" id="L138">                break;</span>
+
+            case 2:
+<span class="fc" id="L141">                this.cat = &quot;Transport&quot;;</span>
+<span class="fc" id="L142">                break;</span>
+
+            case 3:
+<span class="fc" id="L145">                this.cat = &quot;Electricity&quot;;</span>
+<span class="fc" id="L146">                break;</span>
+
+            default:
         }
-<span class="fc" id="L142">    }</span>
+<span class="fc" id="L150">    }</span>
 
     /**
      * get category.
@@ -147,17 +155,17 @@ public class Activity {
      * @return cat
      */
     public String getCat() {
-<span class="fc" id="L150">        return cat;</span>
+<span class="fc" id="L158">        return cat;</span>
     }
 
     /**
-     * Sets cat
+     * Sets cat.
      *
      * @param cat parameter cat
      */
     public void setCat(final String cat) {
-<span class="fc" id="L159">        this.cat = cat;</span>
-<span class="fc" id="L160">    }</span>
+<span class="fc" id="L167">        this.cat = cat;</span>
+<span class="fc" id="L168">    }</span>
 
     /**
      * Gets description.
@@ -165,7 +173,7 @@ public class Activity {
      * @return description
      */
     public String getDescription() {
-<span class="fc" id="L168">        return description;</span>
+<span class="fc" id="L176">        return description;</span>
     }
 
     /**
@@ -174,8 +182,8 @@ public class Activity {
      * @param description description parameter
      */
     public void setDescription(final String description) {
-<span class="fc" id="L177">        this.description = description;</span>
-<span class="fc" id="L178">    }</span>
+<span class="fc" id="L185">        this.description = description;</span>
+<span class="fc" id="L186">    }</span>
 
     /**
      * Gets footprint.
@@ -183,7 +191,7 @@ public class Activity {
      * @return footprint
      */
     public Integer getFootprint() {
-<span class="fc" id="L186">        return footprint;</span>
+<span class="fc" id="L194">        return footprint;</span>
     }
 
     /**
@@ -192,8 +200,8 @@ public class Activity {
      * @param footprint parameter footprint.
      */
     public void setFootprint(final Integer footprint) {
-<span class="fc" id="L195">        this.footprint = footprint;</span>
-<span class="fc" id="L196">    }</span>
+<span class="fc" id="L203">        this.footprint = footprint;</span>
+<span class="fc" id="L204">    }</span>
 
     /**
      * Gets date.
@@ -201,7 +209,7 @@ public class Activity {
      * @return date
      */
     public String getDate() {
-<span class="fc" id="L204">        return date;</span>
+<span class="fc" id="L212">        return date;</span>
     }
 
     /**
@@ -210,8 +218,8 @@ public class Activity {
      * @param date parameter date.
      */
     public void setDate(final String date) {
-<span class="fc" id="L213">        this.date = date;</span>
-<span class="fc" id="L214">    }</span>
+<span class="fc" id="L221">        this.date = date;</span>
+<span class="fc" id="L222">    }</span>
 
     /**
      * Returns the to STRING OF ACTIVITY.
@@ -220,7 +228,7 @@ public class Activity {
      */
     @Override
     public String toString() {
-<span class="fc" id="L223">        return &quot;Activity(&quot;</span>
+<span class="fc" id="L231">        return &quot;Activity(&quot;</span>
                 + &quot;, category='&quot; + cat + '\''
                 + &quot;, description='&quot; + description + '\''
                 + &quot;, carbonFootprint='&quot; + footprint + '\''
