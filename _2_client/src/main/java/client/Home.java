@@ -91,10 +91,10 @@ public class Home {
         });
 
         //My Carbon footprint
-        Button mycarbonButton = new Button("Footprint");
+        Button mycarbonButton = new Button("Polar-print");
         GridPane.setConstraints(mycarbonButton, 0, 1);
         mycarbonButton.setOnAction(e -> {
-            FootPrint.showOptions(centerMenu, user, polarScore, window);
+            PolarPrint.showOptions(centerMenu, user, polarScore, window);
         });
 
         //Statistics Button

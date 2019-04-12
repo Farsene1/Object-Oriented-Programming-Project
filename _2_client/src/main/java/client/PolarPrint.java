@@ -31,9 +31,9 @@ import java.util.List;
 
 
 /**
- * FootPrint class.
+ * PolarPrint class.
  */
-public class FootPrint {
+public class PolarPrint {
 
     /**
      * Initialise table.
@@ -79,7 +79,7 @@ public class FootPrint {
         col1.setCellValueFactory(new PropertyValueFactory<>("cat"));
         TableColumn col2 = new TableColumn("Description");
         col2.setCellValueFactory(new PropertyValueFactory<>("description"));
-        TableColumn col3 = new TableColumn("Footprint");
+        TableColumn col3 = new TableColumn("Polar Score");
         col3.setCellValueFactory(new PropertyValueFactory<>("footprint"));
         TableColumn col4 = new TableColumn("Date");
         col4.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -97,9 +97,9 @@ public class FootPrint {
         /**
          * Footprint type labels.
          */
-        Label foodLabel = new Label("Food Footprint ");
-        Label electricityLabel = new Label("Electricity Footprint");
-        final Label transportLabel = new Label("Transport Footprint");
+        Label foodLabel = new Label("Food Polar-print ");
+        Label electricityLabel = new Label("Electricity Polar-print");
+        final Label transportLabel = new Label("Transport Polar-print");
         foodLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
         foodLabel.setTextFill(Color.web("#0076a3"));
         electricityLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
@@ -107,7 +107,7 @@ public class FootPrint {
         transportLabel.setFont(Font.font("Courier Header", FontWeight.BOLD, 40));
         transportLabel.setTextFill(Color.web("#0076a3"));
         /**
-         * Initialixe Vboxes for footprint types.
+         * Initialixe Vboxes for polarprint types.
          */
         VBox foodOptions = new VBox();
         VBox transportOptions = new VBox();
@@ -119,14 +119,14 @@ public class FootPrint {
         GridPane.setConstraints(footprint, 0, 1);
 
         /**
-         * Button to add food footprints.
+         * Button to add food polar-prints.
          */
         Button food = new Button("+");
         food.setOnAction(e -> {
             try {
                 BoxFood.addMeal(
-                        "Food Footprint",
-                        "Add to your food footprint from the choices below!", user);
+                        "Food Polar-print",
+                        "Add to your food polar-print from the choices below!", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
             } catch (NullPointerException Npe) {
@@ -135,14 +135,14 @@ public class FootPrint {
         });
 
         /**
-         * Button to add transport footprints.
+         * Button to add transport polar-prints.
          */
         Button transport = new Button("+");
         // GridPane.setConstraints(Transport, 5, 1);
         transport.setOnAction(e -> {
             try {
                 BoxTransport.addVehicle(
-                        "Transport Footprint",
+                        "Transport Polar-print",
                         "Select the transport option of your choice", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
@@ -152,14 +152,14 @@ public class FootPrint {
         });
 
         /**
-         * Button to add electricity footprints.
+         * Button to add electricity polar-prints.
          */
         Button electricity = new Button("+");
         //     GridPane.setConstraints(Electricity, 6, 1);
         electricity.setOnAction(e -> {
             try {
                 BoxElectricity.addUsage(
-                        "Electricity Footprint",
+                        "Electricity Polar-print",
                         "Select your electricity usage", user);
                 table.setItems(addItems(user));
                 polarscore.setText(user.getPolarScore().toString());
