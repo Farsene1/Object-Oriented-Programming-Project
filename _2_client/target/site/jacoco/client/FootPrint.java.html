@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FootPrint.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">FootPrint.java</span></div><h1>FootPrint.java</h1><pre class="source lang-java linenums">package client;
 
-import CSS.CSSTable;
 import classes.Activity;
+
 import classes.Controller;
 import classes.User;
 import classes.UserBadge;
+
+import css.Css;
 import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -16,22 +19,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro8.JMetro;
 
 import java.util.List;
 
+
+
 /**
  * FootPrint class.
  */
-<span class="nc" id="L29">public class FootPrint {</span>
+<span class="nc" id="L36">public class FootPrint {</span>
 
     /**
      * Initialise table.
      */
-<span class="nc" id="L34">    static TableView table = new TableView();</span>
+<span class="nc" id="L41">    static TableView table = new TableView();</span>
 
     /**
      * Show options for footprint.
@@ -41,149 +48,152 @@ import java.util.List;
      * @param polarscore polarscore parameter
      * @param window     window parameter
      */
-    public static void showOptions(final GridPane grid, final User user, final Label polarscore, final Stage window) {
+    public static void showOptions(
+            final GridPane grid, final User user, final Label polarscore, final Stage window) {
 
-<span class="nc" id="L46">            new JMetro(JMetro.Style.LIGHT).applyTheme(table);</span>
+<span class="nc" id="L54">        new JMetro(JMetro.Style.LIGHT).applyTheme(table);</span>
 
         /**
          * Gets user specific badge.
          */
-<span class="nc" id="L51">        String icon = UserBadge.iconChoice(user);</span>
+<span class="nc" id="L59">        final String icon = UserBadge.iconChoice(user);</span>
 
         /**
          * Labels / Vbox added and styling.
          */
-<span class="nc" id="L56">        Label myFootprint = new Label(&quot;My Activities!&quot;);</span>
-<span class="nc" id="L57">        myFootprint.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 30));</span>
-<span class="nc" id="L58">        VBox footprint = new VBox(myFootprint, table);</span>
-<span class="nc" id="L59">        footprint.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L60">        footprint.setSpacing(20);</span>
-<span class="nc" id="L61">        footprint.setAlignment(Pos.CENTER);</span>
+<span class="nc" id="L64">        Label myFootprint = new Label(&quot;My Activities!&quot;);</span>
+<span class="nc" id="L65">        myFootprint.setFont(Font.font(&quot;Amble CN&quot;, FontWeight.BOLD, 50));</span>
+<span class="nc" id="L66">        myFootprint.setTextFill(Color.web(&quot;#0076a3&quot;));</span>
+
+<span class="nc" id="L68">        VBox footprint = new VBox(myFootprint, table);</span>
+<span class="nc" id="L69">        footprint.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L70">        footprint.setSpacing(20);</span>
+<span class="nc" id="L71">        footprint.setAlignment(Pos.CENTER);</span>
+
 
         /**
          * Adds columns to footprint table // simple styling.
          */
 
-<span class="nc" id="L67">        TableColumn col1 = new TableColumn(&quot;Category&quot;);</span>
-<span class="nc" id="L68">        col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;cat&quot;));</span>
-<span class="nc" id="L69">        TableColumn col2 = new TableColumn(&quot;Description&quot;);</span>
-<span class="nc" id="L70">        col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;description&quot;));</span>
-<span class="nc" id="L71">        TableColumn col3 = new TableColumn(&quot;Footprint&quot;);</span>
-<span class="nc" id="L72">        col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;footprint&quot;));</span>
-<span class="nc" id="L73">        TableColumn col4 = new TableColumn(&quot;Date&quot;);</span>
-<span class="nc" id="L74">        col4.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;date&quot;));</span>
-<span class="nc" id="L75">        col1.setMinWidth(300);</span>
-<span class="nc" id="L76">        col2.setMinWidth(500);</span>
-<span class="nc" id="L77">        col3.setMinWidth(300);</span>
-<span class="nc" id="L78">        col4.setMinWidth(300);</span>
+<span class="nc" id="L78">        TableColumn col1 = new TableColumn(&quot;Category&quot;);</span>
+<span class="nc" id="L79">        col1.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;cat&quot;));</span>
+<span class="nc" id="L80">        TableColumn col2 = new TableColumn(&quot;Description&quot;);</span>
+<span class="nc" id="L81">        col2.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;description&quot;));</span>
+<span class="nc" id="L82">        TableColumn col3 = new TableColumn(&quot;Footprint&quot;);</span>
+<span class="nc" id="L83">        col3.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;footprint&quot;));</span>
+<span class="nc" id="L84">        TableColumn col4 = new TableColumn(&quot;Date&quot;);</span>
+<span class="nc" id="L85">        col4.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;date&quot;));</span>
+<span class="nc" id="L86">        col1.setMinWidth(300);</span>
+<span class="nc" id="L87">        col2.setMinWidth(500);</span>
+<span class="nc" id="L88">        col3.setMinWidth(300);</span>
+<span class="nc" id="L89">        col4.setMinWidth(300);</span>
 
         /**
          * Add items to table.
          */
-<span class="nc" id="L83">        table.setItems(addItems(user));</span>
-<span class="nc" id="L84">        table.getColumns().setAll(col1, col2, col3, col4);</span>
+<span class="nc" id="L94">        table.setItems(addItems(user));</span>
+<span class="nc" id="L95">        table.getColumns().setAll(col1, col2, col3, col4);</span>
 
         /**
          * Footprint type labels.
          */
-<span class="nc" id="L89">        Label foodLabel = new Label(&quot;Food Footprint &quot;);</span>
-<span class="nc" id="L90">        Label electricityLabel = new Label(&quot;Electricity Footprint&quot;);</span>
-<span class="nc" id="L91">        Label transportLabel = new Label(&quot;Transport Footprint&quot;);</span>
-
+<span class="nc" id="L100">        Label foodLabel = new Label(&quot;Food Footprint &quot;);</span>
+<span class="nc" id="L101">        Label electricityLabel = new Label(&quot;Electricity Footprint&quot;);</span>
+<span class="nc" id="L102">        final Label transportLabel = new Label(&quot;Transport Footprint&quot;);</span>
+<span class="nc" id="L103">        foodLabel.setFont(Font.font(&quot;Courier Header&quot;, FontWeight.BOLD, 40));</span>
+<span class="nc" id="L104">        foodLabel.setTextFill(Color.web(&quot;#0076a3&quot;));</span>
+<span class="nc" id="L105">        electricityLabel.setFont(Font.font(&quot;Courier Header&quot;, FontWeight.BOLD, 40));</span>
+<span class="nc" id="L106">        electricityLabel.setTextFill(Color.web(&quot;#0076a3&quot;));</span>
+<span class="nc" id="L107">        transportLabel.setFont(Font.font(&quot;Courier Header&quot;, FontWeight.BOLD, 40));</span>
+<span class="nc" id="L108">        transportLabel.setTextFill(Color.web(&quot;#0076a3&quot;));</span>
         /**
          * Initialixe Vboxes for footprint types.
          */
-<span class="nc" id="L96">        VBox foodOptions = new VBox();</span>
-<span class="nc" id="L97">        VBox transportOptions = new VBox();</span>
-<span class="nc" id="L98">        VBox electricityOptions = new VBox();</span>
+<span class="nc" id="L112">        VBox foodOptions = new VBox();</span>
+<span class="nc" id="L113">        VBox transportOptions = new VBox();</span>
+<span class="nc" id="L114">        VBox electricityOptions = new VBox();</span>
 
-<span class="nc" id="L100">        foodOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L101">        transportOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-<span class="nc" id="L102">        electricityOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
-        //Footprint.setStyle(&quot;-fx-padding: 15;&quot;);
-<span class="nc" id="L104">        GridPane.setConstraints(footprint, 0, 1);</span>
+<span class="nc" id="L116">        foodOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L117">        transportOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L118">        electricityOptions.setStyle(&quot;-fx-padding: 15;&quot;);</span>
+<span class="nc" id="L119">        GridPane.setConstraints(footprint, 0, 1);</span>
 
         /**
          * Button to add food footprints.
          */
-<span class="nc" id="L109">        Button food = new Button(&quot;+&quot;);</span>
-<span class="nc" id="L110">        food.setOnAction(e -&gt; {</span>
+<span class="nc" id="L124">        Button food = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L125">        food.setOnAction(e -&gt; {</span>
             try {
-<span class="nc" id="L112">                BoxFood.addMeal(&quot;Food Footprint&quot;, &quot;Add to your food footprint from the choices below!&quot;, user);</span>
-<span class="nc" id="L113">                table.setItems(addItems(user));</span>
-<span class="nc" id="L114">                polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L115">            } catch (NullPointerException NPE) {</span>
-
-<span class="nc" id="L117">            }</span>
-<span class="nc" id="L118">        });</span>
+<span class="nc" id="L127">                BoxFood.addMeal(</span>
+                        &quot;Food Footprint&quot;,
+                        &quot;Add to your food footprint from the choices below!&quot;, user);
+<span class="nc" id="L130">                table.setItems(addItems(user));</span>
+<span class="nc" id="L131">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L132">            } catch (NullPointerException Npe) {</span>
+<span class="nc" id="L133">                Npe.printStackTrace();</span>
+<span class="nc" id="L134">            }</span>
+<span class="nc" id="L135">        });</span>
 
         /**
          * Button to add transport footprints.
          */
-<span class="nc" id="L123">        Button transport = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L140">        Button transport = new Button(&quot;+&quot;);</span>
         // GridPane.setConstraints(Transport, 5, 1);
-<span class="nc" id="L125">        transport.setOnAction(e -&gt; {</span>
+<span class="nc" id="L142">        transport.setOnAction(e -&gt; {</span>
             try {
-<span class="nc" id="L127">                BoxTransport.addVehicle(&quot;Transport Footprint&quot;, &quot;Select the transport option of your choice&quot;, user);</span>
-<span class="nc" id="L128">                table.setItems(addItems(user));</span>
-<span class="nc" id="L129">                polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L130">            } catch (NullPointerException NPE) {</span>
-
-<span class="nc" id="L132">            }</span>
-<span class="nc" id="L133">        });</span>
+<span class="nc" id="L144">                BoxTransport.addVehicle(</span>
+                        &quot;Transport Footprint&quot;,
+                        &quot;Select the transport option of your choice&quot;, user);
+<span class="nc" id="L147">                table.setItems(addItems(user));</span>
+<span class="nc" id="L148">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L149">            } catch (NullPointerException Npe) {</span>
+<span class="nc" id="L150">                Npe.printStackTrace();</span>
+<span class="nc" id="L151">            }</span>
+<span class="nc" id="L152">        });</span>
 
         /**
          * Button to add electricity footprints.
          */
-<span class="nc" id="L138">        Button electricity = new Button(&quot;+&quot;);</span>
+<span class="nc" id="L157">        Button electricity = new Button(&quot;+&quot;);</span>
         //     GridPane.setConstraints(Electricity, 6, 1);
-<span class="nc" id="L140">        electricity.setOnAction(e -&gt; {</span>
+<span class="nc" id="L159">        electricity.setOnAction(e -&gt; {</span>
             try {
-<span class="nc" id="L142">                BoxElectricity.addUsage(&quot;Electricity Footprint&quot;, &quot;Select your electricity usage&quot;, user);</span>
-<span class="nc" id="L143">                table.setItems(addItems(user));</span>
-<span class="nc" id="L144">                polarscore.setText(user.getPolarScore().toString());</span>
-<span class="nc" id="L145">            } catch (NullPointerException NPE) {</span>
-
-<span class="nc" id="L147">            }</span>
-<span class="nc" id="L148">        });</span>
-
-        /**
-         * Back button to return to home.
-         */
-<span class="nc" id="L153">        Button backButton = new Button(&quot;Back&quot;);</span>
-<span class="nc" id="L154">        backButton.setOnAction(e -&gt; {</span>
-<span class="nc" id="L155">            System.out.println(&quot;Icon url: &quot; + icon);</span>
-<span class="nc" id="L156">            Home.showHome(window, user);</span>
-<span class="nc" id="L157">        });</span>
-
-<span class="nc" id="L159">        GridPane.setConstraints(backButton, 1, 10);</span>
-
+<span class="nc" id="L161">                BoxElectricity.addUsage(</span>
+                        &quot;Electricity Footprint&quot;,
+                        &quot;Select your electricity usage&quot;, user);
+<span class="nc" id="L164">                table.setItems(addItems(user));</span>
+<span class="nc" id="L165">                polarscore.setText(user.getPolarScore().toString());</span>
+<span class="nc" id="L166">            } catch (NullPointerException Npe) {</span>
+<span class="nc" id="L167">                Npe.printStackTrace();</span>
+<span class="nc" id="L168">            }</span>
+<span class="nc" id="L169">        });</span>
         /**
          * Adding everything to the grid.
          */
-<span class="nc" id="L164">        foodOptions.getChildren().addAll(foodLabel, food);</span>
-<span class="nc" id="L165">        transportOptions.getChildren().addAll(transportLabel, transport);</span>
-<span class="nc" id="L166">        electricityOptions.getChildren().addAll(electricityLabel, electricity);</span>
-<span class="nc" id="L167">        HBox hbox = new HBox();</span>
-<span class="nc" id="L168">        hbox.getChildren().addAll(foodOptions, transportOptions, electricityOptions);</span>
-<span class="nc" id="L169">        GridPane.setConstraints(hbox, 0, 0);</span>
-<span class="nc" id="L170">        grid.getChildren().setAll(hbox, footprint, backButton);</span>
+<span class="nc" id="L173">        foodOptions.getChildren().addAll(foodLabel, food);</span>
+<span class="nc" id="L174">        transportOptions.getChildren().addAll(transportLabel, transport);</span>
+<span class="nc" id="L175">        electricityOptions.getChildren().addAll(electricityLabel, electricity);</span>
+<span class="nc" id="L176">        HBox hbox = new HBox();</span>
+<span class="nc" id="L177">        hbox.getChildren().addAll(foodOptions, transportOptions, electricityOptions);</span>
+<span class="nc" id="L178">        GridPane.setConstraints(hbox, 0, 0);</span>
+<span class="nc" id="L179">        grid.getChildren().setAll(hbox, footprint);</span>
 
         /**
          * Simple styling.
          */
-<span class="nc" id="L175">        food.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L176">        transport.setStyle(&quot;-fx-background-radius: 100; -fx-font-size: 42&quot;);</span>
-        // quitButton.setStyle(&quot;-fx-pref-width: 400;-fx-pref-height: 70;-fx-font-size: 42&quot;);
-<span class="nc" id="L178">        electricity.setStyle(&quot;-fx-background-radius: 100;-fx-font-size: 42&quot;);</span>
-<span class="nc" id="L179">        grid.setMinWidth(1500);</span>
-<span class="nc" id="L180">        table.setMaxHeight(770);</span>
-<span class="nc" id="L181">        table.setMinHeight(770);</span>
-<span class="nc" id="L182">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
-<span class="nc" id="L183">        foodOptions.setMinWidth(476);</span>
-<span class="nc" id="L184">        electricityOptions.setMinWidth(476);</span>
-<span class="nc" id="L185">        transportOptions.setMinWidth(476);</span>
-<span class="nc" id="L186">    }</span>
+<span class="nc" id="L184">        Css.setplusButtonStyle(food);</span>
+<span class="nc" id="L185">        Css.setplusButtonStyle(transport);</span>
+<span class="nc" id="L186">        Css.setplusButtonStyle(electricity);</span>
+
+
+<span class="nc" id="L189">        grid.setMinWidth(1500);</span>
+<span class="nc" id="L190">        table.setMaxHeight(700);</span>
+<span class="nc" id="L191">        table.setMinHeight(700);</span>
+<span class="nc" id="L192">        grid.setStyle(&quot;-fx-font-size: 18pt; -fx-padding: 10px;&quot;);</span>
+<span class="nc" id="L193">        foodOptions.setMinWidth(476);</span>
+<span class="nc" id="L194">        electricityOptions.setMinWidth(476);</span>
+<span class="nc" id="L195">        transportOptions.setMinWidth(476);</span>
+<span class="nc" id="L196">    }</span>
 
     /**
      * Adds item to the table of activities.
@@ -192,12 +202,12 @@ import java.util.List;
      * @return returns a list.
      */
     public static ObservableList&lt;Activity&gt; addItems(final User user) {
-<span class="nc" id="L195">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
-<span class="nc" id="L196">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
-<span class="nc bnc" id="L197" title="All 2 branches missed.">        for (Activity a : act) {</span>
-<span class="nc" id="L198">            activities.add(a);</span>
-<span class="nc" id="L199">        }</span>
-<span class="nc" id="L200">        return activities;</span>
+<span class="nc" id="L205">        ObservableList&lt;Activity&gt; activities = FXCollections.observableArrayList();</span>
+<span class="nc" id="L206">        List&lt;Activity&gt; act = new Controller().getAllActivities(user);</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        for (Activity a : act) {</span>
+<span class="nc" id="L208">            activities.add(a);</span>
+<span class="nc" id="L209">        }</span>
+<span class="nc" id="L210">        return activities;</span>
     }
 }
 

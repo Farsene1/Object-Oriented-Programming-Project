@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">client</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package classes;
+
 import java.io.Serializable;
 
 /**
@@ -23,33 +24,33 @@ public class User implements Serializable {
     /**
      * Attribute foodFootprint declared as type integer.
      */
-<span class="fc" id="L26">    private Integer food = 0;</span>
+<span class="fc" id="L27">    private Integer food = 0;</span>
     /**
      * Attribute waterFootprint declared as type integer.
      */
-<span class="fc" id="L30">    private Integer electricity = 0;</span>
+<span class="fc" id="L31">    private Integer electricity = 0;</span>
     /**
      * Attribute transportFootprint declared as type integer.
      */
-<span class="fc" id="L34">    private Integer transport = 0;</span>
+<span class="fc" id="L35">    private Integer transport = 0;</span>
     /**
      * attribute for solar panels.
      */
-<span class="fc" id="L38">    private boolean solar_panels = false;</span>
+<span class="fc" id="L39">    private boolean solarpanels = false;</span>
     /**
      * Attribute polarScore declared as type integer.
      */
-<span class="fc" id="L42">    private Integer polarScore = 0;</span>
+<span class="fc" id="L43">    private Integer polarScore = 0;</span>
     /**
      * Attribute date declared as type timestamp.
      */
-<span class="fc" id="L46">    private Integer badge = 1;</span>
+<span class="fc" id="L47">    private Integer badge = 1;</span>
 
     /**
      * Empty constructor declaration for user.
      */
-<span class="fc" id="L51">    public User() {</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L52">    public User() {</span>
+<span class="fc" id="L53">    }</span>
 
     /**
      * Constructor declaration for user.
@@ -57,17 +58,17 @@ public class User implements Serializable {
      * @param username username parameter.
      * @param hash hash parameter.
      */
-<span class="fc" id="L60">    public User(String username, String hash) {</span>
-<span class="fc" id="L61">        this.username = username;</span>
-<span class="fc" id="L62">        this.hash = hash;</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L61">    public User(String username, String hash) {</span>
+<span class="fc" id="L62">        this.username = username;</span>
+<span class="fc" id="L63">        this.hash = hash;</span>
+<span class="fc" id="L64">    }</span>
 
     /**
      * get username.
      * @return username.
      */
     public String getUsername() {
-<span class="fc" id="L70">        return username;</span>
+<span class="fc" id="L71">        return username;</span>
     }
 
     /**
@@ -76,15 +77,15 @@ public class User implements Serializable {
      * @param username username parameter.
      */
     public void setUsername(String username) {
-<span class="fc" id="L79">        this.username = username;</span>
-<span class="fc" id="L80">    }</span>
+<span class="fc" id="L80">        this.username = username;</span>
+<span class="fc" id="L81">    }</span>
 
     /**
      * getter for hash.
      * @return hash.
      */
     public String getHash() {
-<span class="fc" id="L87">        return hash;</span>
+<span class="fc" id="L88">        return hash;</span>
     }
 
     /**
@@ -93,15 +94,15 @@ public class User implements Serializable {
      * @param hash hash parameter.
      */
     public void setHash(String hash) {
-<span class="fc" id="L96">        this.hash = hash;</span>
-<span class="fc" id="L97">    }</span>
+<span class="fc" id="L97">        this.hash = hash;</span>
+<span class="fc" id="L98">    }</span>
 
     /**
      * get food score.
      * @return food
      */
     public Integer getFoodScore() {
-<span class="fc" id="L104">        return food;</span>
+<span class="fc" id="L105">        return food;</span>
     }
 
     /**
@@ -109,15 +110,15 @@ public class User implements Serializable {
      * @param food food score.
      */
     public void setFoodScore(Integer food) {
-<span class="fc" id="L112">        this.food = food;</span>
-<span class="fc" id="L113">    }</span>
+<span class="fc" id="L113">        this.food = food;</span>
+<span class="fc" id="L114">    }</span>
 
     /**
      * get electricity score.
      * @return electric score.
      */
     public Integer getElectricityScore() {
-<span class="fc" id="L120">        return electricity;</span>
+<span class="fc" id="L121">        return electricity;</span>
     }
 
     /**
@@ -126,15 +127,15 @@ public class User implements Serializable {
      * @param electricity electricity score.
      */
     public void setElectricityScore(Integer electricity) {
-<span class="fc" id="L129">        this.electricity = electricity;</span>
-<span class="fc" id="L130">    }</span>
+<span class="fc" id="L130">        this.electricity = electricity;</span>
+<span class="fc" id="L131">    }</span>
 
     /**
      * get transport score.
      * @return transport score.
      */
     public Integer getTransportScore() {
-<span class="fc" id="L137">        return transport;</span>
+<span class="fc" id="L138">        return transport;</span>
     }
 
     /**
@@ -143,15 +144,15 @@ public class User implements Serializable {
      * @param transport transport score.
      */
     public void setTransportScore(Integer transport) {
-<span class="fc" id="L146">        this.transport = transport;</span>
-<span class="fc" id="L147">    }</span>
+<span class="fc" id="L147">        this.transport = transport;</span>
+<span class="fc" id="L148">    }</span>
 
     /**
      * get polar score.
      * @return polar score.
      */
     public Integer getPolarScore() {
-<span class="fc" id="L154">        return polarScore;</span>
+<span class="fc" id="L155">        return polarScore;</span>
     }
 
     /**
@@ -160,8 +161,8 @@ public class User implements Serializable {
      * @param polarScore polar score parameter.
      */
     public void setPolarScore(Integer polarScore) {
-<span class="fc" id="L163">        this.polarScore = polarScore;</span>
-<span class="fc" id="L164">    }</span>
+<span class="fc" id="L164">        this.polarScore = polarScore;</span>
+<span class="fc" id="L165">    }</span>
 
     /**
      * get badge.
@@ -169,7 +170,7 @@ public class User implements Serializable {
      */
 
     public Integer getBadge() {
-<span class="fc" id="L172">        return badge;</span>
+<span class="fc" id="L173">        return badge;</span>
     }
 
     /**
@@ -177,23 +178,24 @@ public class User implements Serializable {
      * @param badge parameter.
      */
     public void setBadge(Integer badge) {
-<span class="fc" id="L180">        this.badge = badge;</span>
-<span class="fc" id="L181">    }</span>
+<span class="fc" id="L181">        this.badge = badge;</span>
+<span class="fc" id="L182">    }</span>
 
     /**
      * checks if the user has solar panels.
      * @return true or false.
      */
     public boolean isSolar() {
-<span class="nc" id="L188">        return solar_panels;</span>
+<span class="nc" id="L189">        return solarpanels;</span>
     }
 
     /**
-     * sets to true or false.
+     * Set solar panels.
+     * @param solarpanels set solar panels.
      */
-    public void setSolar(boolean solar_panels) {
-<span class="nc" id="L195">        this.solar_panels = solar_panels;</span>
-<span class="nc" id="L196">    }</span>
+    public void setSolar(boolean solarpanels) {
+<span class="nc" id="L197">        this.solarpanels = solarpanels;</span>
+<span class="nc" id="L198">    }</span>
 
     /**
      * to string method.
@@ -203,7 +205,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-<span class="fc" id="L206">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
+<span class="fc" id="L208">        return &quot;User{&quot; + &quot;username='&quot; + username</span>
                 + '\'' + &quot;, hash='&quot; + hash + '\'' + '}';
     }
 }

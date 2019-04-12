@@ -17,17 +17,18 @@ import java.security.NoSuchAlgorithmException;
      * @return returns a hash.
      * @throws NoSuchAlgorithmException exception thrown
      */
-    public static String generateHash(final String data, final String algorithm) throws NoSuchAlgorithmException {
-<span class="fc" id="L21">        MessageDigest digest = MessageDigest.getInstance(algorithm);</span>
-<span class="fc" id="L22">        digest.reset();</span>
-<span class="fc" id="L23">        byte[] hash = digest.digest(data.getBytes());</span>
-<span class="fc" id="L24">        return bytesToStringHex(hash);</span>
+    public static String generateHash(
+            final String data, final String algorithm) throws NoSuchAlgorithmException {
+<span class="fc" id="L22">        MessageDigest digest = MessageDigest.getInstance(algorithm);</span>
+<span class="fc" id="L23">        digest.reset();</span>
+<span class="fc" id="L24">        byte[] hash = digest.digest(data.getBytes());</span>
+<span class="fc" id="L25">        return bytesToStringHex(hash);</span>
     }
 
     /**
      * variable array.
      */
-<span class="fc" id="L30">    private static final char[] HEXARRAY = &quot;0123456789ABCDEF&quot;.toCharArray();</span>
+<span class="fc" id="L31">    private static char[] HEXARRAY = &quot;0123456789ABCDEF&quot;.toCharArray();</span>
 
     /**
      * Bytes to string.
@@ -36,13 +37,13 @@ import java.security.NoSuchAlgorithmException;
      * @return returns a string of hex character.
      */
     private static String bytesToStringHex(final byte[] bytes) {
-<span class="fc" id="L39">        char[] hexChars = new char[bytes.length * 2];</span>
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (int i = 0; i &lt; bytes.length; i++) {</span>
-<span class="fc" id="L41">            int x = bytes[i] &amp; 0xFF;</span>
-<span class="fc" id="L42">            hexChars[i * 2] = HEXARRAY[x &gt;&gt;&gt; 4];</span>
-<span class="fc" id="L43">            hexChars[i * 2 + 1] = HEXARRAY[x &amp; 0x0F];</span>
+<span class="fc" id="L40">        char[] hexChars = new char[bytes.length * 2];</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; bytes.length; i++) {</span>
+<span class="fc" id="L42">            int x1 = bytes[i] &amp; 0xFF;</span>
+<span class="fc" id="L43">            hexChars[i * 2] = HEXARRAY[x1 &gt;&gt;&gt; 4];</span>
+<span class="fc" id="L44">            hexChars[i * 2 + 1] = HEXARRAY[x1 &amp; 0x0F];</span>
         }
-<span class="fc" id="L45">        return new String(hexChars);</span>
+<span class="fc" id="L46">        return new String(hexChars);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
