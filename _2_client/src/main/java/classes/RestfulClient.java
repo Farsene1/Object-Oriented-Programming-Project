@@ -30,7 +30,7 @@ public class RestfulClient {
      */
     public User getEntity() {
         System.out.println("Beginning /GET request!");
-        String getUrl = "http://localhost:8080/"
+        String getUrl = "https://poolar.herokuapp.com/"
                 + "get?username=Florentin&hash=abcdef";
         User getResponse = restTemplate.getForObject(getUrl, User.class);
         System.out.println(getResponse.toString());
@@ -43,7 +43,7 @@ public class RestfulClient {
      * @return list.
      */
     public List<User> get10Users() {
-        String url = "http://localhost:8080/leaderboard";
+        String url = "https://poolar.herokuapp.com/leaderboard";
         List<User> res = restTemplate.getForObject(url, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<User> users = mapper.convertValue(
@@ -59,7 +59,7 @@ public class RestfulClient {
      * @return list.
      */
     public List<Activity> getAllActivities(final User user) {
-        String url = "http://localhost:8080/firstactivities";
+        String url = "https://poolar.herokuapp.com/firstactivities";
         List<Activity> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<Activity> activities = mapper.convertValue(
@@ -75,7 +75,7 @@ public class RestfulClient {
      * @return activities.
      */
     public List<Activity> addActivity(final Activity activity) {
-        String url = "http://localhost:8080/test";
+        String url = "https://poolar.herokuapp.com/test";
         List<Activity> res = (List<Activity>) restTemplate.postForObject(
                 url, activity, List.class);
         System.out.println("Response: " + res.toString());
@@ -95,7 +95,7 @@ public class RestfulClient {
      */
     public String postEntity(final User user) {
         System.out.println("Beginning /POST request");
-        String postUrl = "http://localhost:8080/post";
+        String postUrl = "https://poolar.herokuapp.com/post";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, user, String.class);
         System.out.println("Response for Post Request: "
@@ -112,7 +112,7 @@ public class RestfulClient {
      */
     public String login(final User user) {
         System.out.println("Beginning /login request");
-        String postUrl = "http://localhost:8080/login";
+        String postUrl = "https://poolar.herokuapp.com/login";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, user, String.class);
         System.out.println("Response for Post Request: "
@@ -128,7 +128,7 @@ public class RestfulClient {
      */
     public String activity(final User user) {
         System.out.println("beginning /activity request");
-        String postUrl = "http://localhost:8080/activity";
+        String postUrl = "https://poolar.herokuapp.com/activity";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, user, String.class);
         System.out.println("Response for get request");
@@ -143,7 +143,7 @@ public class RestfulClient {
      */
     public String badge(final User user) {
         System.out.println("beginning /updateBadge request");
-        String postUrl = "http://localhost:8080/updateBadge";
+        String postUrl = "https://poolar.herokuapp.com/updateBadge";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, user, String.class);
         System.out.println("Response for get request");
@@ -157,7 +157,7 @@ public class RestfulClient {
      * @return the response for the post request.
      */
     public String setSolar(final User user) {
-        String postUrl = "http://localhost:8080/addsolar";
+        String postUrl = "https://poolar.herokuapp.com/addsolar";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, user, String.class);
         return postResponse.getBody();
@@ -171,7 +171,7 @@ public class RestfulClient {
      */
     public User getUpdates(final User user) {
         System.out.println("Beginning /requestforupdate request");
-        String postUrl = "http://localhost:8080/requestforupdate";
+        String postUrl = "https://poolar.herokuapp.com/requestforupdate";
         ResponseEntity<User> getUpdate = restTemplate.postForEntity(
                 postUrl, user, User.class);
         System.out.println("Response for Post Request: "
@@ -186,7 +186,7 @@ public class RestfulClient {
      * @return returns a list of users.
      */
     public List<User> getAllFriends(final User user) {
-        String url = "http://localhost:8080/friendship/friends";
+        String url = "https://poolar.herokuapp.com/friendship/friends";
         List<User> res = restTemplate.postForObject(url, user, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<User> result = mapper.convertValue(
@@ -202,7 +202,7 @@ public class RestfulClient {
      * @return returns a list of friend requests.
      */
     public List<FriendRequest> getAllFriendRequests(final User user) {
-        String url = "http://localhost:8080/friendship/getallrequests";
+        String url = "https://poolar.herokuapp.com/friendship/getallrequests";
         List<FriendRequest> res = restTemplate.postForObject(
                 url, user, List.class);
         System.out.println(res);
@@ -221,7 +221,7 @@ public class RestfulClient {
      */
     public String sendFriendRequest(final FriendRequest friendRequest) {
         System.out.println("beginning /activity request");
-        String postUrl = "http://localhost:8080/friendship/request";
+        String postUrl = "https://poolar.herokuapp.com/friendship/request";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, friendRequest, String.class);
         System.out.println("Response for get request");
@@ -235,7 +235,7 @@ public class RestfulClient {
      * @return returns a string.
      */
     public String respond(final FriendRequest friendRequest) {
-        String postUrl = "http://localhost:8080/friendship/respond";
+        String postUrl = "https://poolar.herokuapp.com/friendship/respond";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, friendRequest, String.class);
         return postResponse.getBody();
@@ -248,7 +248,7 @@ public class RestfulClient {
      * @return returns a stirng.
      */
     public String fakeRespond(final FriendRequest friendRequest) {
-        String postUrl = "http://localhost:8080/friendship/fakeresponse";
+        String postUrl = "https://poolar.herokuapp.com/friendship/fakeresponse";
         ResponseEntity<String> postResponse = restTemplate.postForEntity(
                 postUrl, friendRequest, String.class);
         return postResponse.getBody();
@@ -270,7 +270,7 @@ public class RestfulClient {
      * @return returns a list of statistics.
      */
     public List<classes.Statistics> getAllStatistics(final String username) {
-        String url = "http://localhost:8080/statistics";
+        String url = "https://poolar.herokuapp.com/statistics";
         List<classes.Statistics> res = restTemplate.postForObject(
                 url, username, List.class);
         System.out.println(res);
@@ -290,7 +290,7 @@ public class RestfulClient {
      */
     public List<Statistics> getStatsByType(
             final String username, final String type) {
-        String url = "http://localhost:8080/stats?username=" + username;
+        String url = "https://poolar.herokuapp.com/stats?username=" + username;
         List<classes.Statistics> res = restTemplate.postForObject(
                 url, type, List.class);
         System.out.println(res);
@@ -308,7 +308,7 @@ public class RestfulClient {
      * @return list of usernames.
      */
     public List<String> findUsersByRegex(final String regex) {
-        String url = "http://localhost:8080/regex";
+        String url = "https://poolar.herokuapp.com/regex";
         List<String> res = restTemplate.postForObject(url, regex, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<String> result = mapper.convertValue(
@@ -326,7 +326,7 @@ public class RestfulClient {
      */
     public List<String> findUsersByRegex(final String regex,
                                          final String username) {
-        String url = "http://localhost:8080/regex2?username=" + username;
+        String url = "https://poolar.herokuapp.com/regex2?username=" + username;
         List<String> res = restTemplate.postForObject(url, regex, List.class);
         ObjectMapper mapper = new ObjectMapper();
         List<String> result = mapper.convertValue(
