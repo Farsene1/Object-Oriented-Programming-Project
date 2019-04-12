@@ -10,6 +10,11 @@ public class Hash {
 
 
     /**
+     * variable array.
+     */
+    private static char[] HEXARRAY = "0123456789ABCDEF".toCharArray();
+
+    /**
      * Hash generator.
      *
      * @param data      parameter data.
@@ -25,10 +30,6 @@ public class Hash {
         return bytesToStringHex(hash);
     }
 
-    /**
-     * variable array.
-     */
-    private static char[] HEXARRAY = "0123456789ABCDEF".toCharArray();
 
     /**
      * Bytes to string.

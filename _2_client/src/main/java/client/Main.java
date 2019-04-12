@@ -35,8 +35,8 @@ public class Main extends Application {
 
         //EASTER EGG// default value in the database for shortcut when developing
         try {
-            User u = new User("admin", Hash.generateHash("root", "SHA-256"));
-            new Controller().signUp(u);
+            User user = new User("admin", Hash.generateHash("root", "SHA-256"));
+            new Controller().signUp(user);
             new Controller().signUp(new User("admin1", Hash.generateHash("root", "SHA-256")));
             new Controller().signUp(new User("admin2", Hash.generateHash("root", "SHA-256")));
             new Controller().signUp(new User("admin3", Hash.generateHash("root", "SHA-256")));
@@ -52,7 +52,7 @@ public class Main extends Application {
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "17-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 100, "26-03-2019"));
             new Controller().sendFood(new Activity("admin", 1, "easteregg", 1500, "29-03-2019"));
-            new Controller().sendMeal(u, 6120);
+            new Controller().sendMeal(user, 6120);
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 400, "12-03-2019"));
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 600, "13-03-2019"));
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 1400, "14-03-2019"));
@@ -61,7 +61,7 @@ public class Main extends Application {
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 100, "17-03-2019"));
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 700, "26-03-2019"));
             new Controller().sendFood(new Activity("admin", 2, "easteregg", 500, "29-03-2019"));
-            new Controller().sendTransport(u, 4010);
+            new Controller().sendTransport(user, 4010);
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 700, "12-03-2019"));
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 100, "13-03-2019"));
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 100, "14-03-2019"));
@@ -70,7 +70,7 @@ public class Main extends Application {
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 1030, "17-03-2019"));
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 170, "26-03-2019"));
             new Controller().sendFood(new Activity("admin", 3, "easteregg", 900, "29-03-2019"));
-            new Controller().sendElectricity(u, 4120);
+            new Controller().sendElectricity(user, 4120);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
