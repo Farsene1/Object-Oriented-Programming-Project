@@ -19,12 +19,20 @@ public class ControllerTest {
     @MockBean
     private UserRepository repository = Mockito.mock(UserRepository.class);
 
+    @MockBean
+    private FriendshipRepository friendshipRepository = Mockito.mock(FriendshipRepository.class);
+
+    @MockBean
+    private FriendRequestRepository friendRequestRepository = Mockito.mock(FriendRequestRepository.class);
+
     private User user1 = new User("admin", "root");
     private User user2 = new User("postgres", "root");
 
     @BeforeEach
     public void setUp() {
         controller.setUserRepository(repository);
+        controller.setFriendshipRepository(friendshipRepository);
+        controller.setFriendRequestRepository(friendRequestRepository);
     }
 
     @Test
@@ -113,5 +121,59 @@ public class ControllerTest {
     public void getUsernamesLikeTest() {
         when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin", "ad"));
         assertEquals(2, controller.getUsernamesLike("ad").size());
+    }
+
+    @Test
+    public void getUsernamesLikeTest2() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendshipRepository.getAllFriends("florentin")).thenReturn(Arrays.asList("admin1"));
+        when(this.friendRequestRepository.findAllRequestsFor("florentin")).thenReturn(new ArrayList<>());
+        when(this.friendRequestRepository.findAllRequestsSentBy("florentin")).thenReturn(new ArrayList<>());
+        assertEquals("admin2", this.controller.getUsernamesLike2("ad", "florentin").get(0));
+        assertEquals(1, this.controller.getUsernamesLike2("ad", "florentin").size());
+    }
+
+    @Test
+    public void getUsernamesLikeTest2v1() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendshipRepository.getAllFriends("florentin")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendRequestRepository.findAllRequestsFor("florentin")).thenReturn(new ArrayList<>());
+        when(this.friendRequestRepository.findAllRequestsSentBy("florentin")).thenReturn(new ArrayList<>());
+        assertEquals(0, this.controller.getUsernamesLike2("ad", "florentin").size());
+    }
+
+    @Test
+    public void getUsernamesLikeTestNOFRIENDS() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendshipRepository.getAllFriends("florentin")).thenReturn(Arrays.asList());
+        when(this.friendRequestRepository.findAllRequestsFor("florentin")).thenReturn(new ArrayList<>());
+        when(this.friendRequestRepository.findAllRequestsSentBy("florentin")).thenReturn(new ArrayList<>());
+
+        assertEquals(2, this.controller.getUsernamesLike2("ad", "florentin").size());
+    }
+
+    @Test
+    public void getUsernamesLikeTestRequestsFor() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendshipRepository.getAllFriends("florentin")).thenReturn(Arrays.asList());
+        when(this.friendRequestRepository.findAllRequestsFor("florentin"))
+                .thenReturn(Arrays.asList(new FriendRequest("admin1", "florentin")));
+        when(this.friendRequestRepository.findAllRequestsSentBy("florentin")).thenReturn(new ArrayList<>());
+
+        assertEquals(1, this.controller.getUsernamesLike2("ad", "florentin").size());
+
+    }
+
+    @Test
+    public void getUsernamesLikeTestRequestsBy() {
+        when(this.repository.findByRegex("ad")).thenReturn(Arrays.asList("admin1", "admin2"));
+        when(this.friendshipRepository.getAllFriends("florentin")).thenReturn(Arrays.asList());
+        when(this.friendRequestRepository.findAllRequestsFor("florentin"))
+                .thenReturn(Arrays.asList());
+        when(this.friendRequestRepository.findAllRequestsSentBy("florentin"))
+                .thenReturn(Arrays.asList(new FriendRequest("florentin", "admin1")));
+
+        assertEquals(1, this.controller.getUsernamesLike2("ad", "florentin").size());
+
     }
 }
