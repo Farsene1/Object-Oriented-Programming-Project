@@ -136,7 +136,7 @@ public class RestfulClientTest {
     }
 
     @Test
-    public void respondTest(){
+    public void respondTest() {
         String postUrl = "http://localhost:8080/friendship/respond";
         FriendRequest f = new FriendRequest();
         Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
@@ -145,7 +145,7 @@ public class RestfulClientTest {
     }
 
     @Test
-    public void fakeRespondTest(){
+    public void fakeRespondTest() {
         String postUrl = "http://localhost:8080/friendship/fakeresponse";
         FriendRequest f = new FriendRequest();
         Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
@@ -154,34 +154,41 @@ public class RestfulClientTest {
     }
 
     @Test
-    public void getAllStatsTest(){
+    public void getAllStatsTest() {
         String url = "http://localhost:8080/statistics";
         String username = "admin";
         Mockito.when(restTemplate.postForObject(url, "admin", List.class))
-                .thenReturn(Arrays.asList(new Statistics("",12,"21")));
+                .thenReturn(Arrays.asList(new Statistics("", 12, "21")));
         assertEquals(1, restfulClient.getAllStatistics(username).size());
     }
 
     @Test
-    public void setSolarTest(){
+    public void setSolarTest() {
         String postUrl = "http://localhost:8080/addsolar";
-        User u = new User("admin","hash");
+        User u = new User("admin", "hash");
         Mockito.when(restTemplate.postForEntity(postUrl, u, String.class)).thenReturn(ResponseEntity.ok("OK"));
         assertEquals("OK", restfulClient.setSolar(u));
     }
 
     @Test
-    public void getStatsByTypeTest(){
+    public void getStatsByTypeTest() {
         String url = "http://localhost:8080/stats?username=admin";
         Mockito.when(restTemplate.postForObject(url, "ALL", List.class))
                 .thenReturn(Arrays.asList(new Statistics(), new Statistics()));
-        assertEquals(2, restfulClient.getStatsByType("admin","ALL").size());
+        assertEquals(2, restfulClient.getStatsByType("admin", "ALL").size());
     }
 
     @Test
-    public void findUsersByRegexTest(){
+    public void findUsersByRegexTest() {
         String url = "http://localhost:8080/regex";
-        Mockito.when(restTemplate.postForObject(url, "ad", List.class)).thenReturn(Arrays.asList("ad1","ad2"));
+        Mockito.when(restTemplate.postForObject(url, "ad", List.class)).thenReturn(Arrays.asList("ad1", "ad2"));
         assertEquals(2, restfulClient.findUsersByRegex("ad").size());
+    }
+
+    @Test
+    public void findUsersByRegexTest2() {
+        String url = "http://localhost:8080/regex2?username=florentin";
+        Mockito.when(restTemplate.postForObject(url, "ad", List.class)).thenReturn(Arrays.asList("admin1", "admin2"));
+        assertEquals(2, restfulClient.findUsersByRegex("ad", "florentin").size());
     }
 }
