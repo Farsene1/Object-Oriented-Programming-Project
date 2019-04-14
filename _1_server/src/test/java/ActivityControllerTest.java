@@ -23,7 +23,7 @@ public class ActivityControllerTest {
     StatisticsRepository statisticsRepository = Mockito.mock(StatisticsRepository.class);
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         activityController.setActivityRepository(activityRepository);
         activityController.setStatisticsRepository(statisticsRepository);
     }
@@ -42,31 +42,41 @@ public class ActivityControllerTest {
         when(activityRepository.findActivitiesByUser("admin"))
                 .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
         when(statisticsRepository.findStatisticByDateAndType("", "ALL"))
-                .thenReturn(new Statistics("admin",10,""));
-        when(statisticsRepository.findStatisticByDateAndType("","FOOD")).thenReturn(new Statistics("admin",10,""));
+                .thenReturn(new Statistics("admin", 10, ""));
+        when(statisticsRepository.findStatisticByDateAndType("", "FOOD")).thenReturn(new Statistics("admin", 10, ""));
         List<Activity> list = activityController.addToActivitiesTable(new Activity("admin", 1, "vegan", 200, ""));
         assertEquals(1, list.size());
     }
 
     @Test
-    public void addActivityOfTypesTest(){
+    public void addActivityOfTypesTest() {
         when(activityRepository.findActivitiesByUser("admin"))
                 .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
         when(statisticsRepository.findStatisticByDateAndType("", "ALL"))
-                .thenReturn(new Statistics("admin",10,""));
-        when(statisticsRepository.findStatisticByDateAndType("","TRANSPORT")).thenReturn(new Statistics("admin",10,""));
+                .thenReturn(new Statistics("admin", 10, ""));
+        when(statisticsRepository.findStatisticByDateAndType("", "TRANSPORT")).thenReturn(new Statistics("admin", 10, ""));
         List<Activity> list = activityController.addToActivitiesTable(new Activity("admin", 2, "vegan", 200, ""));
-        when(statisticsRepository.findStatisticByDateAndType("","ELECTRICITY")).thenReturn(new Statistics("admin",10,""));
+        when(statisticsRepository.findStatisticByDateAndType("", "ELECTRICITY")).thenReturn(new Statistics("admin", 10, ""));
         List<Activity> list2 = activityController.addToActivitiesTable(new Activity("admin", 3, "vegan", 200, ""));
         assertEquals(1, list2.size());
-
     }
 
     @Test
-    public void firstActivitiesPath(){
+    public void addActivitiesTransportCoverage() {
         when(activityRepository.findActivitiesByUser("admin"))
-                .thenReturn(Arrays.asList(new Activity("admin",1,"vegan",200,"")));
-        List<Activity> list = activityController.getUpdatesActivities(new User("admin",""));
-        assertEquals(1,list.size());
+                .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
+        when(statisticsRepository.findStatisticByDateAndType("", "ALL"))
+                .thenReturn(new Statistics("admin", 10, ""));
+        when(statisticsRepository.findStatisticByDateAndType("", "FOOD")).thenReturn(new Statistics("admin", 10, ""));
+        List<Activity> list2 = activityController.addToActivitiesTable(new Activity("admin", 1, "vegan", 200, ""));
+        assertEquals(1, list2.size());
+    }
+
+    @Test
+    public void firstActivitiesPath() {
+        when(activityRepository.findActivitiesByUser("admin"))
+                .thenReturn(Arrays.asList(new Activity("admin", 1, "vegan", 200, "")));
+        List<Activity> list = activityController.getUpdatesActivities(new User("admin", ""));
+        assertEquals(1, list.size());
     }
 }
