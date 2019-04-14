@@ -30,6 +30,7 @@ public class Statistics {
         final LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
 
         lineChart.setTitle("MY STATISTICS");
+        lineChart.setStyle("-fx-font-size: 22;");
 
         XYChart.Series polarSeries = new XYChart.Series();
         polarSeries.setName("POLAR SCORE");
@@ -64,6 +65,9 @@ public class Statistics {
         lineChart.getData().addAll(polarSeries, foodSeries, transportSeries, electricitySeries);
         lineChart.setMinWidth(1420);
         lineChart.setMinHeight(900);
+        lineChart.getXAxis().setStyle("-fx-tick-label-fill: black;");
+        lineChart.getYAxis().setStyle("-fx-tick-label-fill: black;");
         grid.getChildren().setAll(lineChart);
+        grid.setStyle("-fx-background-color: rgba(255,255,255,0.25)");
     }
 }

@@ -4,6 +4,7 @@ import classes.User;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.chart.PieChart;
 
 import javafx.scene.control.Label;
@@ -90,7 +91,10 @@ public class Piechart {
         PieChart piechart = new PieChart(FXCollections.observableArrayList(data));
 
         //Group group = new Group(pie_chart);
-
+        pieChartBox.setAlignment(Pos.CENTER);
+        piechart.setMinHeight(900);
+        piechart.setMinWidth(900);
+        piechart.setStyle("-fx-font-size: 20; -fx-font-weight: BOLD");
         pieChartBox.getChildren().addAll(label, piechart);
     }
 

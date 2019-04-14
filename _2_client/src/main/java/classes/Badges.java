@@ -70,31 +70,31 @@ public class Badges {
          * Defaults to unlock food badge 1 automatically.
          */
         unlock = 1;
-        if (foodTotal >= 200) {
+        if (foodTotal >= 2000) {
             unlock = 2;
         }
-        if (foodTotal >= 300) {
+        if (foodTotal >= 3000) {
             unlock = 3;
         }
-        if (foodTotal >= 400) {
+        if (foodTotal >= 4000) {
             unlock = 4;
         }
-        if (foodTotal >= 500) {
+        if (foodTotal >= 5000) {
             unlock = 5;
         }
-        if (foodTotal >= 600) {
+        if (foodTotal >= 6000) {
             unlock = 6;
         }
-        if (foodTotal >= 700) {
+        if (foodTotal >= 7000) {
             unlock = 7;
         }
-        if (foodTotal >= 800) {
+        if (foodTotal >= 8000) {
             unlock = 8;
         }
-        if (foodTotal >= 900) {
+        if (foodTotal >= 9000) {
             unlock = 9;
         }
-        if (foodTotal >= 1000) {
+        if (foodTotal >= 10000) {
             unlock = 10;
         }
         return unlock;

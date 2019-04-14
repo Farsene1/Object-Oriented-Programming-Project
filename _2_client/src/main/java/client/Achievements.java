@@ -1,7 +1,6 @@
 package client;
 
 import classes.User;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -52,13 +51,11 @@ public class Achievements {
         VBox achievements = new VBox();
         achievements.setStyle("-fx-padding: 5;");
         achievements.setSpacing(10);
-        achievements.setAlignment(Pos.CENTER);
         achievements.setStyle("-fx-padding: 1;"
-                + "-fx-border-style: solid inside;"
+                + "-fx-border-style: solid inside; -fx-alignment: center;"
                 + "-fx-border-width: 5;" + "-fx-border-insets: 5;"
                 + "-fx-border-radius: 5;" + "-fx-border-color: #6dfff3;"
                 + "-fx-background-color: rgba(255,255,255,0.4)");
-        GridPane.setConstraints(achievements, 0, 0);
 
         /**
          * Label for polar badges.
@@ -116,9 +113,8 @@ public class Achievements {
                 foodHbox, transportLabel,
                 transportHbox, electricityLabel, electricityHbox);
         grid.getChildren().setAll(achievements);
-        achievements.setAlignment(Pos.CENTER);
         grid.setMinWidth(1500);
-        grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px;");
+        grid.setStyle("-fx-font-size: 18pt; -fx-padding: 10px; -fx-alignment: center;");
 
     }
 }

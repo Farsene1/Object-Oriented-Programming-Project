@@ -106,25 +106,25 @@ public class BadgesTest {
      */
     @Test
     public void testElectricityUnlock() {
-        user1.setElectricityScore(1000);
+        user1.setElectricityScore(10000);
         assertEquals(1, Badges.electricityUnlock(user1));
-        user2.setElectricityScore(2000);
+        user2.setElectricityScore(20000);
         assertEquals(2, Badges.electricityUnlock(user2));
-        user3.setElectricityScore(3000);
+        user3.setElectricityScore(30000);
         assertEquals(3, Badges.electricityUnlock(user3));
-        user4.setElectricityScore(4000);
+        user4.setElectricityScore(40000);
         assertEquals(4, Badges.electricityUnlock(user4));
-        user5.setElectricityScore(5000);
+        user5.setElectricityScore(50000);
         assertEquals(5, Badges.electricityUnlock(user5));
-        user6.setElectricityScore(6000);
+        user6.setElectricityScore(60000);
         assertEquals(6, Badges.electricityUnlock(user6));
-        user7.setElectricityScore(7000);
+        user7.setElectricityScore(70000);
         assertEquals(7, Badges.electricityUnlock(user7));
-        user8.setElectricityScore(8000);
+        user8.setElectricityScore(80000);
         assertEquals(8, Badges.electricityUnlock(user8));
-        user9.setElectricityScore(9000);
+        user9.setElectricityScore(90000);
         assertEquals(9, Badges.electricityUnlock(user9));
-        user10.setElectricityScore(10000);
+        user10.setElectricityScore(100000);
         assertEquals(10, Badges.electricityUnlock(user10));
     }
 }
