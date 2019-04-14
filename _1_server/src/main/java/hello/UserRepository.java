@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 /**
@@ -38,7 +38,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
      *
      * @return top list.
      */
-    @Query(value = "SELECT * from users order by polar_score desc limit 3",
+    @Query(value = "SELECT * from users order by polar_score desc limit 10",
             nativeQuery = true)
     List<User> getTopTen();
 
