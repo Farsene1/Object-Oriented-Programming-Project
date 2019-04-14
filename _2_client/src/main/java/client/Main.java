@@ -96,7 +96,7 @@ public class Main extends Application {
                         "easteregg", 170, "26-03-2019"));
                 new Controller().sendFood(new Activity("admin", 3,
                         "easteregg", 900, "29-03-2019"));
-                new Controller().sendElectricity(u, 4120);
+                new Controller().sendElectricity(user, 4120);
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
