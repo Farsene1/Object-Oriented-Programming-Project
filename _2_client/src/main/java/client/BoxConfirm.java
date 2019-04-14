@@ -1,9 +1,10 @@
 package client;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -35,8 +36,18 @@ public class BoxConfirm {
         label.setText(message);
 
         //Create two buttons.
-        Button yesButton = new Button("Yes");
-        Button noButton = new Button("No");
+        JFXButton yesButton = new JFXButton("Yes");
+        JFXButton noButton = new JFXButton("No");
+
+        //Button styling
+        yesButton.setStyle("-jfx-button-type: RAISED;"
+                + "-fx-background-color: white;"
+                + "-fx-text-fill: black;"
+                + "-jfx-disable-visual-focus: true");
+        noButton.setStyle("-jfx-button-type: RAISED;"
+                + "-fx-background-color: white;"
+                + "-fx-text-fill: black;"
+                + "-jfx-disable-visual-focus: true");
 
         //Clicking will set answer and close window.
         yesButton.setOnAction(e -> {
@@ -48,13 +59,16 @@ public class BoxConfirm {
             window.close();
         });
 
-        VBox layout = new VBox(10);
+        VBox vlayout = new VBox(10);
+        HBox hlayout = new HBox(10);
 
         //Add buttons.
-        layout.getChildren().addAll(label, yesButton, noButton);
+        hlayout.getChildren().addAll(yesButton, noButton);
+        vlayout.getChildren().addAll(label, hlayout);
 
-        layout.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(layout);
+        vlayout.setAlignment(Pos.CENTER);
+        hlayout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(vlayout);
         window.setScene(scene);
         window.showAndWait();
 
