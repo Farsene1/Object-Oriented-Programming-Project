@@ -55,9 +55,9 @@ public class BoxTransport extends Calculator {
         Label label = new Label();
         label.setText(message);
         Label errorlabel = new Label();
-        final Label hint = new Label(
+        Label hint = new Label(
                 "Consider usinig  the bike or public transport instead of the car");
-
+        hint.setVisible(false);
 
         errorlabel.setText("You can only type numbers");
         errorlabel.setStyle("-fx-text-fill: red");
@@ -79,14 +79,28 @@ public class BoxTransport extends Calculator {
 
 
         submitButton.setOnAction(e -> {
-            submit(dropdown, distanceT, user, window, errorlabel);
+            submit(dropdown, distanceT, user, window, errorlabel, hint);
         });
 
         distanceT.setOnAction(e -> {
-            submit(dropdown, distanceT, user, window, errorlabel);
+            submit(dropdown, distanceT, user, window, errorlabel, hint);
         });
 
-        layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton);
+
+        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+            if (newValue.equals("Car")) {
+                /*layout.getChildren().removeAll(submitButton);
+                layout.getChildren().addAll(meatgrams, submitButton);*/
+                hint.setVisible(true);
+            } else {
+                /*layout.getChildren().removeAll(meatgrams, submitButton);
+                layout.getChildren().addAll(submitButton);*/
+                hint.setVisible(false);
+            }
+        });
+
+
+        layout.getChildren().setAll(label, dropdown, distanceT, errorlabel, submitButton, hint);
         label.setStyle("-fx-font-size: 12pt; -fx-padding: 10;");
         distanceT.setStyle("-fx-padding: 10;");
         errorlabel.setStyle("-fx-padding: 7;-fx-text-fill: red;");
@@ -106,7 +120,7 @@ public class BoxTransport extends Calculator {
     private static void submit(JFXComboBox<String> dropdown,
                                JFXTextField distanceT,
                                User user, Stage window,
-                               Label errorlabel) {
+                               Label errorlabel, Label hint) {
         try {
             LocalDateTime mydateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");

@@ -185,26 +185,26 @@ public class UserController {
     public List<String> getUsernamesLike2(
             @RequestBody final String regex,
             @RequestParam(value = "username", defaultValue = "anonymous") final String username) {
-        List<String> all = new ArrayList<String>(this.
-                userRepository.findByRegex(regex));
-        List<String> l1 = this.
-                friendshipRepository.getAllFriends(username);
+        List<String> all = new ArrayList<String>(
+                this.userRepository.findByRegex(regex));
+        List<String> l1 =
+                this.friendshipRepository.getAllFriends(username);
 
         for (String s : l1) {
             if (all.contains(s)) {
                 all.remove(s);
             }
         }
-        List<FriendRequest> l2 = this.
-                friendRequestRepository.findAllRequestsFor(username);
+        List<FriendRequest> l2 =
+                this.friendRequestRepository.findAllRequestsFor(username);
 
         for (FriendRequest f : l2) {
             if (all.contains(f.getSender())) {
                 all.remove(f.getSender());
             }
         }
-        List<FriendRequest> l3 = this.
-                friendRequestRepository.findAllRequestsSentBy(username);
+        List<FriendRequest> l3 =
+                this.friendRequestRepository.findAllRequestsSentBy(username);
 
         for (FriendRequest f : l3) {
             if (all.contains(f.getReceiver())) {
