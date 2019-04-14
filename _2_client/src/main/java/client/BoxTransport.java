@@ -56,7 +56,7 @@ public class BoxTransport extends Calculator {
         label.setText(message);
         Label errorlabel = new Label();
         Label hint = new Label(
-                "Consider usinig  the bike or public transport instead of the car");
+                "Come on Bro,consider using  the bike or public transport instead of the car");
         hint.setVisible(false);
 
         errorlabel.setText("You can only type numbers");
@@ -87,14 +87,13 @@ public class BoxTransport extends Calculator {
         });
 
 
-        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+        dropdown.getSelectionModel().selectedItemProperty().addListener((
+                va, oldValue, newValue) -> {
             if (newValue.equals("Car")) {
-                /*layout.getChildren().removeAll(submitButton);
-                layout.getChildren().addAll(meatgrams, submitButton);*/
+
                 hint.setVisible(true);
             } else {
-                /*layout.getChildren().removeAll(meatgrams, submitButton);
-                layout.getChildren().addAll(submitButton);*/
+
                 hint.setVisible(false);
             }
         });

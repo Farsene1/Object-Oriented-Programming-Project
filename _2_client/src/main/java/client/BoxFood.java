@@ -75,7 +75,8 @@ public class BoxFood extends Calculator {
             submit(dropdown, user, window, meatgrams, layout, submitButton, errorlabel);
         });
 
-        dropdown.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
+        dropdown.getSelectionModel().selectedItemProperty().addListener((
+                va, oldValue, newValue) -> {
             if (newValue.equals("Meal with meat")) {
                 /*layout.getChildren().removeAll(submitButton);
                 layout.getChildren().addAll(meatgrams, submitButton);*/

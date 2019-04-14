@@ -89,7 +89,7 @@ public class BoxElectricity extends Calculator {
             submit(solarbox, lightfield, heatfield, user, window, errorlabel);
         });
 
-        solarbox.selectedProperty().addListener((a, oldValue, newValue) -> {
+        solarbox.selectedProperty().addListener((as, oldValue, newValue) -> {
             if (newValue.equals(true)) {
                 hint.setVisible(false);
             } else {
