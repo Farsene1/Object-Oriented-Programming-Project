@@ -62,7 +62,7 @@ public class Main extends Application {
                         "easteregg", 100, "26-03-2019"));
                 new Controller().sendFood(new Activity("admin", 1,
                         "easteregg", 1500, "29-03-2019"));
-                new Controller().sendMeal(u, 6120);
+                new Controller().sendMeal(user, 6120);
                 new Controller().sendFood(new Activity("admin", 2,
                         "easteregg", 400, "12-03-2019"));
                 new Controller().sendFood(new Activity("admin", 2,
@@ -79,7 +79,7 @@ public class Main extends Application {
                         "easteregg", 700, "26-03-2019"));
                 new Controller().sendFood(new Activity("admin", 2,
                         "easteregg", 500, "29-03-2019"));
-                new Controller().sendTransport(u, 4010);
+                new Controller().sendTransport(user, 4010);
                 new Controller().sendFood(new Activity("admin", 3,
                         "easteregg", 700, "12-03-2019"));
                 new Controller().sendFood(new Activity("admin", 3,
