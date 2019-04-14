@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -183,29 +184,27 @@ public class UserController {
     @RequestMapping(value = "/regex2", method = RequestMethod.POST)
     public List<String> getUsernamesLike2(
             @RequestBody final String regex,
-            @RequestParam(
-                    value = "username", defaultValue = "anonymous") final String username) {
-        List<String> all = this.userRepository.findByRegex(regex);
-        List<String> l1 = this.friendshipRepository
-                .getAllFriends(username);
+            @RequestParam(value = "username", defaultValue = "anonymous") final String username) {
+        List<String> all = new ArrayList<String>(
+                this.userRepository.findByRegex(regex));
+        List<String> l1 =
+                this.friendshipRepository.getAllFriends(username);
 
         for (String s : l1) {
             if (all.contains(s)) {
                 all.remove(s);
             }
         }
-
-        List<FriendRequest> l2 = this.friendRequestRepository
-                .findAllRequestsFor(username);
+        List<FriendRequest> l2 =
+                this.friendRequestRepository.findAllRequestsFor(username);
 
         for (FriendRequest f : l2) {
             if (all.contains(f.getSender())) {
                 all.remove(f.getSender());
             }
         }
-
-        List<FriendRequest> l3 = this.friendRequestRepository
-                .findAllRequestsSentBy(username);
+        List<FriendRequest> l3 =
+                this.friendRequestRepository.findAllRequestsSentBy(username);
 
         for (FriendRequest f : l3) {
             if (all.contains(f.getReceiver())) {
@@ -235,5 +234,21 @@ public class UserController {
         this.userRepository = userRepository2;
     }
 
+    /**
+     * just another setter.
+     *
+     * @param friendshipRepository2 friendship repository.
+     */
+    public void setFriendshipRepository(FriendshipRepository friendshipRepository2) {
+        this.friendshipRepository = friendshipRepository2;
+    }
 
+    /**
+     * another setter.
+     *
+     * @param friendRequestRepository2 friendrequest repository.
+     */
+    public void setFriendRequestRepository(FriendRequestRepository friendRequestRepository2) {
+        this.friendRequestRepository = friendRequestRepository2;
+    }
 }
