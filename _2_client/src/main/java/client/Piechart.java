@@ -92,6 +92,9 @@ public class Piechart {
 
         //Group group = new Group(pie_chart);
         pieChartBox.setAlignment(Pos.CENTER);
+        piechart.setMinHeight(900);
+        piechart.setMinWidth(900);
+        piechart.setStyle("-fx-font-size: 20; -fx-font-weight: BOLD");
         pieChartBox.getChildren().addAll(label, piechart);
     }
 

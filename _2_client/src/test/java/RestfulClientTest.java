@@ -29,7 +29,7 @@ public class RestfulClientTest {
 
     @Test
     public void getEntityTest() {
-        String getUrl = "http://localhost:8080/get?username=Florentin&hash=abcdef";
+        String getUrl = "https://poolar.herokuapp.com/get?username=Florentin&hash=abcdef";
         Mockito.when(restTemplate.getForObject(getUrl, User.class))
                 .thenReturn(new User("admin", "root"));
         assertEquals("admin", restfulClient.getEntity().getUsername());
@@ -38,7 +38,7 @@ public class RestfulClientTest {
     @Test
     public void getUpdatesTest() {
         User u = new User("admin", "hash");
-        String postUrl = "http://localhost:8080/requestforupdate";
+        String postUrl = "https://poolar.herokuapp.com/requestforupdate";
         Mockito.when(restTemplate.postForEntity(postUrl, u, User.class))
                 .thenReturn(ResponseEntity.ok(u));
         assertEquals(u.getUsername(), restfulClient.getUpdates(u).getUsername());
@@ -48,7 +48,7 @@ public class RestfulClientTest {
     @Test
     public void addActivityTest() {
         Activity a = new Activity("farsene", 1, "vegetarian", 50, "");
-        String url = "http://localhost:8080/test";
+        String url = "https://poolar.herokuapp.com/test";
         Mockito.when(restTemplate.postForObject(url, a, List.class))
                 .thenReturn(new ArrayList<Activity>());
         assertEquals(0, restfulClient.addActivity(a).size());
@@ -56,7 +56,7 @@ public class RestfulClientTest {
 
     @Test
     public void postEntityTest() {
-        String url = "http://localhost:8080/post";
+        String url = "https://poolar.herokuapp.com/post";
         User u = new User("admin", "hash");
         Mockito.when(restTemplate.postForEntity(url, u, String.class))
                 .thenReturn(ResponseEntity.ok("OK"));
@@ -66,7 +66,7 @@ public class RestfulClientTest {
     @Test
     public void activityTest() {
         User user = new User("admin", "hash");
-        String postUrl = "http://localhost:8080/activity";
+        String postUrl = "https://poolar.herokuapp.com/activity";
         Mockito.when(restTemplate.postForEntity(postUrl, user, String.class))
                 .thenReturn(ResponseEntity.ok("OK"));
         assertEquals("OK", restfulClient.activity(user));
@@ -74,7 +74,7 @@ public class RestfulClientTest {
 
     @Test
     public void loginTest() {
-        String postUrl = "http://localhost:8080/login";
+        String postUrl = "https://poolar.herokuapp.com/login";
         User user = new User();
         Mockito.when(restTemplate.postForEntity(postUrl, user, String.class))
                 .thenReturn(ResponseEntity.ok("OK"));
@@ -84,7 +84,7 @@ public class RestfulClientTest {
     @Test
     public void getAllActivitiesTest() {
         User u = new User();
-        String url = "http://localhost:8080/firstactivities";
+        String url = "https://poolar.herokuapp.com/firstactivities";
         Mockito.when(restTemplate.postForObject(url, u, List.class))
                 .thenReturn(new ArrayList<Activity>());
         List l = restfulClient.getAllActivities(u);
@@ -93,7 +93,7 @@ public class RestfulClientTest {
 
     @Test
     public void get10UsersTest() {
-        String url = "http://localhost:8080/leaderboard";
+        String url = "https://poolar.herokuapp.com/leaderboard";
         Mockito.when(restTemplate.getForObject(url, List.class))
                 .thenReturn(Arrays.asList(new User(), new User()));
         assertEquals(2, restfulClient.get10Users().size());
@@ -102,7 +102,7 @@ public class RestfulClientTest {
     @Test
     public void badgeTest() {
         User u = new User("admin", "hash");
-        String postUrl = "http://localhost:8080/updateBadge";
+        String postUrl = "https://poolar.herokuapp.com/updateBadge";
         Mockito.when(restTemplate.postForEntity(postUrl, u, String.class))
                 .thenReturn(ResponseEntity.ok("200OK"));
         assertEquals("200OK", restfulClient.badge(u));
@@ -111,7 +111,7 @@ public class RestfulClientTest {
     @Test
     public void getAllFriendsTest() {
         User u = new User("admin", "root");
-        String url = "http://localhost:8080/friendship/friends";
+        String url = "https://poolar.herokuapp.com/friendship/friends";
         Mockito.when(restTemplate.postForObject(url, u, List.class))
                 .thenReturn(Arrays.asList(u));
         assertEquals(1, restfulClient.getAllFriends(u).size());
@@ -120,7 +120,7 @@ public class RestfulClientTest {
     @Test
     public void getAllFriendRequestsTest() {
         User u = new User("admin", "root");
-        String url = "http://localhost:8080/friendship/getallrequests";
+        String url = "https://poolar.herokuapp.com/friendship/getallrequests";
         Mockito.when(restTemplate.postForObject(url, u, List.class))
                 .thenReturn(Arrays.asList(new FriendRequest()));
         assertEquals(1, restfulClient.getAllFriendRequests(u).size());
@@ -128,7 +128,7 @@ public class RestfulClientTest {
 
     @Test
     public void sendFriendRequestTest() {
-        String postUrl = "http://localhost:8080/friendship/request";
+        String postUrl = "https://poolar.herokuapp.com/friendship/request";
         FriendRequest f = new FriendRequest();
         Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
                 .thenReturn(ResponseEntity.ok("OK"));
@@ -137,7 +137,7 @@ public class RestfulClientTest {
 
     @Test
     public void respondTest(){
-        String postUrl = "http://localhost:8080/friendship/respond";
+        String postUrl = "https://poolar.herokuapp.com/friendship/respond";
         FriendRequest f = new FriendRequest();
         Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
                 .thenReturn(ResponseEntity.ok("ERROR"));
@@ -146,7 +146,7 @@ public class RestfulClientTest {
 
     @Test
     public void fakeRespondTest(){
-        String postUrl = "http://localhost:8080/friendship/fakeresponse";
+        String postUrl = "https://poolar.herokuapp.com/friendship/fakeresponse";
         FriendRequest f = new FriendRequest();
         Mockito.when(restTemplate.postForEntity(postUrl, f, String.class))
                 .thenReturn(ResponseEntity.ok("ERROR"));
@@ -155,7 +155,7 @@ public class RestfulClientTest {
 
     @Test
     public void getAllStatsTest(){
-        String url = "http://localhost:8080/statistics";
+        String url = "https://poolar.herokuapp.com/statistics";
         String username = "admin";
         Mockito.when(restTemplate.postForObject(url, "admin", List.class))
                 .thenReturn(Arrays.asList(new Statistics("",12,"21")));
@@ -164,7 +164,7 @@ public class RestfulClientTest {
 
     @Test
     public void setSolarTest(){
-        String postUrl = "http://localhost:8080/addsolar";
+        String postUrl = "https://poolar.herokuapp.com/addsolar";
         User u = new User("admin","hash");
         Mockito.when(restTemplate.postForEntity(postUrl, u, String.class)).thenReturn(ResponseEntity.ok("OK"));
         assertEquals("OK", restfulClient.setSolar(u));
@@ -172,7 +172,7 @@ public class RestfulClientTest {
 
     @Test
     public void getStatsByTypeTest(){
-        String url = "http://localhost:8080/stats?username=admin";
+        String url = "https://poolar.herokuapp.com/stats?username=admin";
         Mockito.when(restTemplate.postForObject(url, "ALL", List.class))
                 .thenReturn(Arrays.asList(new Statistics(), new Statistics()));
         assertEquals(2, restfulClient.getStatsByType("admin","ALL").size());
@@ -180,7 +180,7 @@ public class RestfulClientTest {
 
     @Test
     public void findUsersByRegexTest(){
-        String url = "http://localhost:8080/regex";
+        String url = "https://poolar.herokuapp.com/regex";
         Mockito.when(restTemplate.postForObject(url, "ad", List.class)).thenReturn(Arrays.asList("ad1","ad2"));
         assertEquals(2, restfulClient.findUsersByRegex("ad").size());
     }
